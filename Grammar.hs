@@ -169,9 +169,8 @@ stringToCorpus = map stringToSentence . splitOn "."
 -- | Inside probabilities: alpha(A, i, j)
 alphas :: Grammar
        -> Sentence
-       -> Maybe Int -- ^ beam width
        -> Symbol -> Int -> Int -> Double'
-alphas gr xs beam = memo_alphas -- note: the lack of explicit arguments
+alphas gr xs = memo_alphas -- note: the lack of explicit arguments
                                 -- means that repeated calls to `alphas gr
                                 -- xs` is a memo-table even outside of the function scope
   where memo_alphas = memo alphas'
