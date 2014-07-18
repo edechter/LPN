@@ -15,7 +15,7 @@ initGrammar :: Symbol
             -> Lexicon
             -> Int     -- ^ K
             -> Grammar
-initGrammar start lexicon _K = Grammar $ binary_rules ++ unary_rules
+initGrammar start lexicon _K = grammarFromRules $ binary_rules ++ unary_rules
   where binary_rules = do
           i <- [0.._K-1]
           j <- [0.._K-1]

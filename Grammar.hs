@@ -14,6 +14,13 @@ import Control.Monad.Random
 
 import Data.Map (Map, (!))
 import qualified Data.Map as Map
+
+import Data.IntMap (IntMap)
+import qualified Data.IntMap as IntMap
+
+import Data.IntSet (IntSet)
+import qualified Data.IntSet as IntSet
+
 import Debug.Trace
 
 import qualified Data.Sequence as Seq
@@ -74,17 +81,134 @@ s ->- (l, r, w) = BinaryRule s l r w
 (->>-) :: Symbol -> (Symbol, Double') -> Rule
 s ->>- (l, w) = UnaryRule s l w
 
+data Grammar = Grammar {headSymbolTable :: Map Symbol IntSet,
+                        leftSymbolTable :: Map Symbol IntSet,
+                        rightSymbolTable :: Map Symbol IntSet,
+                        unarySymbolTable :: Map Symbol IntSet,
+                        binaryRuleIds :: IntSet,
+                        unaryRuleIds :: IntSet,
+                        ruleIndex :: IntMap Rule 
+                       } deriving (Ord, Eq)
+
+grammarRules :: Grammar -> [Rule]
+grammarRules gr = IntMap.elems . ruleIndex $ gr
+
+getRuleById :: Grammar -> Int -> Maybe Rule
+getRuleById gr i = IntMap.lookup i (ruleIndex gr)
+
+getRulesById :: Grammar -> IntSet -> [Rule]
+getRulesById gr ids = go [] $ IntSet.toList ids
+  where go acc [] = acc
+        go acc (x:xs) = case getRuleById gr x of
+          Just x -> go (x:acc) xs
+          Nothing -> go acc xs
+
+rulesHeadedBy :: Grammar -> Symbol -> [Rule]
+rulesHeadedBy gr sym = case Map.lookup sym (headSymbolTable gr) of
+  Nothing -> []
+  Just xs -> filterJusts $ map (getRuleById gr) $ IntSet.toList xs
+  where filterJusts ((Just x):xs) = x:(filterJusts xs)
+        filterJusts (Nothing:xs) = (filterJusts xs)
+        filterJusts [] = []
+
+rulesHeadedById :: Grammar -> Symbol -> IntSet
+rulesHeadedById gr sym = case Map.lookup sym (headSymbolTable gr) of
+  Nothing -> IntSet.empty
+  Just xs -> xs
+
+unaryRulesHeadedBy :: Grammar -> Symbol -> [Rule]
+unaryRulesHeadedBy gr sym = getRulesById gr ruleIds
+  where headedByIds = rulesHeadedById gr sym
+        ruleIds = IntSet.intersection headedByIds (unaryRuleIds gr) 
+        
+
+binaryRulesHeadedBy :: Grammar -> Symbol -> [Rule]
+binaryRulesHeadedBy gr sym = getRulesById gr ruleIds
+  where headedByIds = rulesHeadedById gr sym
+        ruleIds = IntSet.intersection headedByIds (binaryRuleIds gr)
+
+binaryRulesWithChildren :: Grammar -> (Symbol, Symbol) -> [Rule]
+binaryRulesWithChildren gr (l, r) = getRulesById gr $ binaryRuleIdsWithChildren gr (l, r)
+
+binaryRuleIdsWithChildren :: Grammar -> (Symbol, Symbol) -> IntSet
+binaryRuleIdsWithChildren gr (left_sym, right_sym) = IntSet.intersection r1 r2
+  where r1 = ruleIdsWithLeftChild gr left_sym
+        r2 = ruleIdsWithRightChild gr right_sym
+
+ruleIdsWithLeftChild :: Grammar -> Symbol -> IntSet
+ruleIdsWithLeftChild gr sym = 
+  case Map.lookup sym (leftSymbolTable gr) of
+    Nothing -> IntSet.empty
+    Just ids -> ids
+
+ruleIdsWithRightChild :: Grammar -> Symbol -> IntSet
+ruleIdsWithRightChild gr sym = 
+  case Map.lookup sym (rightSymbolTable gr) of
+    Nothing -> IntSet.empty
+    Just ids -> ids
+
+rulesWithLeftChild :: Grammar -> Symbol -> [Rule]
+rulesWithLeftChild gr sym = getRulesById gr $ ruleIdsWithLeftChild gr sym
+
+rulesWithRightChild :: Grammar -> Symbol -> [Rule]
+rulesWithRightChild gr sym = getRulesById gr $ ruleIdsWithRightChild gr sym
 
 
-newtype Grammar = Grammar {grammarRules :: [Rule]} deriving (Ord, Eq)
+grammarFromRules :: [Rule] -> Grammar
+grammarFromRules rs = foldl' insertRule emptyGrammar (zip rs [0..])
+  where emptyGrammar = Grammar
+                       Map.empty
+                       Map.empty
+                       Map.empty
+                       Map.empty
+                       IntSet.empty
+                       IntSet.empty
+                       IntMap.empty
+        insertRule (Grammar hTable lTable rTable uTable bSet uSet index) (rule, i)
+          = Grammar hTable' lTable' rTable' uTable' bSet' uSet' index'
+          where hTable' = Map.insertWith (IntSet.union)
+                         (headSymbol rule) (IntSet.singleton i) hTable
+                index' = IntMap.insert i rule index
+                (lTable', rTable', uTable', bSet', uSet') =
+                  case rule of
+                    BinaryRule{} -> (lTable', rTable', uTable, bSet', uSet)
+                      where lTable' = Map.insertWith IntSet.union (leftChild rule)
+                                      (IntSet.singleton i) lTable
+                            rTable' = Map.insertWith IntSet.union (rightChild rule)
+                                      (IntSet.singleton i) rTable
+                            bSet' = IntSet.insert i bSet 
+                    UnaryRule{} -> (lTable, rTable, uTable', bSet, uSet')
+                      where uTable' = Map.insertWith IntSet.union (child rule)
+                                      (IntSet.singleton i) uTable
+                            uSet' = IntSet.insert i uSet 
+
+                
+                
+                        
+allNonTerminals :: Grammar -> [Symbol]
+allNonTerminals gr = Map.keys . headSymbolTable $  gr
+
+modifyRuleWeightWithId :: Grammar -> Int -> (Double' -> Double') -> Grammar
+modifyRuleWeightWithId gr i f = gr{ruleIndex=IntMap.adjust g i (ruleIndex gr)}
+  where g r = r{weight= f (weight r)}
+
+modifyRules :: Grammar -> (Rule -> Rule) -> Grammar
+modifyRules gr f = gr{ruleIndex = foldl' go index (IntMap.keys index)}
+  where go index i = IntMap.adjust f i index
+        index = ruleIndex gr
+
+getSymbolNormalization :: Grammar -> Symbol -> Double'
+getSymbolNormalization gr sym = sum $ do rule <- rulesHeadedBy gr sym
+                                         return $ weight rule
+
 instance Show Grammar where
-  show (Grammar rs) = unlines $ map show rs
+  show grammar = unlines $ map show (grammarRules grammar)
 
 normalizeGrammar :: Grammar -> Grammar
-normalizeGrammar (Grammar rs) = Grammar $ [r{weight=weight r / (_Z ! headSymbol r)} | r <- rs]
-  where _Z :: Map Symbol (Double')
-        _Z = foldl' (\m r -> Map.insertWith (+) (headSymbol r) (weight r) m) Map.empty rs
-
+normalizeGrammar gr = foldl' go gr (allNonTerminals gr)
+  where go g sym = IntSet.foldl' (\g r -> modifyRuleWeightWithId g r (/_Z)) g ruleIds
+          where _Z = getSymbolNormalization g sym
+                ruleIds = rulesHeadedById gr sym
 
 type Sentence = [Symbol]
 type Corpus   = [Sentence]
@@ -179,9 +303,7 @@ alphas gr xs = memo_alphas -- note: the lack of explicit arguments
 
         -- base case
         alphas' sym i j | i == j = sum $ do
-          rule <- grammarRules gr
-          guard $ isUnary rule
-          guard $ headSymbol rule == sym
+          rule <- unaryRulesHeadedBy gr sym
           guard $ child rule == x
           return $! weight rule
           where x = Seq.index xs' (i-1) 
@@ -189,9 +311,7 @@ alphas gr xs = memo_alphas -- note: the lack of explicit arguments
         -- inductive case
         alphas' sym i j = sum $ do
           k <- [i..j-1]
-          rule <- grammarRules gr
-          guard $ isBinary rule
-          guard $ headSymbol rule == sym
+          rule <- binaryRulesHeadedBy gr sym
           let left_sym = leftChild rule
               right_sym = rightChild rule
               left_alpha = memo_alphas left_sym i k              
@@ -204,12 +324,13 @@ alphas gr xs = memo_alphas -- note: the lack of explicit arguments
 
 -- -- | Outside probabilities
 betas :: Grammar -> Symbol -> Sentence -> Symbol -> Int -> Int -> Double'
-betas gr@(Grammar rs) start xs = betas_table
+betas gr start xs = betas_table
   where betas_table = memo betas'
         alphas_table = alphas gr xs
         memo = Memo.memo3 memoSymbol Memo.integral Memo.integral
         xs' = Seq.fromList xs
         m = Seq.length xs'
+        rs = grammarRules gr
 
         -- base case
         betas' sym i j | i == 1 && j == m  = if sym == start then 1 else 0
@@ -218,25 +339,19 @@ betas gr@(Grammar rs) start xs = betas_table
         betas' sym i j = left_case + right_case
           where
             left_case = sum $ do -- B -> sym C
-              rule <- rs
-              let left_sym = leftChild rule
-                  right_sym = rightChild rule
+              rule <- rulesWithLeftChild gr sym
+              let right_sym = rightChild rule
                   head_sym  = headSymbol rule
-              guard $ isBinary rule
-              guard $ left_sym == sym
-              guard $ left_sym /= right_sym
+              guard $ right_sym /= sym
               k <- [j+1..m]
               let alpha = alphas_table right_sym (j+1) k
                   beta  = betas_table head_sym i k
               return $ weight rule * alpha * beta 
 
             right_case = sum $ do -- B -> C sym
-              rule <- rs
+              rule <- rulesWithRightChild gr sym
               let left_sym = leftChild rule
-                  right_sym = rightChild rule
                   head_sym  = headSymbol rule
-              guard $ isBinary rule
-              guard $ right_sym == sym
               k <- [1..i-1]
               let alpha = alphas_table left_sym k (i-1)
                   beta  = betas_table head_sym k j
@@ -335,8 +450,8 @@ emIteration :: Grammar
 -- | @emIteration gr start corpus@ runs a single iteration of EM on
 -- the corpus. Returns a resulting grammar and its associated
 -- loglikelihood.
-emIteration gr@(Grammar rs) start _ corpus = (gr', ll)
-  where gr' = normalizeGrammar $ Grammar [rule{weight = go rule} | rule <- rs]
+emIteration gr start _ corpus = (gr', ll)
+  where gr' = normalizeGrammar $ modifyRules gr (\r -> r{weight=go r})
         alphaTables = [alphas gr (corpus !! i)   | i <- [0..length corpus - 1]]
         betaTables  = [betas gr start (corpus !! i) | i <- [0..length corpus - 1]]
         ll = loglikelihood alphaTables start corpus
@@ -382,7 +497,7 @@ loglikelihood alphaTables start corpus = v
 
 sample :: MonadRandom m => Grammar -> Symbol -> m Sentence
 sample _ sym@T{} = return $! [sym]
-sample gr@(Grammar rs) sym@N{} = do
+sample gr sym@N{} = do
   i <- sampleCategorical weights
   let rule = matchingRules !! i
   case rule of
@@ -390,7 +505,7 @@ sample gr@(Grammar rs) sym@N{} = do
                              xr <- sample gr r
                              return $! xl ++ xr
     UnaryRule h c _ -> sample gr c                                 
-  where matchingRules = filter ((==sym) . headSymbol) rs
+  where matchingRules = filter ((==sym) . headSymbol) (grammarRules gr)
         weights = map weight matchingRules
 
 sampleCategorical :: (MonadRandom m, Num a, Ord a, Random a) => [a] -> m Int
@@ -407,10 +522,11 @@ cumsum xs = reverse $ go [] xs
         go zs@(y:_) (x:xs) = go (x+y:zs) xs
 
 randomizeGrammar :: MonadRandom m => Grammar -> m Grammar 
-randomizeGrammar (Grammar rs) = do
+randomizeGrammar gr = do
+  let index = ruleIndex gr
   xs <- getRandomRs (0, 1)
-  let rs' = [r{weight=x} | r <- rs | x <- xs]
-  return $ normalizeGrammar $ Grammar rs'
+  let index' = IntMap.fromList $ [(i, r{weight=x}) | (i, r) <- IntMap.toList index | x <- xs]
+  return $ normalizeGrammar $ gr{ruleIndex=index'}
 
 ---- UTILITIES ------
 
@@ -435,7 +551,7 @@ empty = spaces >> eol >> return ()
 eol = char '\n'
 
 grammarParser = do rs <- manyTill lineParser eof
-                   return $! Grammar rs
+                   return $! grammarFromRules rs
 
 lineParser = skipMany (comment <|> empty) >> ruleParser
 
@@ -502,7 +618,7 @@ r10 = _NP ->>- (saw,  0.24)
 r11 = _NP ->>- (stars,  0.18)
 r12 = _NP ->>- (telescopes, 0.1)
 
-gr0 = Grammar [r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12]
+gr0 = grammarFromRules [r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12]
 
 -- k1 = _S ->>- (ears, 0.4)
 -- k2 = _S ->>- (stars, 0.6)
