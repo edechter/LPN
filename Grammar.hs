@@ -2,13 +2,16 @@
 
 module Grammar where
 
-import Prelude hiding (sum)
+import Prelude hiding (sum, lookup)
 import Numeric.Log 
 
 import Control.Monad
 import Data.List.Split (splitOn)
-import Data.List (foldl', isPrefixOf)
+import Data.List (foldl', isPrefixOf, sortBy)
+import Data.Function (on)
+import Control.Monad.List
 import Control.Monad.State
+import Control.Monad.Reader
 import Control.Applicative ((<*>))
 import Control.Monad.Random
 
@@ -21,14 +24,17 @@ import qualified Data.IntMap as IntMap
 import Data.IntSet (IntSet)
 import qualified Data.IntSet as IntSet
 
+import Data.PQueue.Prio.Max (MaxPQueue)
+import qualified Data.PQueue.Prio.Max as MaxPQueue
+
 import Debug.Trace
 
 import qualified Data.Sequence as Seq
 
 import qualified Data.MemoCombinators as Memo
 
-import Text.Parsec.Prim hiding (parse)
-import Text.Parsec hiding (parse)
+import Text.Parsec.Prim hiding (parse, State)
+import Text.Parsec hiding (parse, State)
 import qualified Text.Parsec as P 
 import Text.ParserCombinators.Parsec.Number
 
@@ -147,11 +153,20 @@ ruleIdsWithRightChild gr sym =
     Nothing -> IntSet.empty
     Just ids -> ids
 
+ruleIdsWithUnaryChild :: Grammar -> Symbol -> IntSet
+ruleIdsWithUnaryChild gr sym = 
+  case Map.lookup sym (unarySymbolTable gr) of
+    Nothing -> IntSet.empty
+    Just ids -> ids
+
 rulesWithLeftChild :: Grammar -> Symbol -> [Rule]
 rulesWithLeftChild gr sym = getRulesById gr $ ruleIdsWithLeftChild gr sym
 
 rulesWithRightChild :: Grammar -> Symbol -> [Rule]
 rulesWithRightChild gr sym = getRulesById gr $ ruleIdsWithRightChild gr sym
+
+rulesWithUnaryChild :: Grammar -> Symbol -> [Rule]
+rulesWithUnaryChild gr sym = getRulesById gr $ ruleIdsWithUnaryChild gr sym
 
 
 grammarFromRules :: [Rule] -> Grammar
@@ -288,210 +303,382 @@ stringToSentence = map T . words
 stringToCorpus :: String -> Corpus
 stringToCorpus = map stringToSentence . splitOn "."
 
+symbolMapToSymbolQueue m_sym = MaxPQueue.fromList . Map.toList $ m_sym
 
+type Charts a = [Chart a]
+newtype Chart a = Chart {unChart :: IntMap (IntMap (Map Symbol a, MaxPQueue Symbol a))}
+                    deriving Show
+
+lookup :: Int -> Int -> Symbol -> Chart a -> Maybe a
+lookup i j sym (Chart m_i) = do m_j <- IntMap.lookup i m_i
+                                (m_sym, _) <- IntMap.lookup j m_j
+                                Map.lookup sym m_sym
+
+lookupDefault :: Int -> Int -> Symbol -> a -> Chart a  -> a
+lookupDefault i j sym def chart = case lookup i j sym chart of
+  Nothing -> def
+  Just a -> a
+
+
+insert :: Int -> Int -> Symbol -> a -> Chart a -> Chart a
+insert = insertWith const  
+
+insertWith :: (a -> a -> a) -> Int -> Int -> Symbol -> a -> Chart a -> Chart a
+insertWith f i j sym a m          
+  = insertWithKey (\_ _ _ sym' m' -> f sym' m') i j sym a m
+
+
+insertWithKey :: (Int -> Int -> Symbol -> a -> a -> a)
+                 -> Int -> Int -> Symbol -> a -> Chart a -> Chart a
+insertWithKey f i j sym a (Chart m_i) = Chart m_i'
+  where m_i' = IntMap.alter h i m_i
+          where h Nothing = Just $ m_j_default
+                h (Just m_j) = Just $ IntMap.alter g j  m_j
+                  where g Nothing = Just $ (m_sym_default, MaxPQueue.singleton sym a)
+                        g (Just (m_sym, syms))
+                          = Just (Map.insertWithKey (f i j) sym a m_sym,
+                                  MaxPQueue.insert sym a syms)
+                m_j_default = IntMap.singleton j (m_sym_default, MaxPQueue.singleton sym a)
+                m_sym_default = Map.singleton sym a
+
+-- -- adjustWithKey :: Ord k => (k -> a -> a) -> k -> Map k a -> Map k a
+-- adjustWithKey :: (Int -> Int -> Symbol -> a -> a)
+--                  -> Int -> Int -> Symbol
+--                  -> Chart a -> Chart a
+-- adjustWithKey f i j sym (Chart m_i) = Chart m_i'
+--   where m_i' = IntMap.adjustWithKey h i m_i
+--           where h _ m_j = IntMap.adjustWithKey g j m_j
+--                   where g j (m_sym, syms) = (Map.adjustWithKey (f i j) sym m_sym,
+--                                              MaxPQueue.insert sym (f i j s) syms)
+
+lookupLoc :: Int -> Int -> Chart a -> Maybe (Map Symbol a, MaxPQueue Symbol a)
+lookupLoc i j (Chart m_i) = do  m_j <- IntMap.lookup i m_i
+                                (m_sym, syms) <- IntMap.lookup j m_j
+                                return $ (m_sym, syms)
+
+insertLoc :: Int -> Int -> Map Symbol a -> Chart a -> Chart a
+insertLoc i j m_sym (Chart m_i) =
+  case IntMap.lookup i m_i of
+    Nothing -> Chart $ IntMap.insert j m_j_def m_i
+    Just m_j -> Chart $ IntMap.insert i (IntMap.insert j (m_sym, syms) m_j) m_i
+  where m_j_def = IntMap.singleton j (m_sym, syms)
+        syms = symbolMapToSymbolQueue m_sym
+
+        
+  
+empty :: Chart a
+empty = Chart $ IntMap.empty
+
+singleton :: Int -> Int -> Symbol -> a -> Chart a
+singleton i j sym a = insert i j sym a empty
+
+
+data ParseState = ParseState {alphaChartSt :: Chart Double',
+                              betaChartSt  :: Chart Double',
+                              grammarSt :: Grammar,
+                              startSt :: Symbol,
+                              sentenceSt :: Sentence}
+                deriving Show
 
 -- | Inside probabilities: alpha(A, i, j)
 alphas :: Grammar
+       -> Int -- ^ pruning size
        -> Sentence
-       -> Symbol -> Int -> Int -> Double'
-alphas gr xs = memo_alphas -- note: the lack of explicit arguments
-                                -- means that repeated calls to `alphas gr
-                                -- xs` is a memo-table even outside of the function scope
-  where memo_alphas = memo alphas'
-        memo = Memo.memo3 memoSymbol Memo.integral Memo.integral
-        xs' = Seq.fromList xs
-
-        -- base case
-        alphas' sym i j | i == j = sum $ do
-          rule <- unaryRulesHeadedBy gr sym
-          guard $ child rule == x
-          return $! weight rule
-          where x = Seq.index xs' (i-1) 
-
-        -- inductive case
-        alphas' sym i j = sum $ do
-          k <- [i..j-1]
-          rule <- binaryRulesHeadedBy gr sym
-          let left_sym = leftChild rule
-              right_sym = rightChild rule
-              left_alpha = memo_alphas left_sym i k              
-              right_alpha = memo_alphas right_sym (k+1) j
-          case True of
-            _ | right_alpha == 0 -> return 0
-            _ | left_alpha  == 0 -> return 0
-            _ -> return $! weight rule * right_alpha * left_alpha
-          
-
--- -- | Outside probabilities
-betas :: Grammar -> Symbol -> Sentence -> Symbol -> Int -> Int -> Double'
-betas gr start xs = betas_table
-  where betas_table = memo betas'
-        alphas_table = alphas gr xs
-        memo = Memo.memo3 memoSymbol Memo.integral Memo.integral
-        xs' = Seq.fromList xs
+       -> Chart Double'
+alphas gr b xs = evalState (alphas' 1 m >> get) empty
+  where xs' = Seq.fromList xs
         m = Seq.length xs'
-        rs = grammarRules gr
+        liftList = ListT . return
 
-        -- base case
-        betas' sym i j | i == 1 && j == m  = if sym == start then 1 else 0
+        alphas' :: Int -> Int -> State (Chart Double') (Map Symbol Double', MaxPQueue Symbol Double')
+        alphas' i j | i == j = process_msgs
+          where msgs = runListT $ do
+                  rule <- liftList $ rulesWithUnaryChild gr x
+                  let sym = headSymbol rule
+                  return $! (sym, weight rule)
+                  where x = Seq.index xs' (i-1)
+                process_msgs = do
+                  ks <- msgs -- :: [(Symbol, Double')]
+                  let c = Map.fromList ks
+                  modify $ \ch -> insertLoc i j c ch
+                  return (c, symbolMapToSymbolQueue c)
 
-        -- inductive case
-        betas' sym i j = left_case + right_case
-          where
-            left_case = sum $ do -- B -> sym C
-              rule <- rulesWithLeftChild gr sym
-              let right_sym = rightChild rule
-                  head_sym  = headSymbol rule
-              guard $ right_sym /= sym
-              k <- [j+1..m]
-              let alpha = alphas_table right_sym (j+1) k
-                  beta  = betas_table head_sym i k
-              return $ weight rule * alpha * beta 
+        alphas' i j = process_msgs
+          where msgs = runListT $ do
+                  k <- liftList [i..j-1]
+                  chart  <- get
+                  left_cell <- case lookupLoc i k chart of
+                    Just lc -> return lc
+                    Nothing -> lift $ do c <- alphas' i k
+                                         return c
+                  right_cell <- case lookupLoc (k+1) j chart of
+                      Just rc -> return rc
+                      Nothing -> lift $ do c <- alphas' (k+1) j
+                                           return c
+                  left_sym <- fmap fst . liftList . MaxPQueue.take b . snd $ left_cell
+                  let left_alpha = (fst left_cell) ! left_sym
+                  right_sym <- fmap fst . liftList . MaxPQueue.take b . snd $ right_cell
+                  let right_alpha = (fst right_cell) ! right_sym
+                  rule <- liftList $ binaryRulesWithChildren gr (left_sym, right_sym)
+                  return $! (headSymbol rule, weight rule * left_alpha * right_alpha)
+                  
+                process_msgs = do
+                  xs <- msgs
+                  let m_sym = foldl' (\m (s, w) -> Map.insertWith (+) s w m) Map.empty xs
 
-            right_case = sum $ do -- B -> C sym
-              rule <- rulesWithRightChild gr sym
-              let left_sym = leftChild rule
-                  head_sym  = headSymbol rule
-              k <- [1..i-1]
-              let alpha = alphas_table left_sym k (i-1)
-                  beta  = betas_table head_sym k j
-              return $ weight rule * alpha * beta 
+                  modify $ \ch -> insertLoc i j m_sym ch
+                  return (m_sym, symbolMapToSymbolQueue m_sym)
+                              
 
 
-type Chart a = (Symbol -> Int -> Int -> a)
-type Charts a = [Chart a]
+-- | Inside probabilities: alpha(A, i, j)
+betas :: Grammar
+       -> Symbol -- ^ start symbol
+       -> Int -- ^ pruning limit
+       -> Sentence
+       -> Chart Double' -- ^ alpha table
+       -> Chart Double'
+betas gr start b xs alphaChart
+  = evalState (sequence [betas' i i | i <-[1..m]] >> get) empty
+    
+  where xs' = Seq.fromList xs
+        m = Seq.length xs'
+        liftList = ListT . return
 
-musSymbol :: Chart Double' -- ^ alpha table
-          -> Chart Double' -- ^ beta table
-          -> Symbol -> Int -> Int -> Double'
-musSymbol alphaTable betaTable sym i j =
-  alphaTable sym i j * betaTable sym i j
 
-mus :: (Symbol -> Int -> Int -> Double') -- ^ alpha table
-    -> (Symbol -> Int -> Int -> Double') -- ^ beta table
-    -> Rule -> Int -> Int -> Int -> Double'
-mus alphaTable betaTable= go
-  where go rule i k j = betaTable _A i j
-                        * w * alphaTable _B i k
-                        * alphaTable _C (k+1) j
-          where _A = headSymbol rule
-                _B = leftChild rule
-                _C = rightChild rule
-                w = weight rule
+        betas' i j | i == 1 && j == m = do put $ insert 1 m start 1 empty
+                                           return $ (Map.singleton start 1,
+                                                     MaxPQueue.singleton start 1)
+        
+        betas' i j = process_msgs
+          where leftCaseMsgs = runListT $ do
+                  k <- liftList [j+1..m]
+                  betaChart  <- lift get
+                  betaCell <- case lookupLoc i k betaChart of
+                    Just bc -> return bc
+                    Nothing -> lift $ do c <- betas' i k
+                                         return c
+                  alphaCell <- case lookupLoc (j+1) k alphaChart of
+                      Just rc -> return rc
+                      Nothing -> return $ (Map.empty, MaxPQueue.empty)
+                      
+                  (head_sym, beta_msg) <- liftList $ Map.toList $ fst betaCell
+                  (right_sym, alpha_msg) <- liftList $ Map.toList $ fst alphaCell
+                  let r1 = ruleIdsWithRightChild gr right_sym
+                      r2 = rulesHeadedById gr head_sym
+                      rules = getRulesById gr $ IntSet.intersection r1 r2
+                  rule <- liftList $ rules
+                  guard $ right_sym /= leftChild rule
+                  return $! (leftChild rule, weight rule * beta_msg * alpha_msg)
 
-expectedCounts :: Charts Double' -- ^ alpha tables
-               -> Charts Double' -- ^ beta tables
+                rightCaseMsgs = runListT $ do
+                  k <- liftList [1..i-1]
+                  betaChart  <- lift get
+                  betaCell <- case lookupLoc k j betaChart of
+                    Just bc -> return bc
+                    Nothing -> lift $ do c <- betas' k j
+                                         return c
+                  alphaCell <- case lookupLoc k (i-1) alphaChart of
+                      Just rc -> return rc
+                      Nothing -> return $ (Map.empty, MaxPQueue.empty)
+
+                  head_sym <- fmap fst . liftList . MaxPQueue.take b . snd $ betaCell
+                  let beta_msg = (fst betaCell) ! head_sym
+                  left_sym <- fmap fst . liftList . MaxPQueue.take b . snd $ alphaCell
+                  let alpha_msg = (fst alphaCell) ! left_sym
+
+                  let r1 = ruleIdsWithLeftChild gr left_sym
+                      r2 = rulesHeadedById gr head_sym
+                      rules = getRulesById gr $ IntSet.intersection r1 r2
+                  rule <- liftList $ rules
+                  return $! (rightChild rule, weight rule * beta_msg * alpha_msg)
+
+                process_msgs = do
+                  ls <- leftCaseMsgs
+                  rs <- rightCaseMsgs
+                  let allMsgs = ls ++ rs
+                  let m_sym = foldl' (\m (s, w) -> Map.insertWith (+) s w m) Map.empty
+                              allMsgs
+                  -- prune cell to top 5 elements
+--                  let m_sym_pruned = Map.fromList $ take b $ sortBy (compare `on` snd) (Map.toList m_sym)
+                  modify $ \ch -> insertLoc i j m_sym ch
+                  return (m_sym, symbolMapToSymbolQueue m_sym)
+
+
+makeCharts :: Grammar
+           -> Symbol
+           -> Int
+           -> Sentence
+           -> (Chart Double', Chart Double')
+makeCharts gr start b xs = (alphaChart, betaChart)
+  where alphaChart = alphas gr b xs
+        betaChart  = betas gr start b xs alphaChart
+        m = length xs
+
+withCharts :: Grammar
+           -> Symbol
+           -> Int 
+           -> Sentence
+           -> State ParseState a
+           -> (a, ParseState)
+withCharts gr start b xs m = runState m
+                            $ ParseState alphaChart betaChart gr start xs
+  where (alphaChart, betaChart) = makeCharts gr start b xs 
+      
+musSymbol :: Int
+          -> Int
+          -> Symbol
+          -> State ParseState Double'
+musSymbol i j sym= do
+  alphaChart <- gets alphaChartSt
+  betaChart <- gets betaChartSt
+  let a = lookupDefault i j sym 0 alphaChart
+      b = lookupDefault i j sym 0 betaChart
+  return $ a * b
+
+mus :: Rule -> Int -> Int -> Int -> State ParseState Double'
+mus rule i k j = do
+    alphaChart <- gets alphaChartSt
+    betaChart <- gets betaChartSt
+    let a1 = lookupDefault i k _B 0 alphaChart
+        a2 = lookupDefault (k+1) j _C 0 alphaChart
+        b = lookupDefault i j _A 0 betaChart
+--     trace (show (rule, i, j, k, a1, a2, b, w)) $ return ()
+    return $! b * w * a1 * a2
+      where _A = headSymbol rule
+            _B = leftChild rule
+            _C = rightChild rule
+            w = weight rule
+
+
+loglikelihood :: State ParseState Double'
+loglikelihood = do
+      xs <- gets sentenceSt
+      alphaChart <- gets alphaChartSt
+      start <- gets startSt
+      let m = length xs
+          (Just _Z) = lookup 1 m start alphaChart
+      return _Z
+  
+loglikelihoodCorpus :: Grammar -> Symbol -> Int -> Corpus -> Double'
+loglikelihoodCorpus gr start b corpus = sum . map fst $ do
+  xs <- corpus
+  return $! withCharts gr start b xs $ loglikelihood
+
+
+expectedCounts :: Grammar
                -> Symbol
+               -> Int
                -> Corpus 
-               -> Rule
-               -> Double'
-expectedCounts alphaTables betaTables start corpus = go -- note: eta-reduced to ensure memoization
- where go rule = sum $ [g i rule | i <- [0..n-1]]
-       corpus' = Seq.fromList corpus
-       n = Seq.length corpus'
-       g i = expectedCountsSingle (alphaTables !! i) (betaTables !! i) start (corpus !! i)
-
-expectedCountsSingle :: Chart Double' -- ^ alpha table
-                     -> Chart Double' -- ^ beta table
-                     -> Symbol -- ^ start symbol
-                     -> Sentence
-                     -> Rule
-                     -> Double'
-expectedCountsSingle alphaTable betaTable start xs = go 
-  where go rule =
-          case rule of
-            BinaryRule{} ->
-              sum ([mus alphaTable betaTable rule i k j
-                   | i <- [1..m-1], k <- [i..m-1], j <- [k+1..m]]) / _Z
-            UnaryRule{} ->
-              sum ([musSymbol alphaTable betaTable (headSymbol rule) i i
-                   | i <- [1..m], Seq.index xs' (i-1) == (child rule)]) / _Z
-        _Z = alphaTable start 1 m
-        m = length xs
-        xs' = Seq.fromList xs
+               -> Map Rule Double'
+expectedCounts gr start b corpus = foldl' (\m (r, c) -> Map.insertWith (+) r c m)
+                                   Map.empty zs
+ where zs = do xs <- corpus
+               rule <- grammarRules gr
+               let (c, _) = withCharts gr start b xs $ expectedCountsSingle rule
+               return $! (rule, c)
 
 
-expectationSingle :: Chart Double' -- ^ alphaTablen
-                  -> Chart Double' -- ^ betaTable
-                  -> Grammar
-                  -> Symbol
-                  -> Sentence
-                  -> (Rule -> Double')  -> Double'
-expectationSingle alphaTable betaTable gr start xs = go -- ^ note: this is eta-reduced to ensure memoization
-  where go func = numerator / _Z
-          where calc_binary rule@BinaryRule{} i j k
-                  = mus alphaTable betaTable rule i k j * func rule
-                calc_binary _ _ _ _ = error $ "calc_binary: tried to call calc_binary on UnaryRule"
-                calc_unary rule@UnaryRule{} i
-                  = musSymbol alphaTable betaTable (headSymbol rule) i i * func rule
-                calc_unary _ _ = error $ "calc_unary: tried to call calc_binary on BinaryRule."
+expectedCountsSingle :: Rule
+                     -> State ParseState Double'
+expectedCountsSingle rule =  
+  case rule of
+    BinaryRule{} -> do
+      xs <- gets sentenceSt
+      alphaChart <- gets alphaChartSt
+      start <- gets startSt
+      let m = length xs
+          (Just _Z) = lookup 1 m start alphaChart  
+      xs <- sequence $ [mus rule i k j | i <- [1..m-1], k <- [i..m-1], j <- [k+1..m]]
+--       trace (show xs) $ return ()
+      return $ (sum xs) / _Z
+    UnaryRule{} -> do
+      xs <- gets sentenceSt
+      alphaChart <- gets alphaChartSt
+      start <- gets startSt
+      let m = length xs
+          (Just _Z) = lookup 1 m start alphaChart  
+          xs' = Seq.fromList xs
+      xs <- sequence
+             $ [musSymbol i i (headSymbol rule)
+               | i <- [1..m], Seq.index xs' (i-1) == (child rule)]
+      return $ (sum xs) / _Z
 
-                numerator = sum $ 
-                   do rule <- grammarRules gr
-                      if isBinary rule
-                         then do i <- [1..m-1]
-                                 k <- [i..m-1]
-                                 j <- [k+1..m]
-                                 return $! calc_binary rule i j k
-                         else do i <- [1..m]
-                                 guard $ Seq.index xs' (i-1) == child rule
-                                 return $! calc_unary rule i
+
+-- expectationSingle :: Chart Double' -- ^ alphaTablen
+--                   -> Chart Double' -- ^ betaTable
+--                   -> Grammar
+--                   -> Symbol
+--                   -> Sentence
+--                   -> (Rule -> Double')  -> Double'
+-- expectationSingle alphaTable betaTable gr start xs = go -- ^ note: this is eta-reduced to ensure memoization
+--   where go func = numerator / _Z
+--           where calc_binary rule@BinaryRule{} i j k
+--                   = mus alphaTable betaTable rule i k j * func rule
+--                 calc_binary _ _ _ _ = error $ "calc_binary: tried to call calc_binary on UnaryRule"
+--                 calc_unary rule@UnaryRule{} i
+--                   = musSymbol alphaTable betaTable (headSymbol rule) i i * func rule
+--                 calc_unary _ _ = error $ "calc_unary: tried to call calc_binary on BinaryRule."
+
+--                 numerator = sum $ 
+--                    do rule <- grammarRules gr
+--                       if isBinary rule
+--                          then do i <- [1..m-1]
+--                                  k <- [i..m-1]
+--                                  j <- [k+1..m]
+--                                  return $! calc_binary rule i j k
+--                          else do i <- [1..m]
+--                                  guard $ Seq.index xs' (i-1) == child rule
+--                                  return $! calc_unary rule i
                            
-        _Z = alphaTable start 1 m
-        m = length xs
-        xs' = Seq.fromList xs
+--         _Z = alphaTable start 1 m
+--         m = length xs
+--         xs' = Seq.fromList xs
 
-emIteration :: Grammar
-            -> Symbol -- ^ start symbol
-            -> Charts (Maybe ParseSet)
-            -> Corpus
-            -> (Grammar, -- ^ output grammar
-                Double)  -- ^ loglikelihood of corpus in resulting grammar
--- | @emIteration gr start corpus@ runs a single iteration of EM on
--- the corpus. Returns a resulting grammar and its associated
--- loglikelihood.
-emIteration gr start _ corpus = (gr', ll)
-  where gr' = normalizeGrammar $ modifyRules gr (\r -> r{weight=go r})
-        alphaTables = [alphas gr (corpus !! i)   | i <- [0..length corpus - 1]]
-        betaTables  = [betas gr start (corpus !! i) | i <- [0..length corpus - 1]]
-        ll = loglikelihood alphaTables start corpus
-        go = expectedCounts alphaTables betaTables start corpus -- note: eta reduced to ensure memoization
+-- emIteration :: Grammar
+--             -> Symbol -- ^ start symbol
+--             -> Charts (Maybe ParseSet)
+--             -> Corpus
+--             -> (Grammar, -- ^ output grammar
+--                 Double)  -- ^ loglikelihood of corpus in resulting grammar
+-- -- | @emIteration gr start corpus@ runs a single iteration of EM on
+-- -- the corpus. Returns a resulting grammar and its associated
+-- -- loglikelihood.
+-- emIteration gr start _ corpus = (gr', ll)
+--   where gr' = normalizeGrammar $ modifyRules gr (\r -> r{weight=go r})
+--         alphaTables = [alphas gr (corpus !! i)   | i <- [0..length corpus - 1]]
+--         betaTables  = [betas gr start (corpus !! i) | i <- [0..length corpus - 1]]
+--         ll = loglikelihood alphaTables start corpus
+--         go = expectedCounts alphaTables betaTables start corpus -- note: eta reduced to ensure memoization
 
-type EMLog = [(Grammar, Double)]
+-- type EMLog = [(Grammar, Double)]
 
-em :: Grammar
-   -> Symbol
-   -> Corpus
-   -> Int -- ^ max number of iterations
-   -> Double -- ^ tolerance e.g. 1e-6, or set to 0 to use all iterations
-   -> EMLog
-em gr start corpus maxIter tol = go gr negInfty maxIter 
-  where go _ _ 0 = []
-        go g best_ll i = infoOut i $
-                         if ll < best_ll
-                              then error $ unlines
-                                   $ ["em: the impossible happened. ",
-                                     "em returned smaller loglikelihood on iteration: " ++ show (maxIter-i),
-                                     "loglikelihood: " ++ show ll,
-                                     "previous loglikelihood: " ++ show best_ll ++ "\n",
-                                     "grammar: " ++ show g]
-                              else if (ll - best_ll) < tol
-                                      then [(g, ll)]
-                                      else (g, ll) : go gr' ll (i - 1) 
+-- em :: Grammar
+--    -> Symbol
+--    -> Corpus
+--    -> Int -- ^ max number of iterations
+--    -> Double -- ^ tolerance e.g. 1e-6, or set to 0 to use all iterations
+--    -> EMLog
+-- em gr start corpus maxIter tol = go gr negInfty maxIter 
+--   where go _ _ 0 = []
+--         go g best_ll i = infoOut i $
+--                          if ll < best_ll
+--                               then error $ unlines
+--                                    $ ["em: the impossible happened. ",
+--                                      "em returned smaller loglikelihood on iteration: " ++ show (maxIter-i),
+--                                      "loglikelihood: " ++ show ll,
+--                                      "previous loglikelihood: " ++ show best_ll ++ "\n",
+--                                      "grammar: " ++ show g]
+--                               else if (ll - best_ll) < tol
+--                                       then [(g, ll)]
+--                                       else (g, ll) : go gr' ll (i - 1) 
                                                           
-          where (gr', ll) = emIteration g start parseCharts corpus
-                infoOut i = trace $ unlines ["-------------",
-                                             "em: iteration " ++ show i ++ " loglike: " ++ show best_ll]
+--           where (gr', ll) = emIteration g start parseCharts corpus
+--                 infoOut i = trace $ unlines ["-------------",
+--                                              "em: iteration " ++ show i ++ " loglike: " ++ show best_ll]
                 
-        negInfty = read "-Infinity"
-        parseCharts = map (parse gr) corpus 
-
-loglikelihood :: Charts Double' -- ^ alpha tables
-              -> Symbol 
-              -> Corpus
-              -> Double
-loglikelihood alphaTables start corpus = v
-  where (Exp v) = product [(alphaTables !! i) start 1 (length x)| (x, i) <- zip corpus [0..]]
+--         negInfty = read "-Infinity"
+--         parseCharts = map (parse gr) corpus 
 
 ---- SAMPLING -------
 
@@ -546,14 +733,14 @@ comment = do spaces
              _ <- manyTill anyToken eol
              return ()
              
-empty = spaces >> eol >> return ()
+emptyLine = spaces >> eol >> return ()
 
 eol = char '\n'
 
 grammarParser = do rs <- manyTill lineParser eof
                    return $! grammarFromRules rs
 
-lineParser = skipMany (comment <|> empty) >> ruleParser
+lineParser = skipMany (comment <|> emptyLine) >> ruleParser
 
 ruleParser    = do spaces
                    h <- nonterminal
@@ -607,14 +794,14 @@ telescopes = T "telescopes"
 -- rules
 r1 = _S ->- (_NP,  _VP, 1)
 r2 = _PP ->- (_P, _NP, 1)
-r3 = _VP ->- (_V, _NP, 0.6)
-r4 = _VP ->- (_VP, _PP, 0.4)
+r3 = _VP ->- (_V, _NP, 0.7)
+r4 = _VP ->- (_VP, _PP, 0.3)
 r5 = _P ->>- (with,  1)
 r6 = _V ->>- (saw,  1)
-r7 = _NP ->- (_NP, _PP, 0.2)
+r7 = _NP ->- (_NP, _PP, 0.4)
 r8 = _NP ->>- (astronomers,  0.1)
 r9 = _NP ->>- (ears,  0.18)
-r10 = _NP ->>- (saw,  0.24)
+r10 = _NP ->>- (saw,  0.04)
 r11 = _NP ->>- (stars,  0.18)
 r12 = _NP ->>- (telescopes, 0.1)
 
