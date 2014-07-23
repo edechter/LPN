@@ -1,6 +1,5 @@
 
-
-module GIJoe.Induction where
+module Main where
 
 import GIJoe.Grammar
 
@@ -34,7 +33,7 @@ pruneLimit = 5
 
 main = do
   let corpus_size = 100
-  liangGrammar <- readGrammar "liangGrammar.txt"
+  liangGrammar <- readGrammar "/Users/edechter/Dropbox/Projects/GrammarInduction/data/grammars/liangGrammar.txt"
   
   corpus <- replicateM corpus_size (sample liangGrammar _S)
   let lexicon = nub $ concat corpus
@@ -52,7 +51,7 @@ main = do
   test_corpus <- replicateM 5 (sample liangGrammar _S)
   sequence $ do
     xs <- test_corpus
-    let (prs, _) = withCharts gr0 _S pruneLimit xs $ getMapParse
+    let (prs, _) = withCharts gr_final _ROOT pruneLimit xs $ getMapParse
     return $ print prs
   return ()
 

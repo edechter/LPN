@@ -1,6 +1,6 @@
 {-# Language BangPatterns, ParallelListComp, FlexibleInstances #-}
 
-module Grammar where
+module GIJoe.Grammar where
 
 import Prelude hiding (sum, lookup)
 import qualified Prelude
@@ -9,7 +9,7 @@ import Numeric.Log
 
 import Control.Monad
 import Data.List.Split (splitOn)
-import Data.List (foldl', sortBy)
+import Data.List (foldl', sortBy, maximumBy)
 import Data.Function (on)
 import Control.Monad.List
 import Control.Monad.State
@@ -30,6 +30,9 @@ import qualified Data.IntSet as IntSet
 
 import Data.PQueue.Prio.Max (MaxPQueue)
 import qualified Data.PQueue.Prio.Max as MaxPQueue
+
+import Data.Tree
+import Data.Tree.Pretty 
 
 import Debug.Trace
 
@@ -83,6 +86,8 @@ instance DeepSeq.NFData Rule where
 
 instance NFData Rule where
 
+instance NFData (Map Rule Double') where
+
 isUnary :: Rule -> Bool
 isUnary UnaryRule{} = True
 isUnary _ = False
@@ -128,6 +133,16 @@ getBinaryRuleIdsBySymbols gr h l r = idsH `IntSet.intersection` idsL
 getBinaryRulesBySymbols :: Grammar -> Symbol -> Symbol -> Symbol -> [Rule]
 getBinaryRulesBySymbols gr h l r = getRulesById gr $
                                    getBinaryRuleIdsBySymbols gr h l r
+
+
+getUnaryRuleIdsBySymbols :: Grammar -> Symbol -> Symbol -> IntSet
+getUnaryRuleIdsBySymbols gr h c = idsH `IntSet.intersection` idsC
+  where idsH = rulesHeadedById gr h
+        idsC = ruleIdsWithUnaryChild gr c
+
+getUnaryRulesBySymbols :: Grammar -> Symbol -> Symbol -> [Rule]
+getUnaryRulesBySymbols gr h c = getRulesById gr $
+                                getUnaryRuleIdsBySymbols gr h c
 
 rulesHeadedBy :: Grammar -> Symbol -> [Rule]
 rulesHeadedBy gr sym = case Map.lookup sym (headSymbolTable gr) of
@@ -265,10 +280,20 @@ instance (Show a, Show b) => Show (AndOr a b) where
 
 type ParseSet = AndOr (Symbol, Int, Int) Rule
 
+data Parse = Parse {parseRule :: Rule,
+                    parseChildren :: [Parse]}
+             
+instance Show Parse where
+  show = drawVerticalTree . parseToTree
+   where parseToTree (Parse r xs) = Node (show r) (map parseToTree xs)
+
+  
+
 recognize :: Grammar -> Symbol -> Sentence -> Bool
 recognize gr sym xs = case parse gr xs sym 1 (length xs) of
   Nothing -> False
   Just _ -> True
+
 
 parse :: Grammar
       -> Sentence
@@ -510,6 +535,38 @@ betas gr start b xs alphaChart
                   modify $ \ch -> insertLoc i j (m_sym, syms) ch
                   return (m_sym, syms)
 
+
+getMapParse :: Monad m => StateT ParseState m Parse
+getMapParse = do
+  xs <- gets sentenceSt
+  let m = length xs
+  start <- gets startSt
+  gr <- gets grammarSt
+  mapParse gr 1 m start
+  
+  where mapParse gr i j sym | i /= j = do
+          let liftList = ListT . return
+          xs <- runListT $ do
+                k <- liftList [i..j]
+                left_m <- lift $ musSymbol i k
+                (left_sym, left_mu) <- liftList $ Map.toList left_m
+                right_m <- lift $ musSymbol (k+1) j
+                (right_sym, right_mu) <- liftList $ Map.toList right_m
+                rule@(BinaryRule _ _ _ w) <- liftList $ getBinaryRulesBySymbols gr sym left_sym right_sym
+                return $ (rule, left_mu * right_mu * w, k)
+          let snd3 (_, b, _) = b
+              (rule, p, k) = maximumBy (compare `on` snd3) xs
+          lParse <- mapParse gr i k (leftChild rule) 
+          rParse <- mapParse gr (k+1) j (rightChild rule)
+          return $! Parse rule [lParse, rParse]
+          
+        mapParse gr i j sym | i == j = do
+--          trace (show (i, j, sym)) $ return ()          
+          xs <- gets sentenceSt
+          let rule = head $ getUnaryRulesBySymbols gr sym (xs !! (i - 1))
+          return $ Parse rule []
+            
+          
 makeCharts :: Grammar
            -> Symbol
            -> Int
@@ -540,15 +597,15 @@ musSymbol i j = do
   betaChart <- gets betaChartSt
   gr <- gets grammarSt
   let collectMus = do
-      (a_m_sym, _) <- lookupLoc i j alphaChart
-      (b_m_sym, _) <- lookupLoc i j betaChart
-      let xs = do
-          (sym, a) <- Map.toList a_m_sym
-          let b = case Map.lookup sym b_m_sym of
-                Nothing -> 0
-                Just b -> b
-          return $! (sym, a * b)
-      Just $ foldl' (\m (r, c) -> Map.insertWith (+) r c m) Map.empty xs
+       (a_m_sym, _) <- lookupLoc i j alphaChart
+       (b_m_sym, _) <- lookupLoc i j betaChart
+       let xs = do
+            (sym, a) <- Map.toList a_m_sym
+            let b = case Map.lookup sym b_m_sym of
+                  Nothing -> 0
+                  Just b -> b
+            return $! (sym, a * b)
+       Just $ foldl' (\m (r, c) -> Map.insertWith (+) r c m) Map.empty xs
   case collectMus of
       Just xs -> return xs
       Nothing -> return Map.empty
@@ -564,16 +621,30 @@ mus i k j = do
          (right_m_sym, _) <- lookupLoc (k+1) j alphaChart
          (head_m_sym, _) <- lookupLoc i j betaChart
          let xs = do
-             (h, bh) <- Map.toList head_m_sym
-             (r, ar) <- Map.toList right_m_sym
-             (l, al) <- Map.toList left_m_sym
-             rule <- getBinaryRulesBySymbols gr h l r 
-             return $! (rule, bh * weight rule * ar * al)
+              (h, bh) <- Map.toList head_m_sym
+              (r, ar) <- Map.toList right_m_sym
+              (l, al) <- Map.toList left_m_sym
+              rule <- getBinaryRulesBySymbols gr h l r 
+              return $! (rule, bh * weight rule * ar * al)
          Just $ foldl' (\m (r, c) -> Map.insertWith (+) r c m) Map.empty xs
     case collectMus of
       Just xs -> return xs
       Nothing -> return Map.empty
-    
+
+
+meritRuleSpan :: Monad m => Int -> Int -> StateT ParseState m (Map Rule Double')
+meritRuleSpan i j | i == j = do
+  gr <- gets grammarSt
+  xs <- gets sentenceSt
+  m_sym <- musSymbol i i
+  let c = xs !! i
+  return $ Map.mapKeys (\s -> (head $ getUnaryRulesBySymbols gr s c)) m_sym
+meritRuleSpan i j | i /= j = do
+  mu_msgs <- runListT $ do
+        k <- ListT . return $ [i..j]
+        lift $ mus i k j
+  return $ Map.unionsWith (+) mu_msgs
+
 
 loglikelihood :: State ParseState Double
 loglikelihood = do
@@ -641,14 +712,6 @@ emIteration gr start b corpus = (gr', ll)
         _K = fromIntegral $ Map.size counts
         _Ws = meanFieldDirMultRules gr (1.0/_K) counts
         gr' = modifyRules gr (\r -> r{weight = maybe 0 id (Map.lookup r _Ws)})
-
-instance DeepSeq.NFData (Map Rule Double') where
-  rnf mp = map DeepSeq.rnf (Map.toList mp) `seq` ()
-  
-instance NFData (Map Rule Double') 
-
-instance DeepSeq.NFData (Log Double) where
-  rnf (Exp z) = DeepSeq.rnf z
 
 type EMLog = [(Grammar, Double)]
 
@@ -812,8 +875,8 @@ telescopes = T "telescopes"
 -- rules
 r1 = _S ->- (_NP,  _VP, 1)
 r2 = _PP ->- (_P, _NP, 1)
-r3 = _VP ->- (_V, _NP, 0.7)
-r4 = _VP ->- (_VP, _PP, 0.3)
+r3 = _VP ->- (_V, _NP, 0.3)
+r4 = _VP ->- (_VP, _PP, 0.7)
 r5 = _P ->>- (with,  1)
 r6 = _V ->>- (saw,  1)
 r7 = _NP ->- (_NP, _PP, 0.4)
