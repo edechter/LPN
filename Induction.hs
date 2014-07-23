@@ -27,7 +27,8 @@ initGrammar start lexicon _K = grammarFromRules $ binary_rules ++ unary_rules
 
 _ROOT = N 0 Nothing
 short = stringToSentence "a dog ate a mouse"
-pruneLimit = 3
+shortCorpus = [short]
+pruneLimit = 5
 
 main = do
   let corpus_size = 100
@@ -35,15 +36,16 @@ main = do
   
   corpus <- replicateM corpus_size (sample liangGrammar _S)
   let lexicon = nub $ concat corpus
-      _K = 20
+      _K = 10
       gr = initGrammar _ROOT lexicon _K
   gr' <- evalRandIO $ randomizeGrammar gr
-  print $ loglikelihoodCorpus gr' _ROOT pruneLimit corpus 
+--   print $ loglikelihoodCorpus gr' _ROOT pruneLimit corpus 
 --   let p = parse gr' _ROOT (head corpus) 
-  -- let emlog = em gr' _ROOT corpus 10 0
-  -- putStr $ unlines $ map show $ sortBy (compare `on` weight) $ grammarRules $ fst $ last emlog
-  -- print $ map snd emlog
-  -- return $ emlog
+  let emlog = em gr' _ROOT pruneLimit corpus 10 0
+--   putStr $ unlines $ map show $ sortBy (compare `on` weight) $ grammarRules $ fst $ last emlog
+--   print $ map snd emlog
+  print $ map snd emlog
+  return ()
 
           
 
