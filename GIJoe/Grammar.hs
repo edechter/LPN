@@ -639,9 +639,6 @@ emIteration gr start b corpus = (gr', ll)
         ll = Prelude.sum lls
         counts = Map.unionsWith (+) css
         _K = fromIntegral $ Map.size counts
-        -- FIXME: meanFieldDirMult does the wrong thing here. It's
-        -- calculating the weights based on a flat multinomial instead
-        -- of computing the weights independently within each rule!
         _Ws = meanFieldDirMultRules gr (1.0/_K) counts
         gr' = modifyRules gr (\r -> r{weight = maybe 0 id (Map.lookup r _Ws)})
 
