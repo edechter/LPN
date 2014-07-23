@@ -1,0 +1,13 @@
+# Test Grammar
+$S --> $NP $VP :: 1
+$PP --> $P $NP :: 1
+$VP --> $V $NP :: 0.6
+$VP --> $VP $PP :: 0.4
+$P  --> with :: 1
+$V  --> saw :: 1
+$NP --> $NP $PP :: 0.4
+$NP --> astronomers :: 0.1
+$NP --> ears :: 0.18
+$NP --> saw :: 0.04
+$NP --> stars :: 0.18
+$NP --> telescopes :: 0.1

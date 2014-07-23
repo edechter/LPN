@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 -- The name of the package.
-name:                GrammarInduction
+name:                GIJoe
 
 -- The package version.  See the Haskell package versioning policy (PVP) 
 -- for standards guiding when and how versions should be incremented.
@@ -73,8 +73,8 @@ library
                        parsec-numbers >=0.0 && <0.1, 
                        random >=1.0 && <1.1
   
-  -- Directories containing source files.
-  -- hs-source-dirs:      
+  -- Directories containing source 
+  hs-source-dirs: src
   
   -- Base language which the package is written in.
   default-language:    Haskell2010
