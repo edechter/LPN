@@ -32,7 +32,7 @@ shortCorpus = [short]
 pruneLimit = 5
 
 main = do
-  let corpus_size = 100
+  let corpus_size = 10
   liangGrammar <- readGrammar "/Users/edechter/Dropbox/Projects/GrammarInduction/data/grammars/liangGrammar.txt"
   
   corpus <- replicateM corpus_size (sample liangGrammar _S)

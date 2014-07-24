@@ -1,4 +1,4 @@
-{-# Language BangPatterns, ParallelListComp, FlexibleInstances #-}
+{-# Language BangPatterns, ParallelListComp, FlexibleInstances, DeriveGeneric #-}
 
 module GIJoe.Grammar where
 
@@ -19,8 +19,11 @@ import Control.Parallel.Strategies
 import qualified Control.DeepSeq as DeepSeq (NFData, rnf)
 import Numeric.SpecFunctions (digamma)
 
-import Data.Map.Strict (Map, (!))
-import qualified Data.Map.Strict as Map
+import Data.HashMap.Strict (HashMap, (!))
+import qualified Data.HashMap.Strict as HashMap
+
+-- import Data.Map.Strict (Map, (!))
+-- import qualified Data.Map.Strict as Map
 
 import Data.IntMap.Strict (IntMap)
 import qualified Data.IntMap.Strict as IntMap
@@ -30,6 +33,9 @@ import qualified Data.IntSet as IntSet
 
 import Data.PQueue.Prio.Max (MaxPQueue)
 import qualified Data.PQueue.Prio.Max as MaxPQueue
+
+import GHC.Generics (Generic)
+import Data.Hashable
 
 import Data.Tree
 import Data.Tree.Pretty 
@@ -47,14 +53,23 @@ import Text.ParserCombinators.Parsec.Number
 data Symbol = N Int (Maybe String) --  non terminal
             | T String -- terminal
             | E -- empty symbol
-            deriving (Ord, Eq)
+            deriving (Ord, Eq, Generic)
+                     
 instance Show Symbol where
   show (N _ (Just s)) = s
   show (N i Nothing) = "N" ++ show i
   show (T s) = s
-  show E = "E"
+
+instance Hashable Symbol where 
+-- instance Hashable Symbol where
+--   hashWithSalt salt (N _ Nothing) = hashWithSalt salt Nothing
+--   hashWithSalt salt (N i (Just s)) = hashWithSalt salt i
+--   hashWithSalt salt (T s) = hashWithSalt salt s
+
+  
 
 type Double' = Log Double
+
 
 memoSymbol :: Memo.Memo Symbol
 memoSymbol f = table (m (f . uncurry N)) (m' (f . T)) f  
@@ -75,18 +90,21 @@ data Rule = UnaryRule {headSymbol :: Symbol,
                         leftChild :: Symbol,
                         rightChild :: Symbol,
                         weight :: Double'}
-          deriving (Ord, Eq)
+          deriving (Ord, Eq, Generic)
+                   
 instance Show Rule where
   show (UnaryRule s l w) = show s ++ " --> " ++  show l ++ " :: " ++ show w
   show (BinaryRule s l r w) = show s ++ " --> " ++  show l ++ " " ++ show r   ++ " :: " ++ show w
+
+instance Hashable Rule where
 
 instance DeepSeq.NFData Rule where
   rnf (UnaryRule h c w) = h `seq` c `seq` w `seq` ()
   rnf (BinaryRule h l r w) = h `seq` l `seq` r `seq` w `seq` ()
 
-instance NFData Rule where
+-- instance NFData Rule where
 
-instance NFData (Map Rule Double') where
+-- instance NFData (HashMap Rule Double') where
 
 isUnary :: Rule -> Bool
 isUnary UnaryRule{} = True
@@ -101,14 +119,14 @@ s ->- (l, r, w) = BinaryRule s l r w
 (->>-) :: Symbol -> (Symbol, Double') -> Rule
 s ->>- (l, w) = UnaryRule s l w
 
-data Grammar = Grammar {headSymbolTable :: Map Symbol IntSet,
-                        leftSymbolTable :: Map Symbol IntSet,
-                        rightSymbolTable :: Map Symbol IntSet,
-                        unarySymbolTable :: Map Symbol IntSet,
+data Grammar = Grammar {headSymbolTable :: HashMap Symbol IntSet,
+                        leftSymbolTable :: HashMap Symbol IntSet,
+                        rightSymbolTable :: HashMap Symbol IntSet,
+                        unarySymbolTable :: HashMap Symbol IntSet,
                         binaryRuleIds :: IntSet,
                         unaryRuleIds :: IntSet,
                         ruleIndex :: IntMap Rule 
-                       } deriving (Ord, Eq)
+                       } 
 
 grammarRules :: Grammar -> [Rule]
 grammarRules gr = IntMap.elems . ruleIndex $ gr
@@ -145,7 +163,7 @@ getUnaryRulesBySymbols gr h c = getRulesById gr $
                                 getUnaryRuleIdsBySymbols gr h c
 
 rulesHeadedBy :: Grammar -> Symbol -> [Rule]
-rulesHeadedBy gr sym = case Map.lookup sym (headSymbolTable gr) of
+rulesHeadedBy gr sym = case HashMap.lookup sym (headSymbolTable gr) of
   Nothing -> []
   Just xs -> filterJusts $ map (getRuleById gr) $ IntSet.toList xs
   where filterJusts ((Just x):xs) = x:(filterJusts xs)
@@ -153,7 +171,7 @@ rulesHeadedBy gr sym = case Map.lookup sym (headSymbolTable gr) of
         filterJusts [] = []
 
 rulesHeadedById :: Grammar -> Symbol -> IntSet
-rulesHeadedById gr sym = case Map.lookup sym (headSymbolTable gr) of
+rulesHeadedById gr sym = case HashMap.lookup sym (headSymbolTable gr) of
   Nothing -> IntSet.empty
   Just xs -> xs
 
@@ -178,19 +196,19 @@ binaryRuleIdsWithChildren gr (left_sym, right_sym) = IntSet.intersection r1 r2
 
 ruleIdsWithLeftChild :: Grammar -> Symbol -> IntSet
 ruleIdsWithLeftChild gr sym = 
-  case Map.lookup sym (leftSymbolTable gr) of
+  case HashMap.lookup sym (leftSymbolTable gr) of
     Nothing -> IntSet.empty
     Just ids -> ids
 
 ruleIdsWithRightChild :: Grammar -> Symbol -> IntSet
 ruleIdsWithRightChild gr sym = 
-  case Map.lookup sym (rightSymbolTable gr) of
+  case HashMap.lookup sym (rightSymbolTable gr) of
     Nothing -> IntSet.empty
     Just ids -> ids
 
 ruleIdsWithUnaryChild :: Grammar -> Symbol -> IntSet
 ruleIdsWithUnaryChild gr sym = 
-  case Map.lookup sym (unarySymbolTable gr) of
+  case HashMap.lookup sym (unarySymbolTable gr) of
     Nothing -> IntSet.empty
     Just ids -> ids
 
@@ -207,33 +225,33 @@ rulesWithUnaryChild gr sym = getRulesById gr $ ruleIdsWithUnaryChild gr sym
 grammarFromRules :: [Rule] -> Grammar
 grammarFromRules rs = foldl' insertRule emptyGrammar (zip rs [0..])
   where emptyGrammar = Grammar
-                       Map.empty
-                       Map.empty
-                       Map.empty
-                       Map.empty
+                       HashMap.empty
+                       HashMap.empty
+                       HashMap.empty
+                       HashMap.empty
                        IntSet.empty
                        IntSet.empty
                        IntMap.empty
         insertRule (Grammar hTable lTable rTable uTable bSet uSet index) (rule, i)
           = Grammar hTable' lTable' rTable' uTable' bSet' uSet' index'
-          where hTable' = Map.insertWith (IntSet.union)
+          where hTable' = HashMap.insertWith (IntSet.union)
                          (headSymbol rule) (IntSet.singleton i) hTable
                 index' = IntMap.insert i rule index
                 (lTable', rTable', uTable', bSet', uSet') =
                   case rule of
                     BinaryRule{} -> (lTable', rTable', uTable, bSet', uSet)
-                      where lTable' = Map.insertWith IntSet.union (leftChild rule)
+                      where lTable' = HashMap.insertWith IntSet.union (leftChild rule)
                                       (IntSet.singleton i) lTable
-                            rTable' = Map.insertWith IntSet.union (rightChild rule)
+                            rTable' = HashMap.insertWith IntSet.union (rightChild rule)
                                       (IntSet.singleton i) rTable
                             bSet' = IntSet.insert i bSet 
                     UnaryRule{} -> (lTable, rTable, uTable', bSet, uSet')
-                      where uTable' = Map.insertWith IntSet.union (child rule)
+                      where uTable' = HashMap.insertWith IntSet.union (child rule)
                                       (IntSet.singleton i) uTable
                             uSet' = IntSet.insert i uSet 
 
 allNonTerminals :: Grammar -> [Symbol]
-allNonTerminals gr = Map.keys . headSymbolTable $  gr
+allNonTerminals gr = HashMap.keys . headSymbolTable $  gr
 
 modifyRuleWeightWithId :: Grammar -> Int -> (Double' -> Double') -> Grammar
 modifyRuleWeightWithId gr i f = gr{ruleIndex=IntMap.adjust g i (ruleIndex gr)}
@@ -346,16 +364,15 @@ stringToSentence = map T . words
 stringToCorpus :: String -> Corpus
 stringToCorpus = map stringToSentence . splitOn "."
 
-symbolMapToSymbolQueue m_sym = MaxPQueue.fromList . Map.toList $ m_sym
+symbolMapToSymbolQueue m_sym = MaxPQueue.fromList . HashMap.toList $ m_sym
 
 type Charts a = [Chart a]
-newtype Chart a = Chart {unChart :: IntMap (IntMap (Map Symbol a, MaxPQueue Symbol a))}
+newtype Chart a = Chart {unChart :: HashMap (Int, Int) (HashMap Symbol a, MaxPQueue Symbol a)}
                     deriving Show
 
 lookup :: Int -> Int -> Symbol -> Chart a -> Maybe a
-lookup i j sym (Chart m_i) = do m_j <- IntMap.lookup i m_i
-                                (m_sym, _) <- IntMap.lookup j m_j
-                                Map.lookup sym m_sym
+lookup i j sym (Chart m) = do (m_sym, _) <- HashMap.lookup (i, j) m
+                              HashMap.lookup sym m_sym
 
 {-# INLINE lookupDefault #-}
 lookupDefault :: Int -> Int -> Symbol -> a -> Chart a  -> a
@@ -364,44 +381,47 @@ lookupDefault i j sym def chart = case lookup i j sym chart of
   Just a -> a
 
 
+-- FIXME: This doesn't update the maxpriorityqueue correctly
 insert :: Int -> Int -> Symbol -> a -> Chart a -> Chart a
-insert = insertWith const  
+insert i j sym a (Chart m_i) = Chart m_i'
+  where m_i' =
+          case HashMap.lookup (i, j) m_i of
+            Just (m_sym, syms) ->
+              HashMap.insert (i, j) (HashMap.insert sym a m_sym, MaxPQueue.insert sym a syms) m_i
+            Nothing ->
+              HashMap.insert (i, j) (HashMap.singleton sym a, MaxPQueue.singleton sym a) m_i
 
-insertWith :: (a -> a -> a) -> Int -> Int -> Symbol -> a -> Chart a -> Chart a
-insertWith f i j sym a m          
-  = insertWithKey (\_ _ _ sym' m' -> f sym' m') i j sym a m
+
+-- insertWith :: (a -> a -> a) -> Int -> Int -> Symbol -> a -> Chart a -> Chart a
+-- insertWith f i j sym a m          
+--   = insertWithKey (\_ _ _ sym' m' -> f sym' m') i j sym a m
 
 
-insertWithKey :: (Int -> Int -> Symbol -> a -> a -> a)
-                 -> Int -> Int -> Symbol -> a -> Chart a -> Chart a
-insertWithKey f i j sym a (Chart m_i) = Chart m_i'
-  where m_i' = IntMap.alter h i m_i
-          where h Nothing = Just $ m_j_default
-                h (Just m_j) = Just $ IntMap.alter g j  m_j
-                  where g Nothing = Just $ (m_sym_default, MaxPQueue.singleton sym a)
-                        g (Just (m_sym, syms))
-                          = Just (Map.insertWithKey (f i j) sym a m_sym,
-                                  MaxPQueue.insert sym a syms)
-                m_j_default = IntMap.singleton j (m_sym_default, MaxPQueue.singleton sym a)
-                m_sym_default = Map.singleton sym a
+-- insertWithKey :: (Int -> Int -> Symbol -> a -> a -> a)
+--                  -> Int -> Int -> Symbol -> a -> Chart a -> Chart a
+-- insertWithKey f i j sym a (Chart m_i) = Chart m_i'
+--   where m_i' = IntMap.alter h i m_i
+--           where h Nothing = Just $ m_j_default
+--                 h (Just m_j) = Just $ IntMap.alter g j  m_j
+--                   where g Nothing = Just $ (m_sym_default, MaxPQueue.singleton sym a)
+--                         g (Just (m_sym, syms))
+--                           = Just (HashMap.insertWithKey (f i j) sym a m_sym,
+--                                   MaxPQueue.insert sym a syms)
+--                 m_j_default = IntMap.singleton j (m_sym_default, MaxPQueue.singleton sym a)
+--                 m_sym_default = HashMap.singleton sym a
 
-lookupLoc :: Int -> Int -> Chart a -> Maybe (Map Symbol a, MaxPQueue Symbol a)
-lookupLoc i j (Chart m_i) = do  m_j <- IntMap.lookup i m_i
-                                (m_sym, syms) <- IntMap.lookup j m_j
-                                return $ (m_sym, syms)
+lookupLoc :: Int -> Int -> Chart a -> Maybe (HashMap Symbol a, MaxPQueue Symbol a)
+lookupLoc i j (Chart m_i) = HashMap.lookup (i, j) m_i
 
-insertLoc :: Int -> Int -> (Map Symbol a, MaxPQueue Symbol a) -> Chart a -> Chart a
-insertLoc i j (m_sym, syms) (Chart m_i) =
-  case IntMap.lookup i m_i of
-    Nothing -> Chart $ IntMap.insert j m_j_def m_i
-    Just m_j -> Chart $ IntMap.insert i (IntMap.insert j (m_sym, syms) m_j) m_i
-  where m_j_def = IntMap.singleton j (m_sym, syms)
+insertLoc :: Int -> Int -> (HashMap Symbol a, MaxPQueue Symbol a) -> Chart a -> Chart a
+insertLoc i j (m_sym, syms) (Chart m_i) = Chart $ HashMap.insert (i, j) (m_sym, syms) m_i
 
 empty :: Chart a
-empty = Chart $ IntMap.empty
+empty = Chart $ HashMap.empty
 
 singleton :: Int -> Int -> Symbol -> a -> Chart a
-singleton i j sym a = insert i j sym a empty
+singleton i j sym a =
+  Chart $ HashMap.singleton (i, j) (HashMap.singleton sym a, MaxPQueue.singleton sym a)
 
 
 data ParseState = ParseState {alphaChartSt :: Chart Double',
@@ -421,7 +441,7 @@ alphas gr b xs = evalState (alphas' 1 m >> get) empty
         m = Seq.length xs'
         liftList = ListT . return
 
-        alphas' :: Int -> Int -> State (Chart Double') (Map Symbol Double', MaxPQueue Symbol Double')
+        alphas' :: Int -> Int -> State (Chart Double') (HashMap Symbol Double', MaxPQueue Symbol Double')
         alphas' i j | i == j = process_msgs
           where msgs =  runListT $ do
                   rule <- liftList $ rulesWithUnaryChild gr x
@@ -430,7 +450,7 @@ alphas gr b xs = evalState (alphas' 1 m >> get) empty
                   where x = Seq.index xs' (i-1)
                 process_msgs = do
                   ks <- msgs -- :: [(Symbol, Double')]
-                  let c = Map.fromList ks
+                  let c = HashMap.fromList ks
                       syms = symbolMapToSymbolQueue c
                   modify $ \ch -> insertLoc i j (c, syms) ch
                   return $! (c, syms)
@@ -456,7 +476,7 @@ alphas gr b xs = evalState (alphas' 1 m >> get) empty
                   
                 process_msgs = do
                   xs <- msgs
-                  let m_sym = foldl' (\m (s, w) -> Map.insertWith (+) s w m) Map.empty xs
+                  let m_sym = foldl' (\m (s, w) -> HashMap.insertWith (+) s w m) HashMap.empty xs
                       syms = symbolMapToSymbolQueue m_sym
                   modify $ \ch -> insertLoc i j (m_sym, syms) ch
                   return $! (m_sym, syms)
@@ -476,10 +496,10 @@ betas gr start b xs alphaChart
         
         betas' :: Int -> Int
                   -> State (Chart Double')
-                  (Map Symbol Double', MaxPQueue Symbol Double')
+                  (HashMap Symbol Double', MaxPQueue Symbol Double')
         betas' i j | i == 1 && j == m = do
           put $ insert 1 m start 1 empty
-          return $ (Map.singleton start 1,
+          return $ (HashMap.singleton start 1,
                     MaxPQueue.singleton start 1)
         
         betas' i j = process_msgs
@@ -492,10 +512,10 @@ betas gr start b xs alphaChart
                                          return c
                   alphaCell <- case lookupLoc (j+1) k alphaChart of
                       Just rc -> return rc
-                      Nothing -> return $ (Map.empty, MaxPQueue.empty)
+                      Nothing -> return $ (HashMap.empty, MaxPQueue.empty)
                       
-                  (head_sym, beta_msg) <- liftList $ Map.toList $ fst betaCell
-                  (right_sym, alpha_msg) <- liftList $ Map.toList $ fst alphaCell
+                  (head_sym, beta_msg) <- liftList $ HashMap.toList $ fst betaCell
+                  (right_sym, alpha_msg) <- liftList $ HashMap.toList $ fst alphaCell
                   let r1 = ruleIdsWithRightChild gr right_sym
                       r2 = rulesHeadedById gr head_sym
                       rules = getRulesById gr $ IntSet.intersection r1 r2
@@ -512,7 +532,7 @@ betas gr start b xs alphaChart
                                          return c
                   alphaCell <- case lookupLoc k (i-1) alphaChart of
                       Just rc -> return rc
-                      Nothing -> return $ (Map.empty, MaxPQueue.empty)
+                      Nothing -> return $ (HashMap.empty, MaxPQueue.empty)
 
                   head_sym <- fmap fst . liftList . MaxPQueue.take b . snd $ betaCell
                   let beta_msg = (fst betaCell) ! head_sym
@@ -529,7 +549,7 @@ betas gr start b xs alphaChart
                   ls <- leftCaseMsgs
                   rs <- rightCaseMsgs
                   let allMsgs = ls ++ rs
-                  let m_sym = foldl' (\m (s, w) -> Map.insertWith (+) s w m) Map.empty
+                  let m_sym = foldl' (\m (s, w) -> HashMap.insertWith (+) s w m) HashMap.empty
                               allMsgs
                       syms = symbolMapToSymbolQueue m_sym                              
                   modify $ \ch -> insertLoc i j (m_sym, syms) ch
@@ -549,9 +569,9 @@ getMapParse = do
           xs <- runListT $ do
                 k <- liftList [i..j]
                 left_m <- lift $ musSymbol i k
-                (left_sym, left_mu) <- liftList $ Map.toList left_m
+                (left_sym, left_mu) <- liftList $ HashMap.toList left_m
                 right_m <- lift $ musSymbol (k+1) j
-                (right_sym, right_mu) <- liftList $ Map.toList right_m
+                (right_sym, right_mu) <- liftList $ HashMap.toList right_m
                 rule@(BinaryRule _ _ _ w) <- liftList $ getBinaryRulesBySymbols gr sym left_sym right_sym
                 return $ (rule, left_mu * right_mu * w, k)
           let snd3 (_, b, _) = b
@@ -591,7 +611,7 @@ withChartsT gr start b xs m = runStateT m
 withCharts gr start b xs m  = runIdentity $ withChartsT gr start b xs m
 
 musSymbol :: Monad m =>
-             Int -> Int -> StateT ParseState m (Map Symbol Double')
+             Int -> Int -> StateT ParseState m (HashMap Symbol Double')
 musSymbol i j = do
   alphaChart <- gets alphaChartSt
   betaChart <- gets betaChartSt
@@ -600,18 +620,18 @@ musSymbol i j = do
        (a_m_sym, _) <- lookupLoc i j alphaChart
        (b_m_sym, _) <- lookupLoc i j betaChart
        let xs = do
-            (sym, a) <- Map.toList a_m_sym
-            let b = case Map.lookup sym b_m_sym of
+            (sym, a) <- HashMap.toList a_m_sym
+            let b = case HashMap.lookup sym b_m_sym of
                   Nothing -> 0
                   Just b -> b
             return $! (sym, a * b)
-       Just $ foldl' (\m (r, c) -> Map.insertWith (+) r c m) Map.empty xs
+       Just $ foldl' (\m (r, c) -> HashMap.insertWith (+) r c m) HashMap.empty xs
   case collectMus of
       Just xs -> return xs
-      Nothing -> return Map.empty
+      Nothing -> return HashMap.empty
      
 
-mus :: Monad m => Int -> Int -> Int -> StateT ParseState m (Map Rule Double')
+mus :: Monad m => Int -> Int -> Int -> StateT ParseState m (HashMap Rule Double')
 mus i k j = do
     alphaChart <- gets alphaChartSt
     betaChart <- gets betaChartSt
@@ -621,30 +641,15 @@ mus i k j = do
          (right_m_sym, _) <- lookupLoc (k+1) j alphaChart
          (head_m_sym, _) <- lookupLoc i j betaChart
          let xs = do
-              (h, bh) <- Map.toList head_m_sym
-              (r, ar) <- Map.toList right_m_sym
-              (l, al) <- Map.toList left_m_sym
+              (h, bh) <- HashMap.toList head_m_sym
+              (r, ar) <- HashMap.toList right_m_sym
+              (l, al) <- HashMap.toList left_m_sym
               rule <- getBinaryRulesBySymbols gr h l r 
               return $! (rule, bh * weight rule * ar * al)
-         Just $ foldl' (\m (r, c) -> Map.insertWith (+) r c m) Map.empty xs
+         Just $ foldl' (\m (r, c) -> HashMap.insertWith (+) r c m) HashMap.empty xs
     case collectMus of
       Just xs -> return xs
-      Nothing -> return Map.empty
-
-
-meritRuleSpan :: Monad m => Int -> Int -> StateT ParseState m (Map Rule Double')
-meritRuleSpan i j | i == j = do
-  gr <- gets grammarSt
-  xs <- gets sentenceSt
-  m_sym <- musSymbol i i
-  let c = xs !! i
-  return $ Map.mapKeys (\s -> (head $ getUnaryRulesBySymbols gr s c)) m_sym
-meritRuleSpan i j | i /= j = do
-  mu_msgs <- runListT $ do
-        k <- ListT . return $ [i..j]
-        lift $ mus i k j
-  return $ Map.unionsWith (+) mu_msgs
-
+      Nothing -> return HashMap.empty
 
 loglikelihood :: State ParseState Double
 loglikelihood = do
@@ -655,10 +660,10 @@ loglikelihood = do
           (Just (Exp lnZ)) = lookup 1 m start alphaChart
       return $ lnZ
 
-expectedCounts :: State ParseState (Map Rule Double')
+expectedCounts :: State ParseState (HashMap Rule Double')
 expectedCounts = do m1 <- binary_case_mp
                     m2 <- unary_case_mp
-                    return $ Map.unionWith (+) m1 m2
+                    return $ HashMap.unionWith (+) m1 m2
   where binary_case_mp = do
           xs <- gets sentenceSt
           start <- gets startSt
@@ -670,7 +675,7 @@ expectedCounts = do m1 <- binary_case_mp
             k <- liftList $ [i..m-1]
             j <- liftList $ [k+1..m]
             lift $ mus i k j
-          return $ Map.map (/_Z) . Map.unionsWith (+) $ mu_maps
+          return $ HashMap.map (/_Z) $ foldl1 (HashMap.unionWith (+)) mu_maps
         unary_case_mp = do
           xs <- gets sentenceSt
           start <- gets startSt
@@ -682,12 +687,12 @@ expectedCounts = do m1 <- binary_case_mp
             (sym, i) <- liftList $ zip xs [1..m]
             mu_i <- lift $ musSymbol i i
             rule <- liftList $ rulesWithUnaryChild gr sym
-            let c = case Map.lookup (headSymbol rule) mu_i of
+            let c = case HashMap.lookup (headSymbol rule) mu_i of
                   Nothing -> 0
                   Just x -> x
             return $ (rule, c)
-          let mp = foldl' (\m (r, c) -> Map.insertWith (+) r c m) Map.empty vs
-          return $ Map.map (/_Z) mp
+          let mp = foldl' (\m (r, c) -> HashMap.insertWith (+) r c m) HashMap.empty vs
+          return $ HashMap.map (/_Z) mp
           
 
 emIteration :: Grammar
@@ -708,10 +713,10 @@ emIteration gr start b corpus = (gr', ll)
              trace (show xs) $ return ()                        
              return (cs, ll)
         ll = Prelude.sum lls
-        counts = Map.unionsWith (+) css
-        _K = fromIntegral $ Map.size counts
+        counts = foldl1 (HashMap.unionWith (+)) css
+        _K = fromIntegral $ HashMap.size counts
         _Ws = meanFieldDirMultRules gr (1.0/_K) counts
-        gr' = modifyRules gr (\r -> r{weight = maybe 0 id (Map.lookup r _Ws)})
+        gr' = modifyRules gr (\r -> r{weight = maybe 0 id (HashMap.lookup r _Ws)})
 
 type EMLog = [(Grammar, Double)]
 
@@ -778,12 +783,12 @@ meanFieldDirMult alpha counts
 
 meanFieldDirMultRules :: Grammar -- ^ nonterminal symbols in grammar
                       -> Double' -- ^ alpha, concentration parameter
-                      -> Map Rule Double' -- ^ counts for each rule
-                      -> Map Rule Double' -- ^ mean field weights for each rule
-meanFieldDirMultRules gr alpha m_counts = Map.fromList $ concatMap go (allNonTerminals gr)
+                      -> HashMap Rule Double' -- ^ counts for each rule
+                      -> HashMap Rule Double' -- ^ mean field weights for each rule
+meanFieldDirMultRules gr alpha m_counts = HashMap.fromList $ concatMap go (allNonTerminals gr)
   where go sym = zip rules ws
           where rules = rulesHeadedBy gr sym
-                cs = [maybe 0 id (Map.lookup r m_counts) | r <- rules]
+                cs = [maybe 0 id (HashMap.lookup r m_counts) | r <- rules]
                 ws = meanFieldDirMult alpha cs
                 
 
@@ -793,8 +798,8 @@ fromDouble' (Exp lnX) = exp lnX
 toDouble' :: Double -> Double'
 toDouble' x = Exp (log x)
 
-fromListAccum :: Ord a => [(a, b)] -> (b -> b -> b) -> Map a b -> Map a b
-fromListAccum pairs f mp = foldl' (\m (r, c) -> Map.insertWith f r c m) mp pairs
+fromListAccum :: (Eq a, Hashable a) => [(a, b)] -> (b -> b -> b) -> HashMap a b -> HashMap a b
+fromListAccum pairs f mp = foldl' (\m (r, c) -> HashMap.insertWith f r c m) mp pairs
 
 ---- UTILITIES ------
 
@@ -807,7 +812,7 @@ readGrammar fpath = do xs <- readFile fpath
 parseGrammar :: String -- ^ source name
             -> String -- ^ grammar content
             -> Either ParseError Grammar
-parseGrammar source xs = runParser grammarParser (Map.empty, 0) source xs
+parseGrammar source xs = runParser grammarParser (HashMap.empty, 0) source xs
 
 comment = do spaces
              char '#'
@@ -844,10 +849,10 @@ nonterminal = do char '$'
                  xs <- many1 alphaNum
                  mp <- liftM fst getState                 
                  i <- liftM snd getState
-                 case Map.lookup xs mp of
+                 case HashMap.lookup xs mp of
                    Just j -> return $ N j (Just xs)
                    Nothing -> do
-                     modifyState (\(m, i) -> (Map.insert xs i m, i+1))
+                     modifyState (\(m, i) -> (HashMap.insert xs i m, i+1))
                      return $ N i (Just xs)
 
 terminal = do xs <- many1 alphaNum
