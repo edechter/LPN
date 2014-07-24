@@ -9,7 +9,7 @@ import Numeric.Log
 
 import Control.Monad
 import Data.List.Split (splitOn)
-import Data.List (foldl', sortBy, maximumBy)
+import Data.List (foldl', sortBy, maximumBy, foldl1')
 import Data.Function (on)
 import Control.Monad.List
 import Control.Monad.State
@@ -713,10 +713,10 @@ emIteration gr start b corpus = (gr', ll)
              trace (show xs) $ return ()                        
              return (cs, ll)
         ll = Prelude.sum lls
-        counts = foldl1 (HashMap.unionWith (+)) css
+        counts = foldl1' (HashMap.unionWith (+)) css
         _K = fromIntegral $ HashMap.size counts
-        _Ws = meanFieldDirMultRules gr (1.0/_K) counts
         gr' = modifyRules gr (\r -> r{weight = maybe 0 id (HashMap.lookup r _Ws)})
+          where _Ws = meanFieldDirMultRules gr (1.0/_K) counts
 
 type EMLog = [(Grammar, Double)]
 
@@ -775,17 +775,19 @@ randomizeGrammar gr = do
 meanFieldDirMult :: Double' -- ^ concentration parameter
                  -> [Double'] -- ^ counts c_i
                  -> [Double'] -- ^ weights w_i
+{-# INLINE meanFieldDirMult #-}                 
 meanFieldDirMult alpha counts
 -- Calculate the mean field weights of 
-  = map ((/denom) . toDouble' . exp . digamma . fromDouble' . (+ alpha)) counts
+  = map (toDouble' . (/denom) . exp . digamma . fromDouble' . (+ alpha)) counts
   where _K = toDouble' $ fromIntegral $ length counts
-        denom = toDouble' . exp . digamma . fromDouble' $ _K * alpha + sum counts
+        denom = exp . digamma . fromDouble' $ _K * alpha + sum counts
 
 meanFieldDirMultRules :: Grammar -- ^ nonterminal symbols in grammar
                       -> Double' -- ^ alpha, concentration parameter
                       -> HashMap Rule Double' -- ^ counts for each rule
                       -> HashMap Rule Double' -- ^ mean field weights for each rule
-meanFieldDirMultRules gr alpha m_counts = HashMap.fromList $ concatMap go (allNonTerminals gr)
+meanFieldDirMultRules gr alpha m_counts =
+  HashMap.fromList $ concat $ parMap rdeepseq go (allNonTerminals gr)
   where go sym = zip rules ws
           where rules = rulesHeadedBy gr sym
                 cs = [maybe 0 id (HashMap.lookup r m_counts) | r <- rules]
@@ -793,9 +795,11 @@ meanFieldDirMultRules gr alpha m_counts = HashMap.fromList $ concatMap go (allNo
                 
 
 fromDouble' :: Double' -> Double
+{-# INLINE fromDouble' #-}
 fromDouble' (Exp lnX) = exp lnX
 
 toDouble' :: Double -> Double'
+{-# INLINE toDouble' #-}
 toDouble' x = Exp (log x)
 
 fromListAccum :: (Eq a, Hashable a) => [(a, b)] -> (b -> b -> b) -> HashMap a b -> HashMap a b
