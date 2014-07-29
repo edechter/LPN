@@ -1,0 +1,90 @@
+one 
+two 
+three
+four 
+five
+six
+se ven
+eight
+nine
+ten
+one 
+two 
+three
+four 
+five
+six
+se ven
+eight
+nine
+ten
+one 
+two 
+three
+four 
+five
+six
+se ven
+eight
+nine
+ten
+twen ty
+twen ty one
+twen ty two
+twen ty three
+twen ty four
+twen ty five
+twen ty six
+twen ty se ven
+twen ty eight 
+twen ty nine
+thir ty
+thir ty one
+thir ty two
+thir ty three
+thir ty four
+thir ty five
+thir ty six
+thir ty se ven
+thir ty eight 
+thir ty nine
+for ty
+for ty one
+for ty two
+for ty three
+for ty four
+for ty five
+for ty six
+for ty se ven
+for ty eight 
+for ty nine
+fif ty
+fif ty one
+fif ty two
+fif ty three
+fif ty four
+fif ty five
+fif ty six
+fif ty se ven
+fif ty eight 
+fif ty nine
+six ty
+six ty one
+six ty two
+six ty three
+six ty four
+six ty five
+six ty six
+six ty se ven
+six ty eight 
+six ty nine
+sev en ty
+sev en ty one
+sev en ty two
+sev en ty three
+sev en ty four
+sev en ty five
+sev en ty sev en
+sev en ty se ven
+sev en ty eight 
+sev en ty nine

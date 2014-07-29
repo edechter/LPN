@@ -2,6 +2,9 @@
 
 module GIJoe.Grammar where
 
+import GIJoe.Types
+import GIJoe.Utils
+
 import Prelude hiding (sum, lookup)
 import qualified Prelude
 
@@ -67,8 +70,6 @@ instance Hashable Symbol where
 --   hashWithSalt salt (T s) = hashWithSalt salt s
 
   
-
-type Double' = Log Double
 
 
 memoSymbol :: Memo.Memo Symbol
@@ -269,7 +270,11 @@ getSymbolNormalization gr sym = sum $ do rule <- rulesHeadedBy gr sym
 instance Show Grammar where
   show grammar = unlines $ map show (grammarRules grammar)
 
-showSortedGrammar gr = unlines $ map show $ take 20 $ reverse $ sortBy (compare `on` weight) $ grammarRules $ normalizeGrammar gr
+showSortedGrammar gr = unlines $ map showRulePart $ take 20 $ reverse $ sortBy (compare `on` weight) $ grammarRules $ normalizeGrammar gr
+
+showRulePart :: Rule -> String
+showRulePart (BinaryRule h l r _) = show h ++ " -> " ++ show l ++ " " ++ show r
+showRulePart (UnaryRule h c _) = show h ++ " -> " ++ show c
 
 normalizeGrammar :: Grammar -> Grammar
 normalizeGrammar gr = foldl' go gr (allNonTerminals gr)
@@ -303,7 +308,7 @@ data Parse = Parse {parseRule :: Rule,
              
 instance Show Parse where
   show = drawVerticalTree . parseToTree
-   where parseToTree (Parse r xs) = Node (show r) (map parseToTree xs)
+   where parseToTree (Parse r xs) = Node (showRulePart r) (map parseToTree xs)
 
   
 
@@ -651,7 +656,9 @@ mus i k j = do
       Just xs -> return xs
       Nothing -> return HashMap.empty
 
+
 loglikelihood :: State ParseState Double
+-- | This is only the loglikelihood of the sentence if the grammar is normalized
 loglikelihood = do
       xs <- gets sentenceSt
       alphaChart <- gets alphaChartSt
@@ -675,7 +682,9 @@ expectedCounts = do m1 <- binary_case_mp
             k <- liftList $ [i..m-1]
             j <- liftList $ [k+1..m]
             lift $ mus i k j
-          return $ HashMap.map (/_Z) $ foldl1 (HashMap.unionWith (+)) mu_maps
+          if null mu_maps
+            then return HashMap.empty
+            else return $ HashMap.map (/_Z) $ foldl1 (HashMap.unionWith (+)) mu_maps
         unary_case_mp = do
           xs <- gets sentenceSt
           start <- gets startSt
@@ -695,6 +704,11 @@ expectedCounts = do m1 <- binary_case_mp
           return $ HashMap.map (/_Z) mp
           
 
+showCounts :: HashMap Rule Double' -> String
+showCounts mp = unlines $ map show' $ HashMap.toList mp
+  where show' (r, v) = showRulePart r ++ ": " ++ "ln " ++ show (ln v)
+          
+
 emIteration :: Grammar
             -> Symbol -- ^ start symbol
             -> Int -- ^ pruning limit
@@ -710,13 +724,15 @@ emIteration gr start b corpus = (gr', ll)
            return $ fst $ withCharts gr start b xs $ do
              ll <- loglikelihood
              cs <- expectedCounts
-             trace (show xs) $ return ()                        
              return (cs, ll)
-        ll = Prelude.sum lls
-        counts = foldl1' (HashMap.unionWith (+)) css
-        _K = fromIntegral $ HashMap.size counts
-        gr' = modifyRules gr (\r -> r{weight = maybe 0 id (HashMap.lookup r _Ws)})
-          where _Ws = meanFieldDirMultRules gr (1.0/_K) counts
+        !ll = Prelude.sum lls
+        !counts = foldl1' (HashMap.unionWith (+)) css
+        !_K = fromIntegral $ HashMap.size counts
+        !_Ws = trace (showCounts counts) $ meanFieldDirMultRules gr (1.0/_K) counts
+
+        gr' = modifyRules gr reweight 
+          where reweight r = r{weight = maybe 0 id (HashMap.lookup r _Ws)}
+                
 
 type EMLog = [(Grammar, Double)]
 
@@ -778,32 +794,68 @@ meanFieldDirMult :: Double' -- ^ concentration parameter
 {-# INLINE meanFieldDirMult #-}                 
 meanFieldDirMult alpha counts
 -- Calculate the mean field weights of 
-  = map (toDouble' . (/denom) . exp . digamma . fromDouble' . (+ alpha)) counts
+  = trace ("W: " ++ show ws') $ ws'
   where _K = toDouble' $ fromIntegral $ length counts
-        denom = exp . digamma . fromDouble' $ _K * alpha + sum counts
+        psiAll = digamma' $  _K * alpha + sum counts 
+        psis = map (digamma' . (+alpha)) counts
+        ws = [Exp (psi - psiAll ) | psi <- psis]
+        ws' = [if w > 1e-16 then w else 1e-16 | w <- ws]
+        digamma' = digamma . fromDouble'
+
+-- pow (Exp x) y = Exp $ x * y
+-- digamma' = toDouble' . digamma . fromDouble'
+-- expDigammaSmall x = (Exp $ digamma (x' + 6))
+--                     + Exp 
 
 meanFieldDirMultRules :: Grammar -- ^ nonterminal symbols in grammar
                       -> Double' -- ^ alpha, concentration parameter
                       -> HashMap Rule Double' -- ^ counts for each rule
                       -> HashMap Rule Double' -- ^ mean field weights for each rule
 meanFieldDirMultRules gr alpha m_counts =
-  HashMap.fromList $ concat $ parMap rdeepseq go (allNonTerminals gr)
+  HashMap.fromList $ concat $ map go (allNonTerminals gr)
   where go sym = zip rules ws
           where rules = rulesHeadedBy gr sym
                 cs = [maybe 0 id (HashMap.lookup r m_counts) | r <- rules]
                 ws = meanFieldDirMult alpha cs
                 
-
-fromDouble' :: Double' -> Double
-{-# INLINE fromDouble' #-}
-fromDouble' (Exp lnX) = exp lnX
-
-toDouble' :: Double -> Double'
-{-# INLINE toDouble' #-}
-toDouble' x = Exp (log x)
-
-fromListAccum :: (Eq a, Hashable a) => [(a, b)] -> (b -> b -> b) -> HashMap a b -> HashMap a b
-fromListAccum pairs f mp = foldl' (\m (r, c) -> HashMap.insertWith f r c m) mp pairs
+-- entropyParses :: State ParseState Double
+-- -- | Compute the entropy of the distribution over parses, q(z).
+-- entropyParses = do m1 <- binary_case_mp
+--                    m2 <- unary_case_mp
+--                    return $ m1 + m2
+--   where binary_case_mp = do
+--           xs <- gets sentenceSt
+--           start <- gets startSt
+--           alphaChart <- gets alphaChartSt
+--           let m = length xs
+--               (Just _Z) = lookup 1 m start alphaChart
+--           mu_maps <- runListT $ do 
+--             i <- liftList $ [1..m-1]
+--             k <- liftList $ [i..m-1]
+--             j <- liftList $ [k+1..m]
+--             lift $ mus i k j
+--           if null mu_maps
+--             then return 0
+--             else do let ps = HashMap.elems mu_maps
+--                     return $ Prelude.sum [fromDouble' p * ln p | p <- ps]
+--         unary_case_mp = do
+--           xs <- gets sentenceSt
+--           start <- gets startSt
+--           alphaChart <- gets alphaChartSt
+--           gr <- gets grammarSt
+--           let m = length xs
+--               (Just _Z) = lookup 1 m start alphaChart
+--               lnZ = ln _Z
+--           vs <- runListT $ do
+--             (sym, i) <- liftList $ zip xs [1..m]
+--             mu_i <- lift $ musSymbol i 
+--             rule <- liftList $ rulesWithUnaryChild gr sym
+--             let c = case HashMap.lookup (headSymbol rule) mu_i of
+--                   Nothing -> 0
+--                   Just x -> x
+--             let p = mu_i / _Z
+--             return $ negate (fromDouble' p * ln p)
+--           return $ Prelude.sum vs
 
 ---- UTILITIES ------
 

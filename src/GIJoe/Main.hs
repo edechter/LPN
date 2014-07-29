@@ -29,7 +29,7 @@ initGrammar start lexicon _K = grammarFromRules $ binary_rules ++ unary_rules
 _ROOT = N 0 Nothing
 short = stringToSentence "a dog ate a mouse"
 shortCorpus = [short]
-pruneLimit = 10
+pruneLimit = 100
 
 main = do
   let corpus_size = 100

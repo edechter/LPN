@@ -82,7 +82,7 @@ library
   -- Base language which the package is written in.
   default-language:    Haskell2010
   
-  ghc-options: -O2 -rtsopts -auto-all -funbox-strict-fields
+  ghc-options: -O2 -rtsopts -threaded -funbox-strict-fields
   
 executable induction
   Main-is: src/GIJoe/Main.hs
@@ -103,4 +103,25 @@ executable induction
                  pretty-tree >=0.1.0.0,
                  GIJoe
 
-  ghc-options:  -O2 -rtsopts -threaded -auto-all
+  ghc-options:  -O2 -rtsopts -threaded 
+
+executable simpleNumber
+  Main-is: src/GIJoe/RunNumber.hs
+  Build-Depends: base, 
+                 log-domain >=0.9, 
+                 split >=0.2,
+                 mtl >=2.1,
+                 MonadRandom >=0.1,
+                 parallel >=3.2,
+                 deepseq >=1.3,
+                 math-functions >=0.1,
+                 containers >=0.5,
+                 pqueue >=1.2,
+                 data-memocombinators >=0.5,
+                 parsec >=3.1,
+                 parsec-numbers >=0.0,
+                 random >=1.0,
+                 pretty-tree >=0.1.0.0,
+                 GIJoe
+
+  ghc-options:  -O2 -rtsopts -threaded
