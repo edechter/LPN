@@ -14,7 +14,8 @@ import Control.Monad
 import Data.List.Split (splitOn)
 import Data.List (foldl', sortBy, sort, maximumBy, foldl1')
 import Data.Function (on)
-import Control.Monad.List
+--import Control.Monad.List
+import GIJoe.ListT
 import Control.Monad.State
 import Control.Monad.Random
 import Control.Monad.Identity
@@ -386,15 +387,15 @@ lookupDefault i j sym def chart = case lookup i j sym chart of
   Just a -> a
 
 
--- FIXME: This doesn't update the maxpriorityqueue correctly
-insert :: Int -> Int -> Symbol -> a -> Chart a -> Chart a
-insert i j sym a (Chart m_i) = Chart m_i'
-  where m_i' =
-          case HashMap.lookup (i, j) m_i of
-            Just (m_sym, syms) ->
-              HashMap.insert (i, j) (HashMap.insert sym a m_sym, MaxPQueue.insert sym a syms) m_i
+insert :: Show a => Int -> Int -> Symbol -> a -> Chart a -> Chart a
+insert i j sym a (Chart m_ij) = Chart m_ij'
+  where m_ij' =
+          case HashMap.lookup (i, j) m_ij of
+            Just (m_sym, syms) -> let m_sym' = HashMap.insert sym a m_sym
+                                      syms' = if HashMap.member sym m_sym then syms else MaxPQueue.insert sym a syms
+                                  in HashMap.insert (i, j) (m_sym', syms') m_ij
             Nothing ->
-              HashMap.insert (i, j) (HashMap.singleton sym a, MaxPQueue.singleton sym a) m_i
+              HashMap.insert (i, j) (HashMap.singleton sym a, MaxPQueue.singleton sym a) m_ij
 
 
 -- insertWith :: (a -> a -> a) -> Int -> Int -> Symbol -> a -> Chart a -> Chart a
@@ -427,6 +428,10 @@ empty = Chart $ HashMap.empty
 singleton :: Int -> Int -> Symbol -> a -> Chart a
 singleton i j sym a =
   Chart $ HashMap.singleton (i, j) (HashMap.singleton sym a, MaxPQueue.singleton sym a)
+
+showChart :: Show a => Chart a -> String
+showChart (Chart mp) = unlines [show i ++ " " ++ show j ++ " " ++ show sym ++ ": " ++ show v
+                                 | ((i, j), (m_sym, _)) <- HashMap.toList mp, (sym, v) <- HashMap.toList m_sym]
 
 
 data ParseState = ParseState {alphaChartSt :: Chart Double',
@@ -492,7 +497,6 @@ alphas gr b xs = evalState (alphas' 1 m >> get) empty
                   xs <- msgs
                   let m_sym = foldl' (\m (s, w) -> HashMap.insertWith (+) s w m) HashMap.empty xs
                       syms = symbolMapToSymbolQueue m_sym
---                  trace ("i j: " ++ show (i, j)) $ return ()
 --                  trace ("combining alpha messages: " ++ show xs) $ return ()
                   modify $ \ch -> insertLoc i j (m_sym, syms) ch
                   return $! (m_sym, syms)
@@ -504,9 +508,12 @@ betas :: Grammar
        -> Sentence
        -> Chart Double' -- ^ alpha table
        -> Chart Double'
-betas gr start b xs alphaChart
-  = evalState (sequence [betas' i j | i <-[1..m], j <- [i..m]] >> get) empty
-  where xs' = Seq.fromList xs
+betas gr start b xs alphaChart = evalState (go >> get) empty
+  where go = sequence $ do
+          i <- [1..m]
+          j <- [i..m]
+          return $ betas' i j
+        xs' = Seq.fromList xs
         m = Seq.length xs'
         liftList = ListT . return
         
@@ -514,7 +521,7 @@ betas gr start b xs alphaChart
                   -> State (Chart Double')
                   (HashMap Symbol Double', MaxPQueue Symbol Double')
         betas' i j | i == 1 && j == m = do
-          put $ insert 1 m start 1 empty
+          modify $ \ch -> insert 1 m start 1  ch
           return $ (HashMap.singleton start 1,
                     MaxPQueue.singleton start 1)
         
@@ -576,10 +583,10 @@ betas gr start b xs alphaChart
                   ls <- leftCaseMsgs
                   rs <- rightCaseMsgs
                   let allMsgs = ls ++ rs
-                  let m_sym = foldl' (\m (s, w) -> HashMap.insertWith (+) s w m) HashMap.empty
-                              allMsgs
+                  let m_sym = foldl' (\m (s, w) -> HashMap.insertWith (+) s w m) HashMap.empty allMsgs
                       syms = symbolMapToSymbolQueue m_sym                              
                   modify $ \ch -> insertLoc i j (m_sym, syms) ch
+                  betaChart <- get
                   return (m_sym, syms)
 
 
@@ -622,8 +629,8 @@ makeCharts :: Grammar
            -> Sentence
            -> (Chart Double', Chart Double')
 makeCharts gr start b xs = (alphaChart, betaChart)
-  where alphaChart = alphas gr b xs
-        betaChart  = betas gr start b xs alphaChart
+  where !alphaChart = alphas gr b xs
+        !betaChart  = betas gr start b xs alphaChart
         m = length xs
 
 withChartsT :: Monad m =>
@@ -698,6 +705,20 @@ meritRuleIJ i j = do
      then return HashMap.empty
      else return $ foldl1' (HashMap.unionWith (+)) mps
 
+alpha :: Monad m => Int -> Int -> StateT ParseState m (HashMap Symbol Double')
+alpha i j = do
+  alphaChart <- gets alphaChartSt
+  case lookupLoc i j alphaChart of
+    Nothing -> return HashMap.empty
+    Just (m_sym, _) -> return $! m_sym
+
+beta :: Monad m => Int -> Int -> StateT ParseState m (HashMap Symbol Double')
+beta i j = do
+  betaChart <- gets betaChartSt
+  case lookupLoc i j betaChart of
+    Nothing -> return HashMap.empty
+    Just (m_sym, _) -> return $! m_sym
+
 probRuleIJ :: Monad m => Int -> Int -> StateT ParseState m (HashMap Rule Double')
 probRuleIJ i j = do
   lnZ <- loglikelihood
@@ -709,13 +730,13 @@ debugProbs :: Monad m => StateT ParseState m [(Int, Int, Rule, Double')]
 debugProbs = do
   xs <- gets sentenceSt
   let m = length xs
-  xs <- runListT $ do
+  ys <- runListT $ do
     i <- ListT . return $ [1..m]
     j <- ListT . return $ [i..m]    
     mp <- lift $ probRuleIJ i j
     (r, p) <- ListT . return $ HashMap.toList mp
     return $ (i, j, r, p)
-  return $ filter (\(_, _, _, p) -> p > 1) xs
+  return $ filter (\(_, _, _, p) -> p > 1) ys
   
 
 
@@ -736,7 +757,15 @@ expectedCounts :: State ParseState (HashMap Rule Double')
 expectedCounts = do m1 <- binary_case_mp
                     m2 <- unary_case_mp
                     ps <- debugProbs
-                    if not.null $ ps then trace (unlines (map show ps)) $ return ()
+                    xs <- gets sentenceSt
+                    if not.null $ ps
+                      then do trace (show xs ++ ": " ++ unlines (map show ps)) $ return ()
+                              let (i, j, r, p) = head ps
+                              a <- alpha i j
+                              b <- beta i j
+                              trace (show xs ++ " alpha: " ++ show (i, j) ++ show a) $ return ()
+                              trace (show xs ++ " beta: " ++ show (i, j) ++ show b) $ return ()
+                              modify $ id 
                       else return ()
                     return $ HashMap.unionWith (+) m1 m2
   where binary_case_mp = do
@@ -788,7 +817,7 @@ emIteration :: Grammar
 -- the corpus. Returns a resulting grammar and its associated
 -- loglikelihood.
 emIteration gr start b corpus = trace (show gr') $ (gr', ll, h)
-  where (css, lls, hs) = unzip3 $ withStrategy (parList rdeepseq) $ do
+  where (css, lls, hs) = unzip3 $ do
            xs <- corpus
            return $ fst $ withCharts gr start b xs $ do
              ll <- loglikelihood
@@ -825,8 +854,7 @@ em gr start b corpus maxIter tol = go gr negInfty maxIter
                 infoOut i = trace $ unlines
                             ["-------------",
                              "em: iteration " ++ show i ++ " loglike: " ++ show best_ll,
-                             "H: " ++ show h, 
-                             "gr : " ++ showSortedGrammar gr']
+                             "H: " ++ show h]
         negInfty = read "-Infinity"
 
 ---- SAMPLING -------
@@ -929,6 +957,16 @@ readGrammar fpath = do xs <- readFile fpath
                        case parseGrammar fpath xs of
                          Right gr -> return gr
                          Left err -> error $ show err
+
+writeGrammar fpath info gr = writeFile fpath (unlines (comment:ls))
+  where ls = map go (grammarRules gr)
+        go (BinaryRule h l r w) =
+          "$" ++ show h ++ " --> " ++ "$" ++ show l ++ " " ++ "$" ++ show r ++ " :: " ++ show w
+        go (UnaryRule h c w) =
+          "$" ++ show h ++ " --> " ++ show c ++ " :: " ++ show w
+        comment = '#':info
+
+                        
                          
 parseGrammar :: String -- ^ source name
             -> String -- ^ grammar content
@@ -1013,6 +1051,21 @@ r11 = _NP ->>- (stars,  0.18)
 r12 = _NP ->>- (telescopes, 0.1)
 
 gr0 = grammarFromRules [r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12]
+
+_A = mkNonTerm 0 "A"
+_B = mkNonTerm 1 "B"
+t1 = _A ->- (_A, _B, 1000000)
+t2 = _A ->- (_A, _A, 1e-9)
+t3 = _A ->- (_B, _A, 1)
+t4 = _B ->- (_A, _B, 1)
+t5 = _B ->- (_A, _A, 1)
+t6 = _B ->- (_B, _A, 1)
+t7 = _A ->>- (T "a", 50000)
+t8 = _B ->>- (T "a", 5e-9)
+t9 = _A ->>- (T "b", 1e-10)
+t10 = _B ->>- (T "b", 2e-50)
+
+gr1 = grammarFromRules [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10]
 
 -- k1 = _S ->>- (ears, 0.4)
 -- k2 = _S ->>- (stars, 0.6)
