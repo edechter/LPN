@@ -12,7 +12,7 @@ import Numeric.Log
 
 import Control.Monad
 import Data.List.Split (splitOn)
-import Data.List (foldl', sortBy, maximumBy, foldl1')
+import Data.List (foldl', sortBy, sort, maximumBy, foldl1')
 import Data.Function (on)
 import Control.Monad.List
 import Control.Monad.State
@@ -477,12 +477,23 @@ alphas gr b xs = evalState (alphas' 1 m >> get) empty
                   right_sym <- fmap fst . liftList . MaxPQueue.take b . snd $ right_cell
                   let right_alpha = (fst right_cell) ! right_sym
                   rule <- liftList $ binaryRulesWithChildren gr (left_sym, right_sym)
-                  return $! (headSymbol rule, weight rule * left_alpha * right_alpha)
+                  let a = weight rule
+                          * left_alpha
+                          * right_alpha
+                  -- if a < 1e-10 then 
+                  --   trace (unlines ["left_alpha: " ++ show left_alpha,
+                  --                 "right_alpha: " ++ show left_alpha,
+                  --                 "weight rule: " ++ show (weight rule),
+                  --                 "prod: " ++ show a]) $ return ()
+                  --    else return ()
+                  return $! (headSymbol rule, a)
                   
                 process_msgs = do
                   xs <- msgs
                   let m_sym = foldl' (\m (s, w) -> HashMap.insertWith (+) s w m) HashMap.empty xs
                       syms = symbolMapToSymbolQueue m_sym
+--                  trace ("i j: " ++ show (i, j)) $ return ()
+--                  trace ("combining alpha messages: " ++ show xs) $ return ()
                   modify $ \ch -> insertLoc i j (m_sym, syms) ch
                   return $! (m_sym, syms)
 
@@ -494,7 +505,7 @@ betas :: Grammar
        -> Chart Double' -- ^ alpha table
        -> Chart Double'
 betas gr start b xs alphaChart
-  = evalState (sequence [betas' i i | i <-[1..m]] >> get) empty
+  = evalState (sequence [betas' i j | i <-[1..m], j <- [i..m]] >> get) empty
   where xs' = Seq.fromList xs
         m = Seq.length xs'
         liftList = ListT . return
@@ -518,15 +529,23 @@ betas gr start b xs alphaChart
                   alphaCell <- case lookupLoc (j+1) k alphaChart of
                       Just rc -> return rc
                       Nothing -> return $ (HashMap.empty, MaxPQueue.empty)
-                      
-                  (head_sym, beta_msg) <- liftList $ HashMap.toList $ fst betaCell
-                  (right_sym, alpha_msg) <- liftList $ HashMap.toList $ fst alphaCell
+
+                  head_sym <- fmap fst . liftList . MaxPQueue.take b . snd $ betaCell
+                  let beta_msg = (fst betaCell) ! head_sym
+                  right_sym <- fmap fst . liftList . MaxPQueue.take b . snd $ alphaCell
+                  let alpha_msg = (fst alphaCell) ! right_sym
+
                   let r1 = ruleIdsWithRightChild gr right_sym
                       r2 = rulesHeadedById gr head_sym
                       rules = getRulesById gr $ IntSet.intersection r1 r2
                   rule <- liftList $ rules
                   guard $ right_sym /= leftChild rule
-                  return $! (leftChild rule, weight rule * beta_msg * alpha_msg)
+                  -- trace (show beta_msg) $ return ()
+                  -- trace (show alpha_msg) $ return ()
+                  return $! (leftChild rule,
+                             weight rule *
+                             beta_msg *
+                             alpha_msg)
 
                 rightCaseMsgs = runListT $ do
                   k <- liftList [1..i-1]
@@ -548,7 +567,10 @@ betas gr start b xs alphaChart
                       r2 = rulesHeadedById gr head_sym
                       rules = getRulesById gr $ IntSet.intersection r1 r2
                   rule <- liftList $ rules
-                  return $! (rightChild rule, weight rule * beta_msg * alpha_msg)
+                  return $! (rightChild rule,
+                             weight rule *
+                             beta_msg *
+                             alpha_msg)
 
                 process_msgs = do
                   ls <- leftCaseMsgs
@@ -573,12 +595,15 @@ getMapParse = do
           let liftList = ListT . return
           xs <- runListT $ do
                 k <- liftList [i..j]
-                left_m <- lift $ musSymbol i k
+                left_m <- lift $ meritSymbolSpan i k
                 (left_sym, left_mu) <- liftList $ HashMap.toList left_m
-                right_m <- lift $ musSymbol (k+1) j
+                right_m <- lift $ meritSymbolSpan (k+1) j
                 (right_sym, right_mu) <- liftList $ HashMap.toList right_m
                 rule@(BinaryRule _ _ _ w) <- liftList $ getBinaryRulesBySymbols gr sym left_sym right_sym
-                return $ (rule, left_mu * right_mu * w, k)
+                return $ (rule,
+                          left_mu *
+                          right_mu *
+                          w, k)
           let snd3 (_, b, _) = b
               (rule, p, k) = maximumBy (compare `on` snd3) xs
           lParse <- mapParse gr i k (leftChild rule) 
@@ -586,7 +611,6 @@ getMapParse = do
           return $! Parse rule [lParse, rParse]
           
         mapParse gr i j sym | i == j = do
---          trace (show (i, j, sym)) $ return ()          
           xs <- gets sentenceSt
           let rule = head $ getUnaryRulesBySymbols gr sym (xs !! (i - 1))
           return $ Parse rule []
@@ -615,12 +639,13 @@ withChartsT gr start b xs m = runStateT m
 
 withCharts gr start b xs m  = runIdentity $ withChartsT gr start b xs m
 
-musSymbol :: Monad m =>
+meritSymbolSpan :: Monad m =>
              Int -> Int -> StateT ParseState m (HashMap Symbol Double')
-musSymbol i j = do
+meritSymbolSpan i j = do
   alphaChart <- gets alphaChartSt
   betaChart <- gets betaChartSt
   gr <- gets grammarSt
+  lnZ <- loglikelihood  
   let collectMus = do
        (a_m_sym, _) <- lookupLoc i j alphaChart
        (b_m_sym, _) <- lookupLoc i j betaChart
@@ -630,14 +655,17 @@ musSymbol i j = do
                   Nothing -> 0
                   Just b -> b
             return $! (sym, a * b)
+       -- trace ("alpha_message: " ++ show a_m_sym) $ return ()
+       -- trace ("beta_message: " ++ show b_m_sym) $ return ()       
+       -- trace ("meritSymbolSpan " ++ show (i, j) ++ " mus: " ++ show xs) $ return ()
+       -- trace ("z: " ++ show (exp lnZ))  $ return ()       
        Just $ foldl' (\m (r, c) -> HashMap.insertWith (+) r c m) HashMap.empty xs
   case collectMus of
       Just xs -> return xs
       Nothing -> return HashMap.empty
-     
 
-mus :: Monad m => Int -> Int -> Int -> StateT ParseState m (HashMap Rule Double')
-mus i k j = do
+meritRuleIKJ :: Monad m => Int -> Int -> Int -> StateT ParseState m (HashMap Rule Double')
+meritRuleIKJ i k j = do
     alphaChart <- gets alphaChartSt
     betaChart <- gets betaChartSt
     gr <- gets grammarSt
@@ -656,8 +684,42 @@ mus i k j = do
       Just xs -> return xs
       Nothing -> return HashMap.empty
 
+meritRuleIJ :: Monad m => Int -> Int -> StateT ParseState m (HashMap Rule Double')
+meritRuleIJ i j | i == j = do
+  mp <- meritSymbolSpan i j
+  xs <- gets sentenceSt
+  gr <- gets grammarSt
+  let rs = [(r, val) | (sym, val) <- HashMap.toList mp,
+                  r <- getUnaryRulesBySymbols gr sym (xs !! (i - 1))]
+  return $ HashMap.fromList rs
+meritRuleIJ i j = do
+  mps <- sequence $ [meritRuleIKJ i k j | k <- [i..j]]
+  if null mps
+     then return HashMap.empty
+     else return $ foldl1' (HashMap.unionWith (+)) mps
 
-loglikelihood :: State ParseState Double
+probRuleIJ :: Monad m => Int -> Int -> StateT ParseState m (HashMap Rule Double')
+probRuleIJ i j = do
+  lnZ <- loglikelihood
+  mp <- meritRuleIJ i j
+  let z = Exp lnZ
+  return $ HashMap.map (/z) mp
+
+debugProbs :: Monad m => StateT ParseState m [(Int, Int, Rule, Double')]
+debugProbs = do
+  xs <- gets sentenceSt
+  let m = length xs
+  xs <- runListT $ do
+    i <- ListT . return $ [1..m]
+    j <- ListT . return $ [i..m]    
+    mp <- lift $ probRuleIJ i j
+    (r, p) <- ListT . return $ HashMap.toList mp
+    return $ (i, j, r, p)
+  return $ filter (\(_, _, _, p) -> p > 1) xs
+  
+
+
+loglikelihood :: Monad m => StateT ParseState m Double
 -- | This is only the loglikelihood of the sentence if the grammar is normalized
 loglikelihood = do
       xs <- gets sentenceSt
@@ -667,9 +729,15 @@ loglikelihood = do
           (Just (Exp lnZ)) = lookup 1 m start alphaChart
       return $ lnZ
 
+loglikelihoodCorpus gr sym b corpus = Prelude.sum [go x | x <- corpus]
+  where go x = fst $ withCharts gr sym b x $ loglikelihood
+
 expectedCounts :: State ParseState (HashMap Rule Double')
 expectedCounts = do m1 <- binary_case_mp
                     m2 <- unary_case_mp
+                    ps <- debugProbs
+                    if not.null $ ps then trace (unlines (map show ps)) $ return ()
+                      else return ()
                     return $ HashMap.unionWith (+) m1 m2
   where binary_case_mp = do
           xs <- gets sentenceSt
@@ -681,7 +749,7 @@ expectedCounts = do m1 <- binary_case_mp
             i <- liftList $ [1..m-1]
             k <- liftList $ [i..m-1]
             j <- liftList $ [k+1..m]
-            lift $ mus i k j
+            lift $ meritRuleIKJ i k j
           if null mu_maps
             then return HashMap.empty
             else return $ HashMap.map (/_Z) $ foldl1 (HashMap.unionWith (+)) mu_maps
@@ -694,7 +762,7 @@ expectedCounts = do m1 <- binary_case_mp
               (Just _Z) = lookup 1 m start alphaChart
           vs <- runListT $ do
             (sym, i) <- liftList $ zip xs [1..m]
-            mu_i <- lift $ musSymbol i i
+            mu_i <- lift $ meritSymbolSpan i i
             rule <- liftList $ rulesWithUnaryChild gr sym
             let c = case HashMap.lookup (headSymbol rule) mu_i of
                   Nothing -> 0
@@ -714,24 +782,29 @@ emIteration :: Grammar
             -> Int -- ^ pruning limit
             -> Corpus
             -> (Grammar, -- ^ output grammar
-                Double)  -- ^ loglikelihood of corpus in resulting grammar
+                Double, -- ^ loglikelihood of corpus in resulting grammar
+                Double)  -- ^ entropy of parses
 -- | @emIteration gr start b corpus@ runs a single iteration of EM on
 -- the corpus. Returns a resulting grammar and its associated
 -- loglikelihood.
-emIteration gr start b corpus = (gr', ll)
-  where (css, lls) = unzip $ withStrategy (parList rdeepseq) $ do
+emIteration gr start b corpus = trace (show gr') $ (gr', ll, h)
+  where (css, lls, hs) = unzip3 $ withStrategy (parList rdeepseq) $ do
            xs <- corpus
            return $ fst $ withCharts gr start b xs $ do
              ll <- loglikelihood
              cs <- expectedCounts
-             return (cs, ll)
+             h <- entropyParses
+             return (cs, ll, h)
         !ll = Prelude.sum lls
+        !h = Prelude.sum hs
         !counts = foldl1' (HashMap.unionWith (+)) css
-        !_K = fromIntegral $ HashMap.size counts
-        !_Ws = trace (showCounts counts) $ meanFieldDirMultRules gr (1.0/_K) counts
-
+        !_K = fromIntegral $ length (allNonTerminals gr)
+        !_Ws = meanFieldDirMultRules gr (1.0/_K) counts
+        
         gr' = modifyRules gr reweight 
           where reweight r = r{weight = maybe 0 id (HashMap.lookup r _Ws)}
+
+
                 
 
 type EMLog = [(Grammar, Double)]
@@ -746,10 +819,13 @@ em :: Grammar
 em gr start b corpus maxIter tol = go gr negInfty maxIter 
   where go _ _ 0 = []
         go g best_ll i = infoOut i $ (g, ll) : go gr' ll (i - 1) 
-          where (gr', ll) = emIteration g start b corpus 
+          where (gr', _, h) = emIteration g start b corpus
+                gr_point_est = normalizeGrammar gr'
+                ll = loglikelihoodCorpus gr_point_est start b corpus
                 infoOut i = trace $ unlines
                             ["-------------",
                              "em: iteration " ++ show i ++ " loglike: " ++ show best_ll,
+                             "H: " ++ show h, 
                              "gr : " ++ showSortedGrammar gr']
         negInfty = read "-Infinity"
 
@@ -794,12 +870,11 @@ meanFieldDirMult :: Double' -- ^ concentration parameter
 {-# INLINE meanFieldDirMult #-}                 
 meanFieldDirMult alpha counts
 -- Calculate the mean field weights of 
-  = trace ("W: " ++ show ws') $ ws'
+  = ws
   where _K = toDouble' $ fromIntegral $ length counts
         psiAll = digamma' $  _K * alpha + sum counts 
         psis = map (digamma' . (+alpha)) counts
         ws = [Exp (psi - psiAll ) | psi <- psis]
-        ws' = [if w > 1e-16 then w else 1e-16 | w <- ws]
         digamma' = digamma . fromDouble'
 
 -- pow (Exp x) y = Exp $ x * y
@@ -818,45 +893,35 @@ meanFieldDirMultRules gr alpha m_counts =
                 cs = [maybe 0 id (HashMap.lookup r m_counts) | r <- rules]
                 ws = meanFieldDirMult alpha cs
                 
--- entropyParses :: State ParseState Double
--- -- | Compute the entropy of the distribution over parses, q(z).
--- entropyParses = do m1 <- binary_case_mp
---                    m2 <- unary_case_mp
---                    return $ m1 + m2
---   where binary_case_mp = do
---           xs <- gets sentenceSt
---           start <- gets startSt
---           alphaChart <- gets alphaChartSt
---           let m = length xs
---               (Just _Z) = lookup 1 m start alphaChart
---           mu_maps <- runListT $ do 
---             i <- liftList $ [1..m-1]
---             k <- liftList $ [i..m-1]
---             j <- liftList $ [k+1..m]
---             lift $ mus i k j
---           if null mu_maps
---             then return 0
---             else do let ps = HashMap.elems mu_maps
---                     return $ Prelude.sum [fromDouble' p * ln p | p <- ps]
---         unary_case_mp = do
---           xs <- gets sentenceSt
---           start <- gets startSt
---           alphaChart <- gets alphaChartSt
---           gr <- gets grammarSt
---           let m = length xs
---               (Just _Z) = lookup 1 m start alphaChart
---               lnZ = ln _Z
---           vs <- runListT $ do
---             (sym, i) <- liftList $ zip xs [1..m]
---             mu_i <- lift $ musSymbol i 
---             rule <- liftList $ rulesWithUnaryChild gr sym
---             let c = case HashMap.lookup (headSymbol rule) mu_i of
---                   Nothing -> 0
---                   Just x -> x
---             let p = mu_i / _Z
---             return $ negate (fromDouble' p * ln p)
---           return $ Prelude.sum vs
+entropyParses :: Monad m => StateT ParseState m Double
+-- | Compute the entropy of the distribution over parses, q(z).
+-- | O(n^2 * K) 
+entropyParses = do
+  xs <- gets sentenceSt
+  let m = length xs
+      liftList = ListT . return 
+  vs <- runListT $ do
+    i <- liftList $ [1..m] 
+    j <- liftList $ [i..m]
+    mp <- lift $ probRuleIJ i j
+    (Exp lnp) <- liftList $ HashMap.elems mp
+    let p = exp lnp
+    return $ negate $ if p == 0 then 0 else p * lnp
+  return $! Prelude.sum vs
 
+underFlow :: Double' -> Double'
+underFlow x | x < _MIN_VAL = _MIN_VAL
+            | otherwise = x
+  where _MIN_VAL = 1e-2
+
+sumAcc :: [Double'] -> Double'
+sumAcc xs = out
+  where !bs = map ln xs -- get exponents
+        !bMin = minimum bs -- minimum exponent
+        !bs' = map (subtract bMin) bs -- subtract out minimum exponent
+        !ys = sum $ map Exp bs'
+        !out = ys * Exp bMin
+        
 ---- UTILITIES ------
 
 readGrammar :: FilePath -> IO Grammar
