@@ -492,7 +492,6 @@ alphas gr b xs = flip evalState empty $ do alphas' 1 m
                   xs <- msgs
                   let m_sym = foldl' (\m (s, w) -> HashMap.insertWith (+) s w m) HashMap.empty xs
                       syms = symbolMapToSymbolQueue m_sym
---                  trace ("combining alpha messages: " ++ show xs) $ return ()
                   modify $ \ch -> insertLoc i j (m_sym, syms) ch
                   return $! (m_sym, syms)
 
@@ -542,8 +541,6 @@ betas gr start b xs !alphaChart = evalState (go >> get) empty
                       rules = getRulesById gr $ IntSet.intersection r1 r2
                   rule <- liftList $ rules
                   guard $ right_sym /= leftChild rule
-                  -- trace (show beta_msg) $ return ()
-                  -- trace (show alpha_msg) $ return ()
                   let !l = weight rule *
                              beta_msg *
                              alpha_msg
@@ -657,10 +654,6 @@ meritSymbolSpan i j = do
                   Nothing -> 0
                   Just b -> b
             return $! (sym, a * b)
-       -- trace ("alpha_message: " ++ show a_m_sym) $ return ()
-       -- trace ("beta_message: " ++ show b_m_sym) $ return ()       
-       -- trace ("meritSymbolSpan " ++ show (i, j) ++ " mus: " ++ show xs) $ return ()
-       -- trace ("z: " ++ show (exp lnZ))  $ return ()       
        Just $ foldl' (\m (r, c) -> HashMap.insertWith (+) r c m) HashMap.empty xs
   case collectMus of
       Just xs -> return xs
@@ -751,16 +744,6 @@ loglikelihoodCorpus gr sym b corpus = Prelude.sum [go x | x <- corpus]
 expectedCounts :: State ParseState (HashMap Rule Double')
 expectedCounts = do m1 <- binary_case_mp
                     m2 <- unary_case_mp
-                    ps <- debugProbs
-                    xs <- gets sentenceSt
-                    if not.null $ ps
-                      then do let (i, j, r, p) = head ps
-                              trace ("Above 1.0") $ return ()
-                              trace (show $ head ps) $ return ()
-                              st <- get
---                              trace ("STATE: -------\n" ++ show st) $ return ()
-                              modify $ id 
-                      else return ()
                     return $ HashMap.unionWith (+) m1 m2
   where binary_case_mp = do
           xs <- gets sentenceSt
@@ -811,7 +794,7 @@ emIteration :: Grammar
 -- the corpus. Returns a resulting grammar and its associated
 -- loglikelihood.
 emIteration gr start b corpus = (gr', ll, h)
-  where (css, lls, hs) = unzip3 $ do
+  where (css, lls, hs) = unzip3 $ withStrategy (parList rdeepseq) $ do
            xs <- corpus
            return $ fst $ withCharts gr start b xs $ do
              ll <- loglikelihood
@@ -822,7 +805,7 @@ emIteration gr start b corpus = (gr', ll, h)
         !h = Prelude.sum hs
         !counts = foldl1' (HashMap.unionWith (+)) css
         !_K = fromIntegral $ length (allNonTerminals gr)
-        !_Ws = meanFieldDirMultRules gr (1.0/_K) counts
+        !_Ws = meanFieldDirMultRules gr (2.0/_K) counts
         
         gr' = modifyRules gr reweight 
           where reweight r = r{weight = maybe 0 id (HashMap.lookup r _Ws)}

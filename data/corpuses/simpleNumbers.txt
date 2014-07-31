@@ -8,26 +8,6 @@ se ven
 eight
 nine
 ten
-one 
-two 
-three
-four 
-five
-six
-se ven
-eight
-nine
-ten
-one 
-two 
-three
-four 
-five
-six
-se ven
-eight
-nine
-ten
 twen ty
 twen ty one
 twen ty two
@@ -78,13 +58,3 @@ six ty six
 six ty se ven
 six ty eight 
 six ty nine
-se ven ty
-se ven ty one
-se ven ty two
-se ven ty three
-se ven ty four
-se ven ty five
-se ven ty se ven
-se ven ty se ven
-se ven ty eight 
-se ven ty nine
