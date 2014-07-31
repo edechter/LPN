@@ -1,3 +1,8 @@
+Experiment Log:
+7.31.2014
+commit hash: c56db7f
+main: src/GIJoe/RunNumber.hs
+
 $ time ./dist/build/simpleNumber/simpleNumber +RTS -N4
 -------------
 em: iteration 15 loglike: -Infinity
