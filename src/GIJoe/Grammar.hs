@@ -4,6 +4,7 @@ module GIJoe.Grammar where
 
 import GIJoe.Types
 import GIJoe.Utils
+import GIJoe.Chart
 
 import Prelude hiding (sum, lookup)
 import qualified Prelude
@@ -16,7 +17,7 @@ import Data.List (foldl', sortBy, sort, maximumBy, foldl1')
 import Data.Function (on)
 --import Control.Monad.List
 import GIJoe.ListT
-import Control.Monad.State
+import Control.Monad.State.Strict
 import Control.Monad.Random
 import Control.Monad.Identity
 import Control.Parallel.Strategies 
@@ -54,7 +55,7 @@ import Text.Parsec.Prim hiding (parse, State)
 import Text.Parsec hiding (parse, State)
 import Text.ParserCombinators.Parsec.Number
 
-data Symbol = N Int (Maybe String) --  non terminal
+data Symbol = N {nonTermIndex :: Int, nonTermName :: (Maybe String)} --  non terminal
             | T String -- terminal
             | E -- empty symbol
             deriving (Ord, Eq, Generic)
@@ -446,14 +447,14 @@ alphas :: Grammar
        -> Int -- ^ pruning size
        -> Sentence
        -> Chart Double'
-alphas gr b xs = evalState (alphas' 1 m >> get) empty
+alphas gr b xs = flip evalState empty $ do alphas' 1 m
+                                           get
   where xs' = Seq.fromList xs
         m = Seq.length xs'
-        liftList = ListT . return
 
         alphas' :: Int -> Int -> State (Chart Double') (HashMap Symbol Double', MaxPQueue Symbol Double')
         alphas' i j | i == j = process_msgs
-          where msgs =  runListT $ do
+          where msgs = toStateT $ do
                   rule <- liftList $ rulesWithUnaryChild gr x
                   let sym = headSymbol rule
                   return $! (sym, weight rule)
@@ -466,7 +467,7 @@ alphas gr b xs = evalState (alphas' 1 m >> get) empty
                   return $! (c, syms)
 
         alphas' i j = process_msgs
-          where msgs = runListT $ do
+          where msgs = toStateT $ do
                   k <- liftList [i..j-1]
                   chart  <- get
                   left_cell <- case lookupLoc i k chart of
@@ -482,17 +483,11 @@ alphas gr b xs = evalState (alphas' 1 m >> get) empty
                   right_sym <- fmap fst . liftList . MaxPQueue.take b . snd $ right_cell
                   let right_alpha = (fst right_cell) ! right_sym
                   rule <- liftList $ binaryRulesWithChildren gr (left_sym, right_sym)
-                  let a = weight rule
+                  let !a = weight rule
                           * left_alpha
                           * right_alpha
-                  -- if a < 1e-10 then 
-                  --   trace (unlines ["left_alpha: " ++ show left_alpha,
-                  --                 "right_alpha: " ++ show left_alpha,
-                  --                 "weight rule: " ++ show (weight rule),
-                  --                 "prod: " ++ show a]) $ return ()
-                  --    else return ()
                   return $! (headSymbol rule, a)
-                  
+
                 process_msgs = do
                   xs <- msgs
                   let m_sym = foldl' (\m (s, w) -> HashMap.insertWith (+) s w m) HashMap.empty xs
@@ -508,14 +503,14 @@ betas :: Grammar
        -> Sentence
        -> Chart Double' -- ^ alpha table
        -> Chart Double'
-betas gr start b xs alphaChart = evalState (go >> get) empty
+betas gr start b xs !alphaChart = evalState (go >> get) empty
   where go = sequence $ do
           i <- [1..m]
           j <- [i..m]
           return $ betas' i j
         xs' = Seq.fromList xs
         m = Seq.length xs'
-        liftList = ListT . return
+--        liftList = ListT . return
         
         betas' :: Int -> Int
                   -> State (Chart Double')
@@ -526,7 +521,7 @@ betas gr start b xs alphaChart = evalState (go >> get) empty
                     MaxPQueue.singleton start 1)
         
         betas' i j = process_msgs
-          where leftCaseMsgs = runListT $ do
+          where leftCaseMsgs = toStateT $ do
                   k <- liftList [j+1..m]
                   betaChart  <- lift get
                   betaCell <- case lookupLoc i k betaChart of
@@ -549,12 +544,12 @@ betas gr start b xs alphaChart = evalState (go >> get) empty
                   guard $ right_sym /= leftChild rule
                   -- trace (show beta_msg) $ return ()
                   -- trace (show alpha_msg) $ return ()
-                  return $! (leftChild rule,
-                             weight rule *
+                  let !l = weight rule *
                              beta_msg *
-                             alpha_msg)
-
-                rightCaseMsgs = runListT $ do
+                             alpha_msg
+                  return $! (leftChild rule, l)
+                             
+                rightCaseMsgs = toStateT $ do
                   k <- liftList [1..i-1]
                   betaChart  <- lift get
                   betaCell <- case lookupLoc k j betaChart of
@@ -574,11 +569,11 @@ betas gr start b xs alphaChart = evalState (go >> get) empty
                       r2 = rulesHeadedById gr head_sym
                       rules = getRulesById gr $ IntSet.intersection r1 r2
                   rule <- liftList $ rules
-                  return $! (rightChild rule,
-                             weight rule *
+                  let !r = weight rule *
                              beta_msg *
-                             alpha_msg)
-
+                             alpha_msg
+                  return $! (rightChild rule, r)
+                             
                 process_msgs = do
                   ls <- leftCaseMsgs
                   rs <- rightCaseMsgs
@@ -599,8 +594,8 @@ getMapParse = do
   mapParse gr 1 m start
   
   where mapParse gr i j sym | i /= j = do
-          let liftList = ListT . return
-          xs <- runListT $ do
+--          let liftList = ListT . return
+          xs <- toStateT $ do
                 k <- liftList [i..j]
                 left_m <- lift $ meritSymbolSpan i k
                 (left_sym, left_mu) <- liftList $ HashMap.toList left_m
@@ -730,11 +725,11 @@ debugProbs :: Monad m => StateT ParseState m [(Int, Int, Rule, Double')]
 debugProbs = do
   xs <- gets sentenceSt
   let m = length xs
-  ys <- runListT $ do
-    i <- ListT . return $ [1..m]
-    j <- ListT . return $ [i..m]    
+  ys <- toStateT $ do
+    i <- liftList $ [1..m]
+    j <- liftList $ [i..m]    
     mp <- lift $ probRuleIJ i j
-    (r, p) <- ListT . return $ HashMap.toList mp
+    (r, p) <- liftList $ HashMap.toList mp
     return $ (i, j, r, p)
   return $ filter (\(_, _, _, p) -> p > 1) ys
   
@@ -759,12 +754,11 @@ expectedCounts = do m1 <- binary_case_mp
                     ps <- debugProbs
                     xs <- gets sentenceSt
                     if not.null $ ps
-                      then do trace (show xs ++ ": " ++ unlines (map show ps)) $ return ()
-                              let (i, j, r, p) = head ps
-                              a <- alpha i j
-                              b <- beta i j
-                              trace (show xs ++ " alpha: " ++ show (i, j) ++ show a) $ return ()
-                              trace (show xs ++ " beta: " ++ show (i, j) ++ show b) $ return ()
+                      then do let (i, j, r, p) = head ps
+                              trace ("Above 1.0") $ return ()
+                              trace (show $ head ps) $ return ()
+                              st <- get
+--                              trace ("STATE: -------\n" ++ show st) $ return ()
                               modify $ id 
                       else return ()
                     return $ HashMap.unionWith (+) m1 m2
@@ -774,7 +768,7 @@ expectedCounts = do m1 <- binary_case_mp
           alphaChart <- gets alphaChartSt
           let m = length xs
               (Just _Z) = lookup 1 m start alphaChart
-          mu_maps <- runListT $ do 
+          mu_maps <- toStateT $ do 
             i <- liftList $ [1..m-1]
             k <- liftList $ [i..m-1]
             j <- liftList $ [k+1..m]
@@ -789,7 +783,7 @@ expectedCounts = do m1 <- binary_case_mp
           gr <- gets grammarSt
           let m = length xs
               (Just _Z) = lookup 1 m start alphaChart
-          vs <- runListT $ do
+          vs <- toStateT $ do
             (sym, i) <- liftList $ zip xs [1..m]
             mu_i <- lift $ meritSymbolSpan i i
             rule <- liftList $ rulesWithUnaryChild gr sym
@@ -816,7 +810,7 @@ emIteration :: Grammar
 -- | @emIteration gr start b corpus@ runs a single iteration of EM on
 -- the corpus. Returns a resulting grammar and its associated
 -- loglikelihood.
-emIteration gr start b corpus = trace (show gr') $ (gr', ll, h)
+emIteration gr start b corpus = (gr', ll, h)
   where (css, lls, hs) = unzip3 $ do
            xs <- corpus
            return $ fst $ withCharts gr start b xs $ do
@@ -833,9 +827,6 @@ emIteration gr start b corpus = trace (show gr') $ (gr', ll, h)
         gr' = modifyRules gr reweight 
           where reweight r = r{weight = maybe 0 id (HashMap.lookup r _Ws)}
 
-
-                
-
 type EMLog = [(Grammar, Double)]
 
 em :: Grammar
@@ -848,9 +839,7 @@ em :: Grammar
 em gr start b corpus maxIter tol = go gr negInfty maxIter 
   where go _ _ 0 = []
         go g best_ll i = infoOut i $ (g, ll) : go gr' ll (i - 1) 
-          where (gr', _, h) = emIteration g start b corpus
-                gr_point_est = normalizeGrammar gr'
-                ll = loglikelihoodCorpus gr_point_est start b corpus
+          where (gr', ll, h) = emIteration g start b corpus
                 infoOut i = trace $ unlines
                             ["-------------",
                              "em: iteration " ++ show i ++ " loglike: " ++ show best_ll,
@@ -927,8 +916,8 @@ entropyParses :: Monad m => StateT ParseState m Double
 entropyParses = do
   xs <- gets sentenceSt
   let m = length xs
-      liftList = ListT . return 
-  vs <- runListT $ do
+--      liftList = ListT . return 
+  vs <- toStateT $ do
     i <- liftList $ [1..m] 
     j <- liftList $ [i..m]
     mp <- lift $ probRuleIJ i j
@@ -1084,7 +1073,7 @@ isJust _ = False
 fromJust (Just x) = x
 fromJust _ = error "FromJust."
 
-liftList = ListT . return
+-- liftList = ListT . return
 
 instance (Floating a, Random a) => Random (Log a) where
   random g = let (r, g') = random g
