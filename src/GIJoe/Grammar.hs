@@ -66,13 +66,6 @@ instance Show Symbol where
   show (T s) = s
 
 instance Hashable Symbol where 
--- instance Hashable Symbol where
---   hashWithSalt salt (N _ Nothing) = hashWithSalt salt Nothing
---   hashWithSalt salt (N i (Just s)) = hashWithSalt salt i
---   hashWithSalt salt (T s) = hashWithSalt salt s
-
-  
-
 
 memoSymbol :: Memo.Memo Symbol
 memoSymbol f = table (m (f . uncurry N)) (m' (f . T)) f  
@@ -104,10 +97,6 @@ instance Hashable Rule where
 instance DeepSeq.NFData Rule where
   rnf (UnaryRule h c w) = h `seq` c `seq` w `seq` ()
   rnf (BinaryRule h l r w) = h `seq` l `seq` r `seq` w `seq` ()
-
--- instance NFData Rule where
-
--- instance NFData (HashMap Rule Double') where
 
 isUnary :: Rule -> Bool
 isUnary UnaryRule{} = True
@@ -397,25 +386,6 @@ insert i j sym a (Chart m_ij) = Chart m_ij'
                                   in HashMap.insert (i, j) (m_sym', syms') m_ij
             Nothing ->
               HashMap.insert (i, j) (HashMap.singleton sym a, MaxPQueue.singleton sym a) m_ij
-
-
--- insertWith :: (a -> a -> a) -> Int -> Int -> Symbol -> a -> Chart a -> Chart a
--- insertWith f i j sym a m          
---   = insertWithKey (\_ _ _ sym' m' -> f sym' m') i j sym a m
-
-
--- insertWithKey :: (Int -> Int -> Symbol -> a -> a -> a)
---                  -> Int -> Int -> Symbol -> a -> Chart a -> Chart a
--- insertWithKey f i j sym a (Chart m_i) = Chart m_i'
---   where m_i' = IntMap.alter h i m_i
---           where h Nothing = Just $ m_j_default
---                 h (Just m_j) = Just $ IntMap.alter g j  m_j
---                   where g Nothing = Just $ (m_sym_default, MaxPQueue.singleton sym a)
---                         g (Just (m_sym, syms))
---                           = Just (HashMap.insertWithKey (f i j) sym a m_sym,
---                                   MaxPQueue.insert sym a syms)
---                 m_j_default = IntMap.singleton j (m_sym_default, MaxPQueue.singleton sym a)
---                 m_sym_default = HashMap.singleton sym a
 
 lookupLoc :: Int -> Int -> Chart a -> Maybe (HashMap Symbol a, MaxPQueue Symbol a)
 lookupLoc i j (Chart m_i) = HashMap.lookup (i, j) m_i
@@ -908,19 +878,6 @@ entropyParses = do
     let p = exp lnp
     return $ negate $ if p == 0 then 0 else p * lnp
   return $! Prelude.sum vs
-
-underFlow :: Double' -> Double'
-underFlow x | x < _MIN_VAL = _MIN_VAL
-            | otherwise = x
-  where _MIN_VAL = 1e-2
-
-sumAcc :: [Double'] -> Double'
-sumAcc xs = out
-  where !bs = map ln xs -- get exponents
-        !bMin = minimum bs -- minimum exponent
-        !bs' = map (subtract bMin) bs -- subtract out minimum exponent
-        !ys = sum $ map Exp bs'
-        !out = ys * Exp bMin
         
 ---- UTILITIES ------
 
