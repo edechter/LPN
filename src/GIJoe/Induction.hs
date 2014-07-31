@@ -3,6 +3,7 @@
 module GIJoe.Induction where
 
 import GIJoe.Grammar
+import GIJoe.Parse
 
 import System.Random
 import Control.Monad.Random
@@ -11,20 +12,6 @@ import Control.Monad.Trans
 import Data.List
 import Data.Function
 
-
-type Lexicon = [Symbol]
-
-initGrammar :: Symbol
-            -> Lexicon
-            -> Int     -- ^ K
-            -> Grammar
-initGrammar start lexicon _K = grammarFromRules $ binary_rules ++ unary_rules
-  where binary_rules = do
-          i <- [0.._K-1]
-          j <- [0.._K-1]
-          k <- [0.._K-1]
-          return $! BinaryRule (N i Nothing) (N j Nothing) (N k Nothing) 1.0
-        unary_rules = [UnaryRule (N i Nothing) l 1.0  | i <- [0.._K-1], l <- lexicon]
 
 
 _ROOT = N 0 Nothing

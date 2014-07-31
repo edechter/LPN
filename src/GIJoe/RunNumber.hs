@@ -2,7 +2,7 @@
 module Main where
 
 import GIJoe.Grammar
-import GIJoe.Induction hiding (main)
+import GIJoe.Parse
 
 import System.Random
 import Control.Monad.Random
@@ -33,7 +33,7 @@ main = do
   let test_corpus = corpus
   sequence $ do
     xs <- test_corpus
-    let (prs, _) = withCharts gr_final _N0 pruneLimit xs $ getMapParse
+    let (prs, _) = withCharts gr_final _N0 prune_limit xs $ getMapParse
     return $ print prs
   return ()
 

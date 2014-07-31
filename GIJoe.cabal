@@ -50,9 +50,11 @@ library
   -- Modules exported by the library.
 
   exposed-modules:     GIJoe.Grammar, 
-                       GIJoe.Induction,
                        GIJoe.ListT, 
-                       GIJoe.Chart
+                       GIJoe.Chart,
+                       GIJoe.Types
+                       GIJoe.Utils
+                       GIJoe.Parse
   -- Modules included in this library but not exported.
   -- other-modules:       
   
