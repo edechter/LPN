@@ -1,18 +1,27 @@
 one 
 two 
 three
-four 
+for 
 five
 six
 se ven
 eight
 nine
 ten
+el ev en
+twelve
+thir teen
+for teen
+fif teen
+six teen
+se ven teen
+eight teen
+nine teen
 twen ty
 twen ty one
 twen ty two
 twen ty three
-twen ty four
+twen ty for
 twen ty five
 twen ty six
 twen ty se ven
@@ -22,7 +31,7 @@ thir ty
 thir ty one
 thir ty two
 thir ty three
-thir ty four
+thir ty for
 thir ty five
 thir ty six
 thir ty se ven
@@ -32,7 +41,7 @@ for ty
 for ty one
 for ty two
 for ty three
-for ty four
+for ty for
 for ty five
 for ty six
 for ty se ven
@@ -42,19 +51,9 @@ fif ty
 fif ty one
 fif ty two
 fif ty three
-fif ty four
+fif ty for
 fif ty five
 fif ty six
 fif ty se ven
 fif ty eight 
 fif ty nine
-six ty
-six ty one
-six ty two
-six ty three
-six ty four
-six ty five
-six ty six
-six ty se ven
-six ty eight 
-six ty nine

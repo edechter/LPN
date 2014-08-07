@@ -770,6 +770,7 @@ emIteration :: Grammar
 emIteration gr start b corpus = (gr', ll, h)
   where (css, lls, hs) = unzip3 $ withStrategy (parList rdeepseq) $ do
            xs <- corpus
+           trace (show xs) $ return ()
            return $ fst $ withCharts gr start b xs $ do
              ll <- loglikelihood
              cs <- expectedCounts
@@ -779,7 +780,7 @@ emIteration gr start b corpus = (gr', ll, h)
         !h = Prelude.sum hs
         !counts = foldl1' (HashMap.unionWith (+)) css
         !_K = fromIntegral $ length (allNonTerminals gr)
-        !_Ws = meanFieldDirMultRules gr (2.0/_K) counts
+        !_Ws = meanFieldDirMultRules gr (1.0/(_K**2)) counts
         
         gr' = modifyRules gr reweight 
           where reweight r = r{weight = maybe 0 id (HashMap.lookup r _Ws)}

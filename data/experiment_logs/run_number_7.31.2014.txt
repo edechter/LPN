@@ -2,6 +2,7 @@ Experiment Log:
 7.31.2014
 commit hash: c56db7f
 main: src/GIJoe/RunNumber.hs
+K = 10
 
 $ time ./dist/build/simpleNumber/simpleNumber +RTS -N4
 -------------

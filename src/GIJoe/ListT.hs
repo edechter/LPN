@@ -12,7 +12,10 @@ import Control.Arrow
 newtype ListT m a = ListT { runListT :: m (Maybe (a, ListT m a)) }
  
 foldListT :: Monad m => (a -> m b -> m b) -> m b -> ListT m a -> m b
-foldListT c n (ListT m) = maybe n (\(x,l) -> c x (foldListT c n l)) =<< m
+foldListT c n (ListT m)
+  = maybe n fun =<< m
+    where fun (x, l) = let z = foldListT c n l
+                       in z `seq` c x z
  
 -- In ListT from Control.Monad this one is the data constructor ListT, so sadly, this code can't be a drop-in replacement.
 liftList :: Monad m => [a] -> ListT m a
