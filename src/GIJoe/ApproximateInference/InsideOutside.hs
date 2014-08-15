@@ -10,25 +10,26 @@ import GIJoe.Grammar
 import GIJoe.ApproximateInference.HashTable
 import GIJoe.Parse
 
-import GIJoe.ApproximateInference.LazyDequeue
-import qualified GIJoe.ApproximateInference.LazyDequeue as LazyDequeue
+-- import GIJoe.ApproximateInference.LazyDequeue
+-- import qualified GIJoe.ApproximateInference.LazyDequeue as LazyDequeue
 
 import Numeric.Log
 
+import Control.Monad
 import Control.Monad.ST
 import Control.Exception (assert)
 
 import Data.Sequence (Seq, (><), (|>), (<|), ViewL(..))
 import qualified Data.Sequence as Seq
 
-import Data.HashSet (HashSet)
-import qualified Data.HashSet as Set
+import Data.Set (Set)
+import qualified Data.Set as Set
 
 import Debug.Trace
 _DEBUG = True
 debugM x = if _DEBUG then trace x $ return () else return ()
 
-type Set = HashSet
+-- type Set = Set
 
 type UpperBound = (Symbol, Int, Int) -> Double'
 type Epsilon = Double'
@@ -107,60 +108,56 @@ approxInside gr start xs ubFunc epsilon = do
             rules = binaryRulesHeadedBy gr sym
 
 -- each element of Open is an AND node and one of its parent OR nodes
-type Open = LazyDequeue ((Rule, Int, Int, Int), (Symbol, Int, Int))
+ type Open = LazyDequeue ((Rule, Int, Int, Int), (Symbol, Int, Int))
 -- set of elements already expanded and whose children have already been placed on the Open list
-type Expanded = Set ((Symbol, Int, Int)) 
+-- type Expanded = Set ((Symbol, Int, Int))
+            
 approxOutside :: Grammar
               -> Symbol -- ^ start symbol
               -> Sentence
               -> AlphaTable s -- ^ alpha table
               -> ST s (BetaTable s)
-approxOutside gr start xs alphaTable = do
+approxOutside gr start xs alphaTable = {-# SCC approxOutsideMainLoop #-} do
   let n = length xs 
   !betaTable <- newSized $ htSize n (numSymbols gr) -- generate empty hashtable
   insert betaTable (start, 1, n) 1.0 -- initialize start node cell
-  -- initialize open and expanded lists
-  let (open, expanded) = addChildrenToOpen (start, 1, n) LazyDequeue.empty Set.empty
-  loop betaTable open expanded 
+  -- initialize open 
+  let open  = [(start, 1, n)] 
+  loop betaTable Set.empty open  
   return betaTable
   where
-    -- loop :: BetaTable s -> Open -> ST s ()
-    loop betaTable open expanded | LazyDequeue.null open = return ()
-                                 | otherwise  = do
-      let ((((BinaryRule _A _B _C w), i, k, j), parent), open') = dequeue open -- pop element off left end of open
-      -- debugM $ "OPEN: " ++ show open'
-      -- debugM $ "Popped node: " ++ show ((((BinaryRule _A _B _C w), i, k, j), parent))
+    loop _ children [] = return ()
+    loop betaTable children ((_A, i, j):open') = do
+      debugM $ "(_A, i, j): " ++ show (_A, i, j)
+      debugM $ "open': " ++ show open'                 
+      debugM $ "children: " ++ show children
+      
+      let go children [] = return children
+          go children ((r, k):splits) = do
+            let (BinaryRule _ _B _C w) = r
+            Just pa_beta <- lookup betaTable (_A, i, j)
+        
+            children' <- getAlphaValue (_B, i, k) >>= \case
+              Nothing -> return children
+              Just a_l -> do insertWith betaTable (+) (_C, k+1, j) (pa_beta * a_l * w)
+                             if not $ (_C, k+1, j) `Set.member` children
+                               then return $! (_C, k+1, j) `Set.insert` children
+                               else return children
+                         
+            children'' <- getAlphaValue (_C, k+1, j) >>= \case
+              Nothing -> return children'
+              Just a_r -> do insertWith betaTable (+) (_B, i, k) (pa_beta * a_r * w)
+                             if not $ (_B, i, k) `Set.member` children'
+                               then return $! (_B, i, k) `Set.insert` children'
+                               else return children'
+            go children'' splits
+          
+      children' <- go children [(r, k) | r <- binaryRulesHeadedBy gr _A, k <- [i..j-1]] 
+          
+      if null open'
+        then loop betaTable Set.empty (Set.toList children')
+        else loop betaTable children' open'
 
-      (open1, expanded1) <- getAlphaValue (_B, i, k) >>= \case  -- this syntactic feature is enabled by the LambdaCase GHC extension 
-        Nothing -> return (open', expanded) -- if no element in alpha table, then the node is not in graph and we can stop
-        Just a_l -> do Just parentBeta <- lookup betaTable parent
-                       insertWith betaTable (+) (_C, k+1, j) (parentBeta * a_l * w)
-                       let (open1, expanded1) = addChildrenToOpen (_C, k+1, j) open' expanded
-                       return (open1, expanded1)
-                       
-      (open2, expanded2) <- getAlphaValue (_C, k+1, j)  >>= \case
-        Nothing -> return (open1, expanded1) -- if no element in alpha table, then the node is not in graph and we can stop
-        Just a_r -> do Just parentBeta <- lookup betaTable parent
-                       insertWith betaTable (+) (_B, i, k) (parentBeta * a_r * w)
-                       -- debugM $ show (_B, i, k)                       
-                       let (open2, expanded2) = addChildrenToOpen (_B, i, k) open1 expanded1
-                       -- debugM $ "open2: " ++ show open2
-                       return (open2, expanded2)
-      -- debugM $ show open2                         
-      loop betaTable open2 expanded2
-
-    addChildrenToOpen :: (Symbol, Int, Int) -> Open -> Expanded -> (Open, Expanded)
-    -- | get the AND children of an OR node and add them to the OPEN
-    -- cue, if the OR node has not been previously expanded.
-    addChildrenToOpen (sym, i, j) open expanded | (sym, i, j) `Set.member` expanded = (open, expanded)
-                                                | otherwise                         = (open', expanded')
-                                                                                       
-      where getChildren (sym, i, j) | i == j = [] -- if OR node is unary, no more children
-                                    | otherwise =  [((r, i, k, j), (sym, i, j)) |
-                                                   r <- binaryRulesHeadedBy gr sym,
-                                                   k <- [i..j-1]]
-            open' = enqueueMany (getChildren (sym, i, j)) open
-            expanded' = (sym, i, j) `Set.insert` expanded
 
     getAlphaValue (_A, i, j) | i == j -- ^ we are not storing unary spans in the alpha table, so need to go to grammar
            = return $ Just $ sum $ map weight $ getUnaryRulesBySymbols gr _A (xs !! (i - 1))
