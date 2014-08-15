@@ -1,8 +1,8 @@
 # Test Grammar
 $S --> $NP $VP :: 1
 $PP --> $P $NP :: 1
-$VP --> $V $NP :: 0.6
-$VP --> $VP $PP :: 0.4
+$VP --> $V $NP :: 0.7
+$VP --> $VP $PP :: 0.3
 $P  --> with :: 1
 $V  --> saw :: 1
 $NP --> $NP $PP :: 0.4

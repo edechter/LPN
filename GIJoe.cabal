@@ -50,14 +50,18 @@ library
   -- Modules exported by the library.
 
   exposed-modules:     GIJoe.Grammar, 
-                       GIJoe.ListT, 
                        GIJoe.Chart,
-                       GIJoe.Types
-                       GIJoe.Utils
-                       GIJoe.Parse
+                       GIJoe.Types,
+                       GIJoe.Utils,
+                       GIJoe.Parse,
+                       GIJoe.InsideOutside,
+                       GIJoe.ApproximateInference.HashTable,
+                       GIJoe.ApproximateInference.InsideOutside,
+                       GIJoe.ApproximateInference.DList, 
+                       GIJoe.ApproximateInference.LazyDequeue
   -- Modules included in this library but not exported.
   -- other-modules:       
-  
+   
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:    
   
@@ -79,15 +83,17 @@ library
                        pretty-tree >=0.1.0.0,
                        hashable >=1.1.2.5, 
                        unordered-containers >=0.2.3.0,
-                       lens >=3.8.5
+                       lens >=3.8.5,
+                       logict >=0.6.0.2,
+                       hashtables >=1.1.2.1
   
   -- Directories containing source 
-  hs-source-dirs: src
+  hs-source-dirs: src, scratch
   
   -- Base language which the package is written in.
   default-language:    Haskell2010
   
-  ghc-options: -O2 -rtsopts -threaded -funbox-strict-fields
+  ghc-options:  -rtsopts -funbox-strict-fields 
   
 executable induction
   Main-is: src/GIJoe/Main.hs
@@ -108,7 +114,7 @@ executable induction
                  pretty-tree >=0.1.0.0,
                  GIJoe
 
-  ghc-options:  -O2 -rtsopts -threaded 
+  ghc-options:  -rtsopts  
 
 executable simpleNumber
   Main-is: src/GIJoe/RunNumber.hs
@@ -129,7 +135,7 @@ executable simpleNumber
                  pretty-tree >=0.1.0.0,
                  GIJoe
 
-  ghc-options:  -O2 -rtsopts -threaded
+  ghc-options:   -rtsopts 
 
 executable runEmail
   Main-is: src/GIJoe/RunEmail.hs
@@ -150,4 +156,46 @@ executable runEmail
                  pretty-tree >=0.1.0.0,
                  GIJoe
 
-  ghc-options:  -O2 -rtsopts -threaded
+  ghc-options:   -rtsopts 
+
+executable complexityTest
+  Main-is: src/GIJoe/ComplexityTest.hs
+  Build-Depends: base, 
+                 log-domain >=0.9, 
+                 split >=0.2,
+                 mtl >=2.1,
+                 MonadRandom >=0.1,
+                 parallel >=3.2,
+                 deepseq >=1.3,
+                 math-functions >=0.1,
+                 containers >=0.5,
+                 pqueue >=1.2,
+                 data-memocombinators >=0.5,
+                 parsec >=3.1,
+                 parsec-numbers >=0.0,
+                 random >=1.0,
+                 pretty-tree >=0.1.0.0,
+                 GIJoe
+
+  ghc-options:   -rtsopts 
+
+executable TestHashTable
+  Main-is: scratch/TestHashTable.hs
+  Build-Depends: base, 
+                 log-domain >=0.9, 
+                 split >=0.2,
+                 mtl >=2.1,
+                 MonadRandom >=0.1,
+                 parallel >=3.2,
+                 deepseq >=1.3,
+                 math-functions >=0.1,
+                 containers >=0.5,
+                 pqueue >=1.2,
+                 data-memocombinators >=0.5,
+                 parsec >=3.1,
+                 parsec-numbers >=0.0,
+                 random >=1.0,
+                 pretty-tree >=0.1.0.0,
+                 GIJoe
+
+  ghc-options:   -rtsopts 
