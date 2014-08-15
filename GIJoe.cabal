@@ -85,7 +85,8 @@ library
                        unordered-containers >=0.2.3.0,
                        lens >=3.8.5,
                        logict >=0.6.0.2,
-                       hashtables >=1.1.2.1
+                       hashtables >=1.1.2.1,
+                       loops >=0.2.0.2
   
   -- Directories containing source 
   hs-source-dirs: src, scratch

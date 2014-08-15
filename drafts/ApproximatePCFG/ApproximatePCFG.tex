@@ -1,0 +1,305 @@
+\documentclass{article}
+
+
+\usepackage[top=2in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{amsmath}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+\author{Eyal Dechter}
+
+\begin{document}
+The Inside-Outside algorithm is a popular algorithm for computing the
+MAP marginals of PCFG rules given a sentence or collection of
+sentences. The algorithm's computational complexity is $O(n^3 K)$
+where $n$ is the length of the sentence and $K$ is the the number of
+rules in the PCFG. The cubic algorithm makes inference tractable for
+relatively long sentences -- containing perhaps a few dozen terminals
+-- but makes it impossible for this algorithm to be used in an online
+fashion, or to be used on grammars that span multiple levels of
+linguistic abstration (for example, imagine trying to learn
+morphological and syntactic grammar at the same time with the
+Inside-Outside algorithm). 
+
+Our goal here is to develop an algorithm that approximates the MAP
+marginals of a PCFG given data but that can run much faster; further,
+we would like to be able to put bounds on the approximation. The core
+intuition is that if we know that the probability of some symbol
+dominating a span cannot be more than some very small amount, we
+shouldn't have to calculate that amount accurately; instead, we should
+be able to substitute this small upperbound in our calculations,
+absolving us of exploring parts of the space of parses that are very
+unlikely to be relevant.
+
+In what follows we will assume that we have a PCFG $G$ in Chomsky
+normal form with start symbol $S$, non-terminals $\mathcal{A}$,
+terminals $\mathcal{T}$, and rules $\mathcal{R}$, where we associate
+with each rule $r \in \mathcal{R}$ a potential $\psi(r)$. We also
+assume that we are given a sentence $x = x_1, \dots, x_N$.
+
+For every triple $(A, i, j)$ where $A$ is a nonterminal and $1 \leq i
+\leq j \leq N$, the Inside-Outside algorithm computes an alpha and
+beta value. The alpha and beta values are defined according to the
+following recurrence:
+
+\begin{align}
+\alpha(A, i, i) &= \psi(A \rightarrow x_i)\\
+\alpha(A, i, j) &= \sum_{k=i}^{j-1} \sum_{A \rightarrow B C \in \mathcal{R}}
+  \psi(A \rightarrow B C ) \alpha(B, i, k) \alpha(C, k+1, j)\\
+\beta(A, 1, N) &= 1 \\
+\beta(A, i, j) &= \sum_{k=1}^{i-1} \sum_{B \rightarrow C A \in \mathcal{R}}
+  \beta(B, k, j) \psi(B \rightarrow C A) \alpha(C, k, i-1)\\ 
+  &+  \sum_{k=j+1}^{N} \sum_{B \rightarrow A C \in \mathcal{R} : A \neq C}
+  \beta(B, i, k) \psi(B \rightarrow A C) \alpha(C, j+1, k) 
+\end{align}
+
+Suppose we have an approximate $\alpha'$ of $\alpha$ with the
+property that for some small $\epsilon > 0$ and for all $A, i, j$: 
+
+\begin{align}
+\alpha'(A, i, i) &= \alpha(A, i, i)\\ 
+\alpha(A, i, j) &\leq \alpha'(A, i, j) \leq (1+\epsilon)  \sum_{k=i}^{j-1} \sum_{A \rightarrow B C \in \mathcal{R}} 
+  \psi(A \rightarrow B C ) \alpha'(B, i, k) \alpha'(C, k+1, j).\\
+\end{align}
+
+By how much can $\alpha'$ over estimate $\alpha$? Let $E(A, i,
+j)=\frac{\alpha'(A, i, j)}{\alpha(A, i, j)}$ be the measure of this
+over-estimate. We have that 
+
+\begin{align}
+E_{\alpha}(A, i, i) &= 1\\
+E_{\alpha}(A, i,j) &= \frac{\alpha'(A, i, j)}{\alpha(A, i, j)}\\
+          &\leq (1+\epsilon) \frac{ \sum_{k=i}^{j-1} \sum_{A \rightarrow B C \in \mathcal{R}} 
+  \psi(A \rightarrow B C ) \alpha'(B, i, k) \alpha'(C, k+1, j)}
+           {\sum_{k=i}^{j-1} \sum_{A \rightarrow B C \in \mathcal{R}}
+  \psi(A \rightarrow B C ) \alpha(B, i, k) \alpha(C, k+1, j)}\\
+          &=  (1+\epsilon) \frac{ \sum_{k=i}^{j-1} \sum_{A \rightarrow B C \in \mathcal{R}} 
+  \psi(A \rightarrow B C ) E_{\alpha}(B, i, k) \alpha(B, i, k) E_{\alpha}(C, k+1, j) \alpha(C, k+1, j)}
+           {\sum_{k=i}^{j-1} \sum_{A \rightarrow B C \in \mathcal{R}}
+  \psi(A \rightarrow B C ) \alpha(B, i, k) \alpha(C, k+1, j)}\\
+         &= (1+\epsilon) \max_{k\in \{i, \dots, j-1\}, A \rightarrow B C \in \mathcal{R} }
+            E_{\alpha}(B, i, k) E_{\alpha}(C, k+1, j).
+\end{align}
+
+Let $\hat{E}_{\alpha}(d) = \max_{A\in\mathcal{A}, i \in \{1, \dots, N-d \}}
+E_{\alpha}(A, i, i+d)$ be the maximum upper bound above over all spans of
+length $d$. Then we have that
+
+\begin{align}
+\hat{E}_{\alpha}(1) &= 1\\
+\hat{E}_{\alpha}(d) &= (1+\epsilon) \max_{s \in \{1, \dots, d-1\}} \hat{E}_{\alpha}(s) \hat{E}_{\alpha}(d-s).\\
+\end{align}
+
+Solving this recurrence, gives $\hat{E}_{\alpha}(d) = (1 + \epsilon)^{d-1}$. To
+re-iterate, what this means is that if we have such an $\alpha'$ then
+for all $A, i, j$, $\alpha'(A, i, j) \leq (1 + \epsilon)^{j - i}
+\alpha(A, i, j)$.
+
+We can now develop an analog $\beta'$ of $\beta$ which has the same
+dependency on $\alpha'$ that $\beta$ has on $\alpha$. Let
+$\hat{E}_{\beta}(d)$ be an upper bound on $\frac{\beta'(A, i,
+  i+d)}{\beta(A, i, i+d)}$ for all $A$ and $i$. Then a similar
+analysis as above shows that one such $\hat{E}_\beta$ is
+
+\begin{align}
+\hat{E}_{\beta}(N) &= 1\\
+\hat{E}_{\beta}(N-k) &= (1+\epsilon)^{N-k-1} \max_{s \in \{N-k+1, \dots, N\}} \hat{E}_{\beta}(s).
+\end{align}
+
+Solving this recurrence yields $\hat{E}_{\beta}(d) = (1+\epsilon)^{\frac{(N-d)(N+d-1)}{2}}$.
+
+In the Inside-Outside algorithm, the merit $\mu(A, i, j) = \alpha(A,
+i, j) \beta(A, i, j)$ is the unnormalized probability that nonterminal
+$A$ yields span $(i, j)$. Define $\mu'(A, i, j) = \alpha'(A, i, j)
+\beta(A, i, j)$. By the results above, we have that the ratio of the
+actual merit to our approximation is upper bounded by
+$(1+\epsilon)^{\frac{(N+d-2)(N-d+1)}{2}}$, where, as before, $d$ is
+the length of the span $(i, j)$.
+
+
+\section{Approximate Inside}
+Here we describe the algorithm ApproxInside which computes the
+$\alpha'$ values.
+
+
+\begin{algorithm}
+\caption{The Approximate Inside Algorithm \label{alg:approxInside}}
+\begin{algorithmic}[1]
+\Procedure {ApproxInside}{$s$, $G=(S, bRules, uRules)$, $U$, $\epsilon$}
+  \State \Comment $s$ sentences of length $n$
+  \State \Comment $G$ grammar 
+  \State \Comment $S$ start symbol
+  \State \Comment $U$ upper bound, function from $(A, i, j) \mapsto \mathbf{R}$
+  \State $\alpha \leftarrow \Call{InitAlpha}{G, 1, n}$ \Comment Initialize table of $\alpha$ 
+  \State \Return \Call{$GO_{OR}$}{$S$, $1$, $n$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{The Approximate Inside Algorithm (cont)}
+\begin{algorithmic}[2]
+\Procedure {$GO_{OR}$}{$A$, $i$, $j$}
+  \State \Comment $A$ nonterminal symbol
+  \State $children \leftarrow \Call{GetChildren}{A, i, k}$
+  \State $lb \leftarrow 0 $ \Comment Initialize lower bound on OR node to 0
+  \For{$node \in children$}{}{}
+    \If{$node$ is unary of form $A \rightarrow t, i, i$ and $t = s_i$}
+      \State $v \leftarrow \psi(A \rightarrow t)$
+    \ElsIf{$node$ is binary}
+      \State $v \leftarrow $\;\Call{$GO_{AND}$}{$node$, $lb$}
+    \EndIf
+    \State $lb \leftarrow lb + v$ \Comment Update lower bound
+  \EndFor
+  \State $\alpha[A, i, j] \leftarrow lb$ \Comment Insert $\alpha$ value into table.
+\EndProcedure
+\Statex
+\Procedure {$GO_{AND}$}{$A \rightarrow B\, C$, $i$, $k$,$j$, $lb$}
+  \State $w \leftarrow \psi(A \rightarrow B\, C)$ 
+  \State $v_{\ell} \leftarrow \alpha[B, i, k]$ 
+  \State $v_{r} \leftarrow \alpha[C, k+1, j]$
+  \State $u_{\ell} \leftarrow U[B, i, k]$ 
+  \State $u_{r} \leftarrow U[C, k+1, j]$
+  \If{neither $v_{\ell}$ nor $v_r$ is $NIL$} \Comment If both values are already computed, just use them
+    \State \Return $w * v_{\ell} * v_r$
+  \ElsIf{ $v_r \neq NIL$}  \Comment If the right value is already computed, compute left value
+    \If {$u_\ell \leq \frac{\epsilon * lb}{w * v_r}$}
+      \State $v_\ell \leftarrow u_\ell$
+    \Else
+      \State $v_\ell \leftarrow $\;\Call{$GO_{OR}$}{$B$, $i$, $k$}
+    \EndIf
+  \ElsIf{ $v_\ell \neq NIL$}  \Comment If the left value is already computed, compute right value
+    \If {$u_r \leq \frac{\epsilon * lb}{w * v_\ell}$}
+      \State $v_r \leftarrow u_r$
+    \Else
+      \State $v_r \leftarrow $\;\Call{$GO_{OR}$}{$C$, $k+1$, $j$}
+    \EndIf
+  \Else \Comment If neither values yet computed, compute both
+    \If {$u_\ell u_r \leq \frac{\epsilon * lb}{w}$}
+      \State $v_r \leftarrow u_r$
+      \State $v_\ell \leftarrow u_\ell$
+    \Else
+      \State $v_\ell \leftarrow $\;\Call{$GO_{OR}$}{$B$, $i$, $k$}
+      \State $v_r \leftarrow $\;\Call{$GO_{OR}$}{$C$, $k+1$, $j$}
+    \EndIf
+  \EndIf
+  \State \Return $w * v_{\ell} * v_r$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+\caption{The Approximate Outside Algorithm.\label{alg:approxOutside}}
+\begin{algorithmic}[2]
+\Procedure {$ApproxOutside$}{$s$, $G$, $S$}
+  \State $n \leftarrow length(s)$
+  \State $\beta[S, 1, n] \leftarrow 1$ \Comment initialize $\beta$ recursion, unless $n==1$ in which case we are done
+  \State $open \leftarrow [(S, 1, n)]$ \Comment initialize list that will hold nodes to be processed
+  \While {$open \neq NIL$}
+  \State $children \leftarrow []$ \Comment initialize list that holds next level of nodes to be processed
+   \For {$(A, i, j) \in open$ \Comment $i \neq j$}
+    \For {$A \leftarrow B\, C \in rules(G)$} \Comment iterate over binary rules headed by $A$
+      \For {$k \leftarrow i, \dots, j - 1$}
+        \If {$\alpha[B, i, k] \neq 0$}
+          \State if $\beta[C, k+1, j] = NIL$, set to $0$
+          \State $\beta[C, k+1, j] \leftarrow \beta[C, k+1, j] + \psi(A \rightarrow B C) \alpha[B, i, k] \beta[A, i, j]$
+          \State add $(C, k+1, j)$ to $children$
+        \EndIf 
+
+        \If {$\alpha[C, k+1, j] \neq 0$}
+          \State if $\beta[B, i, k] = NIL$, set to $0$
+          \State $\beta[B, i, k] \leftarrow \beta[B, i, k] + \psi(A \rightarrow B C) \alpha[C, k+1, j] \beta[A, i, j]$
+          \State add $(B, i, k)$ to $children$
+        \EndIf 
+      \EndFor 
+   \EndFor
+   \EndFor
+   \State $open \leftarrow children$
+  \EndWhile    
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+\caption{The Approximate Outside Algorithm.\label{alg:approxOutside}}
+\begin{algorithmic}[2]
+\Procedure {$ApproxOutside$}{$s$, $G$, $S$}
+  \State $OPEN \leftarrow []$ \Comment initialize OPEN FIFO queue
+  \State $n \leftarrow length(s)$
+  \State $\beta(S, 1, n) \leftarrow 1$
+  \State \Call{AddChildrenToOpen}{$S, 1, n, \beta(S, 1, n)$}
+  \While {$OPEN$ is not empty}
+    \State $node \leftarrow pop(OPEN)$ where $rule_{node} = (A \rightarrow B C, i, k, j) = fst(node)$ and $pa_\beta= snd(node)$
+    \State $a_\ell \leftarrow \alpha[B, i, k]$
+    \State $a_r \leftarrow \alpha[C, k+1, j]$
+    \If {$a_r \neq NIL$}
+      \If {$\beta[B, i, k] = NIL$}
+         $\beta[B, i, k] \leftarrow 0$
+      \EndIf
+      \State $\beta[B, i, k] \leftarrow \beta[B, i, k] + pa_\beta a_\ell \psi(A \rightarrow B C)$ \Comment compute beta value and add to current beta value 
+      \State \Call{AddChildrenToOpen}{$B, i, k, \beta(B, i, k)$}
+    \EndIf
+    \If {$a_l \neq NIL$}
+      \If {$\beta[C, k+1, j] = NIL$}
+         $\beta[C, k+1, j] \leftarrow 0$
+      \EndIf
+      \State $\beta[C, k+1, j] \leftarrow \beta[C, k+1, j] + pa_\beta a_r \psi(A \rightarrow B C)$ \Comment compute beta value and add to current beta value 
+      \State \Call{AddChildrenToOpen}{$C, k+1, j, \beta(C, k+1, j)$}
+    \EndIf
+  \EndWhile  
+\EndProcedure
+
+\Statex
+\Procedure {AddChildrenToOPEN}{A, i, j, betaVal}
+  \State $\{c_i\}\leftarrow \Call{GetChildren}{A, i, j}$ \Comment Get AND-node children
+  \State insert pairs $\{(c_i, betaVal\}_i)$ into OPEN
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\noindent \textbf{Claim: Algorithm~\ref{alg:approxInside} correctly computes the $\beta'$ values.}
+\noindent TODO
+
+\noindent \textbf{Claim: Algorithm~\ref{alg:approxOutside} correctly computes the $\beta'$ values.}
+\noindent TODO
+
+
+\section{A simple upper bound}
+We will present a simple upper bound on a slightly restricted set of
+PCFGs which is based on the following intuition: if I am a nonterminal
+$A$ and I know that I need to yield a string $x_1 \dots x_n$, then
+this is going to be at least as hard as starting at $A$ and generating
+any one of the elements in $x_1 \dost x_n$. That is, the highest
+probability single word in my yield will have a higher probability of
+being produced, then any longer span. 
+
+Suppose our PCFG has potentials less than or equal to one. This is the
+case in the commons situation in which the PCFG is normalized, or if,
+as in variational approximations to the Hierarchical Diirichlet PCFG,
+our PCFG is unnormalized with values summing to less than one. Now we
+define a function $g(A, w, m)$ for nonterminal $A$, terminal $w$ and
+integer $w>0$, which we claim is greater the weight our PCFG would
+assign to any parse tree rooted at $A$ and yielding any span of length
+$m$ containing $w$. Specifically, consider any such parse tree, and
+set all weights not on the path between $A$ and $w$ to 1. The total
+weight assigned to the parse tree is the product of the weights on its
+edges, so the resulting parse tree will have a strictly greater score.
+
+
+
+
+
+\begin{algorithm}
+\caption{An O(n^2}
+\begin{algorithmic}[2]
+\Procedure {$GO_{OR}$}{$A$, $i$, $j$}
+
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}

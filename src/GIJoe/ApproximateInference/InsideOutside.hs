@@ -15,7 +15,10 @@ import GIJoe.Parse
 
 import Numeric.Log
 
+import Control.Monad.Loop
+
 import Control.Monad
+import Control.Monad.Trans
 import Control.Monad.ST
 import Control.Exception (assert)
 
@@ -108,7 +111,7 @@ approxInside gr start xs ubFunc epsilon = do
             rules = binaryRulesHeadedBy gr sym
 
 -- each element of Open is an AND node and one of its parent OR nodes
- type Open = LazyDequeue ((Rule, Int, Int, Int), (Symbol, Int, Int))
+ -- type Open = LazyDequeue ((Rule, Int, Int, Int), (Symbol, Int, Int))
 -- set of elements already expanded and whose children have already been placed on the Open list
 -- type Expanded = Set ((Symbol, Int, Int))
             
@@ -121,44 +124,28 @@ approxOutside gr start xs alphaTable = {-# SCC approxOutsideMainLoop #-} do
   let n = length xs 
   !betaTable <- newSized $ htSize n (numSymbols gr) -- generate empty hashtable
   insert betaTable (start, 1, n) 1.0 -- initialize start node cell
-  -- initialize open 
-  let open  = [(start, 1, n)] 
-  loop betaTable Set.empty open  
-  return betaTable
-  where
-    loop _ children [] = return ()
-    loop betaTable children ((_A, i, j):open') = do
-      debugM $ "(_A, i, j): " ++ show (_A, i, j)
-      debugM $ "open': " ++ show open'                 
-      debugM $ "children: " ++ show children
-      
-      let go children [] = return children
-          go children ((r, k):splits) = do
-            let (BinaryRule _ _B _C w) = r
-            Just pa_beta <- lookup betaTable (_A, i, j)
+  -- initialize open
+  exec_ $ do
+    ell <- forEach [n-x | x <- [1..n-1]] -- span length
+    i   <- forEach [1..n-ell]
+    let j = i + ell
+    _A  <- forEach $ allNonTerminals gr
+    lift (getAlphaValue (_A, i, j)) >>= \case
+      Nothing -> return ()
+      Just _  -> do
+        k <- forEach [i..j-1]
+        (BinaryRule _ _B _C w) <- forEach $ binaryRulesHeadedBy gr _A
+        Just pa_beta <- lift $ lookup betaTable (_A, i, j)
         
-            children' <- getAlphaValue (_B, i, k) >>= \case
-              Nothing -> return children
-              Just a_l -> do insertWith betaTable (+) (_C, k+1, j) (pa_beta * a_l * w)
-                             if not $ (_C, k+1, j) `Set.member` children
-                               then return $! (_C, k+1, j) `Set.insert` children
-                               else return children
+        lift (getAlphaValue (_B, i, k)) >>= \case
+          Nothing -> return ()
+          Just a_l -> lift $ insertWith betaTable (+) (_C, k+1, j) (pa_beta * a_l * w)
                          
-            children'' <- getAlphaValue (_C, k+1, j) >>= \case
-              Nothing -> return children'
-              Just a_r -> do insertWith betaTable (+) (_B, i, k) (pa_beta * a_r * w)
-                             if not $ (_B, i, k) `Set.member` children'
-                               then return $! (_B, i, k) `Set.insert` children'
-                               else return children'
-            go children'' splits
-          
-      children' <- go children [(r, k) | r <- binaryRulesHeadedBy gr _A, k <- [i..j-1]] 
-          
-      if null open'
-        then loop betaTable Set.empty (Set.toList children')
-        else loop betaTable children' open'
-
-
+        lift (getAlphaValue (_C, k+1, j)) >>= \case
+          Nothing -> return ()
+          Just a_r -> lift $ insertWith betaTable (+) (_B, i, k) (pa_beta * a_r * w)
+  return betaTable
+  where                   
     getAlphaValue (_A, i, j) | i == j -- ^ we are not storing unary spans in the alpha table, so need to go to grammar
            = return $ Just $ sum $ map weight $ getUnaryRulesBySymbols gr _A (xs !! (i - 1))
     getAlphaValue (_A, i, j) -- ^ if not a unary span 
