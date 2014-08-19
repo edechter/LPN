@@ -2,10 +2,19 @@
 
 
 \usepackage[top=2in, bottom=1.5in, left=1in, right=1in]{geometry}
-\usepackage{amsmath}
+\usepackage{amssymb,amsmath}
 
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+
+
+\usepackage{natbib}
+
+\makeatletter
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\makeatother
+
+\newcommand{\derives}{\xRightarrow{*}}
 
 
 \author{Eyal Dechter}
@@ -197,6 +206,12 @@ $\alpha'$ values.
 \Procedure {$ApproxOutside$}{$s$, $G$, $S$}
   \State $n \leftarrow length(s)$
   \State $\beta[S, 1, n] \leftarrow 1$ \Comment initialize $\beta$ recursion, unless $n==1$ in which case we are done
+  \For {$\ell \gets 1, \dots, n-1$}
+    \For {$i \gets \ell$}
+      \State $j \leftarrow i + \ell$
+    \EndFor
+  \EndFor
+
   \State $open \leftarrow [(S, 1, n)]$ \Comment initialize list that will hold nodes to be processed
   \While {$open \neq NIL$}
   \State $children \leftarrow []$ \Comment initialize list that holds next level of nodes to be processed
@@ -224,82 +239,127 @@ $\alpha'$ values.
 \end{algorithm}
 
 
-\begin{algorithm}
-\caption{The Approximate Outside Algorithm.\label{alg:approxOutside}}
-\begin{algorithmic}[2]
-\Procedure {$ApproxOutside$}{$s$, $G$, $S$}
-  \State $OPEN \leftarrow []$ \Comment initialize OPEN FIFO queue
-  \State $n \leftarrow length(s)$
-  \State $\beta(S, 1, n) \leftarrow 1$
-  \State \Call{AddChildrenToOpen}{$S, 1, n, \beta(S, 1, n)$}
-  \While {$OPEN$ is not empty}
-    \State $node \leftarrow pop(OPEN)$ where $rule_{node} = (A \rightarrow B C, i, k, j) = fst(node)$ and $pa_\beta= snd(node)$
-    \State $a_\ell \leftarrow \alpha[B, i, k]$
-    \State $a_r \leftarrow \alpha[C, k+1, j]$
-    \If {$a_r \neq NIL$}
-      \If {$\beta[B, i, k] = NIL$}
-         $\beta[B, i, k] \leftarrow 0$
-      \EndIf
-      \State $\beta[B, i, k] \leftarrow \beta[B, i, k] + pa_\beta a_\ell \psi(A \rightarrow B C)$ \Comment compute beta value and add to current beta value 
-      \State \Call{AddChildrenToOpen}{$B, i, k, \beta(B, i, k)$}
-    \EndIf
-    \If {$a_l \neq NIL$}
-      \If {$\beta[C, k+1, j] = NIL$}
-         $\beta[C, k+1, j] \leftarrow 0$
-      \EndIf
-      \State $\beta[C, k+1, j] \leftarrow \beta[C, k+1, j] + pa_\beta a_r \psi(A \rightarrow B C)$ \Comment compute beta value and add to current beta value 
-      \State \Call{AddChildrenToOpen}{$C, k+1, j, \beta(C, k+1, j)$}
-    \EndIf
-  \EndWhile  
-\EndProcedure
-
-\Statex
-\Procedure {AddChildrenToOPEN}{A, i, j, betaVal}
-  \State $\{c_i\}\leftarrow \Call{GetChildren}{A, i, j}$ \Comment Get AND-node children
-  \State insert pairs $\{(c_i, betaVal\}_i)$ into OPEN
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-
 \noindent \textbf{Claim: Algorithm~\ref{alg:approxInside} correctly computes the $\beta'$ values.}
 \noindent TODO
 
 \noindent \textbf{Claim: Algorithm~\ref{alg:approxOutside} correctly computes the $\beta'$ values.}
 \noindent TODO
 
-
-\section{A simple upper bound}
-We will present a simple upper bound on a slightly restricted set of
-PCFGs which is based on the following intuition: if I am a nonterminal
-$A$ and I know that I need to yield a string $x_1 \dots x_n$, then
-this is going to be at least as hard as starting at $A$ and generating
-any one of the elements in $x_1 \dost x_n$. That is, the highest
-probability single word in my yield will have a higher probability of
-being produced, then any longer span. 
-
-Suppose our PCFG has potentials less than or equal to one. This is the
-case in the commons situation in which the PCFG is normalized, or if,
-as in variational approximations to the Hierarchical Diirichlet PCFG,
-our PCFG is unnormalized with values summing to less than one. Now we
-define a function $g(A, w, m)$ for nonterminal $A$, terminal $w$ and
-integer $w>0$, which we claim is greater the weight our PCFG would
-assign to any parse tree rooted at $A$ and yielding any span of length
-$m$ containing $w$. Specifically, consider any such parse tree, and
-set all weights not on the path between $A$ and $w$ to 1. The total
-weight assigned to the parse tree is the product of the weights on its
-edges, so the resulting parse tree will have a strictly greater score.
+The algorithm presented provides two degrees of freedom to the user: the first is a choice of upperbound function $U$, and the second is a way to order the children of a node. The tighter the upperbound, the better an approximation we get. The better the ordering of the children, the less often we need to explore derivations of low relative weight. 
 
 
+\section{Ordering heuristics}
+How we order the children of a node is critical to the speed-up this
+aproximate algorithm gets. After all, if there is a child whose
+derivation dominates all others and we accidentally put it last, then
+we will not be able to short-circuit at all; if, instead, we put it
+first, then we will likely only have to explore that child.
+
+One can image various choices of ordering functions, with perhaps the
+simplest being to pick the rules in order of decreasing weight. This,
+however, only gives us an ordering on the rules, not on where we
+should split the span of the child. One reasonable suggestion,
+especially for right branching structures like English parse trees, is
+to start with the smallest left child spans first and increase from
+there.
+
+These heuristics, however, are very weak, and do not take into
+consideration the content span at all. In the following we propose a
+simple heuristic with child ordering that takes into account the
+bottom-up probability of the content but whose complexity is constant
+in the size of the span. The basic intutiion behind this heuristic is
+that if one wants to evaluate the probability that, e.g., a noun
+phrase will yield that fragmant ``saw the boy with,'' one can gain a
+lot of information by calculating the probability that the phrase will
+start and end with ``saw'' and ``with,'' respectively. 
+
+Some notation: let's denote by $\gamma(A, x)$ the probability that a
+nonterminal $A$ derives any string with prefix $x$. Likewise, let's
+denote by $\theta(A, x)$ the proabability that a nonterminal $A$
+derives any string with suffix $x$. We will write this using the
+following notation:
+
+\begin{align}
+  \gamma(A, x) &\triangleq p(A \xRightarrow{*} x\dots) \label{eq:gammaDef}\\
+  \theta(A, x) &\triangleq p(A \xRightarrow{*} \dots x)  \label{eq:thetaDef}
+\end{align}
+
+$\gamma(A, x)$ is just the prefix probability defined for a single
+lexical item. This can be defined as:
+\begin{align}
+  p(A \derives x\dots) &= \sum_{A \rightarrow BC} p(B \derives x \dots) p(A \rightarrow B C) 
+    + p(A \rightarrow x)\\
+  p(A \derives \dots x) &= \sum_{A \rightarrow CB} p(B \derives \dots x) p(A \rightarrow C B) 
+    + p(A \rightarrow x)
+\end{align}
+
+If we define the matrices $\Gamma$ and $\Theta$ where $\Gamma_{A, B} = \gamma(A, B)$
+and $\Theta_{A, B} = \theta(A, B)$. then we can rewrite these recursions 
+
+\begin{align}
+  \Gamma &= \Phi^\ell \Gamma + \Psi \\
+  \Theta &= \Phi^r \Gamma  + \Psi \\
+  \text{where }\Phi^\ell_{A, B} &\triangleq \sum_{A \rightarrow B C} p(A \rightarrow B C)\\
+               \Phi^r_{A, B} &\triangleq \sum_{A \rightarrow C B} p(A \rightarrow C B)\\
+               \Psi_{A, x} &\triangleq p(A \rightarrow x).
+\end{align}
+
+This means that we can calculate $\Gamma$ and $\Phi$ by solving the linear systems 
+
+\begin{align}
+  (1-\Phi_\ell) \Gamma &= \Psi\\
+  (1-\Phi_r) \Theta &= \Psi.\\
+\end{align}
+
+The complexity of these calculations is $K^3$, where $K$ is the number
+of symbols in the grammar. 
+
+From $\Gamma$ and $\Theta$ we can compute the boundary probability: 
+\begin{align}
+  p(A \derives x \dots y) &= p(A \rightarrow x) \mathbf{1}(x = y) 
+     + \sum_{A \rightarrow B C} p(A \rightarrow B C) p(B \derives x \dots) p(C \derives \dots y)\\
+  p(A \derives x \dots y) &= p(A \rightarrow x) \mathbf{1}(x = y) 
+     + \sum_{A \rightarrow B C} p(A \rightarrow B C) \Gamma_{B, x} \Theta_{y, C}
+\end{align}
+
+Here, as is often the case in computations that make use of heuristic
+scores, it may be advantageous to precompute all the heuristic values
+so that lookup is $O(1)$. 
 
 
 
-\begin{algorithm}
-\caption{An O(n^2}
-\begin{algorithmic}[2]
-\Procedure {$GO_{OR}$}{$A$, $i$, $j$}
 
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
+
+
+\section{Appendix}
+\subsection{Existence of $\Gamma$ and $\Theta$}
+\textbf{Claim: } The matrices $\Gamma$ and $\Theta$ defined by
+Equations~\ref{eq:gammaDef}-\ref{eq:thetaDef} exist.  \textbf{Proof: }
+The $\Gamma$ and $\Theta$ matrices will not exist only if
+$1-\Phi^\ell$ and $1-\Phi^r$ are singular. To show that they are not
+singular we will show that there is no non-zero linear combination of
+their columns that sums to zero. The proofs are nearly identical for
+$1-\Phi^\ell$ and $1-Phi^r$. 
+
+Suppose, by contradiction, that their is some linear combination $a_1,
+..., a_K$ such that $(1-\Phi^\ell) a = 0$. This implies that each $a_i
+= \sum_{j} \Phi^\ell_{i, j} a_j$. Recall that the element of
+$\Phi^\ell_{A, B} = \sum_{A \rightarrow B C} \p(A \rightarrow B C)$,
+where $A$ and $B$ are nonterminals. For the PCFG defined by these
+probabilities to be valid, $\Phi^\ell_{A,B}$ must be less than
+one. Otherwise, there would be a nonzero probability of an infinite
+string. Taking the absolute values of both sides of the equation
+above, we see that $|{a_i}| \leq \sum_{j} \Phi^\ell_{i, j} |
+a_j|$. But if this is true, then  TODO
+
+\bibliographystyle{bibliographystyle}
+\bibliography{main}
+
+
+
+
+
+
+
 
 \end{document}

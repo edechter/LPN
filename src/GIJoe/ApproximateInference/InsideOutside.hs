@@ -1,4 +1,4 @@
-{-# Language BangPatterns, ParallelListComp, FlexibleInstances, DeriveGeneric, LambdaCase #-}
+{-# Language BangPatterns,  FlexibleInstances, LambdaCase #-}
 
 module GIJoe.ApproximateInference.InsideOutside where
 
@@ -9,6 +9,7 @@ import GIJoe.Types
 import GIJoe.Grammar
 import GIJoe.ApproximateInference.HashTable
 import GIJoe.Parse
+import GIJoe.ApproximateInference.BoundaryProbabilities
 
 -- import GIJoe.ApproximateInference.LazyDequeue
 -- import qualified GIJoe.ApproximateInference.LazyDequeue as LazyDequeue
@@ -25,17 +26,49 @@ import Control.Exception (assert)
 import Data.Sequence (Seq, (><), (|>), (<|), ViewL(..))
 import qualified Data.Sequence as Seq
 
+import Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as HashMap
+
+
 import Data.Set (Set)
 import qualified Data.Set as Set
 
-import Debug.Trace
-_DEBUG = True
-debugM x = if _DEBUG then trace x $ return () else return ()
+import Data.Function (on)
+import Data.List (sortBy)
 
--- type Set = Set
+
+import System.IO.Unsafe
+import Data.IORef 
+
+------------------------------------------------------------
+-- DEBUG
+import Debug.Trace
+_DEBUG = False
+debugM x = when _DEBUG $ do !_ <- trace x $ return ()
+                            return ()
+
+-- *TOP LEVEL GlOBAL* Counter for debugging
+_globalCounter :: IORef Int
+{-# NOINLINE _globalCounter #-}
+_globalCounter = unsafePerformIO (newIORef 17) 
+
+_zeroCounter :: IORef Int -> ()
+{-# NOINLINE _zeroCounter #-}
+_zeroCounter ref = let x = unsafePerformIO $ writeIORef ref 0 in x
+
+_incrCounter :: IORef Int -> ()
+{-# NOINLINE _incrCounter #-}
+_incrCounter ref = let x = unsafePerformIO $ atomicModifyIORef' ref $ \a -> (a+1, ()) in x
+
+_readCounter :: IORef Int -> Int
+{-# NOINLINE _readCounter #-}
+_readCounter ref = let x = unsafePerformIO $ readIORef ref in x
+------------------------------------------------------------
+                            
 
 type UpperBound = (Symbol, Int, Int) -> Double'
 type Epsilon = Double'
+type EdgeGenerator = (Symbol, Int, Int) -> [(Rule, Int, Int, Int)]
 type AlphaTable s = HashTable s (Symbol, Int, Int) Double'
 type BetaTable s = HashTable s (Symbol, Int, Int) Double'
 
@@ -44,27 +77,29 @@ htSize :: Int -- ^ length of sentence
        -> Int -- ^ size of hashTable needed
 htSize n k = n * (n+1) `div` 2 * k 
 
-approxInside :: Grammar
-             -> Symbol -- ^ start symbol
-             -> Sentence
-             -> UpperBound
-             -> Epsilon
-             -> ST s (AlphaTable s)
-approxInside gr start xs ubFunc epsilon = do
-    let n = length xs 
+inside :: Grammar
+          -> Symbol -- ^ start symbol
+          -> Sentence
+          -> UpperBound
+          -> Epsilon
+          -> EdgeGenerator
+          -> ST s (AlphaTable s)
+inside gr start xs ubFunc epsilon edgeGenerator = do
+    let n = Seq.length xs 
     !ht <- newSized $ htSize n (numSymbols gr) -- generate empty hashtable
     traverseOR ht (start, 1, n)
     return ht
   where 
     traverseOR :: AlphaTable s -> (Symbol, Int, Int) -> ST s Double'
-    traverseOR _ (sym, i, j) | i == j = return $ 
-      sum $ map weight $ getUnaryRulesBySymbols gr sym (xs !! (i - 1))
-    traverseOR ht (sym, i, j) = do alpha <- go 0 children
-                                   -- debugM $ "inserting: " ++ show (sym, i, j) ++ " " ++ show alpha
+    traverseOR _ (sym, i, j) | i == j = do
+         !_ <- _incrCounter _globalCounter `seq` return ()
+         return $ sum $ map weight $ getUnaryRulesBySymbols gr sym (xs `Seq.index` (i - 1))
+    traverseOR ht (sym, i, j) =          
+                                do !_ <- _incrCounter _globalCounter `seq` return ()
+                                   alpha <- go 0 children
                                    insert ht (sym, i, j) alpha
-                                   -- showTable ht >>= debugM
                                    return alpha
-      where children = getChildren (sym, i, j)
+      where children = edgeGenerator (sym, i, j)
             go !lb [] = return lb
             go !lb (node:ns) = do v <- traverseAND ht node lb
                                   go (lb + v) ns
@@ -87,41 +122,38 @@ approxInside gr start xs ubFunc epsilon = do
       let u_l = ubFunc (_B, i, k)
           u_r = ubFunc (_C, k+1, j)
 
+      debugM $ "DEBUG: " ++ "AND node: " ++ show (rule, i, k, j) ++ " lb: " ++ show lb
       case True of
-        _ | hit_l && hit_r  ->
+        _ | hit_l && hit_r  -> do
              return $! w * fromJust v_l * fromJust v_r
-        _ | hit_r -> if u_l < epsilon * lb / (w * fromJust v_r)
-                        then return $! w * u_l * fromJust v_r
-                        else do a_l <- traverseOR ht (_B, i, k)
-                                return $! w * a_l * fromJust v_r
-        _ | hit_l -> if u_r < epsilon * lb / (w * fromJust v_l)
-                        then return $! w * u_r * fromJust v_l
-                        else do a_r <- traverseOR ht (_C, k+1, j)
-                                return $! w * a_r * fromJust v_l
-        _         -> if u_r * u_l < epsilon * lb / w 
-                        then return $! w * u_l * u_r
-                        else do a_l <- traverseOR ht (_B, i, k)
-                                a_r <- traverseOR ht (_C, k+1, j)
-                                return $! w * a_l * a_r 
-
-    getChildren :: (Symbol, Int, Int) -> [(Rule, Int, Int, Int)]
-    getChildren (sym, i, j) = assert (i /= j) $
-      [(r, i, k, j) | r <- rules, k<- ks]
-      where ks = [i..j-1]
-            rules = binaryRulesHeadedBy gr sym
-
--- each element of Open is an AND node and one of its parent OR nodes
- -- type Open = LazyDequeue ((Rule, Int, Int, Int), (Symbol, Int, Int))
--- set of elements already expanded and whose children have already been placed on the Open list
--- type Expanded = Set ((Symbol, Int, Int))
+        _ | hit_r -> do if u_l < epsilon * lb / (w * fromJust v_r)
+                          then do debugM $ "DEBUG: short-circuit left"
+                                  return $! w * u_l * fromJust v_r
+                          else do debugM $ "DEBUG: no short-circuit"
+                                  a_l <- traverseOR ht (_B, i, k)
+                                  return $! w * a_l * fromJust v_r
+        _ | hit_l -> do if u_r < epsilon * lb / (w * fromJust v_l)
+                          then do return $! w * u_r * fromJust v_l
+                          else do debugM $ "DEBUG: no short-circuit"
+                                  a_r <- traverseOR ht (_C, k+1, j)
+                                  return $! w * a_r * fromJust v_l
+        _         -> do if u_r * u_l < epsilon * lb / w 
+                          then do -- debugM $ "DEBUG: short-circuit left and right"
+                                  return $! w * u_l * u_r
+                          else do -- debugM $ "DEBUG: no short-circuit"
+                                  a_l <- traverseOR ht (_B, i, k)
+                                  if u_r < epsilon * lb / (w * a_l)
+                                     then return $! w * a_l * u_r
+                                     else do a_r <- traverseOR ht (_C, k+1, j)
+                                             return $! w * a_l * a_r 
             
-approxOutside :: Grammar
+outside :: Grammar
               -> Symbol -- ^ start symbol
               -> Sentence
               -> AlphaTable s -- ^ alpha table
               -> ST s (BetaTable s)
-approxOutside gr start xs alphaTable = {-# SCC approxOutsideMainLoop #-} do
-  let n = length xs 
+outside gr start xs alphaTable = do
+  let n = Seq.length xs 
   !betaTable <- newSized $ htSize n (numSymbols gr) -- generate empty hashtable
   insert betaTable (start, 1, n) 1.0 -- initialize start node cell
   -- initialize open
@@ -147,32 +179,103 @@ approxOutside gr start xs alphaTable = {-# SCC approxOutsideMainLoop #-} do
   return betaTable
   where                   
     getAlphaValue (_A, i, j) | i == j -- ^ we are not storing unary spans in the alpha table, so need to go to grammar
-           = return $ Just $ sum $ map weight $ getUnaryRulesBySymbols gr _A (xs !! (i - 1))
+           = return $ Just $ sum $ map weight $ getUnaryRulesBySymbols gr _A (xs `Seq.index` (i - 1))
     getAlphaValue (_A, i, j) -- ^ if not a unary span 
            = lookup alphaTable (_A, i, j)
 
-approxInsideOutside :: Grammar
+insideOutside :: Grammar
                     -> Symbol -- ^ start symbol
                     -> Sentence
                     -> UpperBound
                     -> Epsilon
+                    -> EdgeGenerator
                     -> ST s (AlphaTable s, BetaTable s)
-approxInsideOutside gr start xs ubFunc epsilon = do
-  !alphaTable <- approxInside gr start xs ubFunc epsilon
-  !betaTable <- approxOutside gr start xs alphaTable
-  return $! (alphaTable, betaTable)
+insideOutside gr start xs ubFunc epsilon edgeGenerator = do
+  !alphaTable <- inside gr start xs ubFunc epsilon edgeGenerator
+  !betaTable <- outside gr start xs alphaTable
+  return (alphaTable, betaTable)
+
+
+
+------------------------------------------
+-- Edge generator with ordering heuristics
+
+-- Rule edge generator with rules sorted by decreasing conditional
+-- weight
+generateByRuleWeight :: Grammar -> (Symbol, Int, Int) -> [(Rule, Int, Int, Int)]
+generateByRuleWeight gr (sym, i, j) = assert (i /= j) $ 
+      [(r, i, k, j) | r <- rules, k<- ks]
+      where ks = [i..j-1]
+            rules = sortBy (flip compare `on` weight) (binaryRulesHeadedBy gr sym)
+
+-- Rule edge generator with rules sorted according to boundary
+-- probabilty table Omega: Omega_{A, x, y} = p(A ->* x..y)
+generateByOmegaWeights :: Grammar
+                       -> Sentence
+                       -> OmegaTable
+                       -> (Symbol, Int, Int)
+                       -> [(Rule, Int, Int, Int)]
+generateByOmegaWeights gr xs !omegaTable (_A, i, j)
+  = map fst $ sortBy (flip compare `on` snd) $ do
+     r@(BinaryRule _ _B _C w) <- binaryRulesHeadedBy gr _A
+     k <- [i..j-1]
+     let x_r = xs `Seq.index` (i - 1)
+         x_l = xs `Seq.index` (k - 1)
+         y_r = xs `Seq.index` k
+         y_l = xs `Seq.index` (j - 1)
+         omega_l = HashMap.lookupDefault 0 (_B, x_r, x_l) omegaTable
+         omega_r = HashMap.lookupDefault 0 (_C, y_r, y_l) omegaTable
+         v = w * omega_l * omega_r
+     -- !_ <- _incrCounter _globalCounter `seq` return ()
+     -- !_ <- _incrCounter _globalCounter `seq` return ()              
+     -- (trace $ "k: " ++ show k) $ return ()
+     -- (trace $ "x_r: " ++ show x_r) $ return ()
+     -- (trace $ "x_l: " ++ show x_l) $ return ()
+     -- (trace $ "y_r: " ++ show y_r) $ return ()
+     -- (trace $ "y_l: " ++ show y_l) $ return ()
+     -- (trace $ "omega_l: " ++ show omega_l) $ return ()
+     -- (trace $ "omega_r: " ++ show omega_r) $ return ()
+     -- (trace $ "r: " ++ show r) $ return ()
+     return ((r, i, k, j), v)
+     
+     
+
+                 
 
 trivialUpperBound :: UpperBound
 trivialUpperBound _ = read "Infinity"
+
+unityUpperBound :: UpperBound
+unityUpperBound _ = 1.0
 
 likelihood :: Grammar
               -> Symbol
               -> Sentence
               -> UpperBound
               -> Epsilon
+              -> EdgeGenerator
               -> ST s Double'
-likelihood gr start xs ubFunc epsilon = do
-  ht <- approxInside gr start xs ubFunc epsilon
-  v <- lookup ht (start, 1, length xs)
+likelihood gr start xs ubFunc epsilon edgeGenerator = do
+  ht <- inside gr start xs ubFunc epsilon edgeGenerator
+  v <- lookup ht (start, 1, Seq.length xs)
   return $ maybe 0 id v
+  
+
+--- EXTRA HELPERS
+  
+-- | add a small amount of probability mass to every rule that does
+-- not already exist in the grammar
+addWideSupport :: Grammar -> Double' -> Grammar
+addWideSupport gr eps = grammarFromRules $ grammarRules gr' ++ bs ++ us
+  where gr' = normalizeGrammar gr
+        lexicon = terminals gr'
+        nts = nonterminals gr'
+        -- binary rules not already in grammar
+        bs = [BinaryRule h l r eps | h <- nts, r <- nts, l <- nts, 
+                     getBinaryRulesBySymbols gr h l r == []]
+        -- unary rules not already in grammar
+        us  = [UnaryRule h l eps | h <- nts, l <- lexicon,
+                     getUnaryRulesBySymbols gr h l == []]
+
+        
   

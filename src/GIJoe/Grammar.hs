@@ -13,9 +13,11 @@ import Numeric.Log
 
 import Control.Monad
 import Data.List.Split (splitOn)
-import Data.List (foldl', sortBy, sort, maximumBy, foldl1')
+import Data.List (foldl', sortBy, sort, maximumBy, foldl1', nub)
 import Control.Monad.Logic
 import Data.Function (on)
+
+import Control.DeepSeq
 
 import Control.Monad.State.Strict
 import Control.Monad.Random
@@ -44,6 +46,7 @@ import Data.Tree.Pretty
 
 import Debug.Trace
 
+import Data.Sequence (Seq, (><))
 import qualified Data.Sequence as Seq
 
 import qualified Data.MemoCombinators as Memo
@@ -57,7 +60,12 @@ instance Show Symbol where
   show (N i Nothing) = "N" ++ show i
   show (T s) = s
 
-instance Hashable Symbol where 
+instance NFData Symbol where
+  rnf (N i t) = i `seq` t `seq` N i t `seq` ()
+  rnf (T s) = s `seq` T s `seq` ()
+
+
+instance Hashable Symbol where
 
 memoSymbol :: Memo.Memo Symbol
 memoSymbol f = table (m (f . uncurry N)) (m' (f . T)) f  
@@ -235,8 +243,14 @@ grammarFromRules rs = foldl' insertRule emptyGrammar (zip rs [0..])
 allNonTerminals :: Grammar -> [Symbol]
 allNonTerminals gr = HashMap.keys . headSymbolTable $  gr
 
+nonterminals :: Grammar -> [Symbol]
+nonterminals = allNonTerminals
+
 numSymbols :: Grammar -> Int
 numSymbols gr = HashMap.size . headSymbolTable $  gr
+
+allSymbols :: Grammar -> [Symbol]
+allSymbols gr = allNonTerminals gr ++ lexicon gr
 
 modifyRuleWeightWithId :: Grammar -> Int -> (Double' -> Double') -> Grammar
 modifyRuleWeightWithId gr i f = gr{ruleIndex=IntMap.adjust g i (ruleIndex gr)}
@@ -268,6 +282,12 @@ normalizeGrammar gr = foldl' go gr (allNonTerminals gr)
 
 type Lexicon = [Symbol]
 
+lexicon :: Grammar -> Lexicon
+lexicon gr = nub $ map child unaryRules
+  where unaryRules = getRulesById gr (unaryRuleIds gr)
+
+terminals = lexicon
+
 initGrammar :: Symbol
             -> Lexicon
             -> Int     -- ^ K
@@ -280,7 +300,7 @@ initGrammar start lexicon _K = grammarFromRules $ binary_rules ++ unary_rules
           return $! BinaryRule (N i Nothing) (N j Nothing) (N k Nothing) 1.0
         unary_rules = [UnaryRule (N i Nothing) l 1.0  | i <- [0.._K-1], l <- lexicon]
 
-type Sentence = [Symbol]
+type Sentence = Seq Symbol
 type Corpus   = [Sentence]
 
 data And a b = And a [b] deriving Show
@@ -311,7 +331,7 @@ instance Show Parse where
   
 
 recognize :: Grammar -> Symbol -> Sentence -> Bool
-recognize gr sym xs = case parse gr xs sym 1 (length xs) of
+recognize gr sym xs = case parse gr xs sym 1 (Seq.length xs) of
   Nothing -> False
   Just _ -> True
 
@@ -325,8 +345,7 @@ parse :: Grammar
 parse gr xs = memo_parse  
   where memo = Memo.memo3 memoSymbol Memo.integral Memo.integral
         memo_parse = memo parse'
-        xs' = Seq.fromList xs
-        m = Seq.length xs'
+        m = Seq.length xs
 
         parse' :: Symbol
                -> Int
@@ -341,7 +360,7 @@ parse gr xs = memo_parse
                   guard $ headSymbol rule == sym
                   guard $ child rule == x
                   return $! And rule []
-                x = Seq.index xs' (i - 1)
+                x = Seq.index xs (i - 1)
                 
         -- else
         parse' sym i j = 
@@ -362,7 +381,7 @@ parse gr xs = memo_parse
 
 
 stringToSentence :: String -> Sentence
-stringToSentence = map T . words
+stringToSentence = Seq.fromList . map T . words
 
 stringToCorpus :: String -> Corpus
 stringToCorpus = map stringToSentence . splitOn "."
@@ -370,14 +389,14 @@ stringToCorpus = map stringToSentence . splitOn "."
 ---- SAMPLING -------
 
 sample :: MonadRandom m => Grammar -> Symbol -> m Sentence
-sample _ sym@T{} = return $! [sym]
+sample _ sym@T{} = return $! Seq.singleton sym
 sample gr sym@N{} = do
   i <- sampleCategorical weights
   let rule = matchingRules !! i
   case rule of
     BinaryRule h l r _ -> do xl <- sample gr l
                              xr <- sample gr r
-                             return $! xl ++ xr
+                             return $! xl >< xr
     UnaryRule h c _ -> sample gr c                                 
   where matchingRules = filter ((==sym) . headSymbol) (grammarRules gr)
         weights = map weight matchingRules

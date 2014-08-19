@@ -56,9 +56,8 @@ library
                        GIJoe.Parse,
                        GIJoe.InsideOutside,
                        GIJoe.ApproximateInference.HashTable,
-                       GIJoe.ApproximateInference.InsideOutside,
-                       GIJoe.ApproximateInference.DList, 
-                       GIJoe.ApproximateInference.LazyDequeue
+                       GIJoe.ApproximateInference.InsideOutside
+                       GIJoe.ApproximateInference.BoundaryProbabilities
   -- Modules included in this library but not exported.
   -- other-modules:       
    
@@ -86,7 +85,9 @@ library
                        lens >=3.8.5,
                        logict >=0.6.0.2,
                        hashtables >=1.1.2.1,
-                       loops >=0.2.0.2
+                       loops >=0.2.0.2,
+                       criterion >=1.0.0.2,
+                       hmatrix >=0.16.0.4
   
   -- Directories containing source 
   hs-source-dirs: src, scratch
@@ -197,6 +198,7 @@ executable TestHashTable
                  parsec-numbers >=0.0,
                  random >=1.0,
                  pretty-tree >=0.1.0.0,
-                 GIJoe
+                 GIJoe,
+                 criterion >=1.0.0.2
 
   ghc-options:   -rtsopts 
