@@ -5,6 +5,8 @@ GIJoe.SRS
 ===========
 A library for writing, querying, and learning Stochastic Rewrite Systems (SRS).
 
+An example SRS can be found in ```data/rewriteSystems/number.sys```
+
 Example: 
 to launch ghci in project directory:
 ```
