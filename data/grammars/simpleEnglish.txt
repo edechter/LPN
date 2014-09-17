@@ -1,0 +1,37 @@
+# Simple English Fragment
+# S: sentence
+# NP : noun phrase
+# VP : verb phrase
+# PP : prepositional phrase
+# D  : determiner
+# N  : noun
+# V  : verb
+# A  : adjective
+$S  --> $NP $VP :: 1.0 
+$NP --> $D $NP :: 0.2
+$NP --> $N $PP :: 0.1
+$VP --> $V $NP :: 0.7
+$VP --> $V $A  :: 0.3
+$D --> the :: 0.3
+$D --> a :: 0.7
+$NP --> house :: 1.0
+$NP --> street :: 1.0
+$NP --> end :: 1.0
+$NP --> book :: 1.0
+$NP --> boy :: 1.0
+$NP --> ball :: 1.0
+$NP --> girl :: 1.0
+$A --> red :: 1.0
+$A --> green :: 1.0
+$A --> blue :: 1.0
+$A --> orange :: 1.0
+$A --> tall :: 1.0
+$V --> is :: 1.0
+$V --> sings :: 1.0
+$V --> runs :: 1.0
+$V --> walks :: 1.0
+$V --> jumps :: 1.0
+$P --> at :: 1.0
+$P --> on :: 1.0
+$P --> of :: 1.0
+$P --> with :: 1.0

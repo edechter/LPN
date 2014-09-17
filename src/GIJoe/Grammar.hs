@@ -121,6 +121,12 @@ data Grammar = Grammar {headSymbolTable :: HashMap Symbol IntSet,
 grammarRules :: Grammar -> [Rule]
 grammarRules gr = IntMap.elems . ruleIndex $ gr
 
+unaryRules :: Grammar -> [Rule]
+unaryRules gr = getRulesById gr $ unaryRuleIds gr
+
+binaryRules :: Grammar -> [Rule]
+binaryRules gr = getRulesById gr $ binaryRuleIds gr
+
 getRuleById :: Grammar -> Int -> Maybe Rule
 getRuleById gr i = IntMap.lookup i (ruleIndex gr)
 

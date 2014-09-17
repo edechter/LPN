@@ -7,6 +7,8 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 
+\usepackage{graphicx}
+
 
 \usepackage{natbib}
 
@@ -326,10 +328,59 @@ Here, as is often the case in computations that make use of heuristic
 scores, it may be advantageous to precompute all the heuristic values
 so that lookup is $O(1)$. 
 
+\subsection{A serious problem with boundary probabilities}
+Unfortunately, there is are serious problems with using boundary
+probabilities. First, the dependency between the first and last word
+of a constituent decreases rapidly with the length of the
+constitutent. Second, since calculating the boundary probability
+involves taking the expectation over yields of all lengths, the value
+assigned does not take into accoutn the length of the constitutent,
+and produces values that upper bound the insid probability of a
+consituent even for two word constitutent. But even an unlikely pair
+of adjacent words is going to have a higher probability than a typical
+long sentence. Therefore, we need to come up with a scoring function
+that takes into account the length of the constitutent.
 
+\section{Using constituent length to upper bound inside probabilities}
+The probability that symbol $A$ yields any constitutent of length $n$
+is greater than or equal to the probability that symbol $A$ yields any
+specific string of words of that length. 
 
+Let $\lambda(A, n) \triangleq p(A \text{ yields a string of lengths }
+n)$. This probability can be calculated recursively: 
+\begin{align}
+\lambda(A, n=1) =& \sum_{A \leftarrow t} \psi(A \leftarrow t)\\ 
+\lambda(A, n>1) =& \sum_{A \leftarrow B \,C} \sum_{k=1}^{n-1} \psi(A \leftarrow B\, C) 
+  \lambda(B, k) \lambda(C, k=1)\\ 
+\end{align}
 
+This recursive definition leads directly to an $O(Kn^2)$ algorithm for
+$\lambda$. 
 
+\begin{figure}
+\begin{minipage}[t]{\textwidth}
+  \includegraphics[width=\linewidth]{figures/toy_grammar_approx_vs_exact.pdf}
+\end{minipage}
+\begin{minipage}[t]{4cm}
+  \begin{align*}
+    S \rightarrow& \,L\, S :: 0.1 \, | \,a :: 0.9\\
+    L \rightarrow& \,L\, S :: 0.0001\, | \, a :: 0.999\\
+  \end{align*}
+  \centering (a)\par
+\end{minipage}
+
+\begin{minipage}[t]{\textwidth}
+  \caption{A comparison of the approximate and exact ``Inside''
+    algorithms on the toy grammar (c). (a) The number of edges seen by
+    the algorithm. The exact Inside algorithm has a predictable $n^3$
+    behavior because it looks once at every edge $(A, i, k, j)$. The
+    approximate algorithm ignores edges that are gauranteed to be
+    insignificant, so that the number of inspected edges is
+    dramatically reduced. (b) The amount by which the approximate
+    Inside algorithm over estimates the loglikelihood of the
+    sentence. }
+\end{minipage}
+\end{figure}
 
 \section{Appendix}
 \subsection{Existence of $\Gamma$ and $\Theta$}
@@ -344,7 +395,7 @@ $1-\Phi^\ell$ and $1-Phi^r$.
 Suppose, by contradiction, that their is some linear combination $a_1,
 ..., a_K$ such that $(1-\Phi^\ell) a = 0$. This implies that each $a_i
 = \sum_{j} \Phi^\ell_{i, j} a_j$. Recall that the element of
-$\Phi^\ell_{A, B} = \sum_{A \rightarrow B C} \p(A \rightarrow B C)$,
+$\Phi^\ell_{A, B} = \sum_{A \rightarrow B C} p(A \rightarrow B C)$,
 where $A$ and $B$ are nonterminals. For the PCFG defined by these
 probabilities to be valid, $\Phi^\ell_{A,B}$ must be less than
 one. Otherwise, there would be a nonzero probability of an infinite

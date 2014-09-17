@@ -1,0 +1,6 @@
+# test rewrite system
+A(X a, Y a) <-- A(X, Y) :: 0.25. 
+A(X b, Y b) <-- A(X, Y) :: 0.2. 
+A(a, a) :: 0.25. 
+A(b, b) :: 0.3. 
+
