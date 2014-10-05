@@ -4,3 +4,6 @@ A(X b, Y b) <-- A(X, Y) :: 0.2.
 A(a, a) :: 0.25. 
 A(b, b) :: 0.3. 
 
+%%% The program:
+a([a], [a]) :: p0.
+a(Z1, Z2) :- a(X), a(Y), append(X, [a], Z1), append(Y, [a], Z2) :: p1.
