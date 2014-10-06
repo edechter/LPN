@@ -1,0 +1,1271 @@
+A1(X Y) <-- A1(X), A1(Y).
+A1(X Y) <-- A1(X), A10(Y).
+A1(X Y) <-- A1(X), A2(Y).
+A1(X Y) <-- A1(X), A3(Y).
+A1(X Y) <-- A1(X), A4(Y).
+A1(X Y) <-- A1(X), A5(Y).
+A1(X Y) <-- A1(X), A6(Y).
+A1(X Y) <-- A1(X), A7(Y).
+A1(X Y) <-- A1(X), A8(Y).
+A1(X Y) <-- A1(X), A9(Y).
+A1(X Y) <-- A10(X), A1(Y).
+A1(X Y) <-- A10(X), A10(Y).
+A1(X Y) <-- A10(X), A2(Y).
+A1(X Y) <-- A10(X), A3(Y).
+A1(X Y) <-- A10(X), A4(Y).
+A1(X Y) <-- A10(X), A5(Y).
+A1(X Y) <-- A10(X), A6(Y).
+A1(X Y) <-- A10(X), A7(Y).
+A1(X Y) <-- A10(X), A8(Y).
+A1(X Y) <-- A10(X), A9(Y).
+A1(X Y) <-- A2(X), A1(Y).
+A1(X Y) <-- A2(X), A10(Y).
+A1(X Y) <-- A2(X), A2(Y).
+A1(X Y) <-- A2(X), A3(Y).
+A1(X Y) <-- A2(X), A4(Y).
+A1(X Y) <-- A2(X), A5(Y).
+A1(X Y) <-- A2(X), A6(Y).
+A1(X Y) <-- A2(X), A7(Y).
+A1(X Y) <-- A2(X), A8(Y).
+A1(X Y) <-- A2(X), A9(Y).
+A1(X Y) <-- A3(X), A1(Y).
+A1(X Y) <-- A3(X), A10(Y).
+A1(X Y) <-- A3(X), A2(Y).
+A1(X Y) <-- A3(X), A3(Y).
+A1(X Y) <-- A3(X), A4(Y).
+A1(X Y) <-- A3(X), A5(Y).
+A1(X Y) <-- A3(X), A6(Y).
+A1(X Y) <-- A3(X), A7(Y).
+A1(X Y) <-- A3(X), A8(Y).
+A1(X Y) <-- A3(X), A9(Y).
+A1(X Y) <-- A4(X), A1(Y).
+A1(X Y) <-- A4(X), A10(Y).
+A1(X Y) <-- A4(X), A2(Y).
+A1(X Y) <-- A4(X), A3(Y).
+A1(X Y) <-- A4(X), A4(Y).
+A1(X Y) <-- A4(X), A5(Y).
+A1(X Y) <-- A4(X), A6(Y).
+A1(X Y) <-- A4(X), A7(Y).
+A1(X Y) <-- A4(X), A8(Y).
+A1(X Y) <-- A4(X), A9(Y).
+A1(X Y) <-- A5(X), A1(Y).
+A1(X Y) <-- A5(X), A10(Y).
+A1(X Y) <-- A5(X), A2(Y).
+A1(X Y) <-- A5(X), A3(Y).
+A1(X Y) <-- A5(X), A4(Y).
+A1(X Y) <-- A5(X), A5(Y).
+A1(X Y) <-- A5(X), A6(Y).
+A1(X Y) <-- A5(X), A7(Y).
+A1(X Y) <-- A5(X), A8(Y).
+A1(X Y) <-- A5(X), A9(Y).
+A1(X Y) <-- A6(X), A1(Y).
+A1(X Y) <-- A6(X), A10(Y).
+A1(X Y) <-- A6(X), A2(Y).
+A1(X Y) <-- A6(X), A3(Y).
+A1(X Y) <-- A6(X), A4(Y).
+A1(X Y) <-- A6(X), A5(Y).
+A1(X Y) <-- A6(X), A6(Y).
+A1(X Y) <-- A6(X), A7(Y).
+A1(X Y) <-- A6(X), A8(Y).
+A1(X Y) <-- A6(X), A9(Y).
+A1(X Y) <-- A7(X), A1(Y).
+A1(X Y) <-- A7(X), A10(Y).
+A1(X Y) <-- A7(X), A2(Y).
+A1(X Y) <-- A7(X), A3(Y).
+A1(X Y) <-- A7(X), A4(Y).
+A1(X Y) <-- A7(X), A5(Y).
+A1(X Y) <-- A7(X), A6(Y).
+A1(X Y) <-- A7(X), A7(Y).
+A1(X Y) <-- A7(X), A8(Y).
+A1(X Y) <-- A7(X), A9(Y).
+A1(X Y) <-- A8(X), A1(Y).
+A1(X Y) <-- A8(X), A10(Y).
+A1(X Y) <-- A8(X), A2(Y).
+A1(X Y) <-- A8(X), A3(Y).
+A1(X Y) <-- A8(X), A4(Y).
+A1(X Y) <-- A8(X), A5(Y).
+A1(X Y) <-- A8(X), A6(Y).
+A1(X Y) <-- A8(X), A7(Y).
+A1(X Y) <-- A8(X), A8(Y).
+A1(X Y) <-- A8(X), A9(Y).
+A1(X Y) <-- A9(X), A1(Y).
+A1(X Y) <-- A9(X), A10(Y).
+A1(X Y) <-- A9(X), A2(Y).
+A1(X Y) <-- A9(X), A3(Y).
+A1(X Y) <-- A9(X), A4(Y).
+A1(X Y) <-- A9(X), A5(Y).
+A1(X Y) <-- A9(X), A6(Y).
+A1(X Y) <-- A9(X), A7(Y).
+A1(X Y) <-- A9(X), A8(Y).
+A1(X Y) <-- A9(X), A9(Y).
+A1([eight]).
+A1([eighteen]).
+A1([eighty]).
+A1([eleven]).
+A1([fifteen]).
+A1([fifty]).
+A1([five]).
+A1([forty]).
+A1([four]).
+A1([fourteen]).
+A1([nine]).
+A1([nineteen]).
+A1([ninety]).
+A1([one]).
+A1([seven]).
+A1([seventeen]).
+A1([seventy]).
+A1([six]).
+A1([sixteen]).
+A1([sixty]).
+A1([ten]).
+A1([thirteen]).
+A1([thirty]).
+A1([three]).
+A1([twelve]).
+A1([twenty]).
+A1([two]).
+A10(X Y) <-- A1(X), A1(Y).
+A10(X Y) <-- A1(X), A10(Y).
+A10(X Y) <-- A1(X), A2(Y).
+A10(X Y) <-- A1(X), A3(Y).
+A10(X Y) <-- A1(X), A4(Y).
+A10(X Y) <-- A1(X), A5(Y).
+A10(X Y) <-- A1(X), A6(Y).
+A10(X Y) <-- A1(X), A7(Y).
+A10(X Y) <-- A1(X), A8(Y).
+A10(X Y) <-- A1(X), A9(Y).
+A10(X Y) <-- A10(X), A1(Y).
+A10(X Y) <-- A10(X), A10(Y).
+A10(X Y) <-- A10(X), A2(Y).
+A10(X Y) <-- A10(X), A3(Y).
+A10(X Y) <-- A10(X), A4(Y).
+A10(X Y) <-- A10(X), A5(Y).
+A10(X Y) <-- A10(X), A6(Y).
+A10(X Y) <-- A10(X), A7(Y).
+A10(X Y) <-- A10(X), A8(Y).
+A10(X Y) <-- A10(X), A9(Y).
+A10(X Y) <-- A2(X), A1(Y).
+A10(X Y) <-- A2(X), A10(Y).
+A10(X Y) <-- A2(X), A2(Y).
+A10(X Y) <-- A2(X), A3(Y).
+A10(X Y) <-- A2(X), A4(Y).
+A10(X Y) <-- A2(X), A5(Y).
+A10(X Y) <-- A2(X), A6(Y).
+A10(X Y) <-- A2(X), A7(Y).
+A10(X Y) <-- A2(X), A8(Y).
+A10(X Y) <-- A2(X), A9(Y).
+A10(X Y) <-- A3(X), A1(Y).
+A10(X Y) <-- A3(X), A10(Y).
+A10(X Y) <-- A3(X), A2(Y).
+A10(X Y) <-- A3(X), A3(Y).
+A10(X Y) <-- A3(X), A4(Y).
+A10(X Y) <-- A3(X), A5(Y).
+A10(X Y) <-- A3(X), A6(Y).
+A10(X Y) <-- A3(X), A7(Y).
+A10(X Y) <-- A3(X), A8(Y).
+A10(X Y) <-- A3(X), A9(Y).
+A10(X Y) <-- A4(X), A1(Y).
+A10(X Y) <-- A4(X), A10(Y).
+A10(X Y) <-- A4(X), A2(Y).
+A10(X Y) <-- A4(X), A3(Y).
+A10(X Y) <-- A4(X), A4(Y).
+A10(X Y) <-- A4(X), A5(Y).
+A10(X Y) <-- A4(X), A6(Y).
+A10(X Y) <-- A4(X), A7(Y).
+A10(X Y) <-- A4(X), A8(Y).
+A10(X Y) <-- A4(X), A9(Y).
+A10(X Y) <-- A5(X), A1(Y).
+A10(X Y) <-- A5(X), A10(Y).
+A10(X Y) <-- A5(X), A2(Y).
+A10(X Y) <-- A5(X), A3(Y).
+A10(X Y) <-- A5(X), A4(Y).
+A10(X Y) <-- A5(X), A5(Y).
+A10(X Y) <-- A5(X), A6(Y).
+A10(X Y) <-- A5(X), A7(Y).
+A10(X Y) <-- A5(X), A8(Y).
+A10(X Y) <-- A5(X), A9(Y).
+A10(X Y) <-- A6(X), A1(Y).
+A10(X Y) <-- A6(X), A10(Y).
+A10(X Y) <-- A6(X), A2(Y).
+A10(X Y) <-- A6(X), A3(Y).
+A10(X Y) <-- A6(X), A4(Y).
+A10(X Y) <-- A6(X), A5(Y).
+A10(X Y) <-- A6(X), A6(Y).
+A10(X Y) <-- A6(X), A7(Y).
+A10(X Y) <-- A6(X), A8(Y).
+A10(X Y) <-- A6(X), A9(Y).
+A10(X Y) <-- A7(X), A1(Y).
+A10(X Y) <-- A7(X), A10(Y).
+A10(X Y) <-- A7(X), A2(Y).
+A10(X Y) <-- A7(X), A3(Y).
+A10(X Y) <-- A7(X), A4(Y).
+A10(X Y) <-- A7(X), A5(Y).
+A10(X Y) <-- A7(X), A6(Y).
+A10(X Y) <-- A7(X), A7(Y).
+A10(X Y) <-- A7(X), A8(Y).
+A10(X Y) <-- A7(X), A9(Y).
+A10(X Y) <-- A8(X), A1(Y).
+A10(X Y) <-- A8(X), A10(Y).
+A10(X Y) <-- A8(X), A2(Y).
+A10(X Y) <-- A8(X), A3(Y).
+A10(X Y) <-- A8(X), A4(Y).
+A10(X Y) <-- A8(X), A5(Y).
+A10(X Y) <-- A8(X), A6(Y).
+A10(X Y) <-- A8(X), A7(Y).
+A10(X Y) <-- A8(X), A8(Y).
+A10(X Y) <-- A8(X), A9(Y).
+A10(X Y) <-- A9(X), A1(Y).
+A10(X Y) <-- A9(X), A10(Y).
+A10(X Y) <-- A9(X), A2(Y).
+A10(X Y) <-- A9(X), A3(Y).
+A10(X Y) <-- A9(X), A4(Y).
+A10(X Y) <-- A9(X), A5(Y).
+A10(X Y) <-- A9(X), A6(Y).
+A10(X Y) <-- A9(X), A7(Y).
+A10(X Y) <-- A9(X), A8(Y).
+A10(X Y) <-- A9(X), A9(Y).
+A10([eight]).
+A10([eighteen]).
+A10([eighty]).
+A10([eleven]).
+A10([fifteen]).
+A10([fifty]).
+A10([five]).
+A10([forty]).
+A10([four]).
+A10([fourteen]).
+A10([nine]).
+A10([nineteen]).
+A10([ninety]).
+A10([one]).
+A10([seven]).
+A10([seventeen]).
+A10([seventy]).
+A10([six]).
+A10([sixteen]).
+A10([sixty]).
+A10([ten]).
+A10([thirteen]).
+A10([thirty]).
+A10([three]).
+A10([twelve]).
+A10([twenty]).
+A10([two]).
+A2(X Y) <-- A1(X), A1(Y).
+A2(X Y) <-- A1(X), A10(Y).
+A2(X Y) <-- A1(X), A2(Y).
+A2(X Y) <-- A1(X), A3(Y).
+A2(X Y) <-- A1(X), A4(Y).
+A2(X Y) <-- A1(X), A5(Y).
+A2(X Y) <-- A1(X), A6(Y).
+A2(X Y) <-- A1(X), A7(Y).
+A2(X Y) <-- A1(X), A8(Y).
+A2(X Y) <-- A1(X), A9(Y).
+A2(X Y) <-- A10(X), A1(Y).
+A2(X Y) <-- A10(X), A10(Y).
+A2(X Y) <-- A10(X), A2(Y).
+A2(X Y) <-- A10(X), A3(Y).
+A2(X Y) <-- A10(X), A4(Y).
+A2(X Y) <-- A10(X), A5(Y).
+A2(X Y) <-- A10(X), A6(Y).
+A2(X Y) <-- A10(X), A7(Y).
+A2(X Y) <-- A10(X), A8(Y).
+A2(X Y) <-- A10(X), A9(Y).
+A2(X Y) <-- A2(X), A1(Y).
+A2(X Y) <-- A2(X), A10(Y).
+A2(X Y) <-- A2(X), A2(Y).
+A2(X Y) <-- A2(X), A3(Y).
+A2(X Y) <-- A2(X), A4(Y).
+A2(X Y) <-- A2(X), A5(Y).
+A2(X Y) <-- A2(X), A6(Y).
+A2(X Y) <-- A2(X), A7(Y).
+A2(X Y) <-- A2(X), A8(Y).
+A2(X Y) <-- A2(X), A9(Y).
+A2(X Y) <-- A3(X), A1(Y).
+A2(X Y) <-- A3(X), A10(Y).
+A2(X Y) <-- A3(X), A2(Y).
+A2(X Y) <-- A3(X), A3(Y).
+A2(X Y) <-- A3(X), A4(Y).
+A2(X Y) <-- A3(X), A5(Y).
+A2(X Y) <-- A3(X), A6(Y).
+A2(X Y) <-- A3(X), A7(Y).
+A2(X Y) <-- A3(X), A8(Y).
+A2(X Y) <-- A3(X), A9(Y).
+A2(X Y) <-- A4(X), A1(Y).
+A2(X Y) <-- A4(X), A10(Y).
+A2(X Y) <-- A4(X), A2(Y).
+A2(X Y) <-- A4(X), A3(Y).
+A2(X Y) <-- A4(X), A4(Y).
+A2(X Y) <-- A4(X), A5(Y).
+A2(X Y) <-- A4(X), A6(Y).
+A2(X Y) <-- A4(X), A7(Y).
+A2(X Y) <-- A4(X), A8(Y).
+A2(X Y) <-- A4(X), A9(Y).
+A2(X Y) <-- A5(X), A1(Y).
+A2(X Y) <-- A5(X), A10(Y).
+A2(X Y) <-- A5(X), A2(Y).
+A2(X Y) <-- A5(X), A3(Y).
+A2(X Y) <-- A5(X), A4(Y).
+A2(X Y) <-- A5(X), A5(Y).
+A2(X Y) <-- A5(X), A6(Y).
+A2(X Y) <-- A5(X), A7(Y).
+A2(X Y) <-- A5(X), A8(Y).
+A2(X Y) <-- A5(X), A9(Y).
+A2(X Y) <-- A6(X), A1(Y).
+A2(X Y) <-- A6(X), A10(Y).
+A2(X Y) <-- A6(X), A2(Y).
+A2(X Y) <-- A6(X), A3(Y).
+A2(X Y) <-- A6(X), A4(Y).
+A2(X Y) <-- A6(X), A5(Y).
+A2(X Y) <-- A6(X), A6(Y).
+A2(X Y) <-- A6(X), A7(Y).
+A2(X Y) <-- A6(X), A8(Y).
+A2(X Y) <-- A6(X), A9(Y).
+A2(X Y) <-- A7(X), A1(Y).
+A2(X Y) <-- A7(X), A10(Y).
+A2(X Y) <-- A7(X), A2(Y).
+A2(X Y) <-- A7(X), A3(Y).
+A2(X Y) <-- A7(X), A4(Y).
+A2(X Y) <-- A7(X), A5(Y).
+A2(X Y) <-- A7(X), A6(Y).
+A2(X Y) <-- A7(X), A7(Y).
+A2(X Y) <-- A7(X), A8(Y).
+A2(X Y) <-- A7(X), A9(Y).
+A2(X Y) <-- A8(X), A1(Y).
+A2(X Y) <-- A8(X), A10(Y).
+A2(X Y) <-- A8(X), A2(Y).
+A2(X Y) <-- A8(X), A3(Y).
+A2(X Y) <-- A8(X), A4(Y).
+A2(X Y) <-- A8(X), A5(Y).
+A2(X Y) <-- A8(X), A6(Y).
+A2(X Y) <-- A8(X), A7(Y).
+A2(X Y) <-- A8(X), A8(Y).
+A2(X Y) <-- A8(X), A9(Y).
+A2(X Y) <-- A9(X), A1(Y).
+A2(X Y) <-- A9(X), A10(Y).
+A2(X Y) <-- A9(X), A2(Y).
+A2(X Y) <-- A9(X), A3(Y).
+A2(X Y) <-- A9(X), A4(Y).
+A2(X Y) <-- A9(X), A5(Y).
+A2(X Y) <-- A9(X), A6(Y).
+A2(X Y) <-- A9(X), A7(Y).
+A2(X Y) <-- A9(X), A8(Y).
+A2(X Y) <-- A9(X), A9(Y).
+A2([eight]).
+A2([eighteen]).
+A2([eighty]).
+A2([eleven]).
+A2([fifteen]).
+A2([fifty]).
+A2([five]).
+A2([forty]).
+A2([four]).
+A2([fourteen]).
+A2([nine]).
+A2([nineteen]).
+A2([ninety]).
+A2([one]).
+A2([seven]).
+A2([seventeen]).
+A2([seventy]).
+A2([six]).
+A2([sixteen]).
+A2([sixty]).
+A2([ten]).
+A2([thirteen]).
+A2([thirty]).
+A2([three]).
+A2([twelve]).
+A2([twenty]).
+A2([two]).
+A3(X Y) <-- A1(X), A1(Y).
+A3(X Y) <-- A1(X), A10(Y).
+A3(X Y) <-- A1(X), A2(Y).
+A3(X Y) <-- A1(X), A3(Y).
+A3(X Y) <-- A1(X), A4(Y).
+A3(X Y) <-- A1(X), A5(Y).
+A3(X Y) <-- A1(X), A6(Y).
+A3(X Y) <-- A1(X), A7(Y).
+A3(X Y) <-- A1(X), A8(Y).
+A3(X Y) <-- A1(X), A9(Y).
+A3(X Y) <-- A10(X), A1(Y).
+A3(X Y) <-- A10(X), A10(Y).
+A3(X Y) <-- A10(X), A2(Y).
+A3(X Y) <-- A10(X), A3(Y).
+A3(X Y) <-- A10(X), A4(Y).
+A3(X Y) <-- A10(X), A5(Y).
+A3(X Y) <-- A10(X), A6(Y).
+A3(X Y) <-- A10(X), A7(Y).
+A3(X Y) <-- A10(X), A8(Y).
+A3(X Y) <-- A10(X), A9(Y).
+A3(X Y) <-- A2(X), A1(Y).
+A3(X Y) <-- A2(X), A10(Y).
+A3(X Y) <-- A2(X), A2(Y).
+A3(X Y) <-- A2(X), A3(Y).
+A3(X Y) <-- A2(X), A4(Y).
+A3(X Y) <-- A2(X), A5(Y).
+A3(X Y) <-- A2(X), A6(Y).
+A3(X Y) <-- A2(X), A7(Y).
+A3(X Y) <-- A2(X), A8(Y).
+A3(X Y) <-- A2(X), A9(Y).
+A3(X Y) <-- A3(X), A1(Y).
+A3(X Y) <-- A3(X), A10(Y).
+A3(X Y) <-- A3(X), A2(Y).
+A3(X Y) <-- A3(X), A3(Y).
+A3(X Y) <-- A3(X), A4(Y).
+A3(X Y) <-- A3(X), A5(Y).
+A3(X Y) <-- A3(X), A6(Y).
+A3(X Y) <-- A3(X), A7(Y).
+A3(X Y) <-- A3(X), A8(Y).
+A3(X Y) <-- A3(X), A9(Y).
+A3(X Y) <-- A4(X), A1(Y).
+A3(X Y) <-- A4(X), A10(Y).
+A3(X Y) <-- A4(X), A2(Y).
+A3(X Y) <-- A4(X), A3(Y).
+A3(X Y) <-- A4(X), A4(Y).
+A3(X Y) <-- A4(X), A5(Y).
+A3(X Y) <-- A4(X), A6(Y).
+A3(X Y) <-- A4(X), A7(Y).
+A3(X Y) <-- A4(X), A8(Y).
+A3(X Y) <-- A4(X), A9(Y).
+A3(X Y) <-- A5(X), A1(Y).
+A3(X Y) <-- A5(X), A10(Y).
+A3(X Y) <-- A5(X), A2(Y).
+A3(X Y) <-- A5(X), A3(Y).
+A3(X Y) <-- A5(X), A4(Y).
+A3(X Y) <-- A5(X), A5(Y).
+A3(X Y) <-- A5(X), A6(Y).
+A3(X Y) <-- A5(X), A7(Y).
+A3(X Y) <-- A5(X), A8(Y).
+A3(X Y) <-- A5(X), A9(Y).
+A3(X Y) <-- A6(X), A1(Y).
+A3(X Y) <-- A6(X), A10(Y).
+A3(X Y) <-- A6(X), A2(Y).
+A3(X Y) <-- A6(X), A3(Y).
+A3(X Y) <-- A6(X), A4(Y).
+A3(X Y) <-- A6(X), A5(Y).
+A3(X Y) <-- A6(X), A6(Y).
+A3(X Y) <-- A6(X), A7(Y).
+A3(X Y) <-- A6(X), A8(Y).
+A3(X Y) <-- A6(X), A9(Y).
+A3(X Y) <-- A7(X), A1(Y).
+A3(X Y) <-- A7(X), A10(Y).
+A3(X Y) <-- A7(X), A2(Y).
+A3(X Y) <-- A7(X), A3(Y).
+A3(X Y) <-- A7(X), A4(Y).
+A3(X Y) <-- A7(X), A5(Y).
+A3(X Y) <-- A7(X), A6(Y).
+A3(X Y) <-- A7(X), A7(Y).
+A3(X Y) <-- A7(X), A8(Y).
+A3(X Y) <-- A7(X), A9(Y).
+A3(X Y) <-- A8(X), A1(Y).
+A3(X Y) <-- A8(X), A10(Y).
+A3(X Y) <-- A8(X), A2(Y).
+A3(X Y) <-- A8(X), A3(Y).
+A3(X Y) <-- A8(X), A4(Y).
+A3(X Y) <-- A8(X), A5(Y).
+A3(X Y) <-- A8(X), A6(Y).
+A3(X Y) <-- A8(X), A7(Y).
+A3(X Y) <-- A8(X), A8(Y).
+A3(X Y) <-- A8(X), A9(Y).
+A3(X Y) <-- A9(X), A1(Y).
+A3(X Y) <-- A9(X), A10(Y).
+A3(X Y) <-- A9(X), A2(Y).
+A3(X Y) <-- A9(X), A3(Y).
+A3(X Y) <-- A9(X), A4(Y).
+A3(X Y) <-- A9(X), A5(Y).
+A3(X Y) <-- A9(X), A6(Y).
+A3(X Y) <-- A9(X), A7(Y).
+A3(X Y) <-- A9(X), A8(Y).
+A3(X Y) <-- A9(X), A9(Y).
+A3([eight]).
+A3([eighteen]).
+A3([eighty]).
+A3([eleven]).
+A3([fifteen]).
+A3([fifty]).
+A3([five]).
+A3([forty]).
+A3([four]).
+A3([fourteen]).
+A3([nine]).
+A3([nineteen]).
+A3([ninety]).
+A3([one]).
+A3([seven]).
+A3([seventeen]).
+A3([seventy]).
+A3([six]).
+A3([sixteen]).
+A3([sixty]).
+A3([ten]).
+A3([thirteen]).
+A3([thirty]).
+A3([three]).
+A3([twelve]).
+A3([twenty]).
+A3([two]).
+A4(X Y) <-- A1(X), A1(Y).
+A4(X Y) <-- A1(X), A10(Y).
+A4(X Y) <-- A1(X), A2(Y).
+A4(X Y) <-- A1(X), A3(Y).
+A4(X Y) <-- A1(X), A4(Y).
+A4(X Y) <-- A1(X), A5(Y).
+A4(X Y) <-- A1(X), A6(Y).
+A4(X Y) <-- A1(X), A7(Y).
+A4(X Y) <-- A1(X), A8(Y).
+A4(X Y) <-- A1(X), A9(Y).
+A4(X Y) <-- A10(X), A1(Y).
+A4(X Y) <-- A10(X), A10(Y).
+A4(X Y) <-- A10(X), A2(Y).
+A4(X Y) <-- A10(X), A3(Y).
+A4(X Y) <-- A10(X), A4(Y).
+A4(X Y) <-- A10(X), A5(Y).
+A4(X Y) <-- A10(X), A6(Y).
+A4(X Y) <-- A10(X), A7(Y).
+A4(X Y) <-- A10(X), A8(Y).
+A4(X Y) <-- A10(X), A9(Y).
+A4(X Y) <-- A2(X), A1(Y).
+A4(X Y) <-- A2(X), A10(Y).
+A4(X Y) <-- A2(X), A2(Y).
+A4(X Y) <-- A2(X), A3(Y).
+A4(X Y) <-- A2(X), A4(Y).
+A4(X Y) <-- A2(X), A5(Y).
+A4(X Y) <-- A2(X), A6(Y).
+A4(X Y) <-- A2(X), A7(Y).
+A4(X Y) <-- A2(X), A8(Y).
+A4(X Y) <-- A2(X), A9(Y).
+A4(X Y) <-- A3(X), A1(Y).
+A4(X Y) <-- A3(X), A10(Y).
+A4(X Y) <-- A3(X), A2(Y).
+A4(X Y) <-- A3(X), A3(Y).
+A4(X Y) <-- A3(X), A4(Y).
+A4(X Y) <-- A3(X), A5(Y).
+A4(X Y) <-- A3(X), A6(Y).
+A4(X Y) <-- A3(X), A7(Y).
+A4(X Y) <-- A3(X), A8(Y).
+A4(X Y) <-- A3(X), A9(Y).
+A4(X Y) <-- A4(X), A1(Y).
+A4(X Y) <-- A4(X), A10(Y).
+A4(X Y) <-- A4(X), A2(Y).
+A4(X Y) <-- A4(X), A3(Y).
+A4(X Y) <-- A4(X), A4(Y).
+A4(X Y) <-- A4(X), A5(Y).
+A4(X Y) <-- A4(X), A6(Y).
+A4(X Y) <-- A4(X), A7(Y).
+A4(X Y) <-- A4(X), A8(Y).
+A4(X Y) <-- A4(X), A9(Y).
+A4(X Y) <-- A5(X), A1(Y).
+A4(X Y) <-- A5(X), A10(Y).
+A4(X Y) <-- A5(X), A2(Y).
+A4(X Y) <-- A5(X), A3(Y).
+A4(X Y) <-- A5(X), A4(Y).
+A4(X Y) <-- A5(X), A5(Y).
+A4(X Y) <-- A5(X), A6(Y).
+A4(X Y) <-- A5(X), A7(Y).
+A4(X Y) <-- A5(X), A8(Y).
+A4(X Y) <-- A5(X), A9(Y).
+A4(X Y) <-- A6(X), A1(Y).
+A4(X Y) <-- A6(X), A10(Y).
+A4(X Y) <-- A6(X), A2(Y).
+A4(X Y) <-- A6(X), A3(Y).
+A4(X Y) <-- A6(X), A4(Y).
+A4(X Y) <-- A6(X), A5(Y).
+A4(X Y) <-- A6(X), A6(Y).
+A4(X Y) <-- A6(X), A7(Y).
+A4(X Y) <-- A6(X), A8(Y).
+A4(X Y) <-- A6(X), A9(Y).
+A4(X Y) <-- A7(X), A1(Y).
+A4(X Y) <-- A7(X), A10(Y).
+A4(X Y) <-- A7(X), A2(Y).
+A4(X Y) <-- A7(X), A3(Y).
+A4(X Y) <-- A7(X), A4(Y).
+A4(X Y) <-- A7(X), A5(Y).
+A4(X Y) <-- A7(X), A6(Y).
+A4(X Y) <-- A7(X), A7(Y).
+A4(X Y) <-- A7(X), A8(Y).
+A4(X Y) <-- A7(X), A9(Y).
+A4(X Y) <-- A8(X), A1(Y).
+A4(X Y) <-- A8(X), A10(Y).
+A4(X Y) <-- A8(X), A2(Y).
+A4(X Y) <-- A8(X), A3(Y).
+A4(X Y) <-- A8(X), A4(Y).
+A4(X Y) <-- A8(X), A5(Y).
+A4(X Y) <-- A8(X), A6(Y).
+A4(X Y) <-- A8(X), A7(Y).
+A4(X Y) <-- A8(X), A8(Y).
+A4(X Y) <-- A8(X), A9(Y).
+A4(X Y) <-- A9(X), A1(Y).
+A4(X Y) <-- A9(X), A10(Y).
+A4(X Y) <-- A9(X), A2(Y).
+A4(X Y) <-- A9(X), A3(Y).
+A4(X Y) <-- A9(X), A4(Y).
+A4(X Y) <-- A9(X), A5(Y).
+A4(X Y) <-- A9(X), A6(Y).
+A4(X Y) <-- A9(X), A7(Y).
+A4(X Y) <-- A9(X), A8(Y).
+A4(X Y) <-- A9(X), A9(Y).
+A4([eight]).
+A4([eighteen]).
+A4([eighty]).
+A4([eleven]).
+A4([fifteen]).
+A4([fifty]).
+A4([five]).
+A4([forty]).
+A4([four]).
+A4([fourteen]).
+A4([nine]).
+A4([nineteen]).
+A4([ninety]).
+A4([one]).
+A4([seven]).
+A4([seventeen]).
+A4([seventy]).
+A4([six]).
+A4([sixteen]).
+A4([sixty]).
+A4([ten]).
+A4([thirteen]).
+A4([thirty]).
+A4([three]).
+A4([twelve]).
+A4([twenty]).
+A4([two]).
+A5(X Y) <-- A1(X), A1(Y).
+A5(X Y) <-- A1(X), A10(Y).
+A5(X Y) <-- A1(X), A2(Y).
+A5(X Y) <-- A1(X), A3(Y).
+A5(X Y) <-- A1(X), A4(Y).
+A5(X Y) <-- A1(X), A5(Y).
+A5(X Y) <-- A1(X), A6(Y).
+A5(X Y) <-- A1(X), A7(Y).
+A5(X Y) <-- A1(X), A8(Y).
+A5(X Y) <-- A1(X), A9(Y).
+A5(X Y) <-- A10(X), A1(Y).
+A5(X Y) <-- A10(X), A10(Y).
+A5(X Y) <-- A10(X), A2(Y).
+A5(X Y) <-- A10(X), A3(Y).
+A5(X Y) <-- A10(X), A4(Y).
+A5(X Y) <-- A10(X), A5(Y).
+A5(X Y) <-- A10(X), A6(Y).
+A5(X Y) <-- A10(X), A7(Y).
+A5(X Y) <-- A10(X), A8(Y).
+A5(X Y) <-- A10(X), A9(Y).
+A5(X Y) <-- A2(X), A1(Y).
+A5(X Y) <-- A2(X), A10(Y).
+A5(X Y) <-- A2(X), A2(Y).
+A5(X Y) <-- A2(X), A3(Y).
+A5(X Y) <-- A2(X), A4(Y).
+A5(X Y) <-- A2(X), A5(Y).
+A5(X Y) <-- A2(X), A6(Y).
+A5(X Y) <-- A2(X), A7(Y).
+A5(X Y) <-- A2(X), A8(Y).
+A5(X Y) <-- A2(X), A9(Y).
+A5(X Y) <-- A3(X), A1(Y).
+A5(X Y) <-- A3(X), A10(Y).
+A5(X Y) <-- A3(X), A2(Y).
+A5(X Y) <-- A3(X), A3(Y).
+A5(X Y) <-- A3(X), A4(Y).
+A5(X Y) <-- A3(X), A5(Y).
+A5(X Y) <-- A3(X), A6(Y).
+A5(X Y) <-- A3(X), A7(Y).
+A5(X Y) <-- A3(X), A8(Y).
+A5(X Y) <-- A3(X), A9(Y).
+A5(X Y) <-- A4(X), A1(Y).
+A5(X Y) <-- A4(X), A10(Y).
+A5(X Y) <-- A4(X), A2(Y).
+A5(X Y) <-- A4(X), A3(Y).
+A5(X Y) <-- A4(X), A4(Y).
+A5(X Y) <-- A4(X), A5(Y).
+A5(X Y) <-- A4(X), A6(Y).
+A5(X Y) <-- A4(X), A7(Y).
+A5(X Y) <-- A4(X), A8(Y).
+A5(X Y) <-- A4(X), A9(Y).
+A5(X Y) <-- A5(X), A1(Y).
+A5(X Y) <-- A5(X), A10(Y).
+A5(X Y) <-- A5(X), A2(Y).
+A5(X Y) <-- A5(X), A3(Y).
+A5(X Y) <-- A5(X), A4(Y).
+A5(X Y) <-- A5(X), A5(Y).
+A5(X Y) <-- A5(X), A6(Y).
+A5(X Y) <-- A5(X), A7(Y).
+A5(X Y) <-- A5(X), A8(Y).
+A5(X Y) <-- A5(X), A9(Y).
+A5(X Y) <-- A6(X), A1(Y).
+A5(X Y) <-- A6(X), A10(Y).
+A5(X Y) <-- A6(X), A2(Y).
+A5(X Y) <-- A6(X), A3(Y).
+A5(X Y) <-- A6(X), A4(Y).
+A5(X Y) <-- A6(X), A5(Y).
+A5(X Y) <-- A6(X), A6(Y).
+A5(X Y) <-- A6(X), A7(Y).
+A5(X Y) <-- A6(X), A8(Y).
+A5(X Y) <-- A6(X), A9(Y).
+A5(X Y) <-- A7(X), A1(Y).
+A5(X Y) <-- A7(X), A10(Y).
+A5(X Y) <-- A7(X), A2(Y).
+A5(X Y) <-- A7(X), A3(Y).
+A5(X Y) <-- A7(X), A4(Y).
+A5(X Y) <-- A7(X), A5(Y).
+A5(X Y) <-- A7(X), A6(Y).
+A5(X Y) <-- A7(X), A7(Y).
+A5(X Y) <-- A7(X), A8(Y).
+A5(X Y) <-- A7(X), A9(Y).
+A5(X Y) <-- A8(X), A1(Y).
+A5(X Y) <-- A8(X), A10(Y).
+A5(X Y) <-- A8(X), A2(Y).
+A5(X Y) <-- A8(X), A3(Y).
+A5(X Y) <-- A8(X), A4(Y).
+A5(X Y) <-- A8(X), A5(Y).
+A5(X Y) <-- A8(X), A6(Y).
+A5(X Y) <-- A8(X), A7(Y).
+A5(X Y) <-- A8(X), A8(Y).
+A5(X Y) <-- A8(X), A9(Y).
+A5(X Y) <-- A9(X), A1(Y).
+A5(X Y) <-- A9(X), A10(Y).
+A5(X Y) <-- A9(X), A2(Y).
+A5(X Y) <-- A9(X), A3(Y).
+A5(X Y) <-- A9(X), A4(Y).
+A5(X Y) <-- A9(X), A5(Y).
+A5(X Y) <-- A9(X), A6(Y).
+A5(X Y) <-- A9(X), A7(Y).
+A5(X Y) <-- A9(X), A8(Y).
+A5(X Y) <-- A9(X), A9(Y).
+A5([eight]).
+A5([eighteen]).
+A5([eighty]).
+A5([eleven]).
+A5([fifteen]).
+A5([fifty]).
+A5([five]).
+A5([forty]).
+A5([four]).
+A5([fourteen]).
+A5([nine]).
+A5([nineteen]).
+A5([ninety]).
+A5([one]).
+A5([seven]).
+A5([seventeen]).
+A5([seventy]).
+A5([six]).
+A5([sixteen]).
+A5([sixty]).
+A5([ten]).
+A5([thirteen]).
+A5([thirty]).
+A5([three]).
+A5([twelve]).
+A5([twenty]).
+A5([two]).
+A6(X Y) <-- A1(X), A1(Y).
+A6(X Y) <-- A1(X), A10(Y).
+A6(X Y) <-- A1(X), A2(Y).
+A6(X Y) <-- A1(X), A3(Y).
+A6(X Y) <-- A1(X), A4(Y).
+A6(X Y) <-- A1(X), A5(Y).
+A6(X Y) <-- A1(X), A6(Y).
+A6(X Y) <-- A1(X), A7(Y).
+A6(X Y) <-- A1(X), A8(Y).
+A6(X Y) <-- A1(X), A9(Y).
+A6(X Y) <-- A10(X), A1(Y).
+A6(X Y) <-- A10(X), A10(Y).
+A6(X Y) <-- A10(X), A2(Y).
+A6(X Y) <-- A10(X), A3(Y).
+A6(X Y) <-- A10(X), A4(Y).
+A6(X Y) <-- A10(X), A5(Y).
+A6(X Y) <-- A10(X), A6(Y).
+A6(X Y) <-- A10(X), A7(Y).
+A6(X Y) <-- A10(X), A8(Y).
+A6(X Y) <-- A10(X), A9(Y).
+A6(X Y) <-- A2(X), A1(Y).
+A6(X Y) <-- A2(X), A10(Y).
+A6(X Y) <-- A2(X), A2(Y).
+A6(X Y) <-- A2(X), A3(Y).
+A6(X Y) <-- A2(X), A4(Y).
+A6(X Y) <-- A2(X), A5(Y).
+A6(X Y) <-- A2(X), A6(Y).
+A6(X Y) <-- A2(X), A7(Y).
+A6(X Y) <-- A2(X), A8(Y).
+A6(X Y) <-- A2(X), A9(Y).
+A6(X Y) <-- A3(X), A1(Y).
+A6(X Y) <-- A3(X), A10(Y).
+A6(X Y) <-- A3(X), A2(Y).
+A6(X Y) <-- A3(X), A3(Y).
+A6(X Y) <-- A3(X), A4(Y).
+A6(X Y) <-- A3(X), A5(Y).
+A6(X Y) <-- A3(X), A6(Y).
+A6(X Y) <-- A3(X), A7(Y).
+A6(X Y) <-- A3(X), A8(Y).
+A6(X Y) <-- A3(X), A9(Y).
+A6(X Y) <-- A4(X), A1(Y).
+A6(X Y) <-- A4(X), A10(Y).
+A6(X Y) <-- A4(X), A2(Y).
+A6(X Y) <-- A4(X), A3(Y).
+A6(X Y) <-- A4(X), A4(Y).
+A6(X Y) <-- A4(X), A5(Y).
+A6(X Y) <-- A4(X), A6(Y).
+A6(X Y) <-- A4(X), A7(Y).
+A6(X Y) <-- A4(X), A8(Y).
+A6(X Y) <-- A4(X), A9(Y).
+A6(X Y) <-- A5(X), A1(Y).
+A6(X Y) <-- A5(X), A10(Y).
+A6(X Y) <-- A5(X), A2(Y).
+A6(X Y) <-- A5(X), A3(Y).
+A6(X Y) <-- A5(X), A4(Y).
+A6(X Y) <-- A5(X), A5(Y).
+A6(X Y) <-- A5(X), A6(Y).
+A6(X Y) <-- A5(X), A7(Y).
+A6(X Y) <-- A5(X), A8(Y).
+A6(X Y) <-- A5(X), A9(Y).
+A6(X Y) <-- A6(X), A1(Y).
+A6(X Y) <-- A6(X), A10(Y).
+A6(X Y) <-- A6(X), A2(Y).
+A6(X Y) <-- A6(X), A3(Y).
+A6(X Y) <-- A6(X), A4(Y).
+A6(X Y) <-- A6(X), A5(Y).
+A6(X Y) <-- A6(X), A6(Y).
+A6(X Y) <-- A6(X), A7(Y).
+A6(X Y) <-- A6(X), A8(Y).
+A6(X Y) <-- A6(X), A9(Y).
+A6(X Y) <-- A7(X), A1(Y).
+A6(X Y) <-- A7(X), A10(Y).
+A6(X Y) <-- A7(X), A2(Y).
+A6(X Y) <-- A7(X), A3(Y).
+A6(X Y) <-- A7(X), A4(Y).
+A6(X Y) <-- A7(X), A5(Y).
+A6(X Y) <-- A7(X), A6(Y).
+A6(X Y) <-- A7(X), A7(Y).
+A6(X Y) <-- A7(X), A8(Y).
+A6(X Y) <-- A7(X), A9(Y).
+A6(X Y) <-- A8(X), A1(Y).
+A6(X Y) <-- A8(X), A10(Y).
+A6(X Y) <-- A8(X), A2(Y).
+A6(X Y) <-- A8(X), A3(Y).
+A6(X Y) <-- A8(X), A4(Y).
+A6(X Y) <-- A8(X), A5(Y).
+A6(X Y) <-- A8(X), A6(Y).
+A6(X Y) <-- A8(X), A7(Y).
+A6(X Y) <-- A8(X), A8(Y).
+A6(X Y) <-- A8(X), A9(Y).
+A6(X Y) <-- A9(X), A1(Y).
+A6(X Y) <-- A9(X), A10(Y).
+A6(X Y) <-- A9(X), A2(Y).
+A6(X Y) <-- A9(X), A3(Y).
+A6(X Y) <-- A9(X), A4(Y).
+A6(X Y) <-- A9(X), A5(Y).
+A6(X Y) <-- A9(X), A6(Y).
+A6(X Y) <-- A9(X), A7(Y).
+A6(X Y) <-- A9(X), A8(Y).
+A6(X Y) <-- A9(X), A9(Y).
+A6([eight]).
+A6([eighteen]).
+A6([eighty]).
+A6([eleven]).
+A6([fifteen]).
+A6([fifty]).
+A6([five]).
+A6([forty]).
+A6([four]).
+A6([fourteen]).
+A6([nine]).
+A6([nineteen]).
+A6([ninety]).
+A6([one]).
+A6([seven]).
+A6([seventeen]).
+A6([seventy]).
+A6([six]).
+A6([sixteen]).
+A6([sixty]).
+A6([ten]).
+A6([thirteen]).
+A6([thirty]).
+A6([three]).
+A6([twelve]).
+A6([twenty]).
+A6([two]).
+A7(X Y) <-- A1(X), A1(Y).
+A7(X Y) <-- A1(X), A10(Y).
+A7(X Y) <-- A1(X), A2(Y).
+A7(X Y) <-- A1(X), A3(Y).
+A7(X Y) <-- A1(X), A4(Y).
+A7(X Y) <-- A1(X), A5(Y).
+A7(X Y) <-- A1(X), A6(Y).
+A7(X Y) <-- A1(X), A7(Y).
+A7(X Y) <-- A1(X), A8(Y).
+A7(X Y) <-- A1(X), A9(Y).
+A7(X Y) <-- A10(X), A1(Y).
+A7(X Y) <-- A10(X), A10(Y).
+A7(X Y) <-- A10(X), A2(Y).
+A7(X Y) <-- A10(X), A3(Y).
+A7(X Y) <-- A10(X), A4(Y).
+A7(X Y) <-- A10(X), A5(Y).
+A7(X Y) <-- A10(X), A6(Y).
+A7(X Y) <-- A10(X), A7(Y).
+A7(X Y) <-- A10(X), A8(Y).
+A7(X Y) <-- A10(X), A9(Y).
+A7(X Y) <-- A2(X), A1(Y).
+A7(X Y) <-- A2(X), A10(Y).
+A7(X Y) <-- A2(X), A2(Y).
+A7(X Y) <-- A2(X), A3(Y).
+A7(X Y) <-- A2(X), A4(Y).
+A7(X Y) <-- A2(X), A5(Y).
+A7(X Y) <-- A2(X), A6(Y).
+A7(X Y) <-- A2(X), A7(Y).
+A7(X Y) <-- A2(X), A8(Y).
+A7(X Y) <-- A2(X), A9(Y).
+A7(X Y) <-- A3(X), A1(Y).
+A7(X Y) <-- A3(X), A10(Y).
+A7(X Y) <-- A3(X), A2(Y).
+A7(X Y) <-- A3(X), A3(Y).
+A7(X Y) <-- A3(X), A4(Y).
+A7(X Y) <-- A3(X), A5(Y).
+A7(X Y) <-- A3(X), A6(Y).
+A7(X Y) <-- A3(X), A7(Y).
+A7(X Y) <-- A3(X), A8(Y).
+A7(X Y) <-- A3(X), A9(Y).
+A7(X Y) <-- A4(X), A1(Y).
+A7(X Y) <-- A4(X), A10(Y).
+A7(X Y) <-- A4(X), A2(Y).
+A7(X Y) <-- A4(X), A3(Y).
+A7(X Y) <-- A4(X), A4(Y).
+A7(X Y) <-- A4(X), A5(Y).
+A7(X Y) <-- A4(X), A6(Y).
+A7(X Y) <-- A4(X), A7(Y).
+A7(X Y) <-- A4(X), A8(Y).
+A7(X Y) <-- A4(X), A9(Y).
+A7(X Y) <-- A5(X), A1(Y).
+A7(X Y) <-- A5(X), A10(Y).
+A7(X Y) <-- A5(X), A2(Y).
+A7(X Y) <-- A5(X), A3(Y).
+A7(X Y) <-- A5(X), A4(Y).
+A7(X Y) <-- A5(X), A5(Y).
+A7(X Y) <-- A5(X), A6(Y).
+A7(X Y) <-- A5(X), A7(Y).
+A7(X Y) <-- A5(X), A8(Y).
+A7(X Y) <-- A5(X), A9(Y).
+A7(X Y) <-- A6(X), A1(Y).
+A7(X Y) <-- A6(X), A10(Y).
+A7(X Y) <-- A6(X), A2(Y).
+A7(X Y) <-- A6(X), A3(Y).
+A7(X Y) <-- A6(X), A4(Y).
+A7(X Y) <-- A6(X), A5(Y).
+A7(X Y) <-- A6(X), A6(Y).
+A7(X Y) <-- A6(X), A7(Y).
+A7(X Y) <-- A6(X), A8(Y).
+A7(X Y) <-- A6(X), A9(Y).
+A7(X Y) <-- A7(X), A1(Y).
+A7(X Y) <-- A7(X), A10(Y).
+A7(X Y) <-- A7(X), A2(Y).
+A7(X Y) <-- A7(X), A3(Y).
+A7(X Y) <-- A7(X), A4(Y).
+A7(X Y) <-- A7(X), A5(Y).
+A7(X Y) <-- A7(X), A6(Y).
+A7(X Y) <-- A7(X), A7(Y).
+A7(X Y) <-- A7(X), A8(Y).
+A7(X Y) <-- A7(X), A9(Y).
+A7(X Y) <-- A8(X), A1(Y).
+A7(X Y) <-- A8(X), A10(Y).
+A7(X Y) <-- A8(X), A2(Y).
+A7(X Y) <-- A8(X), A3(Y).
+A7(X Y) <-- A8(X), A4(Y).
+A7(X Y) <-- A8(X), A5(Y).
+A7(X Y) <-- A8(X), A6(Y).
+A7(X Y) <-- A8(X), A7(Y).
+A7(X Y) <-- A8(X), A8(Y).
+A7(X Y) <-- A8(X), A9(Y).
+A7(X Y) <-- A9(X), A1(Y).
+A7(X Y) <-- A9(X), A10(Y).
+A7(X Y) <-- A9(X), A2(Y).
+A7(X Y) <-- A9(X), A3(Y).
+A7(X Y) <-- A9(X), A4(Y).
+A7(X Y) <-- A9(X), A5(Y).
+A7(X Y) <-- A9(X), A6(Y).
+A7(X Y) <-- A9(X), A7(Y).
+A7(X Y) <-- A9(X), A8(Y).
+A7(X Y) <-- A9(X), A9(Y).
+A7([eight]).
+A7([eighteen]).
+A7([eighty]).
+A7([eleven]).
+A7([fifteen]).
+A7([fifty]).
+A7([five]).
+A7([forty]).
+A7([four]).
+A7([fourteen]).
+A7([nine]).
+A7([nineteen]).
+A7([ninety]).
+A7([one]).
+A7([seven]).
+A7([seventeen]).
+A7([seventy]).
+A7([six]).
+A7([sixteen]).
+A7([sixty]).
+A7([ten]).
+A7([thirteen]).
+A7([thirty]).
+A7([three]).
+A7([twelve]).
+A7([twenty]).
+A7([two]).
+A8(X Y) <-- A1(X), A1(Y).
+A8(X Y) <-- A1(X), A10(Y).
+A8(X Y) <-- A1(X), A2(Y).
+A8(X Y) <-- A1(X), A3(Y).
+A8(X Y) <-- A1(X), A4(Y).
+A8(X Y) <-- A1(X), A5(Y).
+A8(X Y) <-- A1(X), A6(Y).
+A8(X Y) <-- A1(X), A7(Y).
+A8(X Y) <-- A1(X), A8(Y).
+A8(X Y) <-- A1(X), A9(Y).
+A8(X Y) <-- A10(X), A1(Y).
+A8(X Y) <-- A10(X), A10(Y).
+A8(X Y) <-- A10(X), A2(Y).
+A8(X Y) <-- A10(X), A3(Y).
+A8(X Y) <-- A10(X), A4(Y).
+A8(X Y) <-- A10(X), A5(Y).
+A8(X Y) <-- A10(X), A6(Y).
+A8(X Y) <-- A10(X), A7(Y).
+A8(X Y) <-- A10(X), A8(Y).
+A8(X Y) <-- A10(X), A9(Y).
+A8(X Y) <-- A2(X), A1(Y).
+A8(X Y) <-- A2(X), A10(Y).
+A8(X Y) <-- A2(X), A2(Y).
+A8(X Y) <-- A2(X), A3(Y).
+A8(X Y) <-- A2(X), A4(Y).
+A8(X Y) <-- A2(X), A5(Y).
+A8(X Y) <-- A2(X), A6(Y).
+A8(X Y) <-- A2(X), A7(Y).
+A8(X Y) <-- A2(X), A8(Y).
+A8(X Y) <-- A2(X), A9(Y).
+A8(X Y) <-- A3(X), A1(Y).
+A8(X Y) <-- A3(X), A10(Y).
+A8(X Y) <-- A3(X), A2(Y).
+A8(X Y) <-- A3(X), A3(Y).
+A8(X Y) <-- A3(X), A4(Y).
+A8(X Y) <-- A3(X), A5(Y).
+A8(X Y) <-- A3(X), A6(Y).
+A8(X Y) <-- A3(X), A7(Y).
+A8(X Y) <-- A3(X), A8(Y).
+A8(X Y) <-- A3(X), A9(Y).
+A8(X Y) <-- A4(X), A1(Y).
+A8(X Y) <-- A4(X), A10(Y).
+A8(X Y) <-- A4(X), A2(Y).
+A8(X Y) <-- A4(X), A3(Y).
+A8(X Y) <-- A4(X), A4(Y).
+A8(X Y) <-- A4(X), A5(Y).
+A8(X Y) <-- A4(X), A6(Y).
+A8(X Y) <-- A4(X), A7(Y).
+A8(X Y) <-- A4(X), A8(Y).
+A8(X Y) <-- A4(X), A9(Y).
+A8(X Y) <-- A5(X), A1(Y).
+A8(X Y) <-- A5(X), A10(Y).
+A8(X Y) <-- A5(X), A2(Y).
+A8(X Y) <-- A5(X), A3(Y).
+A8(X Y) <-- A5(X), A4(Y).
+A8(X Y) <-- A5(X), A5(Y).
+A8(X Y) <-- A5(X), A6(Y).
+A8(X Y) <-- A5(X), A7(Y).
+A8(X Y) <-- A5(X), A8(Y).
+A8(X Y) <-- A5(X), A9(Y).
+A8(X Y) <-- A6(X), A1(Y).
+A8(X Y) <-- A6(X), A10(Y).
+A8(X Y) <-- A6(X), A2(Y).
+A8(X Y) <-- A6(X), A3(Y).
+A8(X Y) <-- A6(X), A4(Y).
+A8(X Y) <-- A6(X), A5(Y).
+A8(X Y) <-- A6(X), A6(Y).
+A8(X Y) <-- A6(X), A7(Y).
+A8(X Y) <-- A6(X), A8(Y).
+A8(X Y) <-- A6(X), A9(Y).
+A8(X Y) <-- A7(X), A1(Y).
+A8(X Y) <-- A7(X), A10(Y).
+A8(X Y) <-- A7(X), A2(Y).
+A8(X Y) <-- A7(X), A3(Y).
+A8(X Y) <-- A7(X), A4(Y).
+A8(X Y) <-- A7(X), A5(Y).
+A8(X Y) <-- A7(X), A6(Y).
+A8(X Y) <-- A7(X), A7(Y).
+A8(X Y) <-- A7(X), A8(Y).
+A8(X Y) <-- A7(X), A9(Y).
+A8(X Y) <-- A8(X), A1(Y).
+A8(X Y) <-- A8(X), A10(Y).
+A8(X Y) <-- A8(X), A2(Y).
+A8(X Y) <-- A8(X), A3(Y).
+A8(X Y) <-- A8(X), A4(Y).
+A8(X Y) <-- A8(X), A5(Y).
+A8(X Y) <-- A8(X), A6(Y).
+A8(X Y) <-- A8(X), A7(Y).
+A8(X Y) <-- A8(X), A8(Y).
+A8(X Y) <-- A8(X), A9(Y).
+A8(X Y) <-- A9(X), A1(Y).
+A8(X Y) <-- A9(X), A10(Y).
+A8(X Y) <-- A9(X), A2(Y).
+A8(X Y) <-- A9(X), A3(Y).
+A8(X Y) <-- A9(X), A4(Y).
+A8(X Y) <-- A9(X), A5(Y).
+A8(X Y) <-- A9(X), A6(Y).
+A8(X Y) <-- A9(X), A7(Y).
+A8(X Y) <-- A9(X), A8(Y).
+A8(X Y) <-- A9(X), A9(Y).
+A8([eight]).
+A8([eighteen]).
+A8([eighty]).
+A8([eleven]).
+A8([fifteen]).
+A8([fifty]).
+A8([five]).
+A8([forty]).
+A8([four]).
+A8([fourteen]).
+A8([nine]).
+A8([nineteen]).
+A8([ninety]).
+A8([one]).
+A8([seven]).
+A8([seventeen]).
+A8([seventy]).
+A8([six]).
+A8([sixteen]).
+A8([sixty]).
+A8([ten]).
+A8([thirteen]).
+A8([thirty]).
+A8([three]).
+A8([twelve]).
+A8([twenty]).
+A8([two]).
+A9(X Y) <-- A1(X), A1(Y).
+A9(X Y) <-- A1(X), A10(Y).
+A9(X Y) <-- A1(X), A2(Y).
+A9(X Y) <-- A1(X), A3(Y).
+A9(X Y) <-- A1(X), A4(Y).
+A9(X Y) <-- A1(X), A5(Y).
+A9(X Y) <-- A1(X), A6(Y).
+A9(X Y) <-- A1(X), A7(Y).
+A9(X Y) <-- A1(X), A8(Y).
+A9(X Y) <-- A1(X), A9(Y).
+A9(X Y) <-- A10(X), A1(Y).
+A9(X Y) <-- A10(X), A10(Y).
+A9(X Y) <-- A10(X), A2(Y).
+A9(X Y) <-- A10(X), A3(Y).
+A9(X Y) <-- A10(X), A4(Y).
+A9(X Y) <-- A10(X), A5(Y).
+A9(X Y) <-- A10(X), A6(Y).
+A9(X Y) <-- A10(X), A7(Y).
+A9(X Y) <-- A10(X), A8(Y).
+A9(X Y) <-- A10(X), A9(Y).
+A9(X Y) <-- A2(X), A1(Y).
+A9(X Y) <-- A2(X), A10(Y).
+A9(X Y) <-- A2(X), A2(Y).
+A9(X Y) <-- A2(X), A3(Y).
+A9(X Y) <-- A2(X), A4(Y).
+A9(X Y) <-- A2(X), A5(Y).
+A9(X Y) <-- A2(X), A6(Y).
+A9(X Y) <-- A2(X), A7(Y).
+A9(X Y) <-- A2(X), A8(Y).
+A9(X Y) <-- A2(X), A9(Y).
+A9(X Y) <-- A3(X), A1(Y).
+A9(X Y) <-- A3(X), A10(Y).
+A9(X Y) <-- A3(X), A2(Y).
+A9(X Y) <-- A3(X), A3(Y).
+A9(X Y) <-- A3(X), A4(Y).
+A9(X Y) <-- A3(X), A5(Y).
+A9(X Y) <-- A3(X), A6(Y).
+A9(X Y) <-- A3(X), A7(Y).
+A9(X Y) <-- A3(X), A8(Y).
+A9(X Y) <-- A3(X), A9(Y).
+A9(X Y) <-- A4(X), A1(Y).
+A9(X Y) <-- A4(X), A10(Y).
+A9(X Y) <-- A4(X), A2(Y).
+A9(X Y) <-- A4(X), A3(Y).
+A9(X Y) <-- A4(X), A4(Y).
+A9(X Y) <-- A4(X), A5(Y).
+A9(X Y) <-- A4(X), A6(Y).
+A9(X Y) <-- A4(X), A7(Y).
+A9(X Y) <-- A4(X), A8(Y).
+A9(X Y) <-- A4(X), A9(Y).
+A9(X Y) <-- A5(X), A1(Y).
+A9(X Y) <-- A5(X), A10(Y).
+A9(X Y) <-- A5(X), A2(Y).
+A9(X Y) <-- A5(X), A3(Y).
+A9(X Y) <-- A5(X), A4(Y).
+A9(X Y) <-- A5(X), A5(Y).
+A9(X Y) <-- A5(X), A6(Y).
+A9(X Y) <-- A5(X), A7(Y).
+A9(X Y) <-- A5(X), A8(Y).
+A9(X Y) <-- A5(X), A9(Y).
+A9(X Y) <-- A6(X), A1(Y).
+A9(X Y) <-- A6(X), A10(Y).
+A9(X Y) <-- A6(X), A2(Y).
+A9(X Y) <-- A6(X), A3(Y).
+A9(X Y) <-- A6(X), A4(Y).
+A9(X Y) <-- A6(X), A5(Y).
+A9(X Y) <-- A6(X), A6(Y).
+A9(X Y) <-- A6(X), A7(Y).
+A9(X Y) <-- A6(X), A8(Y).
+A9(X Y) <-- A6(X), A9(Y).
+A9(X Y) <-- A7(X), A1(Y).
+A9(X Y) <-- A7(X), A10(Y).
+A9(X Y) <-- A7(X), A2(Y).
+A9(X Y) <-- A7(X), A3(Y).
+A9(X Y) <-- A7(X), A4(Y).
+A9(X Y) <-- A7(X), A5(Y).
+A9(X Y) <-- A7(X), A6(Y).
+A9(X Y) <-- A7(X), A7(Y).
+A9(X Y) <-- A7(X), A8(Y).
+A9(X Y) <-- A7(X), A9(Y).
+A9(X Y) <-- A8(X), A1(Y).
+A9(X Y) <-- A8(X), A10(Y).
+A9(X Y) <-- A8(X), A2(Y).
+A9(X Y) <-- A8(X), A3(Y).
+A9(X Y) <-- A8(X), A4(Y).
+A9(X Y) <-- A8(X), A5(Y).
+A9(X Y) <-- A8(X), A6(Y).
+A9(X Y) <-- A8(X), A7(Y).
+A9(X Y) <-- A8(X), A8(Y).
+A9(X Y) <-- A8(X), A9(Y).
+A9(X Y) <-- A9(X), A1(Y).
+A9(X Y) <-- A9(X), A10(Y).
+A9(X Y) <-- A9(X), A2(Y).
+A9(X Y) <-- A9(X), A3(Y).
+A9(X Y) <-- A9(X), A4(Y).
+A9(X Y) <-- A9(X), A5(Y).
+A9(X Y) <-- A9(X), A6(Y).
+A9(X Y) <-- A9(X), A7(Y).
+A9(X Y) <-- A9(X), A8(Y).
+A9(X Y) <-- A9(X), A9(Y).
+A9([eight]).
+A9([eighteen]).
+A9([eighty]).
+A9([eleven]).
+A9([fifteen]).
+A9([fifty]).
+A9([five]).
+A9([forty]).
+A9([four]).
+A9([fourteen]).
+A9([nine]).
+A9([nineteen]).
+A9([ninety]).
+A9([one]).
+A9([seven]).
+A9([seventeen]).
+A9([seventy]).
+A9([six]).
+A9([sixteen]).
+A9([sixty]).
+A9([ten]).
+A9([thirteen]).
+A9([thirty]).
+A9([three]).
+A9([twelve]).
+A9([twenty]).
+A9([two]).
+Number(X) <-- A(X).

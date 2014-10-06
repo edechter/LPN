@@ -1,5 +1,6 @@
 module GIJoe.SRS.Prismify (prismify) where
 
+import Data.Function (on)
 import Data.List
 import Data.Text (unpack)
 
@@ -28,16 +29,16 @@ labeledMap f xs =  map f $ zip xs $ take (length xs) ['A'..'Z']
 -- heavy lifters
 
 header :: RewriteSystem -> [String]
-header slcfrs = ["%% Original SLCFRS"] ++ commented (rsRules slcfrs) ++ [""]
-  where
-    commented = map (\x -> "%% " ++ show x)
+header slcfrs = ["%% Original SLCFRS"] ++ [""] -- commented (rsRules slcfrs) ++ [""]
+--  where
+--    commented = map (\x -> "%% " ++ show x)
 
 body :: RewriteSystem -> [String]
 body slcfrs =
     srsClause ++ [""] ++ switchClauses ++ [""] ++
     probClauses ++ [""] ++ reductionClauses
   where
-    groupedRules = groupBy sameHead (rsRules slcfrs)
+    groupedRules = groupBy sameHead $ sortBy (compare `on` (cTermPredicate . ruleHead . weightedRuleRule)) (rsRules slcfrs)
     sameHead =  (\(WRule ((ComplexTerm p1 _) :<-: _) _)
                   (WRule ((ComplexTerm p2 _) :<-: _) _)
                  -> p1 == p2)
@@ -52,8 +53,9 @@ makeSwitch rs =
 
 makeProbs :: [WeightedRule] -> String
 makeProbs rs =
-    ":- set_sw(" ++ weightedRuleName (head rs) ++ "," ++ show probList ++ ")."
+    ":- set_sw(" ++ weightedRuleName (head rs) ++ "," ++ show normProbList ++ ")."
   where
+    normProbList = map (/ (sum probList)) probList
     probList = map pullProb rs
     pullProb = (\r -> read (show $ weightedRuleWeight r) :: Double)
 
@@ -66,8 +68,18 @@ makeReduction :: (Int,Rule) -> String
 makeReduction (i,(h :<-: bs)) =
     "reduce(" ++ refactorHead h ++ "," ++ show i ++ ")" ++ anyAppends ++ "."
   where
-    theAppends = intercalate ", " $ filter (not . null) [createSRSTerms bs, createAppendTerms h]
+    appendVars = collectTupleItems h
+    appendSRSs = createSRSTerms bs
+    appendAppends = createAppendTerms h
+    theAppends = if (not $ null appendVars)
+                 then "(" ++ appendVars ++ " -> " ++ appends1 ++ "; " ++ appends2 ++ ")"
+                 else appendSRSs
+    appends1 = intercalate ", " $ filter (not . null) [appendSRSs, appendAppends]
+    appends2 = intercalate ", " $ filter (not . null) [appendAppends, appendSRSs]
     anyAppends = if null (theAppends) then "" else " :- " ++ theAppends
+    collectTupleItems (ComplexTerm _ xs) = intercalate ", " $ filter (not . null) $ labeledMap collectTupleItem xs
+    collectTupleItem ((NTString (x:[])),l) = ""
+    collectTupleItem ((NTString xs),l) = "var(" ++ l:(show $ length xs) ++ ")"
 
 createSRSTerms bs = if null termList then "!" else intercalate ", " termList
   where
@@ -99,4 +111,5 @@ createAppendTerms h@(ComplexTerm _ xs) =
 prismify :: FilePath -> FilePath -> IO ()
 prismify inpath outpath = do
   slcfrs <- readSystem inpath
+  print slcfrs
   writeFile outpath $ unlines $ header slcfrs ++ body slcfrs
