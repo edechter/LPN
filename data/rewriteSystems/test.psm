@@ -1,0 +1,16 @@
+%% Original SLCFRS
+%% A(a, a). :: 0.24999999999999994
+%% A(b, b). :: 0.3
+%% A(X a, Y a) <-- A(X, Y) :: 0.24999999999999994
+%% A(X b, Y b) <-- A(X, Y) :: 0.19999999999999998
+
+srs(P-IN) :- msw(P,V), reduce(P-IN,V).
+
+values('A_2',[1,2,3,4]).
+
+:- set_sw('A_2',[0.24999999999999994,0.3,0.24999999999999994,0.19999999999999998]).
+
+reduce('A_2'-[[a],[a]],1) :- !.
+reduce('A_2'-[[b],[b]],2) :- !.
+reduce('A_2'-[A2,B2],3) :- (var(A2), var(B2) -> srs('A_2'-[X,Y]), append(X,[a],A2), append(Y,[a],B2); append(X,[a],A2), append(Y,[a],B2), srs('A_2'-[X,Y])).
+reduce('A_2'-[A2,B2],4) :- (var(A2), var(B2) -> srs('A_2'-[X,Y]), append(X,[b],A2), append(Y,[b],B2); append(X,[b],A2), append(Y,[b],B2), srs('A_2'-[X,Y])).

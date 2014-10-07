@@ -1,0 +1,138 @@
+# Rewrite system for number
+
+Next(X U, Y V) <-- Eq10(X, U), Next1(Y, V).
+Next(U nine, U) <-- Next10(X, U).
+Next(Y, Y) <-- Next1(X, Y).
+Next(X Y, U V) <-- Eq10(X, U), Next1(Y, V).
+Next(X nine, U) <-- Next10(X, U).
+Next(X, Y) <-- Next1(X, Y).
+
+Prev(X, Y) <-- Next(Y, X).
+Prev(X, X) <-- Next(Y, X).
+
+Next1(one, two). 
+Next1(two, three).
+Next1(three, four).
+Next1(five, six).
+Next1(six, seven).
+Next1(seven, eight).
+Next1(eight, nine).
+
+Next10(twenty, thirty).
+Next10(thirty, forty).
+Next10(forty, fifty). 
+Next10(fifty, sixty). 
+Next10(sixty, seventy). 
+Next10(seventy, eighty). 
+Next10(eighty, ninety). 
+
+Eq1(one, one).
+Eq1(two, two).
+Eq1(three, three).
+Eq1(four, four).
+Eq1(five, five).
+Eq1(six, six).
+Eq1(seven, seven).
+Eq1(eight, eight).
+Eq1(nine, nine).
+Eq(ten, ten).
+Eq10(twenty, twenty).
+Eq10(thirty, thirty).
+Eq10(forty, forty).
+Eq10(fifty, fifty).
+Eq10(sixty, sixty).
+Eq10(seventy, seventy).
+Eq10(eighty, eighty).
+Eq10(ninety, ninety).
+ 
+Num1(one).
+Num1(two).
+Num1(three).
+Num1(four).
+Num1(five).
+Num1(six).
+Num1(seven).
+Num1(eight).
+Num1(nine).
+
+Num10(ten).
+Num10(twenty).
+Num10(thirty).
+Num10(forty).
+Num10(fifty).
+Num10(sixty).
+Num10(seventy).
+Num10(eighty).
+Num10(ninety).
+
+NumDigit(X, Y) <-- NumDigit1(X, Y).
+NumDigit(X Y, U V) <-- NumDigit10(X, U), NumDigit1(Y, V).
+NumDigit(X, Y 0) <-- NumDigit10(X, Y).
+ 
+NumDigit1(one, 1).
+NumDigit1(two, 2).
+NumDigit1(three, 3).
+NumDigit1(four, 4).
+NumDigit1(five, 5).
+NumDigit1(six, 6).
+NumDigit1(seven, 7).
+NumDigit1(eight, 8).
+NumDigit1(nine, 9).
+
+NumDigit10(twenty, 2).
+NumDigit10(thirty, 3).
+NumDigit10(forty, 4).
+NumDigit10(fifty, 5).
+NumDigit10(sixty, 6).
+NumDigit10(seventy, 7).
+NumDigit10(eighty, 8).
+NumDigit10(ninety, 9).
+
+Greater1(one,two).
+Greater1(one,three).
+Greater1(one,four).
+Greater1(one,five).
+Greater1(one,six).
+Greater1(one,seven).
+Greater1(one,eight).
+Greater1(one,nine).
+Greater1(one,ten).
+Greater1(two,three).
+Greater1(two,four).
+Greater1(two,five).
+Greater1(two,six).
+Greater1(two,seven).
+Greater1(two,eight).
+Greater1(two,nine).
+Greater1(two,ten).
+Greater1(three,four).
+Greater1(three,five).
+Greater1(three,six).
+Greater1(three,seven).
+Greater1(three,eight).
+Greater1(three,nine).
+Greater1(three,ten).
+Greater1(four,five).
+Greater1(four,six).
+Greater1(four,seven).
+Greater1(four,eight).
+Greater1(four,nine).
+Greater1(four,ten).
+Greater1(five,six).
+Greater1(five,seven).
+Greater1(five,eight).
+Greater1(five,nine).
+Greater1(five,ten).
+Greater1(six,seven).
+Greater1(six,eight).
+Greater1(six,nine).
+Greater1(six,ten).
+Greater1(seven,eight).
+Greater1(seven,nine).
+Greater1(seven,ten).
+Greater1(eight,nine).
+Greater1(eight,ten).
+Greater1(nine,ten).
+
+Less1(X, Y) <-- Greater1(Y, X).
+

@@ -1,0 +1,282 @@
+%% Original SLCFRS
+%% Next(X U, Y V) <-- Eq10(X, U), Next1(Y, V) :: 1.0
+%% Next(U nine, U) <-- Next10(X, U) :: 1.0
+%% Next(Y, Y) <-- Next1(X, Y) :: 1.0
+%% Next(X Y, U V) <-- Eq10(X, U), Next1(Y, V) :: 1.0
+%% Next(X nine, U) <-- Next10(X, U) :: 1.0
+%% Next(X, Y) <-- Next1(X, Y) :: 1.0
+%% Prev(X, Y) <-- Next(Y, X) :: 1.0
+%% Prev(X, X) <-- Next(Y, X) :: 1.0
+%% Next1(one, two). :: 1.0
+%% Next1(two, three). :: 1.0
+%% Next1(three, four). :: 1.0
+%% Next1(five, six). :: 1.0
+%% Next1(six, seven). :: 1.0
+%% Next1(seven, eight). :: 1.0
+%% Next1(eight, nine). :: 1.0
+%% Next10(twenty, thirty). :: 1.0
+%% Next10(thirty, forty). :: 1.0
+%% Next10(forty, fifty). :: 1.0
+%% Next10(fifty, sixty). :: 1.0
+%% Next10(sixty, seventy). :: 1.0
+%% Next10(seventy, eighty). :: 1.0
+%% Next10(eighty, ninety). :: 1.0
+%% Eq1(one, one). :: 1.0
+%% Eq1(two, two). :: 1.0
+%% Eq1(three, three). :: 1.0
+%% Eq1(four, four). :: 1.0
+%% Eq1(five, five). :: 1.0
+%% Eq1(six, six). :: 1.0
+%% Eq1(seven, seven). :: 1.0
+%% Eq1(eight, eight). :: 1.0
+%% Eq1(nine, nine). :: 1.0
+%% Eq(ten, ten). :: 1.0
+%% Eq10(twenty, twenty). :: 1.0
+%% Eq10(thirty, thirty). :: 1.0
+%% Eq10(forty, forty). :: 1.0
+%% Eq10(fifty, fifty). :: 1.0
+%% Eq10(sixty, sixty). :: 1.0
+%% Eq10(seventy, seventy). :: 1.0
+%% Eq10(eighty, eighty). :: 1.0
+%% Eq10(ninety, ninety). :: 1.0
+%% Num1(one). :: 1.0
+%% Num1(two). :: 1.0
+%% Num1(three). :: 1.0
+%% Num1(four). :: 1.0
+%% Num1(five). :: 1.0
+%% Num1(six). :: 1.0
+%% Num1(seven). :: 1.0
+%% Num1(eight). :: 1.0
+%% Num1(nine). :: 1.0
+%% Num10(ten). :: 1.0
+%% Num10(twenty). :: 1.0
+%% Num10(thirty). :: 1.0
+%% Num10(forty). :: 1.0
+%% Num10(fifty). :: 1.0
+%% Num10(sixty). :: 1.0
+%% Num10(seventy). :: 1.0
+%% Num10(eighty). :: 1.0
+%% Num10(ninety). :: 1.0
+%% NumDigit(X, Y) <-- NumDigit1(X, Y) :: 1.0
+%% NumDigit(X Y, U V) <-- NumDigit10(X, U), NumDigit1(Y, V) :: 1.0
+%% NumDigit(X, Y 0) <-- NumDigit10(X, Y) :: 1.0
+%% NumDigit1(one, 1). :: 1.0
+%% NumDigit1(two, 2). :: 1.0
+%% NumDigit1(three, 3). :: 1.0
+%% NumDigit1(four, 4). :: 1.0
+%% NumDigit1(five, 5). :: 1.0
+%% NumDigit1(six, 6). :: 1.0
+%% NumDigit1(seven, 7). :: 1.0
+%% NumDigit1(eight, 8). :: 1.0
+%% NumDigit1(nine, 9). :: 1.0
+%% NumDigit10(twenty, 2). :: 1.0
+%% NumDigit10(thirty, 3). :: 1.0
+%% NumDigit10(forty, 4). :: 1.0
+%% NumDigit10(fifty, 5). :: 1.0
+%% NumDigit10(sixty, 6). :: 1.0
+%% NumDigit10(seventy, 7). :: 1.0
+%% NumDigit10(eighty, 8). :: 1.0
+%% NumDigit10(ninety, 9). :: 1.0
+%% Greater1(one, two). :: 1.0
+%% Greater1(one, three). :: 1.0
+%% Greater1(one, four). :: 1.0
+%% Greater1(one, five). :: 1.0
+%% Greater1(one, six). :: 1.0
+%% Greater1(one, seven). :: 1.0
+%% Greater1(one, eight). :: 1.0
+%% Greater1(one, nine). :: 1.0
+%% Greater1(one, ten). :: 1.0
+%% Greater1(two, three). :: 1.0
+%% Greater1(two, four). :: 1.0
+%% Greater1(two, five). :: 1.0
+%% Greater1(two, six). :: 1.0
+%% Greater1(two, seven). :: 1.0
+%% Greater1(two, eight). :: 1.0
+%% Greater1(two, nine). :: 1.0
+%% Greater1(two, ten). :: 1.0
+%% Greater1(three, four). :: 1.0
+%% Greater1(three, five). :: 1.0
+%% Greater1(three, six). :: 1.0
+%% Greater1(three, seven). :: 1.0
+%% Greater1(three, eight). :: 1.0
+%% Greater1(three, nine). :: 1.0
+%% Greater1(three, ten). :: 1.0
+%% Greater1(four, five). :: 1.0
+%% Greater1(four, six). :: 1.0
+%% Greater1(four, seven). :: 1.0
+%% Greater1(four, eight). :: 1.0
+%% Greater1(four, nine). :: 1.0
+%% Greater1(four, ten). :: 1.0
+%% Greater1(five, six). :: 1.0
+%% Greater1(five, seven). :: 1.0
+%% Greater1(five, eight). :: 1.0
+%% Greater1(five, nine). :: 1.0
+%% Greater1(five, ten). :: 1.0
+%% Greater1(six, seven). :: 1.0
+%% Greater1(six, eight). :: 1.0
+%% Greater1(six, nine). :: 1.0
+%% Greater1(six, ten). :: 1.0
+%% Greater1(seven, eight). :: 1.0
+%% Greater1(seven, nine). :: 1.0
+%% Greater1(seven, ten). :: 1.0
+%% Greater1(eight, nine). :: 1.0
+%% Greater1(eight, ten). :: 1.0
+%% Greater1(nine, ten). :: 1.0
+%% Less1(X, Y) <-- Greater1(Y, X) :: 1.0
+
+srs(P-IN) :- msw(P,V), reduce(P-IN,V).
+
+values('Next_2',[1,2,3,4,5,6]).
+values('Prev_2',[1,2]).
+values('Next1_2',[1,2,3,4,5,6,7]).
+values('Next10_2',[1,2,3,4,5,6,7]).
+values('Eq1_2',[1,2,3,4,5,6,7,8,9]).
+values('Eq_2',[1]).
+values('Eq10_2',[1,2,3,4,5,6,7,8]).
+values('Num1_1',[1,2,3,4,5,6,7,8,9]).
+values('Num10_1',[1,2,3,4,5,6,7,8,9]).
+values('NumDigit_2',[1,2,3]).
+values('NumDigit1_2',[1,2,3,4,5,6,7,8,9]).
+values('NumDigit10_2',[1,2,3,4,5,6,7,8]).
+values('Greater1_2',[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45]).
+values('Less1_2',[1]).
+
+:- set_sw('Next_2',[1.0,1.0,1.0,1.0,1.0,1.0]).
+:- set_sw('Prev_2',[1.0,1.0]).
+:- set_sw('Next1_2',[1.0,1.0,1.0,1.0,1.0,1.0,1.0]).
+:- set_sw('Next10_2',[1.0,1.0,1.0,1.0,1.0,1.0,1.0]).
+:- set_sw('Eq1_2',[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]).
+:- set_sw('Eq_2',[1.0]).
+:- set_sw('Eq10_2',[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]).
+:- set_sw('Num1_1',[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]).
+:- set_sw('Num10_1',[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]).
+:- set_sw('NumDigit_2',[1.0,1.0,1.0]).
+:- set_sw('NumDigit1_2',[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]).
+:- set_sw('NumDigit10_2',[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]).
+:- set_sw('Greater1_2',[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]).
+:- set_sw('Less1_2',[1.0]).
+
+reduce('Next_2'-[A2,B2],1) :- (var(A2), var(B2) -> srs('Eq10_2'-[X,U]), srs('Next1_2'-[Y,V]), append(X,U,A2), append(Y,V,B2); append(X,U,A2), append(Y,V,B2), srs('Eq10_2'-[X,U]), srs('Next1_2'-[Y,V])).
+reduce('Next_2'-[A2,U],2) :- (var(A2) -> srs('Next10_2'-[X,U]), append(U,[nine],A2); append(U,[nine],A2), srs('Next10_2'-[X,U])).
+reduce('Next_2'-[Y,Y],3) :- srs('Next1_2'-[X,Y]).
+reduce('Next_2'-[A2,B2],4) :- (var(A2), var(B2) -> srs('Eq10_2'-[X,U]), srs('Next1_2'-[Y,V]), append(X,Y,A2), append(U,V,B2); append(X,Y,A2), append(U,V,B2), srs('Eq10_2'-[X,U]), srs('Next1_2'-[Y,V])).
+reduce('Next_2'-[A2,U],5) :- (var(A2) -> srs('Next10_2'-[X,U]), append(X,[nine],A2); append(X,[nine],A2), srs('Next10_2'-[X,U])).
+reduce('Next_2'-[X,Y],6) :- srs('Next1_2'-[X,Y]).
+reduce('Prev_2'-[X,Y],1) :- srs('Next_2'-[Y,X]).
+reduce('Prev_2'-[X,X],2) :- srs('Next_2'-[Y,X]).
+reduce('Next1_2'-[[one],[two]],1) :- !.
+reduce('Next1_2'-[[two],[three]],2) :- !.
+reduce('Next1_2'-[[three],[four]],3) :- !.
+reduce('Next1_2'-[[five],[six]],4) :- !.
+reduce('Next1_2'-[[six],[seven]],5) :- !.
+reduce('Next1_2'-[[seven],[eight]],6) :- !.
+reduce('Next1_2'-[[eight],[nine]],7) :- !.
+reduce('Next10_2'-[[twenty],[thirty]],1) :- !.
+reduce('Next10_2'-[[thirty],[forty]],2) :- !.
+reduce('Next10_2'-[[forty],[fifty]],3) :- !.
+reduce('Next10_2'-[[fifty],[sixty]],4) :- !.
+reduce('Next10_2'-[[sixty],[seventy]],5) :- !.
+reduce('Next10_2'-[[seventy],[eighty]],6) :- !.
+reduce('Next10_2'-[[eighty],[ninety]],7) :- !.
+reduce('Eq1_2'-[[one],[one]],1) :- !.
+reduce('Eq1_2'-[[two],[two]],2) :- !.
+reduce('Eq1_2'-[[three],[three]],3) :- !.
+reduce('Eq1_2'-[[four],[four]],4) :- !.
+reduce('Eq1_2'-[[five],[five]],5) :- !.
+reduce('Eq1_2'-[[six],[six]],6) :- !.
+reduce('Eq1_2'-[[seven],[seven]],7) :- !.
+reduce('Eq1_2'-[[eight],[eight]],8) :- !.
+reduce('Eq1_2'-[[nine],[nine]],9) :- !.
+reduce('Eq_2'-[[ten],[ten]],1) :- !.
+reduce('Eq10_2'-[[twenty],[twenty]],1) :- !.
+reduce('Eq10_2'-[[thirty],[thirty]],2) :- !.
+reduce('Eq10_2'-[[forty],[forty]],3) :- !.
+reduce('Eq10_2'-[[fifty],[fifty]],4) :- !.
+reduce('Eq10_2'-[[sixty],[sixty]],5) :- !.
+reduce('Eq10_2'-[[seventy],[seventy]],6) :- !.
+reduce('Eq10_2'-[[eighty],[eighty]],7) :- !.
+reduce('Eq10_2'-[[ninety],[ninety]],8) :- !.
+reduce('Num1_1'-[[one]],1) :- !.
+reduce('Num1_1'-[[two]],2) :- !.
+reduce('Num1_1'-[[three]],3) :- !.
+reduce('Num1_1'-[[four]],4) :- !.
+reduce('Num1_1'-[[five]],5) :- !.
+reduce('Num1_1'-[[six]],6) :- !.
+reduce('Num1_1'-[[seven]],7) :- !.
+reduce('Num1_1'-[[eight]],8) :- !.
+reduce('Num1_1'-[[nine]],9) :- !.
+reduce('Num10_1'-[[ten]],1) :- !.
+reduce('Num10_1'-[[twenty]],2) :- !.
+reduce('Num10_1'-[[thirty]],3) :- !.
+reduce('Num10_1'-[[forty]],4) :- !.
+reduce('Num10_1'-[[fifty]],5) :- !.
+reduce('Num10_1'-[[sixty]],6) :- !.
+reduce('Num10_1'-[[seventy]],7) :- !.
+reduce('Num10_1'-[[eighty]],8) :- !.
+reduce('Num10_1'-[[ninety]],9) :- !.
+reduce('NumDigit_2'-[X,Y],1) :- srs('NumDigit1_2'-[X,Y]).
+reduce('NumDigit_2'-[A2,B2],2) :- (var(A2), var(B2) -> srs('NumDigit10_2'-[X,U]), srs('NumDigit1_2'-[Y,V]), append(X,Y,A2), append(U,V,B2); append(X,Y,A2), append(U,V,B2), srs('NumDigit10_2'-[X,U]), srs('NumDigit1_2'-[Y,V])).
+reduce('NumDigit_2'-[X,B2],3) :- (var(B2) -> srs('NumDigit10_2'-[X,Y]), append(Y,[0],B2); append(Y,[0],B2), srs('NumDigit10_2'-[X,Y])).
+reduce('NumDigit1_2'-[[one],[1]],1) :- !.
+reduce('NumDigit1_2'-[[two],[2]],2) :- !.
+reduce('NumDigit1_2'-[[three],[3]],3) :- !.
+reduce('NumDigit1_2'-[[four],[4]],4) :- !.
+reduce('NumDigit1_2'-[[five],[5]],5) :- !.
+reduce('NumDigit1_2'-[[six],[6]],6) :- !.
+reduce('NumDigit1_2'-[[seven],[7]],7) :- !.
+reduce('NumDigit1_2'-[[eight],[8]],8) :- !.
+reduce('NumDigit1_2'-[[nine],[9]],9) :- !.
+reduce('NumDigit10_2'-[[twenty],[2]],1) :- !.
+reduce('NumDigit10_2'-[[thirty],[3]],2) :- !.
+reduce('NumDigit10_2'-[[forty],[4]],3) :- !.
+reduce('NumDigit10_2'-[[fifty],[5]],4) :- !.
+reduce('NumDigit10_2'-[[sixty],[6]],5) :- !.
+reduce('NumDigit10_2'-[[seventy],[7]],6) :- !.
+reduce('NumDigit10_2'-[[eighty],[8]],7) :- !.
+reduce('NumDigit10_2'-[[ninety],[9]],8) :- !.
+reduce('Greater1_2'-[[one],[two]],1) :- !.
+reduce('Greater1_2'-[[one],[three]],2) :- !.
+reduce('Greater1_2'-[[one],[four]],3) :- !.
+reduce('Greater1_2'-[[one],[five]],4) :- !.
+reduce('Greater1_2'-[[one],[six]],5) :- !.
+reduce('Greater1_2'-[[one],[seven]],6) :- !.
+reduce('Greater1_2'-[[one],[eight]],7) :- !.
+reduce('Greater1_2'-[[one],[nine]],8) :- !.
+reduce('Greater1_2'-[[one],[ten]],9) :- !.
+reduce('Greater1_2'-[[two],[three]],10) :- !.
+reduce('Greater1_2'-[[two],[four]],11) :- !.
+reduce('Greater1_2'-[[two],[five]],12) :- !.
+reduce('Greater1_2'-[[two],[six]],13) :- !.
+reduce('Greater1_2'-[[two],[seven]],14) :- !.
+reduce('Greater1_2'-[[two],[eight]],15) :- !.
+reduce('Greater1_2'-[[two],[nine]],16) :- !.
+reduce('Greater1_2'-[[two],[ten]],17) :- !.
+reduce('Greater1_2'-[[three],[four]],18) :- !.
+reduce('Greater1_2'-[[three],[five]],19) :- !.
+reduce('Greater1_2'-[[three],[six]],20) :- !.
+reduce('Greater1_2'-[[three],[seven]],21) :- !.
+reduce('Greater1_2'-[[three],[eight]],22) :- !.
+reduce('Greater1_2'-[[three],[nine]],23) :- !.
+reduce('Greater1_2'-[[three],[ten]],24) :- !.
+reduce('Greater1_2'-[[four],[five]],25) :- !.
+reduce('Greater1_2'-[[four],[six]],26) :- !.
+reduce('Greater1_2'-[[four],[seven]],27) :- !.
+reduce('Greater1_2'-[[four],[eight]],28) :- !.
+reduce('Greater1_2'-[[four],[nine]],29) :- !.
+reduce('Greater1_2'-[[four],[ten]],30) :- !.
+reduce('Greater1_2'-[[five],[six]],31) :- !.
+reduce('Greater1_2'-[[five],[seven]],32) :- !.
+reduce('Greater1_2'-[[five],[eight]],33) :- !.
+reduce('Greater1_2'-[[five],[nine]],34) :- !.
+reduce('Greater1_2'-[[five],[ten]],35) :- !.
+reduce('Greater1_2'-[[six],[seven]],36) :- !.
+reduce('Greater1_2'-[[six],[eight]],37) :- !.
+reduce('Greater1_2'-[[six],[nine]],38) :- !.
+reduce('Greater1_2'-[[six],[ten]],39) :- !.
+reduce('Greater1_2'-[[seven],[eight]],40) :- !.
+reduce('Greater1_2'-[[seven],[nine]],41) :- !.
+reduce('Greater1_2'-[[seven],[ten]],42) :- !.
+reduce('Greater1_2'-[[eight],[nine]],43) :- !.
+reduce('Greater1_2'-[[eight],[ten]],44) :- !.
+reduce('Greater1_2'-[[nine],[ten]],45) :- !.
+reduce('Less1_2'-[X,Y],1) :- srs('Greater1_2'-[Y,X]).
