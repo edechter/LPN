@@ -118,19 +118,83 @@ Contribution:
 \end{itemize}
 
 \subsection{Related Work}
+This work borrows heavily 
 
 \section{The Model}
-In this section we propose a hierarchical probabilistic model for
-learning distributions over string relations. Suppose we are given
-some positive instances $y_1, \dots, y_M$ of relations $R_1, \dots,
-R_N$. Our model assumes that each positive instance
-$y_m=R_n(\vec(x_m))$ is sampled i.i.d from a latent stochastic grammar
-(LSG), $\mathcal{K}$. $\mathcal{K}$ consists of some fixed number $K$
-of clauses (i.e. rules) $C_1, \dots, C_K$ over the $N$ observable
-relations plus a fixed number of $H$ hidden relations $T_1, \dots,
-T_H$. The \emph{architecture} of the model is the exact specification
-of the parameters $K$ and $H$ and the clauses $mathcal{C}$. To each
-clause $C_i$ is associated a positive real weights $\theta_i$.
+An LCG is a hierarchical Bayesian model of string tuples. It is an
+extension of the Hierarhical Dirichlet PCFG model (HD-PCFG) to
+Probabilistic Range Concatenation Grammars (PRCGs). Whereas the
+HD-PCFG is a distribution over strings, an LCG is a distribution over
+string tuples belonging to one of a set of observable
+relations. 
+
+Range Concatenation Grammars (RCGs) are a class of string grammars
+that represent all and only those languages that can be parsed in time
+polynomial in the length of the target
+string~\cite{boullier2005range}. An RCG $G=(N, T, V, P, S)$ is a
+5-tuple where $N$ is a finite set of predicate symbols, $T$ is a set
+of terminal symbols, $V$ is a set of variable symbols, P is a finite
+set of $M \geq 0$ clauses of the form $\psi_0 \rightarrow \psi_1 \dots
+\psi_M$, and $S \in N$ is the \emph{axiom}. Each $\psi_m$ is a term of
+the form $A(\alpha_1, \dots, \alpha_{\mathcal{A}(A)}$, where $A \in
+N$, $\mathcal{A}(A)$ is the arity of $A$, and each $\alpha_i \in (T
+\cup V)^*$ is an argument of $\psi_m$. We call the left hand side term
+of any clause the \emph{head} of that clause and its predicate symbol
+is the \emph{head predicate}.
+
+\textbf{Example:} The following is an RCG for the 3-copy language
+$\{www | w \in {a, b}^*\}$:
+\begin{alignat*}{3}
+&S(XYZ) &&\rightarrow A(X, Y, Z)\\
+&A(aX, aY, aZ) &&\rightarrow A(X, Y, Z)\\
+&A(bX, bY, bZ) &&\rightarrow A(X, Y, Z)\\
+&A(\epsilon, \epsilon, \epsilon) &&\rightarrow 
+\end{alignat*}
+
+A string $x$ is in the language defined by an RCG if one can
+\emph{derive} $S(x)$. A derivation is a sequence of rewrite steps in
+which substrings of the left hand side argument string are bound to
+the variables of the head of some clause, thus determining the
+arguments in the clause body. If a clause has no body terms, then its
+head is derived; otherwise, its head is derived if its body clauses
+are derived~\footnote{This description of the language of an RCG
+  technically only holds for \emph{non-combinatory} RCGs, in which the
+  arguments of body terms can only contain single variables. Since any
+  \emph{combinatory} RCG can be converted into a non-combinatory RCG
+  and we only consider non-combinatory RCGs here, this description
+  suffices.}
+
+We extend RCGs to Probabilistic Range Concatenation Grammars (PRCGs)
+by annotating each clause $C_k \in P$ with probabilities $p_k$ such
+that for all predicates $A \in N$ $\sum_{k:head(C_k)=A} p_k = 1$. A
+PRCGs defines a distribution over strings $x$ by sampling from
+derivations of $S(x)$ according to the product of probabilities of
+clauses used in that derivation. This is a well defined distribution
+as long as no probability mass is placed on derivations of infinite
+length; in this paper, we only consider PRCGs with derivations of
+finite length, so we need not worry about this requirement.
+
+Now we can describe the model we introduce here, the Latent Concept
+Grammar (LCG). We introduce the LCG as a machine learning model to
+learn a distribution over instances of relations over strings. Unlike
+a PRCG, which places a distribution over terms $(
+
+
+RCGs consist of a set
+of rewrite rules, called clauses, each of which takes a termwhich
+operate on a set of terms (predicates applied to arguments) to produce
+new terms. Each rewrite rule is of the form:
+
+Suppose we are given some positive instances $y_1, \dots,
+y_M$ of relations $R_1, \dots, R_N$. Our model assumes that each
+positive instance $y_m=R_n(\vec(x_m))$ is sampled i.i.d from a latent
+stochastic grammar (LSG), $\mathcal{K}$. $\mathcal{K}$ consists of
+some fixed number $K$ of clauses (i.e. rules) $C_1, \dots, C_K$ over
+the $N$ observable relations plus a fixed number of $H$ hidden
+relations $T_1, \dots, T_H$. The \emph{architecture} of the model is
+the exact specification of the parameters $K$ and $H$ and the clauses
+$mathcal{C}$. To each clause $C_i$ is associated a positive real
+weights $\theta_i$.
 
 The clauses of $\mathcal{K}$ are Horn clauses in a first order logic
 with string concatenation. We will use PROLOG notation, in which lower
