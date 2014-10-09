@@ -56,12 +56,14 @@ library
                        GIJoe.Parse,
                        GIJoe.InsideOutside,
                        GIJoe.ApproximateInference.HashTable,
-                       GIJoe.ApproximateInference.InsideOutside
-                       GIJoe.ApproximateInference.BoundaryProbabilities
-                       GIJoe.ApproximateInference.MaxPath
-                       GIJoe.SRS.Type
-                       GIJoe.SRS.Parse
-                       GIJoe.SRS.Sample
+                       GIJoe.ApproximateInference.InsideOutside,
+                       GIJoe.ApproximateInference.BoundaryProbabilities,
+                       GIJoe.ApproximateInference.MaxPath,
+                       GIJoe.SRS.Type,
+                       GIJoe.SRS.Parse,
+                       GIJoe.SRS.Sample,
+                       GIJoe.SRS.Prismify,
+                       GIJoe.SRS.BuildNumber
 
   -- Modules included in this library but not exported.
   -- other-modules:       
@@ -71,30 +73,31 @@ library
   
   -- Other library packages from which modules are imported.
   build-depends:       base >=4.6,
-                       log-domain >=0.9,
-                       split >=0.2,
-                       mtl >=2.1,
                        MonadRandom >=0.1,
-                       parallel >=3.2,
-                       deepseq >=1.3,
-                       math-functions >=0.1,
+                       PSQueue >=1.1,
                        containers >=0.5,
-                       pqueue >=1.2,
+                       criterion >=1.0.0.2,
                        data-memocombinators >=0.5,
+                       deepseq >=1.3,
+                       hashable >=1.1.2.5, 
+                       hashtables >=1.1.2.1,
+                       hmatrix >=0.16.0.4, 
+                       lens >=3.8.5,
+                       log-domain >=0.9,
+                       logict >=0.6.0.2,
+                       loops >=0.2.0.2,
+                       math-functions >=0.1,
+                       mtl >=2.1,
+                       parallel >=3.2,
                        parsec >=3.1,
                        parsec-numbers >=0.0,
-                       random >=1.0,
+                       pqueue >=1.2,
                        pretty-tree >=0.1.0.0,
-                       hashable >=1.1.2.5, 
-                       unordered-containers >=0.2.3.0,
-                       lens >=3.8.5,
-                       logict >=0.6.0.2,
-                       hashtables >=1.1.2.1,
-                       loops >=0.2.0.2,
-                       criterion >=1.0.0.2,
-                       hmatrix >=0.16.0.4, 
-                       PSQueue >=1.1,
-                       text >=1.1.1.3
+                       random >=1.0,
+                       random-shuffle >=0.0.4,
+                       split >=0.2,
+                       text >=1.1.1.3,
+                       unordered-containers >=0.2.3.0
   -- Directories containing source 
   hs-source-dirs: src, scratch
   

@@ -28,21 +28,26 @@ labeledMap f xs =  map f $ zip xs $ take (length xs) ['A'..'Z']
 
 -- heavy lifters
 
-header :: RewriteSystem -> [String]
-header slcfrs = ["%% Original SLCFRS"] ++ [""] -- commented (rsRules slcfrs) ++ [""]
+-- header :: RewriteSystem -> [String]
+-- header slcfrs = ["%% Original SLCFRS"] ++ [""] commented (rsRules slcfrs) ++ [""]
 --  where
 --    commented = map (\x -> "%% " ++ show x)
 
 body :: RewriteSystem -> [String]
 body slcfrs =
-    srsClause ++ [""] ++ switchClauses ++ [""] ++
+    mainClause ++ [""] ++
+    acyclicClause ++ [""] ++
+    srsClause ++ [""] ++
+    switchClauses ++ [""] ++
     probClauses ++ [""] ++ reductionClauses
   where
     groupedRules = groupBy sameHead $ sortBy (compare `on` (cTermPredicate . ruleHead . weightedRuleRule)) (rsRules slcfrs)
     sameHead =  (\(WRule ((ComplexTerm p1 _) :<-: _) _)
                   (WRule ((ComplexTerm p2 _) :<-: _) _)
                  -> p1 == p2)
+    mainClause = [ "main(Fin,Foutp,Fouta) :- open(Fin,read,S), read(S,Gs), close(S), set_prism_flag(restart,10), set_prism_flag(learn_mode,vb), set_prism_flag(viterbi_mode,vb), set_prism_flag(default_sw_a,uniform), set_prism_flag(log_scale,on), learn(Gs), save_sw(Foutp), save_sw_a(Fouta).", "", "show_num(X) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Number_1'-[X])).", "", "show_next(X,Y) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Next_2'-[X,Y]))."]
     srsClause =  [ "srs(P-IN) :- msw(P,V), reduce(P-IN,V)." ]
+    acyclicClause = ["acyclic([A,B],[C,D]) :- length(A,AL), length(C,CL), AL < CL; length(B,BL), length(D,DL), BL < DL." ]
     switchClauses = map makeSwitch groupedRules
     probClauses = map makeProbs groupedRules
     reductionClauses = concatMap makeReductions groupedRules
@@ -69,19 +74,31 @@ makeReduction (i,(h :<-: bs)) =
     "reduce(" ++ refactorHead h ++ "," ++ show i ++ ")" ++ anyAppends ++ "."
   where
     appendVars = collectTupleItems h
-    appendSRSs = createSRSTerms bs
+    appendSRSs = createSRSTerms h bs
+    appendAcyclics = createAcyclicTerms h bs
     appendAppends = createAppendTerms h
     theAppends = if (not $ null appendVars)
                  then "(" ++ appendVars ++ " -> " ++ appends1 ++ "; " ++ appends2 ++ ")"
                  else appendSRSs
-    appends1 = intercalate ", " $ filter (not . null) [appendSRSs, appendAppends]
-    appends2 = intercalate ", " $ filter (not . null) [appendAppends, appendSRSs]
+    appends1 = intercalate ", " $ filter (not . null) [appendSRSs, appendAcyclics, appendAppends]
+    appends2 = intercalate ", " $ filter (not . null) [appendAppends, appendAcyclics, appendSRSs]
     anyAppends = if null (theAppends) then "" else " :- " ++ theAppends
     collectTupleItems (ComplexTerm _ xs) = intercalate ", " $ filter (not . null) $ labeledMap collectTupleItem xs
     collectTupleItem ((NTString (x:[])),l) = ""
     collectTupleItem ((NTString xs),l) = "var(" ++ l:(show $ length xs) ++ ")"
 
-createSRSTerms bs = if null termList then "!" else intercalate ", " termList
+createAcyclicTerms (ComplexTerm _ xs) bs = if null termList then "" else intercalate ", " termList
+  where
+    termList = map sTermToAcyclicCheck bs
+    sTermToAcyclicCheck h = "acyclic([" ++ intercalate "," (map unpack $ stermArgs h) ++ "],[" ++ intercalate "," (renameTupleItems xs) ++ "])"
+    renameTupleItems xs = labeledMap renameTupleItem xs
+    renameTupleItem ((NTString (x:[])),l) = case x of
+      ElVar _ -> show x
+      ElSym _ -> show [x]
+    renameTupleItem ((NTString xs),l) = l:(show $ length xs)
+    
+
+createSRSTerms (ComplexTerm _ xs) bs = if null termList then "" else intercalate ", " termList
   where
     termList = map sTermToPair bs
     sTermToPair h = "srs(" ++ predTuplePair (sTermPredicate h) (map unpack (stermArgs h)) ++ ")"
@@ -91,18 +108,22 @@ refactorHead h@(ComplexTerm _ xs) = predTuplePair (cTermPredicate h) (renameTupl
     renameTupleItems xs = labeledMap renameTupleItem xs
     renameTupleItem ((NTString (x:[])),l) = case x of
       ElVar _ -> show x
-      ElSym _ -> show [x]
+      ElSym y -> if (unpack y) == "null" then "[]" else show [x]
     renameTupleItem ((NTString xs),l) = l:(show $ length xs)
 
 createAppendTerms h@(ComplexTerm _ xs) =
     intercalate ", " $ filter (not . null) $ labeledMap createAppends xs
   where
+--     createNotUnifies (NTString xs) = intercalate ", " $
+--       foldl (\acc curr -> case curr of
+--                 ElVar _ -> (show curr ++ "\\=[]"):acc
+--                 ElSym _ -> acc) [] xs
     createAppends :: (NonTerminalString,Char) -> String
     createAppends ((NTString xs),l) =  intercalate ", " $
       trd3 $ foldl (\(i,prev,acc) curr -> (i+1,
                                            l:(show $ i+1),
                                            (appendString prev i curr l):acc))
-      (1,show (xs !! 0),[]) $ drop 1 xs
+        (1,show (xs !! 0),[]) $ drop 1 xs
     appendString p i x l = concat ["append(",p,",",newVarName x,",",(l:(show $ i+1)),")"]
     newVarName x = case x of
       ElVar _ -> show x
@@ -111,5 +132,4 @@ createAppendTerms h@(ComplexTerm _ xs) =
 prismify :: FilePath -> FilePath -> IO ()
 prismify inpath outpath = do
   slcfrs <- readSystem inpath
-  print slcfrs
-  writeFile outpath $ unlines $ header slcfrs ++ body slcfrs
+  writeFile outpath $ unlines $ body slcfrs
