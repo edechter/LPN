@@ -45,7 +45,8 @@ body slcfrs =
     sameHead =  (\(WRule ((ComplexTerm p1 _) :<-: _) _)
                   (WRule ((ComplexTerm p2 _) :<-: _) _)
                  -> p1 == p2)
-    mainClause = [ "main(Fin,Foutp,Fouta) :- open(Fin,read,S), read(S,Gs), close(S), set_prism_flag(restart,10), set_prism_flag(learn_mode,vb), set_prism_flag(viterbi_mode,vb), set_prism_flag(default_sw_a,uniform), set_prism_flag(log_scale,on), learn(Gs), save_sw(Foutp), save_sw_a(Fouta).", "", "show_num(X) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Number_1'-[X])).", "", "show_next(X,Y) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Next_2'-[X,Y]))."]
+    mainClause = [ "main(Gs,Foutp,Fouta) :- set_prism_flag(restart,1), set_prism_flag(learn_mode,vb), set_prism_flag(viterbi_mode,vb), set_prism_flag(default_sw_a,uniform), set_prism_flag(log_scale,on), learn(Gs), save_sw(Foutp), save_sw_a(Fouta).",
+                  "", "show_num(X) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Number_1'-[X])).", "", "show_next(X,Y) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Next_2'-[X,Y]))."]
     srsClause =  [ "srs(P-IN) :- msw(P,V), reduce(P-IN,V)." ]
     acyclicClause = [ "acyclic([A,B],[C,D]) :- length(A,AL), length(B,BL), length(C,CL), length(D,DL), X is AL + BL, Y is CL + DL, X < Y." ]
     switchClauses = map makeSwitch groupedRules

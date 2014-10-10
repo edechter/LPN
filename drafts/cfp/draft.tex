@@ -1,0 +1,289 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\title{The Latent Constructive Rewrite Model \\ or \\ The Latent Conceptual Grammar Model}
+\author{Eyal Dechter \& Josh Rule \& Josh Tenenbaum}
+
+\begin{document}
+\maketitle
+
+\section{Abstract}
+A popular approach in statistical machine learning is to automatically
+find the latent \emph{features} of the data that are most relevant or
+informative. But a latent feature based view of concept learning does
+not match up naturally with the structured symbolic knowledge that
+seems to underlie people's understanding of many domains. How can we
+combine the flexibility, noise tolerance, and computational
+practicality of latent feature based statistical machine learning with
+the symbolic knowledge representations that best capture human
+understanding? Here present a learning model we dub Latent Concept
+Grammars (LCGs) as a proposal. An LCG is a densely connected set of
+probabilistic string rewrite rules over an initially uninterpreted set
+of predicates. When fit to data using a hierarchical Bayesian prior,
+these predicates assume the roles of informative latent concepts. This
+approach allows us to learn knowledge that is stochastic and
+recursively structured while maintaining computational
+tractability. We show how learning in LCGs can be implemented using
+the probabilistic logic programming system PRISM, and we present
+preliminary experiments.
+
+How do people learn systems of related concepts from
+data?  Consider, for example, a school-age child's knowledge of
+number. This knowledge supports a large number of related operations:
+the child knows which words denote numbers, how to use those words to
+label cardinalities of sets, how to translate between digit
+representations and word representations of number, how to compare
+cardinalities, etc. The child knows how to perform these operations
+over an unbounded set of elements, even though the data that underlies
+this knowledge is small and noisy. Here we propose that such systems
+of related concepts can be learned via hierarchical probabilistic
+inference over probabilistic string rewrite systems (PSRS) -- a mildly
+context-sensitive class of probabilistic string gramamrs that
+corresponds to a restricted fragment of stochastic logic programs
+(SLPs). Specifically, we extend the variational
+expectation-maximization algorithm for Hierarchical Dirichlet PCFGs to
+accomodate PSRSs. This algorithm we present enables a tractible
+compromise between highly restrictive context-free knowledge
+representations and the intractability of performing similar inference
+procedures over general logic programs. Empirically, we show how such
+restricted string rewrite systems can capture non-trivial conceptual
+knowledge and how our algorithm is able to learn such knowledge from
+data.
+
+\section{Abstract 2}
+What does it mean to understand a concept, and how do people come to
+such an understanding.
+
+\section{Abstract 3}
+
+
+
+\section{Introduction}
+The vast majority of the models of concept acquisition that have been
+proposed in the artificial intelligence, machine learning and
+cognitive science literatures cannot represent the conceptual systems
+that even young children learn. Take, for example, the school-age
+child's knowledge of number. This child knows that there is no largest
+number; that ``one million forty three'' and ``8439''denote numbers
+but that ``one million forty billion'' and ``a82bd'' do not; that no
+two cardinalities refer to the same quantity but that some number
+words refer to the same cardinalities (e.g. ``two thousand'' and
+``twenty-one hundred''). Moreover, the child knows how to guage the
+approximate number of elements in a collection and how to count this
+number exactly. In short, the child's knowledge of number consists of
+a complex system of concepts over an unbounded set of entities
+(i.e. the numbers). 
+
+Children are not born with this kind of knowledge, and, since number
+is a relatively recent cultural invention, nor is it likely that
+children possess innate domain specific background knowledge that
+makes it easier to acquire. Children only ever see a tiny fraction of
+all the numbers they can reason about and this evidence is biased,
+noisy, and can be unreliable. 
+
+A fundamental challenge for cognitive science -- and for any field
+interested in understanding human-like concept acquisition -- is to
+provide a theory of how such complex systems of concepts can be
+learned from sparse and noisy data.
+
+People are able to learn about complex systems of related
+concepts from small amounts of noisy data. A compelling approach to
+understanding such learning is to frame it as Bayesian inference over
+probabilistic knowledge bases. Advances in context free grammar
+induction in the past couple of decades can be seen as an instance of
+this approach, in which
+
+Our goal is to understand how children can obtain semantic knowledge
+about a system of concepts from the structure of relavent perceptual
+stimuli. How does a child learn that prefixing ``great-'' corresponds
+to adding an additional generation in kinship relationships? How does
+a child learn that ``just before'' is after ``a while before'' which
+is before ``a while after''? How does a child learn that if
+Figure~\ref{pairOfApples} is ``a pair of apples'' then
+Figure~\ref{singleApple} is a single apple? 
+
+Our proposal is that some interesting fragments of human conceptual
+knowledge can be represented as structured relations between
+linguistic tokens and other perceptual inputs; that the rules that
+define these relations implicitly define the concepts that are
+learned; and that these rules can be learned using the tools of
+hierarchical Bayesian inference. 
+
+For example, the concept TWENTY SEVEN is defined as the collection of
+representations ``27'', ``twenty seven'', ``3 times 9,'' along with a
+system of symbolic rules that translate among these representations
+and facilitate answered various queries. According to our hypothesis,
+the difference between TWENTY EIGHT and TWENTY SEVEN is not that they
+are represented in the mind by distinct mental symbols but rather that
+the rules that operate on their various representations treat them in
+systematically different ways.
+
+This view implies that an attempt to construct a computational account
+of concept learning in humans needs to ground out that learning in the
+relavent perceptual stimuli. 
+
+Contribution:
+\begin{itemize}
+\item We present Generate Rewrite Systems (GRS) -- a formalism that borrows
+  heavily from Linear Context-Free Rewriting Systems (CITE)
+\item We show how GRS, though restricted in representational capactiy,
+  can capture substantial cognitively plausible first-order conceptual knowledge 
+\item We propose a heirarchical Bayesian model for GRS that provides a coherent framework in which a GRS can be learned given evidence
+\item We show how GRS can be transformed into PRISM programs and learned within that probabilstic logic programming system
+\item We provide computational experiments that provide evidence that
+  our model can provide an account of some kinds of complex conceptual
+  knowledge can be inferred from noisy and sparse data
+\end{itemize}
+
+\subsection{Related Work}
+This work borrows heavily 
+
+\section{The Model}
+An LCG is a hierarchical Bayesian model of string tuples. It is an
+extension of the Hierarhical Dirichlet PCFG model (HD-PCFG) to
+Probabilistic Range Concatenation Grammars (PRCGs). Whereas the
+HD-PCFG is a distribution over strings, an LCG is a distribution over
+string tuples belonging to one of a set of observable
+relations. 
+
+Range Concatenation Grammars (RCGs) are a class of string grammars
+that represent all and only those languages that can be parsed in time
+polynomial in the length of the target
+string~\cite{boullier2005range}. An RCG $G=(N, T, V, P, S)$ is a
+5-tuple where $N$ is a finite set of predicate symbols, $T$ is a set
+of terminal symbols, $V$ is a set of variable symbols, P is a finite
+set of $M \geq 0$ clauses of the form $\psi_0 \rightarrow \psi_1 \dots
+\psi_M$, and $S \in N$ is the \emph{axiom}. Each $\psi_m$ is a term of
+the form $A(\alpha_1, \dots, \alpha_{\mathcal{A}(A)}$, where $A \in
+N$, $\mathcal{A}(A)$ is the arity of $A$, and each $\alpha_i \in (T
+\cup V)^*$ is an argument of $\psi_m$. We call the left hand side term
+of any clause the \emph{head} of that clause and its predicate symbol
+is the \emph{head predicate}.
+
+\textbf{Example:} The following is an RCG for the 3-copy language
+$\{www | w \in {a, b}^*\}$:
+\begin{alignat*}{3}
+&S(XYZ) &&\rightarrow A(X, Y, Z)\\
+&A(aX, aY, aZ) &&\rightarrow A(X, Y, Z)\\
+&A(bX, bY, bZ) &&\rightarrow A(X, Y, Z)\\
+&A(\epsilon, \epsilon, \epsilon) &&\rightarrow 
+\end{alignat*}
+
+A string $x$ is in the language defined by an RCG if one can
+\emph{derive} $S(x)$. A derivation is a sequence of rewrite steps in
+which substrings of the left hand side argument string are bound to
+the variables of the head of some clause, thus determining the
+arguments in the clause body. If a clause has no body terms, then its
+head is derived; otherwise, its head is derived if its body clauses
+are derived~\footnote{This description of the language of an RCG
+  technically only holds for \emph{non-combinatory} RCGs, in which the
+  arguments of body terms can only contain single variables. Since any
+  \emph{combinatory} RCG can be converted into a non-combinatory RCG
+  and we only consider non-combinatory RCGs here, this description
+  suffices.}
+
+We extend RCGs to Probabilistic Range Concatenation Grammars (PRCGs)
+by annotating each clause $C_k \in P$ with probabilities $p_k$ such
+that for all predicates $A \in N$ $\sum_{k:head(C_k)=A} p_k = 1$. A
+PRCGs defines a distribution over strings $x$ by sampling from
+derivations of $S(x)$ according to the product of probabilities of
+clauses used in that derivation. This is a well defined distribution
+as long as no probability mass is placed on derivations of infinite
+length; in this paper, we only consider PRCGs with derivations of
+finite length, so we need not worry about this requirement.
+
+Now we can describe the model we introduce here, the Latent Concept
+Grammar (LCG). We introduce the LCG as a machine learning model to
+learn a distribution over instances of relations over strings. Unlike
+a PRCG, which places a distribution over terms $(
+
+
+RCGs consist of a set
+of rewrite rules, called clauses, each of which takes a termwhich
+operate on a set of terms (predicates applied to arguments) to produce
+new terms. Each rewrite rule is of the form:
+
+Suppose we are given some positive instances $y_1, \dots,
+y_M$ of relations $R_1, \dots, R_N$. Our model assumes that each
+positive instance $y_m=R_n(\vec(x_m))$ is sampled i.i.d from a latent
+stochastic grammar (LSG), $\mathcal{K}$. $\mathcal{K}$ consists of
+some fixed number $K$ of clauses (i.e. rules) $C_1, \dots, C_K$ over
+the $N$ observable relations plus a fixed number of $H$ hidden
+relations $T_1, \dots, T_H$. The \emph{architecture} of the model is
+the exact specification of the parameters $K$ and $H$ and the clauses
+$mathcal{C}$. To each clause $C_i$ is associated a positive real
+weights $\theta_i$.
+
+The clauses of $\mathcal{K}$ are Horn clauses in a first order logic
+with string concatenation. We will use PROLOG notation, in which lower
+case letters are predicates and constants and uppercase letters are
+variables. If two symbols are adjacent it means that the corresponding
+strings are concatenated. For example, the following would is a valid
+clause: $a(XY, XV) \leftarrow b(X, UV), a(X, X)$. In this rule $a$ and
+$b$ are relations with arity two.
+
+Let $C_1, \dots, C_{N(R)} = C(R)$ be the set of clauses whose head is
+relation $R$ and let $\Theta_R$ be the set of corresponding
+weights. Let $p_R(C_n) \sim \text{Discrete}(\Theta_R)$; that is, $p_R$
+is a distribution over the clauses headed by $R$, such that each
+clauses is sampled in proportion to its weight parameter.
+
+A positive instance of this relation is sampled from $\mathcal{K}$ by
+arbitrarily (i.e. uniformly at random) choosing a relation $R$ and
+instantiating that relation by sampling a clause from $p_R$. Recursing
+on this procedure for every atom in the body of this clause binds the
+variables in the clause's head. 
+
+Given this assumed generative process for the evidence, learning a
+program involves inferring the parameter $\theta$ given a prior
+probability distribution over their values. We place an independent
+Dirichlet distribution over the parameters of every relation. This is
+a natural choice that enables us to promote sparse programs, i.e.,
+programs in which most of the mass is placed on a small number of
+predicates and rules.
+
+\section{Inference}
+Inference in hierarchical Dirichlet processes in stochastic grammars
+and stochastic logic programs have been well studied. Variational
+Expectation-Maximization (VB-EM) is a popular approach, and this is
+the algorithm we adopt here. The algorithm is described extensively
+elsewhere (CITATION). As we will show in the following section, our
+latent stochastic grammar model can be encoded as a stochastic logic
+program, so that any VB-EM algorithm for that domain will suffice. 
+
+\section{Implementation}
+We implemented learning in LCG by encoding the model as a PRISM program.
+
+TODO: Josh should write this section on how to translate an LCG into a
+PRISM program.
+
+\section{Experiments}
+\section{Discussion}
+
+\section{Outline}
+1) Introduction
+  - psychological motivation 
+    - juxtaposing the kinds of knowledge that freebase has and the kinds that children learn
+    - compositional semantic structure --> derive semantics from syntax
+  - what is the contribution?
+     - the use of string rewrite formalisms to capture conceptual knowledge and conceptual learning
+     - to bring tools from computational linguistics to learning semantics
+  - what kind of concept systems are we trying to capture?
+  - why restrict the formalism? 
+     - tractability of inference 
+  - why go beyond context free grammars? 
+     - if they are intractable to learn anyway, why try to go beyond them? 
+  - Related Work
+2) Model
+- stochastic linear context free rewrite systems
+  - model: what is the data? and what is being inferred? what is the prior? 
+  - this can be written as PRISM program, or an SLP. 
+  - inference: variational approximation 
+3) Experiments
+  a) worked example
+  b) Number system (main result)
+  3b) Results
+4) Conclusion
+5) Citations
+
+\end{document}
