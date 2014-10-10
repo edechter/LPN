@@ -58,12 +58,12 @@ grammarOfNumber k outpath = do
 
 grammarOfNumber2 :: Int -> FilePath -> IO ()
 grammarOfNumber2 n outpath = do
-  let lexicon = ones ++ teens ++ tens
+  let lexicon = ones ++ teens ++ tens ++ ["null"]
   let reorderRules = ["A" ++ show i ++ "(X Y, U V) <-- A" ++ show j ++ "(" ++ (ls !! 0) ++ "," ++ (ls !! 1) ++ "), A" ++ show k ++ "(" ++ (ls !! 2) ++ "," ++ (ls !! 3) ++ ")." | i <- [1..n], j <- [1..n], k <- [1..n], ls <- (permutations ["X","Y","U","V"]), j < k]
   let reorderRulesEqual = ["A" ++ show i ++ "(X Y, U V) <-- A" ++ show j ++ "(" ++ (ls !! 0) ++ "," ++ (ls !! 1) ++ "), A" ++ show j ++ "(" ++ (ls !! 2) ++ "," ++ (ls !! 3) ++ ")." | i <- [1..n], j <- [1..n], ls <- ((map (\x -> "X":x) (permutations ["Y","U","V"])) ++ (map (\y -> "Y":y) (permutations ["X","U","V"])))]
 --  let terminalRules = ["word" ++ "("++ w ++ ")."| w <- lexicon]
-  let relationRules = ["A" ++ show i ++ "(" ++ w1 ++ "," ++ w2 ++ ")." | i <- [1..n], w1 <- lexicon ++ ["null"] , w2 <- lexicon ++ ["null"]]
-  let numberRule = ["Number(X) <-- A1(X,X)."]
+  let relationRules = ["A" ++ show i ++ "(" ++ (lexicon !! w1) ++ "," ++ (lexicon !! w2) ++ ")." | i <- [1..n], w1 <- [0..((length lexicon) - 1)] , w2 <- [0..((length lexicon) - 1)], w1 <= w2]
+  let numberRule = ["Number(X,Y) <-- A1(X,Y)."]
   let nextRule = ["Next(X,Y) <-- A2(X,Y)."]
   writeFile outpath $ unlines $ reorderRules ++ reorderRulesEqual ++ relationRules ++ numberRule ++ nextRule
 
@@ -87,7 +87,7 @@ giveNumbers :: Int -> Int -> IO [String]
 giveNumbers n c = do
     gen <- getStdGen
     let nShuffledNumbers = take n $ shuffle' numberLists (length numberLists) gen
-    return $ map (\x -> concat ["count(srs('Number_1'-[", showCleanList x, "]),", show c, ")"]) nShuffledNumbers
+    return $ map (\x -> concat ["count(srs('Number_2'-[", showCleanList x, ",[]]),", show c, ")"]) nShuffledNumbers
 
 showCleanList xs = "[" ++ intercalate "," xs ++ "]"
 
