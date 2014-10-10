@@ -2,7 +2,8 @@ module GIJoe.SRS.BuildNumber where
 
 import Data.List
 import System.Random
-import System.Random.Shuffle (shuffle')
+import System.Random.Shuffle (shuffle', shuffleM)
+import Control.Monad.Random.Class
 
 -- for all i,j,k \in [1..n], w \in lexicon
 -- A_i(X,Y) <- A_j(X),A_k(Y).
@@ -58,14 +59,15 @@ grammarOfNumber k outpath = do
 
 grammarOfNumber2 :: Int -> FilePath -> IO ()
 grammarOfNumber2 n outpath = do
-  let lexicon = ones ++ teens ++ tens
+  let lexicon = ones ++ teens ++ tens ++ ["after", "comes"]
   let reorderRules = ["A" ++ show i ++ "(X Y, U V) <-- A" ++ show j ++ "(" ++ (ls !! 0) ++ "," ++ (ls !! 1) ++ "), A" ++ show k ++ "(" ++ (ls !! 2) ++ "," ++ (ls !! 3) ++ ")." | i <- [1..n], j <- [1..n], k <- [1..n], ls <- (permutations ["X","Y","U","V"]), j < k]
   let reorderRulesEqual = ["A" ++ show i ++ "(X Y, U V) <-- A" ++ show j ++ "(" ++ (ls !! 0) ++ "," ++ (ls !! 1) ++ "), A" ++ show j ++ "(" ++ (ls !! 2) ++ "," ++ (ls !! 3) ++ ")." | i <- [1..n], j <- [1..n], ls <- ((map (\x -> "X":x) (permutations ["Y","U","V"])) ++ (map (\y -> "Y":y) (permutations ["X","U","V"])))]
 --  let terminalRules = ["word" ++ "("++ w ++ ")."| w <- lexicon]
   let relationRules = ["A" ++ show i ++ "(" ++ w1 ++ "," ++ w2 ++ ")." | i <- [1..n], w1 <- lexicon ++ ["null"] , w2 <- lexicon ++ ["null"]]
   let numberRule = ["Number(X) <-- A1(X,X)."]
   let nextRule = ["Next(X,Y) <-- A2(X,Y)."]
-  writeFile outpath $ unlines $ reorderRules ++ reorderRulesEqual ++ relationRules ++ numberRule ++ nextRule
+  let nextSentenceRule = ["NextSentence(X) <-- A2(X,Y)."]      
+  writeFile outpath $ unlines $ reorderRules ++ reorderRulesEqual ++ relationRules ++ numberRule ++ nextRule ++ nextSentenceRule
 
 writeWrapper :: Int -> Int -> FilePath -> IO ()
 writeWrapper nNu nNe outpath = do
@@ -74,7 +76,7 @@ writeWrapper nNu nNe outpath = do
     writeData (nums ++ nexts) outpath
 
 writeData :: [String] -> FilePath -> IO ()
-writeData ss outpath = writeFile outpath $ "[" ++ intercalate ", " ss ++ "]."
+writeData ss outpath = writeFile outpath $ "[" ++ intercalate ",\n" ss ++ "]."
 
 numberLists :: [[String]]
 numberLists = first19 ++ theRest
@@ -91,6 +93,8 @@ giveNumbers n c = do
 
 showCleanList xs = "[" ++ intercalate "," xs ++ "]"
 
+
+
 giveNexts :: Int -> Int -> IO [String]
 giveNexts n c = do
     gen <- getStdGen
@@ -100,3 +104,53 @@ giveNexts n c = do
 ones = ["one","two","three","four","five","six","seven","eight","nine"]
 tens = ["twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"]
 teens = ["ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"]
+
+trainTestSplit :: (MonadRandom m)
+                  => Double -- ^ percent of examples to be used for training
+                  -> [Example]  -- ^ list of examples
+                  -> m ([Example], [Example]) -- ^ (train_list, test_list)
+trainTestSplit perc xs = do
+  shuffled <- shuffleM xs
+  let n = length xs
+      n_train = round (fromIntegral n * perc)
+  let (train, test) = splitAt n_train shuffled
+  return (train, test)
+
+trainTestDataToPrism :: String -- ^ predicate name
+                     -> [Example] -- ^ train
+                     -> [Example] -- ^ test
+                     -> String
+trainTestDataToPrism pred train test = unlines [trainString, testString]
+  where wrapSrs x = "srs('" ++ pred ++ "'-[" ++ intercalate ", " (map showCleanList x) ++ "])"
+        trainString = unlines [ "train(" ++ wrapSrs t ++ ")." | t <- train]
+        testString = unlines [ "test(" ++ wrapSrs t ++ ")." | t <- test]        
+
+type PredicateName = String
+type Example = [[String]]
+type PercTrain = Double
+type TrainTestSpec = (PredicateName, [Example], PercTrain)
+
+mkTrainTestDataFile :: FilePath
+                    -> [TrainTestSpec]
+                    -> IO ()
+mkTrainTestDataFile path specs = do
+  ss <- sequence $ do 
+    (pred, xs, perc) <- specs
+    return $ do
+      (train,test) <- trainTestSplit perc xs
+      return $ trainTestDataToPrism pred train test
+  let out = unlines ss
+  writeFile path out
+
+numberExamples = [[x] | x <- numberLists]
+nextExamples = [[a, b] | (a, b) <- zip (init numberLists) (tail numberLists)]
+
+-- Example: to generate file of 90% of the numbers and 20% of the nexts as training:
+--  mkTrainTestDataFile <path>
+--        [("Number_1", numberExamples , 0.90), ("Next_2", nextExamples , 0.20)]
+
+nextSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextExamples]
+
+
+
+
