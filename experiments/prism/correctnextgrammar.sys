@@ -1,0 +1,13 @@
+A2(X Y, U V) <-- A3(X, Y), A4(U, V).
+A4(null, null).
+A3(X Y, U V) <-- A5(X, U), A6(Y, V). 
+A5(twenty, twenty).
+A5(thirty, thirty).
+A5(forty, forty).
+A6(one, two).
+A6(two, three).
+A6(three, four).
+
+Number(X) <-- A1(X,X).
+Next(X,Y) <-- A2(X,Y).
+NextSentence(X) <-- A2(X,Y).

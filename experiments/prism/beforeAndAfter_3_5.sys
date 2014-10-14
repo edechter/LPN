@@ -1,0 +1,521 @@
+A1(X Y, U V) <-- A1(U, Y), A1(X, V) :: 1.0.
+A1(X Y, U V) <-- A1(U, X), A1(Y, V) :: 1.0.
+A1(X Y, U V) <-- A1(X, U), A1(Y, V) :: 1.0.
+A1(X Y, U V) <-- A1(V, U), A1(Y, X) :: 1.0.
+A1(X Y, U V) <-- A1(U, V), A1(Y, X) :: 1.0.
+A1(X Y, U V) <-- A1(U, Y), A1(V, X) :: 1.0.
+A1(X Y, U V) <-- A1(V, X), A1(Y, U) :: 1.0.
+A1(X Y, U V) <-- A1(X, V), A1(Y, U) :: 1.0.
+A1(X Y, U V) <-- A1(V, Y), A1(X, U) :: 1.0.
+A1(X Y, U V) <-- A1(V, U), A1(X, Y) :: 1.0.
+A1(X Y, U V) <-- A1(U, V), A1(X, Y) :: 1.0.
+A1(X Y, U V) <-- A1(U, X), A1(V, Y) :: 1.0.
+A1(X Y, U V) <-- A1(X, Y), A2(U, V) :: 1.0.
+A1(X Y, U V) <-- A1(Y, X), A2(U, V) :: 1.0.
+A1(X Y, U V) <-- A1(U, Y), A2(X, V) :: 1.0.
+A1(X Y, U V) <-- A1(Y, U), A2(X, V) :: 1.0.
+A1(X Y, U V) <-- A1(U, X), A2(Y, V) :: 1.0.
+A1(X Y, U V) <-- A1(X, U), A2(Y, V) :: 1.0.
+A1(X Y, U V) <-- A1(V, U), A2(Y, X) :: 1.0.
+A1(X Y, U V) <-- A1(U, V), A2(Y, X) :: 1.0.
+A1(X Y, U V) <-- A1(U, Y), A2(V, X) :: 1.0.
+A1(X Y, U V) <-- A1(V, Y), A2(U, X) :: 1.0.
+A1(X Y, U V) <-- A1(Y, V), A2(U, X) :: 1.0.
+A1(X Y, U V) <-- A1(Y, U), A2(V, X) :: 1.0.
+A1(X Y, U V) <-- A1(V, X), A2(Y, U) :: 1.0.
+A1(X Y, U V) <-- A1(X, V), A2(Y, U) :: 1.0.
+A1(X Y, U V) <-- A1(X, Y), A2(V, U) :: 1.0.
+A1(X Y, U V) <-- A1(V, Y), A2(X, U) :: 1.0.
+A1(X Y, U V) <-- A1(Y, V), A2(X, U) :: 1.0.
+A1(X Y, U V) <-- A1(Y, X), A2(V, U) :: 1.0.
+A1(X Y, U V) <-- A1(V, X), A2(U, Y) :: 1.0.
+A1(X Y, U V) <-- A1(X, V), A2(U, Y) :: 1.0.
+A1(X Y, U V) <-- A1(X, U), A2(V, Y) :: 1.0.
+A1(X Y, U V) <-- A1(V, U), A2(X, Y) :: 1.0.
+A1(X Y, U V) <-- A1(U, V), A2(X, Y) :: 1.0.
+A1(X Y, U V) <-- A1(U, X), A2(V, Y) :: 1.0.
+A1(X Y, U V) <-- A1(X, Y), A3(U, V) :: 1.0.
+A1(X Y, U V) <-- A1(Y, X), A3(U, V) :: 1.0.
+A1(X Y, U V) <-- A1(U, Y), A3(X, V) :: 1.0.
+A1(X Y, U V) <-- A1(Y, U), A3(X, V) :: 1.0.
+A1(X Y, U V) <-- A1(U, X), A3(Y, V) :: 1.0.
+A1(X Y, U V) <-- A1(X, U), A3(Y, V) :: 1.0.
+A1(X Y, U V) <-- A1(V, U), A3(Y, X) :: 1.0.
+A1(X Y, U V) <-- A1(U, V), A3(Y, X) :: 1.0.
+A1(X Y, U V) <-- A1(U, Y), A3(V, X) :: 1.0.
+A1(X Y, U V) <-- A1(V, Y), A3(U, X) :: 1.0.
+A1(X Y, U V) <-- A1(Y, V), A3(U, X) :: 1.0.
+A1(X Y, U V) <-- A1(Y, U), A3(V, X) :: 1.0.
+A1(X Y, U V) <-- A1(V, X), A3(Y, U) :: 1.0.
+A1(X Y, U V) <-- A1(X, V), A3(Y, U) :: 1.0.
+A1(X Y, U V) <-- A1(X, Y), A3(V, U) :: 1.0.
+A1(X Y, U V) <-- A1(V, Y), A3(X, U) :: 1.0.
+A1(X Y, U V) <-- A1(Y, V), A3(X, U) :: 1.0.
+A1(X Y, U V) <-- A1(Y, X), A3(V, U) :: 1.0.
+A1(X Y, U V) <-- A1(V, X), A3(U, Y) :: 1.0.
+A1(X Y, U V) <-- A1(X, V), A3(U, Y) :: 1.0.
+A1(X Y, U V) <-- A1(X, U), A3(V, Y) :: 1.0.
+A1(X Y, U V) <-- A1(V, U), A3(X, Y) :: 1.0.
+A1(X Y, U V) <-- A1(U, V), A3(X, Y) :: 1.0.
+A1(X Y, U V) <-- A1(U, X), A3(V, Y) :: 1.0.
+A1(X Y, U V) <-- A2(U, Y), A2(X, V) :: 1.0.
+A1(X Y, U V) <-- A2(U, X), A2(Y, V) :: 1.0.
+A1(X Y, U V) <-- A2(X, U), A2(Y, V) :: 1.0.
+A1(X Y, U V) <-- A2(V, U), A2(Y, X) :: 1.0.
+A1(X Y, U V) <-- A2(U, V), A2(Y, X) :: 1.0.
+A1(X Y, U V) <-- A2(U, Y), A2(V, X) :: 1.0.
+A1(X Y, U V) <-- A2(V, X), A2(Y, U) :: 1.0.
+A1(X Y, U V) <-- A2(X, V), A2(Y, U) :: 1.0.
+A1(X Y, U V) <-- A2(V, Y), A2(X, U) :: 1.0.
+A1(X Y, U V) <-- A2(V, U), A2(X, Y) :: 1.0.
+A1(X Y, U V) <-- A2(U, V), A2(X, Y) :: 1.0.
+A1(X Y, U V) <-- A2(U, X), A2(V, Y) :: 1.0.
+A1(X Y, U V) <-- A2(X, Y), A3(U, V) :: 1.0.
+A1(X Y, U V) <-- A2(Y, X), A3(U, V) :: 1.0.
+A1(X Y, U V) <-- A2(U, Y), A3(X, V) :: 1.0.
+A1(X Y, U V) <-- A2(Y, U), A3(X, V) :: 1.0.
+A1(X Y, U V) <-- A2(U, X), A3(Y, V) :: 1.0.
+A1(X Y, U V) <-- A2(X, U), A3(Y, V) :: 1.0.
+A1(X Y, U V) <-- A2(V, U), A3(Y, X) :: 1.0.
+A1(X Y, U V) <-- A2(U, V), A3(Y, X) :: 1.0.
+A1(X Y, U V) <-- A2(U, Y), A3(V, X) :: 1.0.
+A1(X Y, U V) <-- A2(V, Y), A3(U, X) :: 1.0.
+A1(X Y, U V) <-- A2(Y, V), A3(U, X) :: 1.0.
+A1(X Y, U V) <-- A2(Y, U), A3(V, X) :: 1.0.
+A1(X Y, U V) <-- A2(V, X), A3(Y, U) :: 1.0.
+A1(X Y, U V) <-- A2(X, V), A3(Y, U) :: 1.0.
+A1(X Y, U V) <-- A2(X, Y), A3(V, U) :: 1.0.
+A1(X Y, U V) <-- A2(V, Y), A3(X, U) :: 1.0.
+A1(X Y, U V) <-- A2(Y, V), A3(X, U) :: 1.0.
+A1(X Y, U V) <-- A2(Y, X), A3(V, U) :: 1.0.
+A1(X Y, U V) <-- A2(V, X), A3(U, Y) :: 1.0.
+A1(X Y, U V) <-- A2(X, V), A3(U, Y) :: 1.0.
+A1(X Y, U V) <-- A2(X, U), A3(V, Y) :: 1.0.
+A1(X Y, U V) <-- A2(V, U), A3(X, Y) :: 1.0.
+A1(X Y, U V) <-- A2(U, V), A3(X, Y) :: 1.0.
+A1(X Y, U V) <-- A2(U, X), A3(V, Y) :: 1.0.
+A1(X Y, U V) <-- A3(U, Y), A3(X, V) :: 1.0.
+A1(X Y, U V) <-- A3(U, X), A3(Y, V) :: 1.0.
+A1(X Y, U V) <-- A3(X, U), A3(Y, V) :: 1.0.
+A1(X Y, U V) <-- A3(V, U), A3(Y, X) :: 1.0.
+A1(X Y, U V) <-- A3(U, V), A3(Y, X) :: 1.0.
+A1(X Y, U V) <-- A3(U, Y), A3(V, X) :: 1.0.
+A1(X Y, U V) <-- A3(V, X), A3(Y, U) :: 1.0.
+A1(X Y, U V) <-- A3(X, V), A3(Y, U) :: 1.0.
+A1(X Y, U V) <-- A3(V, Y), A3(X, U) :: 1.0.
+A1(X Y, U V) <-- A3(V, U), A3(X, Y) :: 1.0.
+A1(X Y, U V) <-- A3(U, V), A3(X, Y) :: 1.0.
+A1(X Y, U V) <-- A3(U, X), A3(V, Y) :: 1.0.
+A2(X Y, U V) <-- A1(U, Y), A1(X, V) :: 1.0.
+A2(X Y, U V) <-- A1(U, X), A1(Y, V) :: 1.0.
+A2(X Y, U V) <-- A1(X, U), A1(Y, V) :: 1.0.
+A2(X Y, U V) <-- A1(V, U), A1(Y, X) :: 1.0.
+A2(X Y, U V) <-- A1(U, V), A1(Y, X) :: 1.0.
+A2(X Y, U V) <-- A1(U, Y), A1(V, X) :: 1.0.
+A2(X Y, U V) <-- A1(V, X), A1(Y, U) :: 1.0.
+A2(X Y, U V) <-- A1(X, V), A1(Y, U) :: 1.0.
+A2(X Y, U V) <-- A1(V, Y), A1(X, U) :: 1.0.
+A2(X Y, U V) <-- A1(V, U), A1(X, Y) :: 1.0.
+A2(X Y, U V) <-- A1(U, V), A1(X, Y) :: 1.0.
+A2(X Y, U V) <-- A1(U, X), A1(V, Y) :: 1.0.
+A2(X Y, U V) <-- A1(X, Y), A2(U, V) :: 1.0.
+A2(X Y, U V) <-- A1(Y, X), A2(U, V) :: 1.0.
+A2(X Y, U V) <-- A1(U, Y), A2(X, V) :: 1.0.
+A2(X Y, U V) <-- A1(Y, U), A2(X, V) :: 1.0.
+A2(X Y, U V) <-- A1(U, X), A2(Y, V) :: 1.0.
+A2(X Y, U V) <-- A1(X, U), A2(Y, V) :: 1.0.
+A2(X Y, U V) <-- A1(V, U), A2(Y, X) :: 1.0.
+A2(X Y, U V) <-- A1(U, V), A2(Y, X) :: 1.0.
+A2(X Y, U V) <-- A1(U, Y), A2(V, X) :: 1.0.
+A2(X Y, U V) <-- A1(V, Y), A2(U, X) :: 1.0.
+A2(X Y, U V) <-- A1(Y, V), A2(U, X) :: 1.0.
+A2(X Y, U V) <-- A1(Y, U), A2(V, X) :: 1.0.
+A2(X Y, U V) <-- A1(V, X), A2(Y, U) :: 1.0.
+A2(X Y, U V) <-- A1(X, V), A2(Y, U) :: 1.0.
+A2(X Y, U V) <-- A1(X, Y), A2(V, U) :: 1.0.
+A2(X Y, U V) <-- A1(V, Y), A2(X, U) :: 1.0.
+A2(X Y, U V) <-- A1(Y, V), A2(X, U) :: 1.0.
+A2(X Y, U V) <-- A1(Y, X), A2(V, U) :: 1.0.
+A2(X Y, U V) <-- A1(V, X), A2(U, Y) :: 1.0.
+A2(X Y, U V) <-- A1(X, V), A2(U, Y) :: 1.0.
+A2(X Y, U V) <-- A1(X, U), A2(V, Y) :: 1.0.
+A2(X Y, U V) <-- A1(V, U), A2(X, Y) :: 1.0.
+A2(X Y, U V) <-- A1(U, V), A2(X, Y) :: 1.0.
+A2(X Y, U V) <-- A1(U, X), A2(V, Y) :: 1.0.
+A2(X Y, U V) <-- A1(X, Y), A3(U, V) :: 1.0.
+A2(X Y, U V) <-- A1(Y, X), A3(U, V) :: 1.0.
+A2(X Y, U V) <-- A1(U, Y), A3(X, V) :: 1.0.
+A2(X Y, U V) <-- A1(Y, U), A3(X, V) :: 1.0.
+A2(X Y, U V) <-- A1(U, X), A3(Y, V) :: 1.0.
+A2(X Y, U V) <-- A1(X, U), A3(Y, V) :: 1.0.
+A2(X Y, U V) <-- A1(V, U), A3(Y, X) :: 1.0.
+A2(X Y, U V) <-- A1(U, V), A3(Y, X) :: 1.0.
+A2(X Y, U V) <-- A1(U, Y), A3(V, X) :: 1.0.
+A2(X Y, U V) <-- A1(V, Y), A3(U, X) :: 1.0.
+A2(X Y, U V) <-- A1(Y, V), A3(U, X) :: 1.0.
+A2(X Y, U V) <-- A1(Y, U), A3(V, X) :: 1.0.
+A2(X Y, U V) <-- A1(V, X), A3(Y, U) :: 1.0.
+A2(X Y, U V) <-- A1(X, V), A3(Y, U) :: 1.0.
+A2(X Y, U V) <-- A1(X, Y), A3(V, U) :: 1.0.
+A2(X Y, U V) <-- A1(V, Y), A3(X, U) :: 1.0.
+A2(X Y, U V) <-- A1(Y, V), A3(X, U) :: 1.0.
+A2(X Y, U V) <-- A1(Y, X), A3(V, U) :: 1.0.
+A2(X Y, U V) <-- A1(V, X), A3(U, Y) :: 1.0.
+A2(X Y, U V) <-- A1(X, V), A3(U, Y) :: 1.0.
+A2(X Y, U V) <-- A1(X, U), A3(V, Y) :: 1.0.
+A2(X Y, U V) <-- A1(V, U), A3(X, Y) :: 1.0.
+A2(X Y, U V) <-- A1(U, V), A3(X, Y) :: 1.0.
+A2(X Y, U V) <-- A1(U, X), A3(V, Y) :: 1.0.
+A2(X Y, U V) <-- A2(U, Y), A2(X, V) :: 1.0.
+A2(X Y, U V) <-- A2(U, X), A2(Y, V) :: 1.0.
+A2(X Y, U V) <-- A2(X, U), A2(Y, V) :: 1.0.
+A2(X Y, U V) <-- A2(V, U), A2(Y, X) :: 1.0.
+A2(X Y, U V) <-- A2(U, V), A2(Y, X) :: 1.0.
+A2(X Y, U V) <-- A2(U, Y), A2(V, X) :: 1.0.
+A2(X Y, U V) <-- A2(V, X), A2(Y, U) :: 1.0.
+A2(X Y, U V) <-- A2(X, V), A2(Y, U) :: 1.0.
+A2(X Y, U V) <-- A2(V, Y), A2(X, U) :: 1.0.
+A2(X Y, U V) <-- A2(V, U), A2(X, Y) :: 1.0.
+A2(X Y, U V) <-- A2(U, V), A2(X, Y) :: 1.0.
+A2(X Y, U V) <-- A2(U, X), A2(V, Y) :: 1.0.
+A2(X Y, U V) <-- A2(X, Y), A3(U, V) :: 1.0.
+A2(X Y, U V) <-- A2(Y, X), A3(U, V) :: 1.0.
+A2(X Y, U V) <-- A2(U, Y), A3(X, V) :: 1.0.
+A2(X Y, U V) <-- A2(Y, U), A3(X, V) :: 1.0.
+A2(X Y, U V) <-- A2(U, X), A3(Y, V) :: 1.0.
+A2(X Y, U V) <-- A2(X, U), A3(Y, V) :: 1.0.
+A2(X Y, U V) <-- A2(V, U), A3(Y, X) :: 1.0.
+A2(X Y, U V) <-- A2(U, V), A3(Y, X) :: 1.0.
+A2(X Y, U V) <-- A2(U, Y), A3(V, X) :: 1.0.
+A2(X Y, U V) <-- A2(V, Y), A3(U, X) :: 1.0.
+A2(X Y, U V) <-- A2(Y, V), A3(U, X) :: 1.0.
+A2(X Y, U V) <-- A2(Y, U), A3(V, X) :: 1.0.
+A2(X Y, U V) <-- A2(V, X), A3(Y, U) :: 1.0.
+A2(X Y, U V) <-- A2(X, V), A3(Y, U) :: 1.0.
+A2(X Y, U V) <-- A2(X, Y), A3(V, U) :: 1.0.
+A2(X Y, U V) <-- A2(V, Y), A3(X, U) :: 1.0.
+A2(X Y, U V) <-- A2(Y, V), A3(X, U) :: 1.0.
+A2(X Y, U V) <-- A2(Y, X), A3(V, U) :: 1.0.
+A2(X Y, U V) <-- A2(V, X), A3(U, Y) :: 1.0.
+A2(X Y, U V) <-- A2(X, V), A3(U, Y) :: 1.0.
+A2(X Y, U V) <-- A2(X, U), A3(V, Y) :: 1.0.
+A2(X Y, U V) <-- A2(V, U), A3(X, Y) :: 1.0.
+A2(X Y, U V) <-- A2(U, V), A3(X, Y) :: 1.0.
+A2(X Y, U V) <-- A2(U, X), A3(V, Y) :: 1.0.
+A2(X Y, U V) <-- A3(U, Y), A3(X, V) :: 1.0.
+A2(X Y, U V) <-- A3(U, X), A3(Y, V) :: 1.0.
+A2(X Y, U V) <-- A3(X, U), A3(Y, V) :: 1.0.
+A2(X Y, U V) <-- A3(V, U), A3(Y, X) :: 1.0.
+A2(X Y, U V) <-- A3(U, V), A3(Y, X) :: 1.0.
+A2(X Y, U V) <-- A3(U, Y), A3(V, X) :: 1.0.
+A2(X Y, U V) <-- A3(V, X), A3(Y, U) :: 1.0.
+A2(X Y, U V) <-- A3(X, V), A3(Y, U) :: 1.0.
+A2(X Y, U V) <-- A3(V, Y), A3(X, U) :: 1.0.
+A2(X Y, U V) <-- A3(V, U), A3(X, Y) :: 1.0.
+A2(X Y, U V) <-- A3(U, V), A3(X, Y) :: 1.0.
+A2(X Y, U V) <-- A3(U, X), A3(V, Y) :: 1.0.
+A3(X Y, U V) <-- A1(U, Y), A1(X, V) :: 1.0.
+A3(X Y, U V) <-- A1(U, X), A1(Y, V) :: 1.0.
+A3(X Y, U V) <-- A1(X, U), A1(Y, V) :: 1.0.
+A3(X Y, U V) <-- A1(V, U), A1(Y, X) :: 1.0.
+A3(X Y, U V) <-- A1(U, V), A1(Y, X) :: 1.0.
+A3(X Y, U V) <-- A1(U, Y), A1(V, X) :: 1.0.
+A3(X Y, U V) <-- A1(V, X), A1(Y, U) :: 1.0.
+A3(X Y, U V) <-- A1(X, V), A1(Y, U) :: 1.0.
+A3(X Y, U V) <-- A1(V, Y), A1(X, U) :: 1.0.
+A3(X Y, U V) <-- A1(V, U), A1(X, Y) :: 1.0.
+A3(X Y, U V) <-- A1(U, V), A1(X, Y) :: 1.0.
+A3(X Y, U V) <-- A1(U, X), A1(V, Y) :: 1.0.
+A3(X Y, U V) <-- A1(X, Y), A2(U, V) :: 1.0.
+A3(X Y, U V) <-- A1(Y, X), A2(U, V) :: 1.0.
+A3(X Y, U V) <-- A1(U, Y), A2(X, V) :: 1.0.
+A3(X Y, U V) <-- A1(Y, U), A2(X, V) :: 1.0.
+A3(X Y, U V) <-- A1(U, X), A2(Y, V) :: 1.0.
+A3(X Y, U V) <-- A1(X, U), A2(Y, V) :: 1.0.
+A3(X Y, U V) <-- A1(V, U), A2(Y, X) :: 1.0.
+A3(X Y, U V) <-- A1(U, V), A2(Y, X) :: 1.0.
+A3(X Y, U V) <-- A1(U, Y), A2(V, X) :: 1.0.
+A3(X Y, U V) <-- A1(V, Y), A2(U, X) :: 1.0.
+A3(X Y, U V) <-- A1(Y, V), A2(U, X) :: 1.0.
+A3(X Y, U V) <-- A1(Y, U), A2(V, X) :: 1.0.
+A3(X Y, U V) <-- A1(V, X), A2(Y, U) :: 1.0.
+A3(X Y, U V) <-- A1(X, V), A2(Y, U) :: 1.0.
+A3(X Y, U V) <-- A1(X, Y), A2(V, U) :: 1.0.
+A3(X Y, U V) <-- A1(V, Y), A2(X, U) :: 1.0.
+A3(X Y, U V) <-- A1(Y, V), A2(X, U) :: 1.0.
+A3(X Y, U V) <-- A1(Y, X), A2(V, U) :: 1.0.
+A3(X Y, U V) <-- A1(V, X), A2(U, Y) :: 1.0.
+A3(X Y, U V) <-- A1(X, V), A2(U, Y) :: 1.0.
+A3(X Y, U V) <-- A1(X, U), A2(V, Y) :: 1.0.
+A3(X Y, U V) <-- A1(V, U), A2(X, Y) :: 1.0.
+A3(X Y, U V) <-- A1(U, V), A2(X, Y) :: 1.0.
+A3(X Y, U V) <-- A1(U, X), A2(V, Y) :: 1.0.
+A3(X Y, U V) <-- A1(X, Y), A3(U, V) :: 1.0.
+A3(X Y, U V) <-- A1(Y, X), A3(U, V) :: 1.0.
+A3(X Y, U V) <-- A1(U, Y), A3(X, V) :: 1.0.
+A3(X Y, U V) <-- A1(Y, U), A3(X, V) :: 1.0.
+A3(X Y, U V) <-- A1(U, X), A3(Y, V) :: 1.0.
+A3(X Y, U V) <-- A1(X, U), A3(Y, V) :: 1.0.
+A3(X Y, U V) <-- A1(V, U), A3(Y, X) :: 1.0.
+A3(X Y, U V) <-- A1(U, V), A3(Y, X) :: 1.0.
+A3(X Y, U V) <-- A1(U, Y), A3(V, X) :: 1.0.
+A3(X Y, U V) <-- A1(V, Y), A3(U, X) :: 1.0.
+A3(X Y, U V) <-- A1(Y, V), A3(U, X) :: 1.0.
+A3(X Y, U V) <-- A1(Y, U), A3(V, X) :: 1.0.
+A3(X Y, U V) <-- A1(V, X), A3(Y, U) :: 1.0.
+A3(X Y, U V) <-- A1(X, V), A3(Y, U) :: 1.0.
+A3(X Y, U V) <-- A1(X, Y), A3(V, U) :: 1.0.
+A3(X Y, U V) <-- A1(V, Y), A3(X, U) :: 1.0.
+A3(X Y, U V) <-- A1(Y, V), A3(X, U) :: 1.0.
+A3(X Y, U V) <-- A1(Y, X), A3(V, U) :: 1.0.
+A3(X Y, U V) <-- A1(V, X), A3(U, Y) :: 1.0.
+A3(X Y, U V) <-- A1(X, V), A3(U, Y) :: 1.0.
+A3(X Y, U V) <-- A1(X, U), A3(V, Y) :: 1.0.
+A3(X Y, U V) <-- A1(V, U), A3(X, Y) :: 1.0.
+A3(X Y, U V) <-- A1(U, V), A3(X, Y) :: 1.0.
+A3(X Y, U V) <-- A1(U, X), A3(V, Y) :: 1.0.
+A3(X Y, U V) <-- A2(U, Y), A2(X, V) :: 1.0.
+A3(X Y, U V) <-- A2(U, X), A2(Y, V) :: 1.0.
+A3(X Y, U V) <-- A2(X, U), A2(Y, V) :: 1.0.
+A3(X Y, U V) <-- A2(V, U), A2(Y, X) :: 1.0.
+A3(X Y, U V) <-- A2(U, V), A2(Y, X) :: 1.0.
+A3(X Y, U V) <-- A2(U, Y), A2(V, X) :: 1.0.
+A3(X Y, U V) <-- A2(V, X), A2(Y, U) :: 1.0.
+A3(X Y, U V) <-- A2(X, V), A2(Y, U) :: 1.0.
+A3(X Y, U V) <-- A2(V, Y), A2(X, U) :: 1.0.
+A3(X Y, U V) <-- A2(V, U), A2(X, Y) :: 1.0.
+A3(X Y, U V) <-- A2(U, V), A2(X, Y) :: 1.0.
+A3(X Y, U V) <-- A2(U, X), A2(V, Y) :: 1.0.
+A3(X Y, U V) <-- A2(X, Y), A3(U, V) :: 1.0.
+A3(X Y, U V) <-- A2(Y, X), A3(U, V) :: 1.0.
+A3(X Y, U V) <-- A2(U, Y), A3(X, V) :: 1.0.
+A3(X Y, U V) <-- A2(Y, U), A3(X, V) :: 1.0.
+A3(X Y, U V) <-- A2(U, X), A3(Y, V) :: 1.0.
+A3(X Y, U V) <-- A2(X, U), A3(Y, V) :: 1.0.
+A3(X Y, U V) <-- A2(V, U), A3(Y, X) :: 1.0.
+A3(X Y, U V) <-- A2(U, V), A3(Y, X) :: 1.0.
+A3(X Y, U V) <-- A2(U, Y), A3(V, X) :: 1.0.
+A3(X Y, U V) <-- A2(V, Y), A3(U, X) :: 1.0.
+A3(X Y, U V) <-- A2(Y, V), A3(U, X) :: 1.0.
+A3(X Y, U V) <-- A2(Y, U), A3(V, X) :: 1.0.
+A3(X Y, U V) <-- A2(V, X), A3(Y, U) :: 1.0.
+A3(X Y, U V) <-- A2(X, V), A3(Y, U) :: 1.0.
+A3(X Y, U V) <-- A2(X, Y), A3(V, U) :: 1.0.
+A3(X Y, U V) <-- A2(V, Y), A3(X, U) :: 1.0.
+A3(X Y, U V) <-- A2(Y, V), A3(X, U) :: 1.0.
+A3(X Y, U V) <-- A2(Y, X), A3(V, U) :: 1.0.
+A3(X Y, U V) <-- A2(V, X), A3(U, Y) :: 1.0.
+A3(X Y, U V) <-- A2(X, V), A3(U, Y) :: 1.0.
+A3(X Y, U V) <-- A2(X, U), A3(V, Y) :: 1.0.
+A3(X Y, U V) <-- A2(V, U), A3(X, Y) :: 1.0.
+A3(X Y, U V) <-- A2(U, V), A3(X, Y) :: 1.0.
+A3(X Y, U V) <-- A2(U, X), A3(V, Y) :: 1.0.
+A3(X Y, U V) <-- A3(U, Y), A3(X, V) :: 1.0.
+A3(X Y, U V) <-- A3(U, X), A3(Y, V) :: 1.0.
+A3(X Y, U V) <-- A3(X, U), A3(Y, V) :: 1.0.
+A3(X Y, U V) <-- A3(V, U), A3(Y, X) :: 1.0.
+A3(X Y, U V) <-- A3(U, V), A3(Y, X) :: 1.0.
+A3(X Y, U V) <-- A3(U, Y), A3(V, X) :: 1.0.
+A3(X Y, U V) <-- A3(V, X), A3(Y, U) :: 1.0.
+A3(X Y, U V) <-- A3(X, V), A3(Y, U) :: 1.0.
+A3(X Y, U V) <-- A3(V, Y), A3(X, U) :: 1.0.
+A3(X Y, U V) <-- A3(V, U), A3(X, Y) :: 1.0.
+A3(X Y, U V) <-- A3(U, V), A3(X, Y) :: 1.0.
+A3(X Y, U V) <-- A3(U, X), A3(V, Y) :: 1.0.
+A1(X, Y) <-- C1(X), C1(Y) :: 1.0.
+A1(X, Y) <-- C1(X), C2(Y) :: 1.0.
+A1(X, Y) <-- C1(X), C3(Y) :: 1.0.
+A1(X, Y) <-- C1(X), C4(Y) :: 1.0.
+A1(X, Y) <-- C1(X), C5(Y) :: 1.0.
+A1(X, Y) <-- C2(X), C1(Y) :: 1.0.
+A1(X, Y) <-- C2(X), C2(Y) :: 1.0.
+A1(X, Y) <-- C2(X), C3(Y) :: 1.0.
+A1(X, Y) <-- C2(X), C4(Y) :: 1.0.
+A1(X, Y) <-- C2(X), C5(Y) :: 1.0.
+A1(X, Y) <-- C3(X), C1(Y) :: 1.0.
+A1(X, Y) <-- C3(X), C2(Y) :: 1.0.
+A1(X, Y) <-- C3(X), C3(Y) :: 1.0.
+A1(X, Y) <-- C3(X), C4(Y) :: 1.0.
+A1(X, Y) <-- C3(X), C5(Y) :: 1.0.
+A1(X, Y) <-- C4(X), C1(Y) :: 1.0.
+A1(X, Y) <-- C4(X), C2(Y) :: 1.0.
+A1(X, Y) <-- C4(X), C3(Y) :: 1.0.
+A1(X, Y) <-- C4(X), C4(Y) :: 1.0.
+A1(X, Y) <-- C4(X), C5(Y) :: 1.0.
+A1(X, Y) <-- C5(X), C1(Y) :: 1.0.
+A1(X, Y) <-- C5(X), C2(Y) :: 1.0.
+A1(X, Y) <-- C5(X), C3(Y) :: 1.0.
+A1(X, Y) <-- C5(X), C4(Y) :: 1.0.
+A1(X, Y) <-- C5(X), C5(Y) :: 1.0.
+A2(X, Y) <-- C1(X), C1(Y) :: 1.0.
+A2(X, Y) <-- C1(X), C2(Y) :: 1.0.
+A2(X, Y) <-- C1(X), C3(Y) :: 1.0.
+A2(X, Y) <-- C1(X), C4(Y) :: 1.0.
+A2(X, Y) <-- C1(X), C5(Y) :: 1.0.
+A2(X, Y) <-- C2(X), C1(Y) :: 1.0.
+A2(X, Y) <-- C2(X), C2(Y) :: 1.0.
+A2(X, Y) <-- C2(X), C3(Y) :: 1.0.
+A2(X, Y) <-- C2(X), C4(Y) :: 1.0.
+A2(X, Y) <-- C2(X), C5(Y) :: 1.0.
+A2(X, Y) <-- C3(X), C1(Y) :: 1.0.
+A2(X, Y) <-- C3(X), C2(Y) :: 1.0.
+A2(X, Y) <-- C3(X), C3(Y) :: 1.0.
+A2(X, Y) <-- C3(X), C4(Y) :: 1.0.
+A2(X, Y) <-- C3(X), C5(Y) :: 1.0.
+A2(X, Y) <-- C4(X), C1(Y) :: 1.0.
+A2(X, Y) <-- C4(X), C2(Y) :: 1.0.
+A2(X, Y) <-- C4(X), C3(Y) :: 1.0.
+A2(X, Y) <-- C4(X), C4(Y) :: 1.0.
+A2(X, Y) <-- C4(X), C5(Y) :: 1.0.
+A2(X, Y) <-- C5(X), C1(Y) :: 1.0.
+A2(X, Y) <-- C5(X), C2(Y) :: 1.0.
+A2(X, Y) <-- C5(X), C3(Y) :: 1.0.
+A2(X, Y) <-- C5(X), C4(Y) :: 1.0.
+A2(X, Y) <-- C5(X), C5(Y) :: 1.0.
+A3(X, Y) <-- C1(X), C1(Y) :: 1.0.
+A3(X, Y) <-- C1(X), C2(Y) :: 1.0.
+A3(X, Y) <-- C1(X), C3(Y) :: 1.0.
+A3(X, Y) <-- C1(X), C4(Y) :: 1.0.
+A3(X, Y) <-- C1(X), C5(Y) :: 1.0.
+A3(X, Y) <-- C2(X), C1(Y) :: 1.0.
+A3(X, Y) <-- C2(X), C2(Y) :: 1.0.
+A3(X, Y) <-- C2(X), C3(Y) :: 1.0.
+A3(X, Y) <-- C2(X), C4(Y) :: 1.0.
+A3(X, Y) <-- C2(X), C5(Y) :: 1.0.
+A3(X, Y) <-- C3(X), C1(Y) :: 1.0.
+A3(X, Y) <-- C3(X), C2(Y) :: 1.0.
+A3(X, Y) <-- C3(X), C3(Y) :: 1.0.
+A3(X, Y) <-- C3(X), C4(Y) :: 1.0.
+A3(X, Y) <-- C3(X), C5(Y) :: 1.0.
+A3(X, Y) <-- C4(X), C1(Y) :: 1.0.
+A3(X, Y) <-- C4(X), C2(Y) :: 1.0.
+A3(X, Y) <-- C4(X), C3(Y) :: 1.0.
+A3(X, Y) <-- C4(X), C4(Y) :: 1.0.
+A3(X, Y) <-- C4(X), C5(Y) :: 1.0.
+A3(X, Y) <-- C5(X), C1(Y) :: 1.0.
+A3(X, Y) <-- C5(X), C2(Y) :: 1.0.
+A3(X, Y) <-- C5(X), C3(Y) :: 1.0.
+A3(X, Y) <-- C5(X), C4(Y) :: 1.0.
+A3(X, Y) <-- C5(X), C5(Y) :: 1.0.
+A1(X, Y) <-- C1(X), Null(Y) :: 1.0.
+A1(X, Y) <-- C1(Y), Null(X) :: 1.0.
+A1(X, Y) <-- C2(X), Null(Y) :: 1.0.
+A1(X, Y) <-- C2(Y), Null(X) :: 1.0.
+A1(X, Y) <-- C3(X), Null(Y) :: 1.0.
+A1(X, Y) <-- C3(Y), Null(X) :: 1.0.
+A1(X, Y) <-- C4(X), Null(Y) :: 1.0.
+A1(X, Y) <-- C4(Y), Null(X) :: 1.0.
+A1(X, Y) <-- C5(X), Null(Y) :: 1.0.
+A1(X, Y) <-- C5(Y), Null(X) :: 1.0.
+A2(X, Y) <-- C1(X), Null(Y) :: 1.0.
+A2(X, Y) <-- C1(Y), Null(X) :: 1.0.
+A2(X, Y) <-- C2(X), Null(Y) :: 1.0.
+A2(X, Y) <-- C2(Y), Null(X) :: 1.0.
+A2(X, Y) <-- C3(X), Null(Y) :: 1.0.
+A2(X, Y) <-- C3(Y), Null(X) :: 1.0.
+A2(X, Y) <-- C4(X), Null(Y) :: 1.0.
+A2(X, Y) <-- C4(Y), Null(X) :: 1.0.
+A2(X, Y) <-- C5(X), Null(Y) :: 1.0.
+A2(X, Y) <-- C5(Y), Null(X) :: 1.0.
+A3(X, Y) <-- C1(X), Null(Y) :: 1.0.
+A3(X, Y) <-- C1(Y), Null(X) :: 1.0.
+A3(X, Y) <-- C2(X), Null(Y) :: 1.0.
+A3(X, Y) <-- C2(Y), Null(X) :: 1.0.
+A3(X, Y) <-- C3(X), Null(Y) :: 1.0.
+A3(X, Y) <-- C3(Y), Null(X) :: 1.0.
+A3(X, Y) <-- C4(X), Null(Y) :: 1.0.
+A3(X, Y) <-- C4(Y), Null(X) :: 1.0.
+A3(X, Y) <-- C5(X), Null(Y) :: 1.0.
+A3(X, Y) <-- C5(Y), Null(X) :: 1.0.
+Null(null) :: 1.0.
+C1(one) :: 1.0.
+C1(two) :: 1.0.
+C1(three) :: 1.0.
+C1(four) :: 1.0.
+C1(five) :: 1.0.
+C1(six) :: 1.0.
+C1(seven) :: 1.0.
+C1(eight) :: 1.0.
+C1(nine) :: 1.0.
+C1(ten) :: 1.0.
+C1(eleven) :: 1.0.
+C1(twelve) :: 1.0.
+C1(thirteen) :: 1.0.
+C1(fourteen) :: 1.0.
+C1(fifteen) :: 1.0.
+C1(sixteen) :: 1.0.
+C1(seventeen) :: 1.0.
+C1(eighteen) :: 1.0.
+C1(nineteen) :: 1.0.
+C1(twenty) :: 1.0.
+C1(thirty) :: 1.0.
+C1(forty) :: 1.0.
+C1(fifty) :: 1.0.
+C1(sixty) :: 1.0.
+C1(seventy) :: 1.0.
+C1(eighty) :: 1.0.
+C1(ninety) :: 1.0.
+C1(comes) :: 1.0.
+C1(after) :: 1.0.
+C1(before) :: 1.0.
+C2(one) :: 1.0.
+C2(two) :: 1.0.
+C2(three) :: 1.0.
+C2(four) :: 1.0.
+C2(five) :: 1.0.
+C2(six) :: 1.0.
+C2(seven) :: 1.0.
+C2(eight) :: 1.0.
+C2(nine) :: 1.0.
+C2(ten) :: 1.0.
+C2(eleven) :: 1.0.
+C2(twelve) :: 1.0.
+C2(thirteen) :: 1.0.
+C2(fourteen) :: 1.0.
+C2(fifteen) :: 1.0.
+C2(sixteen) :: 1.0.
+C2(seventeen) :: 1.0.
+C2(eighteen) :: 1.0.
+C2(nineteen) :: 1.0.
+C2(twenty) :: 1.0.
+C2(thirty) :: 1.0.
+C2(forty) :: 1.0.
+C2(fifty) :: 1.0.
+C2(sixty) :: 1.0.
+C2(seventy) :: 1.0.
+C2(eighty) :: 1.0.
+C2(ninety) :: 1.0.
+C2(comes) :: 1.0.
+C2(after) :: 1.0.
+C2(before) :: 1.0.
+C3(one) :: 1.0.
+C3(two) :: 1.0.
+C3(three) :: 1.0.
+C3(four) :: 1.0.
+C3(five) :: 1.0.
+C3(six) :: 1.0.
+C3(seven) :: 1.0.
+C3(eight) :: 1.0.
+C3(nine) :: 1.0.
+C3(ten) :: 1.0.
+C3(eleven) :: 1.0.
+C3(twelve) :: 1.0.
+C3(thirteen) :: 1.0.
+C3(fourteen) :: 1.0.
+C3(fifteen) :: 1.0.
+C3(sixteen) :: 1.0.
+C3(seventeen) :: 1.0.
+C3(eighteen) :: 1.0.
+C3(nineteen) :: 1.0.
+C3(twenty) :: 1.0.
+C3(thirty) :: 1.0.
+C3(forty) :: 1.0.
+C3(fifty) :: 1.0.
+C3(sixty) :: 1.0.
+C3(seventy) :: 1.0.
+C3(eighty) :: 1.0.
+C3(ninety) :: 1.0.
+C3(comes) :: 1.0.
+C3(after) :: 1.0.
+C3(before) :: 1.0.
+S(X Y) <-- A1(X, Y) :: 1.0.

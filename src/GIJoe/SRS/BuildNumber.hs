@@ -4,6 +4,12 @@ import Data.List
 import System.Random
 import System.Random.Shuffle (shuffle', shuffleM)
 import Control.Monad.Random.Class
+import Control.Monad
+
+import GIJoe.SRS.Type
+import GIJoe.SRS.Parse
+import GIJoe.SRS.Prismify
+import Data.Text (pack)
 
 -- while we don't need every rule
 -- for all A,B,C
@@ -51,6 +57,48 @@ grammarOfNumber2 n outpath = do
   let numberRule = ["Number(X,Y) <-- A1(X,Y)."]
   let nextRule = ["Next(X,Y) <-- A2(X,Y)."]      
   writeFile outpath $ unlines $ reorderRules ++ reorderRulesEqual ++ binaryRelationRules ++ unaryRelationRules ++ numberRule ++ nextRule
+
+buildGrammar :: Int -- ^ number of hidden predicates
+             -> [String] -- ^ lexicon
+             -> [String] -- ^ list of observed unary predicates
+             -> FilePath
+             -> IO ()
+buildGrammar n lexicon observed outpath = do
+  writeFile outpath $ show rs
+  writeFile (outpath ++ ".psm") $ "srs(P-IN) :- reduce(P-IN,V), msw(P,V).\n\n" ++ prismClauses rs
+  where rs = fromRight $ parseSystem "buildGrammar" $ systemString
+        fromRight (Right x) = x
+        fromRight (Left err) = error $ show err
+        systemString = unlines $ 
+                       (concat [rules i j k | i <- [1..n], j <-[1..n], k <- [j..n]])++
+                       [ruleLex i w v | i <- [1..n],
+                        (wi, w) <- zip [0..] lexicon,
+                        (vi, v) <- zip [0..] lexicon,
+                        vi >= wi] ++ 
+                       [ruleLex i w "null" | i <- [1..n], w <- lexicon] ++ 
+                       [ruleLex i "null" w | i <- [1..n], w <- lexicon] ++
+                       [pred ++ "(X Y) <-- A" ++ show i ++ "(X, Y)." | (pred, i) <- zip observed [1..]]
+        rules i j k | j /= k  = do
+          [v1, v2, v3, v4] <- permutations ["X", "Y", "U", "V"]
+          return $ "A" ++ show i ++ "(X Y, U V) <-- " ++
+            "A" ++ show j ++ "(" ++ v1 ++ ", " ++ v2 ++ "), " ++
+            "A" ++ show k ++ "(" ++ v3 ++ ", " ++ v4 ++ ")."
+        rules i j k | j == k  = do
+          [v1, v2, v3, v4] <- permutations ["X", "Y", "U", "V"]
+          guard $ (v1, v2) <= (v3, v4)
+          return $ "A" ++ show i ++ "(X Y, U V) <-- " ++
+            "A" ++ show j ++ "(" ++ v1 ++ ", " ++ v2 ++ "), " ++
+            "A" ++ show k ++ "(" ++ v3 ++ ", " ++ v4 ++ ")."
+        -- rule2 i j k =   "A" ++ show i ++ "(X Y, Z) <-- " ++
+        --                 "A" ++ show j ++ "(Z, X), " ++
+        --                 "A" ++ show k ++ "(Z, Y)." 
+        -- rule3 i j k =   "A" ++ show i ++ "(X Y, Z) <-- " ++
+        --                 "A" ++ show j ++ "(X, Y), " ++
+        --                 "A" ++ show k ++ "(Z, Z)."
+        -- rule4 i j k =   "A" ++ show i ++ "(X Y, Z) <-- " ++
+        --                 "A" ++ show j ++ "(Y, X), " ++
+        --                 "A" ++ show k ++ "(Z, Z)."
+        ruleLex i w v = "A" ++ show i ++ "(" ++ w ++", " ++ v ++ ")."
 
 numberLists :: [[String]]
 numberLists = first19 ++ theRest
@@ -105,7 +153,86 @@ mkTrainTestDataFile path specs = do
   let out = unlines ss
   writeFile path out
 
-decadeExamples = [[["after"] ++ a ++ ["comes"] ++ b,[""]] | (a,b) <- zip (init $ map (\x -> [x]) tens) (tail $ map (\x -> [x]) tens)]
 numberExamples = [[x,[""]] | x <- numberLists]
 nextExamples = [[a, b] | (a, b) <- zip (init numberLists) (tail numberLists)]
-nextSentences = [[["after"] ++ a ++ ["comes"] ++  b,[""]] | [a,b] <- nextExamples]
+nextDecades = [[[a], [b]] | (a, b) <- zip (init tens) (tail tens)]
+beforeSentences = [[["before"] ++ b ++ ["comes"] ++ a] | [a,b] <- nextExamples]
+nextSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextExamples]
+nextDecadeSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextDecades]
+
+predicateNetwork :: [String] -- ^ lexicon
+                 -> Int -- ^ R: number of categories 
+                 -> Int -- ^ S: number of predicates per level
+                 -> Int -- ^ K: number of levels
+                 -> RewriteSystem
+predicateNetwork lexicon _R _S _K = combineRs $
+                                    hidden_layers ++ lexicon_layer ++ category_layer
+  where hidden_layers = shuffle_rules ++ reverse_rules
+        shuffle_rules = concat $ do
+          level <- [1.._K]
+          i <- [1.._S]
+          k <- [1.._S]
+          j <- [1.._S]
+          return [mkShuffleRule1 level i j k,
+                  mkShuffleRule2 level i j k,
+                  mkShuffleRule3 level i j k]
+        reverse_rules = do
+          level <- [1.._K]
+          i <- [1.._S]
+          j <- [1.._S]
+          return $ mkReverseRule level i j
+        lexicon_layer = do
+          i <- [1.._R]
+          w <- lexicon
+          return $ mkLexiconRule w i
+        category_layer = do
+          i <- [1.._S]
+          j <- [1.._R]
+          k <- [1.._R]
+          return $ mkCategoryRule i j k 
+        combineRs = RewriteSystem . concat . map rsRules
+
+mkCategoryRule i j k = fromRight $ parseSystem "mkCategoryRule" $
+                      "A0p" ++ show i ++ "(X, Y) <-- " ++
+                      "C" ++ show j ++ "(X), " ++
+                      "C" ++ show k ++ "(Y)."
+  where fromRight (Right r) = r
+        fromRight (Left e) = error $ show e
+
+mkLexiconRule w i = fromRight $ parseSystem "mkLexiconRule" $
+                      "C" ++ show i ++ "(" ++ w ++ ")."
+  where fromRight (Right r) = r
+        fromRight (Left e) = error $ show e
+
+mkReverseRule level i j = fromRight $
+  parseSystem "predicateNetwork" $
+  "A" ++ show level ++ "p" ++ show i ++ "(X, Y) <-- " ++
+  "A" ++ show (level-1) ++ "p" ++ show j ++ "(Y, X)."
+  where fromRight (Right r) = r
+
+mkShuffleRule1 level i j k =
+  fromRight $
+  parseSystem "mkShuffleRule1" $
+  "A" ++ show level ++ "p" ++ show i ++ "(X Y, U V) <-- " ++
+  "A" ++ show (level-1) ++ "p" ++ show j ++ "(X, Y), " ++
+  "A" ++ show (level-1) ++ "p" ++ show k ++ "(U, V)." 
+  where fromRight (Right r) = r
+        fromRight (Left e) = error $ show e
+                                                                    
+mkShuffleRule2 level i j k =
+  fromRight $
+  parseSystem "mkShuffleRule1" $
+  "A" ++ show level ++ "p" ++ show i ++ "(X Y, U V) <-- " ++
+  "A" ++ show (level-1) ++ "p" ++ show j ++ "(X, U), " ++
+  "A" ++ show (level-1) ++ "p" ++ show k ++ "(Y, V)." 
+  where fromRight (Right r) = r
+        fromRight (Left e) = error $ show e
+                                  
+mkShuffleRule3 level i j k =
+  fromRight $
+  parseSystem "mkShuffleRule1" $
+  "A" ++ show level ++ "p" ++ show i ++ "(X Y, U V) <-- " ++
+  "A" ++ show (level-1) ++ "p" ++ show j ++ "(X, V), " ++
+  "A" ++ show (level-1) ++ "p" ++ show k ++ "(Y, U)." 
+  where fromRight (Right r) = r
+        fromRight (Left e) = error $ show e

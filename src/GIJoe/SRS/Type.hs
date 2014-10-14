@@ -57,16 +57,16 @@ data Term = CTerm ComplexTerm | STerm SimpleTerm deriving (Show, Ord, Eq)
 
 data Rule = ComplexTerm :<-: [SimpleTerm] deriving (Ord, Eq)
 instance Show Rule where
-  show (h :<-: []) = show h ++ "."
+  show (h :<-: []) = show h
   show (h :<-: bs) = show h ++ " <-- " ++ intercalate ", " (map show bs)
 
 data WeightedRule = WRule {weightedRuleRule :: Rule, weightedRuleWeight :: Double'}
 instance Show WeightedRule where
-  show (WRule r w) = show r ++ " :: " ++ show w
+  show (WRule r w) = show r ++ " :: " ++ show w 
 
 data RewriteSystem = RewriteSystem {rsRules :: [WeightedRule]} 
 instance Show RewriteSystem where
-  show (RewriteSystem rules) = unlines $ map show rules
+  show (RewriteSystem rules) = unlines $ map ((++".") . show) rules
 
 data CompiledRewriteSystem = CRewriteSystem {ruleIdTable :: IntMap Rule,
                                              headSymbolToRuleIdTable :: HashMap Symbol IntSet,

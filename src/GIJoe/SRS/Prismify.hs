@@ -1,4 +1,4 @@
-module GIJoe.SRS.Prismify (prismify) where
+module GIJoe.SRS.Prismify (prismify, prismClauses) where
 
 import Data.Function (on)
 import Data.List
@@ -7,7 +7,13 @@ import Data.Text (unpack)
 import GIJoe.SRS.Type
 import GIJoe.SRS.Parse
 
--- utils
+-- type PrismScript = String
+-- type PrismFlag = (String, String)
+-- setPrismFlag :: PrismScript
+--                -> PrismFlag
+--                -> PrismScript
+-- setPrismFlag script (a, b) = script ++ [":- set_prism_flag(" ++
+--                                         show a ++ ", " ++ show b ++ ").\n"]
 
 fst3 (a,_,_) = a
 snd3 (_,b,_) = b
@@ -26,12 +32,21 @@ showCleanList xs = "[" ++ (intercalate "," xs) ++ "]"
 
 labeledMap f xs =  map f $ zip xs $ take (length xs) ['A'..'Z']
 
--- heavy lifters
-
--- header :: RewriteSystem -> [String]
--- header slcfrs = ["%% Original SLCFRS"] ++ [""] commented (rsRules slcfrs) ++ [""]
---  where
---    commented = map (\x -> "%% " ++ show x)
+prismClauses :: RewriteSystem -> String
+prismClauses rs = unlines $ 
+  switchClauses ++ [""] ++
+  probClauses ++ [""] ++
+  reductionClauses
+  where switchClauses = map makeSwitch groupedRules
+        probClauses = map makeProbs groupedRules
+        reductionClauses = concatMap makeReductions groupedRules
+        groupedRules = groupBy sameHead $
+                       sortBy (compare `on`
+                               (cTermPredicate . ruleHead . weightedRuleRule))
+                         (rsRules rs)
+        sameHead =  (\(WRule ((ComplexTerm p1 _) :<-: _) _)
+                  (WRule ((ComplexTerm p2 _) :<-: _) _)
+                 -> p1 == p2)
 
 body :: RewriteSystem -> [String]
 body slcfrs =
@@ -44,10 +59,14 @@ body slcfrs =
     sameHead =  (\(WRule ((ComplexTerm p1 _) :<-: _) _)
                   (WRule ((ComplexTerm p2 _) :<-: _) _)
                  -> p1 == p2)
-    mainClause = [ "main(Gs,Foutp,Fouta) :- set_prism_flag(restart,1), set_prism_flag(learn_mode,vb), set_prism_flag(viterbi_mode,vb), set_prism_flag(default_sw_a,uniform), set_prism_flag(log_scale,on), learn(Gs), save_sw(Foutp), save_sw_a(Fouta).",
+    mainClause = [ "main(Gs,Foutp,Fouta) :- set_prism_flag(restart,1)," ++
+                   " set_prism_flag(learn_mode,vb), set_prism_flag(viterbi_mode,vb)," ++
+                   " set_prism_flag(default_sw_a,uniform), set_prism_flag(log_scale,on)," ++
+                   " learn(Gs), save_sw(Foutp), save_sw_a(Fouta).",
                   "", "getTrain(F,Gs) :- load_clauses(F,ALL,[]), findall(X,member(train(X),ALL),Gs).",
                   "", "getTest(F,Gs) :- load_clauses(F,ALL,[]), findall(X,member(test(X),ALL),Gs).", ""]
     srsClause =  [ "srs(P-IN) :- msw(P,V), reduce(P-IN,V)." ]
+--    srsClause =  [ "srs(P-IN) :- reduce(P-IN,V), msw(P,V)." ]
     switchClauses = map makeSwitch groupedRules
     probClauses = map makeProbs groupedRules
     reductionClauses = concatMap makeReductions groupedRules
@@ -75,7 +94,6 @@ makeReduction (i,(h :<-: bs)) =
   where
     appendVars = collectTupleItems h
     appendSRSs = createSRSTerms h bs
-    appendAcyclics = createAcyclicTerms h bs
     appendAppends = createAppendTerms h
     theAppends = if (not $ null appendVars)
                  then "(" ++ appendVars ++ " -> " ++ appends1 ++ "; " ++ appends2 ++ ")"
@@ -86,17 +104,6 @@ makeReduction (i,(h :<-: bs)) =
     collectTupleItems (ComplexTerm _ xs) = intercalate ", " $ filter (not . null) $ labeledMap collectTupleItem xs
     collectTupleItem ((NTString (x:[])),l) = ""
     collectTupleItem ((NTString xs),l) = "var(" ++ l:(show $ length xs) ++ ")"
-
-createAcyclicTerms (ComplexTerm _ xs) bs = if null termList then "" else intercalate ", " termList
-  where
-    termList = map sTermToAcyclicCheck bs
-    sTermToAcyclicCheck h = "acyclic([" ++ intercalate "," (map unpack $ stermArgs h) ++ "],[" ++ intercalate "," (renameTupleItems xs) ++ "])"
-    renameTupleItems xs = labeledMap renameTupleItem xs
-    renameTupleItem ((NTString (x:[])),l) = case x of
-      ElVar _ -> show x
-      ElSym _ -> show [x]
-    renameTupleItem ((NTString xs),l) = l:(show $ length xs)
-    
 
 createSRSTerms (ComplexTerm _ xs) bs = if null termList then "" else intercalate ", " termList
   where
@@ -114,10 +121,6 @@ refactorHead h@(ComplexTerm _ xs) = predTuplePair (cTermPredicate h) (renameTupl
 createAppendTerms h@(ComplexTerm _ xs) =
     intercalate ", " $ filter (not . null) $ labeledMap createAppends xs
   where
---     createNotUnifies (NTString xs) = intercalate ", " $
---       foldl (\acc curr -> case curr of
---                 ElVar _ -> (show curr ++ "\\=[]"):acc
---                 ElSym _ -> acc) [] xs
     createAppends :: (NonTerminalString,Char) -> String
     createAppends ((NTString xs),l) =  intercalate ", " $
       trd3 $ foldl (\(i,prev,acc) curr -> (i+1,

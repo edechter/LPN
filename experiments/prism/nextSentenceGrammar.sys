@@ -1,0 +1,3027 @@
+A1(X Y, U V) <-- A1(X,Y), A2(U,V).
+A1(X Y, U V) <-- A1(Y,X), A2(U,V).
+A1(X Y, U V) <-- A1(U,Y), A2(X,V).
+A1(X Y, U V) <-- A1(Y,U), A2(X,V).
+A1(X Y, U V) <-- A1(U,X), A2(Y,V).
+A1(X Y, U V) <-- A1(X,U), A2(Y,V).
+A1(X Y, U V) <-- A1(V,U), A2(Y,X).
+A1(X Y, U V) <-- A1(U,V), A2(Y,X).
+A1(X Y, U V) <-- A1(U,Y), A2(V,X).
+A1(X Y, U V) <-- A1(V,Y), A2(U,X).
+A1(X Y, U V) <-- A1(Y,V), A2(U,X).
+A1(X Y, U V) <-- A1(Y,U), A2(V,X).
+A1(X Y, U V) <-- A1(V,X), A2(Y,U).
+A1(X Y, U V) <-- A1(X,V), A2(Y,U).
+A1(X Y, U V) <-- A1(X,Y), A2(V,U).
+A1(X Y, U V) <-- A1(V,Y), A2(X,U).
+A1(X Y, U V) <-- A1(Y,V), A2(X,U).
+A1(X Y, U V) <-- A1(Y,X), A2(V,U).
+A1(X Y, U V) <-- A1(V,X), A2(U,Y).
+A1(X Y, U V) <-- A1(X,V), A2(U,Y).
+A1(X Y, U V) <-- A1(X,U), A2(V,Y).
+A1(X Y, U V) <-- A1(V,U), A2(X,Y).
+A1(X Y, U V) <-- A1(U,V), A2(X,Y).
+A1(X Y, U V) <-- A1(U,X), A2(V,Y).
+A1(X Y, U V) <-- A1(X,Y), A3(U,V).
+A1(X Y, U V) <-- A1(Y,X), A3(U,V).
+A1(X Y, U V) <-- A1(U,Y), A3(X,V).
+A1(X Y, U V) <-- A1(Y,U), A3(X,V).
+A1(X Y, U V) <-- A1(U,X), A3(Y,V).
+A1(X Y, U V) <-- A1(X,U), A3(Y,V).
+A1(X Y, U V) <-- A1(V,U), A3(Y,X).
+A1(X Y, U V) <-- A1(U,V), A3(Y,X).
+A1(X Y, U V) <-- A1(U,Y), A3(V,X).
+A1(X Y, U V) <-- A1(V,Y), A3(U,X).
+A1(X Y, U V) <-- A1(Y,V), A3(U,X).
+A1(X Y, U V) <-- A1(Y,U), A3(V,X).
+A1(X Y, U V) <-- A1(V,X), A3(Y,U).
+A1(X Y, U V) <-- A1(X,V), A3(Y,U).
+A1(X Y, U V) <-- A1(X,Y), A3(V,U).
+A1(X Y, U V) <-- A1(V,Y), A3(X,U).
+A1(X Y, U V) <-- A1(Y,V), A3(X,U).
+A1(X Y, U V) <-- A1(Y,X), A3(V,U).
+A1(X Y, U V) <-- A1(V,X), A3(U,Y).
+A1(X Y, U V) <-- A1(X,V), A3(U,Y).
+A1(X Y, U V) <-- A1(X,U), A3(V,Y).
+A1(X Y, U V) <-- A1(V,U), A3(X,Y).
+A1(X Y, U V) <-- A1(U,V), A3(X,Y).
+A1(X Y, U V) <-- A1(U,X), A3(V,Y).
+A1(X Y, U V) <-- A2(X,Y), A3(U,V).
+A1(X Y, U V) <-- A2(Y,X), A3(U,V).
+A1(X Y, U V) <-- A2(U,Y), A3(X,V).
+A1(X Y, U V) <-- A2(Y,U), A3(X,V).
+A1(X Y, U V) <-- A2(U,X), A3(Y,V).
+A1(X Y, U V) <-- A2(X,U), A3(Y,V).
+A1(X Y, U V) <-- A2(V,U), A3(Y,X).
+A1(X Y, U V) <-- A2(U,V), A3(Y,X).
+A1(X Y, U V) <-- A2(U,Y), A3(V,X).
+A1(X Y, U V) <-- A2(V,Y), A3(U,X).
+A1(X Y, U V) <-- A2(Y,V), A3(U,X).
+A1(X Y, U V) <-- A2(Y,U), A3(V,X).
+A1(X Y, U V) <-- A2(V,X), A3(Y,U).
+A1(X Y, U V) <-- A2(X,V), A3(Y,U).
+A1(X Y, U V) <-- A2(X,Y), A3(V,U).
+A1(X Y, U V) <-- A2(V,Y), A3(X,U).
+A1(X Y, U V) <-- A2(Y,V), A3(X,U).
+A1(X Y, U V) <-- A2(Y,X), A3(V,U).
+A1(X Y, U V) <-- A2(V,X), A3(U,Y).
+A1(X Y, U V) <-- A2(X,V), A3(U,Y).
+A1(X Y, U V) <-- A2(X,U), A3(V,Y).
+A1(X Y, U V) <-- A2(V,U), A3(X,Y).
+A1(X Y, U V) <-- A2(U,V), A3(X,Y).
+A1(X Y, U V) <-- A2(U,X), A3(V,Y).
+A2(X Y, U V) <-- A1(X,Y), A2(U,V).
+A2(X Y, U V) <-- A1(Y,X), A2(U,V).
+A2(X Y, U V) <-- A1(U,Y), A2(X,V).
+A2(X Y, U V) <-- A1(Y,U), A2(X,V).
+A2(X Y, U V) <-- A1(U,X), A2(Y,V).
+A2(X Y, U V) <-- A1(X,U), A2(Y,V).
+A2(X Y, U V) <-- A1(V,U), A2(Y,X).
+A2(X Y, U V) <-- A1(U,V), A2(Y,X).
+A2(X Y, U V) <-- A1(U,Y), A2(V,X).
+A2(X Y, U V) <-- A1(V,Y), A2(U,X).
+A2(X Y, U V) <-- A1(Y,V), A2(U,X).
+A2(X Y, U V) <-- A1(Y,U), A2(V,X).
+A2(X Y, U V) <-- A1(V,X), A2(Y,U).
+A2(X Y, U V) <-- A1(X,V), A2(Y,U).
+A2(X Y, U V) <-- A1(X,Y), A2(V,U).
+A2(X Y, U V) <-- A1(V,Y), A2(X,U).
+A2(X Y, U V) <-- A1(Y,V), A2(X,U).
+A2(X Y, U V) <-- A1(Y,X), A2(V,U).
+A2(X Y, U V) <-- A1(V,X), A2(U,Y).
+A2(X Y, U V) <-- A1(X,V), A2(U,Y).
+A2(X Y, U V) <-- A1(X,U), A2(V,Y).
+A2(X Y, U V) <-- A1(V,U), A2(X,Y).
+A2(X Y, U V) <-- A1(U,V), A2(X,Y).
+A2(X Y, U V) <-- A1(U,X), A2(V,Y).
+A2(X Y, U V) <-- A1(X,Y), A3(U,V).
+A2(X Y, U V) <-- A1(Y,X), A3(U,V).
+A2(X Y, U V) <-- A1(U,Y), A3(X,V).
+A2(X Y, U V) <-- A1(Y,U), A3(X,V).
+A2(X Y, U V) <-- A1(U,X), A3(Y,V).
+A2(X Y, U V) <-- A1(X,U), A3(Y,V).
+A2(X Y, U V) <-- A1(V,U), A3(Y,X).
+A2(X Y, U V) <-- A1(U,V), A3(Y,X).
+A2(X Y, U V) <-- A1(U,Y), A3(V,X).
+A2(X Y, U V) <-- A1(V,Y), A3(U,X).
+A2(X Y, U V) <-- A1(Y,V), A3(U,X).
+A2(X Y, U V) <-- A1(Y,U), A3(V,X).
+A2(X Y, U V) <-- A1(V,X), A3(Y,U).
+A2(X Y, U V) <-- A1(X,V), A3(Y,U).
+A2(X Y, U V) <-- A1(X,Y), A3(V,U).
+A2(X Y, U V) <-- A1(V,Y), A3(X,U).
+A2(X Y, U V) <-- A1(Y,V), A3(X,U).
+A2(X Y, U V) <-- A1(Y,X), A3(V,U).
+A2(X Y, U V) <-- A1(V,X), A3(U,Y).
+A2(X Y, U V) <-- A1(X,V), A3(U,Y).
+A2(X Y, U V) <-- A1(X,U), A3(V,Y).
+A2(X Y, U V) <-- A1(V,U), A3(X,Y).
+A2(X Y, U V) <-- A1(U,V), A3(X,Y).
+A2(X Y, U V) <-- A1(U,X), A3(V,Y).
+A2(X Y, U V) <-- A2(X,Y), A3(U,V).
+A2(X Y, U V) <-- A2(Y,X), A3(U,V).
+A2(X Y, U V) <-- A2(U,Y), A3(X,V).
+A2(X Y, U V) <-- A2(Y,U), A3(X,V).
+A2(X Y, U V) <-- A2(U,X), A3(Y,V).
+A2(X Y, U V) <-- A2(X,U), A3(Y,V).
+A2(X Y, U V) <-- A2(V,U), A3(Y,X).
+A2(X Y, U V) <-- A2(U,V), A3(Y,X).
+A2(X Y, U V) <-- A2(U,Y), A3(V,X).
+A2(X Y, U V) <-- A2(V,Y), A3(U,X).
+A2(X Y, U V) <-- A2(Y,V), A3(U,X).
+A2(X Y, U V) <-- A2(Y,U), A3(V,X).
+A2(X Y, U V) <-- A2(V,X), A3(Y,U).
+A2(X Y, U V) <-- A2(X,V), A3(Y,U).
+A2(X Y, U V) <-- A2(X,Y), A3(V,U).
+A2(X Y, U V) <-- A2(V,Y), A3(X,U).
+A2(X Y, U V) <-- A2(Y,V), A3(X,U).
+A2(X Y, U V) <-- A2(Y,X), A3(V,U).
+A2(X Y, U V) <-- A2(V,X), A3(U,Y).
+A2(X Y, U V) <-- A2(X,V), A3(U,Y).
+A2(X Y, U V) <-- A2(X,U), A3(V,Y).
+A2(X Y, U V) <-- A2(V,U), A3(X,Y).
+A2(X Y, U V) <-- A2(U,V), A3(X,Y).
+A2(X Y, U V) <-- A2(U,X), A3(V,Y).
+A3(X Y, U V) <-- A1(X,Y), A2(U,V).
+A3(X Y, U V) <-- A1(Y,X), A2(U,V).
+A3(X Y, U V) <-- A1(U,Y), A2(X,V).
+A3(X Y, U V) <-- A1(Y,U), A2(X,V).
+A3(X Y, U V) <-- A1(U,X), A2(Y,V).
+A3(X Y, U V) <-- A1(X,U), A2(Y,V).
+A3(X Y, U V) <-- A1(V,U), A2(Y,X).
+A3(X Y, U V) <-- A1(U,V), A2(Y,X).
+A3(X Y, U V) <-- A1(U,Y), A2(V,X).
+A3(X Y, U V) <-- A1(V,Y), A2(U,X).
+A3(X Y, U V) <-- A1(Y,V), A2(U,X).
+A3(X Y, U V) <-- A1(Y,U), A2(V,X).
+A3(X Y, U V) <-- A1(V,X), A2(Y,U).
+A3(X Y, U V) <-- A1(X,V), A2(Y,U).
+A3(X Y, U V) <-- A1(X,Y), A2(V,U).
+A3(X Y, U V) <-- A1(V,Y), A2(X,U).
+A3(X Y, U V) <-- A1(Y,V), A2(X,U).
+A3(X Y, U V) <-- A1(Y,X), A2(V,U).
+A3(X Y, U V) <-- A1(V,X), A2(U,Y).
+A3(X Y, U V) <-- A1(X,V), A2(U,Y).
+A3(X Y, U V) <-- A1(X,U), A2(V,Y).
+A3(X Y, U V) <-- A1(V,U), A2(X,Y).
+A3(X Y, U V) <-- A1(U,V), A2(X,Y).
+A3(X Y, U V) <-- A1(U,X), A2(V,Y).
+A3(X Y, U V) <-- A1(X,Y), A3(U,V).
+A3(X Y, U V) <-- A1(Y,X), A3(U,V).
+A3(X Y, U V) <-- A1(U,Y), A3(X,V).
+A3(X Y, U V) <-- A1(Y,U), A3(X,V).
+A3(X Y, U V) <-- A1(U,X), A3(Y,V).
+A3(X Y, U V) <-- A1(X,U), A3(Y,V).
+A3(X Y, U V) <-- A1(V,U), A3(Y,X).
+A3(X Y, U V) <-- A1(U,V), A3(Y,X).
+A3(X Y, U V) <-- A1(U,Y), A3(V,X).
+A3(X Y, U V) <-- A1(V,Y), A3(U,X).
+A3(X Y, U V) <-- A1(Y,V), A3(U,X).
+A3(X Y, U V) <-- A1(Y,U), A3(V,X).
+A3(X Y, U V) <-- A1(V,X), A3(Y,U).
+A3(X Y, U V) <-- A1(X,V), A3(Y,U).
+A3(X Y, U V) <-- A1(X,Y), A3(V,U).
+A3(X Y, U V) <-- A1(V,Y), A3(X,U).
+A3(X Y, U V) <-- A1(Y,V), A3(X,U).
+A3(X Y, U V) <-- A1(Y,X), A3(V,U).
+A3(X Y, U V) <-- A1(V,X), A3(U,Y).
+A3(X Y, U V) <-- A1(X,V), A3(U,Y).
+A3(X Y, U V) <-- A1(X,U), A3(V,Y).
+A3(X Y, U V) <-- A1(V,U), A3(X,Y).
+A3(X Y, U V) <-- A1(U,V), A3(X,Y).
+A3(X Y, U V) <-- A1(U,X), A3(V,Y).
+A3(X Y, U V) <-- A2(X,Y), A3(U,V).
+A3(X Y, U V) <-- A2(Y,X), A3(U,V).
+A3(X Y, U V) <-- A2(U,Y), A3(X,V).
+A3(X Y, U V) <-- A2(Y,U), A3(X,V).
+A3(X Y, U V) <-- A2(U,X), A3(Y,V).
+A3(X Y, U V) <-- A2(X,U), A3(Y,V).
+A3(X Y, U V) <-- A2(V,U), A3(Y,X).
+A3(X Y, U V) <-- A2(U,V), A3(Y,X).
+A3(X Y, U V) <-- A2(U,Y), A3(V,X).
+A3(X Y, U V) <-- A2(V,Y), A3(U,X).
+A3(X Y, U V) <-- A2(Y,V), A3(U,X).
+A3(X Y, U V) <-- A2(Y,U), A3(V,X).
+A3(X Y, U V) <-- A2(V,X), A3(Y,U).
+A3(X Y, U V) <-- A2(X,V), A3(Y,U).
+A3(X Y, U V) <-- A2(X,Y), A3(V,U).
+A3(X Y, U V) <-- A2(V,Y), A3(X,U).
+A3(X Y, U V) <-- A2(Y,V), A3(X,U).
+A3(X Y, U V) <-- A2(Y,X), A3(V,U).
+A3(X Y, U V) <-- A2(V,X), A3(U,Y).
+A3(X Y, U V) <-- A2(X,V), A3(U,Y).
+A3(X Y, U V) <-- A2(X,U), A3(V,Y).
+A3(X Y, U V) <-- A2(V,U), A3(X,Y).
+A3(X Y, U V) <-- A2(U,V), A3(X,Y).
+A3(X Y, U V) <-- A2(U,X), A3(V,Y).
+A1(X Y, U V) <-- A1(X,Y), A1(U,V).
+A1(X Y, U V) <-- A1(X,U), A1(Y,V).
+A1(X Y, U V) <-- A1(X,V), A1(U,Y).
+A1(X Y, U V) <-- A1(X,U), A1(V,Y).
+A1(X Y, U V) <-- A1(X,V), A1(Y,U).
+A1(X Y, U V) <-- A1(X,Y), A1(V,U).
+A1(X Y, U V) <-- A1(Y,X), A1(U,V).
+A1(X Y, U V) <-- A1(Y,U), A1(X,V).
+A1(X Y, U V) <-- A1(Y,V), A1(U,X).
+A1(X Y, U V) <-- A1(Y,U), A1(V,X).
+A1(X Y, U V) <-- A1(Y,V), A1(X,U).
+A1(X Y, U V) <-- A1(Y,X), A1(V,U).
+A1(X Y, U V) <-- A2(X,Y), A2(U,V).
+A1(X Y, U V) <-- A2(X,U), A2(Y,V).
+A1(X Y, U V) <-- A2(X,V), A2(U,Y).
+A1(X Y, U V) <-- A2(X,U), A2(V,Y).
+A1(X Y, U V) <-- A2(X,V), A2(Y,U).
+A1(X Y, U V) <-- A2(X,Y), A2(V,U).
+A1(X Y, U V) <-- A2(Y,X), A2(U,V).
+A1(X Y, U V) <-- A2(Y,U), A2(X,V).
+A1(X Y, U V) <-- A2(Y,V), A2(U,X).
+A1(X Y, U V) <-- A2(Y,U), A2(V,X).
+A1(X Y, U V) <-- A2(Y,V), A2(X,U).
+A1(X Y, U V) <-- A2(Y,X), A2(V,U).
+A1(X Y, U V) <-- A3(X,Y), A3(U,V).
+A1(X Y, U V) <-- A3(X,U), A3(Y,V).
+A1(X Y, U V) <-- A3(X,V), A3(U,Y).
+A1(X Y, U V) <-- A3(X,U), A3(V,Y).
+A1(X Y, U V) <-- A3(X,V), A3(Y,U).
+A1(X Y, U V) <-- A3(X,Y), A3(V,U).
+A1(X Y, U V) <-- A3(Y,X), A3(U,V).
+A1(X Y, U V) <-- A3(Y,U), A3(X,V).
+A1(X Y, U V) <-- A3(Y,V), A3(U,X).
+A1(X Y, U V) <-- A3(Y,U), A3(V,X).
+A1(X Y, U V) <-- A3(Y,V), A3(X,U).
+A1(X Y, U V) <-- A3(Y,X), A3(V,U).
+A2(X Y, U V) <-- A1(X,Y), A1(U,V).
+A2(X Y, U V) <-- A1(X,U), A1(Y,V).
+A2(X Y, U V) <-- A1(X,V), A1(U,Y).
+A2(X Y, U V) <-- A1(X,U), A1(V,Y).
+A2(X Y, U V) <-- A1(X,V), A1(Y,U).
+A2(X Y, U V) <-- A1(X,Y), A1(V,U).
+A2(X Y, U V) <-- A1(Y,X), A1(U,V).
+A2(X Y, U V) <-- A1(Y,U), A1(X,V).
+A2(X Y, U V) <-- A1(Y,V), A1(U,X).
+A2(X Y, U V) <-- A1(Y,U), A1(V,X).
+A2(X Y, U V) <-- A1(Y,V), A1(X,U).
+A2(X Y, U V) <-- A1(Y,X), A1(V,U).
+A2(X Y, U V) <-- A2(X,Y), A2(U,V).
+A2(X Y, U V) <-- A2(X,U), A2(Y,V).
+A2(X Y, U V) <-- A2(X,V), A2(U,Y).
+A2(X Y, U V) <-- A2(X,U), A2(V,Y).
+A2(X Y, U V) <-- A2(X,V), A2(Y,U).
+A2(X Y, U V) <-- A2(X,Y), A2(V,U).
+A2(X Y, U V) <-- A2(Y,X), A2(U,V).
+A2(X Y, U V) <-- A2(Y,U), A2(X,V).
+A2(X Y, U V) <-- A2(Y,V), A2(U,X).
+A2(X Y, U V) <-- A2(Y,U), A2(V,X).
+A2(X Y, U V) <-- A2(Y,V), A2(X,U).
+A2(X Y, U V) <-- A2(Y,X), A2(V,U).
+A2(X Y, U V) <-- A3(X,Y), A3(U,V).
+A2(X Y, U V) <-- A3(X,U), A3(Y,V).
+A2(X Y, U V) <-- A3(X,V), A3(U,Y).
+A2(X Y, U V) <-- A3(X,U), A3(V,Y).
+A2(X Y, U V) <-- A3(X,V), A3(Y,U).
+A2(X Y, U V) <-- A3(X,Y), A3(V,U).
+A2(X Y, U V) <-- A3(Y,X), A3(U,V).
+A2(X Y, U V) <-- A3(Y,U), A3(X,V).
+A2(X Y, U V) <-- A3(Y,V), A3(U,X).
+A2(X Y, U V) <-- A3(Y,U), A3(V,X).
+A2(X Y, U V) <-- A3(Y,V), A3(X,U).
+A2(X Y, U V) <-- A3(Y,X), A3(V,U).
+A3(X Y, U V) <-- A1(X,Y), A1(U,V).
+A3(X Y, U V) <-- A1(X,U), A1(Y,V).
+A3(X Y, U V) <-- A1(X,V), A1(U,Y).
+A3(X Y, U V) <-- A1(X,U), A1(V,Y).
+A3(X Y, U V) <-- A1(X,V), A1(Y,U).
+A3(X Y, U V) <-- A1(X,Y), A1(V,U).
+A3(X Y, U V) <-- A1(Y,X), A1(U,V).
+A3(X Y, U V) <-- A1(Y,U), A1(X,V).
+A3(X Y, U V) <-- A1(Y,V), A1(U,X).
+A3(X Y, U V) <-- A1(Y,U), A1(V,X).
+A3(X Y, U V) <-- A1(Y,V), A1(X,U).
+A3(X Y, U V) <-- A1(Y,X), A1(V,U).
+A3(X Y, U V) <-- A2(X,Y), A2(U,V).
+A3(X Y, U V) <-- A2(X,U), A2(Y,V).
+A3(X Y, U V) <-- A2(X,V), A2(U,Y).
+A3(X Y, U V) <-- A2(X,U), A2(V,Y).
+A3(X Y, U V) <-- A2(X,V), A2(Y,U).
+A3(X Y, U V) <-- A2(X,Y), A2(V,U).
+A3(X Y, U V) <-- A2(Y,X), A2(U,V).
+A3(X Y, U V) <-- A2(Y,U), A2(X,V).
+A3(X Y, U V) <-- A2(Y,V), A2(U,X).
+A3(X Y, U V) <-- A2(Y,U), A2(V,X).
+A3(X Y, U V) <-- A2(Y,V), A2(X,U).
+A3(X Y, U V) <-- A2(Y,X), A2(V,U).
+A3(X Y, U V) <-- A3(X,Y), A3(U,V).
+A3(X Y, U V) <-- A3(X,U), A3(Y,V).
+A3(X Y, U V) <-- A3(X,V), A3(U,Y).
+A3(X Y, U V) <-- A3(X,U), A3(V,Y).
+A3(X Y, U V) <-- A3(X,V), A3(Y,U).
+A3(X Y, U V) <-- A3(X,Y), A3(V,U).
+A3(X Y, U V) <-- A3(Y,X), A3(U,V).
+A3(X Y, U V) <-- A3(Y,U), A3(X,V).
+A3(X Y, U V) <-- A3(Y,V), A3(U,X).
+A3(X Y, U V) <-- A3(Y,U), A3(V,X).
+A3(X Y, U V) <-- A3(Y,V), A3(X,U).
+A3(X Y, U V) <-- A3(Y,X), A3(V,U).
+A1(one,one).
+A1(one,two).
+A1(one,three).
+A1(one,four).
+A1(one,five).
+A1(one,six).
+A1(one,seven).
+A1(one,eight).
+A1(one,nine).
+A1(one,ten).
+A1(one,eleven).
+A1(one,twelve).
+A1(one,thirteen).
+A1(one,fourteen).
+A1(one,fifteen).
+A1(one,sixteen).
+A1(one,seventeen).
+A1(one,eighteen).
+A1(one,nineteen).
+A1(one,twenty).
+A1(one,thirty).
+A1(one,forty).
+A1(one,fifty).
+A1(one,sixty).
+A1(one,seventy).
+A1(one,eighty).
+A1(one,ninety).
+A1(one,after).
+A1(one,comes).
+A1(one,null).
+A1(two,one).
+A1(two,two).
+A1(two,three).
+A1(two,four).
+A1(two,five).
+A1(two,six).
+A1(two,seven).
+A1(two,eight).
+A1(two,nine).
+A1(two,ten).
+A1(two,eleven).
+A1(two,twelve).
+A1(two,thirteen).
+A1(two,fourteen).
+A1(two,fifteen).
+A1(two,sixteen).
+A1(two,seventeen).
+A1(two,eighteen).
+A1(two,nineteen).
+A1(two,twenty).
+A1(two,thirty).
+A1(two,forty).
+A1(two,fifty).
+A1(two,sixty).
+A1(two,seventy).
+A1(two,eighty).
+A1(two,ninety).
+A1(two,after).
+A1(two,comes).
+A1(two,null).
+A1(three,one).
+A1(three,two).
+A1(three,three).
+A1(three,four).
+A1(three,five).
+A1(three,six).
+A1(three,seven).
+A1(three,eight).
+A1(three,nine).
+A1(three,ten).
+A1(three,eleven).
+A1(three,twelve).
+A1(three,thirteen).
+A1(three,fourteen).
+A1(three,fifteen).
+A1(three,sixteen).
+A1(three,seventeen).
+A1(three,eighteen).
+A1(three,nineteen).
+A1(three,twenty).
+A1(three,thirty).
+A1(three,forty).
+A1(three,fifty).
+A1(three,sixty).
+A1(three,seventy).
+A1(three,eighty).
+A1(three,ninety).
+A1(three,after).
+A1(three,comes).
+A1(three,null).
+A1(four,one).
+A1(four,two).
+A1(four,three).
+A1(four,four).
+A1(four,five).
+A1(four,six).
+A1(four,seven).
+A1(four,eight).
+A1(four,nine).
+A1(four,ten).
+A1(four,eleven).
+A1(four,twelve).
+A1(four,thirteen).
+A1(four,fourteen).
+A1(four,fifteen).
+A1(four,sixteen).
+A1(four,seventeen).
+A1(four,eighteen).
+A1(four,nineteen).
+A1(four,twenty).
+A1(four,thirty).
+A1(four,forty).
+A1(four,fifty).
+A1(four,sixty).
+A1(four,seventy).
+A1(four,eighty).
+A1(four,ninety).
+A1(four,after).
+A1(four,comes).
+A1(four,null).
+A1(five,one).
+A1(five,two).
+A1(five,three).
+A1(five,four).
+A1(five,five).
+A1(five,six).
+A1(five,seven).
+A1(five,eight).
+A1(five,nine).
+A1(five,ten).
+A1(five,eleven).
+A1(five,twelve).
+A1(five,thirteen).
+A1(five,fourteen).
+A1(five,fifteen).
+A1(five,sixteen).
+A1(five,seventeen).
+A1(five,eighteen).
+A1(five,nineteen).
+A1(five,twenty).
+A1(five,thirty).
+A1(five,forty).
+A1(five,fifty).
+A1(five,sixty).
+A1(five,seventy).
+A1(five,eighty).
+A1(five,ninety).
+A1(five,after).
+A1(five,comes).
+A1(five,null).
+A1(six,one).
+A1(six,two).
+A1(six,three).
+A1(six,four).
+A1(six,five).
+A1(six,six).
+A1(six,seven).
+A1(six,eight).
+A1(six,nine).
+A1(six,ten).
+A1(six,eleven).
+A1(six,twelve).
+A1(six,thirteen).
+A1(six,fourteen).
+A1(six,fifteen).
+A1(six,sixteen).
+A1(six,seventeen).
+A1(six,eighteen).
+A1(six,nineteen).
+A1(six,twenty).
+A1(six,thirty).
+A1(six,forty).
+A1(six,fifty).
+A1(six,sixty).
+A1(six,seventy).
+A1(six,eighty).
+A1(six,ninety).
+A1(six,after).
+A1(six,comes).
+A1(six,null).
+A1(seven,one).
+A1(seven,two).
+A1(seven,three).
+A1(seven,four).
+A1(seven,five).
+A1(seven,six).
+A1(seven,seven).
+A1(seven,eight).
+A1(seven,nine).
+A1(seven,ten).
+A1(seven,eleven).
+A1(seven,twelve).
+A1(seven,thirteen).
+A1(seven,fourteen).
+A1(seven,fifteen).
+A1(seven,sixteen).
+A1(seven,seventeen).
+A1(seven,eighteen).
+A1(seven,nineteen).
+A1(seven,twenty).
+A1(seven,thirty).
+A1(seven,forty).
+A1(seven,fifty).
+A1(seven,sixty).
+A1(seven,seventy).
+A1(seven,eighty).
+A1(seven,ninety).
+A1(seven,after).
+A1(seven,comes).
+A1(seven,null).
+A1(eight,one).
+A1(eight,two).
+A1(eight,three).
+A1(eight,four).
+A1(eight,five).
+A1(eight,six).
+A1(eight,seven).
+A1(eight,eight).
+A1(eight,nine).
+A1(eight,ten).
+A1(eight,eleven).
+A1(eight,twelve).
+A1(eight,thirteen).
+A1(eight,fourteen).
+A1(eight,fifteen).
+A1(eight,sixteen).
+A1(eight,seventeen).
+A1(eight,eighteen).
+A1(eight,nineteen).
+A1(eight,twenty).
+A1(eight,thirty).
+A1(eight,forty).
+A1(eight,fifty).
+A1(eight,sixty).
+A1(eight,seventy).
+A1(eight,eighty).
+A1(eight,ninety).
+A1(eight,after).
+A1(eight,comes).
+A1(eight,null).
+A1(nine,one).
+A1(nine,two).
+A1(nine,three).
+A1(nine,four).
+A1(nine,five).
+A1(nine,six).
+A1(nine,seven).
+A1(nine,eight).
+A1(nine,nine).
+A1(nine,ten).
+A1(nine,eleven).
+A1(nine,twelve).
+A1(nine,thirteen).
+A1(nine,fourteen).
+A1(nine,fifteen).
+A1(nine,sixteen).
+A1(nine,seventeen).
+A1(nine,eighteen).
+A1(nine,nineteen).
+A1(nine,twenty).
+A1(nine,thirty).
+A1(nine,forty).
+A1(nine,fifty).
+A1(nine,sixty).
+A1(nine,seventy).
+A1(nine,eighty).
+A1(nine,ninety).
+A1(nine,after).
+A1(nine,comes).
+A1(nine,null).
+A1(ten,one).
+A1(ten,two).
+A1(ten,three).
+A1(ten,four).
+A1(ten,five).
+A1(ten,six).
+A1(ten,seven).
+A1(ten,eight).
+A1(ten,nine).
+A1(ten,ten).
+A1(ten,eleven).
+A1(ten,twelve).
+A1(ten,thirteen).
+A1(ten,fourteen).
+A1(ten,fifteen).
+A1(ten,sixteen).
+A1(ten,seventeen).
+A1(ten,eighteen).
+A1(ten,nineteen).
+A1(ten,twenty).
+A1(ten,thirty).
+A1(ten,forty).
+A1(ten,fifty).
+A1(ten,sixty).
+A1(ten,seventy).
+A1(ten,eighty).
+A1(ten,ninety).
+A1(ten,after).
+A1(ten,comes).
+A1(ten,null).
+A1(eleven,one).
+A1(eleven,two).
+A1(eleven,three).
+A1(eleven,four).
+A1(eleven,five).
+A1(eleven,six).
+A1(eleven,seven).
+A1(eleven,eight).
+A1(eleven,nine).
+A1(eleven,ten).
+A1(eleven,eleven).
+A1(eleven,twelve).
+A1(eleven,thirteen).
+A1(eleven,fourteen).
+A1(eleven,fifteen).
+A1(eleven,sixteen).
+A1(eleven,seventeen).
+A1(eleven,eighteen).
+A1(eleven,nineteen).
+A1(eleven,twenty).
+A1(eleven,thirty).
+A1(eleven,forty).
+A1(eleven,fifty).
+A1(eleven,sixty).
+A1(eleven,seventy).
+A1(eleven,eighty).
+A1(eleven,ninety).
+A1(eleven,after).
+A1(eleven,comes).
+A1(eleven,null).
+A1(twelve,one).
+A1(twelve,two).
+A1(twelve,three).
+A1(twelve,four).
+A1(twelve,five).
+A1(twelve,six).
+A1(twelve,seven).
+A1(twelve,eight).
+A1(twelve,nine).
+A1(twelve,ten).
+A1(twelve,eleven).
+A1(twelve,twelve).
+A1(twelve,thirteen).
+A1(twelve,fourteen).
+A1(twelve,fifteen).
+A1(twelve,sixteen).
+A1(twelve,seventeen).
+A1(twelve,eighteen).
+A1(twelve,nineteen).
+A1(twelve,twenty).
+A1(twelve,thirty).
+A1(twelve,forty).
+A1(twelve,fifty).
+A1(twelve,sixty).
+A1(twelve,seventy).
+A1(twelve,eighty).
+A1(twelve,ninety).
+A1(twelve,after).
+A1(twelve,comes).
+A1(twelve,null).
+A1(thirteen,one).
+A1(thirteen,two).
+A1(thirteen,three).
+A1(thirteen,four).
+A1(thirteen,five).
+A1(thirteen,six).
+A1(thirteen,seven).
+A1(thirteen,eight).
+A1(thirteen,nine).
+A1(thirteen,ten).
+A1(thirteen,eleven).
+A1(thirteen,twelve).
+A1(thirteen,thirteen).
+A1(thirteen,fourteen).
+A1(thirteen,fifteen).
+A1(thirteen,sixteen).
+A1(thirteen,seventeen).
+A1(thirteen,eighteen).
+A1(thirteen,nineteen).
+A1(thirteen,twenty).
+A1(thirteen,thirty).
+A1(thirteen,forty).
+A1(thirteen,fifty).
+A1(thirteen,sixty).
+A1(thirteen,seventy).
+A1(thirteen,eighty).
+A1(thirteen,ninety).
+A1(thirteen,after).
+A1(thirteen,comes).
+A1(thirteen,null).
+A1(fourteen,one).
+A1(fourteen,two).
+A1(fourteen,three).
+A1(fourteen,four).
+A1(fourteen,five).
+A1(fourteen,six).
+A1(fourteen,seven).
+A1(fourteen,eight).
+A1(fourteen,nine).
+A1(fourteen,ten).
+A1(fourteen,eleven).
+A1(fourteen,twelve).
+A1(fourteen,thirteen).
+A1(fourteen,fourteen).
+A1(fourteen,fifteen).
+A1(fourteen,sixteen).
+A1(fourteen,seventeen).
+A1(fourteen,eighteen).
+A1(fourteen,nineteen).
+A1(fourteen,twenty).
+A1(fourteen,thirty).
+A1(fourteen,forty).
+A1(fourteen,fifty).
+A1(fourteen,sixty).
+A1(fourteen,seventy).
+A1(fourteen,eighty).
+A1(fourteen,ninety).
+A1(fourteen,after).
+A1(fourteen,comes).
+A1(fourteen,null).
+A1(fifteen,one).
+A1(fifteen,two).
+A1(fifteen,three).
+A1(fifteen,four).
+A1(fifteen,five).
+A1(fifteen,six).
+A1(fifteen,seven).
+A1(fifteen,eight).
+A1(fifteen,nine).
+A1(fifteen,ten).
+A1(fifteen,eleven).
+A1(fifteen,twelve).
+A1(fifteen,thirteen).
+A1(fifteen,fourteen).
+A1(fifteen,fifteen).
+A1(fifteen,sixteen).
+A1(fifteen,seventeen).
+A1(fifteen,eighteen).
+A1(fifteen,nineteen).
+A1(fifteen,twenty).
+A1(fifteen,thirty).
+A1(fifteen,forty).
+A1(fifteen,fifty).
+A1(fifteen,sixty).
+A1(fifteen,seventy).
+A1(fifteen,eighty).
+A1(fifteen,ninety).
+A1(fifteen,after).
+A1(fifteen,comes).
+A1(fifteen,null).
+A1(sixteen,one).
+A1(sixteen,two).
+A1(sixteen,three).
+A1(sixteen,four).
+A1(sixteen,five).
+A1(sixteen,six).
+A1(sixteen,seven).
+A1(sixteen,eight).
+A1(sixteen,nine).
+A1(sixteen,ten).
+A1(sixteen,eleven).
+A1(sixteen,twelve).
+A1(sixteen,thirteen).
+A1(sixteen,fourteen).
+A1(sixteen,fifteen).
+A1(sixteen,sixteen).
+A1(sixteen,seventeen).
+A1(sixteen,eighteen).
+A1(sixteen,nineteen).
+A1(sixteen,twenty).
+A1(sixteen,thirty).
+A1(sixteen,forty).
+A1(sixteen,fifty).
+A1(sixteen,sixty).
+A1(sixteen,seventy).
+A1(sixteen,eighty).
+A1(sixteen,ninety).
+A1(sixteen,after).
+A1(sixteen,comes).
+A1(sixteen,null).
+A1(seventeen,one).
+A1(seventeen,two).
+A1(seventeen,three).
+A1(seventeen,four).
+A1(seventeen,five).
+A1(seventeen,six).
+A1(seventeen,seven).
+A1(seventeen,eight).
+A1(seventeen,nine).
+A1(seventeen,ten).
+A1(seventeen,eleven).
+A1(seventeen,twelve).
+A1(seventeen,thirteen).
+A1(seventeen,fourteen).
+A1(seventeen,fifteen).
+A1(seventeen,sixteen).
+A1(seventeen,seventeen).
+A1(seventeen,eighteen).
+A1(seventeen,nineteen).
+A1(seventeen,twenty).
+A1(seventeen,thirty).
+A1(seventeen,forty).
+A1(seventeen,fifty).
+A1(seventeen,sixty).
+A1(seventeen,seventy).
+A1(seventeen,eighty).
+A1(seventeen,ninety).
+A1(seventeen,after).
+A1(seventeen,comes).
+A1(seventeen,null).
+A1(eighteen,one).
+A1(eighteen,two).
+A1(eighteen,three).
+A1(eighteen,four).
+A1(eighteen,five).
+A1(eighteen,six).
+A1(eighteen,seven).
+A1(eighteen,eight).
+A1(eighteen,nine).
+A1(eighteen,ten).
+A1(eighteen,eleven).
+A1(eighteen,twelve).
+A1(eighteen,thirteen).
+A1(eighteen,fourteen).
+A1(eighteen,fifteen).
+A1(eighteen,sixteen).
+A1(eighteen,seventeen).
+A1(eighteen,eighteen).
+A1(eighteen,nineteen).
+A1(eighteen,twenty).
+A1(eighteen,thirty).
+A1(eighteen,forty).
+A1(eighteen,fifty).
+A1(eighteen,sixty).
+A1(eighteen,seventy).
+A1(eighteen,eighty).
+A1(eighteen,ninety).
+A1(eighteen,after).
+A1(eighteen,comes).
+A1(eighteen,null).
+A1(nineteen,one).
+A1(nineteen,two).
+A1(nineteen,three).
+A1(nineteen,four).
+A1(nineteen,five).
+A1(nineteen,six).
+A1(nineteen,seven).
+A1(nineteen,eight).
+A1(nineteen,nine).
+A1(nineteen,ten).
+A1(nineteen,eleven).
+A1(nineteen,twelve).
+A1(nineteen,thirteen).
+A1(nineteen,fourteen).
+A1(nineteen,fifteen).
+A1(nineteen,sixteen).
+A1(nineteen,seventeen).
+A1(nineteen,eighteen).
+A1(nineteen,nineteen).
+A1(nineteen,twenty).
+A1(nineteen,thirty).
+A1(nineteen,forty).
+A1(nineteen,fifty).
+A1(nineteen,sixty).
+A1(nineteen,seventy).
+A1(nineteen,eighty).
+A1(nineteen,ninety).
+A1(nineteen,after).
+A1(nineteen,comes).
+A1(nineteen,null).
+A1(twenty,one).
+A1(twenty,two).
+A1(twenty,three).
+A1(twenty,four).
+A1(twenty,five).
+A1(twenty,six).
+A1(twenty,seven).
+A1(twenty,eight).
+A1(twenty,nine).
+A1(twenty,ten).
+A1(twenty,eleven).
+A1(twenty,twelve).
+A1(twenty,thirteen).
+A1(twenty,fourteen).
+A1(twenty,fifteen).
+A1(twenty,sixteen).
+A1(twenty,seventeen).
+A1(twenty,eighteen).
+A1(twenty,nineteen).
+A1(twenty,twenty).
+A1(twenty,thirty).
+A1(twenty,forty).
+A1(twenty,fifty).
+A1(twenty,sixty).
+A1(twenty,seventy).
+A1(twenty,eighty).
+A1(twenty,ninety).
+A1(twenty,after).
+A1(twenty,comes).
+A1(twenty,null).
+A1(thirty,one).
+A1(thirty,two).
+A1(thirty,three).
+A1(thirty,four).
+A1(thirty,five).
+A1(thirty,six).
+A1(thirty,seven).
+A1(thirty,eight).
+A1(thirty,nine).
+A1(thirty,ten).
+A1(thirty,eleven).
+A1(thirty,twelve).
+A1(thirty,thirteen).
+A1(thirty,fourteen).
+A1(thirty,fifteen).
+A1(thirty,sixteen).
+A1(thirty,seventeen).
+A1(thirty,eighteen).
+A1(thirty,nineteen).
+A1(thirty,twenty).
+A1(thirty,thirty).
+A1(thirty,forty).
+A1(thirty,fifty).
+A1(thirty,sixty).
+A1(thirty,seventy).
+A1(thirty,eighty).
+A1(thirty,ninety).
+A1(thirty,after).
+A1(thirty,comes).
+A1(thirty,null).
+A1(forty,one).
+A1(forty,two).
+A1(forty,three).
+A1(forty,four).
+A1(forty,five).
+A1(forty,six).
+A1(forty,seven).
+A1(forty,eight).
+A1(forty,nine).
+A1(forty,ten).
+A1(forty,eleven).
+A1(forty,twelve).
+A1(forty,thirteen).
+A1(forty,fourteen).
+A1(forty,fifteen).
+A1(forty,sixteen).
+A1(forty,seventeen).
+A1(forty,eighteen).
+A1(forty,nineteen).
+A1(forty,twenty).
+A1(forty,thirty).
+A1(forty,forty).
+A1(forty,fifty).
+A1(forty,sixty).
+A1(forty,seventy).
+A1(forty,eighty).
+A1(forty,ninety).
+A1(forty,after).
+A1(forty,comes).
+A1(forty,null).
+A1(fifty,one).
+A1(fifty,two).
+A1(fifty,three).
+A1(fifty,four).
+A1(fifty,five).
+A1(fifty,six).
+A1(fifty,seven).
+A1(fifty,eight).
+A1(fifty,nine).
+A1(fifty,ten).
+A1(fifty,eleven).
+A1(fifty,twelve).
+A1(fifty,thirteen).
+A1(fifty,fourteen).
+A1(fifty,fifteen).
+A1(fifty,sixteen).
+A1(fifty,seventeen).
+A1(fifty,eighteen).
+A1(fifty,nineteen).
+A1(fifty,twenty).
+A1(fifty,thirty).
+A1(fifty,forty).
+A1(fifty,fifty).
+A1(fifty,sixty).
+A1(fifty,seventy).
+A1(fifty,eighty).
+A1(fifty,ninety).
+A1(fifty,after).
+A1(fifty,comes).
+A1(fifty,null).
+A1(sixty,one).
+A1(sixty,two).
+A1(sixty,three).
+A1(sixty,four).
+A1(sixty,five).
+A1(sixty,six).
+A1(sixty,seven).
+A1(sixty,eight).
+A1(sixty,nine).
+A1(sixty,ten).
+A1(sixty,eleven).
+A1(sixty,twelve).
+A1(sixty,thirteen).
+A1(sixty,fourteen).
+A1(sixty,fifteen).
+A1(sixty,sixteen).
+A1(sixty,seventeen).
+A1(sixty,eighteen).
+A1(sixty,nineteen).
+A1(sixty,twenty).
+A1(sixty,thirty).
+A1(sixty,forty).
+A1(sixty,fifty).
+A1(sixty,sixty).
+A1(sixty,seventy).
+A1(sixty,eighty).
+A1(sixty,ninety).
+A1(sixty,after).
+A1(sixty,comes).
+A1(sixty,null).
+A1(seventy,one).
+A1(seventy,two).
+A1(seventy,three).
+A1(seventy,four).
+A1(seventy,five).
+A1(seventy,six).
+A1(seventy,seven).
+A1(seventy,eight).
+A1(seventy,nine).
+A1(seventy,ten).
+A1(seventy,eleven).
+A1(seventy,twelve).
+A1(seventy,thirteen).
+A1(seventy,fourteen).
+A1(seventy,fifteen).
+A1(seventy,sixteen).
+A1(seventy,seventeen).
+A1(seventy,eighteen).
+A1(seventy,nineteen).
+A1(seventy,twenty).
+A1(seventy,thirty).
+A1(seventy,forty).
+A1(seventy,fifty).
+A1(seventy,sixty).
+A1(seventy,seventy).
+A1(seventy,eighty).
+A1(seventy,ninety).
+A1(seventy,after).
+A1(seventy,comes).
+A1(seventy,null).
+A1(eighty,one).
+A1(eighty,two).
+A1(eighty,three).
+A1(eighty,four).
+A1(eighty,five).
+A1(eighty,six).
+A1(eighty,seven).
+A1(eighty,eight).
+A1(eighty,nine).
+A1(eighty,ten).
+A1(eighty,eleven).
+A1(eighty,twelve).
+A1(eighty,thirteen).
+A1(eighty,fourteen).
+A1(eighty,fifteen).
+A1(eighty,sixteen).
+A1(eighty,seventeen).
+A1(eighty,eighteen).
+A1(eighty,nineteen).
+A1(eighty,twenty).
+A1(eighty,thirty).
+A1(eighty,forty).
+A1(eighty,fifty).
+A1(eighty,sixty).
+A1(eighty,seventy).
+A1(eighty,eighty).
+A1(eighty,ninety).
+A1(eighty,after).
+A1(eighty,comes).
+A1(eighty,null).
+A1(ninety,one).
+A1(ninety,two).
+A1(ninety,three).
+A1(ninety,four).
+A1(ninety,five).
+A1(ninety,six).
+A1(ninety,seven).
+A1(ninety,eight).
+A1(ninety,nine).
+A1(ninety,ten).
+A1(ninety,eleven).
+A1(ninety,twelve).
+A1(ninety,thirteen).
+A1(ninety,fourteen).
+A1(ninety,fifteen).
+A1(ninety,sixteen).
+A1(ninety,seventeen).
+A1(ninety,eighteen).
+A1(ninety,nineteen).
+A1(ninety,twenty).
+A1(ninety,thirty).
+A1(ninety,forty).
+A1(ninety,fifty).
+A1(ninety,sixty).
+A1(ninety,seventy).
+A1(ninety,eighty).
+A1(ninety,ninety).
+A1(ninety,after).
+A1(ninety,comes).
+A1(ninety,null).
+A1(after,one).
+A1(after,two).
+A1(after,three).
+A1(after,four).
+A1(after,five).
+A1(after,six).
+A1(after,seven).
+A1(after,eight).
+A1(after,nine).
+A1(after,ten).
+A1(after,eleven).
+A1(after,twelve).
+A1(after,thirteen).
+A1(after,fourteen).
+A1(after,fifteen).
+A1(after,sixteen).
+A1(after,seventeen).
+A1(after,eighteen).
+A1(after,nineteen).
+A1(after,twenty).
+A1(after,thirty).
+A1(after,forty).
+A1(after,fifty).
+A1(after,sixty).
+A1(after,seventy).
+A1(after,eighty).
+A1(after,ninety).
+A1(after,after).
+A1(after,comes).
+A1(after,null).
+A1(comes,one).
+A1(comes,two).
+A1(comes,three).
+A1(comes,four).
+A1(comes,five).
+A1(comes,six).
+A1(comes,seven).
+A1(comes,eight).
+A1(comes,nine).
+A1(comes,ten).
+A1(comes,eleven).
+A1(comes,twelve).
+A1(comes,thirteen).
+A1(comes,fourteen).
+A1(comes,fifteen).
+A1(comes,sixteen).
+A1(comes,seventeen).
+A1(comes,eighteen).
+A1(comes,nineteen).
+A1(comes,twenty).
+A1(comes,thirty).
+A1(comes,forty).
+A1(comes,fifty).
+A1(comes,sixty).
+A1(comes,seventy).
+A1(comes,eighty).
+A1(comes,ninety).
+A1(comes,after).
+A1(comes,comes).
+A1(comes,null).
+A1(null,one).
+A1(null,two).
+A1(null,three).
+A1(null,four).
+A1(null,five).
+A1(null,six).
+A1(null,seven).
+A1(null,eight).
+A1(null,nine).
+A1(null,ten).
+A1(null,eleven).
+A1(null,twelve).
+A1(null,thirteen).
+A1(null,fourteen).
+A1(null,fifteen).
+A1(null,sixteen).
+A1(null,seventeen).
+A1(null,eighteen).
+A1(null,nineteen).
+A1(null,twenty).
+A1(null,thirty).
+A1(null,forty).
+A1(null,fifty).
+A1(null,sixty).
+A1(null,seventy).
+A1(null,eighty).
+A1(null,ninety).
+A1(null,after).
+A1(null,comes).
+A1(null,null).
+A2(one,one).
+A2(one,two).
+A2(one,three).
+A2(one,four).
+A2(one,five).
+A2(one,six).
+A2(one,seven).
+A2(one,eight).
+A2(one,nine).
+A2(one,ten).
+A2(one,eleven).
+A2(one,twelve).
+A2(one,thirteen).
+A2(one,fourteen).
+A2(one,fifteen).
+A2(one,sixteen).
+A2(one,seventeen).
+A2(one,eighteen).
+A2(one,nineteen).
+A2(one,twenty).
+A2(one,thirty).
+A2(one,forty).
+A2(one,fifty).
+A2(one,sixty).
+A2(one,seventy).
+A2(one,eighty).
+A2(one,ninety).
+A2(one,after).
+A2(one,comes).
+A2(one,null).
+A2(two,one).
+A2(two,two).
+A2(two,three).
+A2(two,four).
+A2(two,five).
+A2(two,six).
+A2(two,seven).
+A2(two,eight).
+A2(two,nine).
+A2(two,ten).
+A2(two,eleven).
+A2(two,twelve).
+A2(two,thirteen).
+A2(two,fourteen).
+A2(two,fifteen).
+A2(two,sixteen).
+A2(two,seventeen).
+A2(two,eighteen).
+A2(two,nineteen).
+A2(two,twenty).
+A2(two,thirty).
+A2(two,forty).
+A2(two,fifty).
+A2(two,sixty).
+A2(two,seventy).
+A2(two,eighty).
+A2(two,ninety).
+A2(two,after).
+A2(two,comes).
+A2(two,null).
+A2(three,one).
+A2(three,two).
+A2(three,three).
+A2(three,four).
+A2(three,five).
+A2(three,six).
+A2(three,seven).
+A2(three,eight).
+A2(three,nine).
+A2(three,ten).
+A2(three,eleven).
+A2(three,twelve).
+A2(three,thirteen).
+A2(three,fourteen).
+A2(three,fifteen).
+A2(three,sixteen).
+A2(three,seventeen).
+A2(three,eighteen).
+A2(three,nineteen).
+A2(three,twenty).
+A2(three,thirty).
+A2(three,forty).
+A2(three,fifty).
+A2(three,sixty).
+A2(three,seventy).
+A2(three,eighty).
+A2(three,ninety).
+A2(three,after).
+A2(three,comes).
+A2(three,null).
+A2(four,one).
+A2(four,two).
+A2(four,three).
+A2(four,four).
+A2(four,five).
+A2(four,six).
+A2(four,seven).
+A2(four,eight).
+A2(four,nine).
+A2(four,ten).
+A2(four,eleven).
+A2(four,twelve).
+A2(four,thirteen).
+A2(four,fourteen).
+A2(four,fifteen).
+A2(four,sixteen).
+A2(four,seventeen).
+A2(four,eighteen).
+A2(four,nineteen).
+A2(four,twenty).
+A2(four,thirty).
+A2(four,forty).
+A2(four,fifty).
+A2(four,sixty).
+A2(four,seventy).
+A2(four,eighty).
+A2(four,ninety).
+A2(four,after).
+A2(four,comes).
+A2(four,null).
+A2(five,one).
+A2(five,two).
+A2(five,three).
+A2(five,four).
+A2(five,five).
+A2(five,six).
+A2(five,seven).
+A2(five,eight).
+A2(five,nine).
+A2(five,ten).
+A2(five,eleven).
+A2(five,twelve).
+A2(five,thirteen).
+A2(five,fourteen).
+A2(five,fifteen).
+A2(five,sixteen).
+A2(five,seventeen).
+A2(five,eighteen).
+A2(five,nineteen).
+A2(five,twenty).
+A2(five,thirty).
+A2(five,forty).
+A2(five,fifty).
+A2(five,sixty).
+A2(five,seventy).
+A2(five,eighty).
+A2(five,ninety).
+A2(five,after).
+A2(five,comes).
+A2(five,null).
+A2(six,one).
+A2(six,two).
+A2(six,three).
+A2(six,four).
+A2(six,five).
+A2(six,six).
+A2(six,seven).
+A2(six,eight).
+A2(six,nine).
+A2(six,ten).
+A2(six,eleven).
+A2(six,twelve).
+A2(six,thirteen).
+A2(six,fourteen).
+A2(six,fifteen).
+A2(six,sixteen).
+A2(six,seventeen).
+A2(six,eighteen).
+A2(six,nineteen).
+A2(six,twenty).
+A2(six,thirty).
+A2(six,forty).
+A2(six,fifty).
+A2(six,sixty).
+A2(six,seventy).
+A2(six,eighty).
+A2(six,ninety).
+A2(six,after).
+A2(six,comes).
+A2(six,null).
+A2(seven,one).
+A2(seven,two).
+A2(seven,three).
+A2(seven,four).
+A2(seven,five).
+A2(seven,six).
+A2(seven,seven).
+A2(seven,eight).
+A2(seven,nine).
+A2(seven,ten).
+A2(seven,eleven).
+A2(seven,twelve).
+A2(seven,thirteen).
+A2(seven,fourteen).
+A2(seven,fifteen).
+A2(seven,sixteen).
+A2(seven,seventeen).
+A2(seven,eighteen).
+A2(seven,nineteen).
+A2(seven,twenty).
+A2(seven,thirty).
+A2(seven,forty).
+A2(seven,fifty).
+A2(seven,sixty).
+A2(seven,seventy).
+A2(seven,eighty).
+A2(seven,ninety).
+A2(seven,after).
+A2(seven,comes).
+A2(seven,null).
+A2(eight,one).
+A2(eight,two).
+A2(eight,three).
+A2(eight,four).
+A2(eight,five).
+A2(eight,six).
+A2(eight,seven).
+A2(eight,eight).
+A2(eight,nine).
+A2(eight,ten).
+A2(eight,eleven).
+A2(eight,twelve).
+A2(eight,thirteen).
+A2(eight,fourteen).
+A2(eight,fifteen).
+A2(eight,sixteen).
+A2(eight,seventeen).
+A2(eight,eighteen).
+A2(eight,nineteen).
+A2(eight,twenty).
+A2(eight,thirty).
+A2(eight,forty).
+A2(eight,fifty).
+A2(eight,sixty).
+A2(eight,seventy).
+A2(eight,eighty).
+A2(eight,ninety).
+A2(eight,after).
+A2(eight,comes).
+A2(eight,null).
+A2(nine,one).
+A2(nine,two).
+A2(nine,three).
+A2(nine,four).
+A2(nine,five).
+A2(nine,six).
+A2(nine,seven).
+A2(nine,eight).
+A2(nine,nine).
+A2(nine,ten).
+A2(nine,eleven).
+A2(nine,twelve).
+A2(nine,thirteen).
+A2(nine,fourteen).
+A2(nine,fifteen).
+A2(nine,sixteen).
+A2(nine,seventeen).
+A2(nine,eighteen).
+A2(nine,nineteen).
+A2(nine,twenty).
+A2(nine,thirty).
+A2(nine,forty).
+A2(nine,fifty).
+A2(nine,sixty).
+A2(nine,seventy).
+A2(nine,eighty).
+A2(nine,ninety).
+A2(nine,after).
+A2(nine,comes).
+A2(nine,null).
+A2(ten,one).
+A2(ten,two).
+A2(ten,three).
+A2(ten,four).
+A2(ten,five).
+A2(ten,six).
+A2(ten,seven).
+A2(ten,eight).
+A2(ten,nine).
+A2(ten,ten).
+A2(ten,eleven).
+A2(ten,twelve).
+A2(ten,thirteen).
+A2(ten,fourteen).
+A2(ten,fifteen).
+A2(ten,sixteen).
+A2(ten,seventeen).
+A2(ten,eighteen).
+A2(ten,nineteen).
+A2(ten,twenty).
+A2(ten,thirty).
+A2(ten,forty).
+A2(ten,fifty).
+A2(ten,sixty).
+A2(ten,seventy).
+A2(ten,eighty).
+A2(ten,ninety).
+A2(ten,after).
+A2(ten,comes).
+A2(ten,null).
+A2(eleven,one).
+A2(eleven,two).
+A2(eleven,three).
+A2(eleven,four).
+A2(eleven,five).
+A2(eleven,six).
+A2(eleven,seven).
+A2(eleven,eight).
+A2(eleven,nine).
+A2(eleven,ten).
+A2(eleven,eleven).
+A2(eleven,twelve).
+A2(eleven,thirteen).
+A2(eleven,fourteen).
+A2(eleven,fifteen).
+A2(eleven,sixteen).
+A2(eleven,seventeen).
+A2(eleven,eighteen).
+A2(eleven,nineteen).
+A2(eleven,twenty).
+A2(eleven,thirty).
+A2(eleven,forty).
+A2(eleven,fifty).
+A2(eleven,sixty).
+A2(eleven,seventy).
+A2(eleven,eighty).
+A2(eleven,ninety).
+A2(eleven,after).
+A2(eleven,comes).
+A2(eleven,null).
+A2(twelve,one).
+A2(twelve,two).
+A2(twelve,three).
+A2(twelve,four).
+A2(twelve,five).
+A2(twelve,six).
+A2(twelve,seven).
+A2(twelve,eight).
+A2(twelve,nine).
+A2(twelve,ten).
+A2(twelve,eleven).
+A2(twelve,twelve).
+A2(twelve,thirteen).
+A2(twelve,fourteen).
+A2(twelve,fifteen).
+A2(twelve,sixteen).
+A2(twelve,seventeen).
+A2(twelve,eighteen).
+A2(twelve,nineteen).
+A2(twelve,twenty).
+A2(twelve,thirty).
+A2(twelve,forty).
+A2(twelve,fifty).
+A2(twelve,sixty).
+A2(twelve,seventy).
+A2(twelve,eighty).
+A2(twelve,ninety).
+A2(twelve,after).
+A2(twelve,comes).
+A2(twelve,null).
+A2(thirteen,one).
+A2(thirteen,two).
+A2(thirteen,three).
+A2(thirteen,four).
+A2(thirteen,five).
+A2(thirteen,six).
+A2(thirteen,seven).
+A2(thirteen,eight).
+A2(thirteen,nine).
+A2(thirteen,ten).
+A2(thirteen,eleven).
+A2(thirteen,twelve).
+A2(thirteen,thirteen).
+A2(thirteen,fourteen).
+A2(thirteen,fifteen).
+A2(thirteen,sixteen).
+A2(thirteen,seventeen).
+A2(thirteen,eighteen).
+A2(thirteen,nineteen).
+A2(thirteen,twenty).
+A2(thirteen,thirty).
+A2(thirteen,forty).
+A2(thirteen,fifty).
+A2(thirteen,sixty).
+A2(thirteen,seventy).
+A2(thirteen,eighty).
+A2(thirteen,ninety).
+A2(thirteen,after).
+A2(thirteen,comes).
+A2(thirteen,null).
+A2(fourteen,one).
+A2(fourteen,two).
+A2(fourteen,three).
+A2(fourteen,four).
+A2(fourteen,five).
+A2(fourteen,six).
+A2(fourteen,seven).
+A2(fourteen,eight).
+A2(fourteen,nine).
+A2(fourteen,ten).
+A2(fourteen,eleven).
+A2(fourteen,twelve).
+A2(fourteen,thirteen).
+A2(fourteen,fourteen).
+A2(fourteen,fifteen).
+A2(fourteen,sixteen).
+A2(fourteen,seventeen).
+A2(fourteen,eighteen).
+A2(fourteen,nineteen).
+A2(fourteen,twenty).
+A2(fourteen,thirty).
+A2(fourteen,forty).
+A2(fourteen,fifty).
+A2(fourteen,sixty).
+A2(fourteen,seventy).
+A2(fourteen,eighty).
+A2(fourteen,ninety).
+A2(fourteen,after).
+A2(fourteen,comes).
+A2(fourteen,null).
+A2(fifteen,one).
+A2(fifteen,two).
+A2(fifteen,three).
+A2(fifteen,four).
+A2(fifteen,five).
+A2(fifteen,six).
+A2(fifteen,seven).
+A2(fifteen,eight).
+A2(fifteen,nine).
+A2(fifteen,ten).
+A2(fifteen,eleven).
+A2(fifteen,twelve).
+A2(fifteen,thirteen).
+A2(fifteen,fourteen).
+A2(fifteen,fifteen).
+A2(fifteen,sixteen).
+A2(fifteen,seventeen).
+A2(fifteen,eighteen).
+A2(fifteen,nineteen).
+A2(fifteen,twenty).
+A2(fifteen,thirty).
+A2(fifteen,forty).
+A2(fifteen,fifty).
+A2(fifteen,sixty).
+A2(fifteen,seventy).
+A2(fifteen,eighty).
+A2(fifteen,ninety).
+A2(fifteen,after).
+A2(fifteen,comes).
+A2(fifteen,null).
+A2(sixteen,one).
+A2(sixteen,two).
+A2(sixteen,three).
+A2(sixteen,four).
+A2(sixteen,five).
+A2(sixteen,six).
+A2(sixteen,seven).
+A2(sixteen,eight).
+A2(sixteen,nine).
+A2(sixteen,ten).
+A2(sixteen,eleven).
+A2(sixteen,twelve).
+A2(sixteen,thirteen).
+A2(sixteen,fourteen).
+A2(sixteen,fifteen).
+A2(sixteen,sixteen).
+A2(sixteen,seventeen).
+A2(sixteen,eighteen).
+A2(sixteen,nineteen).
+A2(sixteen,twenty).
+A2(sixteen,thirty).
+A2(sixteen,forty).
+A2(sixteen,fifty).
+A2(sixteen,sixty).
+A2(sixteen,seventy).
+A2(sixteen,eighty).
+A2(sixteen,ninety).
+A2(sixteen,after).
+A2(sixteen,comes).
+A2(sixteen,null).
+A2(seventeen,one).
+A2(seventeen,two).
+A2(seventeen,three).
+A2(seventeen,four).
+A2(seventeen,five).
+A2(seventeen,six).
+A2(seventeen,seven).
+A2(seventeen,eight).
+A2(seventeen,nine).
+A2(seventeen,ten).
+A2(seventeen,eleven).
+A2(seventeen,twelve).
+A2(seventeen,thirteen).
+A2(seventeen,fourteen).
+A2(seventeen,fifteen).
+A2(seventeen,sixteen).
+A2(seventeen,seventeen).
+A2(seventeen,eighteen).
+A2(seventeen,nineteen).
+A2(seventeen,twenty).
+A2(seventeen,thirty).
+A2(seventeen,forty).
+A2(seventeen,fifty).
+A2(seventeen,sixty).
+A2(seventeen,seventy).
+A2(seventeen,eighty).
+A2(seventeen,ninety).
+A2(seventeen,after).
+A2(seventeen,comes).
+A2(seventeen,null).
+A2(eighteen,one).
+A2(eighteen,two).
+A2(eighteen,three).
+A2(eighteen,four).
+A2(eighteen,five).
+A2(eighteen,six).
+A2(eighteen,seven).
+A2(eighteen,eight).
+A2(eighteen,nine).
+A2(eighteen,ten).
+A2(eighteen,eleven).
+A2(eighteen,twelve).
+A2(eighteen,thirteen).
+A2(eighteen,fourteen).
+A2(eighteen,fifteen).
+A2(eighteen,sixteen).
+A2(eighteen,seventeen).
+A2(eighteen,eighteen).
+A2(eighteen,nineteen).
+A2(eighteen,twenty).
+A2(eighteen,thirty).
+A2(eighteen,forty).
+A2(eighteen,fifty).
+A2(eighteen,sixty).
+A2(eighteen,seventy).
+A2(eighteen,eighty).
+A2(eighteen,ninety).
+A2(eighteen,after).
+A2(eighteen,comes).
+A2(eighteen,null).
+A2(nineteen,one).
+A2(nineteen,two).
+A2(nineteen,three).
+A2(nineteen,four).
+A2(nineteen,five).
+A2(nineteen,six).
+A2(nineteen,seven).
+A2(nineteen,eight).
+A2(nineteen,nine).
+A2(nineteen,ten).
+A2(nineteen,eleven).
+A2(nineteen,twelve).
+A2(nineteen,thirteen).
+A2(nineteen,fourteen).
+A2(nineteen,fifteen).
+A2(nineteen,sixteen).
+A2(nineteen,seventeen).
+A2(nineteen,eighteen).
+A2(nineteen,nineteen).
+A2(nineteen,twenty).
+A2(nineteen,thirty).
+A2(nineteen,forty).
+A2(nineteen,fifty).
+A2(nineteen,sixty).
+A2(nineteen,seventy).
+A2(nineteen,eighty).
+A2(nineteen,ninety).
+A2(nineteen,after).
+A2(nineteen,comes).
+A2(nineteen,null).
+A2(twenty,one).
+A2(twenty,two).
+A2(twenty,three).
+A2(twenty,four).
+A2(twenty,five).
+A2(twenty,six).
+A2(twenty,seven).
+A2(twenty,eight).
+A2(twenty,nine).
+A2(twenty,ten).
+A2(twenty,eleven).
+A2(twenty,twelve).
+A2(twenty,thirteen).
+A2(twenty,fourteen).
+A2(twenty,fifteen).
+A2(twenty,sixteen).
+A2(twenty,seventeen).
+A2(twenty,eighteen).
+A2(twenty,nineteen).
+A2(twenty,twenty).
+A2(twenty,thirty).
+A2(twenty,forty).
+A2(twenty,fifty).
+A2(twenty,sixty).
+A2(twenty,seventy).
+A2(twenty,eighty).
+A2(twenty,ninety).
+A2(twenty,after).
+A2(twenty,comes).
+A2(twenty,null).
+A2(thirty,one).
+A2(thirty,two).
+A2(thirty,three).
+A2(thirty,four).
+A2(thirty,five).
+A2(thirty,six).
+A2(thirty,seven).
+A2(thirty,eight).
+A2(thirty,nine).
+A2(thirty,ten).
+A2(thirty,eleven).
+A2(thirty,twelve).
+A2(thirty,thirteen).
+A2(thirty,fourteen).
+A2(thirty,fifteen).
+A2(thirty,sixteen).
+A2(thirty,seventeen).
+A2(thirty,eighteen).
+A2(thirty,nineteen).
+A2(thirty,twenty).
+A2(thirty,thirty).
+A2(thirty,forty).
+A2(thirty,fifty).
+A2(thirty,sixty).
+A2(thirty,seventy).
+A2(thirty,eighty).
+A2(thirty,ninety).
+A2(thirty,after).
+A2(thirty,comes).
+A2(thirty,null).
+A2(forty,one).
+A2(forty,two).
+A2(forty,three).
+A2(forty,four).
+A2(forty,five).
+A2(forty,six).
+A2(forty,seven).
+A2(forty,eight).
+A2(forty,nine).
+A2(forty,ten).
+A2(forty,eleven).
+A2(forty,twelve).
+A2(forty,thirteen).
+A2(forty,fourteen).
+A2(forty,fifteen).
+A2(forty,sixteen).
+A2(forty,seventeen).
+A2(forty,eighteen).
+A2(forty,nineteen).
+A2(forty,twenty).
+A2(forty,thirty).
+A2(forty,forty).
+A2(forty,fifty).
+A2(forty,sixty).
+A2(forty,seventy).
+A2(forty,eighty).
+A2(forty,ninety).
+A2(forty,after).
+A2(forty,comes).
+A2(forty,null).
+A2(fifty,one).
+A2(fifty,two).
+A2(fifty,three).
+A2(fifty,four).
+A2(fifty,five).
+A2(fifty,six).
+A2(fifty,seven).
+A2(fifty,eight).
+A2(fifty,nine).
+A2(fifty,ten).
+A2(fifty,eleven).
+A2(fifty,twelve).
+A2(fifty,thirteen).
+A2(fifty,fourteen).
+A2(fifty,fifteen).
+A2(fifty,sixteen).
+A2(fifty,seventeen).
+A2(fifty,eighteen).
+A2(fifty,nineteen).
+A2(fifty,twenty).
+A2(fifty,thirty).
+A2(fifty,forty).
+A2(fifty,fifty).
+A2(fifty,sixty).
+A2(fifty,seventy).
+A2(fifty,eighty).
+A2(fifty,ninety).
+A2(fifty,after).
+A2(fifty,comes).
+A2(fifty,null).
+A2(sixty,one).
+A2(sixty,two).
+A2(sixty,three).
+A2(sixty,four).
+A2(sixty,five).
+A2(sixty,six).
+A2(sixty,seven).
+A2(sixty,eight).
+A2(sixty,nine).
+A2(sixty,ten).
+A2(sixty,eleven).
+A2(sixty,twelve).
+A2(sixty,thirteen).
+A2(sixty,fourteen).
+A2(sixty,fifteen).
+A2(sixty,sixteen).
+A2(sixty,seventeen).
+A2(sixty,eighteen).
+A2(sixty,nineteen).
+A2(sixty,twenty).
+A2(sixty,thirty).
+A2(sixty,forty).
+A2(sixty,fifty).
+A2(sixty,sixty).
+A2(sixty,seventy).
+A2(sixty,eighty).
+A2(sixty,ninety).
+A2(sixty,after).
+A2(sixty,comes).
+A2(sixty,null).
+A2(seventy,one).
+A2(seventy,two).
+A2(seventy,three).
+A2(seventy,four).
+A2(seventy,five).
+A2(seventy,six).
+A2(seventy,seven).
+A2(seventy,eight).
+A2(seventy,nine).
+A2(seventy,ten).
+A2(seventy,eleven).
+A2(seventy,twelve).
+A2(seventy,thirteen).
+A2(seventy,fourteen).
+A2(seventy,fifteen).
+A2(seventy,sixteen).
+A2(seventy,seventeen).
+A2(seventy,eighteen).
+A2(seventy,nineteen).
+A2(seventy,twenty).
+A2(seventy,thirty).
+A2(seventy,forty).
+A2(seventy,fifty).
+A2(seventy,sixty).
+A2(seventy,seventy).
+A2(seventy,eighty).
+A2(seventy,ninety).
+A2(seventy,after).
+A2(seventy,comes).
+A2(seventy,null).
+A2(eighty,one).
+A2(eighty,two).
+A2(eighty,three).
+A2(eighty,four).
+A2(eighty,five).
+A2(eighty,six).
+A2(eighty,seven).
+A2(eighty,eight).
+A2(eighty,nine).
+A2(eighty,ten).
+A2(eighty,eleven).
+A2(eighty,twelve).
+A2(eighty,thirteen).
+A2(eighty,fourteen).
+A2(eighty,fifteen).
+A2(eighty,sixteen).
+A2(eighty,seventeen).
+A2(eighty,eighteen).
+A2(eighty,nineteen).
+A2(eighty,twenty).
+A2(eighty,thirty).
+A2(eighty,forty).
+A2(eighty,fifty).
+A2(eighty,sixty).
+A2(eighty,seventy).
+A2(eighty,eighty).
+A2(eighty,ninety).
+A2(eighty,after).
+A2(eighty,comes).
+A2(eighty,null).
+A2(ninety,one).
+A2(ninety,two).
+A2(ninety,three).
+A2(ninety,four).
+A2(ninety,five).
+A2(ninety,six).
+A2(ninety,seven).
+A2(ninety,eight).
+A2(ninety,nine).
+A2(ninety,ten).
+A2(ninety,eleven).
+A2(ninety,twelve).
+A2(ninety,thirteen).
+A2(ninety,fourteen).
+A2(ninety,fifteen).
+A2(ninety,sixteen).
+A2(ninety,seventeen).
+A2(ninety,eighteen).
+A2(ninety,nineteen).
+A2(ninety,twenty).
+A2(ninety,thirty).
+A2(ninety,forty).
+A2(ninety,fifty).
+A2(ninety,sixty).
+A2(ninety,seventy).
+A2(ninety,eighty).
+A2(ninety,ninety).
+A2(ninety,after).
+A2(ninety,comes).
+A2(ninety,null).
+A2(after,one).
+A2(after,two).
+A2(after,three).
+A2(after,four).
+A2(after,five).
+A2(after,six).
+A2(after,seven).
+A2(after,eight).
+A2(after,nine).
+A2(after,ten).
+A2(after,eleven).
+A2(after,twelve).
+A2(after,thirteen).
+A2(after,fourteen).
+A2(after,fifteen).
+A2(after,sixteen).
+A2(after,seventeen).
+A2(after,eighteen).
+A2(after,nineteen).
+A2(after,twenty).
+A2(after,thirty).
+A2(after,forty).
+A2(after,fifty).
+A2(after,sixty).
+A2(after,seventy).
+A2(after,eighty).
+A2(after,ninety).
+A2(after,after).
+A2(after,comes).
+A2(after,null).
+A2(comes,one).
+A2(comes,two).
+A2(comes,three).
+A2(comes,four).
+A2(comes,five).
+A2(comes,six).
+A2(comes,seven).
+A2(comes,eight).
+A2(comes,nine).
+A2(comes,ten).
+A2(comes,eleven).
+A2(comes,twelve).
+A2(comes,thirteen).
+A2(comes,fourteen).
+A2(comes,fifteen).
+A2(comes,sixteen).
+A2(comes,seventeen).
+A2(comes,eighteen).
+A2(comes,nineteen).
+A2(comes,twenty).
+A2(comes,thirty).
+A2(comes,forty).
+A2(comes,fifty).
+A2(comes,sixty).
+A2(comes,seventy).
+A2(comes,eighty).
+A2(comes,ninety).
+A2(comes,after).
+A2(comes,comes).
+A2(comes,null).
+A2(null,one).
+A2(null,two).
+A2(null,three).
+A2(null,four).
+A2(null,five).
+A2(null,six).
+A2(null,seven).
+A2(null,eight).
+A2(null,nine).
+A2(null,ten).
+A2(null,eleven).
+A2(null,twelve).
+A2(null,thirteen).
+A2(null,fourteen).
+A2(null,fifteen).
+A2(null,sixteen).
+A2(null,seventeen).
+A2(null,eighteen).
+A2(null,nineteen).
+A2(null,twenty).
+A2(null,thirty).
+A2(null,forty).
+A2(null,fifty).
+A2(null,sixty).
+A2(null,seventy).
+A2(null,eighty).
+A2(null,ninety).
+A2(null,after).
+A2(null,comes).
+A2(null,null).
+A3(one,one).
+A3(one,two).
+A3(one,three).
+A3(one,four).
+A3(one,five).
+A3(one,six).
+A3(one,seven).
+A3(one,eight).
+A3(one,nine).
+A3(one,ten).
+A3(one,eleven).
+A3(one,twelve).
+A3(one,thirteen).
+A3(one,fourteen).
+A3(one,fifteen).
+A3(one,sixteen).
+A3(one,seventeen).
+A3(one,eighteen).
+A3(one,nineteen).
+A3(one,twenty).
+A3(one,thirty).
+A3(one,forty).
+A3(one,fifty).
+A3(one,sixty).
+A3(one,seventy).
+A3(one,eighty).
+A3(one,ninety).
+A3(one,after).
+A3(one,comes).
+A3(one,null).
+A3(two,one).
+A3(two,two).
+A3(two,three).
+A3(two,four).
+A3(two,five).
+A3(two,six).
+A3(two,seven).
+A3(two,eight).
+A3(two,nine).
+A3(two,ten).
+A3(two,eleven).
+A3(two,twelve).
+A3(two,thirteen).
+A3(two,fourteen).
+A3(two,fifteen).
+A3(two,sixteen).
+A3(two,seventeen).
+A3(two,eighteen).
+A3(two,nineteen).
+A3(two,twenty).
+A3(two,thirty).
+A3(two,forty).
+A3(two,fifty).
+A3(two,sixty).
+A3(two,seventy).
+A3(two,eighty).
+A3(two,ninety).
+A3(two,after).
+A3(two,comes).
+A3(two,null).
+A3(three,one).
+A3(three,two).
+A3(three,three).
+A3(three,four).
+A3(three,five).
+A3(three,six).
+A3(three,seven).
+A3(three,eight).
+A3(three,nine).
+A3(three,ten).
+A3(three,eleven).
+A3(three,twelve).
+A3(three,thirteen).
+A3(three,fourteen).
+A3(three,fifteen).
+A3(three,sixteen).
+A3(three,seventeen).
+A3(three,eighteen).
+A3(three,nineteen).
+A3(three,twenty).
+A3(three,thirty).
+A3(three,forty).
+A3(three,fifty).
+A3(three,sixty).
+A3(three,seventy).
+A3(three,eighty).
+A3(three,ninety).
+A3(three,after).
+A3(three,comes).
+A3(three,null).
+A3(four,one).
+A3(four,two).
+A3(four,three).
+A3(four,four).
+A3(four,five).
+A3(four,six).
+A3(four,seven).
+A3(four,eight).
+A3(four,nine).
+A3(four,ten).
+A3(four,eleven).
+A3(four,twelve).
+A3(four,thirteen).
+A3(four,fourteen).
+A3(four,fifteen).
+A3(four,sixteen).
+A3(four,seventeen).
+A3(four,eighteen).
+A3(four,nineteen).
+A3(four,twenty).
+A3(four,thirty).
+A3(four,forty).
+A3(four,fifty).
+A3(four,sixty).
+A3(four,seventy).
+A3(four,eighty).
+A3(four,ninety).
+A3(four,after).
+A3(four,comes).
+A3(four,null).
+A3(five,one).
+A3(five,two).
+A3(five,three).
+A3(five,four).
+A3(five,five).
+A3(five,six).
+A3(five,seven).
+A3(five,eight).
+A3(five,nine).
+A3(five,ten).
+A3(five,eleven).
+A3(five,twelve).
+A3(five,thirteen).
+A3(five,fourteen).
+A3(five,fifteen).
+A3(five,sixteen).
+A3(five,seventeen).
+A3(five,eighteen).
+A3(five,nineteen).
+A3(five,twenty).
+A3(five,thirty).
+A3(five,forty).
+A3(five,fifty).
+A3(five,sixty).
+A3(five,seventy).
+A3(five,eighty).
+A3(five,ninety).
+A3(five,after).
+A3(five,comes).
+A3(five,null).
+A3(six,one).
+A3(six,two).
+A3(six,three).
+A3(six,four).
+A3(six,five).
+A3(six,six).
+A3(six,seven).
+A3(six,eight).
+A3(six,nine).
+A3(six,ten).
+A3(six,eleven).
+A3(six,twelve).
+A3(six,thirteen).
+A3(six,fourteen).
+A3(six,fifteen).
+A3(six,sixteen).
+A3(six,seventeen).
+A3(six,eighteen).
+A3(six,nineteen).
+A3(six,twenty).
+A3(six,thirty).
+A3(six,forty).
+A3(six,fifty).
+A3(six,sixty).
+A3(six,seventy).
+A3(six,eighty).
+A3(six,ninety).
+A3(six,after).
+A3(six,comes).
+A3(six,null).
+A3(seven,one).
+A3(seven,two).
+A3(seven,three).
+A3(seven,four).
+A3(seven,five).
+A3(seven,six).
+A3(seven,seven).
+A3(seven,eight).
+A3(seven,nine).
+A3(seven,ten).
+A3(seven,eleven).
+A3(seven,twelve).
+A3(seven,thirteen).
+A3(seven,fourteen).
+A3(seven,fifteen).
+A3(seven,sixteen).
+A3(seven,seventeen).
+A3(seven,eighteen).
+A3(seven,nineteen).
+A3(seven,twenty).
+A3(seven,thirty).
+A3(seven,forty).
+A3(seven,fifty).
+A3(seven,sixty).
+A3(seven,seventy).
+A3(seven,eighty).
+A3(seven,ninety).
+A3(seven,after).
+A3(seven,comes).
+A3(seven,null).
+A3(eight,one).
+A3(eight,two).
+A3(eight,three).
+A3(eight,four).
+A3(eight,five).
+A3(eight,six).
+A3(eight,seven).
+A3(eight,eight).
+A3(eight,nine).
+A3(eight,ten).
+A3(eight,eleven).
+A3(eight,twelve).
+A3(eight,thirteen).
+A3(eight,fourteen).
+A3(eight,fifteen).
+A3(eight,sixteen).
+A3(eight,seventeen).
+A3(eight,eighteen).
+A3(eight,nineteen).
+A3(eight,twenty).
+A3(eight,thirty).
+A3(eight,forty).
+A3(eight,fifty).
+A3(eight,sixty).
+A3(eight,seventy).
+A3(eight,eighty).
+A3(eight,ninety).
+A3(eight,after).
+A3(eight,comes).
+A3(eight,null).
+A3(nine,one).
+A3(nine,two).
+A3(nine,three).
+A3(nine,four).
+A3(nine,five).
+A3(nine,six).
+A3(nine,seven).
+A3(nine,eight).
+A3(nine,nine).
+A3(nine,ten).
+A3(nine,eleven).
+A3(nine,twelve).
+A3(nine,thirteen).
+A3(nine,fourteen).
+A3(nine,fifteen).
+A3(nine,sixteen).
+A3(nine,seventeen).
+A3(nine,eighteen).
+A3(nine,nineteen).
+A3(nine,twenty).
+A3(nine,thirty).
+A3(nine,forty).
+A3(nine,fifty).
+A3(nine,sixty).
+A3(nine,seventy).
+A3(nine,eighty).
+A3(nine,ninety).
+A3(nine,after).
+A3(nine,comes).
+A3(nine,null).
+A3(ten,one).
+A3(ten,two).
+A3(ten,three).
+A3(ten,four).
+A3(ten,five).
+A3(ten,six).
+A3(ten,seven).
+A3(ten,eight).
+A3(ten,nine).
+A3(ten,ten).
+A3(ten,eleven).
+A3(ten,twelve).
+A3(ten,thirteen).
+A3(ten,fourteen).
+A3(ten,fifteen).
+A3(ten,sixteen).
+A3(ten,seventeen).
+A3(ten,eighteen).
+A3(ten,nineteen).
+A3(ten,twenty).
+A3(ten,thirty).
+A3(ten,forty).
+A3(ten,fifty).
+A3(ten,sixty).
+A3(ten,seventy).
+A3(ten,eighty).
+A3(ten,ninety).
+A3(ten,after).
+A3(ten,comes).
+A3(ten,null).
+A3(eleven,one).
+A3(eleven,two).
+A3(eleven,three).
+A3(eleven,four).
+A3(eleven,five).
+A3(eleven,six).
+A3(eleven,seven).
+A3(eleven,eight).
+A3(eleven,nine).
+A3(eleven,ten).
+A3(eleven,eleven).
+A3(eleven,twelve).
+A3(eleven,thirteen).
+A3(eleven,fourteen).
+A3(eleven,fifteen).
+A3(eleven,sixteen).
+A3(eleven,seventeen).
+A3(eleven,eighteen).
+A3(eleven,nineteen).
+A3(eleven,twenty).
+A3(eleven,thirty).
+A3(eleven,forty).
+A3(eleven,fifty).
+A3(eleven,sixty).
+A3(eleven,seventy).
+A3(eleven,eighty).
+A3(eleven,ninety).
+A3(eleven,after).
+A3(eleven,comes).
+A3(eleven,null).
+A3(twelve,one).
+A3(twelve,two).
+A3(twelve,three).
+A3(twelve,four).
+A3(twelve,five).
+A3(twelve,six).
+A3(twelve,seven).
+A3(twelve,eight).
+A3(twelve,nine).
+A3(twelve,ten).
+A3(twelve,eleven).
+A3(twelve,twelve).
+A3(twelve,thirteen).
+A3(twelve,fourteen).
+A3(twelve,fifteen).
+A3(twelve,sixteen).
+A3(twelve,seventeen).
+A3(twelve,eighteen).
+A3(twelve,nineteen).
+A3(twelve,twenty).
+A3(twelve,thirty).
+A3(twelve,forty).
+A3(twelve,fifty).
+A3(twelve,sixty).
+A3(twelve,seventy).
+A3(twelve,eighty).
+A3(twelve,ninety).
+A3(twelve,after).
+A3(twelve,comes).
+A3(twelve,null).
+A3(thirteen,one).
+A3(thirteen,two).
+A3(thirteen,three).
+A3(thirteen,four).
+A3(thirteen,five).
+A3(thirteen,six).
+A3(thirteen,seven).
+A3(thirteen,eight).
+A3(thirteen,nine).
+A3(thirteen,ten).
+A3(thirteen,eleven).
+A3(thirteen,twelve).
+A3(thirteen,thirteen).
+A3(thirteen,fourteen).
+A3(thirteen,fifteen).
+A3(thirteen,sixteen).
+A3(thirteen,seventeen).
+A3(thirteen,eighteen).
+A3(thirteen,nineteen).
+A3(thirteen,twenty).
+A3(thirteen,thirty).
+A3(thirteen,forty).
+A3(thirteen,fifty).
+A3(thirteen,sixty).
+A3(thirteen,seventy).
+A3(thirteen,eighty).
+A3(thirteen,ninety).
+A3(thirteen,after).
+A3(thirteen,comes).
+A3(thirteen,null).
+A3(fourteen,one).
+A3(fourteen,two).
+A3(fourteen,three).
+A3(fourteen,four).
+A3(fourteen,five).
+A3(fourteen,six).
+A3(fourteen,seven).
+A3(fourteen,eight).
+A3(fourteen,nine).
+A3(fourteen,ten).
+A3(fourteen,eleven).
+A3(fourteen,twelve).
+A3(fourteen,thirteen).
+A3(fourteen,fourteen).
+A3(fourteen,fifteen).
+A3(fourteen,sixteen).
+A3(fourteen,seventeen).
+A3(fourteen,eighteen).
+A3(fourteen,nineteen).
+A3(fourteen,twenty).
+A3(fourteen,thirty).
+A3(fourteen,forty).
+A3(fourteen,fifty).
+A3(fourteen,sixty).
+A3(fourteen,seventy).
+A3(fourteen,eighty).
+A3(fourteen,ninety).
+A3(fourteen,after).
+A3(fourteen,comes).
+A3(fourteen,null).
+A3(fifteen,one).
+A3(fifteen,two).
+A3(fifteen,three).
+A3(fifteen,four).
+A3(fifteen,five).
+A3(fifteen,six).
+A3(fifteen,seven).
+A3(fifteen,eight).
+A3(fifteen,nine).
+A3(fifteen,ten).
+A3(fifteen,eleven).
+A3(fifteen,twelve).
+A3(fifteen,thirteen).
+A3(fifteen,fourteen).
+A3(fifteen,fifteen).
+A3(fifteen,sixteen).
+A3(fifteen,seventeen).
+A3(fifteen,eighteen).
+A3(fifteen,nineteen).
+A3(fifteen,twenty).
+A3(fifteen,thirty).
+A3(fifteen,forty).
+A3(fifteen,fifty).
+A3(fifteen,sixty).
+A3(fifteen,seventy).
+A3(fifteen,eighty).
+A3(fifteen,ninety).
+A3(fifteen,after).
+A3(fifteen,comes).
+A3(fifteen,null).
+A3(sixteen,one).
+A3(sixteen,two).
+A3(sixteen,three).
+A3(sixteen,four).
+A3(sixteen,five).
+A3(sixteen,six).
+A3(sixteen,seven).
+A3(sixteen,eight).
+A3(sixteen,nine).
+A3(sixteen,ten).
+A3(sixteen,eleven).
+A3(sixteen,twelve).
+A3(sixteen,thirteen).
+A3(sixteen,fourteen).
+A3(sixteen,fifteen).
+A3(sixteen,sixteen).
+A3(sixteen,seventeen).
+A3(sixteen,eighteen).
+A3(sixteen,nineteen).
+A3(sixteen,twenty).
+A3(sixteen,thirty).
+A3(sixteen,forty).
+A3(sixteen,fifty).
+A3(sixteen,sixty).
+A3(sixteen,seventy).
+A3(sixteen,eighty).
+A3(sixteen,ninety).
+A3(sixteen,after).
+A3(sixteen,comes).
+A3(sixteen,null).
+A3(seventeen,one).
+A3(seventeen,two).
+A3(seventeen,three).
+A3(seventeen,four).
+A3(seventeen,five).
+A3(seventeen,six).
+A3(seventeen,seven).
+A3(seventeen,eight).
+A3(seventeen,nine).
+A3(seventeen,ten).
+A3(seventeen,eleven).
+A3(seventeen,twelve).
+A3(seventeen,thirteen).
+A3(seventeen,fourteen).
+A3(seventeen,fifteen).
+A3(seventeen,sixteen).
+A3(seventeen,seventeen).
+A3(seventeen,eighteen).
+A3(seventeen,nineteen).
+A3(seventeen,twenty).
+A3(seventeen,thirty).
+A3(seventeen,forty).
+A3(seventeen,fifty).
+A3(seventeen,sixty).
+A3(seventeen,seventy).
+A3(seventeen,eighty).
+A3(seventeen,ninety).
+A3(seventeen,after).
+A3(seventeen,comes).
+A3(seventeen,null).
+A3(eighteen,one).
+A3(eighteen,two).
+A3(eighteen,three).
+A3(eighteen,four).
+A3(eighteen,five).
+A3(eighteen,six).
+A3(eighteen,seven).
+A3(eighteen,eight).
+A3(eighteen,nine).
+A3(eighteen,ten).
+A3(eighteen,eleven).
+A3(eighteen,twelve).
+A3(eighteen,thirteen).
+A3(eighteen,fourteen).
+A3(eighteen,fifteen).
+A3(eighteen,sixteen).
+A3(eighteen,seventeen).
+A3(eighteen,eighteen).
+A3(eighteen,nineteen).
+A3(eighteen,twenty).
+A3(eighteen,thirty).
+A3(eighteen,forty).
+A3(eighteen,fifty).
+A3(eighteen,sixty).
+A3(eighteen,seventy).
+A3(eighteen,eighty).
+A3(eighteen,ninety).
+A3(eighteen,after).
+A3(eighteen,comes).
+A3(eighteen,null).
+A3(nineteen,one).
+A3(nineteen,two).
+A3(nineteen,three).
+A3(nineteen,four).
+A3(nineteen,five).
+A3(nineteen,six).
+A3(nineteen,seven).
+A3(nineteen,eight).
+A3(nineteen,nine).
+A3(nineteen,ten).
+A3(nineteen,eleven).
+A3(nineteen,twelve).
+A3(nineteen,thirteen).
+A3(nineteen,fourteen).
+A3(nineteen,fifteen).
+A3(nineteen,sixteen).
+A3(nineteen,seventeen).
+A3(nineteen,eighteen).
+A3(nineteen,nineteen).
+A3(nineteen,twenty).
+A3(nineteen,thirty).
+A3(nineteen,forty).
+A3(nineteen,fifty).
+A3(nineteen,sixty).
+A3(nineteen,seventy).
+A3(nineteen,eighty).
+A3(nineteen,ninety).
+A3(nineteen,after).
+A3(nineteen,comes).
+A3(nineteen,null).
+A3(twenty,one).
+A3(twenty,two).
+A3(twenty,three).
+A3(twenty,four).
+A3(twenty,five).
+A3(twenty,six).
+A3(twenty,seven).
+A3(twenty,eight).
+A3(twenty,nine).
+A3(twenty,ten).
+A3(twenty,eleven).
+A3(twenty,twelve).
+A3(twenty,thirteen).
+A3(twenty,fourteen).
+A3(twenty,fifteen).
+A3(twenty,sixteen).
+A3(twenty,seventeen).
+A3(twenty,eighteen).
+A3(twenty,nineteen).
+A3(twenty,twenty).
+A3(twenty,thirty).
+A3(twenty,forty).
+A3(twenty,fifty).
+A3(twenty,sixty).
+A3(twenty,seventy).
+A3(twenty,eighty).
+A3(twenty,ninety).
+A3(twenty,after).
+A3(twenty,comes).
+A3(twenty,null).
+A3(thirty,one).
+A3(thirty,two).
+A3(thirty,three).
+A3(thirty,four).
+A3(thirty,five).
+A3(thirty,six).
+A3(thirty,seven).
+A3(thirty,eight).
+A3(thirty,nine).
+A3(thirty,ten).
+A3(thirty,eleven).
+A3(thirty,twelve).
+A3(thirty,thirteen).
+A3(thirty,fourteen).
+A3(thirty,fifteen).
+A3(thirty,sixteen).
+A3(thirty,seventeen).
+A3(thirty,eighteen).
+A3(thirty,nineteen).
+A3(thirty,twenty).
+A3(thirty,thirty).
+A3(thirty,forty).
+A3(thirty,fifty).
+A3(thirty,sixty).
+A3(thirty,seventy).
+A3(thirty,eighty).
+A3(thirty,ninety).
+A3(thirty,after).
+A3(thirty,comes).
+A3(thirty,null).
+A3(forty,one).
+A3(forty,two).
+A3(forty,three).
+A3(forty,four).
+A3(forty,five).
+A3(forty,six).
+A3(forty,seven).
+A3(forty,eight).
+A3(forty,nine).
+A3(forty,ten).
+A3(forty,eleven).
+A3(forty,twelve).
+A3(forty,thirteen).
+A3(forty,fourteen).
+A3(forty,fifteen).
+A3(forty,sixteen).
+A3(forty,seventeen).
+A3(forty,eighteen).
+A3(forty,nineteen).
+A3(forty,twenty).
+A3(forty,thirty).
+A3(forty,forty).
+A3(forty,fifty).
+A3(forty,sixty).
+A3(forty,seventy).
+A3(forty,eighty).
+A3(forty,ninety).
+A3(forty,after).
+A3(forty,comes).
+A3(forty,null).
+A3(fifty,one).
+A3(fifty,two).
+A3(fifty,three).
+A3(fifty,four).
+A3(fifty,five).
+A3(fifty,six).
+A3(fifty,seven).
+A3(fifty,eight).
+A3(fifty,nine).
+A3(fifty,ten).
+A3(fifty,eleven).
+A3(fifty,twelve).
+A3(fifty,thirteen).
+A3(fifty,fourteen).
+A3(fifty,fifteen).
+A3(fifty,sixteen).
+A3(fifty,seventeen).
+A3(fifty,eighteen).
+A3(fifty,nineteen).
+A3(fifty,twenty).
+A3(fifty,thirty).
+A3(fifty,forty).
+A3(fifty,fifty).
+A3(fifty,sixty).
+A3(fifty,seventy).
+A3(fifty,eighty).
+A3(fifty,ninety).
+A3(fifty,after).
+A3(fifty,comes).
+A3(fifty,null).
+A3(sixty,one).
+A3(sixty,two).
+A3(sixty,three).
+A3(sixty,four).
+A3(sixty,five).
+A3(sixty,six).
+A3(sixty,seven).
+A3(sixty,eight).
+A3(sixty,nine).
+A3(sixty,ten).
+A3(sixty,eleven).
+A3(sixty,twelve).
+A3(sixty,thirteen).
+A3(sixty,fourteen).
+A3(sixty,fifteen).
+A3(sixty,sixteen).
+A3(sixty,seventeen).
+A3(sixty,eighteen).
+A3(sixty,nineteen).
+A3(sixty,twenty).
+A3(sixty,thirty).
+A3(sixty,forty).
+A3(sixty,fifty).
+A3(sixty,sixty).
+A3(sixty,seventy).
+A3(sixty,eighty).
+A3(sixty,ninety).
+A3(sixty,after).
+A3(sixty,comes).
+A3(sixty,null).
+A3(seventy,one).
+A3(seventy,two).
+A3(seventy,three).
+A3(seventy,four).
+A3(seventy,five).
+A3(seventy,six).
+A3(seventy,seven).
+A3(seventy,eight).
+A3(seventy,nine).
+A3(seventy,ten).
+A3(seventy,eleven).
+A3(seventy,twelve).
+A3(seventy,thirteen).
+A3(seventy,fourteen).
+A3(seventy,fifteen).
+A3(seventy,sixteen).
+A3(seventy,seventeen).
+A3(seventy,eighteen).
+A3(seventy,nineteen).
+A3(seventy,twenty).
+A3(seventy,thirty).
+A3(seventy,forty).
+A3(seventy,fifty).
+A3(seventy,sixty).
+A3(seventy,seventy).
+A3(seventy,eighty).
+A3(seventy,ninety).
+A3(seventy,after).
+A3(seventy,comes).
+A3(seventy,null).
+A3(eighty,one).
+A3(eighty,two).
+A3(eighty,three).
+A3(eighty,four).
+A3(eighty,five).
+A3(eighty,six).
+A3(eighty,seven).
+A3(eighty,eight).
+A3(eighty,nine).
+A3(eighty,ten).
+A3(eighty,eleven).
+A3(eighty,twelve).
+A3(eighty,thirteen).
+A3(eighty,fourteen).
+A3(eighty,fifteen).
+A3(eighty,sixteen).
+A3(eighty,seventeen).
+A3(eighty,eighteen).
+A3(eighty,nineteen).
+A3(eighty,twenty).
+A3(eighty,thirty).
+A3(eighty,forty).
+A3(eighty,fifty).
+A3(eighty,sixty).
+A3(eighty,seventy).
+A3(eighty,eighty).
+A3(eighty,ninety).
+A3(eighty,after).
+A3(eighty,comes).
+A3(eighty,null).
+A3(ninety,one).
+A3(ninety,two).
+A3(ninety,three).
+A3(ninety,four).
+A3(ninety,five).
+A3(ninety,six).
+A3(ninety,seven).
+A3(ninety,eight).
+A3(ninety,nine).
+A3(ninety,ten).
+A3(ninety,eleven).
+A3(ninety,twelve).
+A3(ninety,thirteen).
+A3(ninety,fourteen).
+A3(ninety,fifteen).
+A3(ninety,sixteen).
+A3(ninety,seventeen).
+A3(ninety,eighteen).
+A3(ninety,nineteen).
+A3(ninety,twenty).
+A3(ninety,thirty).
+A3(ninety,forty).
+A3(ninety,fifty).
+A3(ninety,sixty).
+A3(ninety,seventy).
+A3(ninety,eighty).
+A3(ninety,ninety).
+A3(ninety,after).
+A3(ninety,comes).
+A3(ninety,null).
+A3(after,one).
+A3(after,two).
+A3(after,three).
+A3(after,four).
+A3(after,five).
+A3(after,six).
+A3(after,seven).
+A3(after,eight).
+A3(after,nine).
+A3(after,ten).
+A3(after,eleven).
+A3(after,twelve).
+A3(after,thirteen).
+A3(after,fourteen).
+A3(after,fifteen).
+A3(after,sixteen).
+A3(after,seventeen).
+A3(after,eighteen).
+A3(after,nineteen).
+A3(after,twenty).
+A3(after,thirty).
+A3(after,forty).
+A3(after,fifty).
+A3(after,sixty).
+A3(after,seventy).
+A3(after,eighty).
+A3(after,ninety).
+A3(after,after).
+A3(after,comes).
+A3(after,null).
+A3(comes,one).
+A3(comes,two).
+A3(comes,three).
+A3(comes,four).
+A3(comes,five).
+A3(comes,six).
+A3(comes,seven).
+A3(comes,eight).
+A3(comes,nine).
+A3(comes,ten).
+A3(comes,eleven).
+A3(comes,twelve).
+A3(comes,thirteen).
+A3(comes,fourteen).
+A3(comes,fifteen).
+A3(comes,sixteen).
+A3(comes,seventeen).
+A3(comes,eighteen).
+A3(comes,nineteen).
+A3(comes,twenty).
+A3(comes,thirty).
+A3(comes,forty).
+A3(comes,fifty).
+A3(comes,sixty).
+A3(comes,seventy).
+A3(comes,eighty).
+A3(comes,ninety).
+A3(comes,after).
+A3(comes,comes).
+A3(comes,null).
+A3(null,one).
+A3(null,two).
+A3(null,three).
+A3(null,four).
+A3(null,five).
+A3(null,six).
+A3(null,seven).
+A3(null,eight).
+A3(null,nine).
+A3(null,ten).
+A3(null,eleven).
+A3(null,twelve).
+A3(null,thirteen).
+A3(null,fourteen).
+A3(null,fifteen).
+A3(null,sixteen).
+A3(null,seventeen).
+A3(null,eighteen).
+A3(null,nineteen).
+A3(null,twenty).
+A3(null,thirty).
+A3(null,forty).
+A3(null,fifty).
+A3(null,sixty).
+A3(null,seventy).
+A3(null,eighty).
+A3(null,ninety).
+A3(null,after).
+A3(null,comes).
+A3(null,null).
+Number(X) <-- A1(X,X).
+Next(X,Y) <-- A2(X,Y).
+NextSentence(X) <-- A2(X,Y).

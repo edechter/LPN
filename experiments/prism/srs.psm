@@ -1,0 +1,32 @@
+
+
+%% load and compile train and testing examples
+:- cl('./trainTestSentencesPlusDecades_50').
+
+%% load rewrite system
+:- prism('beforeAndAfter_5.sys.psm').
+
+:- set_prism_flag(max_iterate, 50).
+:- set_prism_flag(restart,1). 
+:- set_prism_flag(learn_mode,vb).
+:- set_prism_flag(viterbi_mode,vb). 
+:- set_prism_flag(default_sw_a,uniform).
+:- set_prism_flag(log_scale,on).
+
+
+main :- 
+    findall(count(X, 50), train(X), Gs),
+    learn(Gs), 
+    save_sw(switches_sw_5), 
+    save_sw_a(switches_a_5).
+
+
+
+
+show_num(X) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Number_1'-[X])).
+
+show_next(X,Y) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Next_2'-[X,Y])).
+
+srs(P-IN) :- reduce(P-IN,V), msw(P,V).
+
+

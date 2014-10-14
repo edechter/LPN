@@ -1,0 +1,1476 @@
+A1p1(X Y, U V) <-- A0p1(X, Y), A0p1(U, V).
+A1p1(X Y, U V) <-- A0p1(X, U), A0p1(Y, V).
+A1p1(X Y, U V) <-- A0p1(X, V), A0p1(Y, U).
+A1p1(X Y, U V) <-- A0p2(X, Y), A0p1(U, V).
+A1p1(X Y, U V) <-- A0p2(X, U), A0p1(Y, V).
+A1p1(X Y, U V) <-- A0p2(X, V), A0p1(Y, U).
+A1p1(X Y, U V) <-- A0p3(X, Y), A0p1(U, V).
+A1p1(X Y, U V) <-- A0p3(X, U), A0p1(Y, V).
+A1p1(X Y, U V) <-- A0p3(X, V), A0p1(Y, U).
+A1p1(X Y, U V) <-- A0p4(X, Y), A0p1(U, V).
+A1p1(X Y, U V) <-- A0p4(X, U), A0p1(Y, V).
+A1p1(X Y, U V) <-- A0p4(X, V), A0p1(Y, U).
+A1p1(X Y, U V) <-- A0p5(X, Y), A0p1(U, V).
+A1p1(X Y, U V) <-- A0p5(X, U), A0p1(Y, V).
+A1p1(X Y, U V) <-- A0p5(X, V), A0p1(Y, U).
+A1p1(X Y, U V) <-- A0p1(X, Y), A0p2(U, V).
+A1p1(X Y, U V) <-- A0p1(X, U), A0p2(Y, V).
+A1p1(X Y, U V) <-- A0p1(X, V), A0p2(Y, U).
+A1p1(X Y, U V) <-- A0p2(X, Y), A0p2(U, V).
+A1p1(X Y, U V) <-- A0p2(X, U), A0p2(Y, V).
+A1p1(X Y, U V) <-- A0p2(X, V), A0p2(Y, U).
+A1p1(X Y, U V) <-- A0p3(X, Y), A0p2(U, V).
+A1p1(X Y, U V) <-- A0p3(X, U), A0p2(Y, V).
+A1p1(X Y, U V) <-- A0p3(X, V), A0p2(Y, U).
+A1p1(X Y, U V) <-- A0p4(X, Y), A0p2(U, V).
+A1p1(X Y, U V) <-- A0p4(X, U), A0p2(Y, V).
+A1p1(X Y, U V) <-- A0p4(X, V), A0p2(Y, U).
+A1p1(X Y, U V) <-- A0p5(X, Y), A0p2(U, V).
+A1p1(X Y, U V) <-- A0p5(X, U), A0p2(Y, V).
+A1p1(X Y, U V) <-- A0p5(X, V), A0p2(Y, U).
+A1p1(X Y, U V) <-- A0p1(X, Y), A0p3(U, V).
+A1p1(X Y, U V) <-- A0p1(X, U), A0p3(Y, V).
+A1p1(X Y, U V) <-- A0p1(X, V), A0p3(Y, U).
+A1p1(X Y, U V) <-- A0p2(X, Y), A0p3(U, V).
+A1p1(X Y, U V) <-- A0p2(X, U), A0p3(Y, V).
+A1p1(X Y, U V) <-- A0p2(X, V), A0p3(Y, U).
+A1p1(X Y, U V) <-- A0p3(X, Y), A0p3(U, V).
+A1p1(X Y, U V) <-- A0p3(X, U), A0p3(Y, V).
+A1p1(X Y, U V) <-- A0p3(X, V), A0p3(Y, U).
+A1p1(X Y, U V) <-- A0p4(X, Y), A0p3(U, V).
+A1p1(X Y, U V) <-- A0p4(X, U), A0p3(Y, V).
+A1p1(X Y, U V) <-- A0p4(X, V), A0p3(Y, U).
+A1p1(X Y, U V) <-- A0p5(X, Y), A0p3(U, V).
+A1p1(X Y, U V) <-- A0p5(X, U), A0p3(Y, V).
+A1p1(X Y, U V) <-- A0p5(X, V), A0p3(Y, U).
+A1p1(X Y, U V) <-- A0p1(X, Y), A0p4(U, V).
+A1p1(X Y, U V) <-- A0p1(X, U), A0p4(Y, V).
+A1p1(X Y, U V) <-- A0p1(X, V), A0p4(Y, U).
+A1p1(X Y, U V) <-- A0p2(X, Y), A0p4(U, V).
+A1p1(X Y, U V) <-- A0p2(X, U), A0p4(Y, V).
+A1p1(X Y, U V) <-- A0p2(X, V), A0p4(Y, U).
+A1p1(X Y, U V) <-- A0p3(X, Y), A0p4(U, V).
+A1p1(X Y, U V) <-- A0p3(X, U), A0p4(Y, V).
+A1p1(X Y, U V) <-- A0p3(X, V), A0p4(Y, U).
+A1p1(X Y, U V) <-- A0p4(X, Y), A0p4(U, V).
+A1p1(X Y, U V) <-- A0p4(X, U), A0p4(Y, V).
+A1p1(X Y, U V) <-- A0p4(X, V), A0p4(Y, U).
+A1p1(X Y, U V) <-- A0p5(X, Y), A0p4(U, V).
+A1p1(X Y, U V) <-- A0p5(X, U), A0p4(Y, V).
+A1p1(X Y, U V) <-- A0p5(X, V), A0p4(Y, U).
+A1p1(X Y, U V) <-- A0p1(X, Y), A0p5(U, V).
+A1p1(X Y, U V) <-- A0p1(X, U), A0p5(Y, V).
+A1p1(X Y, U V) <-- A0p1(X, V), A0p5(Y, U).
+A1p1(X Y, U V) <-- A0p2(X, Y), A0p5(U, V).
+A1p1(X Y, U V) <-- A0p2(X, U), A0p5(Y, V).
+A1p1(X Y, U V) <-- A0p2(X, V), A0p5(Y, U).
+A1p1(X Y, U V) <-- A0p3(X, Y), A0p5(U, V).
+A1p1(X Y, U V) <-- A0p3(X, U), A0p5(Y, V).
+A1p1(X Y, U V) <-- A0p3(X, V), A0p5(Y, U).
+A1p1(X Y, U V) <-- A0p4(X, Y), A0p5(U, V).
+A1p1(X Y, U V) <-- A0p4(X, U), A0p5(Y, V).
+A1p1(X Y, U V) <-- A0p4(X, V), A0p5(Y, U).
+A1p1(X Y, U V) <-- A0p5(X, Y), A0p5(U, V).
+A1p1(X Y, U V) <-- A0p5(X, U), A0p5(Y, V).
+A1p1(X Y, U V) <-- A0p5(X, V), A0p5(Y, U).
+A1p2(X Y, U V) <-- A0p1(X, Y), A0p1(U, V).
+A1p2(X Y, U V) <-- A0p1(X, U), A0p1(Y, V).
+A1p2(X Y, U V) <-- A0p1(X, V), A0p1(Y, U).
+A1p2(X Y, U V) <-- A0p2(X, Y), A0p1(U, V).
+A1p2(X Y, U V) <-- A0p2(X, U), A0p1(Y, V).
+A1p2(X Y, U V) <-- A0p2(X, V), A0p1(Y, U).
+A1p2(X Y, U V) <-- A0p3(X, Y), A0p1(U, V).
+A1p2(X Y, U V) <-- A0p3(X, U), A0p1(Y, V).
+A1p2(X Y, U V) <-- A0p3(X, V), A0p1(Y, U).
+A1p2(X Y, U V) <-- A0p4(X, Y), A0p1(U, V).
+A1p2(X Y, U V) <-- A0p4(X, U), A0p1(Y, V).
+A1p2(X Y, U V) <-- A0p4(X, V), A0p1(Y, U).
+A1p2(X Y, U V) <-- A0p5(X, Y), A0p1(U, V).
+A1p2(X Y, U V) <-- A0p5(X, U), A0p1(Y, V).
+A1p2(X Y, U V) <-- A0p5(X, V), A0p1(Y, U).
+A1p2(X Y, U V) <-- A0p1(X, Y), A0p2(U, V).
+A1p2(X Y, U V) <-- A0p1(X, U), A0p2(Y, V).
+A1p2(X Y, U V) <-- A0p1(X, V), A0p2(Y, U).
+A1p2(X Y, U V) <-- A0p2(X, Y), A0p2(U, V).
+A1p2(X Y, U V) <-- A0p2(X, U), A0p2(Y, V).
+A1p2(X Y, U V) <-- A0p2(X, V), A0p2(Y, U).
+A1p2(X Y, U V) <-- A0p3(X, Y), A0p2(U, V).
+A1p2(X Y, U V) <-- A0p3(X, U), A0p2(Y, V).
+A1p2(X Y, U V) <-- A0p3(X, V), A0p2(Y, U).
+A1p2(X Y, U V) <-- A0p4(X, Y), A0p2(U, V).
+A1p2(X Y, U V) <-- A0p4(X, U), A0p2(Y, V).
+A1p2(X Y, U V) <-- A0p4(X, V), A0p2(Y, U).
+A1p2(X Y, U V) <-- A0p5(X, Y), A0p2(U, V).
+A1p2(X Y, U V) <-- A0p5(X, U), A0p2(Y, V).
+A1p2(X Y, U V) <-- A0p5(X, V), A0p2(Y, U).
+A1p2(X Y, U V) <-- A0p1(X, Y), A0p3(U, V).
+A1p2(X Y, U V) <-- A0p1(X, U), A0p3(Y, V).
+A1p2(X Y, U V) <-- A0p1(X, V), A0p3(Y, U).
+A1p2(X Y, U V) <-- A0p2(X, Y), A0p3(U, V).
+A1p2(X Y, U V) <-- A0p2(X, U), A0p3(Y, V).
+A1p2(X Y, U V) <-- A0p2(X, V), A0p3(Y, U).
+A1p2(X Y, U V) <-- A0p3(X, Y), A0p3(U, V).
+A1p2(X Y, U V) <-- A0p3(X, U), A0p3(Y, V).
+A1p2(X Y, U V) <-- A0p3(X, V), A0p3(Y, U).
+A1p2(X Y, U V) <-- A0p4(X, Y), A0p3(U, V).
+A1p2(X Y, U V) <-- A0p4(X, U), A0p3(Y, V).
+A1p2(X Y, U V) <-- A0p4(X, V), A0p3(Y, U).
+A1p2(X Y, U V) <-- A0p5(X, Y), A0p3(U, V).
+A1p2(X Y, U V) <-- A0p5(X, U), A0p3(Y, V).
+A1p2(X Y, U V) <-- A0p5(X, V), A0p3(Y, U).
+A1p2(X Y, U V) <-- A0p1(X, Y), A0p4(U, V).
+A1p2(X Y, U V) <-- A0p1(X, U), A0p4(Y, V).
+A1p2(X Y, U V) <-- A0p1(X, V), A0p4(Y, U).
+A1p2(X Y, U V) <-- A0p2(X, Y), A0p4(U, V).
+A1p2(X Y, U V) <-- A0p2(X, U), A0p4(Y, V).
+A1p2(X Y, U V) <-- A0p2(X, V), A0p4(Y, U).
+A1p2(X Y, U V) <-- A0p3(X, Y), A0p4(U, V).
+A1p2(X Y, U V) <-- A0p3(X, U), A0p4(Y, V).
+A1p2(X Y, U V) <-- A0p3(X, V), A0p4(Y, U).
+A1p2(X Y, U V) <-- A0p4(X, Y), A0p4(U, V).
+A1p2(X Y, U V) <-- A0p4(X, U), A0p4(Y, V).
+A1p2(X Y, U V) <-- A0p4(X, V), A0p4(Y, U).
+A1p2(X Y, U V) <-- A0p5(X, Y), A0p4(U, V).
+A1p2(X Y, U V) <-- A0p5(X, U), A0p4(Y, V).
+A1p2(X Y, U V) <-- A0p5(X, V), A0p4(Y, U).
+A1p2(X Y, U V) <-- A0p1(X, Y), A0p5(U, V).
+A1p2(X Y, U V) <-- A0p1(X, U), A0p5(Y, V).
+A1p2(X Y, U V) <-- A0p1(X, V), A0p5(Y, U).
+A1p2(X Y, U V) <-- A0p2(X, Y), A0p5(U, V).
+A1p2(X Y, U V) <-- A0p2(X, U), A0p5(Y, V).
+A1p2(X Y, U V) <-- A0p2(X, V), A0p5(Y, U).
+A1p2(X Y, U V) <-- A0p3(X, Y), A0p5(U, V).
+A1p2(X Y, U V) <-- A0p3(X, U), A0p5(Y, V).
+A1p2(X Y, U V) <-- A0p3(X, V), A0p5(Y, U).
+A1p2(X Y, U V) <-- A0p4(X, Y), A0p5(U, V).
+A1p2(X Y, U V) <-- A0p4(X, U), A0p5(Y, V).
+A1p2(X Y, U V) <-- A0p4(X, V), A0p5(Y, U).
+A1p2(X Y, U V) <-- A0p5(X, Y), A0p5(U, V).
+A1p2(X Y, U V) <-- A0p5(X, U), A0p5(Y, V).
+A1p2(X Y, U V) <-- A0p5(X, V), A0p5(Y, U).
+A1p3(X Y, U V) <-- A0p1(X, Y), A0p1(U, V).
+A1p3(X Y, U V) <-- A0p1(X, U), A0p1(Y, V).
+A1p3(X Y, U V) <-- A0p1(X, V), A0p1(Y, U).
+A1p3(X Y, U V) <-- A0p2(X, Y), A0p1(U, V).
+A1p3(X Y, U V) <-- A0p2(X, U), A0p1(Y, V).
+A1p3(X Y, U V) <-- A0p2(X, V), A0p1(Y, U).
+A1p3(X Y, U V) <-- A0p3(X, Y), A0p1(U, V).
+A1p3(X Y, U V) <-- A0p3(X, U), A0p1(Y, V).
+A1p3(X Y, U V) <-- A0p3(X, V), A0p1(Y, U).
+A1p3(X Y, U V) <-- A0p4(X, Y), A0p1(U, V).
+A1p3(X Y, U V) <-- A0p4(X, U), A0p1(Y, V).
+A1p3(X Y, U V) <-- A0p4(X, V), A0p1(Y, U).
+A1p3(X Y, U V) <-- A0p5(X, Y), A0p1(U, V).
+A1p3(X Y, U V) <-- A0p5(X, U), A0p1(Y, V).
+A1p3(X Y, U V) <-- A0p5(X, V), A0p1(Y, U).
+A1p3(X Y, U V) <-- A0p1(X, Y), A0p2(U, V).
+A1p3(X Y, U V) <-- A0p1(X, U), A0p2(Y, V).
+A1p3(X Y, U V) <-- A0p1(X, V), A0p2(Y, U).
+A1p3(X Y, U V) <-- A0p2(X, Y), A0p2(U, V).
+A1p3(X Y, U V) <-- A0p2(X, U), A0p2(Y, V).
+A1p3(X Y, U V) <-- A0p2(X, V), A0p2(Y, U).
+A1p3(X Y, U V) <-- A0p3(X, Y), A0p2(U, V).
+A1p3(X Y, U V) <-- A0p3(X, U), A0p2(Y, V).
+A1p3(X Y, U V) <-- A0p3(X, V), A0p2(Y, U).
+A1p3(X Y, U V) <-- A0p4(X, Y), A0p2(U, V).
+A1p3(X Y, U V) <-- A0p4(X, U), A0p2(Y, V).
+A1p3(X Y, U V) <-- A0p4(X, V), A0p2(Y, U).
+A1p3(X Y, U V) <-- A0p5(X, Y), A0p2(U, V).
+A1p3(X Y, U V) <-- A0p5(X, U), A0p2(Y, V).
+A1p3(X Y, U V) <-- A0p5(X, V), A0p2(Y, U).
+A1p3(X Y, U V) <-- A0p1(X, Y), A0p3(U, V).
+A1p3(X Y, U V) <-- A0p1(X, U), A0p3(Y, V).
+A1p3(X Y, U V) <-- A0p1(X, V), A0p3(Y, U).
+A1p3(X Y, U V) <-- A0p2(X, Y), A0p3(U, V).
+A1p3(X Y, U V) <-- A0p2(X, U), A0p3(Y, V).
+A1p3(X Y, U V) <-- A0p2(X, V), A0p3(Y, U).
+A1p3(X Y, U V) <-- A0p3(X, Y), A0p3(U, V).
+A1p3(X Y, U V) <-- A0p3(X, U), A0p3(Y, V).
+A1p3(X Y, U V) <-- A0p3(X, V), A0p3(Y, U).
+A1p3(X Y, U V) <-- A0p4(X, Y), A0p3(U, V).
+A1p3(X Y, U V) <-- A0p4(X, U), A0p3(Y, V).
+A1p3(X Y, U V) <-- A0p4(X, V), A0p3(Y, U).
+A1p3(X Y, U V) <-- A0p5(X, Y), A0p3(U, V).
+A1p3(X Y, U V) <-- A0p5(X, U), A0p3(Y, V).
+A1p3(X Y, U V) <-- A0p5(X, V), A0p3(Y, U).
+A1p3(X Y, U V) <-- A0p1(X, Y), A0p4(U, V).
+A1p3(X Y, U V) <-- A0p1(X, U), A0p4(Y, V).
+A1p3(X Y, U V) <-- A0p1(X, V), A0p4(Y, U).
+A1p3(X Y, U V) <-- A0p2(X, Y), A0p4(U, V).
+A1p3(X Y, U V) <-- A0p2(X, U), A0p4(Y, V).
+A1p3(X Y, U V) <-- A0p2(X, V), A0p4(Y, U).
+A1p3(X Y, U V) <-- A0p3(X, Y), A0p4(U, V).
+A1p3(X Y, U V) <-- A0p3(X, U), A0p4(Y, V).
+A1p3(X Y, U V) <-- A0p3(X, V), A0p4(Y, U).
+A1p3(X Y, U V) <-- A0p4(X, Y), A0p4(U, V).
+A1p3(X Y, U V) <-- A0p4(X, U), A0p4(Y, V).
+A1p3(X Y, U V) <-- A0p4(X, V), A0p4(Y, U).
+A1p3(X Y, U V) <-- A0p5(X, Y), A0p4(U, V).
+A1p3(X Y, U V) <-- A0p5(X, U), A0p4(Y, V).
+A1p3(X Y, U V) <-- A0p5(X, V), A0p4(Y, U).
+A1p3(X Y, U V) <-- A0p1(X, Y), A0p5(U, V).
+A1p3(X Y, U V) <-- A0p1(X, U), A0p5(Y, V).
+A1p3(X Y, U V) <-- A0p1(X, V), A0p5(Y, U).
+A1p3(X Y, U V) <-- A0p2(X, Y), A0p5(U, V).
+A1p3(X Y, U V) <-- A0p2(X, U), A0p5(Y, V).
+A1p3(X Y, U V) <-- A0p2(X, V), A0p5(Y, U).
+A1p3(X Y, U V) <-- A0p3(X, Y), A0p5(U, V).
+A1p3(X Y, U V) <-- A0p3(X, U), A0p5(Y, V).
+A1p3(X Y, U V) <-- A0p3(X, V), A0p5(Y, U).
+A1p3(X Y, U V) <-- A0p4(X, Y), A0p5(U, V).
+A1p3(X Y, U V) <-- A0p4(X, U), A0p5(Y, V).
+A1p3(X Y, U V) <-- A0p4(X, V), A0p5(Y, U).
+A1p3(X Y, U V) <-- A0p5(X, Y), A0p5(U, V).
+A1p3(X Y, U V) <-- A0p5(X, U), A0p5(Y, V).
+A1p3(X Y, U V) <-- A0p5(X, V), A0p5(Y, U).
+A1p4(X Y, U V) <-- A0p1(X, Y), A0p1(U, V).
+A1p4(X Y, U V) <-- A0p1(X, U), A0p1(Y, V).
+A1p4(X Y, U V) <-- A0p1(X, V), A0p1(Y, U).
+A1p4(X Y, U V) <-- A0p2(X, Y), A0p1(U, V).
+A1p4(X Y, U V) <-- A0p2(X, U), A0p1(Y, V).
+A1p4(X Y, U V) <-- A0p2(X, V), A0p1(Y, U).
+A1p4(X Y, U V) <-- A0p3(X, Y), A0p1(U, V).
+A1p4(X Y, U V) <-- A0p3(X, U), A0p1(Y, V).
+A1p4(X Y, U V) <-- A0p3(X, V), A0p1(Y, U).
+A1p4(X Y, U V) <-- A0p4(X, Y), A0p1(U, V).
+A1p4(X Y, U V) <-- A0p4(X, U), A0p1(Y, V).
+A1p4(X Y, U V) <-- A0p4(X, V), A0p1(Y, U).
+A1p4(X Y, U V) <-- A0p5(X, Y), A0p1(U, V).
+A1p4(X Y, U V) <-- A0p5(X, U), A0p1(Y, V).
+A1p4(X Y, U V) <-- A0p5(X, V), A0p1(Y, U).
+A1p4(X Y, U V) <-- A0p1(X, Y), A0p2(U, V).
+A1p4(X Y, U V) <-- A0p1(X, U), A0p2(Y, V).
+A1p4(X Y, U V) <-- A0p1(X, V), A0p2(Y, U).
+A1p4(X Y, U V) <-- A0p2(X, Y), A0p2(U, V).
+A1p4(X Y, U V) <-- A0p2(X, U), A0p2(Y, V).
+A1p4(X Y, U V) <-- A0p2(X, V), A0p2(Y, U).
+A1p4(X Y, U V) <-- A0p3(X, Y), A0p2(U, V).
+A1p4(X Y, U V) <-- A0p3(X, U), A0p2(Y, V).
+A1p4(X Y, U V) <-- A0p3(X, V), A0p2(Y, U).
+A1p4(X Y, U V) <-- A0p4(X, Y), A0p2(U, V).
+A1p4(X Y, U V) <-- A0p4(X, U), A0p2(Y, V).
+A1p4(X Y, U V) <-- A0p4(X, V), A0p2(Y, U).
+A1p4(X Y, U V) <-- A0p5(X, Y), A0p2(U, V).
+A1p4(X Y, U V) <-- A0p5(X, U), A0p2(Y, V).
+A1p4(X Y, U V) <-- A0p5(X, V), A0p2(Y, U).
+A1p4(X Y, U V) <-- A0p1(X, Y), A0p3(U, V).
+A1p4(X Y, U V) <-- A0p1(X, U), A0p3(Y, V).
+A1p4(X Y, U V) <-- A0p1(X, V), A0p3(Y, U).
+A1p4(X Y, U V) <-- A0p2(X, Y), A0p3(U, V).
+A1p4(X Y, U V) <-- A0p2(X, U), A0p3(Y, V).
+A1p4(X Y, U V) <-- A0p2(X, V), A0p3(Y, U).
+A1p4(X Y, U V) <-- A0p3(X, Y), A0p3(U, V).
+A1p4(X Y, U V) <-- A0p3(X, U), A0p3(Y, V).
+A1p4(X Y, U V) <-- A0p3(X, V), A0p3(Y, U).
+A1p4(X Y, U V) <-- A0p4(X, Y), A0p3(U, V).
+A1p4(X Y, U V) <-- A0p4(X, U), A0p3(Y, V).
+A1p4(X Y, U V) <-- A0p4(X, V), A0p3(Y, U).
+A1p4(X Y, U V) <-- A0p5(X, Y), A0p3(U, V).
+A1p4(X Y, U V) <-- A0p5(X, U), A0p3(Y, V).
+A1p4(X Y, U V) <-- A0p5(X, V), A0p3(Y, U).
+A1p4(X Y, U V) <-- A0p1(X, Y), A0p4(U, V).
+A1p4(X Y, U V) <-- A0p1(X, U), A0p4(Y, V).
+A1p4(X Y, U V) <-- A0p1(X, V), A0p4(Y, U).
+A1p4(X Y, U V) <-- A0p2(X, Y), A0p4(U, V).
+A1p4(X Y, U V) <-- A0p2(X, U), A0p4(Y, V).
+A1p4(X Y, U V) <-- A0p2(X, V), A0p4(Y, U).
+A1p4(X Y, U V) <-- A0p3(X, Y), A0p4(U, V).
+A1p4(X Y, U V) <-- A0p3(X, U), A0p4(Y, V).
+A1p4(X Y, U V) <-- A0p3(X, V), A0p4(Y, U).
+A1p4(X Y, U V) <-- A0p4(X, Y), A0p4(U, V).
+A1p4(X Y, U V) <-- A0p4(X, U), A0p4(Y, V).
+A1p4(X Y, U V) <-- A0p4(X, V), A0p4(Y, U).
+A1p4(X Y, U V) <-- A0p5(X, Y), A0p4(U, V).
+A1p4(X Y, U V) <-- A0p5(X, U), A0p4(Y, V).
+A1p4(X Y, U V) <-- A0p5(X, V), A0p4(Y, U).
+A1p4(X Y, U V) <-- A0p1(X, Y), A0p5(U, V).
+A1p4(X Y, U V) <-- A0p1(X, U), A0p5(Y, V).
+A1p4(X Y, U V) <-- A0p1(X, V), A0p5(Y, U).
+A1p4(X Y, U V) <-- A0p2(X, Y), A0p5(U, V).
+A1p4(X Y, U V) <-- A0p2(X, U), A0p5(Y, V).
+A1p4(X Y, U V) <-- A0p2(X, V), A0p5(Y, U).
+A1p4(X Y, U V) <-- A0p3(X, Y), A0p5(U, V).
+A1p4(X Y, U V) <-- A0p3(X, U), A0p5(Y, V).
+A1p4(X Y, U V) <-- A0p3(X, V), A0p5(Y, U).
+A1p4(X Y, U V) <-- A0p4(X, Y), A0p5(U, V).
+A1p4(X Y, U V) <-- A0p4(X, U), A0p5(Y, V).
+A1p4(X Y, U V) <-- A0p4(X, V), A0p5(Y, U).
+A1p4(X Y, U V) <-- A0p5(X, Y), A0p5(U, V).
+A1p4(X Y, U V) <-- A0p5(X, U), A0p5(Y, V).
+A1p4(X Y, U V) <-- A0p5(X, V), A0p5(Y, U).
+A1p5(X Y, U V) <-- A0p1(X, Y), A0p1(U, V).
+A1p5(X Y, U V) <-- A0p1(X, U), A0p1(Y, V).
+A1p5(X Y, U V) <-- A0p1(X, V), A0p1(Y, U).
+A1p5(X Y, U V) <-- A0p2(X, Y), A0p1(U, V).
+A1p5(X Y, U V) <-- A0p2(X, U), A0p1(Y, V).
+A1p5(X Y, U V) <-- A0p2(X, V), A0p1(Y, U).
+A1p5(X Y, U V) <-- A0p3(X, Y), A0p1(U, V).
+A1p5(X Y, U V) <-- A0p3(X, U), A0p1(Y, V).
+A1p5(X Y, U V) <-- A0p3(X, V), A0p1(Y, U).
+A1p5(X Y, U V) <-- A0p4(X, Y), A0p1(U, V).
+A1p5(X Y, U V) <-- A0p4(X, U), A0p1(Y, V).
+A1p5(X Y, U V) <-- A0p4(X, V), A0p1(Y, U).
+A1p5(X Y, U V) <-- A0p5(X, Y), A0p1(U, V).
+A1p5(X Y, U V) <-- A0p5(X, U), A0p1(Y, V).
+A1p5(X Y, U V) <-- A0p5(X, V), A0p1(Y, U).
+A1p5(X Y, U V) <-- A0p1(X, Y), A0p2(U, V).
+A1p5(X Y, U V) <-- A0p1(X, U), A0p2(Y, V).
+A1p5(X Y, U V) <-- A0p1(X, V), A0p2(Y, U).
+A1p5(X Y, U V) <-- A0p2(X, Y), A0p2(U, V).
+A1p5(X Y, U V) <-- A0p2(X, U), A0p2(Y, V).
+A1p5(X Y, U V) <-- A0p2(X, V), A0p2(Y, U).
+A1p5(X Y, U V) <-- A0p3(X, Y), A0p2(U, V).
+A1p5(X Y, U V) <-- A0p3(X, U), A0p2(Y, V).
+A1p5(X Y, U V) <-- A0p3(X, V), A0p2(Y, U).
+A1p5(X Y, U V) <-- A0p4(X, Y), A0p2(U, V).
+A1p5(X Y, U V) <-- A0p4(X, U), A0p2(Y, V).
+A1p5(X Y, U V) <-- A0p4(X, V), A0p2(Y, U).
+A1p5(X Y, U V) <-- A0p5(X, Y), A0p2(U, V).
+A1p5(X Y, U V) <-- A0p5(X, U), A0p2(Y, V).
+A1p5(X Y, U V) <-- A0p5(X, V), A0p2(Y, U).
+A1p5(X Y, U V) <-- A0p1(X, Y), A0p3(U, V).
+A1p5(X Y, U V) <-- A0p1(X, U), A0p3(Y, V).
+A1p5(X Y, U V) <-- A0p1(X, V), A0p3(Y, U).
+A1p5(X Y, U V) <-- A0p2(X, Y), A0p3(U, V).
+A1p5(X Y, U V) <-- A0p2(X, U), A0p3(Y, V).
+A1p5(X Y, U V) <-- A0p2(X, V), A0p3(Y, U).
+A1p5(X Y, U V) <-- A0p3(X, Y), A0p3(U, V).
+A1p5(X Y, U V) <-- A0p3(X, U), A0p3(Y, V).
+A1p5(X Y, U V) <-- A0p3(X, V), A0p3(Y, U).
+A1p5(X Y, U V) <-- A0p4(X, Y), A0p3(U, V).
+A1p5(X Y, U V) <-- A0p4(X, U), A0p3(Y, V).
+A1p5(X Y, U V) <-- A0p4(X, V), A0p3(Y, U).
+A1p5(X Y, U V) <-- A0p5(X, Y), A0p3(U, V).
+A1p5(X Y, U V) <-- A0p5(X, U), A0p3(Y, V).
+A1p5(X Y, U V) <-- A0p5(X, V), A0p3(Y, U).
+A1p5(X Y, U V) <-- A0p1(X, Y), A0p4(U, V).
+A1p5(X Y, U V) <-- A0p1(X, U), A0p4(Y, V).
+A1p5(X Y, U V) <-- A0p1(X, V), A0p4(Y, U).
+A1p5(X Y, U V) <-- A0p2(X, Y), A0p4(U, V).
+A1p5(X Y, U V) <-- A0p2(X, U), A0p4(Y, V).
+A1p5(X Y, U V) <-- A0p2(X, V), A0p4(Y, U).
+A1p5(X Y, U V) <-- A0p3(X, Y), A0p4(U, V).
+A1p5(X Y, U V) <-- A0p3(X, U), A0p4(Y, V).
+A1p5(X Y, U V) <-- A0p3(X, V), A0p4(Y, U).
+A1p5(X Y, U V) <-- A0p4(X, Y), A0p4(U, V).
+A1p5(X Y, U V) <-- A0p4(X, U), A0p4(Y, V).
+A1p5(X Y, U V) <-- A0p4(X, V), A0p4(Y, U).
+A1p5(X Y, U V) <-- A0p5(X, Y), A0p4(U, V).
+A1p5(X Y, U V) <-- A0p5(X, U), A0p4(Y, V).
+A1p5(X Y, U V) <-- A0p5(X, V), A0p4(Y, U).
+A1p5(X Y, U V) <-- A0p1(X, Y), A0p5(U, V).
+A1p5(X Y, U V) <-- A0p1(X, U), A0p5(Y, V).
+A1p5(X Y, U V) <-- A0p1(X, V), A0p5(Y, U).
+A1p5(X Y, U V) <-- A0p2(X, Y), A0p5(U, V).
+A1p5(X Y, U V) <-- A0p2(X, U), A0p5(Y, V).
+A1p5(X Y, U V) <-- A0p2(X, V), A0p5(Y, U).
+A1p5(X Y, U V) <-- A0p3(X, Y), A0p5(U, V).
+A1p5(X Y, U V) <-- A0p3(X, U), A0p5(Y, V).
+A1p5(X Y, U V) <-- A0p3(X, V), A0p5(Y, U).
+A1p5(X Y, U V) <-- A0p4(X, Y), A0p5(U, V).
+A1p5(X Y, U V) <-- A0p4(X, U), A0p5(Y, V).
+A1p5(X Y, U V) <-- A0p4(X, V), A0p5(Y, U).
+A1p5(X Y, U V) <-- A0p5(X, Y), A0p5(U, V).
+A1p5(X Y, U V) <-- A0p5(X, U), A0p5(Y, V).
+A1p5(X Y, U V) <-- A0p5(X, V), A0p5(Y, U).
+A2p1(X Y, U V) <-- A1p1(X, Y), A1p1(U, V).
+A2p1(X Y, U V) <-- A1p1(X, U), A1p1(Y, V).
+A2p1(X Y, U V) <-- A1p1(X, V), A1p1(Y, U).
+A2p1(X Y, U V) <-- A1p2(X, Y), A1p1(U, V).
+A2p1(X Y, U V) <-- A1p2(X, U), A1p1(Y, V).
+A2p1(X Y, U V) <-- A1p2(X, V), A1p1(Y, U).
+A2p1(X Y, U V) <-- A1p3(X, Y), A1p1(U, V).
+A2p1(X Y, U V) <-- A1p3(X, U), A1p1(Y, V).
+A2p1(X Y, U V) <-- A1p3(X, V), A1p1(Y, U).
+A2p1(X Y, U V) <-- A1p4(X, Y), A1p1(U, V).
+A2p1(X Y, U V) <-- A1p4(X, U), A1p1(Y, V).
+A2p1(X Y, U V) <-- A1p4(X, V), A1p1(Y, U).
+A2p1(X Y, U V) <-- A1p5(X, Y), A1p1(U, V).
+A2p1(X Y, U V) <-- A1p5(X, U), A1p1(Y, V).
+A2p1(X Y, U V) <-- A1p5(X, V), A1p1(Y, U).
+A2p1(X Y, U V) <-- A1p1(X, Y), A1p2(U, V).
+A2p1(X Y, U V) <-- A1p1(X, U), A1p2(Y, V).
+A2p1(X Y, U V) <-- A1p1(X, V), A1p2(Y, U).
+A2p1(X Y, U V) <-- A1p2(X, Y), A1p2(U, V).
+A2p1(X Y, U V) <-- A1p2(X, U), A1p2(Y, V).
+A2p1(X Y, U V) <-- A1p2(X, V), A1p2(Y, U).
+A2p1(X Y, U V) <-- A1p3(X, Y), A1p2(U, V).
+A2p1(X Y, U V) <-- A1p3(X, U), A1p2(Y, V).
+A2p1(X Y, U V) <-- A1p3(X, V), A1p2(Y, U).
+A2p1(X Y, U V) <-- A1p4(X, Y), A1p2(U, V).
+A2p1(X Y, U V) <-- A1p4(X, U), A1p2(Y, V).
+A2p1(X Y, U V) <-- A1p4(X, V), A1p2(Y, U).
+A2p1(X Y, U V) <-- A1p5(X, Y), A1p2(U, V).
+A2p1(X Y, U V) <-- A1p5(X, U), A1p2(Y, V).
+A2p1(X Y, U V) <-- A1p5(X, V), A1p2(Y, U).
+A2p1(X Y, U V) <-- A1p1(X, Y), A1p3(U, V).
+A2p1(X Y, U V) <-- A1p1(X, U), A1p3(Y, V).
+A2p1(X Y, U V) <-- A1p1(X, V), A1p3(Y, U).
+A2p1(X Y, U V) <-- A1p2(X, Y), A1p3(U, V).
+A2p1(X Y, U V) <-- A1p2(X, U), A1p3(Y, V).
+A2p1(X Y, U V) <-- A1p2(X, V), A1p3(Y, U).
+A2p1(X Y, U V) <-- A1p3(X, Y), A1p3(U, V).
+A2p1(X Y, U V) <-- A1p3(X, U), A1p3(Y, V).
+A2p1(X Y, U V) <-- A1p3(X, V), A1p3(Y, U).
+A2p1(X Y, U V) <-- A1p4(X, Y), A1p3(U, V).
+A2p1(X Y, U V) <-- A1p4(X, U), A1p3(Y, V).
+A2p1(X Y, U V) <-- A1p4(X, V), A1p3(Y, U).
+A2p1(X Y, U V) <-- A1p5(X, Y), A1p3(U, V).
+A2p1(X Y, U V) <-- A1p5(X, U), A1p3(Y, V).
+A2p1(X Y, U V) <-- A1p5(X, V), A1p3(Y, U).
+A2p1(X Y, U V) <-- A1p1(X, Y), A1p4(U, V).
+A2p1(X Y, U V) <-- A1p1(X, U), A1p4(Y, V).
+A2p1(X Y, U V) <-- A1p1(X, V), A1p4(Y, U).
+A2p1(X Y, U V) <-- A1p2(X, Y), A1p4(U, V).
+A2p1(X Y, U V) <-- A1p2(X, U), A1p4(Y, V).
+A2p1(X Y, U V) <-- A1p2(X, V), A1p4(Y, U).
+A2p1(X Y, U V) <-- A1p3(X, Y), A1p4(U, V).
+A2p1(X Y, U V) <-- A1p3(X, U), A1p4(Y, V).
+A2p1(X Y, U V) <-- A1p3(X, V), A1p4(Y, U).
+A2p1(X Y, U V) <-- A1p4(X, Y), A1p4(U, V).
+A2p1(X Y, U V) <-- A1p4(X, U), A1p4(Y, V).
+A2p1(X Y, U V) <-- A1p4(X, V), A1p4(Y, U).
+A2p1(X Y, U V) <-- A1p5(X, Y), A1p4(U, V).
+A2p1(X Y, U V) <-- A1p5(X, U), A1p4(Y, V).
+A2p1(X Y, U V) <-- A1p5(X, V), A1p4(Y, U).
+A2p1(X Y, U V) <-- A1p1(X, Y), A1p5(U, V).
+A2p1(X Y, U V) <-- A1p1(X, U), A1p5(Y, V).
+A2p1(X Y, U V) <-- A1p1(X, V), A1p5(Y, U).
+A2p1(X Y, U V) <-- A1p2(X, Y), A1p5(U, V).
+A2p1(X Y, U V) <-- A1p2(X, U), A1p5(Y, V).
+A2p1(X Y, U V) <-- A1p2(X, V), A1p5(Y, U).
+A2p1(X Y, U V) <-- A1p3(X, Y), A1p5(U, V).
+A2p1(X Y, U V) <-- A1p3(X, U), A1p5(Y, V).
+A2p1(X Y, U V) <-- A1p3(X, V), A1p5(Y, U).
+A2p1(X Y, U V) <-- A1p4(X, Y), A1p5(U, V).
+A2p1(X Y, U V) <-- A1p4(X, U), A1p5(Y, V).
+A2p1(X Y, U V) <-- A1p4(X, V), A1p5(Y, U).
+A2p1(X Y, U V) <-- A1p5(X, Y), A1p5(U, V).
+A2p1(X Y, U V) <-- A1p5(X, U), A1p5(Y, V).
+A2p1(X Y, U V) <-- A1p5(X, V), A1p5(Y, U).
+A2p2(X Y, U V) <-- A1p1(X, Y), A1p1(U, V).
+A2p2(X Y, U V) <-- A1p1(X, U), A1p1(Y, V).
+A2p2(X Y, U V) <-- A1p1(X, V), A1p1(Y, U).
+A2p2(X Y, U V) <-- A1p2(X, Y), A1p1(U, V).
+A2p2(X Y, U V) <-- A1p2(X, U), A1p1(Y, V).
+A2p2(X Y, U V) <-- A1p2(X, V), A1p1(Y, U).
+A2p2(X Y, U V) <-- A1p3(X, Y), A1p1(U, V).
+A2p2(X Y, U V) <-- A1p3(X, U), A1p1(Y, V).
+A2p2(X Y, U V) <-- A1p3(X, V), A1p1(Y, U).
+A2p2(X Y, U V) <-- A1p4(X, Y), A1p1(U, V).
+A2p2(X Y, U V) <-- A1p4(X, U), A1p1(Y, V).
+A2p2(X Y, U V) <-- A1p4(X, V), A1p1(Y, U).
+A2p2(X Y, U V) <-- A1p5(X, Y), A1p1(U, V).
+A2p2(X Y, U V) <-- A1p5(X, U), A1p1(Y, V).
+A2p2(X Y, U V) <-- A1p5(X, V), A1p1(Y, U).
+A2p2(X Y, U V) <-- A1p1(X, Y), A1p2(U, V).
+A2p2(X Y, U V) <-- A1p1(X, U), A1p2(Y, V).
+A2p2(X Y, U V) <-- A1p1(X, V), A1p2(Y, U).
+A2p2(X Y, U V) <-- A1p2(X, Y), A1p2(U, V).
+A2p2(X Y, U V) <-- A1p2(X, U), A1p2(Y, V).
+A2p2(X Y, U V) <-- A1p2(X, V), A1p2(Y, U).
+A2p2(X Y, U V) <-- A1p3(X, Y), A1p2(U, V).
+A2p2(X Y, U V) <-- A1p3(X, U), A1p2(Y, V).
+A2p2(X Y, U V) <-- A1p3(X, V), A1p2(Y, U).
+A2p2(X Y, U V) <-- A1p4(X, Y), A1p2(U, V).
+A2p2(X Y, U V) <-- A1p4(X, U), A1p2(Y, V).
+A2p2(X Y, U V) <-- A1p4(X, V), A1p2(Y, U).
+A2p2(X Y, U V) <-- A1p5(X, Y), A1p2(U, V).
+A2p2(X Y, U V) <-- A1p5(X, U), A1p2(Y, V).
+A2p2(X Y, U V) <-- A1p5(X, V), A1p2(Y, U).
+A2p2(X Y, U V) <-- A1p1(X, Y), A1p3(U, V).
+A2p2(X Y, U V) <-- A1p1(X, U), A1p3(Y, V).
+A2p2(X Y, U V) <-- A1p1(X, V), A1p3(Y, U).
+A2p2(X Y, U V) <-- A1p2(X, Y), A1p3(U, V).
+A2p2(X Y, U V) <-- A1p2(X, U), A1p3(Y, V).
+A2p2(X Y, U V) <-- A1p2(X, V), A1p3(Y, U).
+A2p2(X Y, U V) <-- A1p3(X, Y), A1p3(U, V).
+A2p2(X Y, U V) <-- A1p3(X, U), A1p3(Y, V).
+A2p2(X Y, U V) <-- A1p3(X, V), A1p3(Y, U).
+A2p2(X Y, U V) <-- A1p4(X, Y), A1p3(U, V).
+A2p2(X Y, U V) <-- A1p4(X, U), A1p3(Y, V).
+A2p2(X Y, U V) <-- A1p4(X, V), A1p3(Y, U).
+A2p2(X Y, U V) <-- A1p5(X, Y), A1p3(U, V).
+A2p2(X Y, U V) <-- A1p5(X, U), A1p3(Y, V).
+A2p2(X Y, U V) <-- A1p5(X, V), A1p3(Y, U).
+A2p2(X Y, U V) <-- A1p1(X, Y), A1p4(U, V).
+A2p2(X Y, U V) <-- A1p1(X, U), A1p4(Y, V).
+A2p2(X Y, U V) <-- A1p1(X, V), A1p4(Y, U).
+A2p2(X Y, U V) <-- A1p2(X, Y), A1p4(U, V).
+A2p2(X Y, U V) <-- A1p2(X, U), A1p4(Y, V).
+A2p2(X Y, U V) <-- A1p2(X, V), A1p4(Y, U).
+A2p2(X Y, U V) <-- A1p3(X, Y), A1p4(U, V).
+A2p2(X Y, U V) <-- A1p3(X, U), A1p4(Y, V).
+A2p2(X Y, U V) <-- A1p3(X, V), A1p4(Y, U).
+A2p2(X Y, U V) <-- A1p4(X, Y), A1p4(U, V).
+A2p2(X Y, U V) <-- A1p4(X, U), A1p4(Y, V).
+A2p2(X Y, U V) <-- A1p4(X, V), A1p4(Y, U).
+A2p2(X Y, U V) <-- A1p5(X, Y), A1p4(U, V).
+A2p2(X Y, U V) <-- A1p5(X, U), A1p4(Y, V).
+A2p2(X Y, U V) <-- A1p5(X, V), A1p4(Y, U).
+A2p2(X Y, U V) <-- A1p1(X, Y), A1p5(U, V).
+A2p2(X Y, U V) <-- A1p1(X, U), A1p5(Y, V).
+A2p2(X Y, U V) <-- A1p1(X, V), A1p5(Y, U).
+A2p2(X Y, U V) <-- A1p2(X, Y), A1p5(U, V).
+A2p2(X Y, U V) <-- A1p2(X, U), A1p5(Y, V).
+A2p2(X Y, U V) <-- A1p2(X, V), A1p5(Y, U).
+A2p2(X Y, U V) <-- A1p3(X, Y), A1p5(U, V).
+A2p2(X Y, U V) <-- A1p3(X, U), A1p5(Y, V).
+A2p2(X Y, U V) <-- A1p3(X, V), A1p5(Y, U).
+A2p2(X Y, U V) <-- A1p4(X, Y), A1p5(U, V).
+A2p2(X Y, U V) <-- A1p4(X, U), A1p5(Y, V).
+A2p2(X Y, U V) <-- A1p4(X, V), A1p5(Y, U).
+A2p2(X Y, U V) <-- A1p5(X, Y), A1p5(U, V).
+A2p2(X Y, U V) <-- A1p5(X, U), A1p5(Y, V).
+A2p2(X Y, U V) <-- A1p5(X, V), A1p5(Y, U).
+A2p3(X Y, U V) <-- A1p1(X, Y), A1p1(U, V).
+A2p3(X Y, U V) <-- A1p1(X, U), A1p1(Y, V).
+A2p3(X Y, U V) <-- A1p1(X, V), A1p1(Y, U).
+A2p3(X Y, U V) <-- A1p2(X, Y), A1p1(U, V).
+A2p3(X Y, U V) <-- A1p2(X, U), A1p1(Y, V).
+A2p3(X Y, U V) <-- A1p2(X, V), A1p1(Y, U).
+A2p3(X Y, U V) <-- A1p3(X, Y), A1p1(U, V).
+A2p3(X Y, U V) <-- A1p3(X, U), A1p1(Y, V).
+A2p3(X Y, U V) <-- A1p3(X, V), A1p1(Y, U).
+A2p3(X Y, U V) <-- A1p4(X, Y), A1p1(U, V).
+A2p3(X Y, U V) <-- A1p4(X, U), A1p1(Y, V).
+A2p3(X Y, U V) <-- A1p4(X, V), A1p1(Y, U).
+A2p3(X Y, U V) <-- A1p5(X, Y), A1p1(U, V).
+A2p3(X Y, U V) <-- A1p5(X, U), A1p1(Y, V).
+A2p3(X Y, U V) <-- A1p5(X, V), A1p1(Y, U).
+A2p3(X Y, U V) <-- A1p1(X, Y), A1p2(U, V).
+A2p3(X Y, U V) <-- A1p1(X, U), A1p2(Y, V).
+A2p3(X Y, U V) <-- A1p1(X, V), A1p2(Y, U).
+A2p3(X Y, U V) <-- A1p2(X, Y), A1p2(U, V).
+A2p3(X Y, U V) <-- A1p2(X, U), A1p2(Y, V).
+A2p3(X Y, U V) <-- A1p2(X, V), A1p2(Y, U).
+A2p3(X Y, U V) <-- A1p3(X, Y), A1p2(U, V).
+A2p3(X Y, U V) <-- A1p3(X, U), A1p2(Y, V).
+A2p3(X Y, U V) <-- A1p3(X, V), A1p2(Y, U).
+A2p3(X Y, U V) <-- A1p4(X, Y), A1p2(U, V).
+A2p3(X Y, U V) <-- A1p4(X, U), A1p2(Y, V).
+A2p3(X Y, U V) <-- A1p4(X, V), A1p2(Y, U).
+A2p3(X Y, U V) <-- A1p5(X, Y), A1p2(U, V).
+A2p3(X Y, U V) <-- A1p5(X, U), A1p2(Y, V).
+A2p3(X Y, U V) <-- A1p5(X, V), A1p2(Y, U).
+A2p3(X Y, U V) <-- A1p1(X, Y), A1p3(U, V).
+A2p3(X Y, U V) <-- A1p1(X, U), A1p3(Y, V).
+A2p3(X Y, U V) <-- A1p1(X, V), A1p3(Y, U).
+A2p3(X Y, U V) <-- A1p2(X, Y), A1p3(U, V).
+A2p3(X Y, U V) <-- A1p2(X, U), A1p3(Y, V).
+A2p3(X Y, U V) <-- A1p2(X, V), A1p3(Y, U).
+A2p3(X Y, U V) <-- A1p3(X, Y), A1p3(U, V).
+A2p3(X Y, U V) <-- A1p3(X, U), A1p3(Y, V).
+A2p3(X Y, U V) <-- A1p3(X, V), A1p3(Y, U).
+A2p3(X Y, U V) <-- A1p4(X, Y), A1p3(U, V).
+A2p3(X Y, U V) <-- A1p4(X, U), A1p3(Y, V).
+A2p3(X Y, U V) <-- A1p4(X, V), A1p3(Y, U).
+A2p3(X Y, U V) <-- A1p5(X, Y), A1p3(U, V).
+A2p3(X Y, U V) <-- A1p5(X, U), A1p3(Y, V).
+A2p3(X Y, U V) <-- A1p5(X, V), A1p3(Y, U).
+A2p3(X Y, U V) <-- A1p1(X, Y), A1p4(U, V).
+A2p3(X Y, U V) <-- A1p1(X, U), A1p4(Y, V).
+A2p3(X Y, U V) <-- A1p1(X, V), A1p4(Y, U).
+A2p3(X Y, U V) <-- A1p2(X, Y), A1p4(U, V).
+A2p3(X Y, U V) <-- A1p2(X, U), A1p4(Y, V).
+A2p3(X Y, U V) <-- A1p2(X, V), A1p4(Y, U).
+A2p3(X Y, U V) <-- A1p3(X, Y), A1p4(U, V).
+A2p3(X Y, U V) <-- A1p3(X, U), A1p4(Y, V).
+A2p3(X Y, U V) <-- A1p3(X, V), A1p4(Y, U).
+A2p3(X Y, U V) <-- A1p4(X, Y), A1p4(U, V).
+A2p3(X Y, U V) <-- A1p4(X, U), A1p4(Y, V).
+A2p3(X Y, U V) <-- A1p4(X, V), A1p4(Y, U).
+A2p3(X Y, U V) <-- A1p5(X, Y), A1p4(U, V).
+A2p3(X Y, U V) <-- A1p5(X, U), A1p4(Y, V).
+A2p3(X Y, U V) <-- A1p5(X, V), A1p4(Y, U).
+A2p3(X Y, U V) <-- A1p1(X, Y), A1p5(U, V).
+A2p3(X Y, U V) <-- A1p1(X, U), A1p5(Y, V).
+A2p3(X Y, U V) <-- A1p1(X, V), A1p5(Y, U).
+A2p3(X Y, U V) <-- A1p2(X, Y), A1p5(U, V).
+A2p3(X Y, U V) <-- A1p2(X, U), A1p5(Y, V).
+A2p3(X Y, U V) <-- A1p2(X, V), A1p5(Y, U).
+A2p3(X Y, U V) <-- A1p3(X, Y), A1p5(U, V).
+A2p3(X Y, U V) <-- A1p3(X, U), A1p5(Y, V).
+A2p3(X Y, U V) <-- A1p3(X, V), A1p5(Y, U).
+A2p3(X Y, U V) <-- A1p4(X, Y), A1p5(U, V).
+A2p3(X Y, U V) <-- A1p4(X, U), A1p5(Y, V).
+A2p3(X Y, U V) <-- A1p4(X, V), A1p5(Y, U).
+A2p3(X Y, U V) <-- A1p5(X, Y), A1p5(U, V).
+A2p3(X Y, U V) <-- A1p5(X, U), A1p5(Y, V).
+A2p3(X Y, U V) <-- A1p5(X, V), A1p5(Y, U).
+A2p4(X Y, U V) <-- A1p1(X, Y), A1p1(U, V).
+A2p4(X Y, U V) <-- A1p1(X, U), A1p1(Y, V).
+A2p4(X Y, U V) <-- A1p1(X, V), A1p1(Y, U).
+A2p4(X Y, U V) <-- A1p2(X, Y), A1p1(U, V).
+A2p4(X Y, U V) <-- A1p2(X, U), A1p1(Y, V).
+A2p4(X Y, U V) <-- A1p2(X, V), A1p1(Y, U).
+A2p4(X Y, U V) <-- A1p3(X, Y), A1p1(U, V).
+A2p4(X Y, U V) <-- A1p3(X, U), A1p1(Y, V).
+A2p4(X Y, U V) <-- A1p3(X, V), A1p1(Y, U).
+A2p4(X Y, U V) <-- A1p4(X, Y), A1p1(U, V).
+A2p4(X Y, U V) <-- A1p4(X, U), A1p1(Y, V).
+A2p4(X Y, U V) <-- A1p4(X, V), A1p1(Y, U).
+A2p4(X Y, U V) <-- A1p5(X, Y), A1p1(U, V).
+A2p4(X Y, U V) <-- A1p5(X, U), A1p1(Y, V).
+A2p4(X Y, U V) <-- A1p5(X, V), A1p1(Y, U).
+A2p4(X Y, U V) <-- A1p1(X, Y), A1p2(U, V).
+A2p4(X Y, U V) <-- A1p1(X, U), A1p2(Y, V).
+A2p4(X Y, U V) <-- A1p1(X, V), A1p2(Y, U).
+A2p4(X Y, U V) <-- A1p2(X, Y), A1p2(U, V).
+A2p4(X Y, U V) <-- A1p2(X, U), A1p2(Y, V).
+A2p4(X Y, U V) <-- A1p2(X, V), A1p2(Y, U).
+A2p4(X Y, U V) <-- A1p3(X, Y), A1p2(U, V).
+A2p4(X Y, U V) <-- A1p3(X, U), A1p2(Y, V).
+A2p4(X Y, U V) <-- A1p3(X, V), A1p2(Y, U).
+A2p4(X Y, U V) <-- A1p4(X, Y), A1p2(U, V).
+A2p4(X Y, U V) <-- A1p4(X, U), A1p2(Y, V).
+A2p4(X Y, U V) <-- A1p4(X, V), A1p2(Y, U).
+A2p4(X Y, U V) <-- A1p5(X, Y), A1p2(U, V).
+A2p4(X Y, U V) <-- A1p5(X, U), A1p2(Y, V).
+A2p4(X Y, U V) <-- A1p5(X, V), A1p2(Y, U).
+A2p4(X Y, U V) <-- A1p1(X, Y), A1p3(U, V).
+A2p4(X Y, U V) <-- A1p1(X, U), A1p3(Y, V).
+A2p4(X Y, U V) <-- A1p1(X, V), A1p3(Y, U).
+A2p4(X Y, U V) <-- A1p2(X, Y), A1p3(U, V).
+A2p4(X Y, U V) <-- A1p2(X, U), A1p3(Y, V).
+A2p4(X Y, U V) <-- A1p2(X, V), A1p3(Y, U).
+A2p4(X Y, U V) <-- A1p3(X, Y), A1p3(U, V).
+A2p4(X Y, U V) <-- A1p3(X, U), A1p3(Y, V).
+A2p4(X Y, U V) <-- A1p3(X, V), A1p3(Y, U).
+A2p4(X Y, U V) <-- A1p4(X, Y), A1p3(U, V).
+A2p4(X Y, U V) <-- A1p4(X, U), A1p3(Y, V).
+A2p4(X Y, U V) <-- A1p4(X, V), A1p3(Y, U).
+A2p4(X Y, U V) <-- A1p5(X, Y), A1p3(U, V).
+A2p4(X Y, U V) <-- A1p5(X, U), A1p3(Y, V).
+A2p4(X Y, U V) <-- A1p5(X, V), A1p3(Y, U).
+A2p4(X Y, U V) <-- A1p1(X, Y), A1p4(U, V).
+A2p4(X Y, U V) <-- A1p1(X, U), A1p4(Y, V).
+A2p4(X Y, U V) <-- A1p1(X, V), A1p4(Y, U).
+A2p4(X Y, U V) <-- A1p2(X, Y), A1p4(U, V).
+A2p4(X Y, U V) <-- A1p2(X, U), A1p4(Y, V).
+A2p4(X Y, U V) <-- A1p2(X, V), A1p4(Y, U).
+A2p4(X Y, U V) <-- A1p3(X, Y), A1p4(U, V).
+A2p4(X Y, U V) <-- A1p3(X, U), A1p4(Y, V).
+A2p4(X Y, U V) <-- A1p3(X, V), A1p4(Y, U).
+A2p4(X Y, U V) <-- A1p4(X, Y), A1p4(U, V).
+A2p4(X Y, U V) <-- A1p4(X, U), A1p4(Y, V).
+A2p4(X Y, U V) <-- A1p4(X, V), A1p4(Y, U).
+A2p4(X Y, U V) <-- A1p5(X, Y), A1p4(U, V).
+A2p4(X Y, U V) <-- A1p5(X, U), A1p4(Y, V).
+A2p4(X Y, U V) <-- A1p5(X, V), A1p4(Y, U).
+A2p4(X Y, U V) <-- A1p1(X, Y), A1p5(U, V).
+A2p4(X Y, U V) <-- A1p1(X, U), A1p5(Y, V).
+A2p4(X Y, U V) <-- A1p1(X, V), A1p5(Y, U).
+A2p4(X Y, U V) <-- A1p2(X, Y), A1p5(U, V).
+A2p4(X Y, U V) <-- A1p2(X, U), A1p5(Y, V).
+A2p4(X Y, U V) <-- A1p2(X, V), A1p5(Y, U).
+A2p4(X Y, U V) <-- A1p3(X, Y), A1p5(U, V).
+A2p4(X Y, U V) <-- A1p3(X, U), A1p5(Y, V).
+A2p4(X Y, U V) <-- A1p3(X, V), A1p5(Y, U).
+A2p4(X Y, U V) <-- A1p4(X, Y), A1p5(U, V).
+A2p4(X Y, U V) <-- A1p4(X, U), A1p5(Y, V).
+A2p4(X Y, U V) <-- A1p4(X, V), A1p5(Y, U).
+A2p4(X Y, U V) <-- A1p5(X, Y), A1p5(U, V).
+A2p4(X Y, U V) <-- A1p5(X, U), A1p5(Y, V).
+A2p4(X Y, U V) <-- A1p5(X, V), A1p5(Y, U).
+A2p5(X Y, U V) <-- A1p1(X, Y), A1p1(U, V).
+A2p5(X Y, U V) <-- A1p1(X, U), A1p1(Y, V).
+A2p5(X Y, U V) <-- A1p1(X, V), A1p1(Y, U).
+A2p5(X Y, U V) <-- A1p2(X, Y), A1p1(U, V).
+A2p5(X Y, U V) <-- A1p2(X, U), A1p1(Y, V).
+A2p5(X Y, U V) <-- A1p2(X, V), A1p1(Y, U).
+A2p5(X Y, U V) <-- A1p3(X, Y), A1p1(U, V).
+A2p5(X Y, U V) <-- A1p3(X, U), A1p1(Y, V).
+A2p5(X Y, U V) <-- A1p3(X, V), A1p1(Y, U).
+A2p5(X Y, U V) <-- A1p4(X, Y), A1p1(U, V).
+A2p5(X Y, U V) <-- A1p4(X, U), A1p1(Y, V).
+A2p5(X Y, U V) <-- A1p4(X, V), A1p1(Y, U).
+A2p5(X Y, U V) <-- A1p5(X, Y), A1p1(U, V).
+A2p5(X Y, U V) <-- A1p5(X, U), A1p1(Y, V).
+A2p5(X Y, U V) <-- A1p5(X, V), A1p1(Y, U).
+A2p5(X Y, U V) <-- A1p1(X, Y), A1p2(U, V).
+A2p5(X Y, U V) <-- A1p1(X, U), A1p2(Y, V).
+A2p5(X Y, U V) <-- A1p1(X, V), A1p2(Y, U).
+A2p5(X Y, U V) <-- A1p2(X, Y), A1p2(U, V).
+A2p5(X Y, U V) <-- A1p2(X, U), A1p2(Y, V).
+A2p5(X Y, U V) <-- A1p2(X, V), A1p2(Y, U).
+A2p5(X Y, U V) <-- A1p3(X, Y), A1p2(U, V).
+A2p5(X Y, U V) <-- A1p3(X, U), A1p2(Y, V).
+A2p5(X Y, U V) <-- A1p3(X, V), A1p2(Y, U).
+A2p5(X Y, U V) <-- A1p4(X, Y), A1p2(U, V).
+A2p5(X Y, U V) <-- A1p4(X, U), A1p2(Y, V).
+A2p5(X Y, U V) <-- A1p4(X, V), A1p2(Y, U).
+A2p5(X Y, U V) <-- A1p5(X, Y), A1p2(U, V).
+A2p5(X Y, U V) <-- A1p5(X, U), A1p2(Y, V).
+A2p5(X Y, U V) <-- A1p5(X, V), A1p2(Y, U).
+A2p5(X Y, U V) <-- A1p1(X, Y), A1p3(U, V).
+A2p5(X Y, U V) <-- A1p1(X, U), A1p3(Y, V).
+A2p5(X Y, U V) <-- A1p1(X, V), A1p3(Y, U).
+A2p5(X Y, U V) <-- A1p2(X, Y), A1p3(U, V).
+A2p5(X Y, U V) <-- A1p2(X, U), A1p3(Y, V).
+A2p5(X Y, U V) <-- A1p2(X, V), A1p3(Y, U).
+A2p5(X Y, U V) <-- A1p3(X, Y), A1p3(U, V).
+A2p5(X Y, U V) <-- A1p3(X, U), A1p3(Y, V).
+A2p5(X Y, U V) <-- A1p3(X, V), A1p3(Y, U).
+A2p5(X Y, U V) <-- A1p4(X, Y), A1p3(U, V).
+A2p5(X Y, U V) <-- A1p4(X, U), A1p3(Y, V).
+A2p5(X Y, U V) <-- A1p4(X, V), A1p3(Y, U).
+A2p5(X Y, U V) <-- A1p5(X, Y), A1p3(U, V).
+A2p5(X Y, U V) <-- A1p5(X, U), A1p3(Y, V).
+A2p5(X Y, U V) <-- A1p5(X, V), A1p3(Y, U).
+A2p5(X Y, U V) <-- A1p1(X, Y), A1p4(U, V).
+A2p5(X Y, U V) <-- A1p1(X, U), A1p4(Y, V).
+A2p5(X Y, U V) <-- A1p1(X, V), A1p4(Y, U).
+A2p5(X Y, U V) <-- A1p2(X, Y), A1p4(U, V).
+A2p5(X Y, U V) <-- A1p2(X, U), A1p4(Y, V).
+A2p5(X Y, U V) <-- A1p2(X, V), A1p4(Y, U).
+A2p5(X Y, U V) <-- A1p3(X, Y), A1p4(U, V).
+A2p5(X Y, U V) <-- A1p3(X, U), A1p4(Y, V).
+A2p5(X Y, U V) <-- A1p3(X, V), A1p4(Y, U).
+A2p5(X Y, U V) <-- A1p4(X, Y), A1p4(U, V).
+A2p5(X Y, U V) <-- A1p4(X, U), A1p4(Y, V).
+A2p5(X Y, U V) <-- A1p4(X, V), A1p4(Y, U).
+A2p5(X Y, U V) <-- A1p5(X, Y), A1p4(U, V).
+A2p5(X Y, U V) <-- A1p5(X, U), A1p4(Y, V).
+A2p5(X Y, U V) <-- A1p5(X, V), A1p4(Y, U).
+A2p5(X Y, U V) <-- A1p1(X, Y), A1p5(U, V).
+A2p5(X Y, U V) <-- A1p1(X, U), A1p5(Y, V).
+A2p5(X Y, U V) <-- A1p1(X, V), A1p5(Y, U).
+A2p5(X Y, U V) <-- A1p2(X, Y), A1p5(U, V).
+A2p5(X Y, U V) <-- A1p2(X, U), A1p5(Y, V).
+A2p5(X Y, U V) <-- A1p2(X, V), A1p5(Y, U).
+A2p5(X Y, U V) <-- A1p3(X, Y), A1p5(U, V).
+A2p5(X Y, U V) <-- A1p3(X, U), A1p5(Y, V).
+A2p5(X Y, U V) <-- A1p3(X, V), A1p5(Y, U).
+A2p5(X Y, U V) <-- A1p4(X, Y), A1p5(U, V).
+A2p5(X Y, U V) <-- A1p4(X, U), A1p5(Y, V).
+A2p5(X Y, U V) <-- A1p4(X, V), A1p5(Y, U).
+A2p5(X Y, U V) <-- A1p5(X, Y), A1p5(U, V).
+A2p5(X Y, U V) <-- A1p5(X, U), A1p5(Y, V).
+A2p5(X Y, U V) <-- A1p5(X, V), A1p5(Y, U).
+A3p1(X Y, U V) <-- A2p1(X, Y), A2p1(U, V).
+A3p1(X Y, U V) <-- A2p1(X, U), A2p1(Y, V).
+A3p1(X Y, U V) <-- A2p1(X, V), A2p1(Y, U).
+A3p1(X Y, U V) <-- A2p2(X, Y), A2p1(U, V).
+A3p1(X Y, U V) <-- A2p2(X, U), A2p1(Y, V).
+A3p1(X Y, U V) <-- A2p2(X, V), A2p1(Y, U).
+A3p1(X Y, U V) <-- A2p3(X, Y), A2p1(U, V).
+A3p1(X Y, U V) <-- A2p3(X, U), A2p1(Y, V).
+A3p1(X Y, U V) <-- A2p3(X, V), A2p1(Y, U).
+A3p1(X Y, U V) <-- A2p4(X, Y), A2p1(U, V).
+A3p1(X Y, U V) <-- A2p4(X, U), A2p1(Y, V).
+A3p1(X Y, U V) <-- A2p4(X, V), A2p1(Y, U).
+A3p1(X Y, U V) <-- A2p5(X, Y), A2p1(U, V).
+A3p1(X Y, U V) <-- A2p5(X, U), A2p1(Y, V).
+A3p1(X Y, U V) <-- A2p5(X, V), A2p1(Y, U).
+A3p1(X Y, U V) <-- A2p1(X, Y), A2p2(U, V).
+A3p1(X Y, U V) <-- A2p1(X, U), A2p2(Y, V).
+A3p1(X Y, U V) <-- A2p1(X, V), A2p2(Y, U).
+A3p1(X Y, U V) <-- A2p2(X, Y), A2p2(U, V).
+A3p1(X Y, U V) <-- A2p2(X, U), A2p2(Y, V).
+A3p1(X Y, U V) <-- A2p2(X, V), A2p2(Y, U).
+A3p1(X Y, U V) <-- A2p3(X, Y), A2p2(U, V).
+A3p1(X Y, U V) <-- A2p3(X, U), A2p2(Y, V).
+A3p1(X Y, U V) <-- A2p3(X, V), A2p2(Y, U).
+A3p1(X Y, U V) <-- A2p4(X, Y), A2p2(U, V).
+A3p1(X Y, U V) <-- A2p4(X, U), A2p2(Y, V).
+A3p1(X Y, U V) <-- A2p4(X, V), A2p2(Y, U).
+A3p1(X Y, U V) <-- A2p5(X, Y), A2p2(U, V).
+A3p1(X Y, U V) <-- A2p5(X, U), A2p2(Y, V).
+A3p1(X Y, U V) <-- A2p5(X, V), A2p2(Y, U).
+A3p1(X Y, U V) <-- A2p1(X, Y), A2p3(U, V).
+A3p1(X Y, U V) <-- A2p1(X, U), A2p3(Y, V).
+A3p1(X Y, U V) <-- A2p1(X, V), A2p3(Y, U).
+A3p1(X Y, U V) <-- A2p2(X, Y), A2p3(U, V).
+A3p1(X Y, U V) <-- A2p2(X, U), A2p3(Y, V).
+A3p1(X Y, U V) <-- A2p2(X, V), A2p3(Y, U).
+A3p1(X Y, U V) <-- A2p3(X, Y), A2p3(U, V).
+A3p1(X Y, U V) <-- A2p3(X, U), A2p3(Y, V).
+A3p1(X Y, U V) <-- A2p3(X, V), A2p3(Y, U).
+A3p1(X Y, U V) <-- A2p4(X, Y), A2p3(U, V).
+A3p1(X Y, U V) <-- A2p4(X, U), A2p3(Y, V).
+A3p1(X Y, U V) <-- A2p4(X, V), A2p3(Y, U).
+A3p1(X Y, U V) <-- A2p5(X, Y), A2p3(U, V).
+A3p1(X Y, U V) <-- A2p5(X, U), A2p3(Y, V).
+A3p1(X Y, U V) <-- A2p5(X, V), A2p3(Y, U).
+A3p1(X Y, U V) <-- A2p1(X, Y), A2p4(U, V).
+A3p1(X Y, U V) <-- A2p1(X, U), A2p4(Y, V).
+A3p1(X Y, U V) <-- A2p1(X, V), A2p4(Y, U).
+A3p1(X Y, U V) <-- A2p2(X, Y), A2p4(U, V).
+A3p1(X Y, U V) <-- A2p2(X, U), A2p4(Y, V).
+A3p1(X Y, U V) <-- A2p2(X, V), A2p4(Y, U).
+A3p1(X Y, U V) <-- A2p3(X, Y), A2p4(U, V).
+A3p1(X Y, U V) <-- A2p3(X, U), A2p4(Y, V).
+A3p1(X Y, U V) <-- A2p3(X, V), A2p4(Y, U).
+A3p1(X Y, U V) <-- A2p4(X, Y), A2p4(U, V).
+A3p1(X Y, U V) <-- A2p4(X, U), A2p4(Y, V).
+A3p1(X Y, U V) <-- A2p4(X, V), A2p4(Y, U).
+A3p1(X Y, U V) <-- A2p5(X, Y), A2p4(U, V).
+A3p1(X Y, U V) <-- A2p5(X, U), A2p4(Y, V).
+A3p1(X Y, U V) <-- A2p5(X, V), A2p4(Y, U).
+A3p1(X Y, U V) <-- A2p1(X, Y), A2p5(U, V).
+A3p1(X Y, U V) <-- A2p1(X, U), A2p5(Y, V).
+A3p1(X Y, U V) <-- A2p1(X, V), A2p5(Y, U).
+A3p1(X Y, U V) <-- A2p2(X, Y), A2p5(U, V).
+A3p1(X Y, U V) <-- A2p2(X, U), A2p5(Y, V).
+A3p1(X Y, U V) <-- A2p2(X, V), A2p5(Y, U).
+A3p1(X Y, U V) <-- A2p3(X, Y), A2p5(U, V).
+A3p1(X Y, U V) <-- A2p3(X, U), A2p5(Y, V).
+A3p1(X Y, U V) <-- A2p3(X, V), A2p5(Y, U).
+A3p1(X Y, U V) <-- A2p4(X, Y), A2p5(U, V).
+A3p1(X Y, U V) <-- A2p4(X, U), A2p5(Y, V).
+A3p1(X Y, U V) <-- A2p4(X, V), A2p5(Y, U).
+A3p1(X Y, U V) <-- A2p5(X, Y), A2p5(U, V).
+A3p1(X Y, U V) <-- A2p5(X, U), A2p5(Y, V).
+A3p1(X Y, U V) <-- A2p5(X, V), A2p5(Y, U).
+A3p2(X Y, U V) <-- A2p1(X, Y), A2p1(U, V).
+A3p2(X Y, U V) <-- A2p1(X, U), A2p1(Y, V).
+A3p2(X Y, U V) <-- A2p1(X, V), A2p1(Y, U).
+A3p2(X Y, U V) <-- A2p2(X, Y), A2p1(U, V).
+A3p2(X Y, U V) <-- A2p2(X, U), A2p1(Y, V).
+A3p2(X Y, U V) <-- A2p2(X, V), A2p1(Y, U).
+A3p2(X Y, U V) <-- A2p3(X, Y), A2p1(U, V).
+A3p2(X Y, U V) <-- A2p3(X, U), A2p1(Y, V).
+A3p2(X Y, U V) <-- A2p3(X, V), A2p1(Y, U).
+A3p2(X Y, U V) <-- A2p4(X, Y), A2p1(U, V).
+A3p2(X Y, U V) <-- A2p4(X, U), A2p1(Y, V).
+A3p2(X Y, U V) <-- A2p4(X, V), A2p1(Y, U).
+A3p2(X Y, U V) <-- A2p5(X, Y), A2p1(U, V).
+A3p2(X Y, U V) <-- A2p5(X, U), A2p1(Y, V).
+A3p2(X Y, U V) <-- A2p5(X, V), A2p1(Y, U).
+A3p2(X Y, U V) <-- A2p1(X, Y), A2p2(U, V).
+A3p2(X Y, U V) <-- A2p1(X, U), A2p2(Y, V).
+A3p2(X Y, U V) <-- A2p1(X, V), A2p2(Y, U).
+A3p2(X Y, U V) <-- A2p2(X, Y), A2p2(U, V).
+A3p2(X Y, U V) <-- A2p2(X, U), A2p2(Y, V).
+A3p2(X Y, U V) <-- A2p2(X, V), A2p2(Y, U).
+A3p2(X Y, U V) <-- A2p3(X, Y), A2p2(U, V).
+A3p2(X Y, U V) <-- A2p3(X, U), A2p2(Y, V).
+A3p2(X Y, U V) <-- A2p3(X, V), A2p2(Y, U).
+A3p2(X Y, U V) <-- A2p4(X, Y), A2p2(U, V).
+A3p2(X Y, U V) <-- A2p4(X, U), A2p2(Y, V).
+A3p2(X Y, U V) <-- A2p4(X, V), A2p2(Y, U).
+A3p2(X Y, U V) <-- A2p5(X, Y), A2p2(U, V).
+A3p2(X Y, U V) <-- A2p5(X, U), A2p2(Y, V).
+A3p2(X Y, U V) <-- A2p5(X, V), A2p2(Y, U).
+A3p2(X Y, U V) <-- A2p1(X, Y), A2p3(U, V).
+A3p2(X Y, U V) <-- A2p1(X, U), A2p3(Y, V).
+A3p2(X Y, U V) <-- A2p1(X, V), A2p3(Y, U).
+A3p2(X Y, U V) <-- A2p2(X, Y), A2p3(U, V).
+A3p2(X Y, U V) <-- A2p2(X, U), A2p3(Y, V).
+A3p2(X Y, U V) <-- A2p2(X, V), A2p3(Y, U).
+A3p2(X Y, U V) <-- A2p3(X, Y), A2p3(U, V).
+A3p2(X Y, U V) <-- A2p3(X, U), A2p3(Y, V).
+A3p2(X Y, U V) <-- A2p3(X, V), A2p3(Y, U).
+A3p2(X Y, U V) <-- A2p4(X, Y), A2p3(U, V).
+A3p2(X Y, U V) <-- A2p4(X, U), A2p3(Y, V).
+A3p2(X Y, U V) <-- A2p4(X, V), A2p3(Y, U).
+A3p2(X Y, U V) <-- A2p5(X, Y), A2p3(U, V).
+A3p2(X Y, U V) <-- A2p5(X, U), A2p3(Y, V).
+A3p2(X Y, U V) <-- A2p5(X, V), A2p3(Y, U).
+A3p2(X Y, U V) <-- A2p1(X, Y), A2p4(U, V).
+A3p2(X Y, U V) <-- A2p1(X, U), A2p4(Y, V).
+A3p2(X Y, U V) <-- A2p1(X, V), A2p4(Y, U).
+A3p2(X Y, U V) <-- A2p2(X, Y), A2p4(U, V).
+A3p2(X Y, U V) <-- A2p2(X, U), A2p4(Y, V).
+A3p2(X Y, U V) <-- A2p2(X, V), A2p4(Y, U).
+A3p2(X Y, U V) <-- A2p3(X, Y), A2p4(U, V).
+A3p2(X Y, U V) <-- A2p3(X, U), A2p4(Y, V).
+A3p2(X Y, U V) <-- A2p3(X, V), A2p4(Y, U).
+A3p2(X Y, U V) <-- A2p4(X, Y), A2p4(U, V).
+A3p2(X Y, U V) <-- A2p4(X, U), A2p4(Y, V).
+A3p2(X Y, U V) <-- A2p4(X, V), A2p4(Y, U).
+A3p2(X Y, U V) <-- A2p5(X, Y), A2p4(U, V).
+A3p2(X Y, U V) <-- A2p5(X, U), A2p4(Y, V).
+A3p2(X Y, U V) <-- A2p5(X, V), A2p4(Y, U).
+A3p2(X Y, U V) <-- A2p1(X, Y), A2p5(U, V).
+A3p2(X Y, U V) <-- A2p1(X, U), A2p5(Y, V).
+A3p2(X Y, U V) <-- A2p1(X, V), A2p5(Y, U).
+A3p2(X Y, U V) <-- A2p2(X, Y), A2p5(U, V).
+A3p2(X Y, U V) <-- A2p2(X, U), A2p5(Y, V).
+A3p2(X Y, U V) <-- A2p2(X, V), A2p5(Y, U).
+A3p2(X Y, U V) <-- A2p3(X, Y), A2p5(U, V).
+A3p2(X Y, U V) <-- A2p3(X, U), A2p5(Y, V).
+A3p2(X Y, U V) <-- A2p3(X, V), A2p5(Y, U).
+A3p2(X Y, U V) <-- A2p4(X, Y), A2p5(U, V).
+A3p2(X Y, U V) <-- A2p4(X, U), A2p5(Y, V).
+A3p2(X Y, U V) <-- A2p4(X, V), A2p5(Y, U).
+A3p2(X Y, U V) <-- A2p5(X, Y), A2p5(U, V).
+A3p2(X Y, U V) <-- A2p5(X, U), A2p5(Y, V).
+A3p2(X Y, U V) <-- A2p5(X, V), A2p5(Y, U).
+A3p3(X Y, U V) <-- A2p1(X, Y), A2p1(U, V).
+A3p3(X Y, U V) <-- A2p1(X, U), A2p1(Y, V).
+A3p3(X Y, U V) <-- A2p1(X, V), A2p1(Y, U).
+A3p3(X Y, U V) <-- A2p2(X, Y), A2p1(U, V).
+A3p3(X Y, U V) <-- A2p2(X, U), A2p1(Y, V).
+A3p3(X Y, U V) <-- A2p2(X, V), A2p1(Y, U).
+A3p3(X Y, U V) <-- A2p3(X, Y), A2p1(U, V).
+A3p3(X Y, U V) <-- A2p3(X, U), A2p1(Y, V).
+A3p3(X Y, U V) <-- A2p3(X, V), A2p1(Y, U).
+A3p3(X Y, U V) <-- A2p4(X, Y), A2p1(U, V).
+A3p3(X Y, U V) <-- A2p4(X, U), A2p1(Y, V).
+A3p3(X Y, U V) <-- A2p4(X, V), A2p1(Y, U).
+A3p3(X Y, U V) <-- A2p5(X, Y), A2p1(U, V).
+A3p3(X Y, U V) <-- A2p5(X, U), A2p1(Y, V).
+A3p3(X Y, U V) <-- A2p5(X, V), A2p1(Y, U).
+A3p3(X Y, U V) <-- A2p1(X, Y), A2p2(U, V).
+A3p3(X Y, U V) <-- A2p1(X, U), A2p2(Y, V).
+A3p3(X Y, U V) <-- A2p1(X, V), A2p2(Y, U).
+A3p3(X Y, U V) <-- A2p2(X, Y), A2p2(U, V).
+A3p3(X Y, U V) <-- A2p2(X, U), A2p2(Y, V).
+A3p3(X Y, U V) <-- A2p2(X, V), A2p2(Y, U).
+A3p3(X Y, U V) <-- A2p3(X, Y), A2p2(U, V).
+A3p3(X Y, U V) <-- A2p3(X, U), A2p2(Y, V).
+A3p3(X Y, U V) <-- A2p3(X, V), A2p2(Y, U).
+A3p3(X Y, U V) <-- A2p4(X, Y), A2p2(U, V).
+A3p3(X Y, U V) <-- A2p4(X, U), A2p2(Y, V).
+A3p3(X Y, U V) <-- A2p4(X, V), A2p2(Y, U).
+A3p3(X Y, U V) <-- A2p5(X, Y), A2p2(U, V).
+A3p3(X Y, U V) <-- A2p5(X, U), A2p2(Y, V).
+A3p3(X Y, U V) <-- A2p5(X, V), A2p2(Y, U).
+A3p3(X Y, U V) <-- A2p1(X, Y), A2p3(U, V).
+A3p3(X Y, U V) <-- A2p1(X, U), A2p3(Y, V).
+A3p3(X Y, U V) <-- A2p1(X, V), A2p3(Y, U).
+A3p3(X Y, U V) <-- A2p2(X, Y), A2p3(U, V).
+A3p3(X Y, U V) <-- A2p2(X, U), A2p3(Y, V).
+A3p3(X Y, U V) <-- A2p2(X, V), A2p3(Y, U).
+A3p3(X Y, U V) <-- A2p3(X, Y), A2p3(U, V).
+A3p3(X Y, U V) <-- A2p3(X, U), A2p3(Y, V).
+A3p3(X Y, U V) <-- A2p3(X, V), A2p3(Y, U).
+A3p3(X Y, U V) <-- A2p4(X, Y), A2p3(U, V).
+A3p3(X Y, U V) <-- A2p4(X, U), A2p3(Y, V).
+A3p3(X Y, U V) <-- A2p4(X, V), A2p3(Y, U).
+A3p3(X Y, U V) <-- A2p5(X, Y), A2p3(U, V).
+A3p3(X Y, U V) <-- A2p5(X, U), A2p3(Y, V).
+A3p3(X Y, U V) <-- A2p5(X, V), A2p3(Y, U).
+A3p3(X Y, U V) <-- A2p1(X, Y), A2p4(U, V).
+A3p3(X Y, U V) <-- A2p1(X, U), A2p4(Y, V).
+A3p3(X Y, U V) <-- A2p1(X, V), A2p4(Y, U).
+A3p3(X Y, U V) <-- A2p2(X, Y), A2p4(U, V).
+A3p3(X Y, U V) <-- A2p2(X, U), A2p4(Y, V).
+A3p3(X Y, U V) <-- A2p2(X, V), A2p4(Y, U).
+A3p3(X Y, U V) <-- A2p3(X, Y), A2p4(U, V).
+A3p3(X Y, U V) <-- A2p3(X, U), A2p4(Y, V).
+A3p3(X Y, U V) <-- A2p3(X, V), A2p4(Y, U).
+A3p3(X Y, U V) <-- A2p4(X, Y), A2p4(U, V).
+A3p3(X Y, U V) <-- A2p4(X, U), A2p4(Y, V).
+A3p3(X Y, U V) <-- A2p4(X, V), A2p4(Y, U).
+A3p3(X Y, U V) <-- A2p5(X, Y), A2p4(U, V).
+A3p3(X Y, U V) <-- A2p5(X, U), A2p4(Y, V).
+A3p3(X Y, U V) <-- A2p5(X, V), A2p4(Y, U).
+A3p3(X Y, U V) <-- A2p1(X, Y), A2p5(U, V).
+A3p3(X Y, U V) <-- A2p1(X, U), A2p5(Y, V).
+A3p3(X Y, U V) <-- A2p1(X, V), A2p5(Y, U).
+A3p3(X Y, U V) <-- A2p2(X, Y), A2p5(U, V).
+A3p3(X Y, U V) <-- A2p2(X, U), A2p5(Y, V).
+A3p3(X Y, U V) <-- A2p2(X, V), A2p5(Y, U).
+A3p3(X Y, U V) <-- A2p3(X, Y), A2p5(U, V).
+A3p3(X Y, U V) <-- A2p3(X, U), A2p5(Y, V).
+A3p3(X Y, U V) <-- A2p3(X, V), A2p5(Y, U).
+A3p3(X Y, U V) <-- A2p4(X, Y), A2p5(U, V).
+A3p3(X Y, U V) <-- A2p4(X, U), A2p5(Y, V).
+A3p3(X Y, U V) <-- A2p4(X, V), A2p5(Y, U).
+A3p3(X Y, U V) <-- A2p5(X, Y), A2p5(U, V).
+A3p3(X Y, U V) <-- A2p5(X, U), A2p5(Y, V).
+A3p3(X Y, U V) <-- A2p5(X, V), A2p5(Y, U).
+A3p4(X Y, U V) <-- A2p1(X, Y), A2p1(U, V).
+A3p4(X Y, U V) <-- A2p1(X, U), A2p1(Y, V).
+A3p4(X Y, U V) <-- A2p1(X, V), A2p1(Y, U).
+A3p4(X Y, U V) <-- A2p2(X, Y), A2p1(U, V).
+A3p4(X Y, U V) <-- A2p2(X, U), A2p1(Y, V).
+A3p4(X Y, U V) <-- A2p2(X, V), A2p1(Y, U).
+A3p4(X Y, U V) <-- A2p3(X, Y), A2p1(U, V).
+A3p4(X Y, U V) <-- A2p3(X, U), A2p1(Y, V).
+A3p4(X Y, U V) <-- A2p3(X, V), A2p1(Y, U).
+A3p4(X Y, U V) <-- A2p4(X, Y), A2p1(U, V).
+A3p4(X Y, U V) <-- A2p4(X, U), A2p1(Y, V).
+A3p4(X Y, U V) <-- A2p4(X, V), A2p1(Y, U).
+A3p4(X Y, U V) <-- A2p5(X, Y), A2p1(U, V).
+A3p4(X Y, U V) <-- A2p5(X, U), A2p1(Y, V).
+A3p4(X Y, U V) <-- A2p5(X, V), A2p1(Y, U).
+A3p4(X Y, U V) <-- A2p1(X, Y), A2p2(U, V).
+A3p4(X Y, U V) <-- A2p1(X, U), A2p2(Y, V).
+A3p4(X Y, U V) <-- A2p1(X, V), A2p2(Y, U).
+A3p4(X Y, U V) <-- A2p2(X, Y), A2p2(U, V).
+A3p4(X Y, U V) <-- A2p2(X, U), A2p2(Y, V).
+A3p4(X Y, U V) <-- A2p2(X, V), A2p2(Y, U).
+A3p4(X Y, U V) <-- A2p3(X, Y), A2p2(U, V).
+A3p4(X Y, U V) <-- A2p3(X, U), A2p2(Y, V).
+A3p4(X Y, U V) <-- A2p3(X, V), A2p2(Y, U).
+A3p4(X Y, U V) <-- A2p4(X, Y), A2p2(U, V).
+A3p4(X Y, U V) <-- A2p4(X, U), A2p2(Y, V).
+A3p4(X Y, U V) <-- A2p4(X, V), A2p2(Y, U).
+A3p4(X Y, U V) <-- A2p5(X, Y), A2p2(U, V).
+A3p4(X Y, U V) <-- A2p5(X, U), A2p2(Y, V).
+A3p4(X Y, U V) <-- A2p5(X, V), A2p2(Y, U).
+A3p4(X Y, U V) <-- A2p1(X, Y), A2p3(U, V).
+A3p4(X Y, U V) <-- A2p1(X, U), A2p3(Y, V).
+A3p4(X Y, U V) <-- A2p1(X, V), A2p3(Y, U).
+A3p4(X Y, U V) <-- A2p2(X, Y), A2p3(U, V).
+A3p4(X Y, U V) <-- A2p2(X, U), A2p3(Y, V).
+A3p4(X Y, U V) <-- A2p2(X, V), A2p3(Y, U).
+A3p4(X Y, U V) <-- A2p3(X, Y), A2p3(U, V).
+A3p4(X Y, U V) <-- A2p3(X, U), A2p3(Y, V).
+A3p4(X Y, U V) <-- A2p3(X, V), A2p3(Y, U).
+A3p4(X Y, U V) <-- A2p4(X, Y), A2p3(U, V).
+A3p4(X Y, U V) <-- A2p4(X, U), A2p3(Y, V).
+A3p4(X Y, U V) <-- A2p4(X, V), A2p3(Y, U).
+A3p4(X Y, U V) <-- A2p5(X, Y), A2p3(U, V).
+A3p4(X Y, U V) <-- A2p5(X, U), A2p3(Y, V).
+A3p4(X Y, U V) <-- A2p5(X, V), A2p3(Y, U).
+A3p4(X Y, U V) <-- A2p1(X, Y), A2p4(U, V).
+A3p4(X Y, U V) <-- A2p1(X, U), A2p4(Y, V).
+A3p4(X Y, U V) <-- A2p1(X, V), A2p4(Y, U).
+A3p4(X Y, U V) <-- A2p2(X, Y), A2p4(U, V).
+A3p4(X Y, U V) <-- A2p2(X, U), A2p4(Y, V).
+A3p4(X Y, U V) <-- A2p2(X, V), A2p4(Y, U).
+A3p4(X Y, U V) <-- A2p3(X, Y), A2p4(U, V).
+A3p4(X Y, U V) <-- A2p3(X, U), A2p4(Y, V).
+A3p4(X Y, U V) <-- A2p3(X, V), A2p4(Y, U).
+A3p4(X Y, U V) <-- A2p4(X, Y), A2p4(U, V).
+A3p4(X Y, U V) <-- A2p4(X, U), A2p4(Y, V).
+A3p4(X Y, U V) <-- A2p4(X, V), A2p4(Y, U).
+A3p4(X Y, U V) <-- A2p5(X, Y), A2p4(U, V).
+A3p4(X Y, U V) <-- A2p5(X, U), A2p4(Y, V).
+A3p4(X Y, U V) <-- A2p5(X, V), A2p4(Y, U).
+A3p4(X Y, U V) <-- A2p1(X, Y), A2p5(U, V).
+A3p4(X Y, U V) <-- A2p1(X, U), A2p5(Y, V).
+A3p4(X Y, U V) <-- A2p1(X, V), A2p5(Y, U).
+A3p4(X Y, U V) <-- A2p2(X, Y), A2p5(U, V).
+A3p4(X Y, U V) <-- A2p2(X, U), A2p5(Y, V).
+A3p4(X Y, U V) <-- A2p2(X, V), A2p5(Y, U).
+A3p4(X Y, U V) <-- A2p3(X, Y), A2p5(U, V).
+A3p4(X Y, U V) <-- A2p3(X, U), A2p5(Y, V).
+A3p4(X Y, U V) <-- A2p3(X, V), A2p5(Y, U).
+A3p4(X Y, U V) <-- A2p4(X, Y), A2p5(U, V).
+A3p4(X Y, U V) <-- A2p4(X, U), A2p5(Y, V).
+A3p4(X Y, U V) <-- A2p4(X, V), A2p5(Y, U).
+A3p4(X Y, U V) <-- A2p5(X, Y), A2p5(U, V).
+A3p4(X Y, U V) <-- A2p5(X, U), A2p5(Y, V).
+A3p4(X Y, U V) <-- A2p5(X, V), A2p5(Y, U).
+A3p5(X Y, U V) <-- A2p1(X, Y), A2p1(U, V).
+A3p5(X Y, U V) <-- A2p1(X, U), A2p1(Y, V).
+A3p5(X Y, U V) <-- A2p1(X, V), A2p1(Y, U).
+A3p5(X Y, U V) <-- A2p2(X, Y), A2p1(U, V).
+A3p5(X Y, U V) <-- A2p2(X, U), A2p1(Y, V).
+A3p5(X Y, U V) <-- A2p2(X, V), A2p1(Y, U).
+A3p5(X Y, U V) <-- A2p3(X, Y), A2p1(U, V).
+A3p5(X Y, U V) <-- A2p3(X, U), A2p1(Y, V).
+A3p5(X Y, U V) <-- A2p3(X, V), A2p1(Y, U).
+A3p5(X Y, U V) <-- A2p4(X, Y), A2p1(U, V).
+A3p5(X Y, U V) <-- A2p4(X, U), A2p1(Y, V).
+A3p5(X Y, U V) <-- A2p4(X, V), A2p1(Y, U).
+A3p5(X Y, U V) <-- A2p5(X, Y), A2p1(U, V).
+A3p5(X Y, U V) <-- A2p5(X, U), A2p1(Y, V).
+A3p5(X Y, U V) <-- A2p5(X, V), A2p1(Y, U).
+A3p5(X Y, U V) <-- A2p1(X, Y), A2p2(U, V).
+A3p5(X Y, U V) <-- A2p1(X, U), A2p2(Y, V).
+A3p5(X Y, U V) <-- A2p1(X, V), A2p2(Y, U).
+A3p5(X Y, U V) <-- A2p2(X, Y), A2p2(U, V).
+A3p5(X Y, U V) <-- A2p2(X, U), A2p2(Y, V).
+A3p5(X Y, U V) <-- A2p2(X, V), A2p2(Y, U).
+A3p5(X Y, U V) <-- A2p3(X, Y), A2p2(U, V).
+A3p5(X Y, U V) <-- A2p3(X, U), A2p2(Y, V).
+A3p5(X Y, U V) <-- A2p3(X, V), A2p2(Y, U).
+A3p5(X Y, U V) <-- A2p4(X, Y), A2p2(U, V).
+A3p5(X Y, U V) <-- A2p4(X, U), A2p2(Y, V).
+A3p5(X Y, U V) <-- A2p4(X, V), A2p2(Y, U).
+A3p5(X Y, U V) <-- A2p5(X, Y), A2p2(U, V).
+A3p5(X Y, U V) <-- A2p5(X, U), A2p2(Y, V).
+A3p5(X Y, U V) <-- A2p5(X, V), A2p2(Y, U).
+A3p5(X Y, U V) <-- A2p1(X, Y), A2p3(U, V).
+A3p5(X Y, U V) <-- A2p1(X, U), A2p3(Y, V).
+A3p5(X Y, U V) <-- A2p1(X, V), A2p3(Y, U).
+A3p5(X Y, U V) <-- A2p2(X, Y), A2p3(U, V).
+A3p5(X Y, U V) <-- A2p2(X, U), A2p3(Y, V).
+A3p5(X Y, U V) <-- A2p2(X, V), A2p3(Y, U).
+A3p5(X Y, U V) <-- A2p3(X, Y), A2p3(U, V).
+A3p5(X Y, U V) <-- A2p3(X, U), A2p3(Y, V).
+A3p5(X Y, U V) <-- A2p3(X, V), A2p3(Y, U).
+A3p5(X Y, U V) <-- A2p4(X, Y), A2p3(U, V).
+A3p5(X Y, U V) <-- A2p4(X, U), A2p3(Y, V).
+A3p5(X Y, U V) <-- A2p4(X, V), A2p3(Y, U).
+A3p5(X Y, U V) <-- A2p5(X, Y), A2p3(U, V).
+A3p5(X Y, U V) <-- A2p5(X, U), A2p3(Y, V).
+A3p5(X Y, U V) <-- A2p5(X, V), A2p3(Y, U).
+A3p5(X Y, U V) <-- A2p1(X, Y), A2p4(U, V).
+A3p5(X Y, U V) <-- A2p1(X, U), A2p4(Y, V).
+A3p5(X Y, U V) <-- A2p1(X, V), A2p4(Y, U).
+A3p5(X Y, U V) <-- A2p2(X, Y), A2p4(U, V).
+A3p5(X Y, U V) <-- A2p2(X, U), A2p4(Y, V).
+A3p5(X Y, U V) <-- A2p2(X, V), A2p4(Y, U).
+A3p5(X Y, U V) <-- A2p3(X, Y), A2p4(U, V).
+A3p5(X Y, U V) <-- A2p3(X, U), A2p4(Y, V).
+A3p5(X Y, U V) <-- A2p3(X, V), A2p4(Y, U).
+A3p5(X Y, U V) <-- A2p4(X, Y), A2p4(U, V).
+A3p5(X Y, U V) <-- A2p4(X, U), A2p4(Y, V).
+A3p5(X Y, U V) <-- A2p4(X, V), A2p4(Y, U).
+A3p5(X Y, U V) <-- A2p5(X, Y), A2p4(U, V).
+A3p5(X Y, U V) <-- A2p5(X, U), A2p4(Y, V).
+A3p5(X Y, U V) <-- A2p5(X, V), A2p4(Y, U).
+A3p5(X Y, U V) <-- A2p1(X, Y), A2p5(U, V).
+A3p5(X Y, U V) <-- A2p1(X, U), A2p5(Y, V).
+A3p5(X Y, U V) <-- A2p1(X, V), A2p5(Y, U).
+A3p5(X Y, U V) <-- A2p2(X, Y), A2p5(U, V).
+A3p5(X Y, U V) <-- A2p2(X, U), A2p5(Y, V).
+A3p5(X Y, U V) <-- A2p2(X, V), A2p5(Y, U).
+A3p5(X Y, U V) <-- A2p3(X, Y), A2p5(U, V).
+A3p5(X Y, U V) <-- A2p3(X, U), A2p5(Y, V).
+A3p5(X Y, U V) <-- A2p3(X, V), A2p5(Y, U).
+A3p5(X Y, U V) <-- A2p4(X, Y), A2p5(U, V).
+A3p5(X Y, U V) <-- A2p4(X, U), A2p5(Y, V).
+A3p5(X Y, U V) <-- A2p4(X, V), A2p5(Y, U).
+A3p5(X Y, U V) <-- A2p5(X, Y), A2p5(U, V).
+A3p5(X Y, U V) <-- A2p5(X, U), A2p5(Y, V).
+A3p5(X Y, U V) <-- A2p5(X, V), A2p5(Y, U).
+A1p1(X, Y) <-- A0p1(Y, X).
+A1p1(X, Y) <-- A0p2(Y, X).
+A1p1(X, Y) <-- A0p3(Y, X).
+A1p1(X, Y) <-- A0p4(Y, X).
+A1p1(X, Y) <-- A0p5(Y, X).
+A1p2(X, Y) <-- A0p1(Y, X).
+A1p2(X, Y) <-- A0p2(Y, X).
+A1p2(X, Y) <-- A0p3(Y, X).
+A1p2(X, Y) <-- A0p4(Y, X).
+A1p2(X, Y) <-- A0p5(Y, X).
+A1p3(X, Y) <-- A0p1(Y, X).
+A1p3(X, Y) <-- A0p2(Y, X).
+A1p3(X, Y) <-- A0p3(Y, X).
+A1p3(X, Y) <-- A0p4(Y, X).
+A1p3(X, Y) <-- A0p5(Y, X).
+A1p4(X, Y) <-- A0p1(Y, X).
+A1p4(X, Y) <-- A0p2(Y, X).
+A1p4(X, Y) <-- A0p3(Y, X).
+A1p4(X, Y) <-- A0p4(Y, X).
+A1p4(X, Y) <-- A0p5(Y, X).
+A1p5(X, Y) <-- A0p1(Y, X).
+A1p5(X, Y) <-- A0p2(Y, X).
+A1p5(X, Y) <-- A0p3(Y, X).
+A1p5(X, Y) <-- A0p4(Y, X).
+A1p5(X, Y) <-- A0p5(Y, X).
+A2p1(X, Y) <-- A1p1(Y, X).
+A2p1(X, Y) <-- A1p2(Y, X).
+A2p1(X, Y) <-- A1p3(Y, X).
+A2p1(X, Y) <-- A1p4(Y, X).
+A2p1(X, Y) <-- A1p5(Y, X).
+A2p2(X, Y) <-- A1p1(Y, X).
+A2p2(X, Y) <-- A1p2(Y, X).
+A2p2(X, Y) <-- A1p3(Y, X).
+A2p2(X, Y) <-- A1p4(Y, X).
+A2p2(X, Y) <-- A1p5(Y, X).
+A2p3(X, Y) <-- A1p1(Y, X).
+A2p3(X, Y) <-- A1p2(Y, X).
+A2p3(X, Y) <-- A1p3(Y, X).
+A2p3(X, Y) <-- A1p4(Y, X).
+A2p3(X, Y) <-- A1p5(Y, X).
+A2p4(X, Y) <-- A1p1(Y, X).
+A2p4(X, Y) <-- A1p2(Y, X).
+A2p4(X, Y) <-- A1p3(Y, X).
+A2p4(X, Y) <-- A1p4(Y, X).
+A2p4(X, Y) <-- A1p5(Y, X).
+A2p5(X, Y) <-- A1p1(Y, X).
+A2p5(X, Y) <-- A1p2(Y, X).
+A2p5(X, Y) <-- A1p3(Y, X).
+A2p5(X, Y) <-- A1p4(Y, X).
+A2p5(X, Y) <-- A1p5(Y, X).
+A3p1(X, Y) <-- A2p1(Y, X).
+A3p1(X, Y) <-- A2p2(Y, X).
+A3p1(X, Y) <-- A2p3(Y, X).
+A3p1(X, Y) <-- A2p4(Y, X).
+A3p1(X, Y) <-- A2p5(Y, X).
+A3p2(X, Y) <-- A2p1(Y, X).
+A3p2(X, Y) <-- A2p2(Y, X).
+A3p2(X, Y) <-- A2p3(Y, X).
+A3p2(X, Y) <-- A2p4(Y, X).
+A3p2(X, Y) <-- A2p5(Y, X).
+A3p3(X, Y) <-- A2p1(Y, X).
+A3p3(X, Y) <-- A2p2(Y, X).
+A3p3(X, Y) <-- A2p3(Y, X).
+A3p3(X, Y) <-- A2p4(Y, X).
+A3p3(X, Y) <-- A2p5(Y, X).
+A3p4(X, Y) <-- A2p1(Y, X).
+A3p4(X, Y) <-- A2p2(Y, X).
+A3p4(X, Y) <-- A2p3(Y, X).
+A3p4(X, Y) <-- A2p4(Y, X).
+A3p4(X, Y) <-- A2p5(Y, X).
+A3p5(X, Y) <-- A2p1(Y, X).
+A3p5(X, Y) <-- A2p2(Y, X).
+A3p5(X, Y) <-- A2p3(Y, X).
+A3p5(X, Y) <-- A2p4(Y, X).
+A3p5(X, Y) <-- A2p5(Y, X).
+C1(one).
+C1(two).
+C1(three).
+C1(four).
+C1(five).
+C1(six).
+C1(seven).
+C1(eight).
+C1(nine).
+C1(ten).
+C1(eleven).
+C1(twelve).
+C1(thirteen).
+C1(fourteen).
+C1(fifteen).
+C1(sixteen).
+C1(seventeen).
+C1(eighteen).
+C1(nineteen).
+C1(twenty).
+C1(thirty).
+C1(forty).
+C1(fifty).
+C1(sixty).
+C1(seventy).
+C1(eighty).
+C1(ninety).
+C1(null).
+C1(after).
+C1(comes).
+C2(one).
+C2(two).
+C2(three).
+C2(four).
+C2(five).
+C2(six).
+C2(seven).
+C2(eight).
+C2(nine).
+C2(ten).
+C2(eleven).
+C2(twelve).
+C2(thirteen).
+C2(fourteen).
+C2(fifteen).
+C2(sixteen).
+C2(seventeen).
+C2(eighteen).
+C2(nineteen).
+C2(twenty).
+C2(thirty).
+C2(forty).
+C2(fifty).
+C2(sixty).
+C2(seventy).
+C2(eighty).
+C2(ninety).
+C2(null).
+C2(after).
+C2(comes).
+C3(one).
+C3(two).
+C3(three).
+C3(four).
+C3(five).
+C3(six).
+C3(seven).
+C3(eight).
+C3(nine).
+C3(ten).
+C3(eleven).
+C3(twelve).
+C3(thirteen).
+C3(fourteen).
+C3(fifteen).
+C3(sixteen).
+C3(seventeen).
+C3(eighteen).
+C3(nineteen).
+C3(twenty).
+C3(thirty).
+C3(forty).
+C3(fifty).
+C3(sixty).
+C3(seventy).
+C3(eighty).
+C3(ninety).
+C3(null).
+C3(after).
+C3(comes).
+C4(one).
+C4(two).
+C4(three).
+C4(four).
+C4(five).
+C4(six).
+C4(seven).
+C4(eight).
+C4(nine).
+C4(ten).
+C4(eleven).
+C4(twelve).
+C4(thirteen).
+C4(fourteen).
+C4(fifteen).
+C4(sixteen).
+C4(seventeen).
+C4(eighteen).
+C4(nineteen).
+C4(twenty).
+C4(thirty).
+C4(forty).
+C4(fifty).
+C4(sixty).
+C4(seventy).
+C4(eighty).
+C4(ninety).
+C4(null).
+C4(after).
+C4(comes).
+C5(one).
+C5(two).
+C5(three).
+C5(four).
+C5(five).
+C5(six).
+C5(seven).
+C5(eight).
+C5(nine).
+C5(ten).
+C5(eleven).
+C5(twelve).
+C5(thirteen).
+C5(fourteen).
+C5(fifteen).
+C5(sixteen).
+C5(seventeen).
+C5(eighteen).
+C5(nineteen).
+C5(twenty).
+C5(thirty).
+C5(forty).
+C5(fifty).
+C5(sixty).
+C5(seventy).
+C5(eighty).
+C5(ninety).
+C5(null).
+C5(after).
+C5(comes).
+A0p1(X, Y) <-- C1(X), C1(Y).
+A0p1(X, Y) <-- C1(X), C2(Y).
+A0p1(X, Y) <-- C1(X), C3(Y).
+A0p1(X, Y) <-- C1(X), C4(Y).
+A0p1(X, Y) <-- C1(X), C5(Y).
+A0p1(X, Y) <-- C2(X), C1(Y).
+A0p1(X, Y) <-- C2(X), C2(Y).
+A0p1(X, Y) <-- C2(X), C3(Y).
+A0p1(X, Y) <-- C2(X), C4(Y).
+A0p1(X, Y) <-- C2(X), C5(Y).
+A0p1(X, Y) <-- C3(X), C1(Y).
+A0p1(X, Y) <-- C3(X), C2(Y).
+A0p1(X, Y) <-- C3(X), C3(Y).
+A0p1(X, Y) <-- C3(X), C4(Y).
+A0p1(X, Y) <-- C3(X), C5(Y).
+A0p1(X, Y) <-- C4(X), C1(Y).
+A0p1(X, Y) <-- C4(X), C2(Y).
+A0p1(X, Y) <-- C4(X), C3(Y).
+A0p1(X, Y) <-- C4(X), C4(Y).
+A0p1(X, Y) <-- C4(X), C5(Y).
+A0p1(X, Y) <-- C5(X), C1(Y).
+A0p1(X, Y) <-- C5(X), C2(Y).
+A0p1(X, Y) <-- C5(X), C3(Y).
+A0p1(X, Y) <-- C5(X), C4(Y).
+A0p1(X, Y) <-- C5(X), C5(Y).
+A0p2(X, Y) <-- C1(X), C1(Y).
+A0p2(X, Y) <-- C1(X), C2(Y).
+A0p2(X, Y) <-- C1(X), C3(Y).
+A0p2(X, Y) <-- C1(X), C4(Y).
+A0p2(X, Y) <-- C1(X), C5(Y).
+A0p2(X, Y) <-- C2(X), C1(Y).
+A0p2(X, Y) <-- C2(X), C2(Y).
+A0p2(X, Y) <-- C2(X), C3(Y).
+A0p2(X, Y) <-- C2(X), C4(Y).
+A0p2(X, Y) <-- C2(X), C5(Y).
+A0p2(X, Y) <-- C3(X), C1(Y).
+A0p2(X, Y) <-- C3(X), C2(Y).
+A0p2(X, Y) <-- C3(X), C3(Y).
+A0p2(X, Y) <-- C3(X), C4(Y).
+A0p2(X, Y) <-- C3(X), C5(Y).
+A0p2(X, Y) <-- C4(X), C1(Y).
+A0p2(X, Y) <-- C4(X), C2(Y).
+A0p2(X, Y) <-- C4(X), C3(Y).
+A0p2(X, Y) <-- C4(X), C4(Y).
+A0p2(X, Y) <-- C4(X), C5(Y).
+A0p2(X, Y) <-- C5(X), C1(Y).
+A0p2(X, Y) <-- C5(X), C2(Y).
+A0p2(X, Y) <-- C5(X), C3(Y).
+A0p2(X, Y) <-- C5(X), C4(Y).
+A0p2(X, Y) <-- C5(X), C5(Y).
+A0p3(X, Y) <-- C1(X), C1(Y).
+A0p3(X, Y) <-- C1(X), C2(Y).
+A0p3(X, Y) <-- C1(X), C3(Y).
+A0p3(X, Y) <-- C1(X), C4(Y).
+A0p3(X, Y) <-- C1(X), C5(Y).
+A0p3(X, Y) <-- C2(X), C1(Y).
+A0p3(X, Y) <-- C2(X), C2(Y).
+A0p3(X, Y) <-- C2(X), C3(Y).
+A0p3(X, Y) <-- C2(X), C4(Y).
+A0p3(X, Y) <-- C2(X), C5(Y).
+A0p3(X, Y) <-- C3(X), C1(Y).
+A0p3(X, Y) <-- C3(X), C2(Y).
+A0p3(X, Y) <-- C3(X), C3(Y).
+A0p3(X, Y) <-- C3(X), C4(Y).
+A0p3(X, Y) <-- C3(X), C5(Y).
+A0p3(X, Y) <-- C4(X), C1(Y).
+A0p3(X, Y) <-- C4(X), C2(Y).
+A0p3(X, Y) <-- C4(X), C3(Y).
+A0p3(X, Y) <-- C4(X), C4(Y).
+A0p3(X, Y) <-- C4(X), C5(Y).
+A0p3(X, Y) <-- C5(X), C1(Y).
+A0p3(X, Y) <-- C5(X), C2(Y).
+A0p3(X, Y) <-- C5(X), C3(Y).
+A0p3(X, Y) <-- C5(X), C4(Y).
+A0p3(X, Y) <-- C5(X), C5(Y).
+A0p4(X, Y) <-- C1(X), C1(Y).
+A0p4(X, Y) <-- C1(X), C2(Y).
+A0p4(X, Y) <-- C1(X), C3(Y).
+A0p4(X, Y) <-- C1(X), C4(Y).
+A0p4(X, Y) <-- C1(X), C5(Y).
+A0p4(X, Y) <-- C2(X), C1(Y).
+A0p4(X, Y) <-- C2(X), C2(Y).
+A0p4(X, Y) <-- C2(X), C3(Y).
+A0p4(X, Y) <-- C2(X), C4(Y).
+A0p4(X, Y) <-- C2(X), C5(Y).
+A0p4(X, Y) <-- C3(X), C1(Y).
+A0p4(X, Y) <-- C3(X), C2(Y).
+A0p4(X, Y) <-- C3(X), C3(Y).
+A0p4(X, Y) <-- C3(X), C4(Y).
+A0p4(X, Y) <-- C3(X), C5(Y).
+A0p4(X, Y) <-- C4(X), C1(Y).
+A0p4(X, Y) <-- C4(X), C2(Y).
+A0p4(X, Y) <-- C4(X), C3(Y).
+A0p4(X, Y) <-- C4(X), C4(Y).
+A0p4(X, Y) <-- C4(X), C5(Y).
+A0p4(X, Y) <-- C5(X), C1(Y).
+A0p4(X, Y) <-- C5(X), C2(Y).
+A0p4(X, Y) <-- C5(X), C3(Y).
+A0p4(X, Y) <-- C5(X), C4(Y).
+A0p4(X, Y) <-- C5(X), C5(Y).
+A0p5(X, Y) <-- C1(X), C1(Y).
+A0p5(X, Y) <-- C1(X), C2(Y).
+A0p5(X, Y) <-- C1(X), C3(Y).
+A0p5(X, Y) <-- C1(X), C4(Y).
+A0p5(X, Y) <-- C1(X), C5(Y).
+A0p5(X, Y) <-- C2(X), C1(Y).
+A0p5(X, Y) <-- C2(X), C2(Y).
+A0p5(X, Y) <-- C2(X), C3(Y).
+A0p5(X, Y) <-- C2(X), C4(Y).
+A0p5(X, Y) <-- C2(X), C5(Y).
+A0p5(X, Y) <-- C3(X), C1(Y).
+A0p5(X, Y) <-- C3(X), C2(Y).
+A0p5(X, Y) <-- C3(X), C3(Y).
+A0p5(X, Y) <-- C3(X), C4(Y).
+A0p5(X, Y) <-- C3(X), C5(Y).
+A0p5(X, Y) <-- C4(X), C1(Y).
+A0p5(X, Y) <-- C4(X), C2(Y).
+A0p5(X, Y) <-- C4(X), C3(Y).
+A0p5(X, Y) <-- C4(X), C4(Y).
+A0p5(X, Y) <-- C4(X), C5(Y).
+A0p5(X, Y) <-- C5(X), C1(Y).
+A0p5(X, Y) <-- C5(X), C2(Y).
+A0p5(X, Y) <-- C5(X), C3(Y).
+A0p5(X, Y) <-- C5(X), C4(Y).
+A0p5(X, Y) <-- C5(X), C5(Y).
+NextSentence(X Y) <-- A3p1(X, Y).
