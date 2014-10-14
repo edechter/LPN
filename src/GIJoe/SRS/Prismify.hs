@@ -36,7 +36,6 @@ labeledMap f xs =  map f $ zip xs $ take (length xs) ['A'..'Z']
 body :: RewriteSystem -> [String]
 body slcfrs =
     mainClause ++ [""] ++
-    acyclicClause ++ [""] ++
     srsClause ++ [""] ++
     switchClauses ++ [""] ++
     probClauses ++ [""] ++ reductionClauses
@@ -49,7 +48,6 @@ body slcfrs =
                   "", "getTrain(F,Gs) :- load_clauses(F,ALL,[]), findall(X,member(train(X),ALL),Gs).",
                   "", "getTest(F,Gs) :- load_clauses(F,ALL,[]), findall(X,member(test(X),ALL),Gs).", ""]
     srsClause =  [ "srs(P-IN) :- msw(P,V), reduce(P-IN,V)." ]
-    acyclicClause = [ "acyclic([A,B],[C,D]) :- length(A,AL), length(B,BL), length(C,CL), length(D,DL), X is AL + BL, Y is CL + DL, X < Y." ]
     switchClauses = map makeSwitch groupedRules
     probClauses = map makeProbs groupedRules
     reductionClauses = concatMap makeReductions groupedRules
@@ -82,8 +80,8 @@ makeReduction (i,(h :<-: bs)) =
     theAppends = if (not $ null appendVars)
                  then "(" ++ appendVars ++ " -> " ++ appends1 ++ "; " ++ appends2 ++ ")"
                  else appendSRSs
-    appends1 = intercalate ", " $ filter (not . null) [appendSRSs, appendAppends, appendAcyclics]
-    appends2 = intercalate ", " $ filter (not . null) [appendAppends, appendAcyclics, appendSRSs]
+    appends1 = intercalate ", " $ filter (not . null) [appendSRSs, appendAppends]
+    appends2 = intercalate ", " $ filter (not . null) [appendAppends, appendSRSs]
     anyAppends = if null (theAppends) then "" else " :- " ++ theAppends
     collectTupleItems (ComplexTerm _ xs) = intercalate ", " $ filter (not . null) $ labeledMap collectTupleItem xs
     collectTupleItem ((NTString (x:[])),l) = ""
