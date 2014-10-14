@@ -18,7 +18,8 @@ prism_main :-
     findall(count(X, 50), train(X), Gs),
     learn(Gs), 
     save_sw(switches_sw_5), 
-    save_sw_a(switches_a_5).
+    save_sw_a(switches_a_5), 
+    halt.
 
 
 
