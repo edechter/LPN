@@ -1,0 +1,45 @@
+:- set_prism_flag(em_progress, 1). 
+:- set_prism_flag(max_iterate, 200). 
+
+main(Gs,Foutp,Fouta) :- set_prism_flag(restart,1), set_prism_flag(learn_mode,vb), set_prism_flag(viterbi_mode,vb), set_prism_flag(default_sw_a,uniform), set_prism_flag(log_scale,on), learn(Gs), save_sw(Foutp), save_sw_a(Fouta).
+
+show_num(X) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Number_1'-[X])).
+
+show_next(X,Y) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Next_2'-[X,Y])).
+
+acyclic([A,B],[C,D]) :- true. 
+%% write(acyclic([A, B], [C, D])), nl, 
+                     %% length(A,AL), length(C,CL), length(B,BL), length(D,DL), X is CL + DL, Y is AL + BL, Y < X.
+
+srs(P-IN) :- ??* reduce(P-IN,V), msw(P,V).
+
+values('A2_2',[1]).
+values('A3_2',[1]).
+values('A4_2',[1]).
+values('A5_2',[1,2,3]).
+values('A6_2',[1,2,3]).
+values('Next_2',[1]).
+values('NextSentence_1',[1]).
+values('Number_1',[1]).
+
+:- set_sw('A2_2',[1.0]).
+:- set_sw('A3_2',[1.0]).
+:- set_sw('A4_2',[1.0]).
+:- set_sw('A5_2',[0.3333333333333333,0.3333333333333333,0.3333333333333333]).
+:- set_sw('A6_2',[0.3333333333333333,0.3333333333333333,0.3333333333333333]).
+:- set_sw('Next_2',[1.0]).
+:- set_sw('NextSentence_1',[1.0]).
+:- set_sw('Number_1',[1.0]).
+
+reduce('A2_2'-[A2,B2],1) :- (var(A2), var(B2) -> srs('A3_2'-[X,Y]), srs('A4_2'-[U,V]), acyclic([X,Y],[A2,B2]), acyclic([U,V],[A2,B2]), append(X,Y,A2), append(U,V,B2); append(X,Y,A2), append(U,V,B2), acyclic([X,Y],[A2,B2]), acyclic([U,V],[A2,B2]), srs('A3_2'-[X,Y]), srs('A4_2'-[U,V])).
+reduce('A3_2'-[A2,B2],1) :- (var(A2), var(B2) -> srs('A5_2'-[X,U]), srs('A6_2'-[Y,V]), acyclic([X,U],[A2,B2]), acyclic([Y,V],[A2,B2]), append(X,Y,A2), append(U,V,B2); append(X,Y,A2), append(U,V,B2), acyclic([X,U],[A2,B2]), acyclic([Y,V],[A2,B2]), srs('A5_2'-[X,U]), srs('A6_2'-[Y,V])).
+reduce('A4_2'-[[],[]],1).
+reduce('A5_2'-[[twenty],[twenty]],1).
+reduce('A5_2'-[[thirty],[thirty]],2).
+reduce('A5_2'-[[forty],[forty]],3).
+reduce('A6_2'-[[one],[two]],1).
+reduce('A6_2'-[[two],[three]],2).
+reduce('A6_2'-[[three],[four]],3).
+reduce('Next_2'-[X,Y],1) :- srs('A2_2'-[X,Y]).
+reduce('NextSentence_1'-[X],1) :- srs('A2_2'-[X,[]]).
+reduce('Number_1'-[X],1) :- srs('A1_2'-[X,X]).
