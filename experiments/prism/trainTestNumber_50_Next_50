@@ -1,0 +1,203 @@
+train(srs('Number_1'-[[eighty,nine]])).
+train(srs('Number_1'-[[ninety,four]])).
+train(srs('Number_1'-[[sixteen]])).
+train(srs('Number_1'-[[three]])).
+train(srs('Number_1'-[[fifty,one]])).
+train(srs('Number_1'-[[fifty]])).
+train(srs('Number_1'-[[thirteen]])).
+train(srs('Number_1'-[[ten]])).
+train(srs('Number_1'-[[seventy,seven]])).
+train(srs('Number_1'-[[seventy,five]])).
+train(srs('Number_1'-[[nineteen]])).
+train(srs('Number_1'-[[seventy]])).
+train(srs('Number_1'-[[eighty,three]])).
+train(srs('Number_1'-[[eighty,four]])).
+train(srs('Number_1'-[[forty,four]])).
+train(srs('Number_1'-[[seventeen]])).
+train(srs('Number_1'-[[twenty,three]])).
+train(srs('Number_1'-[[ninety,five]])).
+train(srs('Number_1'-[[sixty,six]])).
+train(srs('Number_1'-[[fifty,eight]])).
+train(srs('Number_1'-[[seventy,one]])).
+train(srs('Number_1'-[[nine]])).
+train(srs('Number_1'-[[seventy,three]])).
+train(srs('Number_1'-[[twenty]])).
+train(srs('Number_1'-[[thirty]])).
+train(srs('Number_1'-[[ninety,nine]])).
+train(srs('Number_1'-[[sixty,seven]])).
+train(srs('Number_1'-[[thirty,eight]])).
+train(srs('Number_1'-[[seventy,nine]])).
+train(srs('Number_1'-[[six]])).
+train(srs('Number_1'-[[two]])).
+train(srs('Number_1'-[[twelve]])).
+train(srs('Number_1'-[[twenty,one]])).
+train(srs('Number_1'-[[sixty,three]])).
+train(srs('Number_1'-[[ninety,eight]])).
+train(srs('Number_1'-[[fifteen]])).
+train(srs('Number_1'-[[ninety,six]])).
+train(srs('Number_1'-[[seventy,eight]])).
+train(srs('Number_1'-[[twenty,six]])).
+train(srs('Number_1'-[[forty,two]])).
+train(srs('Number_1'-[[thirty,four]])).
+train(srs('Number_1'-[[sixty,nine]])).
+train(srs('Number_1'-[[sixty]])).
+train(srs('Number_1'-[[seventy,four]])).
+train(srs('Number_1'-[[eighty]])).
+train(srs('Number_1'-[[five]])).
+train(srs('Number_1'-[[thirty,seven]])).
+train(srs('Number_1'-[[one]])).
+train(srs('Number_1'-[[eighty,one]])).
+train(srs('Number_1'-[[twenty,five]])).
+
+test(srs('Number_1'-[[forty,three]])).
+test(srs('Number_1'-[[fifty,two]])).
+test(srs('Number_1'-[[seven]])).
+test(srs('Number_1'-[[twenty,four]])).
+test(srs('Number_1'-[[thirty,one]])).
+test(srs('Number_1'-[[eighteen]])).
+test(srs('Number_1'-[[sixty,two]])).
+test(srs('Number_1'-[[eighty,two]])).
+test(srs('Number_1'-[[forty,six]])).
+test(srs('Number_1'-[[fifty,four]])).
+test(srs('Number_1'-[[fifty,three]])).
+test(srs('Number_1'-[[four]])).
+test(srs('Number_1'-[[eighty,eight]])).
+test(srs('Number_1'-[[sixty,five]])).
+test(srs('Number_1'-[[eighty,seven]])).
+test(srs('Number_1'-[[sixty,eight]])).
+test(srs('Number_1'-[[forty]])).
+test(srs('Number_1'-[[sixty,one]])).
+test(srs('Number_1'-[[forty,one]])).
+test(srs('Number_1'-[[forty,seven]])).
+test(srs('Number_1'-[[eighty,six]])).
+test(srs('Number_1'-[[fifty,six]])).
+test(srs('Number_1'-[[fourteen]])).
+test(srs('Number_1'-[[thirty,six]])).
+test(srs('Number_1'-[[eight]])).
+test(srs('Number_1'-[[thirty,nine]])).
+test(srs('Number_1'-[[forty,five]])).
+test(srs('Number_1'-[[thirty,two]])).
+test(srs('Number_1'-[[fifty,five]])).
+test(srs('Number_1'-[[eighty,five]])).
+test(srs('Number_1'-[[seventy,two]])).
+test(srs('Number_1'-[[twenty,nine]])).
+test(srs('Number_1'-[[ninety,two]])).
+test(srs('Number_1'-[[seventy,six]])).
+test(srs('Number_1'-[[fifty,nine]])).
+test(srs('Number_1'-[[thirty,three]])).
+test(srs('Number_1'-[[forty,nine]])).
+test(srs('Number_1'-[[ninety]])).
+test(srs('Number_1'-[[twenty,two]])).
+test(srs('Number_1'-[[twenty,seven]])).
+test(srs('Number_1'-[[sixty,four]])).
+test(srs('Number_1'-[[twenty,eight]])).
+test(srs('Number_1'-[[forty,eight]])).
+test(srs('Number_1'-[[ninety,one]])).
+test(srs('Number_1'-[[fifty,seven]])).
+test(srs('Number_1'-[[thirty,five]])).
+test(srs('Number_1'-[[ninety,seven]])).
+test(srs('Number_1'-[[ninety,three]])).
+test(srs('Number_1'-[[eleven]])).
+
+
+train(srs('Next_2'-[[ninety,eight], [ninety,nine]])).
+train(srs('Next_2'-[[sixty,five], [sixty,six]])).
+train(srs('Next_2'-[[four], [five]])).
+train(srs('Next_2'-[[forty,three], [forty,four]])).
+train(srs('Next_2'-[[twenty], [twenty,one]])).
+train(srs('Next_2'-[[three], [four]])).
+train(srs('Next_2'-[[seventy], [seventy,one]])).
+train(srs('Next_2'-[[sixty,two], [sixty,three]])).
+train(srs('Next_2'-[[eighty,six], [eighty,seven]])).
+train(srs('Next_2'-[[ninety,three], [ninety,four]])).
+train(srs('Next_2'-[[ninety,seven], [ninety,eight]])).
+train(srs('Next_2'-[[thirty,three], [thirty,four]])).
+train(srs('Next_2'-[[seventy,nine], [eighty]])).
+train(srs('Next_2'-[[seven], [eight]])).
+train(srs('Next_2'-[[eighteen], [nineteen]])).
+train(srs('Next_2'-[[forty,seven], [forty,eight]])).
+train(srs('Next_2'-[[fifty,four], [fifty,five]])).
+train(srs('Next_2'-[[nineteen], [twenty]])).
+train(srs('Next_2'-[[twenty,nine], [thirty]])).
+train(srs('Next_2'-[[ninety,six], [ninety,seven]])).
+train(srs('Next_2'-[[ninety,five], [ninety,six]])).
+train(srs('Next_2'-[[seventy,one], [seventy,two]])).
+train(srs('Next_2'-[[fifty,eight], [fifty,nine]])).
+train(srs('Next_2'-[[ninety,four], [ninety,five]])).
+train(srs('Next_2'-[[seventy,four], [seventy,five]])).
+train(srs('Next_2'-[[seventeen], [eighteen]])).
+train(srs('Next_2'-[[sixty,nine], [seventy]])).
+train(srs('Next_2'-[[ten], [eleven]])).
+train(srs('Next_2'-[[forty,two], [forty,three]])).
+train(srs('Next_2'-[[twenty,six], [twenty,seven]])).
+train(srs('Next_2'-[[twenty,seven], [twenty,eight]])).
+train(srs('Next_2'-[[sixty], [sixty,one]])).
+train(srs('Next_2'-[[sixty,four], [sixty,five]])).
+train(srs('Next_2'-[[fourteen], [fifteen]])).
+train(srs('Next_2'-[[eighty,three], [eighty,four]])).
+train(srs('Next_2'-[[fifty,three], [fifty,four]])).
+train(srs('Next_2'-[[eighty,two], [eighty,three]])).
+train(srs('Next_2'-[[sixty,seven], [sixty,eight]])).
+train(srs('Next_2'-[[thirty], [thirty,one]])).
+train(srs('Next_2'-[[fifty,two], [fifty,three]])).
+train(srs('Next_2'-[[twenty,two], [twenty,three]])).
+train(srs('Next_2'-[[fifty,five], [fifty,six]])).
+train(srs('Next_2'-[[thirty,seven], [thirty,eight]])).
+train(srs('Next_2'-[[eighty,one], [eighty,two]])).
+train(srs('Next_2'-[[fifty,six], [fifty,seven]])).
+train(srs('Next_2'-[[thirty,five], [thirty,six]])).
+train(srs('Next_2'-[[eighty,seven], [eighty,eight]])).
+train(srs('Next_2'-[[ninety,one], [ninety,two]])).
+train(srs('Next_2'-[[thirty,two], [thirty,three]])).
+
+test(srs('Next_2'-[[eight], [nine]])).
+test(srs('Next_2'-[[eleven], [twelve]])).
+test(srs('Next_2'-[[ninety,two], [ninety,three]])).
+test(srs('Next_2'-[[seventy,six], [seventy,seven]])).
+test(srs('Next_2'-[[eighty,five], [eighty,six]])).
+test(srs('Next_2'-[[eighty], [eighty,one]])).
+test(srs('Next_2'-[[seventy,three], [seventy,four]])).
+test(srs('Next_2'-[[fifty], [fifty,one]])).
+test(srs('Next_2'-[[thirteen], [fourteen]])).
+test(srs('Next_2'-[[twenty,one], [twenty,two]])).
+test(srs('Next_2'-[[fifteen], [sixteen]])).
+test(srs('Next_2'-[[seventy,two], [seventy,three]])).
+test(srs('Next_2'-[[sixteen], [seventeen]])).
+test(srs('Next_2'-[[forty,eight], [forty,nine]])).
+test(srs('Next_2'-[[seventy,eight], [seventy,nine]])).
+test(srs('Next_2'-[[sixty,one], [sixty,two]])).
+test(srs('Next_2'-[[thirty,eight], [thirty,nine]])).
+test(srs('Next_2'-[[one], [two]])).
+test(srs('Next_2'-[[forty,four], [forty,five]])).
+test(srs('Next_2'-[[twelve], [thirteen]])).
+test(srs('Next_2'-[[fifty,nine], [sixty]])).
+test(srs('Next_2'-[[forty], [forty,one]])).
+test(srs('Next_2'-[[forty,five], [forty,six]])).
+test(srs('Next_2'-[[fifty,seven], [fifty,eight]])).
+test(srs('Next_2'-[[forty,one], [forty,two]])).
+test(srs('Next_2'-[[sixty,three], [sixty,four]])).
+test(srs('Next_2'-[[thirty,nine], [forty]])).
+test(srs('Next_2'-[[eighty,eight], [eighty,nine]])).
+test(srs('Next_2'-[[eighty,nine], [ninety]])).
+test(srs('Next_2'-[[twenty,three], [twenty,four]])).
+test(srs('Next_2'-[[thirty,six], [thirty,seven]])).
+test(srs('Next_2'-[[eighty,four], [eighty,five]])).
+test(srs('Next_2'-[[ninety], [ninety,one]])).
+test(srs('Next_2'-[[seventy,five], [seventy,six]])).
+test(srs('Next_2'-[[sixty,eight], [sixty,nine]])).
+test(srs('Next_2'-[[six], [seven]])).
+test(srs('Next_2'-[[sixty,six], [sixty,seven]])).
+test(srs('Next_2'-[[twenty,four], [twenty,five]])).
+test(srs('Next_2'-[[nine], [ten]])).
+test(srs('Next_2'-[[two], [three]])).
+test(srs('Next_2'-[[thirty,four], [thirty,five]])).
+test(srs('Next_2'-[[fifty,one], [fifty,two]])).
+test(srs('Next_2'-[[five], [six]])).
+test(srs('Next_2'-[[forty,six], [forty,seven]])).
+test(srs('Next_2'-[[twenty,five], [twenty,six]])).
+test(srs('Next_2'-[[twenty,eight], [twenty,nine]])).
+test(srs('Next_2'-[[forty,nine], [fifty]])).
+test(srs('Next_2'-[[thirty,one], [thirty,two]])).
+test(srs('Next_2'-[[seventy,seven], [seventy,eight]])).
+
+
