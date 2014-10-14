@@ -46,6 +46,54 @@ A1(X Y, U V) <-- A1(X,U), A3(V,Y).
 A1(X Y, U V) <-- A1(V,U), A3(X,Y).
 A1(X Y, U V) <-- A1(U,V), A3(X,Y).
 A1(X Y, U V) <-- A1(U,X), A3(V,Y).
+A1(X Y, U V) <-- A1(X,Y), A4(U,V).
+A1(X Y, U V) <-- A1(Y,X), A4(U,V).
+A1(X Y, U V) <-- A1(U,Y), A4(X,V).
+A1(X Y, U V) <-- A1(Y,U), A4(X,V).
+A1(X Y, U V) <-- A1(U,X), A4(Y,V).
+A1(X Y, U V) <-- A1(X,U), A4(Y,V).
+A1(X Y, U V) <-- A1(V,U), A4(Y,X).
+A1(X Y, U V) <-- A1(U,V), A4(Y,X).
+A1(X Y, U V) <-- A1(U,Y), A4(V,X).
+A1(X Y, U V) <-- A1(V,Y), A4(U,X).
+A1(X Y, U V) <-- A1(Y,V), A4(U,X).
+A1(X Y, U V) <-- A1(Y,U), A4(V,X).
+A1(X Y, U V) <-- A1(V,X), A4(Y,U).
+A1(X Y, U V) <-- A1(X,V), A4(Y,U).
+A1(X Y, U V) <-- A1(X,Y), A4(V,U).
+A1(X Y, U V) <-- A1(V,Y), A4(X,U).
+A1(X Y, U V) <-- A1(Y,V), A4(X,U).
+A1(X Y, U V) <-- A1(Y,X), A4(V,U).
+A1(X Y, U V) <-- A1(V,X), A4(U,Y).
+A1(X Y, U V) <-- A1(X,V), A4(U,Y).
+A1(X Y, U V) <-- A1(X,U), A4(V,Y).
+A1(X Y, U V) <-- A1(V,U), A4(X,Y).
+A1(X Y, U V) <-- A1(U,V), A4(X,Y).
+A1(X Y, U V) <-- A1(U,X), A4(V,Y).
+A1(X Y, U V) <-- A1(X,Y), A5(U,V).
+A1(X Y, U V) <-- A1(Y,X), A5(U,V).
+A1(X Y, U V) <-- A1(U,Y), A5(X,V).
+A1(X Y, U V) <-- A1(Y,U), A5(X,V).
+A1(X Y, U V) <-- A1(U,X), A5(Y,V).
+A1(X Y, U V) <-- A1(X,U), A5(Y,V).
+A1(X Y, U V) <-- A1(V,U), A5(Y,X).
+A1(X Y, U V) <-- A1(U,V), A5(Y,X).
+A1(X Y, U V) <-- A1(U,Y), A5(V,X).
+A1(X Y, U V) <-- A1(V,Y), A5(U,X).
+A1(X Y, U V) <-- A1(Y,V), A5(U,X).
+A1(X Y, U V) <-- A1(Y,U), A5(V,X).
+A1(X Y, U V) <-- A1(V,X), A5(Y,U).
+A1(X Y, U V) <-- A1(X,V), A5(Y,U).
+A1(X Y, U V) <-- A1(X,Y), A5(V,U).
+A1(X Y, U V) <-- A1(V,Y), A5(X,U).
+A1(X Y, U V) <-- A1(Y,V), A5(X,U).
+A1(X Y, U V) <-- A1(Y,X), A5(V,U).
+A1(X Y, U V) <-- A1(V,X), A5(U,Y).
+A1(X Y, U V) <-- A1(X,V), A5(U,Y).
+A1(X Y, U V) <-- A1(X,U), A5(V,Y).
+A1(X Y, U V) <-- A1(V,U), A5(X,Y).
+A1(X Y, U V) <-- A1(U,V), A5(X,Y).
+A1(X Y, U V) <-- A1(U,X), A5(V,Y).
 A1(X Y, U V) <-- A2(X,Y), A3(U,V).
 A1(X Y, U V) <-- A2(Y,X), A3(U,V).
 A1(X Y, U V) <-- A2(U,Y), A3(X,V).
@@ -70,6 +118,126 @@ A1(X Y, U V) <-- A2(X,U), A3(V,Y).
 A1(X Y, U V) <-- A2(V,U), A3(X,Y).
 A1(X Y, U V) <-- A2(U,V), A3(X,Y).
 A1(X Y, U V) <-- A2(U,X), A3(V,Y).
+A1(X Y, U V) <-- A2(X,Y), A4(U,V).
+A1(X Y, U V) <-- A2(Y,X), A4(U,V).
+A1(X Y, U V) <-- A2(U,Y), A4(X,V).
+A1(X Y, U V) <-- A2(Y,U), A4(X,V).
+A1(X Y, U V) <-- A2(U,X), A4(Y,V).
+A1(X Y, U V) <-- A2(X,U), A4(Y,V).
+A1(X Y, U V) <-- A2(V,U), A4(Y,X).
+A1(X Y, U V) <-- A2(U,V), A4(Y,X).
+A1(X Y, U V) <-- A2(U,Y), A4(V,X).
+A1(X Y, U V) <-- A2(V,Y), A4(U,X).
+A1(X Y, U V) <-- A2(Y,V), A4(U,X).
+A1(X Y, U V) <-- A2(Y,U), A4(V,X).
+A1(X Y, U V) <-- A2(V,X), A4(Y,U).
+A1(X Y, U V) <-- A2(X,V), A4(Y,U).
+A1(X Y, U V) <-- A2(X,Y), A4(V,U).
+A1(X Y, U V) <-- A2(V,Y), A4(X,U).
+A1(X Y, U V) <-- A2(Y,V), A4(X,U).
+A1(X Y, U V) <-- A2(Y,X), A4(V,U).
+A1(X Y, U V) <-- A2(V,X), A4(U,Y).
+A1(X Y, U V) <-- A2(X,V), A4(U,Y).
+A1(X Y, U V) <-- A2(X,U), A4(V,Y).
+A1(X Y, U V) <-- A2(V,U), A4(X,Y).
+A1(X Y, U V) <-- A2(U,V), A4(X,Y).
+A1(X Y, U V) <-- A2(U,X), A4(V,Y).
+A1(X Y, U V) <-- A2(X,Y), A5(U,V).
+A1(X Y, U V) <-- A2(Y,X), A5(U,V).
+A1(X Y, U V) <-- A2(U,Y), A5(X,V).
+A1(X Y, U V) <-- A2(Y,U), A5(X,V).
+A1(X Y, U V) <-- A2(U,X), A5(Y,V).
+A1(X Y, U V) <-- A2(X,U), A5(Y,V).
+A1(X Y, U V) <-- A2(V,U), A5(Y,X).
+A1(X Y, U V) <-- A2(U,V), A5(Y,X).
+A1(X Y, U V) <-- A2(U,Y), A5(V,X).
+A1(X Y, U V) <-- A2(V,Y), A5(U,X).
+A1(X Y, U V) <-- A2(Y,V), A5(U,X).
+A1(X Y, U V) <-- A2(Y,U), A5(V,X).
+A1(X Y, U V) <-- A2(V,X), A5(Y,U).
+A1(X Y, U V) <-- A2(X,V), A5(Y,U).
+A1(X Y, U V) <-- A2(X,Y), A5(V,U).
+A1(X Y, U V) <-- A2(V,Y), A5(X,U).
+A1(X Y, U V) <-- A2(Y,V), A5(X,U).
+A1(X Y, U V) <-- A2(Y,X), A5(V,U).
+A1(X Y, U V) <-- A2(V,X), A5(U,Y).
+A1(X Y, U V) <-- A2(X,V), A5(U,Y).
+A1(X Y, U V) <-- A2(X,U), A5(V,Y).
+A1(X Y, U V) <-- A2(V,U), A5(X,Y).
+A1(X Y, U V) <-- A2(U,V), A5(X,Y).
+A1(X Y, U V) <-- A2(U,X), A5(V,Y).
+A1(X Y, U V) <-- A3(X,Y), A4(U,V).
+A1(X Y, U V) <-- A3(Y,X), A4(U,V).
+A1(X Y, U V) <-- A3(U,Y), A4(X,V).
+A1(X Y, U V) <-- A3(Y,U), A4(X,V).
+A1(X Y, U V) <-- A3(U,X), A4(Y,V).
+A1(X Y, U V) <-- A3(X,U), A4(Y,V).
+A1(X Y, U V) <-- A3(V,U), A4(Y,X).
+A1(X Y, U V) <-- A3(U,V), A4(Y,X).
+A1(X Y, U V) <-- A3(U,Y), A4(V,X).
+A1(X Y, U V) <-- A3(V,Y), A4(U,X).
+A1(X Y, U V) <-- A3(Y,V), A4(U,X).
+A1(X Y, U V) <-- A3(Y,U), A4(V,X).
+A1(X Y, U V) <-- A3(V,X), A4(Y,U).
+A1(X Y, U V) <-- A3(X,V), A4(Y,U).
+A1(X Y, U V) <-- A3(X,Y), A4(V,U).
+A1(X Y, U V) <-- A3(V,Y), A4(X,U).
+A1(X Y, U V) <-- A3(Y,V), A4(X,U).
+A1(X Y, U V) <-- A3(Y,X), A4(V,U).
+A1(X Y, U V) <-- A3(V,X), A4(U,Y).
+A1(X Y, U V) <-- A3(X,V), A4(U,Y).
+A1(X Y, U V) <-- A3(X,U), A4(V,Y).
+A1(X Y, U V) <-- A3(V,U), A4(X,Y).
+A1(X Y, U V) <-- A3(U,V), A4(X,Y).
+A1(X Y, U V) <-- A3(U,X), A4(V,Y).
+A1(X Y, U V) <-- A3(X,Y), A5(U,V).
+A1(X Y, U V) <-- A3(Y,X), A5(U,V).
+A1(X Y, U V) <-- A3(U,Y), A5(X,V).
+A1(X Y, U V) <-- A3(Y,U), A5(X,V).
+A1(X Y, U V) <-- A3(U,X), A5(Y,V).
+A1(X Y, U V) <-- A3(X,U), A5(Y,V).
+A1(X Y, U V) <-- A3(V,U), A5(Y,X).
+A1(X Y, U V) <-- A3(U,V), A5(Y,X).
+A1(X Y, U V) <-- A3(U,Y), A5(V,X).
+A1(X Y, U V) <-- A3(V,Y), A5(U,X).
+A1(X Y, U V) <-- A3(Y,V), A5(U,X).
+A1(X Y, U V) <-- A3(Y,U), A5(V,X).
+A1(X Y, U V) <-- A3(V,X), A5(Y,U).
+A1(X Y, U V) <-- A3(X,V), A5(Y,U).
+A1(X Y, U V) <-- A3(X,Y), A5(V,U).
+A1(X Y, U V) <-- A3(V,Y), A5(X,U).
+A1(X Y, U V) <-- A3(Y,V), A5(X,U).
+A1(X Y, U V) <-- A3(Y,X), A5(V,U).
+A1(X Y, U V) <-- A3(V,X), A5(U,Y).
+A1(X Y, U V) <-- A3(X,V), A5(U,Y).
+A1(X Y, U V) <-- A3(X,U), A5(V,Y).
+A1(X Y, U V) <-- A3(V,U), A5(X,Y).
+A1(X Y, U V) <-- A3(U,V), A5(X,Y).
+A1(X Y, U V) <-- A3(U,X), A5(V,Y).
+A1(X Y, U V) <-- A4(X,Y), A5(U,V).
+A1(X Y, U V) <-- A4(Y,X), A5(U,V).
+A1(X Y, U V) <-- A4(U,Y), A5(X,V).
+A1(X Y, U V) <-- A4(Y,U), A5(X,V).
+A1(X Y, U V) <-- A4(U,X), A5(Y,V).
+A1(X Y, U V) <-- A4(X,U), A5(Y,V).
+A1(X Y, U V) <-- A4(V,U), A5(Y,X).
+A1(X Y, U V) <-- A4(U,V), A5(Y,X).
+A1(X Y, U V) <-- A4(U,Y), A5(V,X).
+A1(X Y, U V) <-- A4(V,Y), A5(U,X).
+A1(X Y, U V) <-- A4(Y,V), A5(U,X).
+A1(X Y, U V) <-- A4(Y,U), A5(V,X).
+A1(X Y, U V) <-- A4(V,X), A5(Y,U).
+A1(X Y, U V) <-- A4(X,V), A5(Y,U).
+A1(X Y, U V) <-- A4(X,Y), A5(V,U).
+A1(X Y, U V) <-- A4(V,Y), A5(X,U).
+A1(X Y, U V) <-- A4(Y,V), A5(X,U).
+A1(X Y, U V) <-- A4(Y,X), A5(V,U).
+A1(X Y, U V) <-- A4(V,X), A5(U,Y).
+A1(X Y, U V) <-- A4(X,V), A5(U,Y).
+A1(X Y, U V) <-- A4(X,U), A5(V,Y).
+A1(X Y, U V) <-- A4(V,U), A5(X,Y).
+A1(X Y, U V) <-- A4(U,V), A5(X,Y).
+A1(X Y, U V) <-- A4(U,X), A5(V,Y).
 A2(X Y, U V) <-- A1(X,Y), A2(U,V).
 A2(X Y, U V) <-- A1(Y,X), A2(U,V).
 A2(X Y, U V) <-- A1(U,Y), A2(X,V).
@@ -118,6 +286,54 @@ A2(X Y, U V) <-- A1(X,U), A3(V,Y).
 A2(X Y, U V) <-- A1(V,U), A3(X,Y).
 A2(X Y, U V) <-- A1(U,V), A3(X,Y).
 A2(X Y, U V) <-- A1(U,X), A3(V,Y).
+A2(X Y, U V) <-- A1(X,Y), A4(U,V).
+A2(X Y, U V) <-- A1(Y,X), A4(U,V).
+A2(X Y, U V) <-- A1(U,Y), A4(X,V).
+A2(X Y, U V) <-- A1(Y,U), A4(X,V).
+A2(X Y, U V) <-- A1(U,X), A4(Y,V).
+A2(X Y, U V) <-- A1(X,U), A4(Y,V).
+A2(X Y, U V) <-- A1(V,U), A4(Y,X).
+A2(X Y, U V) <-- A1(U,V), A4(Y,X).
+A2(X Y, U V) <-- A1(U,Y), A4(V,X).
+A2(X Y, U V) <-- A1(V,Y), A4(U,X).
+A2(X Y, U V) <-- A1(Y,V), A4(U,X).
+A2(X Y, U V) <-- A1(Y,U), A4(V,X).
+A2(X Y, U V) <-- A1(V,X), A4(Y,U).
+A2(X Y, U V) <-- A1(X,V), A4(Y,U).
+A2(X Y, U V) <-- A1(X,Y), A4(V,U).
+A2(X Y, U V) <-- A1(V,Y), A4(X,U).
+A2(X Y, U V) <-- A1(Y,V), A4(X,U).
+A2(X Y, U V) <-- A1(Y,X), A4(V,U).
+A2(X Y, U V) <-- A1(V,X), A4(U,Y).
+A2(X Y, U V) <-- A1(X,V), A4(U,Y).
+A2(X Y, U V) <-- A1(X,U), A4(V,Y).
+A2(X Y, U V) <-- A1(V,U), A4(X,Y).
+A2(X Y, U V) <-- A1(U,V), A4(X,Y).
+A2(X Y, U V) <-- A1(U,X), A4(V,Y).
+A2(X Y, U V) <-- A1(X,Y), A5(U,V).
+A2(X Y, U V) <-- A1(Y,X), A5(U,V).
+A2(X Y, U V) <-- A1(U,Y), A5(X,V).
+A2(X Y, U V) <-- A1(Y,U), A5(X,V).
+A2(X Y, U V) <-- A1(U,X), A5(Y,V).
+A2(X Y, U V) <-- A1(X,U), A5(Y,V).
+A2(X Y, U V) <-- A1(V,U), A5(Y,X).
+A2(X Y, U V) <-- A1(U,V), A5(Y,X).
+A2(X Y, U V) <-- A1(U,Y), A5(V,X).
+A2(X Y, U V) <-- A1(V,Y), A5(U,X).
+A2(X Y, U V) <-- A1(Y,V), A5(U,X).
+A2(X Y, U V) <-- A1(Y,U), A5(V,X).
+A2(X Y, U V) <-- A1(V,X), A5(Y,U).
+A2(X Y, U V) <-- A1(X,V), A5(Y,U).
+A2(X Y, U V) <-- A1(X,Y), A5(V,U).
+A2(X Y, U V) <-- A1(V,Y), A5(X,U).
+A2(X Y, U V) <-- A1(Y,V), A5(X,U).
+A2(X Y, U V) <-- A1(Y,X), A5(V,U).
+A2(X Y, U V) <-- A1(V,X), A5(U,Y).
+A2(X Y, U V) <-- A1(X,V), A5(U,Y).
+A2(X Y, U V) <-- A1(X,U), A5(V,Y).
+A2(X Y, U V) <-- A1(V,U), A5(X,Y).
+A2(X Y, U V) <-- A1(U,V), A5(X,Y).
+A2(X Y, U V) <-- A1(U,X), A5(V,Y).
 A2(X Y, U V) <-- A2(X,Y), A3(U,V).
 A2(X Y, U V) <-- A2(Y,X), A3(U,V).
 A2(X Y, U V) <-- A2(U,Y), A3(X,V).
@@ -142,6 +358,126 @@ A2(X Y, U V) <-- A2(X,U), A3(V,Y).
 A2(X Y, U V) <-- A2(V,U), A3(X,Y).
 A2(X Y, U V) <-- A2(U,V), A3(X,Y).
 A2(X Y, U V) <-- A2(U,X), A3(V,Y).
+A2(X Y, U V) <-- A2(X,Y), A4(U,V).
+A2(X Y, U V) <-- A2(Y,X), A4(U,V).
+A2(X Y, U V) <-- A2(U,Y), A4(X,V).
+A2(X Y, U V) <-- A2(Y,U), A4(X,V).
+A2(X Y, U V) <-- A2(U,X), A4(Y,V).
+A2(X Y, U V) <-- A2(X,U), A4(Y,V).
+A2(X Y, U V) <-- A2(V,U), A4(Y,X).
+A2(X Y, U V) <-- A2(U,V), A4(Y,X).
+A2(X Y, U V) <-- A2(U,Y), A4(V,X).
+A2(X Y, U V) <-- A2(V,Y), A4(U,X).
+A2(X Y, U V) <-- A2(Y,V), A4(U,X).
+A2(X Y, U V) <-- A2(Y,U), A4(V,X).
+A2(X Y, U V) <-- A2(V,X), A4(Y,U).
+A2(X Y, U V) <-- A2(X,V), A4(Y,U).
+A2(X Y, U V) <-- A2(X,Y), A4(V,U).
+A2(X Y, U V) <-- A2(V,Y), A4(X,U).
+A2(X Y, U V) <-- A2(Y,V), A4(X,U).
+A2(X Y, U V) <-- A2(Y,X), A4(V,U).
+A2(X Y, U V) <-- A2(V,X), A4(U,Y).
+A2(X Y, U V) <-- A2(X,V), A4(U,Y).
+A2(X Y, U V) <-- A2(X,U), A4(V,Y).
+A2(X Y, U V) <-- A2(V,U), A4(X,Y).
+A2(X Y, U V) <-- A2(U,V), A4(X,Y).
+A2(X Y, U V) <-- A2(U,X), A4(V,Y).
+A2(X Y, U V) <-- A2(X,Y), A5(U,V).
+A2(X Y, U V) <-- A2(Y,X), A5(U,V).
+A2(X Y, U V) <-- A2(U,Y), A5(X,V).
+A2(X Y, U V) <-- A2(Y,U), A5(X,V).
+A2(X Y, U V) <-- A2(U,X), A5(Y,V).
+A2(X Y, U V) <-- A2(X,U), A5(Y,V).
+A2(X Y, U V) <-- A2(V,U), A5(Y,X).
+A2(X Y, U V) <-- A2(U,V), A5(Y,X).
+A2(X Y, U V) <-- A2(U,Y), A5(V,X).
+A2(X Y, U V) <-- A2(V,Y), A5(U,X).
+A2(X Y, U V) <-- A2(Y,V), A5(U,X).
+A2(X Y, U V) <-- A2(Y,U), A5(V,X).
+A2(X Y, U V) <-- A2(V,X), A5(Y,U).
+A2(X Y, U V) <-- A2(X,V), A5(Y,U).
+A2(X Y, U V) <-- A2(X,Y), A5(V,U).
+A2(X Y, U V) <-- A2(V,Y), A5(X,U).
+A2(X Y, U V) <-- A2(Y,V), A5(X,U).
+A2(X Y, U V) <-- A2(Y,X), A5(V,U).
+A2(X Y, U V) <-- A2(V,X), A5(U,Y).
+A2(X Y, U V) <-- A2(X,V), A5(U,Y).
+A2(X Y, U V) <-- A2(X,U), A5(V,Y).
+A2(X Y, U V) <-- A2(V,U), A5(X,Y).
+A2(X Y, U V) <-- A2(U,V), A5(X,Y).
+A2(X Y, U V) <-- A2(U,X), A5(V,Y).
+A2(X Y, U V) <-- A3(X,Y), A4(U,V).
+A2(X Y, U V) <-- A3(Y,X), A4(U,V).
+A2(X Y, U V) <-- A3(U,Y), A4(X,V).
+A2(X Y, U V) <-- A3(Y,U), A4(X,V).
+A2(X Y, U V) <-- A3(U,X), A4(Y,V).
+A2(X Y, U V) <-- A3(X,U), A4(Y,V).
+A2(X Y, U V) <-- A3(V,U), A4(Y,X).
+A2(X Y, U V) <-- A3(U,V), A4(Y,X).
+A2(X Y, U V) <-- A3(U,Y), A4(V,X).
+A2(X Y, U V) <-- A3(V,Y), A4(U,X).
+A2(X Y, U V) <-- A3(Y,V), A4(U,X).
+A2(X Y, U V) <-- A3(Y,U), A4(V,X).
+A2(X Y, U V) <-- A3(V,X), A4(Y,U).
+A2(X Y, U V) <-- A3(X,V), A4(Y,U).
+A2(X Y, U V) <-- A3(X,Y), A4(V,U).
+A2(X Y, U V) <-- A3(V,Y), A4(X,U).
+A2(X Y, U V) <-- A3(Y,V), A4(X,U).
+A2(X Y, U V) <-- A3(Y,X), A4(V,U).
+A2(X Y, U V) <-- A3(V,X), A4(U,Y).
+A2(X Y, U V) <-- A3(X,V), A4(U,Y).
+A2(X Y, U V) <-- A3(X,U), A4(V,Y).
+A2(X Y, U V) <-- A3(V,U), A4(X,Y).
+A2(X Y, U V) <-- A3(U,V), A4(X,Y).
+A2(X Y, U V) <-- A3(U,X), A4(V,Y).
+A2(X Y, U V) <-- A3(X,Y), A5(U,V).
+A2(X Y, U V) <-- A3(Y,X), A5(U,V).
+A2(X Y, U V) <-- A3(U,Y), A5(X,V).
+A2(X Y, U V) <-- A3(Y,U), A5(X,V).
+A2(X Y, U V) <-- A3(U,X), A5(Y,V).
+A2(X Y, U V) <-- A3(X,U), A5(Y,V).
+A2(X Y, U V) <-- A3(V,U), A5(Y,X).
+A2(X Y, U V) <-- A3(U,V), A5(Y,X).
+A2(X Y, U V) <-- A3(U,Y), A5(V,X).
+A2(X Y, U V) <-- A3(V,Y), A5(U,X).
+A2(X Y, U V) <-- A3(Y,V), A5(U,X).
+A2(X Y, U V) <-- A3(Y,U), A5(V,X).
+A2(X Y, U V) <-- A3(V,X), A5(Y,U).
+A2(X Y, U V) <-- A3(X,V), A5(Y,U).
+A2(X Y, U V) <-- A3(X,Y), A5(V,U).
+A2(X Y, U V) <-- A3(V,Y), A5(X,U).
+A2(X Y, U V) <-- A3(Y,V), A5(X,U).
+A2(X Y, U V) <-- A3(Y,X), A5(V,U).
+A2(X Y, U V) <-- A3(V,X), A5(U,Y).
+A2(X Y, U V) <-- A3(X,V), A5(U,Y).
+A2(X Y, U V) <-- A3(X,U), A5(V,Y).
+A2(X Y, U V) <-- A3(V,U), A5(X,Y).
+A2(X Y, U V) <-- A3(U,V), A5(X,Y).
+A2(X Y, U V) <-- A3(U,X), A5(V,Y).
+A2(X Y, U V) <-- A4(X,Y), A5(U,V).
+A2(X Y, U V) <-- A4(Y,X), A5(U,V).
+A2(X Y, U V) <-- A4(U,Y), A5(X,V).
+A2(X Y, U V) <-- A4(Y,U), A5(X,V).
+A2(X Y, U V) <-- A4(U,X), A5(Y,V).
+A2(X Y, U V) <-- A4(X,U), A5(Y,V).
+A2(X Y, U V) <-- A4(V,U), A5(Y,X).
+A2(X Y, U V) <-- A4(U,V), A5(Y,X).
+A2(X Y, U V) <-- A4(U,Y), A5(V,X).
+A2(X Y, U V) <-- A4(V,Y), A5(U,X).
+A2(X Y, U V) <-- A4(Y,V), A5(U,X).
+A2(X Y, U V) <-- A4(Y,U), A5(V,X).
+A2(X Y, U V) <-- A4(V,X), A5(Y,U).
+A2(X Y, U V) <-- A4(X,V), A5(Y,U).
+A2(X Y, U V) <-- A4(X,Y), A5(V,U).
+A2(X Y, U V) <-- A4(V,Y), A5(X,U).
+A2(X Y, U V) <-- A4(Y,V), A5(X,U).
+A2(X Y, U V) <-- A4(Y,X), A5(V,U).
+A2(X Y, U V) <-- A4(V,X), A5(U,Y).
+A2(X Y, U V) <-- A4(X,V), A5(U,Y).
+A2(X Y, U V) <-- A4(X,U), A5(V,Y).
+A2(X Y, U V) <-- A4(V,U), A5(X,Y).
+A2(X Y, U V) <-- A4(U,V), A5(X,Y).
+A2(X Y, U V) <-- A4(U,X), A5(V,Y).
 A3(X Y, U V) <-- A1(X,Y), A2(U,V).
 A3(X Y, U V) <-- A1(Y,X), A2(U,V).
 A3(X Y, U V) <-- A1(U,Y), A2(X,V).
@@ -190,6 +526,54 @@ A3(X Y, U V) <-- A1(X,U), A3(V,Y).
 A3(X Y, U V) <-- A1(V,U), A3(X,Y).
 A3(X Y, U V) <-- A1(U,V), A3(X,Y).
 A3(X Y, U V) <-- A1(U,X), A3(V,Y).
+A3(X Y, U V) <-- A1(X,Y), A4(U,V).
+A3(X Y, U V) <-- A1(Y,X), A4(U,V).
+A3(X Y, U V) <-- A1(U,Y), A4(X,V).
+A3(X Y, U V) <-- A1(Y,U), A4(X,V).
+A3(X Y, U V) <-- A1(U,X), A4(Y,V).
+A3(X Y, U V) <-- A1(X,U), A4(Y,V).
+A3(X Y, U V) <-- A1(V,U), A4(Y,X).
+A3(X Y, U V) <-- A1(U,V), A4(Y,X).
+A3(X Y, U V) <-- A1(U,Y), A4(V,X).
+A3(X Y, U V) <-- A1(V,Y), A4(U,X).
+A3(X Y, U V) <-- A1(Y,V), A4(U,X).
+A3(X Y, U V) <-- A1(Y,U), A4(V,X).
+A3(X Y, U V) <-- A1(V,X), A4(Y,U).
+A3(X Y, U V) <-- A1(X,V), A4(Y,U).
+A3(X Y, U V) <-- A1(X,Y), A4(V,U).
+A3(X Y, U V) <-- A1(V,Y), A4(X,U).
+A3(X Y, U V) <-- A1(Y,V), A4(X,U).
+A3(X Y, U V) <-- A1(Y,X), A4(V,U).
+A3(X Y, U V) <-- A1(V,X), A4(U,Y).
+A3(X Y, U V) <-- A1(X,V), A4(U,Y).
+A3(X Y, U V) <-- A1(X,U), A4(V,Y).
+A3(X Y, U V) <-- A1(V,U), A4(X,Y).
+A3(X Y, U V) <-- A1(U,V), A4(X,Y).
+A3(X Y, U V) <-- A1(U,X), A4(V,Y).
+A3(X Y, U V) <-- A1(X,Y), A5(U,V).
+A3(X Y, U V) <-- A1(Y,X), A5(U,V).
+A3(X Y, U V) <-- A1(U,Y), A5(X,V).
+A3(X Y, U V) <-- A1(Y,U), A5(X,V).
+A3(X Y, U V) <-- A1(U,X), A5(Y,V).
+A3(X Y, U V) <-- A1(X,U), A5(Y,V).
+A3(X Y, U V) <-- A1(V,U), A5(Y,X).
+A3(X Y, U V) <-- A1(U,V), A5(Y,X).
+A3(X Y, U V) <-- A1(U,Y), A5(V,X).
+A3(X Y, U V) <-- A1(V,Y), A5(U,X).
+A3(X Y, U V) <-- A1(Y,V), A5(U,X).
+A3(X Y, U V) <-- A1(Y,U), A5(V,X).
+A3(X Y, U V) <-- A1(V,X), A5(Y,U).
+A3(X Y, U V) <-- A1(X,V), A5(Y,U).
+A3(X Y, U V) <-- A1(X,Y), A5(V,U).
+A3(X Y, U V) <-- A1(V,Y), A5(X,U).
+A3(X Y, U V) <-- A1(Y,V), A5(X,U).
+A3(X Y, U V) <-- A1(Y,X), A5(V,U).
+A3(X Y, U V) <-- A1(V,X), A5(U,Y).
+A3(X Y, U V) <-- A1(X,V), A5(U,Y).
+A3(X Y, U V) <-- A1(X,U), A5(V,Y).
+A3(X Y, U V) <-- A1(V,U), A5(X,Y).
+A3(X Y, U V) <-- A1(U,V), A5(X,Y).
+A3(X Y, U V) <-- A1(U,X), A5(V,Y).
 A3(X Y, U V) <-- A2(X,Y), A3(U,V).
 A3(X Y, U V) <-- A2(Y,X), A3(U,V).
 A3(X Y, U V) <-- A2(U,Y), A3(X,V).
@@ -214,6 +598,606 @@ A3(X Y, U V) <-- A2(X,U), A3(V,Y).
 A3(X Y, U V) <-- A2(V,U), A3(X,Y).
 A3(X Y, U V) <-- A2(U,V), A3(X,Y).
 A3(X Y, U V) <-- A2(U,X), A3(V,Y).
+A3(X Y, U V) <-- A2(X,Y), A4(U,V).
+A3(X Y, U V) <-- A2(Y,X), A4(U,V).
+A3(X Y, U V) <-- A2(U,Y), A4(X,V).
+A3(X Y, U V) <-- A2(Y,U), A4(X,V).
+A3(X Y, U V) <-- A2(U,X), A4(Y,V).
+A3(X Y, U V) <-- A2(X,U), A4(Y,V).
+A3(X Y, U V) <-- A2(V,U), A4(Y,X).
+A3(X Y, U V) <-- A2(U,V), A4(Y,X).
+A3(X Y, U V) <-- A2(U,Y), A4(V,X).
+A3(X Y, U V) <-- A2(V,Y), A4(U,X).
+A3(X Y, U V) <-- A2(Y,V), A4(U,X).
+A3(X Y, U V) <-- A2(Y,U), A4(V,X).
+A3(X Y, U V) <-- A2(V,X), A4(Y,U).
+A3(X Y, U V) <-- A2(X,V), A4(Y,U).
+A3(X Y, U V) <-- A2(X,Y), A4(V,U).
+A3(X Y, U V) <-- A2(V,Y), A4(X,U).
+A3(X Y, U V) <-- A2(Y,V), A4(X,U).
+A3(X Y, U V) <-- A2(Y,X), A4(V,U).
+A3(X Y, U V) <-- A2(V,X), A4(U,Y).
+A3(X Y, U V) <-- A2(X,V), A4(U,Y).
+A3(X Y, U V) <-- A2(X,U), A4(V,Y).
+A3(X Y, U V) <-- A2(V,U), A4(X,Y).
+A3(X Y, U V) <-- A2(U,V), A4(X,Y).
+A3(X Y, U V) <-- A2(U,X), A4(V,Y).
+A3(X Y, U V) <-- A2(X,Y), A5(U,V).
+A3(X Y, U V) <-- A2(Y,X), A5(U,V).
+A3(X Y, U V) <-- A2(U,Y), A5(X,V).
+A3(X Y, U V) <-- A2(Y,U), A5(X,V).
+A3(X Y, U V) <-- A2(U,X), A5(Y,V).
+A3(X Y, U V) <-- A2(X,U), A5(Y,V).
+A3(X Y, U V) <-- A2(V,U), A5(Y,X).
+A3(X Y, U V) <-- A2(U,V), A5(Y,X).
+A3(X Y, U V) <-- A2(U,Y), A5(V,X).
+A3(X Y, U V) <-- A2(V,Y), A5(U,X).
+A3(X Y, U V) <-- A2(Y,V), A5(U,X).
+A3(X Y, U V) <-- A2(Y,U), A5(V,X).
+A3(X Y, U V) <-- A2(V,X), A5(Y,U).
+A3(X Y, U V) <-- A2(X,V), A5(Y,U).
+A3(X Y, U V) <-- A2(X,Y), A5(V,U).
+A3(X Y, U V) <-- A2(V,Y), A5(X,U).
+A3(X Y, U V) <-- A2(Y,V), A5(X,U).
+A3(X Y, U V) <-- A2(Y,X), A5(V,U).
+A3(X Y, U V) <-- A2(V,X), A5(U,Y).
+A3(X Y, U V) <-- A2(X,V), A5(U,Y).
+A3(X Y, U V) <-- A2(X,U), A5(V,Y).
+A3(X Y, U V) <-- A2(V,U), A5(X,Y).
+A3(X Y, U V) <-- A2(U,V), A5(X,Y).
+A3(X Y, U V) <-- A2(U,X), A5(V,Y).
+A3(X Y, U V) <-- A3(X,Y), A4(U,V).
+A3(X Y, U V) <-- A3(Y,X), A4(U,V).
+A3(X Y, U V) <-- A3(U,Y), A4(X,V).
+A3(X Y, U V) <-- A3(Y,U), A4(X,V).
+A3(X Y, U V) <-- A3(U,X), A4(Y,V).
+A3(X Y, U V) <-- A3(X,U), A4(Y,V).
+A3(X Y, U V) <-- A3(V,U), A4(Y,X).
+A3(X Y, U V) <-- A3(U,V), A4(Y,X).
+A3(X Y, U V) <-- A3(U,Y), A4(V,X).
+A3(X Y, U V) <-- A3(V,Y), A4(U,X).
+A3(X Y, U V) <-- A3(Y,V), A4(U,X).
+A3(X Y, U V) <-- A3(Y,U), A4(V,X).
+A3(X Y, U V) <-- A3(V,X), A4(Y,U).
+A3(X Y, U V) <-- A3(X,V), A4(Y,U).
+A3(X Y, U V) <-- A3(X,Y), A4(V,U).
+A3(X Y, U V) <-- A3(V,Y), A4(X,U).
+A3(X Y, U V) <-- A3(Y,V), A4(X,U).
+A3(X Y, U V) <-- A3(Y,X), A4(V,U).
+A3(X Y, U V) <-- A3(V,X), A4(U,Y).
+A3(X Y, U V) <-- A3(X,V), A4(U,Y).
+A3(X Y, U V) <-- A3(X,U), A4(V,Y).
+A3(X Y, U V) <-- A3(V,U), A4(X,Y).
+A3(X Y, U V) <-- A3(U,V), A4(X,Y).
+A3(X Y, U V) <-- A3(U,X), A4(V,Y).
+A3(X Y, U V) <-- A3(X,Y), A5(U,V).
+A3(X Y, U V) <-- A3(Y,X), A5(U,V).
+A3(X Y, U V) <-- A3(U,Y), A5(X,V).
+A3(X Y, U V) <-- A3(Y,U), A5(X,V).
+A3(X Y, U V) <-- A3(U,X), A5(Y,V).
+A3(X Y, U V) <-- A3(X,U), A5(Y,V).
+A3(X Y, U V) <-- A3(V,U), A5(Y,X).
+A3(X Y, U V) <-- A3(U,V), A5(Y,X).
+A3(X Y, U V) <-- A3(U,Y), A5(V,X).
+A3(X Y, U V) <-- A3(V,Y), A5(U,X).
+A3(X Y, U V) <-- A3(Y,V), A5(U,X).
+A3(X Y, U V) <-- A3(Y,U), A5(V,X).
+A3(X Y, U V) <-- A3(V,X), A5(Y,U).
+A3(X Y, U V) <-- A3(X,V), A5(Y,U).
+A3(X Y, U V) <-- A3(X,Y), A5(V,U).
+A3(X Y, U V) <-- A3(V,Y), A5(X,U).
+A3(X Y, U V) <-- A3(Y,V), A5(X,U).
+A3(X Y, U V) <-- A3(Y,X), A5(V,U).
+A3(X Y, U V) <-- A3(V,X), A5(U,Y).
+A3(X Y, U V) <-- A3(X,V), A5(U,Y).
+A3(X Y, U V) <-- A3(X,U), A5(V,Y).
+A3(X Y, U V) <-- A3(V,U), A5(X,Y).
+A3(X Y, U V) <-- A3(U,V), A5(X,Y).
+A3(X Y, U V) <-- A3(U,X), A5(V,Y).
+A3(X Y, U V) <-- A4(X,Y), A5(U,V).
+A3(X Y, U V) <-- A4(Y,X), A5(U,V).
+A3(X Y, U V) <-- A4(U,Y), A5(X,V).
+A3(X Y, U V) <-- A4(Y,U), A5(X,V).
+A3(X Y, U V) <-- A4(U,X), A5(Y,V).
+A3(X Y, U V) <-- A4(X,U), A5(Y,V).
+A3(X Y, U V) <-- A4(V,U), A5(Y,X).
+A3(X Y, U V) <-- A4(U,V), A5(Y,X).
+A3(X Y, U V) <-- A4(U,Y), A5(V,X).
+A3(X Y, U V) <-- A4(V,Y), A5(U,X).
+A3(X Y, U V) <-- A4(Y,V), A5(U,X).
+A3(X Y, U V) <-- A4(Y,U), A5(V,X).
+A3(X Y, U V) <-- A4(V,X), A5(Y,U).
+A3(X Y, U V) <-- A4(X,V), A5(Y,U).
+A3(X Y, U V) <-- A4(X,Y), A5(V,U).
+A3(X Y, U V) <-- A4(V,Y), A5(X,U).
+A3(X Y, U V) <-- A4(Y,V), A5(X,U).
+A3(X Y, U V) <-- A4(Y,X), A5(V,U).
+A3(X Y, U V) <-- A4(V,X), A5(U,Y).
+A3(X Y, U V) <-- A4(X,V), A5(U,Y).
+A3(X Y, U V) <-- A4(X,U), A5(V,Y).
+A3(X Y, U V) <-- A4(V,U), A5(X,Y).
+A3(X Y, U V) <-- A4(U,V), A5(X,Y).
+A3(X Y, U V) <-- A4(U,X), A5(V,Y).
+A4(X Y, U V) <-- A1(X,Y), A2(U,V).
+A4(X Y, U V) <-- A1(Y,X), A2(U,V).
+A4(X Y, U V) <-- A1(U,Y), A2(X,V).
+A4(X Y, U V) <-- A1(Y,U), A2(X,V).
+A4(X Y, U V) <-- A1(U,X), A2(Y,V).
+A4(X Y, U V) <-- A1(X,U), A2(Y,V).
+A4(X Y, U V) <-- A1(V,U), A2(Y,X).
+A4(X Y, U V) <-- A1(U,V), A2(Y,X).
+A4(X Y, U V) <-- A1(U,Y), A2(V,X).
+A4(X Y, U V) <-- A1(V,Y), A2(U,X).
+A4(X Y, U V) <-- A1(Y,V), A2(U,X).
+A4(X Y, U V) <-- A1(Y,U), A2(V,X).
+A4(X Y, U V) <-- A1(V,X), A2(Y,U).
+A4(X Y, U V) <-- A1(X,V), A2(Y,U).
+A4(X Y, U V) <-- A1(X,Y), A2(V,U).
+A4(X Y, U V) <-- A1(V,Y), A2(X,U).
+A4(X Y, U V) <-- A1(Y,V), A2(X,U).
+A4(X Y, U V) <-- A1(Y,X), A2(V,U).
+A4(X Y, U V) <-- A1(V,X), A2(U,Y).
+A4(X Y, U V) <-- A1(X,V), A2(U,Y).
+A4(X Y, U V) <-- A1(X,U), A2(V,Y).
+A4(X Y, U V) <-- A1(V,U), A2(X,Y).
+A4(X Y, U V) <-- A1(U,V), A2(X,Y).
+A4(X Y, U V) <-- A1(U,X), A2(V,Y).
+A4(X Y, U V) <-- A1(X,Y), A3(U,V).
+A4(X Y, U V) <-- A1(Y,X), A3(U,V).
+A4(X Y, U V) <-- A1(U,Y), A3(X,V).
+A4(X Y, U V) <-- A1(Y,U), A3(X,V).
+A4(X Y, U V) <-- A1(U,X), A3(Y,V).
+A4(X Y, U V) <-- A1(X,U), A3(Y,V).
+A4(X Y, U V) <-- A1(V,U), A3(Y,X).
+A4(X Y, U V) <-- A1(U,V), A3(Y,X).
+A4(X Y, U V) <-- A1(U,Y), A3(V,X).
+A4(X Y, U V) <-- A1(V,Y), A3(U,X).
+A4(X Y, U V) <-- A1(Y,V), A3(U,X).
+A4(X Y, U V) <-- A1(Y,U), A3(V,X).
+A4(X Y, U V) <-- A1(V,X), A3(Y,U).
+A4(X Y, U V) <-- A1(X,V), A3(Y,U).
+A4(X Y, U V) <-- A1(X,Y), A3(V,U).
+A4(X Y, U V) <-- A1(V,Y), A3(X,U).
+A4(X Y, U V) <-- A1(Y,V), A3(X,U).
+A4(X Y, U V) <-- A1(Y,X), A3(V,U).
+A4(X Y, U V) <-- A1(V,X), A3(U,Y).
+A4(X Y, U V) <-- A1(X,V), A3(U,Y).
+A4(X Y, U V) <-- A1(X,U), A3(V,Y).
+A4(X Y, U V) <-- A1(V,U), A3(X,Y).
+A4(X Y, U V) <-- A1(U,V), A3(X,Y).
+A4(X Y, U V) <-- A1(U,X), A3(V,Y).
+A4(X Y, U V) <-- A1(X,Y), A4(U,V).
+A4(X Y, U V) <-- A1(Y,X), A4(U,V).
+A4(X Y, U V) <-- A1(U,Y), A4(X,V).
+A4(X Y, U V) <-- A1(Y,U), A4(X,V).
+A4(X Y, U V) <-- A1(U,X), A4(Y,V).
+A4(X Y, U V) <-- A1(X,U), A4(Y,V).
+A4(X Y, U V) <-- A1(V,U), A4(Y,X).
+A4(X Y, U V) <-- A1(U,V), A4(Y,X).
+A4(X Y, U V) <-- A1(U,Y), A4(V,X).
+A4(X Y, U V) <-- A1(V,Y), A4(U,X).
+A4(X Y, U V) <-- A1(Y,V), A4(U,X).
+A4(X Y, U V) <-- A1(Y,U), A4(V,X).
+A4(X Y, U V) <-- A1(V,X), A4(Y,U).
+A4(X Y, U V) <-- A1(X,V), A4(Y,U).
+A4(X Y, U V) <-- A1(X,Y), A4(V,U).
+A4(X Y, U V) <-- A1(V,Y), A4(X,U).
+A4(X Y, U V) <-- A1(Y,V), A4(X,U).
+A4(X Y, U V) <-- A1(Y,X), A4(V,U).
+A4(X Y, U V) <-- A1(V,X), A4(U,Y).
+A4(X Y, U V) <-- A1(X,V), A4(U,Y).
+A4(X Y, U V) <-- A1(X,U), A4(V,Y).
+A4(X Y, U V) <-- A1(V,U), A4(X,Y).
+A4(X Y, U V) <-- A1(U,V), A4(X,Y).
+A4(X Y, U V) <-- A1(U,X), A4(V,Y).
+A4(X Y, U V) <-- A1(X,Y), A5(U,V).
+A4(X Y, U V) <-- A1(Y,X), A5(U,V).
+A4(X Y, U V) <-- A1(U,Y), A5(X,V).
+A4(X Y, U V) <-- A1(Y,U), A5(X,V).
+A4(X Y, U V) <-- A1(U,X), A5(Y,V).
+A4(X Y, U V) <-- A1(X,U), A5(Y,V).
+A4(X Y, U V) <-- A1(V,U), A5(Y,X).
+A4(X Y, U V) <-- A1(U,V), A5(Y,X).
+A4(X Y, U V) <-- A1(U,Y), A5(V,X).
+A4(X Y, U V) <-- A1(V,Y), A5(U,X).
+A4(X Y, U V) <-- A1(Y,V), A5(U,X).
+A4(X Y, U V) <-- A1(Y,U), A5(V,X).
+A4(X Y, U V) <-- A1(V,X), A5(Y,U).
+A4(X Y, U V) <-- A1(X,V), A5(Y,U).
+A4(X Y, U V) <-- A1(X,Y), A5(V,U).
+A4(X Y, U V) <-- A1(V,Y), A5(X,U).
+A4(X Y, U V) <-- A1(Y,V), A5(X,U).
+A4(X Y, U V) <-- A1(Y,X), A5(V,U).
+A4(X Y, U V) <-- A1(V,X), A5(U,Y).
+A4(X Y, U V) <-- A1(X,V), A5(U,Y).
+A4(X Y, U V) <-- A1(X,U), A5(V,Y).
+A4(X Y, U V) <-- A1(V,U), A5(X,Y).
+A4(X Y, U V) <-- A1(U,V), A5(X,Y).
+A4(X Y, U V) <-- A1(U,X), A5(V,Y).
+A4(X Y, U V) <-- A2(X,Y), A3(U,V).
+A4(X Y, U V) <-- A2(Y,X), A3(U,V).
+A4(X Y, U V) <-- A2(U,Y), A3(X,V).
+A4(X Y, U V) <-- A2(Y,U), A3(X,V).
+A4(X Y, U V) <-- A2(U,X), A3(Y,V).
+A4(X Y, U V) <-- A2(X,U), A3(Y,V).
+A4(X Y, U V) <-- A2(V,U), A3(Y,X).
+A4(X Y, U V) <-- A2(U,V), A3(Y,X).
+A4(X Y, U V) <-- A2(U,Y), A3(V,X).
+A4(X Y, U V) <-- A2(V,Y), A3(U,X).
+A4(X Y, U V) <-- A2(Y,V), A3(U,X).
+A4(X Y, U V) <-- A2(Y,U), A3(V,X).
+A4(X Y, U V) <-- A2(V,X), A3(Y,U).
+A4(X Y, U V) <-- A2(X,V), A3(Y,U).
+A4(X Y, U V) <-- A2(X,Y), A3(V,U).
+A4(X Y, U V) <-- A2(V,Y), A3(X,U).
+A4(X Y, U V) <-- A2(Y,V), A3(X,U).
+A4(X Y, U V) <-- A2(Y,X), A3(V,U).
+A4(X Y, U V) <-- A2(V,X), A3(U,Y).
+A4(X Y, U V) <-- A2(X,V), A3(U,Y).
+A4(X Y, U V) <-- A2(X,U), A3(V,Y).
+A4(X Y, U V) <-- A2(V,U), A3(X,Y).
+A4(X Y, U V) <-- A2(U,V), A3(X,Y).
+A4(X Y, U V) <-- A2(U,X), A3(V,Y).
+A4(X Y, U V) <-- A2(X,Y), A4(U,V).
+A4(X Y, U V) <-- A2(Y,X), A4(U,V).
+A4(X Y, U V) <-- A2(U,Y), A4(X,V).
+A4(X Y, U V) <-- A2(Y,U), A4(X,V).
+A4(X Y, U V) <-- A2(U,X), A4(Y,V).
+A4(X Y, U V) <-- A2(X,U), A4(Y,V).
+A4(X Y, U V) <-- A2(V,U), A4(Y,X).
+A4(X Y, U V) <-- A2(U,V), A4(Y,X).
+A4(X Y, U V) <-- A2(U,Y), A4(V,X).
+A4(X Y, U V) <-- A2(V,Y), A4(U,X).
+A4(X Y, U V) <-- A2(Y,V), A4(U,X).
+A4(X Y, U V) <-- A2(Y,U), A4(V,X).
+A4(X Y, U V) <-- A2(V,X), A4(Y,U).
+A4(X Y, U V) <-- A2(X,V), A4(Y,U).
+A4(X Y, U V) <-- A2(X,Y), A4(V,U).
+A4(X Y, U V) <-- A2(V,Y), A4(X,U).
+A4(X Y, U V) <-- A2(Y,V), A4(X,U).
+A4(X Y, U V) <-- A2(Y,X), A4(V,U).
+A4(X Y, U V) <-- A2(V,X), A4(U,Y).
+A4(X Y, U V) <-- A2(X,V), A4(U,Y).
+A4(X Y, U V) <-- A2(X,U), A4(V,Y).
+A4(X Y, U V) <-- A2(V,U), A4(X,Y).
+A4(X Y, U V) <-- A2(U,V), A4(X,Y).
+A4(X Y, U V) <-- A2(U,X), A4(V,Y).
+A4(X Y, U V) <-- A2(X,Y), A5(U,V).
+A4(X Y, U V) <-- A2(Y,X), A5(U,V).
+A4(X Y, U V) <-- A2(U,Y), A5(X,V).
+A4(X Y, U V) <-- A2(Y,U), A5(X,V).
+A4(X Y, U V) <-- A2(U,X), A5(Y,V).
+A4(X Y, U V) <-- A2(X,U), A5(Y,V).
+A4(X Y, U V) <-- A2(V,U), A5(Y,X).
+A4(X Y, U V) <-- A2(U,V), A5(Y,X).
+A4(X Y, U V) <-- A2(U,Y), A5(V,X).
+A4(X Y, U V) <-- A2(V,Y), A5(U,X).
+A4(X Y, U V) <-- A2(Y,V), A5(U,X).
+A4(X Y, U V) <-- A2(Y,U), A5(V,X).
+A4(X Y, U V) <-- A2(V,X), A5(Y,U).
+A4(X Y, U V) <-- A2(X,V), A5(Y,U).
+A4(X Y, U V) <-- A2(X,Y), A5(V,U).
+A4(X Y, U V) <-- A2(V,Y), A5(X,U).
+A4(X Y, U V) <-- A2(Y,V), A5(X,U).
+A4(X Y, U V) <-- A2(Y,X), A5(V,U).
+A4(X Y, U V) <-- A2(V,X), A5(U,Y).
+A4(X Y, U V) <-- A2(X,V), A5(U,Y).
+A4(X Y, U V) <-- A2(X,U), A5(V,Y).
+A4(X Y, U V) <-- A2(V,U), A5(X,Y).
+A4(X Y, U V) <-- A2(U,V), A5(X,Y).
+A4(X Y, U V) <-- A2(U,X), A5(V,Y).
+A4(X Y, U V) <-- A3(X,Y), A4(U,V).
+A4(X Y, U V) <-- A3(Y,X), A4(U,V).
+A4(X Y, U V) <-- A3(U,Y), A4(X,V).
+A4(X Y, U V) <-- A3(Y,U), A4(X,V).
+A4(X Y, U V) <-- A3(U,X), A4(Y,V).
+A4(X Y, U V) <-- A3(X,U), A4(Y,V).
+A4(X Y, U V) <-- A3(V,U), A4(Y,X).
+A4(X Y, U V) <-- A3(U,V), A4(Y,X).
+A4(X Y, U V) <-- A3(U,Y), A4(V,X).
+A4(X Y, U V) <-- A3(V,Y), A4(U,X).
+A4(X Y, U V) <-- A3(Y,V), A4(U,X).
+A4(X Y, U V) <-- A3(Y,U), A4(V,X).
+A4(X Y, U V) <-- A3(V,X), A4(Y,U).
+A4(X Y, U V) <-- A3(X,V), A4(Y,U).
+A4(X Y, U V) <-- A3(X,Y), A4(V,U).
+A4(X Y, U V) <-- A3(V,Y), A4(X,U).
+A4(X Y, U V) <-- A3(Y,V), A4(X,U).
+A4(X Y, U V) <-- A3(Y,X), A4(V,U).
+A4(X Y, U V) <-- A3(V,X), A4(U,Y).
+A4(X Y, U V) <-- A3(X,V), A4(U,Y).
+A4(X Y, U V) <-- A3(X,U), A4(V,Y).
+A4(X Y, U V) <-- A3(V,U), A4(X,Y).
+A4(X Y, U V) <-- A3(U,V), A4(X,Y).
+A4(X Y, U V) <-- A3(U,X), A4(V,Y).
+A4(X Y, U V) <-- A3(X,Y), A5(U,V).
+A4(X Y, U V) <-- A3(Y,X), A5(U,V).
+A4(X Y, U V) <-- A3(U,Y), A5(X,V).
+A4(X Y, U V) <-- A3(Y,U), A5(X,V).
+A4(X Y, U V) <-- A3(U,X), A5(Y,V).
+A4(X Y, U V) <-- A3(X,U), A5(Y,V).
+A4(X Y, U V) <-- A3(V,U), A5(Y,X).
+A4(X Y, U V) <-- A3(U,V), A5(Y,X).
+A4(X Y, U V) <-- A3(U,Y), A5(V,X).
+A4(X Y, U V) <-- A3(V,Y), A5(U,X).
+A4(X Y, U V) <-- A3(Y,V), A5(U,X).
+A4(X Y, U V) <-- A3(Y,U), A5(V,X).
+A4(X Y, U V) <-- A3(V,X), A5(Y,U).
+A4(X Y, U V) <-- A3(X,V), A5(Y,U).
+A4(X Y, U V) <-- A3(X,Y), A5(V,U).
+A4(X Y, U V) <-- A3(V,Y), A5(X,U).
+A4(X Y, U V) <-- A3(Y,V), A5(X,U).
+A4(X Y, U V) <-- A3(Y,X), A5(V,U).
+A4(X Y, U V) <-- A3(V,X), A5(U,Y).
+A4(X Y, U V) <-- A3(X,V), A5(U,Y).
+A4(X Y, U V) <-- A3(X,U), A5(V,Y).
+A4(X Y, U V) <-- A3(V,U), A5(X,Y).
+A4(X Y, U V) <-- A3(U,V), A5(X,Y).
+A4(X Y, U V) <-- A3(U,X), A5(V,Y).
+A4(X Y, U V) <-- A4(X,Y), A5(U,V).
+A4(X Y, U V) <-- A4(Y,X), A5(U,V).
+A4(X Y, U V) <-- A4(U,Y), A5(X,V).
+A4(X Y, U V) <-- A4(Y,U), A5(X,V).
+A4(X Y, U V) <-- A4(U,X), A5(Y,V).
+A4(X Y, U V) <-- A4(X,U), A5(Y,V).
+A4(X Y, U V) <-- A4(V,U), A5(Y,X).
+A4(X Y, U V) <-- A4(U,V), A5(Y,X).
+A4(X Y, U V) <-- A4(U,Y), A5(V,X).
+A4(X Y, U V) <-- A4(V,Y), A5(U,X).
+A4(X Y, U V) <-- A4(Y,V), A5(U,X).
+A4(X Y, U V) <-- A4(Y,U), A5(V,X).
+A4(X Y, U V) <-- A4(V,X), A5(Y,U).
+A4(X Y, U V) <-- A4(X,V), A5(Y,U).
+A4(X Y, U V) <-- A4(X,Y), A5(V,U).
+A4(X Y, U V) <-- A4(V,Y), A5(X,U).
+A4(X Y, U V) <-- A4(Y,V), A5(X,U).
+A4(X Y, U V) <-- A4(Y,X), A5(V,U).
+A4(X Y, U V) <-- A4(V,X), A5(U,Y).
+A4(X Y, U V) <-- A4(X,V), A5(U,Y).
+A4(X Y, U V) <-- A4(X,U), A5(V,Y).
+A4(X Y, U V) <-- A4(V,U), A5(X,Y).
+A4(X Y, U V) <-- A4(U,V), A5(X,Y).
+A4(X Y, U V) <-- A4(U,X), A5(V,Y).
+A5(X Y, U V) <-- A1(X,Y), A2(U,V).
+A5(X Y, U V) <-- A1(Y,X), A2(U,V).
+A5(X Y, U V) <-- A1(U,Y), A2(X,V).
+A5(X Y, U V) <-- A1(Y,U), A2(X,V).
+A5(X Y, U V) <-- A1(U,X), A2(Y,V).
+A5(X Y, U V) <-- A1(X,U), A2(Y,V).
+A5(X Y, U V) <-- A1(V,U), A2(Y,X).
+A5(X Y, U V) <-- A1(U,V), A2(Y,X).
+A5(X Y, U V) <-- A1(U,Y), A2(V,X).
+A5(X Y, U V) <-- A1(V,Y), A2(U,X).
+A5(X Y, U V) <-- A1(Y,V), A2(U,X).
+A5(X Y, U V) <-- A1(Y,U), A2(V,X).
+A5(X Y, U V) <-- A1(V,X), A2(Y,U).
+A5(X Y, U V) <-- A1(X,V), A2(Y,U).
+A5(X Y, U V) <-- A1(X,Y), A2(V,U).
+A5(X Y, U V) <-- A1(V,Y), A2(X,U).
+A5(X Y, U V) <-- A1(Y,V), A2(X,U).
+A5(X Y, U V) <-- A1(Y,X), A2(V,U).
+A5(X Y, U V) <-- A1(V,X), A2(U,Y).
+A5(X Y, U V) <-- A1(X,V), A2(U,Y).
+A5(X Y, U V) <-- A1(X,U), A2(V,Y).
+A5(X Y, U V) <-- A1(V,U), A2(X,Y).
+A5(X Y, U V) <-- A1(U,V), A2(X,Y).
+A5(X Y, U V) <-- A1(U,X), A2(V,Y).
+A5(X Y, U V) <-- A1(X,Y), A3(U,V).
+A5(X Y, U V) <-- A1(Y,X), A3(U,V).
+A5(X Y, U V) <-- A1(U,Y), A3(X,V).
+A5(X Y, U V) <-- A1(Y,U), A3(X,V).
+A5(X Y, U V) <-- A1(U,X), A3(Y,V).
+A5(X Y, U V) <-- A1(X,U), A3(Y,V).
+A5(X Y, U V) <-- A1(V,U), A3(Y,X).
+A5(X Y, U V) <-- A1(U,V), A3(Y,X).
+A5(X Y, U V) <-- A1(U,Y), A3(V,X).
+A5(X Y, U V) <-- A1(V,Y), A3(U,X).
+A5(X Y, U V) <-- A1(Y,V), A3(U,X).
+A5(X Y, U V) <-- A1(Y,U), A3(V,X).
+A5(X Y, U V) <-- A1(V,X), A3(Y,U).
+A5(X Y, U V) <-- A1(X,V), A3(Y,U).
+A5(X Y, U V) <-- A1(X,Y), A3(V,U).
+A5(X Y, U V) <-- A1(V,Y), A3(X,U).
+A5(X Y, U V) <-- A1(Y,V), A3(X,U).
+A5(X Y, U V) <-- A1(Y,X), A3(V,U).
+A5(X Y, U V) <-- A1(V,X), A3(U,Y).
+A5(X Y, U V) <-- A1(X,V), A3(U,Y).
+A5(X Y, U V) <-- A1(X,U), A3(V,Y).
+A5(X Y, U V) <-- A1(V,U), A3(X,Y).
+A5(X Y, U V) <-- A1(U,V), A3(X,Y).
+A5(X Y, U V) <-- A1(U,X), A3(V,Y).
+A5(X Y, U V) <-- A1(X,Y), A4(U,V).
+A5(X Y, U V) <-- A1(Y,X), A4(U,V).
+A5(X Y, U V) <-- A1(U,Y), A4(X,V).
+A5(X Y, U V) <-- A1(Y,U), A4(X,V).
+A5(X Y, U V) <-- A1(U,X), A4(Y,V).
+A5(X Y, U V) <-- A1(X,U), A4(Y,V).
+A5(X Y, U V) <-- A1(V,U), A4(Y,X).
+A5(X Y, U V) <-- A1(U,V), A4(Y,X).
+A5(X Y, U V) <-- A1(U,Y), A4(V,X).
+A5(X Y, U V) <-- A1(V,Y), A4(U,X).
+A5(X Y, U V) <-- A1(Y,V), A4(U,X).
+A5(X Y, U V) <-- A1(Y,U), A4(V,X).
+A5(X Y, U V) <-- A1(V,X), A4(Y,U).
+A5(X Y, U V) <-- A1(X,V), A4(Y,U).
+A5(X Y, U V) <-- A1(X,Y), A4(V,U).
+A5(X Y, U V) <-- A1(V,Y), A4(X,U).
+A5(X Y, U V) <-- A1(Y,V), A4(X,U).
+A5(X Y, U V) <-- A1(Y,X), A4(V,U).
+A5(X Y, U V) <-- A1(V,X), A4(U,Y).
+A5(X Y, U V) <-- A1(X,V), A4(U,Y).
+A5(X Y, U V) <-- A1(X,U), A4(V,Y).
+A5(X Y, U V) <-- A1(V,U), A4(X,Y).
+A5(X Y, U V) <-- A1(U,V), A4(X,Y).
+A5(X Y, U V) <-- A1(U,X), A4(V,Y).
+A5(X Y, U V) <-- A1(X,Y), A5(U,V).
+A5(X Y, U V) <-- A1(Y,X), A5(U,V).
+A5(X Y, U V) <-- A1(U,Y), A5(X,V).
+A5(X Y, U V) <-- A1(Y,U), A5(X,V).
+A5(X Y, U V) <-- A1(U,X), A5(Y,V).
+A5(X Y, U V) <-- A1(X,U), A5(Y,V).
+A5(X Y, U V) <-- A1(V,U), A5(Y,X).
+A5(X Y, U V) <-- A1(U,V), A5(Y,X).
+A5(X Y, U V) <-- A1(U,Y), A5(V,X).
+A5(X Y, U V) <-- A1(V,Y), A5(U,X).
+A5(X Y, U V) <-- A1(Y,V), A5(U,X).
+A5(X Y, U V) <-- A1(Y,U), A5(V,X).
+A5(X Y, U V) <-- A1(V,X), A5(Y,U).
+A5(X Y, U V) <-- A1(X,V), A5(Y,U).
+A5(X Y, U V) <-- A1(X,Y), A5(V,U).
+A5(X Y, U V) <-- A1(V,Y), A5(X,U).
+A5(X Y, U V) <-- A1(Y,V), A5(X,U).
+A5(X Y, U V) <-- A1(Y,X), A5(V,U).
+A5(X Y, U V) <-- A1(V,X), A5(U,Y).
+A5(X Y, U V) <-- A1(X,V), A5(U,Y).
+A5(X Y, U V) <-- A1(X,U), A5(V,Y).
+A5(X Y, U V) <-- A1(V,U), A5(X,Y).
+A5(X Y, U V) <-- A1(U,V), A5(X,Y).
+A5(X Y, U V) <-- A1(U,X), A5(V,Y).
+A5(X Y, U V) <-- A2(X,Y), A3(U,V).
+A5(X Y, U V) <-- A2(Y,X), A3(U,V).
+A5(X Y, U V) <-- A2(U,Y), A3(X,V).
+A5(X Y, U V) <-- A2(Y,U), A3(X,V).
+A5(X Y, U V) <-- A2(U,X), A3(Y,V).
+A5(X Y, U V) <-- A2(X,U), A3(Y,V).
+A5(X Y, U V) <-- A2(V,U), A3(Y,X).
+A5(X Y, U V) <-- A2(U,V), A3(Y,X).
+A5(X Y, U V) <-- A2(U,Y), A3(V,X).
+A5(X Y, U V) <-- A2(V,Y), A3(U,X).
+A5(X Y, U V) <-- A2(Y,V), A3(U,X).
+A5(X Y, U V) <-- A2(Y,U), A3(V,X).
+A5(X Y, U V) <-- A2(V,X), A3(Y,U).
+A5(X Y, U V) <-- A2(X,V), A3(Y,U).
+A5(X Y, U V) <-- A2(X,Y), A3(V,U).
+A5(X Y, U V) <-- A2(V,Y), A3(X,U).
+A5(X Y, U V) <-- A2(Y,V), A3(X,U).
+A5(X Y, U V) <-- A2(Y,X), A3(V,U).
+A5(X Y, U V) <-- A2(V,X), A3(U,Y).
+A5(X Y, U V) <-- A2(X,V), A3(U,Y).
+A5(X Y, U V) <-- A2(X,U), A3(V,Y).
+A5(X Y, U V) <-- A2(V,U), A3(X,Y).
+A5(X Y, U V) <-- A2(U,V), A3(X,Y).
+A5(X Y, U V) <-- A2(U,X), A3(V,Y).
+A5(X Y, U V) <-- A2(X,Y), A4(U,V).
+A5(X Y, U V) <-- A2(Y,X), A4(U,V).
+A5(X Y, U V) <-- A2(U,Y), A4(X,V).
+A5(X Y, U V) <-- A2(Y,U), A4(X,V).
+A5(X Y, U V) <-- A2(U,X), A4(Y,V).
+A5(X Y, U V) <-- A2(X,U), A4(Y,V).
+A5(X Y, U V) <-- A2(V,U), A4(Y,X).
+A5(X Y, U V) <-- A2(U,V), A4(Y,X).
+A5(X Y, U V) <-- A2(U,Y), A4(V,X).
+A5(X Y, U V) <-- A2(V,Y), A4(U,X).
+A5(X Y, U V) <-- A2(Y,V), A4(U,X).
+A5(X Y, U V) <-- A2(Y,U), A4(V,X).
+A5(X Y, U V) <-- A2(V,X), A4(Y,U).
+A5(X Y, U V) <-- A2(X,V), A4(Y,U).
+A5(X Y, U V) <-- A2(X,Y), A4(V,U).
+A5(X Y, U V) <-- A2(V,Y), A4(X,U).
+A5(X Y, U V) <-- A2(Y,V), A4(X,U).
+A5(X Y, U V) <-- A2(Y,X), A4(V,U).
+A5(X Y, U V) <-- A2(V,X), A4(U,Y).
+A5(X Y, U V) <-- A2(X,V), A4(U,Y).
+A5(X Y, U V) <-- A2(X,U), A4(V,Y).
+A5(X Y, U V) <-- A2(V,U), A4(X,Y).
+A5(X Y, U V) <-- A2(U,V), A4(X,Y).
+A5(X Y, U V) <-- A2(U,X), A4(V,Y).
+A5(X Y, U V) <-- A2(X,Y), A5(U,V).
+A5(X Y, U V) <-- A2(Y,X), A5(U,V).
+A5(X Y, U V) <-- A2(U,Y), A5(X,V).
+A5(X Y, U V) <-- A2(Y,U), A5(X,V).
+A5(X Y, U V) <-- A2(U,X), A5(Y,V).
+A5(X Y, U V) <-- A2(X,U), A5(Y,V).
+A5(X Y, U V) <-- A2(V,U), A5(Y,X).
+A5(X Y, U V) <-- A2(U,V), A5(Y,X).
+A5(X Y, U V) <-- A2(U,Y), A5(V,X).
+A5(X Y, U V) <-- A2(V,Y), A5(U,X).
+A5(X Y, U V) <-- A2(Y,V), A5(U,X).
+A5(X Y, U V) <-- A2(Y,U), A5(V,X).
+A5(X Y, U V) <-- A2(V,X), A5(Y,U).
+A5(X Y, U V) <-- A2(X,V), A5(Y,U).
+A5(X Y, U V) <-- A2(X,Y), A5(V,U).
+A5(X Y, U V) <-- A2(V,Y), A5(X,U).
+A5(X Y, U V) <-- A2(Y,V), A5(X,U).
+A5(X Y, U V) <-- A2(Y,X), A5(V,U).
+A5(X Y, U V) <-- A2(V,X), A5(U,Y).
+A5(X Y, U V) <-- A2(X,V), A5(U,Y).
+A5(X Y, U V) <-- A2(X,U), A5(V,Y).
+A5(X Y, U V) <-- A2(V,U), A5(X,Y).
+A5(X Y, U V) <-- A2(U,V), A5(X,Y).
+A5(X Y, U V) <-- A2(U,X), A5(V,Y).
+A5(X Y, U V) <-- A3(X,Y), A4(U,V).
+A5(X Y, U V) <-- A3(Y,X), A4(U,V).
+A5(X Y, U V) <-- A3(U,Y), A4(X,V).
+A5(X Y, U V) <-- A3(Y,U), A4(X,V).
+A5(X Y, U V) <-- A3(U,X), A4(Y,V).
+A5(X Y, U V) <-- A3(X,U), A4(Y,V).
+A5(X Y, U V) <-- A3(V,U), A4(Y,X).
+A5(X Y, U V) <-- A3(U,V), A4(Y,X).
+A5(X Y, U V) <-- A3(U,Y), A4(V,X).
+A5(X Y, U V) <-- A3(V,Y), A4(U,X).
+A5(X Y, U V) <-- A3(Y,V), A4(U,X).
+A5(X Y, U V) <-- A3(Y,U), A4(V,X).
+A5(X Y, U V) <-- A3(V,X), A4(Y,U).
+A5(X Y, U V) <-- A3(X,V), A4(Y,U).
+A5(X Y, U V) <-- A3(X,Y), A4(V,U).
+A5(X Y, U V) <-- A3(V,Y), A4(X,U).
+A5(X Y, U V) <-- A3(Y,V), A4(X,U).
+A5(X Y, U V) <-- A3(Y,X), A4(V,U).
+A5(X Y, U V) <-- A3(V,X), A4(U,Y).
+A5(X Y, U V) <-- A3(X,V), A4(U,Y).
+A5(X Y, U V) <-- A3(X,U), A4(V,Y).
+A5(X Y, U V) <-- A3(V,U), A4(X,Y).
+A5(X Y, U V) <-- A3(U,V), A4(X,Y).
+A5(X Y, U V) <-- A3(U,X), A4(V,Y).
+A5(X Y, U V) <-- A3(X,Y), A5(U,V).
+A5(X Y, U V) <-- A3(Y,X), A5(U,V).
+A5(X Y, U V) <-- A3(U,Y), A5(X,V).
+A5(X Y, U V) <-- A3(Y,U), A5(X,V).
+A5(X Y, U V) <-- A3(U,X), A5(Y,V).
+A5(X Y, U V) <-- A3(X,U), A5(Y,V).
+A5(X Y, U V) <-- A3(V,U), A5(Y,X).
+A5(X Y, U V) <-- A3(U,V), A5(Y,X).
+A5(X Y, U V) <-- A3(U,Y), A5(V,X).
+A5(X Y, U V) <-- A3(V,Y), A5(U,X).
+A5(X Y, U V) <-- A3(Y,V), A5(U,X).
+A5(X Y, U V) <-- A3(Y,U), A5(V,X).
+A5(X Y, U V) <-- A3(V,X), A5(Y,U).
+A5(X Y, U V) <-- A3(X,V), A5(Y,U).
+A5(X Y, U V) <-- A3(X,Y), A5(V,U).
+A5(X Y, U V) <-- A3(V,Y), A5(X,U).
+A5(X Y, U V) <-- A3(Y,V), A5(X,U).
+A5(X Y, U V) <-- A3(Y,X), A5(V,U).
+A5(X Y, U V) <-- A3(V,X), A5(U,Y).
+A5(X Y, U V) <-- A3(X,V), A5(U,Y).
+A5(X Y, U V) <-- A3(X,U), A5(V,Y).
+A5(X Y, U V) <-- A3(V,U), A5(X,Y).
+A5(X Y, U V) <-- A3(U,V), A5(X,Y).
+A5(X Y, U V) <-- A3(U,X), A5(V,Y).
+A5(X Y, U V) <-- A4(X,Y), A5(U,V).
+A5(X Y, U V) <-- A4(Y,X), A5(U,V).
+A5(X Y, U V) <-- A4(U,Y), A5(X,V).
+A5(X Y, U V) <-- A4(Y,U), A5(X,V).
+A5(X Y, U V) <-- A4(U,X), A5(Y,V).
+A5(X Y, U V) <-- A4(X,U), A5(Y,V).
+A5(X Y, U V) <-- A4(V,U), A5(Y,X).
+A5(X Y, U V) <-- A4(U,V), A5(Y,X).
+A5(X Y, U V) <-- A4(U,Y), A5(V,X).
+A5(X Y, U V) <-- A4(V,Y), A5(U,X).
+A5(X Y, U V) <-- A4(Y,V), A5(U,X).
+A5(X Y, U V) <-- A4(Y,U), A5(V,X).
+A5(X Y, U V) <-- A4(V,X), A5(Y,U).
+A5(X Y, U V) <-- A4(X,V), A5(Y,U).
+A5(X Y, U V) <-- A4(X,Y), A5(V,U).
+A5(X Y, U V) <-- A4(V,Y), A5(X,U).
+A5(X Y, U V) <-- A4(Y,V), A5(X,U).
+A5(X Y, U V) <-- A4(Y,X), A5(V,U).
+A5(X Y, U V) <-- A4(V,X), A5(U,Y).
+A5(X Y, U V) <-- A4(X,V), A5(U,Y).
+A5(X Y, U V) <-- A4(X,U), A5(V,Y).
+A5(X Y, U V) <-- A4(V,U), A5(X,Y).
+A5(X Y, U V) <-- A4(U,V), A5(X,Y).
+A5(X Y, U V) <-- A4(U,X), A5(V,Y).
 A1(X Y, U V) <-- A1(X,Y), A1(U,V).
 A1(X Y, U V) <-- A1(X,U), A1(Y,V).
 A1(X Y, U V) <-- A1(X,V), A1(U,Y).
@@ -250,6 +1234,30 @@ A1(X Y, U V) <-- A3(Y,V), A3(U,X).
 A1(X Y, U V) <-- A3(Y,U), A3(V,X).
 A1(X Y, U V) <-- A3(Y,V), A3(X,U).
 A1(X Y, U V) <-- A3(Y,X), A3(V,U).
+A1(X Y, U V) <-- A4(X,Y), A4(U,V).
+A1(X Y, U V) <-- A4(X,U), A4(Y,V).
+A1(X Y, U V) <-- A4(X,V), A4(U,Y).
+A1(X Y, U V) <-- A4(X,U), A4(V,Y).
+A1(X Y, U V) <-- A4(X,V), A4(Y,U).
+A1(X Y, U V) <-- A4(X,Y), A4(V,U).
+A1(X Y, U V) <-- A4(Y,X), A4(U,V).
+A1(X Y, U V) <-- A4(Y,U), A4(X,V).
+A1(X Y, U V) <-- A4(Y,V), A4(U,X).
+A1(X Y, U V) <-- A4(Y,U), A4(V,X).
+A1(X Y, U V) <-- A4(Y,V), A4(X,U).
+A1(X Y, U V) <-- A4(Y,X), A4(V,U).
+A1(X Y, U V) <-- A5(X,Y), A5(U,V).
+A1(X Y, U V) <-- A5(X,U), A5(Y,V).
+A1(X Y, U V) <-- A5(X,V), A5(U,Y).
+A1(X Y, U V) <-- A5(X,U), A5(V,Y).
+A1(X Y, U V) <-- A5(X,V), A5(Y,U).
+A1(X Y, U V) <-- A5(X,Y), A5(V,U).
+A1(X Y, U V) <-- A5(Y,X), A5(U,V).
+A1(X Y, U V) <-- A5(Y,U), A5(X,V).
+A1(X Y, U V) <-- A5(Y,V), A5(U,X).
+A1(X Y, U V) <-- A5(Y,U), A5(V,X).
+A1(X Y, U V) <-- A5(Y,V), A5(X,U).
+A1(X Y, U V) <-- A5(Y,X), A5(V,U).
 A2(X Y, U V) <-- A1(X,Y), A1(U,V).
 A2(X Y, U V) <-- A1(X,U), A1(Y,V).
 A2(X Y, U V) <-- A1(X,V), A1(U,Y).
@@ -286,6 +1294,30 @@ A2(X Y, U V) <-- A3(Y,V), A3(U,X).
 A2(X Y, U V) <-- A3(Y,U), A3(V,X).
 A2(X Y, U V) <-- A3(Y,V), A3(X,U).
 A2(X Y, U V) <-- A3(Y,X), A3(V,U).
+A2(X Y, U V) <-- A4(X,Y), A4(U,V).
+A2(X Y, U V) <-- A4(X,U), A4(Y,V).
+A2(X Y, U V) <-- A4(X,V), A4(U,Y).
+A2(X Y, U V) <-- A4(X,U), A4(V,Y).
+A2(X Y, U V) <-- A4(X,V), A4(Y,U).
+A2(X Y, U V) <-- A4(X,Y), A4(V,U).
+A2(X Y, U V) <-- A4(Y,X), A4(U,V).
+A2(X Y, U V) <-- A4(Y,U), A4(X,V).
+A2(X Y, U V) <-- A4(Y,V), A4(U,X).
+A2(X Y, U V) <-- A4(Y,U), A4(V,X).
+A2(X Y, U V) <-- A4(Y,V), A4(X,U).
+A2(X Y, U V) <-- A4(Y,X), A4(V,U).
+A2(X Y, U V) <-- A5(X,Y), A5(U,V).
+A2(X Y, U V) <-- A5(X,U), A5(Y,V).
+A2(X Y, U V) <-- A5(X,V), A5(U,Y).
+A2(X Y, U V) <-- A5(X,U), A5(V,Y).
+A2(X Y, U V) <-- A5(X,V), A5(Y,U).
+A2(X Y, U V) <-- A5(X,Y), A5(V,U).
+A2(X Y, U V) <-- A5(Y,X), A5(U,V).
+A2(X Y, U V) <-- A5(Y,U), A5(X,V).
+A2(X Y, U V) <-- A5(Y,V), A5(U,X).
+A2(X Y, U V) <-- A5(Y,U), A5(V,X).
+A2(X Y, U V) <-- A5(Y,V), A5(X,U).
+A2(X Y, U V) <-- A5(Y,X), A5(V,U).
 A3(X Y, U V) <-- A1(X,Y), A1(U,V).
 A3(X Y, U V) <-- A1(X,U), A1(Y,V).
 A3(X Y, U V) <-- A1(X,V), A1(U,Y).
@@ -322,6 +1354,150 @@ A3(X Y, U V) <-- A3(Y,V), A3(U,X).
 A3(X Y, U V) <-- A3(Y,U), A3(V,X).
 A3(X Y, U V) <-- A3(Y,V), A3(X,U).
 A3(X Y, U V) <-- A3(Y,X), A3(V,U).
+A3(X Y, U V) <-- A4(X,Y), A4(U,V).
+A3(X Y, U V) <-- A4(X,U), A4(Y,V).
+A3(X Y, U V) <-- A4(X,V), A4(U,Y).
+A3(X Y, U V) <-- A4(X,U), A4(V,Y).
+A3(X Y, U V) <-- A4(X,V), A4(Y,U).
+A3(X Y, U V) <-- A4(X,Y), A4(V,U).
+A3(X Y, U V) <-- A4(Y,X), A4(U,V).
+A3(X Y, U V) <-- A4(Y,U), A4(X,V).
+A3(X Y, U V) <-- A4(Y,V), A4(U,X).
+A3(X Y, U V) <-- A4(Y,U), A4(V,X).
+A3(X Y, U V) <-- A4(Y,V), A4(X,U).
+A3(X Y, U V) <-- A4(Y,X), A4(V,U).
+A3(X Y, U V) <-- A5(X,Y), A5(U,V).
+A3(X Y, U V) <-- A5(X,U), A5(Y,V).
+A3(X Y, U V) <-- A5(X,V), A5(U,Y).
+A3(X Y, U V) <-- A5(X,U), A5(V,Y).
+A3(X Y, U V) <-- A5(X,V), A5(Y,U).
+A3(X Y, U V) <-- A5(X,Y), A5(V,U).
+A3(X Y, U V) <-- A5(Y,X), A5(U,V).
+A3(X Y, U V) <-- A5(Y,U), A5(X,V).
+A3(X Y, U V) <-- A5(Y,V), A5(U,X).
+A3(X Y, U V) <-- A5(Y,U), A5(V,X).
+A3(X Y, U V) <-- A5(Y,V), A5(X,U).
+A3(X Y, U V) <-- A5(Y,X), A5(V,U).
+A4(X Y, U V) <-- A1(X,Y), A1(U,V).
+A4(X Y, U V) <-- A1(X,U), A1(Y,V).
+A4(X Y, U V) <-- A1(X,V), A1(U,Y).
+A4(X Y, U V) <-- A1(X,U), A1(V,Y).
+A4(X Y, U V) <-- A1(X,V), A1(Y,U).
+A4(X Y, U V) <-- A1(X,Y), A1(V,U).
+A4(X Y, U V) <-- A1(Y,X), A1(U,V).
+A4(X Y, U V) <-- A1(Y,U), A1(X,V).
+A4(X Y, U V) <-- A1(Y,V), A1(U,X).
+A4(X Y, U V) <-- A1(Y,U), A1(V,X).
+A4(X Y, U V) <-- A1(Y,V), A1(X,U).
+A4(X Y, U V) <-- A1(Y,X), A1(V,U).
+A4(X Y, U V) <-- A2(X,Y), A2(U,V).
+A4(X Y, U V) <-- A2(X,U), A2(Y,V).
+A4(X Y, U V) <-- A2(X,V), A2(U,Y).
+A4(X Y, U V) <-- A2(X,U), A2(V,Y).
+A4(X Y, U V) <-- A2(X,V), A2(Y,U).
+A4(X Y, U V) <-- A2(X,Y), A2(V,U).
+A4(X Y, U V) <-- A2(Y,X), A2(U,V).
+A4(X Y, U V) <-- A2(Y,U), A2(X,V).
+A4(X Y, U V) <-- A2(Y,V), A2(U,X).
+A4(X Y, U V) <-- A2(Y,U), A2(V,X).
+A4(X Y, U V) <-- A2(Y,V), A2(X,U).
+A4(X Y, U V) <-- A2(Y,X), A2(V,U).
+A4(X Y, U V) <-- A3(X,Y), A3(U,V).
+A4(X Y, U V) <-- A3(X,U), A3(Y,V).
+A4(X Y, U V) <-- A3(X,V), A3(U,Y).
+A4(X Y, U V) <-- A3(X,U), A3(V,Y).
+A4(X Y, U V) <-- A3(X,V), A3(Y,U).
+A4(X Y, U V) <-- A3(X,Y), A3(V,U).
+A4(X Y, U V) <-- A3(Y,X), A3(U,V).
+A4(X Y, U V) <-- A3(Y,U), A3(X,V).
+A4(X Y, U V) <-- A3(Y,V), A3(U,X).
+A4(X Y, U V) <-- A3(Y,U), A3(V,X).
+A4(X Y, U V) <-- A3(Y,V), A3(X,U).
+A4(X Y, U V) <-- A3(Y,X), A3(V,U).
+A4(X Y, U V) <-- A4(X,Y), A4(U,V).
+A4(X Y, U V) <-- A4(X,U), A4(Y,V).
+A4(X Y, U V) <-- A4(X,V), A4(U,Y).
+A4(X Y, U V) <-- A4(X,U), A4(V,Y).
+A4(X Y, U V) <-- A4(X,V), A4(Y,U).
+A4(X Y, U V) <-- A4(X,Y), A4(V,U).
+A4(X Y, U V) <-- A4(Y,X), A4(U,V).
+A4(X Y, U V) <-- A4(Y,U), A4(X,V).
+A4(X Y, U V) <-- A4(Y,V), A4(U,X).
+A4(X Y, U V) <-- A4(Y,U), A4(V,X).
+A4(X Y, U V) <-- A4(Y,V), A4(X,U).
+A4(X Y, U V) <-- A4(Y,X), A4(V,U).
+A4(X Y, U V) <-- A5(X,Y), A5(U,V).
+A4(X Y, U V) <-- A5(X,U), A5(Y,V).
+A4(X Y, U V) <-- A5(X,V), A5(U,Y).
+A4(X Y, U V) <-- A5(X,U), A5(V,Y).
+A4(X Y, U V) <-- A5(X,V), A5(Y,U).
+A4(X Y, U V) <-- A5(X,Y), A5(V,U).
+A4(X Y, U V) <-- A5(Y,X), A5(U,V).
+A4(X Y, U V) <-- A5(Y,U), A5(X,V).
+A4(X Y, U V) <-- A5(Y,V), A5(U,X).
+A4(X Y, U V) <-- A5(Y,U), A5(V,X).
+A4(X Y, U V) <-- A5(Y,V), A5(X,U).
+A4(X Y, U V) <-- A5(Y,X), A5(V,U).
+A5(X Y, U V) <-- A1(X,Y), A1(U,V).
+A5(X Y, U V) <-- A1(X,U), A1(Y,V).
+A5(X Y, U V) <-- A1(X,V), A1(U,Y).
+A5(X Y, U V) <-- A1(X,U), A1(V,Y).
+A5(X Y, U V) <-- A1(X,V), A1(Y,U).
+A5(X Y, U V) <-- A1(X,Y), A1(V,U).
+A5(X Y, U V) <-- A1(Y,X), A1(U,V).
+A5(X Y, U V) <-- A1(Y,U), A1(X,V).
+A5(X Y, U V) <-- A1(Y,V), A1(U,X).
+A5(X Y, U V) <-- A1(Y,U), A1(V,X).
+A5(X Y, U V) <-- A1(Y,V), A1(X,U).
+A5(X Y, U V) <-- A1(Y,X), A1(V,U).
+A5(X Y, U V) <-- A2(X,Y), A2(U,V).
+A5(X Y, U V) <-- A2(X,U), A2(Y,V).
+A5(X Y, U V) <-- A2(X,V), A2(U,Y).
+A5(X Y, U V) <-- A2(X,U), A2(V,Y).
+A5(X Y, U V) <-- A2(X,V), A2(Y,U).
+A5(X Y, U V) <-- A2(X,Y), A2(V,U).
+A5(X Y, U V) <-- A2(Y,X), A2(U,V).
+A5(X Y, U V) <-- A2(Y,U), A2(X,V).
+A5(X Y, U V) <-- A2(Y,V), A2(U,X).
+A5(X Y, U V) <-- A2(Y,U), A2(V,X).
+A5(X Y, U V) <-- A2(Y,V), A2(X,U).
+A5(X Y, U V) <-- A2(Y,X), A2(V,U).
+A5(X Y, U V) <-- A3(X,Y), A3(U,V).
+A5(X Y, U V) <-- A3(X,U), A3(Y,V).
+A5(X Y, U V) <-- A3(X,V), A3(U,Y).
+A5(X Y, U V) <-- A3(X,U), A3(V,Y).
+A5(X Y, U V) <-- A3(X,V), A3(Y,U).
+A5(X Y, U V) <-- A3(X,Y), A3(V,U).
+A5(X Y, U V) <-- A3(Y,X), A3(U,V).
+A5(X Y, U V) <-- A3(Y,U), A3(X,V).
+A5(X Y, U V) <-- A3(Y,V), A3(U,X).
+A5(X Y, U V) <-- A3(Y,U), A3(V,X).
+A5(X Y, U V) <-- A3(Y,V), A3(X,U).
+A5(X Y, U V) <-- A3(Y,X), A3(V,U).
+A5(X Y, U V) <-- A4(X,Y), A4(U,V).
+A5(X Y, U V) <-- A4(X,U), A4(Y,V).
+A5(X Y, U V) <-- A4(X,V), A4(U,Y).
+A5(X Y, U V) <-- A4(X,U), A4(V,Y).
+A5(X Y, U V) <-- A4(X,V), A4(Y,U).
+A5(X Y, U V) <-- A4(X,Y), A4(V,U).
+A5(X Y, U V) <-- A4(Y,X), A4(U,V).
+A5(X Y, U V) <-- A4(Y,U), A4(X,V).
+A5(X Y, U V) <-- A4(Y,V), A4(U,X).
+A5(X Y, U V) <-- A4(Y,U), A4(V,X).
+A5(X Y, U V) <-- A4(Y,V), A4(X,U).
+A5(X Y, U V) <-- A4(Y,X), A4(V,U).
+A5(X Y, U V) <-- A5(X,Y), A5(U,V).
+A5(X Y, U V) <-- A5(X,U), A5(Y,V).
+A5(X Y, U V) <-- A5(X,V), A5(U,Y).
+A5(X Y, U V) <-- A5(X,U), A5(V,Y).
+A5(X Y, U V) <-- A5(X,V), A5(Y,U).
+A5(X Y, U V) <-- A5(X,Y), A5(V,U).
+A5(X Y, U V) <-- A5(Y,X), A5(U,V).
+A5(X Y, U V) <-- A5(Y,U), A5(X,V).
+A5(X Y, U V) <-- A5(Y,V), A5(U,X).
+A5(X Y, U V) <-- A5(Y,U), A5(V,X).
+A5(X Y, U V) <-- A5(Y,V), A5(X,U).
+A5(X Y, U V) <-- A5(Y,X), A5(V,U).
 A1(one,one).
 A1(one,two).
 A1(one,three).
@@ -350,6 +1526,8 @@ A1(one,seventy).
 A1(one,eighty).
 A1(one,ninety).
 A1(one,null).
+A1(one,after).
+A1(one,comes).
 A1(two,two).
 A1(two,three).
 A1(two,four).
@@ -377,6 +1555,8 @@ A1(two,seventy).
 A1(two,eighty).
 A1(two,ninety).
 A1(two,null).
+A1(two,after).
+A1(two,comes).
 A1(three,three).
 A1(three,four).
 A1(three,five).
@@ -403,6 +1583,8 @@ A1(three,seventy).
 A1(three,eighty).
 A1(three,ninety).
 A1(three,null).
+A1(three,after).
+A1(three,comes).
 A1(four,four).
 A1(four,five).
 A1(four,six).
@@ -428,6 +1610,8 @@ A1(four,seventy).
 A1(four,eighty).
 A1(four,ninety).
 A1(four,null).
+A1(four,after).
+A1(four,comes).
 A1(five,five).
 A1(five,six).
 A1(five,seven).
@@ -452,6 +1636,8 @@ A1(five,seventy).
 A1(five,eighty).
 A1(five,ninety).
 A1(five,null).
+A1(five,after).
+A1(five,comes).
 A1(six,six).
 A1(six,seven).
 A1(six,eight).
@@ -475,6 +1661,8 @@ A1(six,seventy).
 A1(six,eighty).
 A1(six,ninety).
 A1(six,null).
+A1(six,after).
+A1(six,comes).
 A1(seven,seven).
 A1(seven,eight).
 A1(seven,nine).
@@ -497,6 +1685,8 @@ A1(seven,seventy).
 A1(seven,eighty).
 A1(seven,ninety).
 A1(seven,null).
+A1(seven,after).
+A1(seven,comes).
 A1(eight,eight).
 A1(eight,nine).
 A1(eight,ten).
@@ -518,6 +1708,8 @@ A1(eight,seventy).
 A1(eight,eighty).
 A1(eight,ninety).
 A1(eight,null).
+A1(eight,after).
+A1(eight,comes).
 A1(nine,nine).
 A1(nine,ten).
 A1(nine,eleven).
@@ -538,6 +1730,8 @@ A1(nine,seventy).
 A1(nine,eighty).
 A1(nine,ninety).
 A1(nine,null).
+A1(nine,after).
+A1(nine,comes).
 A1(ten,ten).
 A1(ten,eleven).
 A1(ten,twelve).
@@ -557,6 +1751,8 @@ A1(ten,seventy).
 A1(ten,eighty).
 A1(ten,ninety).
 A1(ten,null).
+A1(ten,after).
+A1(ten,comes).
 A1(eleven,eleven).
 A1(eleven,twelve).
 A1(eleven,thirteen).
@@ -575,6 +1771,8 @@ A1(eleven,seventy).
 A1(eleven,eighty).
 A1(eleven,ninety).
 A1(eleven,null).
+A1(eleven,after).
+A1(eleven,comes).
 A1(twelve,twelve).
 A1(twelve,thirteen).
 A1(twelve,fourteen).
@@ -592,6 +1790,8 @@ A1(twelve,seventy).
 A1(twelve,eighty).
 A1(twelve,ninety).
 A1(twelve,null).
+A1(twelve,after).
+A1(twelve,comes).
 A1(thirteen,thirteen).
 A1(thirteen,fourteen).
 A1(thirteen,fifteen).
@@ -608,6 +1808,8 @@ A1(thirteen,seventy).
 A1(thirteen,eighty).
 A1(thirteen,ninety).
 A1(thirteen,null).
+A1(thirteen,after).
+A1(thirteen,comes).
 A1(fourteen,fourteen).
 A1(fourteen,fifteen).
 A1(fourteen,sixteen).
@@ -623,6 +1825,8 @@ A1(fourteen,seventy).
 A1(fourteen,eighty).
 A1(fourteen,ninety).
 A1(fourteen,null).
+A1(fourteen,after).
+A1(fourteen,comes).
 A1(fifteen,fifteen).
 A1(fifteen,sixteen).
 A1(fifteen,seventeen).
@@ -637,6 +1841,8 @@ A1(fifteen,seventy).
 A1(fifteen,eighty).
 A1(fifteen,ninety).
 A1(fifteen,null).
+A1(fifteen,after).
+A1(fifteen,comes).
 A1(sixteen,sixteen).
 A1(sixteen,seventeen).
 A1(sixteen,eighteen).
@@ -650,6 +1856,8 @@ A1(sixteen,seventy).
 A1(sixteen,eighty).
 A1(sixteen,ninety).
 A1(sixteen,null).
+A1(sixteen,after).
+A1(sixteen,comes).
 A1(seventeen,seventeen).
 A1(seventeen,eighteen).
 A1(seventeen,nineteen).
@@ -662,6 +1870,8 @@ A1(seventeen,seventy).
 A1(seventeen,eighty).
 A1(seventeen,ninety).
 A1(seventeen,null).
+A1(seventeen,after).
+A1(seventeen,comes).
 A1(eighteen,eighteen).
 A1(eighteen,nineteen).
 A1(eighteen,twenty).
@@ -673,6 +1883,8 @@ A1(eighteen,seventy).
 A1(eighteen,eighty).
 A1(eighteen,ninety).
 A1(eighteen,null).
+A1(eighteen,after).
+A1(eighteen,comes).
 A1(nineteen,nineteen).
 A1(nineteen,twenty).
 A1(nineteen,thirty).
@@ -683,6 +1895,8 @@ A1(nineteen,seventy).
 A1(nineteen,eighty).
 A1(nineteen,ninety).
 A1(nineteen,null).
+A1(nineteen,after).
+A1(nineteen,comes).
 A1(twenty,twenty).
 A1(twenty,thirty).
 A1(twenty,forty).
@@ -692,6 +1906,8 @@ A1(twenty,seventy).
 A1(twenty,eighty).
 A1(twenty,ninety).
 A1(twenty,null).
+A1(twenty,after).
+A1(twenty,comes).
 A1(thirty,thirty).
 A1(thirty,forty).
 A1(thirty,fifty).
@@ -700,6 +1916,8 @@ A1(thirty,seventy).
 A1(thirty,eighty).
 A1(thirty,ninety).
 A1(thirty,null).
+A1(thirty,after).
+A1(thirty,comes).
 A1(forty,forty).
 A1(forty,fifty).
 A1(forty,sixty).
@@ -707,27 +1925,44 @@ A1(forty,seventy).
 A1(forty,eighty).
 A1(forty,ninety).
 A1(forty,null).
+A1(forty,after).
+A1(forty,comes).
 A1(fifty,fifty).
 A1(fifty,sixty).
 A1(fifty,seventy).
 A1(fifty,eighty).
 A1(fifty,ninety).
 A1(fifty,null).
+A1(fifty,after).
+A1(fifty,comes).
 A1(sixty,sixty).
 A1(sixty,seventy).
 A1(sixty,eighty).
 A1(sixty,ninety).
 A1(sixty,null).
+A1(sixty,after).
+A1(sixty,comes).
 A1(seventy,seventy).
 A1(seventy,eighty).
 A1(seventy,ninety).
 A1(seventy,null).
+A1(seventy,after).
+A1(seventy,comes).
 A1(eighty,eighty).
 A1(eighty,ninety).
 A1(eighty,null).
+A1(eighty,after).
+A1(eighty,comes).
 A1(ninety,ninety).
 A1(ninety,null).
+A1(ninety,after).
+A1(ninety,comes).
 A1(null,null).
+A1(null,after).
+A1(null,comes).
+A1(after,after).
+A1(after,comes).
+A1(comes,comes).
 A2(one,one).
 A2(one,two).
 A2(one,three).
@@ -756,6 +1991,8 @@ A2(one,seventy).
 A2(one,eighty).
 A2(one,ninety).
 A2(one,null).
+A2(one,after).
+A2(one,comes).
 A2(two,two).
 A2(two,three).
 A2(two,four).
@@ -783,6 +2020,8 @@ A2(two,seventy).
 A2(two,eighty).
 A2(two,ninety).
 A2(two,null).
+A2(two,after).
+A2(two,comes).
 A2(three,three).
 A2(three,four).
 A2(three,five).
@@ -809,6 +2048,8 @@ A2(three,seventy).
 A2(three,eighty).
 A2(three,ninety).
 A2(three,null).
+A2(three,after).
+A2(three,comes).
 A2(four,four).
 A2(four,five).
 A2(four,six).
@@ -834,6 +2075,8 @@ A2(four,seventy).
 A2(four,eighty).
 A2(four,ninety).
 A2(four,null).
+A2(four,after).
+A2(four,comes).
 A2(five,five).
 A2(five,six).
 A2(five,seven).
@@ -858,6 +2101,8 @@ A2(five,seventy).
 A2(five,eighty).
 A2(five,ninety).
 A2(five,null).
+A2(five,after).
+A2(five,comes).
 A2(six,six).
 A2(six,seven).
 A2(six,eight).
@@ -881,6 +2126,8 @@ A2(six,seventy).
 A2(six,eighty).
 A2(six,ninety).
 A2(six,null).
+A2(six,after).
+A2(six,comes).
 A2(seven,seven).
 A2(seven,eight).
 A2(seven,nine).
@@ -903,6 +2150,8 @@ A2(seven,seventy).
 A2(seven,eighty).
 A2(seven,ninety).
 A2(seven,null).
+A2(seven,after).
+A2(seven,comes).
 A2(eight,eight).
 A2(eight,nine).
 A2(eight,ten).
@@ -924,6 +2173,8 @@ A2(eight,seventy).
 A2(eight,eighty).
 A2(eight,ninety).
 A2(eight,null).
+A2(eight,after).
+A2(eight,comes).
 A2(nine,nine).
 A2(nine,ten).
 A2(nine,eleven).
@@ -944,6 +2195,8 @@ A2(nine,seventy).
 A2(nine,eighty).
 A2(nine,ninety).
 A2(nine,null).
+A2(nine,after).
+A2(nine,comes).
 A2(ten,ten).
 A2(ten,eleven).
 A2(ten,twelve).
@@ -963,6 +2216,8 @@ A2(ten,seventy).
 A2(ten,eighty).
 A2(ten,ninety).
 A2(ten,null).
+A2(ten,after).
+A2(ten,comes).
 A2(eleven,eleven).
 A2(eleven,twelve).
 A2(eleven,thirteen).
@@ -981,6 +2236,8 @@ A2(eleven,seventy).
 A2(eleven,eighty).
 A2(eleven,ninety).
 A2(eleven,null).
+A2(eleven,after).
+A2(eleven,comes).
 A2(twelve,twelve).
 A2(twelve,thirteen).
 A2(twelve,fourteen).
@@ -998,6 +2255,8 @@ A2(twelve,seventy).
 A2(twelve,eighty).
 A2(twelve,ninety).
 A2(twelve,null).
+A2(twelve,after).
+A2(twelve,comes).
 A2(thirteen,thirteen).
 A2(thirteen,fourteen).
 A2(thirteen,fifteen).
@@ -1014,6 +2273,8 @@ A2(thirteen,seventy).
 A2(thirteen,eighty).
 A2(thirteen,ninety).
 A2(thirteen,null).
+A2(thirteen,after).
+A2(thirteen,comes).
 A2(fourteen,fourteen).
 A2(fourteen,fifteen).
 A2(fourteen,sixteen).
@@ -1029,6 +2290,8 @@ A2(fourteen,seventy).
 A2(fourteen,eighty).
 A2(fourteen,ninety).
 A2(fourteen,null).
+A2(fourteen,after).
+A2(fourteen,comes).
 A2(fifteen,fifteen).
 A2(fifteen,sixteen).
 A2(fifteen,seventeen).
@@ -1043,6 +2306,8 @@ A2(fifteen,seventy).
 A2(fifteen,eighty).
 A2(fifteen,ninety).
 A2(fifteen,null).
+A2(fifteen,after).
+A2(fifteen,comes).
 A2(sixteen,sixteen).
 A2(sixteen,seventeen).
 A2(sixteen,eighteen).
@@ -1056,6 +2321,8 @@ A2(sixteen,seventy).
 A2(sixteen,eighty).
 A2(sixteen,ninety).
 A2(sixteen,null).
+A2(sixteen,after).
+A2(sixteen,comes).
 A2(seventeen,seventeen).
 A2(seventeen,eighteen).
 A2(seventeen,nineteen).
@@ -1068,6 +2335,8 @@ A2(seventeen,seventy).
 A2(seventeen,eighty).
 A2(seventeen,ninety).
 A2(seventeen,null).
+A2(seventeen,after).
+A2(seventeen,comes).
 A2(eighteen,eighteen).
 A2(eighteen,nineteen).
 A2(eighteen,twenty).
@@ -1079,6 +2348,8 @@ A2(eighteen,seventy).
 A2(eighteen,eighty).
 A2(eighteen,ninety).
 A2(eighteen,null).
+A2(eighteen,after).
+A2(eighteen,comes).
 A2(nineteen,nineteen).
 A2(nineteen,twenty).
 A2(nineteen,thirty).
@@ -1089,6 +2360,8 @@ A2(nineteen,seventy).
 A2(nineteen,eighty).
 A2(nineteen,ninety).
 A2(nineteen,null).
+A2(nineteen,after).
+A2(nineteen,comes).
 A2(twenty,twenty).
 A2(twenty,thirty).
 A2(twenty,forty).
@@ -1098,6 +2371,8 @@ A2(twenty,seventy).
 A2(twenty,eighty).
 A2(twenty,ninety).
 A2(twenty,null).
+A2(twenty,after).
+A2(twenty,comes).
 A2(thirty,thirty).
 A2(thirty,forty).
 A2(thirty,fifty).
@@ -1106,6 +2381,8 @@ A2(thirty,seventy).
 A2(thirty,eighty).
 A2(thirty,ninety).
 A2(thirty,null).
+A2(thirty,after).
+A2(thirty,comes).
 A2(forty,forty).
 A2(forty,fifty).
 A2(forty,sixty).
@@ -1113,27 +2390,44 @@ A2(forty,seventy).
 A2(forty,eighty).
 A2(forty,ninety).
 A2(forty,null).
+A2(forty,after).
+A2(forty,comes).
 A2(fifty,fifty).
 A2(fifty,sixty).
 A2(fifty,seventy).
 A2(fifty,eighty).
 A2(fifty,ninety).
 A2(fifty,null).
+A2(fifty,after).
+A2(fifty,comes).
 A2(sixty,sixty).
 A2(sixty,seventy).
 A2(sixty,eighty).
 A2(sixty,ninety).
 A2(sixty,null).
+A2(sixty,after).
+A2(sixty,comes).
 A2(seventy,seventy).
 A2(seventy,eighty).
 A2(seventy,ninety).
 A2(seventy,null).
+A2(seventy,after).
+A2(seventy,comes).
 A2(eighty,eighty).
 A2(eighty,ninety).
 A2(eighty,null).
+A2(eighty,after).
+A2(eighty,comes).
 A2(ninety,ninety).
 A2(ninety,null).
+A2(ninety,after).
+A2(ninety,comes).
 A2(null,null).
+A2(null,after).
+A2(null,comes).
+A2(after,after).
+A2(after,comes).
+A2(comes,comes).
 A3(one,one).
 A3(one,two).
 A3(one,three).
@@ -1162,6 +2456,8 @@ A3(one,seventy).
 A3(one,eighty).
 A3(one,ninety).
 A3(one,null).
+A3(one,after).
+A3(one,comes).
 A3(two,two).
 A3(two,three).
 A3(two,four).
@@ -1189,6 +2485,8 @@ A3(two,seventy).
 A3(two,eighty).
 A3(two,ninety).
 A3(two,null).
+A3(two,after).
+A3(two,comes).
 A3(three,three).
 A3(three,four).
 A3(three,five).
@@ -1215,6 +2513,8 @@ A3(three,seventy).
 A3(three,eighty).
 A3(three,ninety).
 A3(three,null).
+A3(three,after).
+A3(three,comes).
 A3(four,four).
 A3(four,five).
 A3(four,six).
@@ -1240,6 +2540,8 @@ A3(four,seventy).
 A3(four,eighty).
 A3(four,ninety).
 A3(four,null).
+A3(four,after).
+A3(four,comes).
 A3(five,five).
 A3(five,six).
 A3(five,seven).
@@ -1264,6 +2566,8 @@ A3(five,seventy).
 A3(five,eighty).
 A3(five,ninety).
 A3(five,null).
+A3(five,after).
+A3(five,comes).
 A3(six,six).
 A3(six,seven).
 A3(six,eight).
@@ -1287,6 +2591,8 @@ A3(six,seventy).
 A3(six,eighty).
 A3(six,ninety).
 A3(six,null).
+A3(six,after).
+A3(six,comes).
 A3(seven,seven).
 A3(seven,eight).
 A3(seven,nine).
@@ -1309,6 +2615,8 @@ A3(seven,seventy).
 A3(seven,eighty).
 A3(seven,ninety).
 A3(seven,null).
+A3(seven,after).
+A3(seven,comes).
 A3(eight,eight).
 A3(eight,nine).
 A3(eight,ten).
@@ -1330,6 +2638,8 @@ A3(eight,seventy).
 A3(eight,eighty).
 A3(eight,ninety).
 A3(eight,null).
+A3(eight,after).
+A3(eight,comes).
 A3(nine,nine).
 A3(nine,ten).
 A3(nine,eleven).
@@ -1350,6 +2660,8 @@ A3(nine,seventy).
 A3(nine,eighty).
 A3(nine,ninety).
 A3(nine,null).
+A3(nine,after).
+A3(nine,comes).
 A3(ten,ten).
 A3(ten,eleven).
 A3(ten,twelve).
@@ -1369,6 +2681,8 @@ A3(ten,seventy).
 A3(ten,eighty).
 A3(ten,ninety).
 A3(ten,null).
+A3(ten,after).
+A3(ten,comes).
 A3(eleven,eleven).
 A3(eleven,twelve).
 A3(eleven,thirteen).
@@ -1387,6 +2701,8 @@ A3(eleven,seventy).
 A3(eleven,eighty).
 A3(eleven,ninety).
 A3(eleven,null).
+A3(eleven,after).
+A3(eleven,comes).
 A3(twelve,twelve).
 A3(twelve,thirteen).
 A3(twelve,fourteen).
@@ -1404,6 +2720,8 @@ A3(twelve,seventy).
 A3(twelve,eighty).
 A3(twelve,ninety).
 A3(twelve,null).
+A3(twelve,after).
+A3(twelve,comes).
 A3(thirteen,thirteen).
 A3(thirteen,fourteen).
 A3(thirteen,fifteen).
@@ -1420,6 +2738,8 @@ A3(thirteen,seventy).
 A3(thirteen,eighty).
 A3(thirteen,ninety).
 A3(thirteen,null).
+A3(thirteen,after).
+A3(thirteen,comes).
 A3(fourteen,fourteen).
 A3(fourteen,fifteen).
 A3(fourteen,sixteen).
@@ -1435,6 +2755,8 @@ A3(fourteen,seventy).
 A3(fourteen,eighty).
 A3(fourteen,ninety).
 A3(fourteen,null).
+A3(fourteen,after).
+A3(fourteen,comes).
 A3(fifteen,fifteen).
 A3(fifteen,sixteen).
 A3(fifteen,seventeen).
@@ -1449,6 +2771,8 @@ A3(fifteen,seventy).
 A3(fifteen,eighty).
 A3(fifteen,ninety).
 A3(fifteen,null).
+A3(fifteen,after).
+A3(fifteen,comes).
 A3(sixteen,sixteen).
 A3(sixteen,seventeen).
 A3(sixteen,eighteen).
@@ -1462,6 +2786,8 @@ A3(sixteen,seventy).
 A3(sixteen,eighty).
 A3(sixteen,ninety).
 A3(sixteen,null).
+A3(sixteen,after).
+A3(sixteen,comes).
 A3(seventeen,seventeen).
 A3(seventeen,eighteen).
 A3(seventeen,nineteen).
@@ -1474,6 +2800,8 @@ A3(seventeen,seventy).
 A3(seventeen,eighty).
 A3(seventeen,ninety).
 A3(seventeen,null).
+A3(seventeen,after).
+A3(seventeen,comes).
 A3(eighteen,eighteen).
 A3(eighteen,nineteen).
 A3(eighteen,twenty).
@@ -1485,6 +2813,8 @@ A3(eighteen,seventy).
 A3(eighteen,eighty).
 A3(eighteen,ninety).
 A3(eighteen,null).
+A3(eighteen,after).
+A3(eighteen,comes).
 A3(nineteen,nineteen).
 A3(nineteen,twenty).
 A3(nineteen,thirty).
@@ -1495,6 +2825,8 @@ A3(nineteen,seventy).
 A3(nineteen,eighty).
 A3(nineteen,ninety).
 A3(nineteen,null).
+A3(nineteen,after).
+A3(nineteen,comes).
 A3(twenty,twenty).
 A3(twenty,thirty).
 A3(twenty,forty).
@@ -1504,6 +2836,8 @@ A3(twenty,seventy).
 A3(twenty,eighty).
 A3(twenty,ninety).
 A3(twenty,null).
+A3(twenty,after).
+A3(twenty,comes).
 A3(thirty,thirty).
 A3(thirty,forty).
 A3(thirty,fifty).
@@ -1512,6 +2846,8 @@ A3(thirty,seventy).
 A3(thirty,eighty).
 A3(thirty,ninety).
 A3(thirty,null).
+A3(thirty,after).
+A3(thirty,comes).
 A3(forty,forty).
 A3(forty,fifty).
 A3(forty,sixty).
@@ -1519,26 +2855,973 @@ A3(forty,seventy).
 A3(forty,eighty).
 A3(forty,ninety).
 A3(forty,null).
+A3(forty,after).
+A3(forty,comes).
 A3(fifty,fifty).
 A3(fifty,sixty).
 A3(fifty,seventy).
 A3(fifty,eighty).
 A3(fifty,ninety).
 A3(fifty,null).
+A3(fifty,after).
+A3(fifty,comes).
 A3(sixty,sixty).
 A3(sixty,seventy).
 A3(sixty,eighty).
 A3(sixty,ninety).
 A3(sixty,null).
+A3(sixty,after).
+A3(sixty,comes).
 A3(seventy,seventy).
 A3(seventy,eighty).
 A3(seventy,ninety).
 A3(seventy,null).
+A3(seventy,after).
+A3(seventy,comes).
 A3(eighty,eighty).
 A3(eighty,ninety).
 A3(eighty,null).
+A3(eighty,after).
+A3(eighty,comes).
 A3(ninety,ninety).
 A3(ninety,null).
+A3(ninety,after).
+A3(ninety,comes).
 A3(null,null).
+A3(null,after).
+A3(null,comes).
+A3(after,after).
+A3(after,comes).
+A3(comes,comes).
+A4(one,one).
+A4(one,two).
+A4(one,three).
+A4(one,four).
+A4(one,five).
+A4(one,six).
+A4(one,seven).
+A4(one,eight).
+A4(one,nine).
+A4(one,ten).
+A4(one,eleven).
+A4(one,twelve).
+A4(one,thirteen).
+A4(one,fourteen).
+A4(one,fifteen).
+A4(one,sixteen).
+A4(one,seventeen).
+A4(one,eighteen).
+A4(one,nineteen).
+A4(one,twenty).
+A4(one,thirty).
+A4(one,forty).
+A4(one,fifty).
+A4(one,sixty).
+A4(one,seventy).
+A4(one,eighty).
+A4(one,ninety).
+A4(one,null).
+A4(one,after).
+A4(one,comes).
+A4(two,two).
+A4(two,three).
+A4(two,four).
+A4(two,five).
+A4(two,six).
+A4(two,seven).
+A4(two,eight).
+A4(two,nine).
+A4(two,ten).
+A4(two,eleven).
+A4(two,twelve).
+A4(two,thirteen).
+A4(two,fourteen).
+A4(two,fifteen).
+A4(two,sixteen).
+A4(two,seventeen).
+A4(two,eighteen).
+A4(two,nineteen).
+A4(two,twenty).
+A4(two,thirty).
+A4(two,forty).
+A4(two,fifty).
+A4(two,sixty).
+A4(two,seventy).
+A4(two,eighty).
+A4(two,ninety).
+A4(two,null).
+A4(two,after).
+A4(two,comes).
+A4(three,three).
+A4(three,four).
+A4(three,five).
+A4(three,six).
+A4(three,seven).
+A4(three,eight).
+A4(three,nine).
+A4(three,ten).
+A4(three,eleven).
+A4(three,twelve).
+A4(three,thirteen).
+A4(three,fourteen).
+A4(three,fifteen).
+A4(three,sixteen).
+A4(three,seventeen).
+A4(three,eighteen).
+A4(three,nineteen).
+A4(three,twenty).
+A4(three,thirty).
+A4(three,forty).
+A4(three,fifty).
+A4(three,sixty).
+A4(three,seventy).
+A4(three,eighty).
+A4(three,ninety).
+A4(three,null).
+A4(three,after).
+A4(three,comes).
+A4(four,four).
+A4(four,five).
+A4(four,six).
+A4(four,seven).
+A4(four,eight).
+A4(four,nine).
+A4(four,ten).
+A4(four,eleven).
+A4(four,twelve).
+A4(four,thirteen).
+A4(four,fourteen).
+A4(four,fifteen).
+A4(four,sixteen).
+A4(four,seventeen).
+A4(four,eighteen).
+A4(four,nineteen).
+A4(four,twenty).
+A4(four,thirty).
+A4(four,forty).
+A4(four,fifty).
+A4(four,sixty).
+A4(four,seventy).
+A4(four,eighty).
+A4(four,ninety).
+A4(four,null).
+A4(four,after).
+A4(four,comes).
+A4(five,five).
+A4(five,six).
+A4(five,seven).
+A4(five,eight).
+A4(five,nine).
+A4(five,ten).
+A4(five,eleven).
+A4(five,twelve).
+A4(five,thirteen).
+A4(five,fourteen).
+A4(five,fifteen).
+A4(five,sixteen).
+A4(five,seventeen).
+A4(five,eighteen).
+A4(five,nineteen).
+A4(five,twenty).
+A4(five,thirty).
+A4(five,forty).
+A4(five,fifty).
+A4(five,sixty).
+A4(five,seventy).
+A4(five,eighty).
+A4(five,ninety).
+A4(five,null).
+A4(five,after).
+A4(five,comes).
+A4(six,six).
+A4(six,seven).
+A4(six,eight).
+A4(six,nine).
+A4(six,ten).
+A4(six,eleven).
+A4(six,twelve).
+A4(six,thirteen).
+A4(six,fourteen).
+A4(six,fifteen).
+A4(six,sixteen).
+A4(six,seventeen).
+A4(six,eighteen).
+A4(six,nineteen).
+A4(six,twenty).
+A4(six,thirty).
+A4(six,forty).
+A4(six,fifty).
+A4(six,sixty).
+A4(six,seventy).
+A4(six,eighty).
+A4(six,ninety).
+A4(six,null).
+A4(six,after).
+A4(six,comes).
+A4(seven,seven).
+A4(seven,eight).
+A4(seven,nine).
+A4(seven,ten).
+A4(seven,eleven).
+A4(seven,twelve).
+A4(seven,thirteen).
+A4(seven,fourteen).
+A4(seven,fifteen).
+A4(seven,sixteen).
+A4(seven,seventeen).
+A4(seven,eighteen).
+A4(seven,nineteen).
+A4(seven,twenty).
+A4(seven,thirty).
+A4(seven,forty).
+A4(seven,fifty).
+A4(seven,sixty).
+A4(seven,seventy).
+A4(seven,eighty).
+A4(seven,ninety).
+A4(seven,null).
+A4(seven,after).
+A4(seven,comes).
+A4(eight,eight).
+A4(eight,nine).
+A4(eight,ten).
+A4(eight,eleven).
+A4(eight,twelve).
+A4(eight,thirteen).
+A4(eight,fourteen).
+A4(eight,fifteen).
+A4(eight,sixteen).
+A4(eight,seventeen).
+A4(eight,eighteen).
+A4(eight,nineteen).
+A4(eight,twenty).
+A4(eight,thirty).
+A4(eight,forty).
+A4(eight,fifty).
+A4(eight,sixty).
+A4(eight,seventy).
+A4(eight,eighty).
+A4(eight,ninety).
+A4(eight,null).
+A4(eight,after).
+A4(eight,comes).
+A4(nine,nine).
+A4(nine,ten).
+A4(nine,eleven).
+A4(nine,twelve).
+A4(nine,thirteen).
+A4(nine,fourteen).
+A4(nine,fifteen).
+A4(nine,sixteen).
+A4(nine,seventeen).
+A4(nine,eighteen).
+A4(nine,nineteen).
+A4(nine,twenty).
+A4(nine,thirty).
+A4(nine,forty).
+A4(nine,fifty).
+A4(nine,sixty).
+A4(nine,seventy).
+A4(nine,eighty).
+A4(nine,ninety).
+A4(nine,null).
+A4(nine,after).
+A4(nine,comes).
+A4(ten,ten).
+A4(ten,eleven).
+A4(ten,twelve).
+A4(ten,thirteen).
+A4(ten,fourteen).
+A4(ten,fifteen).
+A4(ten,sixteen).
+A4(ten,seventeen).
+A4(ten,eighteen).
+A4(ten,nineteen).
+A4(ten,twenty).
+A4(ten,thirty).
+A4(ten,forty).
+A4(ten,fifty).
+A4(ten,sixty).
+A4(ten,seventy).
+A4(ten,eighty).
+A4(ten,ninety).
+A4(ten,null).
+A4(ten,after).
+A4(ten,comes).
+A4(eleven,eleven).
+A4(eleven,twelve).
+A4(eleven,thirteen).
+A4(eleven,fourteen).
+A4(eleven,fifteen).
+A4(eleven,sixteen).
+A4(eleven,seventeen).
+A4(eleven,eighteen).
+A4(eleven,nineteen).
+A4(eleven,twenty).
+A4(eleven,thirty).
+A4(eleven,forty).
+A4(eleven,fifty).
+A4(eleven,sixty).
+A4(eleven,seventy).
+A4(eleven,eighty).
+A4(eleven,ninety).
+A4(eleven,null).
+A4(eleven,after).
+A4(eleven,comes).
+A4(twelve,twelve).
+A4(twelve,thirteen).
+A4(twelve,fourteen).
+A4(twelve,fifteen).
+A4(twelve,sixteen).
+A4(twelve,seventeen).
+A4(twelve,eighteen).
+A4(twelve,nineteen).
+A4(twelve,twenty).
+A4(twelve,thirty).
+A4(twelve,forty).
+A4(twelve,fifty).
+A4(twelve,sixty).
+A4(twelve,seventy).
+A4(twelve,eighty).
+A4(twelve,ninety).
+A4(twelve,null).
+A4(twelve,after).
+A4(twelve,comes).
+A4(thirteen,thirteen).
+A4(thirteen,fourteen).
+A4(thirteen,fifteen).
+A4(thirteen,sixteen).
+A4(thirteen,seventeen).
+A4(thirteen,eighteen).
+A4(thirteen,nineteen).
+A4(thirteen,twenty).
+A4(thirteen,thirty).
+A4(thirteen,forty).
+A4(thirteen,fifty).
+A4(thirteen,sixty).
+A4(thirteen,seventy).
+A4(thirteen,eighty).
+A4(thirteen,ninety).
+A4(thirteen,null).
+A4(thirteen,after).
+A4(thirteen,comes).
+A4(fourteen,fourteen).
+A4(fourteen,fifteen).
+A4(fourteen,sixteen).
+A4(fourteen,seventeen).
+A4(fourteen,eighteen).
+A4(fourteen,nineteen).
+A4(fourteen,twenty).
+A4(fourteen,thirty).
+A4(fourteen,forty).
+A4(fourteen,fifty).
+A4(fourteen,sixty).
+A4(fourteen,seventy).
+A4(fourteen,eighty).
+A4(fourteen,ninety).
+A4(fourteen,null).
+A4(fourteen,after).
+A4(fourteen,comes).
+A4(fifteen,fifteen).
+A4(fifteen,sixteen).
+A4(fifteen,seventeen).
+A4(fifteen,eighteen).
+A4(fifteen,nineteen).
+A4(fifteen,twenty).
+A4(fifteen,thirty).
+A4(fifteen,forty).
+A4(fifteen,fifty).
+A4(fifteen,sixty).
+A4(fifteen,seventy).
+A4(fifteen,eighty).
+A4(fifteen,ninety).
+A4(fifteen,null).
+A4(fifteen,after).
+A4(fifteen,comes).
+A4(sixteen,sixteen).
+A4(sixteen,seventeen).
+A4(sixteen,eighteen).
+A4(sixteen,nineteen).
+A4(sixteen,twenty).
+A4(sixteen,thirty).
+A4(sixteen,forty).
+A4(sixteen,fifty).
+A4(sixteen,sixty).
+A4(sixteen,seventy).
+A4(sixteen,eighty).
+A4(sixteen,ninety).
+A4(sixteen,null).
+A4(sixteen,after).
+A4(sixteen,comes).
+A4(seventeen,seventeen).
+A4(seventeen,eighteen).
+A4(seventeen,nineteen).
+A4(seventeen,twenty).
+A4(seventeen,thirty).
+A4(seventeen,forty).
+A4(seventeen,fifty).
+A4(seventeen,sixty).
+A4(seventeen,seventy).
+A4(seventeen,eighty).
+A4(seventeen,ninety).
+A4(seventeen,null).
+A4(seventeen,after).
+A4(seventeen,comes).
+A4(eighteen,eighteen).
+A4(eighteen,nineteen).
+A4(eighteen,twenty).
+A4(eighteen,thirty).
+A4(eighteen,forty).
+A4(eighteen,fifty).
+A4(eighteen,sixty).
+A4(eighteen,seventy).
+A4(eighteen,eighty).
+A4(eighteen,ninety).
+A4(eighteen,null).
+A4(eighteen,after).
+A4(eighteen,comes).
+A4(nineteen,nineteen).
+A4(nineteen,twenty).
+A4(nineteen,thirty).
+A4(nineteen,forty).
+A4(nineteen,fifty).
+A4(nineteen,sixty).
+A4(nineteen,seventy).
+A4(nineteen,eighty).
+A4(nineteen,ninety).
+A4(nineteen,null).
+A4(nineteen,after).
+A4(nineteen,comes).
+A4(twenty,twenty).
+A4(twenty,thirty).
+A4(twenty,forty).
+A4(twenty,fifty).
+A4(twenty,sixty).
+A4(twenty,seventy).
+A4(twenty,eighty).
+A4(twenty,ninety).
+A4(twenty,null).
+A4(twenty,after).
+A4(twenty,comes).
+A4(thirty,thirty).
+A4(thirty,forty).
+A4(thirty,fifty).
+A4(thirty,sixty).
+A4(thirty,seventy).
+A4(thirty,eighty).
+A4(thirty,ninety).
+A4(thirty,null).
+A4(thirty,after).
+A4(thirty,comes).
+A4(forty,forty).
+A4(forty,fifty).
+A4(forty,sixty).
+A4(forty,seventy).
+A4(forty,eighty).
+A4(forty,ninety).
+A4(forty,null).
+A4(forty,after).
+A4(forty,comes).
+A4(fifty,fifty).
+A4(fifty,sixty).
+A4(fifty,seventy).
+A4(fifty,eighty).
+A4(fifty,ninety).
+A4(fifty,null).
+A4(fifty,after).
+A4(fifty,comes).
+A4(sixty,sixty).
+A4(sixty,seventy).
+A4(sixty,eighty).
+A4(sixty,ninety).
+A4(sixty,null).
+A4(sixty,after).
+A4(sixty,comes).
+A4(seventy,seventy).
+A4(seventy,eighty).
+A4(seventy,ninety).
+A4(seventy,null).
+A4(seventy,after).
+A4(seventy,comes).
+A4(eighty,eighty).
+A4(eighty,ninety).
+A4(eighty,null).
+A4(eighty,after).
+A4(eighty,comes).
+A4(ninety,ninety).
+A4(ninety,null).
+A4(ninety,after).
+A4(ninety,comes).
+A4(null,null).
+A4(null,after).
+A4(null,comes).
+A4(after,after).
+A4(after,comes).
+A4(comes,comes).
+A5(one,one).
+A5(one,two).
+A5(one,three).
+A5(one,four).
+A5(one,five).
+A5(one,six).
+A5(one,seven).
+A5(one,eight).
+A5(one,nine).
+A5(one,ten).
+A5(one,eleven).
+A5(one,twelve).
+A5(one,thirteen).
+A5(one,fourteen).
+A5(one,fifteen).
+A5(one,sixteen).
+A5(one,seventeen).
+A5(one,eighteen).
+A5(one,nineteen).
+A5(one,twenty).
+A5(one,thirty).
+A5(one,forty).
+A5(one,fifty).
+A5(one,sixty).
+A5(one,seventy).
+A5(one,eighty).
+A5(one,ninety).
+A5(one,null).
+A5(one,after).
+A5(one,comes).
+A5(two,two).
+A5(two,three).
+A5(two,four).
+A5(two,five).
+A5(two,six).
+A5(two,seven).
+A5(two,eight).
+A5(two,nine).
+A5(two,ten).
+A5(two,eleven).
+A5(two,twelve).
+A5(two,thirteen).
+A5(two,fourteen).
+A5(two,fifteen).
+A5(two,sixteen).
+A5(two,seventeen).
+A5(two,eighteen).
+A5(two,nineteen).
+A5(two,twenty).
+A5(two,thirty).
+A5(two,forty).
+A5(two,fifty).
+A5(two,sixty).
+A5(two,seventy).
+A5(two,eighty).
+A5(two,ninety).
+A5(two,null).
+A5(two,after).
+A5(two,comes).
+A5(three,three).
+A5(three,four).
+A5(three,five).
+A5(three,six).
+A5(three,seven).
+A5(three,eight).
+A5(three,nine).
+A5(three,ten).
+A5(three,eleven).
+A5(three,twelve).
+A5(three,thirteen).
+A5(three,fourteen).
+A5(three,fifteen).
+A5(three,sixteen).
+A5(three,seventeen).
+A5(three,eighteen).
+A5(three,nineteen).
+A5(three,twenty).
+A5(three,thirty).
+A5(three,forty).
+A5(three,fifty).
+A5(three,sixty).
+A5(three,seventy).
+A5(three,eighty).
+A5(three,ninety).
+A5(three,null).
+A5(three,after).
+A5(three,comes).
+A5(four,four).
+A5(four,five).
+A5(four,six).
+A5(four,seven).
+A5(four,eight).
+A5(four,nine).
+A5(four,ten).
+A5(four,eleven).
+A5(four,twelve).
+A5(four,thirteen).
+A5(four,fourteen).
+A5(four,fifteen).
+A5(four,sixteen).
+A5(four,seventeen).
+A5(four,eighteen).
+A5(four,nineteen).
+A5(four,twenty).
+A5(four,thirty).
+A5(four,forty).
+A5(four,fifty).
+A5(four,sixty).
+A5(four,seventy).
+A5(four,eighty).
+A5(four,ninety).
+A5(four,null).
+A5(four,after).
+A5(four,comes).
+A5(five,five).
+A5(five,six).
+A5(five,seven).
+A5(five,eight).
+A5(five,nine).
+A5(five,ten).
+A5(five,eleven).
+A5(five,twelve).
+A5(five,thirteen).
+A5(five,fourteen).
+A5(five,fifteen).
+A5(five,sixteen).
+A5(five,seventeen).
+A5(five,eighteen).
+A5(five,nineteen).
+A5(five,twenty).
+A5(five,thirty).
+A5(five,forty).
+A5(five,fifty).
+A5(five,sixty).
+A5(five,seventy).
+A5(five,eighty).
+A5(five,ninety).
+A5(five,null).
+A5(five,after).
+A5(five,comes).
+A5(six,six).
+A5(six,seven).
+A5(six,eight).
+A5(six,nine).
+A5(six,ten).
+A5(six,eleven).
+A5(six,twelve).
+A5(six,thirteen).
+A5(six,fourteen).
+A5(six,fifteen).
+A5(six,sixteen).
+A5(six,seventeen).
+A5(six,eighteen).
+A5(six,nineteen).
+A5(six,twenty).
+A5(six,thirty).
+A5(six,forty).
+A5(six,fifty).
+A5(six,sixty).
+A5(six,seventy).
+A5(six,eighty).
+A5(six,ninety).
+A5(six,null).
+A5(six,after).
+A5(six,comes).
+A5(seven,seven).
+A5(seven,eight).
+A5(seven,nine).
+A5(seven,ten).
+A5(seven,eleven).
+A5(seven,twelve).
+A5(seven,thirteen).
+A5(seven,fourteen).
+A5(seven,fifteen).
+A5(seven,sixteen).
+A5(seven,seventeen).
+A5(seven,eighteen).
+A5(seven,nineteen).
+A5(seven,twenty).
+A5(seven,thirty).
+A5(seven,forty).
+A5(seven,fifty).
+A5(seven,sixty).
+A5(seven,seventy).
+A5(seven,eighty).
+A5(seven,ninety).
+A5(seven,null).
+A5(seven,after).
+A5(seven,comes).
+A5(eight,eight).
+A5(eight,nine).
+A5(eight,ten).
+A5(eight,eleven).
+A5(eight,twelve).
+A5(eight,thirteen).
+A5(eight,fourteen).
+A5(eight,fifteen).
+A5(eight,sixteen).
+A5(eight,seventeen).
+A5(eight,eighteen).
+A5(eight,nineteen).
+A5(eight,twenty).
+A5(eight,thirty).
+A5(eight,forty).
+A5(eight,fifty).
+A5(eight,sixty).
+A5(eight,seventy).
+A5(eight,eighty).
+A5(eight,ninety).
+A5(eight,null).
+A5(eight,after).
+A5(eight,comes).
+A5(nine,nine).
+A5(nine,ten).
+A5(nine,eleven).
+A5(nine,twelve).
+A5(nine,thirteen).
+A5(nine,fourteen).
+A5(nine,fifteen).
+A5(nine,sixteen).
+A5(nine,seventeen).
+A5(nine,eighteen).
+A5(nine,nineteen).
+A5(nine,twenty).
+A5(nine,thirty).
+A5(nine,forty).
+A5(nine,fifty).
+A5(nine,sixty).
+A5(nine,seventy).
+A5(nine,eighty).
+A5(nine,ninety).
+A5(nine,null).
+A5(nine,after).
+A5(nine,comes).
+A5(ten,ten).
+A5(ten,eleven).
+A5(ten,twelve).
+A5(ten,thirteen).
+A5(ten,fourteen).
+A5(ten,fifteen).
+A5(ten,sixteen).
+A5(ten,seventeen).
+A5(ten,eighteen).
+A5(ten,nineteen).
+A5(ten,twenty).
+A5(ten,thirty).
+A5(ten,forty).
+A5(ten,fifty).
+A5(ten,sixty).
+A5(ten,seventy).
+A5(ten,eighty).
+A5(ten,ninety).
+A5(ten,null).
+A5(ten,after).
+A5(ten,comes).
+A5(eleven,eleven).
+A5(eleven,twelve).
+A5(eleven,thirteen).
+A5(eleven,fourteen).
+A5(eleven,fifteen).
+A5(eleven,sixteen).
+A5(eleven,seventeen).
+A5(eleven,eighteen).
+A5(eleven,nineteen).
+A5(eleven,twenty).
+A5(eleven,thirty).
+A5(eleven,forty).
+A5(eleven,fifty).
+A5(eleven,sixty).
+A5(eleven,seventy).
+A5(eleven,eighty).
+A5(eleven,ninety).
+A5(eleven,null).
+A5(eleven,after).
+A5(eleven,comes).
+A5(twelve,twelve).
+A5(twelve,thirteen).
+A5(twelve,fourteen).
+A5(twelve,fifteen).
+A5(twelve,sixteen).
+A5(twelve,seventeen).
+A5(twelve,eighteen).
+A5(twelve,nineteen).
+A5(twelve,twenty).
+A5(twelve,thirty).
+A5(twelve,forty).
+A5(twelve,fifty).
+A5(twelve,sixty).
+A5(twelve,seventy).
+A5(twelve,eighty).
+A5(twelve,ninety).
+A5(twelve,null).
+A5(twelve,after).
+A5(twelve,comes).
+A5(thirteen,thirteen).
+A5(thirteen,fourteen).
+A5(thirteen,fifteen).
+A5(thirteen,sixteen).
+A5(thirteen,seventeen).
+A5(thirteen,eighteen).
+A5(thirteen,nineteen).
+A5(thirteen,twenty).
+A5(thirteen,thirty).
+A5(thirteen,forty).
+A5(thirteen,fifty).
+A5(thirteen,sixty).
+A5(thirteen,seventy).
+A5(thirteen,eighty).
+A5(thirteen,ninety).
+A5(thirteen,null).
+A5(thirteen,after).
+A5(thirteen,comes).
+A5(fourteen,fourteen).
+A5(fourteen,fifteen).
+A5(fourteen,sixteen).
+A5(fourteen,seventeen).
+A5(fourteen,eighteen).
+A5(fourteen,nineteen).
+A5(fourteen,twenty).
+A5(fourteen,thirty).
+A5(fourteen,forty).
+A5(fourteen,fifty).
+A5(fourteen,sixty).
+A5(fourteen,seventy).
+A5(fourteen,eighty).
+A5(fourteen,ninety).
+A5(fourteen,null).
+A5(fourteen,after).
+A5(fourteen,comes).
+A5(fifteen,fifteen).
+A5(fifteen,sixteen).
+A5(fifteen,seventeen).
+A5(fifteen,eighteen).
+A5(fifteen,nineteen).
+A5(fifteen,twenty).
+A5(fifteen,thirty).
+A5(fifteen,forty).
+A5(fifteen,fifty).
+A5(fifteen,sixty).
+A5(fifteen,seventy).
+A5(fifteen,eighty).
+A5(fifteen,ninety).
+A5(fifteen,null).
+A5(fifteen,after).
+A5(fifteen,comes).
+A5(sixteen,sixteen).
+A5(sixteen,seventeen).
+A5(sixteen,eighteen).
+A5(sixteen,nineteen).
+A5(sixteen,twenty).
+A5(sixteen,thirty).
+A5(sixteen,forty).
+A5(sixteen,fifty).
+A5(sixteen,sixty).
+A5(sixteen,seventy).
+A5(sixteen,eighty).
+A5(sixteen,ninety).
+A5(sixteen,null).
+A5(sixteen,after).
+A5(sixteen,comes).
+A5(seventeen,seventeen).
+A5(seventeen,eighteen).
+A5(seventeen,nineteen).
+A5(seventeen,twenty).
+A5(seventeen,thirty).
+A5(seventeen,forty).
+A5(seventeen,fifty).
+A5(seventeen,sixty).
+A5(seventeen,seventy).
+A5(seventeen,eighty).
+A5(seventeen,ninety).
+A5(seventeen,null).
+A5(seventeen,after).
+A5(seventeen,comes).
+A5(eighteen,eighteen).
+A5(eighteen,nineteen).
+A5(eighteen,twenty).
+A5(eighteen,thirty).
+A5(eighteen,forty).
+A5(eighteen,fifty).
+A5(eighteen,sixty).
+A5(eighteen,seventy).
+A5(eighteen,eighty).
+A5(eighteen,ninety).
+A5(eighteen,null).
+A5(eighteen,after).
+A5(eighteen,comes).
+A5(nineteen,nineteen).
+A5(nineteen,twenty).
+A5(nineteen,thirty).
+A5(nineteen,forty).
+A5(nineteen,fifty).
+A5(nineteen,sixty).
+A5(nineteen,seventy).
+A5(nineteen,eighty).
+A5(nineteen,ninety).
+A5(nineteen,null).
+A5(nineteen,after).
+A5(nineteen,comes).
+A5(twenty,twenty).
+A5(twenty,thirty).
+A5(twenty,forty).
+A5(twenty,fifty).
+A5(twenty,sixty).
+A5(twenty,seventy).
+A5(twenty,eighty).
+A5(twenty,ninety).
+A5(twenty,null).
+A5(twenty,after).
+A5(twenty,comes).
+A5(thirty,thirty).
+A5(thirty,forty).
+A5(thirty,fifty).
+A5(thirty,sixty).
+A5(thirty,seventy).
+A5(thirty,eighty).
+A5(thirty,ninety).
+A5(thirty,null).
+A5(thirty,after).
+A5(thirty,comes).
+A5(forty,forty).
+A5(forty,fifty).
+A5(forty,sixty).
+A5(forty,seventy).
+A5(forty,eighty).
+A5(forty,ninety).
+A5(forty,null).
+A5(forty,after).
+A5(forty,comes).
+A5(fifty,fifty).
+A5(fifty,sixty).
+A5(fifty,seventy).
+A5(fifty,eighty).
+A5(fifty,ninety).
+A5(fifty,null).
+A5(fifty,after).
+A5(fifty,comes).
+A5(sixty,sixty).
+A5(sixty,seventy).
+A5(sixty,eighty).
+A5(sixty,ninety).
+A5(sixty,null).
+A5(sixty,after).
+A5(sixty,comes).
+A5(seventy,seventy).
+A5(seventy,eighty).
+A5(seventy,ninety).
+A5(seventy,null).
+A5(seventy,after).
+A5(seventy,comes).
+A5(eighty,eighty).
+A5(eighty,ninety).
+A5(eighty,null).
+A5(eighty,after).
+A5(eighty,comes).
+A5(ninety,ninety).
+A5(ninety,null).
+A5(ninety,after).
+A5(ninety,comes).
+A5(null,null).
+A5(null,after).
+A5(null,comes).
+A5(after,after).
+A5(after,comes).
+A5(comes,comes).
 Number(X,Y) <-- A1(X,Y).
 Next(X,Y) <-- A2(X,Y).

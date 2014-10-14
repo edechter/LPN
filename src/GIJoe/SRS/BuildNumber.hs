@@ -18,8 +18,6 @@ grammarOfNumber k outpath = do
   let constantRule = ["Number(X) <-- A(X)."]
   writeFile outpath $ unlines $ binaryRules ++ unaryRules ++ constantRule
 
-
-
 -- even if we generalize, we don't need every rule
 -- for all A,B,C
 -- A(X,Y) <- B(Y,X).          # #4# flip
@@ -66,8 +64,8 @@ grammarOfNumber2 n outpath = do
   let relationRules = ["A" ++ show i ++ "(" ++ (lexicon !! w1) ++ "," ++ (lexicon !! w2) ++ ")." | i <- [1..n], w1 <- [0..((length lexicon) - 1)] , w2 <- [0..((length lexicon) - 1)], w1 <= w2]
   let numberRule = ["Number(X,Y) <-- A1(X,Y)."]
   let nextRule = ["Next(X,Y) <-- A2(X,Y)."]
-  let nextSentenceRule = ["NextSentence(X) <-- A2(X,Y)."]      
-  writeFile outpath $ unlines $ reorderRules ++ reorderRulesEqual ++ relationRules ++ numberRule ++ nextRule ++ nextSentenceRule
+  let nextSentenceRule = ["Next(X,Y) <-- A2(X,Y)."]      
+  writeFile outpath $ unlines $ reorderRules ++ reorderRulesEqual ++ relationRules ++ numberRule ++ nextSentenceRule
 
 writeWrapper :: Int -> Int -> FilePath -> IO ()
 writeWrapper nNu nNe outpath = do
@@ -92,8 +90,6 @@ giveNumbers n c = do
     return $ map (\x -> concat ["count(srs('Number_2'-[", showCleanList x, ",[]]),", show c, ")"]) nShuffledNumbers
 
 showCleanList xs = "[" ++ intercalate "," xs ++ "]"
-
-
 
 giveNexts :: Int -> Int -> IO [String]
 giveNexts n c = do
@@ -142,15 +138,11 @@ mkTrainTestDataFile path specs = do
   let out = unlines ss
   writeFile path out
 
-numberExamples = [[x] | x <- numberLists]
+numberExamples = [[x,[""]] | x <- numberLists]
 nextExamples = [[a, b] | (a, b) <- zip (init numberLists) (tail numberLists)]
 
 -- Example: to generate file of 90% of the numbers and 20% of the nexts as training:
 --  mkTrainTestDataFile <path>
 --        [("Number_1", numberExamples , 0.90), ("Next_2", nextExamples , 0.20)]
 
-nextSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextExamples]
-
-
-
-
+nextSentences = [[["after"] ++ a ++ ["comes"] ++  b,[""]] | [a,b] <- nextExamples]
