@@ -14,7 +14,7 @@
 :- set_prism_flag(log_scale,on).
 
 
-main :- 
+prism_main :- 
     findall(count(X, 50), train(X), Gs),
     learn(Gs), 
     save_sw(switches_sw_5), 
