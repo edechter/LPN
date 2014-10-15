@@ -13,12 +13,16 @@ prism_main([I]):-
     makeTestQuestions(A, QA), 
     write(QA),
     predictViterbi(QA, G, P, Expl), 
+    QA=Qs\A, 
+    (G==A -> IsCorrect is 1; IsCorrect is 0),
     OutTerm=prediction(QA, G, P, Expl, isCorrect(IsCorrect)),
     atom_concat('viterbi_data/viterbi_out_', I, FileName), 
     open(FileName, write, Stream),
     write_term(Stream, OutTerm, [quoted(true)]),
     close(Stream),
     write('Finished Question '), write(N), nl, nl.
+
+
 
                    
                    
