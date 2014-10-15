@@ -1,4 +1,5 @@
 
+:- cl('analyzeNumber.psm').
 
 %% load and compile train and testing examples
 :- cl('./trainTestSentencesPlusDecades_100').
@@ -20,13 +21,17 @@ prism_main :-
     save_sw(switches_sw_last), 
     save_sw_a(switches_a_last). 
 
-
-
+runAccuracy(Acc) :- findall(X, train(X), _Gs), 
+                    makeTestSetQuestions(_Gs, _QandAPairs), 
+                    testAccuracy(_QandAPairs, Predications, Acc).
 
 show_num(X) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Number_1'-[X])).
 
 show_next(X,Y) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Next_2'-[X,Y])).
 
-srs(P-IN) :- reduce(P-IN,V), msw(P,V).        
+srs(P-IN) :- reduce(P-IN,V), msw(P,V).       
+
+ 
+ 
 
 
