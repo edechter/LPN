@@ -1,0 +1,4001 @@
+A1i1(X Y, U V) <-- A0i1(X, Y), A0i1(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, U), A0i1(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, V), A0i1(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, Y), A0i2(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, U), A0i2(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, V), A0i2(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, Y), A0i3(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, U), A0i3(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, V), A0i3(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, Y), A0i4(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, U), A0i4(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, V), A0i4(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, Y), A0i5(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, U), A0i5(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i1(X, V), A0i5(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, Y), A0i2(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, U), A0i2(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, V), A0i2(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, Y), A0i3(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, U), A0i3(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, V), A0i3(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, Y), A0i4(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, U), A0i4(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, V), A0i4(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, Y), A0i5(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, U), A0i5(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i2(X, V), A0i5(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i3(X, Y), A0i3(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i3(X, U), A0i3(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i3(X, V), A0i3(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i3(X, Y), A0i4(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i3(X, U), A0i4(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i3(X, V), A0i4(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i3(X, Y), A0i5(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i3(X, U), A0i5(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i3(X, V), A0i5(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i4(X, Y), A0i4(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i4(X, U), A0i4(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i4(X, V), A0i4(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i4(X, Y), A0i5(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i4(X, U), A0i5(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i4(X, V), A0i5(Y, U) :: 1.0.
+A1i1(X Y, U V) <-- A0i5(X, Y), A0i5(U, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i5(X, U), A0i5(Y, V) :: 1.0.
+A1i1(X Y, U V) <-- A0i5(X, V), A0i5(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, Y), A0i1(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, U), A0i1(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, V), A0i1(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, Y), A0i2(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, U), A0i2(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, V), A0i2(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, Y), A0i3(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, U), A0i3(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, V), A0i3(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, Y), A0i4(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, U), A0i4(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, V), A0i4(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, Y), A0i5(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, U), A0i5(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i1(X, V), A0i5(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, Y), A0i2(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, U), A0i2(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, V), A0i2(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, Y), A0i3(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, U), A0i3(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, V), A0i3(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, Y), A0i4(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, U), A0i4(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, V), A0i4(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, Y), A0i5(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, U), A0i5(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i2(X, V), A0i5(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i3(X, Y), A0i3(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i3(X, U), A0i3(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i3(X, V), A0i3(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i3(X, Y), A0i4(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i3(X, U), A0i4(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i3(X, V), A0i4(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i3(X, Y), A0i5(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i3(X, U), A0i5(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i3(X, V), A0i5(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i4(X, Y), A0i4(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i4(X, U), A0i4(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i4(X, V), A0i4(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i4(X, Y), A0i5(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i4(X, U), A0i5(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i4(X, V), A0i5(Y, U) :: 1.0.
+A1i2(X Y, U V) <-- A0i5(X, Y), A0i5(U, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i5(X, U), A0i5(Y, V) :: 1.0.
+A1i2(X Y, U V) <-- A0i5(X, V), A0i5(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, Y), A0i1(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, U), A0i1(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, V), A0i1(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, Y), A0i2(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, U), A0i2(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, V), A0i2(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, Y), A0i3(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, U), A0i3(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, V), A0i3(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, Y), A0i4(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, U), A0i4(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, V), A0i4(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, Y), A0i5(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, U), A0i5(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i1(X, V), A0i5(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, Y), A0i2(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, U), A0i2(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, V), A0i2(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, Y), A0i3(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, U), A0i3(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, V), A0i3(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, Y), A0i4(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, U), A0i4(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, V), A0i4(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, Y), A0i5(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, U), A0i5(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i2(X, V), A0i5(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i3(X, Y), A0i3(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i3(X, U), A0i3(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i3(X, V), A0i3(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i3(X, Y), A0i4(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i3(X, U), A0i4(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i3(X, V), A0i4(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i3(X, Y), A0i5(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i3(X, U), A0i5(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i3(X, V), A0i5(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i4(X, Y), A0i4(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i4(X, U), A0i4(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i4(X, V), A0i4(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i4(X, Y), A0i5(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i4(X, U), A0i5(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i4(X, V), A0i5(Y, U) :: 1.0.
+A1i3(X Y, U V) <-- A0i5(X, Y), A0i5(U, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i5(X, U), A0i5(Y, V) :: 1.0.
+A1i3(X Y, U V) <-- A0i5(X, V), A0i5(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, Y), A0i1(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, U), A0i1(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, V), A0i1(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, Y), A0i2(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, U), A0i2(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, V), A0i2(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, Y), A0i3(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, U), A0i3(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, V), A0i3(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, Y), A0i4(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, U), A0i4(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, V), A0i4(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, Y), A0i5(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, U), A0i5(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i1(X, V), A0i5(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, Y), A0i2(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, U), A0i2(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, V), A0i2(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, Y), A0i3(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, U), A0i3(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, V), A0i3(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, Y), A0i4(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, U), A0i4(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, V), A0i4(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, Y), A0i5(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, U), A0i5(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i2(X, V), A0i5(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i3(X, Y), A0i3(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i3(X, U), A0i3(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i3(X, V), A0i3(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i3(X, Y), A0i4(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i3(X, U), A0i4(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i3(X, V), A0i4(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i3(X, Y), A0i5(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i3(X, U), A0i5(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i3(X, V), A0i5(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i4(X, Y), A0i4(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i4(X, U), A0i4(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i4(X, V), A0i4(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i4(X, Y), A0i5(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i4(X, U), A0i5(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i4(X, V), A0i5(Y, U) :: 1.0.
+A1i4(X Y, U V) <-- A0i5(X, Y), A0i5(U, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i5(X, U), A0i5(Y, V) :: 1.0.
+A1i4(X Y, U V) <-- A0i5(X, V), A0i5(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, Y), A0i1(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, U), A0i1(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, V), A0i1(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, Y), A0i2(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, U), A0i2(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, V), A0i2(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, Y), A0i3(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, U), A0i3(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, V), A0i3(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, Y), A0i4(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, U), A0i4(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, V), A0i4(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, Y), A0i5(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, U), A0i5(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i1(X, V), A0i5(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, Y), A0i2(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, U), A0i2(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, V), A0i2(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, Y), A0i3(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, U), A0i3(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, V), A0i3(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, Y), A0i4(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, U), A0i4(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, V), A0i4(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, Y), A0i5(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, U), A0i5(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i2(X, V), A0i5(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i3(X, Y), A0i3(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i3(X, U), A0i3(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i3(X, V), A0i3(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i3(X, Y), A0i4(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i3(X, U), A0i4(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i3(X, V), A0i4(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i3(X, Y), A0i5(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i3(X, U), A0i5(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i3(X, V), A0i5(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i4(X, Y), A0i4(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i4(X, U), A0i4(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i4(X, V), A0i4(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i4(X, Y), A0i5(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i4(X, U), A0i5(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i4(X, V), A0i5(Y, U) :: 1.0.
+A1i5(X Y, U V) <-- A0i5(X, Y), A0i5(U, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i5(X, U), A0i5(Y, V) :: 1.0.
+A1i5(X Y, U V) <-- A0i5(X, V), A0i5(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, Y), A1i1(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, U), A1i1(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, V), A1i1(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, Y), A1i2(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, U), A1i2(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, V), A1i2(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, Y), A1i3(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, U), A1i3(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, V), A1i3(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, Y), A1i4(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, U), A1i4(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, V), A1i4(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, Y), A1i5(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, U), A1i5(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i1(X, V), A1i5(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, Y), A1i2(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, U), A1i2(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, V), A1i2(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, Y), A1i3(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, U), A1i3(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, V), A1i3(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, Y), A1i4(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, U), A1i4(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, V), A1i4(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, Y), A1i5(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, U), A1i5(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i2(X, V), A1i5(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i3(X, Y), A1i3(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i3(X, U), A1i3(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i3(X, V), A1i3(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i3(X, Y), A1i4(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i3(X, U), A1i4(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i3(X, V), A1i4(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i3(X, Y), A1i5(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i3(X, U), A1i5(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i3(X, V), A1i5(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i4(X, Y), A1i4(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i4(X, U), A1i4(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i4(X, V), A1i4(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i4(X, Y), A1i5(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i4(X, U), A1i5(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i4(X, V), A1i5(Y, U) :: 1.0.
+A2i1(X Y, U V) <-- A1i5(X, Y), A1i5(U, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i5(X, U), A1i5(Y, V) :: 1.0.
+A2i1(X Y, U V) <-- A1i5(X, V), A1i5(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, Y), A1i1(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, U), A1i1(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, V), A1i1(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, Y), A1i2(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, U), A1i2(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, V), A1i2(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, Y), A1i3(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, U), A1i3(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, V), A1i3(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, Y), A1i4(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, U), A1i4(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, V), A1i4(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, Y), A1i5(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, U), A1i5(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i1(X, V), A1i5(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, Y), A1i2(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, U), A1i2(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, V), A1i2(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, Y), A1i3(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, U), A1i3(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, V), A1i3(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, Y), A1i4(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, U), A1i4(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, V), A1i4(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, Y), A1i5(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, U), A1i5(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i2(X, V), A1i5(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i3(X, Y), A1i3(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i3(X, U), A1i3(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i3(X, V), A1i3(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i3(X, Y), A1i4(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i3(X, U), A1i4(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i3(X, V), A1i4(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i3(X, Y), A1i5(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i3(X, U), A1i5(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i3(X, V), A1i5(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i4(X, Y), A1i4(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i4(X, U), A1i4(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i4(X, V), A1i4(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i4(X, Y), A1i5(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i4(X, U), A1i5(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i4(X, V), A1i5(Y, U) :: 1.0.
+A2i2(X Y, U V) <-- A1i5(X, Y), A1i5(U, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i5(X, U), A1i5(Y, V) :: 1.0.
+A2i2(X Y, U V) <-- A1i5(X, V), A1i5(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, Y), A1i1(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, U), A1i1(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, V), A1i1(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, Y), A1i2(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, U), A1i2(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, V), A1i2(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, Y), A1i3(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, U), A1i3(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, V), A1i3(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, Y), A1i4(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, U), A1i4(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, V), A1i4(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, Y), A1i5(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, U), A1i5(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i1(X, V), A1i5(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, Y), A1i2(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, U), A1i2(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, V), A1i2(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, Y), A1i3(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, U), A1i3(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, V), A1i3(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, Y), A1i4(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, U), A1i4(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, V), A1i4(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, Y), A1i5(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, U), A1i5(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i2(X, V), A1i5(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i3(X, Y), A1i3(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i3(X, U), A1i3(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i3(X, V), A1i3(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i3(X, Y), A1i4(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i3(X, U), A1i4(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i3(X, V), A1i4(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i3(X, Y), A1i5(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i3(X, U), A1i5(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i3(X, V), A1i5(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i4(X, Y), A1i4(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i4(X, U), A1i4(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i4(X, V), A1i4(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i4(X, Y), A1i5(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i4(X, U), A1i5(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i4(X, V), A1i5(Y, U) :: 1.0.
+A2i3(X Y, U V) <-- A1i5(X, Y), A1i5(U, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i5(X, U), A1i5(Y, V) :: 1.0.
+A2i3(X Y, U V) <-- A1i5(X, V), A1i5(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, Y), A1i1(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, U), A1i1(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, V), A1i1(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, Y), A1i2(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, U), A1i2(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, V), A1i2(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, Y), A1i3(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, U), A1i3(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, V), A1i3(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, Y), A1i4(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, U), A1i4(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, V), A1i4(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, Y), A1i5(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, U), A1i5(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i1(X, V), A1i5(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, Y), A1i2(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, U), A1i2(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, V), A1i2(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, Y), A1i3(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, U), A1i3(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, V), A1i3(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, Y), A1i4(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, U), A1i4(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, V), A1i4(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, Y), A1i5(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, U), A1i5(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i2(X, V), A1i5(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i3(X, Y), A1i3(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i3(X, U), A1i3(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i3(X, V), A1i3(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i3(X, Y), A1i4(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i3(X, U), A1i4(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i3(X, V), A1i4(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i3(X, Y), A1i5(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i3(X, U), A1i5(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i3(X, V), A1i5(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i4(X, Y), A1i4(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i4(X, U), A1i4(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i4(X, V), A1i4(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i4(X, Y), A1i5(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i4(X, U), A1i5(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i4(X, V), A1i5(Y, U) :: 1.0.
+A2i4(X Y, U V) <-- A1i5(X, Y), A1i5(U, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i5(X, U), A1i5(Y, V) :: 1.0.
+A2i4(X Y, U V) <-- A1i5(X, V), A1i5(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, Y), A1i1(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, U), A1i1(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, V), A1i1(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, Y), A1i2(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, U), A1i2(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, V), A1i2(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, Y), A1i3(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, U), A1i3(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, V), A1i3(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, Y), A1i4(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, U), A1i4(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, V), A1i4(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, Y), A1i5(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, U), A1i5(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i1(X, V), A1i5(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, Y), A1i2(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, U), A1i2(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, V), A1i2(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, Y), A1i3(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, U), A1i3(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, V), A1i3(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, Y), A1i4(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, U), A1i4(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, V), A1i4(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, Y), A1i5(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, U), A1i5(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i2(X, V), A1i5(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i3(X, Y), A1i3(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i3(X, U), A1i3(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i3(X, V), A1i3(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i3(X, Y), A1i4(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i3(X, U), A1i4(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i3(X, V), A1i4(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i3(X, Y), A1i5(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i3(X, U), A1i5(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i3(X, V), A1i5(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i4(X, Y), A1i4(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i4(X, U), A1i4(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i4(X, V), A1i4(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i4(X, Y), A1i5(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i4(X, U), A1i5(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i4(X, V), A1i5(Y, U) :: 1.0.
+A2i5(X Y, U V) <-- A1i5(X, Y), A1i5(U, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i5(X, U), A1i5(Y, V) :: 1.0.
+A2i5(X Y, U V) <-- A1i5(X, V), A1i5(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, Y), A2i1(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, U), A2i1(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, V), A2i1(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, Y), A2i2(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, U), A2i2(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, V), A2i2(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, Y), A2i3(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, U), A2i3(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, V), A2i3(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, Y), A2i4(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, U), A2i4(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, V), A2i4(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, Y), A2i5(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, U), A2i5(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i1(X, V), A2i5(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, Y), A2i2(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, U), A2i2(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, V), A2i2(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, Y), A2i3(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, U), A2i3(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, V), A2i3(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, Y), A2i4(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, U), A2i4(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, V), A2i4(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, Y), A2i5(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, U), A2i5(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i2(X, V), A2i5(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i3(X, Y), A2i3(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i3(X, U), A2i3(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i3(X, V), A2i3(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i3(X, Y), A2i4(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i3(X, U), A2i4(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i3(X, V), A2i4(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i3(X, Y), A2i5(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i3(X, U), A2i5(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i3(X, V), A2i5(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i4(X, Y), A2i4(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i4(X, U), A2i4(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i4(X, V), A2i4(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i4(X, Y), A2i5(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i4(X, U), A2i5(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i4(X, V), A2i5(Y, U) :: 1.0.
+A3i1(X Y, U V) <-- A2i5(X, Y), A2i5(U, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i5(X, U), A2i5(Y, V) :: 1.0.
+A3i1(X Y, U V) <-- A2i5(X, V), A2i5(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, Y), A2i1(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, U), A2i1(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, V), A2i1(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, Y), A2i2(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, U), A2i2(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, V), A2i2(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, Y), A2i3(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, U), A2i3(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, V), A2i3(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, Y), A2i4(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, U), A2i4(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, V), A2i4(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, Y), A2i5(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, U), A2i5(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i1(X, V), A2i5(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, Y), A2i2(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, U), A2i2(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, V), A2i2(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, Y), A2i3(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, U), A2i3(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, V), A2i3(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, Y), A2i4(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, U), A2i4(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, V), A2i4(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, Y), A2i5(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, U), A2i5(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i2(X, V), A2i5(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i3(X, Y), A2i3(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i3(X, U), A2i3(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i3(X, V), A2i3(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i3(X, Y), A2i4(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i3(X, U), A2i4(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i3(X, V), A2i4(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i3(X, Y), A2i5(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i3(X, U), A2i5(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i3(X, V), A2i5(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i4(X, Y), A2i4(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i4(X, U), A2i4(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i4(X, V), A2i4(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i4(X, Y), A2i5(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i4(X, U), A2i5(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i4(X, V), A2i5(Y, U) :: 1.0.
+A3i2(X Y, U V) <-- A2i5(X, Y), A2i5(U, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i5(X, U), A2i5(Y, V) :: 1.0.
+A3i2(X Y, U V) <-- A2i5(X, V), A2i5(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, Y), A2i1(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, U), A2i1(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, V), A2i1(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, Y), A2i2(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, U), A2i2(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, V), A2i2(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, Y), A2i3(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, U), A2i3(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, V), A2i3(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, Y), A2i4(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, U), A2i4(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, V), A2i4(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, Y), A2i5(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, U), A2i5(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i1(X, V), A2i5(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, Y), A2i2(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, U), A2i2(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, V), A2i2(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, Y), A2i3(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, U), A2i3(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, V), A2i3(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, Y), A2i4(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, U), A2i4(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, V), A2i4(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, Y), A2i5(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, U), A2i5(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i2(X, V), A2i5(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i3(X, Y), A2i3(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i3(X, U), A2i3(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i3(X, V), A2i3(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i3(X, Y), A2i4(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i3(X, U), A2i4(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i3(X, V), A2i4(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i3(X, Y), A2i5(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i3(X, U), A2i5(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i3(X, V), A2i5(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i4(X, Y), A2i4(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i4(X, U), A2i4(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i4(X, V), A2i4(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i4(X, Y), A2i5(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i4(X, U), A2i5(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i4(X, V), A2i5(Y, U) :: 1.0.
+A3i3(X Y, U V) <-- A2i5(X, Y), A2i5(U, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i5(X, U), A2i5(Y, V) :: 1.0.
+A3i3(X Y, U V) <-- A2i5(X, V), A2i5(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, Y), A2i1(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, U), A2i1(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, V), A2i1(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, Y), A2i2(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, U), A2i2(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, V), A2i2(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, Y), A2i3(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, U), A2i3(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, V), A2i3(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, Y), A2i4(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, U), A2i4(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, V), A2i4(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, Y), A2i5(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, U), A2i5(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i1(X, V), A2i5(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, Y), A2i2(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, U), A2i2(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, V), A2i2(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, Y), A2i3(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, U), A2i3(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, V), A2i3(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, Y), A2i4(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, U), A2i4(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, V), A2i4(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, Y), A2i5(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, U), A2i5(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i2(X, V), A2i5(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i3(X, Y), A2i3(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i3(X, U), A2i3(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i3(X, V), A2i3(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i3(X, Y), A2i4(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i3(X, U), A2i4(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i3(X, V), A2i4(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i3(X, Y), A2i5(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i3(X, U), A2i5(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i3(X, V), A2i5(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i4(X, Y), A2i4(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i4(X, U), A2i4(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i4(X, V), A2i4(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i4(X, Y), A2i5(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i4(X, U), A2i5(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i4(X, V), A2i5(Y, U) :: 1.0.
+A3i4(X Y, U V) <-- A2i5(X, Y), A2i5(U, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i5(X, U), A2i5(Y, V) :: 1.0.
+A3i4(X Y, U V) <-- A2i5(X, V), A2i5(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, Y), A2i1(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, U), A2i1(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, V), A2i1(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, Y), A2i2(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, U), A2i2(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, V), A2i2(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, Y), A2i3(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, U), A2i3(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, V), A2i3(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, Y), A2i4(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, U), A2i4(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, V), A2i4(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, Y), A2i5(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, U), A2i5(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i1(X, V), A2i5(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, Y), A2i2(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, U), A2i2(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, V), A2i2(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, Y), A2i3(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, U), A2i3(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, V), A2i3(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, Y), A2i4(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, U), A2i4(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, V), A2i4(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, Y), A2i5(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, U), A2i5(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i2(X, V), A2i5(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i3(X, Y), A2i3(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i3(X, U), A2i3(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i3(X, V), A2i3(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i3(X, Y), A2i4(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i3(X, U), A2i4(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i3(X, V), A2i4(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i3(X, Y), A2i5(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i3(X, U), A2i5(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i3(X, V), A2i5(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i4(X, Y), A2i4(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i4(X, U), A2i4(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i4(X, V), A2i4(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i4(X, Y), A2i5(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i4(X, U), A2i5(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i4(X, V), A2i5(Y, U) :: 1.0.
+A3i5(X Y, U V) <-- A2i5(X, Y), A2i5(U, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i5(X, U), A2i5(Y, V) :: 1.0.
+A3i5(X Y, U V) <-- A2i5(X, V), A2i5(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, Y), A3i1(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, U), A3i1(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, V), A3i1(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, Y), A3i2(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, U), A3i2(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, V), A3i2(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, Y), A3i3(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, U), A3i3(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, V), A3i3(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, Y), A3i4(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, U), A3i4(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, V), A3i4(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, Y), A3i5(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, U), A3i5(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i1(X, V), A3i5(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, Y), A3i2(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, U), A3i2(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, V), A3i2(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, Y), A3i3(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, U), A3i3(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, V), A3i3(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, Y), A3i4(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, U), A3i4(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, V), A3i4(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, Y), A3i5(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, U), A3i5(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i2(X, V), A3i5(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i3(X, Y), A3i3(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i3(X, U), A3i3(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i3(X, V), A3i3(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i3(X, Y), A3i4(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i3(X, U), A3i4(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i3(X, V), A3i4(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i3(X, Y), A3i5(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i3(X, U), A3i5(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i3(X, V), A3i5(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i4(X, Y), A3i4(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i4(X, U), A3i4(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i4(X, V), A3i4(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i4(X, Y), A3i5(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i4(X, U), A3i5(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i4(X, V), A3i5(Y, U) :: 1.0.
+A4i1(X Y, U V) <-- A3i5(X, Y), A3i5(U, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i5(X, U), A3i5(Y, V) :: 1.0.
+A4i1(X Y, U V) <-- A3i5(X, V), A3i5(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, Y), A3i1(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, U), A3i1(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, V), A3i1(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, Y), A3i2(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, U), A3i2(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, V), A3i2(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, Y), A3i3(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, U), A3i3(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, V), A3i3(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, Y), A3i4(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, U), A3i4(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, V), A3i4(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, Y), A3i5(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, U), A3i5(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i1(X, V), A3i5(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, Y), A3i2(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, U), A3i2(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, V), A3i2(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, Y), A3i3(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, U), A3i3(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, V), A3i3(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, Y), A3i4(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, U), A3i4(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, V), A3i4(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, Y), A3i5(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, U), A3i5(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i2(X, V), A3i5(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i3(X, Y), A3i3(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i3(X, U), A3i3(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i3(X, V), A3i3(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i3(X, Y), A3i4(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i3(X, U), A3i4(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i3(X, V), A3i4(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i3(X, Y), A3i5(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i3(X, U), A3i5(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i3(X, V), A3i5(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i4(X, Y), A3i4(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i4(X, U), A3i4(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i4(X, V), A3i4(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i4(X, Y), A3i5(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i4(X, U), A3i5(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i4(X, V), A3i5(Y, U) :: 1.0.
+A4i2(X Y, U V) <-- A3i5(X, Y), A3i5(U, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i5(X, U), A3i5(Y, V) :: 1.0.
+A4i2(X Y, U V) <-- A3i5(X, V), A3i5(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, Y), A3i1(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, U), A3i1(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, V), A3i1(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, Y), A3i2(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, U), A3i2(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, V), A3i2(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, Y), A3i3(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, U), A3i3(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, V), A3i3(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, Y), A3i4(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, U), A3i4(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, V), A3i4(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, Y), A3i5(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, U), A3i5(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i1(X, V), A3i5(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, Y), A3i2(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, U), A3i2(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, V), A3i2(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, Y), A3i3(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, U), A3i3(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, V), A3i3(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, Y), A3i4(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, U), A3i4(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, V), A3i4(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, Y), A3i5(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, U), A3i5(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i2(X, V), A3i5(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i3(X, Y), A3i3(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i3(X, U), A3i3(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i3(X, V), A3i3(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i3(X, Y), A3i4(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i3(X, U), A3i4(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i3(X, V), A3i4(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i3(X, Y), A3i5(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i3(X, U), A3i5(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i3(X, V), A3i5(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i4(X, Y), A3i4(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i4(X, U), A3i4(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i4(X, V), A3i4(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i4(X, Y), A3i5(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i4(X, U), A3i5(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i4(X, V), A3i5(Y, U) :: 1.0.
+A4i3(X Y, U V) <-- A3i5(X, Y), A3i5(U, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i5(X, U), A3i5(Y, V) :: 1.0.
+A4i3(X Y, U V) <-- A3i5(X, V), A3i5(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, Y), A3i1(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, U), A3i1(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, V), A3i1(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, Y), A3i2(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, U), A3i2(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, V), A3i2(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, Y), A3i3(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, U), A3i3(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, V), A3i3(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, Y), A3i4(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, U), A3i4(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, V), A3i4(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, Y), A3i5(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, U), A3i5(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i1(X, V), A3i5(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, Y), A3i2(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, U), A3i2(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, V), A3i2(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, Y), A3i3(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, U), A3i3(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, V), A3i3(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, Y), A3i4(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, U), A3i4(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, V), A3i4(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, Y), A3i5(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, U), A3i5(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i2(X, V), A3i5(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i3(X, Y), A3i3(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i3(X, U), A3i3(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i3(X, V), A3i3(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i3(X, Y), A3i4(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i3(X, U), A3i4(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i3(X, V), A3i4(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i3(X, Y), A3i5(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i3(X, U), A3i5(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i3(X, V), A3i5(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i4(X, Y), A3i4(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i4(X, U), A3i4(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i4(X, V), A3i4(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i4(X, Y), A3i5(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i4(X, U), A3i5(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i4(X, V), A3i5(Y, U) :: 1.0.
+A4i4(X Y, U V) <-- A3i5(X, Y), A3i5(U, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i5(X, U), A3i5(Y, V) :: 1.0.
+A4i4(X Y, U V) <-- A3i5(X, V), A3i5(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, Y), A3i1(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, U), A3i1(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, V), A3i1(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, Y), A3i2(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, U), A3i2(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, V), A3i2(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, Y), A3i3(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, U), A3i3(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, V), A3i3(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, Y), A3i4(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, U), A3i4(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, V), A3i4(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, Y), A3i5(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, U), A3i5(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i1(X, V), A3i5(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, Y), A3i2(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, U), A3i2(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, V), A3i2(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, Y), A3i3(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, U), A3i3(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, V), A3i3(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, Y), A3i4(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, U), A3i4(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, V), A3i4(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, Y), A3i5(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, U), A3i5(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i2(X, V), A3i5(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i3(X, Y), A3i3(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i3(X, U), A3i3(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i3(X, V), A3i3(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i3(X, Y), A3i4(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i3(X, U), A3i4(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i3(X, V), A3i4(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i3(X, Y), A3i5(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i3(X, U), A3i5(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i3(X, V), A3i5(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i4(X, Y), A3i4(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i4(X, U), A3i4(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i4(X, V), A3i4(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i4(X, Y), A3i5(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i4(X, U), A3i5(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i4(X, V), A3i5(Y, U) :: 1.0.
+A4i5(X Y, U V) <-- A3i5(X, Y), A3i5(U, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i5(X, U), A3i5(Y, V) :: 1.0.
+A4i5(X Y, U V) <-- A3i5(X, V), A3i5(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, Y), A4i1(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, U), A4i1(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, V), A4i1(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, Y), A4i2(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, U), A4i2(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, V), A4i2(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, Y), A4i3(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, U), A4i3(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, V), A4i3(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, Y), A4i4(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, U), A4i4(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, V), A4i4(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, Y), A4i5(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, U), A4i5(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i1(X, V), A4i5(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, Y), A4i2(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, U), A4i2(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, V), A4i2(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, Y), A4i3(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, U), A4i3(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, V), A4i3(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, Y), A4i4(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, U), A4i4(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, V), A4i4(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, Y), A4i5(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, U), A4i5(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i2(X, V), A4i5(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i3(X, Y), A4i3(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i3(X, U), A4i3(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i3(X, V), A4i3(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i3(X, Y), A4i4(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i3(X, U), A4i4(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i3(X, V), A4i4(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i3(X, Y), A4i5(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i3(X, U), A4i5(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i3(X, V), A4i5(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i4(X, Y), A4i4(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i4(X, U), A4i4(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i4(X, V), A4i4(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i4(X, Y), A4i5(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i4(X, U), A4i5(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i4(X, V), A4i5(Y, U) :: 1.0.
+A5i1(X Y, U V) <-- A4i5(X, Y), A4i5(U, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i5(X, U), A4i5(Y, V) :: 1.0.
+A5i1(X Y, U V) <-- A4i5(X, V), A4i5(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, Y), A4i1(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, U), A4i1(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, V), A4i1(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, Y), A4i2(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, U), A4i2(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, V), A4i2(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, Y), A4i3(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, U), A4i3(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, V), A4i3(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, Y), A4i4(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, U), A4i4(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, V), A4i4(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, Y), A4i5(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, U), A4i5(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i1(X, V), A4i5(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, Y), A4i2(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, U), A4i2(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, V), A4i2(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, Y), A4i3(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, U), A4i3(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, V), A4i3(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, Y), A4i4(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, U), A4i4(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, V), A4i4(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, Y), A4i5(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, U), A4i5(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i2(X, V), A4i5(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i3(X, Y), A4i3(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i3(X, U), A4i3(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i3(X, V), A4i3(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i3(X, Y), A4i4(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i3(X, U), A4i4(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i3(X, V), A4i4(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i3(X, Y), A4i5(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i3(X, U), A4i5(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i3(X, V), A4i5(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i4(X, Y), A4i4(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i4(X, U), A4i4(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i4(X, V), A4i4(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i4(X, Y), A4i5(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i4(X, U), A4i5(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i4(X, V), A4i5(Y, U) :: 1.0.
+A5i2(X Y, U V) <-- A4i5(X, Y), A4i5(U, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i5(X, U), A4i5(Y, V) :: 1.0.
+A5i2(X Y, U V) <-- A4i5(X, V), A4i5(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, Y), A4i1(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, U), A4i1(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, V), A4i1(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, Y), A4i2(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, U), A4i2(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, V), A4i2(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, Y), A4i3(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, U), A4i3(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, V), A4i3(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, Y), A4i4(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, U), A4i4(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, V), A4i4(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, Y), A4i5(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, U), A4i5(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i1(X, V), A4i5(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, Y), A4i2(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, U), A4i2(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, V), A4i2(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, Y), A4i3(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, U), A4i3(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, V), A4i3(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, Y), A4i4(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, U), A4i4(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, V), A4i4(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, Y), A4i5(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, U), A4i5(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i2(X, V), A4i5(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i3(X, Y), A4i3(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i3(X, U), A4i3(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i3(X, V), A4i3(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i3(X, Y), A4i4(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i3(X, U), A4i4(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i3(X, V), A4i4(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i3(X, Y), A4i5(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i3(X, U), A4i5(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i3(X, V), A4i5(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i4(X, Y), A4i4(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i4(X, U), A4i4(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i4(X, V), A4i4(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i4(X, Y), A4i5(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i4(X, U), A4i5(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i4(X, V), A4i5(Y, U) :: 1.0.
+A5i3(X Y, U V) <-- A4i5(X, Y), A4i5(U, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i5(X, U), A4i5(Y, V) :: 1.0.
+A5i3(X Y, U V) <-- A4i5(X, V), A4i5(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, Y), A4i1(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, U), A4i1(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, V), A4i1(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, Y), A4i2(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, U), A4i2(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, V), A4i2(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, Y), A4i3(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, U), A4i3(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, V), A4i3(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, Y), A4i4(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, U), A4i4(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, V), A4i4(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, Y), A4i5(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, U), A4i5(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i1(X, V), A4i5(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, Y), A4i2(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, U), A4i2(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, V), A4i2(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, Y), A4i3(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, U), A4i3(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, V), A4i3(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, Y), A4i4(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, U), A4i4(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, V), A4i4(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, Y), A4i5(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, U), A4i5(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i2(X, V), A4i5(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i3(X, Y), A4i3(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i3(X, U), A4i3(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i3(X, V), A4i3(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i3(X, Y), A4i4(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i3(X, U), A4i4(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i3(X, V), A4i4(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i3(X, Y), A4i5(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i3(X, U), A4i5(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i3(X, V), A4i5(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i4(X, Y), A4i4(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i4(X, U), A4i4(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i4(X, V), A4i4(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i4(X, Y), A4i5(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i4(X, U), A4i5(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i4(X, V), A4i5(Y, U) :: 1.0.
+A5i4(X Y, U V) <-- A4i5(X, Y), A4i5(U, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i5(X, U), A4i5(Y, V) :: 1.0.
+A5i4(X Y, U V) <-- A4i5(X, V), A4i5(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, Y), A4i1(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, U), A4i1(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, V), A4i1(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, Y), A4i2(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, U), A4i2(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, V), A4i2(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, Y), A4i3(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, U), A4i3(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, V), A4i3(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, Y), A4i4(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, U), A4i4(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, V), A4i4(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, Y), A4i5(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, U), A4i5(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i1(X, V), A4i5(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, Y), A4i2(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, U), A4i2(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, V), A4i2(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, Y), A4i3(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, U), A4i3(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, V), A4i3(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, Y), A4i4(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, U), A4i4(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, V), A4i4(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, Y), A4i5(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, U), A4i5(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i2(X, V), A4i5(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i3(X, Y), A4i3(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i3(X, U), A4i3(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i3(X, V), A4i3(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i3(X, Y), A4i4(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i3(X, U), A4i4(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i3(X, V), A4i4(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i3(X, Y), A4i5(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i3(X, U), A4i5(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i3(X, V), A4i5(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i4(X, Y), A4i4(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i4(X, U), A4i4(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i4(X, V), A4i4(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i4(X, Y), A4i5(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i4(X, U), A4i5(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i4(X, V), A4i5(Y, U) :: 1.0.
+A5i5(X Y, U V) <-- A4i5(X, Y), A4i5(U, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i5(X, U), A4i5(Y, V) :: 1.0.
+A5i5(X Y, U V) <-- A4i5(X, V), A4i5(Y, U) :: 1.0.
+A1i1(X, Y) <-- A0i1(Y, X) :: 1.0.
+A1i1(X, Y) <-- A0i2(Y, X) :: 1.0.
+A1i1(X, Y) <-- A0i3(Y, X) :: 1.0.
+A1i1(X, Y) <-- A0i4(Y, X) :: 1.0.
+A1i1(X, Y) <-- A0i5(Y, X) :: 1.0.
+A1i2(X, Y) <-- A0i1(Y, X) :: 1.0.
+A1i2(X, Y) <-- A0i2(Y, X) :: 1.0.
+A1i2(X, Y) <-- A0i3(Y, X) :: 1.0.
+A1i2(X, Y) <-- A0i4(Y, X) :: 1.0.
+A1i2(X, Y) <-- A0i5(Y, X) :: 1.0.
+A1i3(X, Y) <-- A0i1(Y, X) :: 1.0.
+A1i3(X, Y) <-- A0i2(Y, X) :: 1.0.
+A1i3(X, Y) <-- A0i3(Y, X) :: 1.0.
+A1i3(X, Y) <-- A0i4(Y, X) :: 1.0.
+A1i3(X, Y) <-- A0i5(Y, X) :: 1.0.
+A1i4(X, Y) <-- A0i1(Y, X) :: 1.0.
+A1i4(X, Y) <-- A0i2(Y, X) :: 1.0.
+A1i4(X, Y) <-- A0i3(Y, X) :: 1.0.
+A1i4(X, Y) <-- A0i4(Y, X) :: 1.0.
+A1i4(X, Y) <-- A0i5(Y, X) :: 1.0.
+A1i5(X, Y) <-- A0i1(Y, X) :: 1.0.
+A1i5(X, Y) <-- A0i2(Y, X) :: 1.0.
+A1i5(X, Y) <-- A0i3(Y, X) :: 1.0.
+A1i5(X, Y) <-- A0i4(Y, X) :: 1.0.
+A1i5(X, Y) <-- A0i5(Y, X) :: 1.0.
+A2i1(X, Y) <-- A1i1(Y, X) :: 1.0.
+A2i1(X, Y) <-- A1i2(Y, X) :: 1.0.
+A2i1(X, Y) <-- A1i3(Y, X) :: 1.0.
+A2i1(X, Y) <-- A1i4(Y, X) :: 1.0.
+A2i1(X, Y) <-- A1i5(Y, X) :: 1.0.
+A2i2(X, Y) <-- A1i1(Y, X) :: 1.0.
+A2i2(X, Y) <-- A1i2(Y, X) :: 1.0.
+A2i2(X, Y) <-- A1i3(Y, X) :: 1.0.
+A2i2(X, Y) <-- A1i4(Y, X) :: 1.0.
+A2i2(X, Y) <-- A1i5(Y, X) :: 1.0.
+A2i3(X, Y) <-- A1i1(Y, X) :: 1.0.
+A2i3(X, Y) <-- A1i2(Y, X) :: 1.0.
+A2i3(X, Y) <-- A1i3(Y, X) :: 1.0.
+A2i3(X, Y) <-- A1i4(Y, X) :: 1.0.
+A2i3(X, Y) <-- A1i5(Y, X) :: 1.0.
+A2i4(X, Y) <-- A1i1(Y, X) :: 1.0.
+A2i4(X, Y) <-- A1i2(Y, X) :: 1.0.
+A2i4(X, Y) <-- A1i3(Y, X) :: 1.0.
+A2i4(X, Y) <-- A1i4(Y, X) :: 1.0.
+A2i4(X, Y) <-- A1i5(Y, X) :: 1.0.
+A2i5(X, Y) <-- A1i1(Y, X) :: 1.0.
+A2i5(X, Y) <-- A1i2(Y, X) :: 1.0.
+A2i5(X, Y) <-- A1i3(Y, X) :: 1.0.
+A2i5(X, Y) <-- A1i4(Y, X) :: 1.0.
+A2i5(X, Y) <-- A1i5(Y, X) :: 1.0.
+A3i1(X, Y) <-- A2i1(Y, X) :: 1.0.
+A3i1(X, Y) <-- A2i2(Y, X) :: 1.0.
+A3i1(X, Y) <-- A2i3(Y, X) :: 1.0.
+A3i1(X, Y) <-- A2i4(Y, X) :: 1.0.
+A3i1(X, Y) <-- A2i5(Y, X) :: 1.0.
+A3i2(X, Y) <-- A2i1(Y, X) :: 1.0.
+A3i2(X, Y) <-- A2i2(Y, X) :: 1.0.
+A3i2(X, Y) <-- A2i3(Y, X) :: 1.0.
+A3i2(X, Y) <-- A2i4(Y, X) :: 1.0.
+A3i2(X, Y) <-- A2i5(Y, X) :: 1.0.
+A3i3(X, Y) <-- A2i1(Y, X) :: 1.0.
+A3i3(X, Y) <-- A2i2(Y, X) :: 1.0.
+A3i3(X, Y) <-- A2i3(Y, X) :: 1.0.
+A3i3(X, Y) <-- A2i4(Y, X) :: 1.0.
+A3i3(X, Y) <-- A2i5(Y, X) :: 1.0.
+A3i4(X, Y) <-- A2i1(Y, X) :: 1.0.
+A3i4(X, Y) <-- A2i2(Y, X) :: 1.0.
+A3i4(X, Y) <-- A2i3(Y, X) :: 1.0.
+A3i4(X, Y) <-- A2i4(Y, X) :: 1.0.
+A3i4(X, Y) <-- A2i5(Y, X) :: 1.0.
+A3i5(X, Y) <-- A2i1(Y, X) :: 1.0.
+A3i5(X, Y) <-- A2i2(Y, X) :: 1.0.
+A3i5(X, Y) <-- A2i3(Y, X) :: 1.0.
+A3i5(X, Y) <-- A2i4(Y, X) :: 1.0.
+A3i5(X, Y) <-- A2i5(Y, X) :: 1.0.
+A4i1(X, Y) <-- A3i1(Y, X) :: 1.0.
+A4i1(X, Y) <-- A3i2(Y, X) :: 1.0.
+A4i1(X, Y) <-- A3i3(Y, X) :: 1.0.
+A4i1(X, Y) <-- A3i4(Y, X) :: 1.0.
+A4i1(X, Y) <-- A3i5(Y, X) :: 1.0.
+A4i2(X, Y) <-- A3i1(Y, X) :: 1.0.
+A4i2(X, Y) <-- A3i2(Y, X) :: 1.0.
+A4i2(X, Y) <-- A3i3(Y, X) :: 1.0.
+A4i2(X, Y) <-- A3i4(Y, X) :: 1.0.
+A4i2(X, Y) <-- A3i5(Y, X) :: 1.0.
+A4i3(X, Y) <-- A3i1(Y, X) :: 1.0.
+A4i3(X, Y) <-- A3i2(Y, X) :: 1.0.
+A4i3(X, Y) <-- A3i3(Y, X) :: 1.0.
+A4i3(X, Y) <-- A3i4(Y, X) :: 1.0.
+A4i3(X, Y) <-- A3i5(Y, X) :: 1.0.
+A4i4(X, Y) <-- A3i1(Y, X) :: 1.0.
+A4i4(X, Y) <-- A3i2(Y, X) :: 1.0.
+A4i4(X, Y) <-- A3i3(Y, X) :: 1.0.
+A4i4(X, Y) <-- A3i4(Y, X) :: 1.0.
+A4i4(X, Y) <-- A3i5(Y, X) :: 1.0.
+A4i5(X, Y) <-- A3i1(Y, X) :: 1.0.
+A4i5(X, Y) <-- A3i2(Y, X) :: 1.0.
+A4i5(X, Y) <-- A3i3(Y, X) :: 1.0.
+A4i5(X, Y) <-- A3i4(Y, X) :: 1.0.
+A4i5(X, Y) <-- A3i5(Y, X) :: 1.0.
+A5i1(X, Y) <-- A4i1(Y, X) :: 1.0.
+A5i1(X, Y) <-- A4i2(Y, X) :: 1.0.
+A5i1(X, Y) <-- A4i3(Y, X) :: 1.0.
+A5i1(X, Y) <-- A4i4(Y, X) :: 1.0.
+A5i1(X, Y) <-- A4i5(Y, X) :: 1.0.
+A5i2(X, Y) <-- A4i1(Y, X) :: 1.0.
+A5i2(X, Y) <-- A4i2(Y, X) :: 1.0.
+A5i2(X, Y) <-- A4i3(Y, X) :: 1.0.
+A5i2(X, Y) <-- A4i4(Y, X) :: 1.0.
+A5i2(X, Y) <-- A4i5(Y, X) :: 1.0.
+A5i3(X, Y) <-- A4i1(Y, X) :: 1.0.
+A5i3(X, Y) <-- A4i2(Y, X) :: 1.0.
+A5i3(X, Y) <-- A4i3(Y, X) :: 1.0.
+A5i3(X, Y) <-- A4i4(Y, X) :: 1.0.
+A5i3(X, Y) <-- A4i5(Y, X) :: 1.0.
+A5i4(X, Y) <-- A4i1(Y, X) :: 1.0.
+A5i4(X, Y) <-- A4i2(Y, X) :: 1.0.
+A5i4(X, Y) <-- A4i3(Y, X) :: 1.0.
+A5i4(X, Y) <-- A4i4(Y, X) :: 1.0.
+A5i4(X, Y) <-- A4i5(Y, X) :: 1.0.
+A5i5(X, Y) <-- A4i1(Y, X) :: 1.0.
+A5i5(X, Y) <-- A4i2(Y, X) :: 1.0.
+A5i5(X, Y) <-- A4i3(Y, X) :: 1.0.
+A5i5(X, Y) <-- A4i4(Y, X) :: 1.0.
+A5i5(X, Y) <-- A4i5(Y, X) :: 1.0.
+A1i1(X, Y) <-- A0i1(X, Y) :: 1.0.
+A1i1(X, Y) <-- A0i2(X, Y) :: 1.0.
+A1i1(X, Y) <-- A0i3(X, Y) :: 1.0.
+A1i1(X, Y) <-- A0i4(X, Y) :: 1.0.
+A1i1(X, Y) <-- A0i5(X, Y) :: 1.0.
+A1i2(X, Y) <-- A0i1(X, Y) :: 1.0.
+A1i2(X, Y) <-- A0i2(X, Y) :: 1.0.
+A1i2(X, Y) <-- A0i3(X, Y) :: 1.0.
+A1i2(X, Y) <-- A0i4(X, Y) :: 1.0.
+A1i2(X, Y) <-- A0i5(X, Y) :: 1.0.
+A1i3(X, Y) <-- A0i1(X, Y) :: 1.0.
+A1i3(X, Y) <-- A0i2(X, Y) :: 1.0.
+A1i3(X, Y) <-- A0i3(X, Y) :: 1.0.
+A1i3(X, Y) <-- A0i4(X, Y) :: 1.0.
+A1i3(X, Y) <-- A0i5(X, Y) :: 1.0.
+A1i4(X, Y) <-- A0i1(X, Y) :: 1.0.
+A1i4(X, Y) <-- A0i2(X, Y) :: 1.0.
+A1i4(X, Y) <-- A0i3(X, Y) :: 1.0.
+A1i4(X, Y) <-- A0i4(X, Y) :: 1.0.
+A1i4(X, Y) <-- A0i5(X, Y) :: 1.0.
+A1i5(X, Y) <-- A0i1(X, Y) :: 1.0.
+A1i5(X, Y) <-- A0i2(X, Y) :: 1.0.
+A1i5(X, Y) <-- A0i3(X, Y) :: 1.0.
+A1i5(X, Y) <-- A0i4(X, Y) :: 1.0.
+A1i5(X, Y) <-- A0i5(X, Y) :: 1.0.
+A2i1(X, Y) <-- A1i1(X, Y) :: 1.0.
+A2i1(X, Y) <-- A1i2(X, Y) :: 1.0.
+A2i1(X, Y) <-- A1i3(X, Y) :: 1.0.
+A2i1(X, Y) <-- A1i4(X, Y) :: 1.0.
+A2i1(X, Y) <-- A1i5(X, Y) :: 1.0.
+A2i2(X, Y) <-- A1i1(X, Y) :: 1.0.
+A2i2(X, Y) <-- A1i2(X, Y) :: 1.0.
+A2i2(X, Y) <-- A1i3(X, Y) :: 1.0.
+A2i2(X, Y) <-- A1i4(X, Y) :: 1.0.
+A2i2(X, Y) <-- A1i5(X, Y) :: 1.0.
+A2i3(X, Y) <-- A1i1(X, Y) :: 1.0.
+A2i3(X, Y) <-- A1i2(X, Y) :: 1.0.
+A2i3(X, Y) <-- A1i3(X, Y) :: 1.0.
+A2i3(X, Y) <-- A1i4(X, Y) :: 1.0.
+A2i3(X, Y) <-- A1i5(X, Y) :: 1.0.
+A2i4(X, Y) <-- A1i1(X, Y) :: 1.0.
+A2i4(X, Y) <-- A1i2(X, Y) :: 1.0.
+A2i4(X, Y) <-- A1i3(X, Y) :: 1.0.
+A2i4(X, Y) <-- A1i4(X, Y) :: 1.0.
+A2i4(X, Y) <-- A1i5(X, Y) :: 1.0.
+A2i5(X, Y) <-- A1i1(X, Y) :: 1.0.
+A2i5(X, Y) <-- A1i2(X, Y) :: 1.0.
+A2i5(X, Y) <-- A1i3(X, Y) :: 1.0.
+A2i5(X, Y) <-- A1i4(X, Y) :: 1.0.
+A2i5(X, Y) <-- A1i5(X, Y) :: 1.0.
+A3i1(X, Y) <-- A2i1(X, Y) :: 1.0.
+A3i1(X, Y) <-- A2i2(X, Y) :: 1.0.
+A3i1(X, Y) <-- A2i3(X, Y) :: 1.0.
+A3i1(X, Y) <-- A2i4(X, Y) :: 1.0.
+A3i1(X, Y) <-- A2i5(X, Y) :: 1.0.
+A3i2(X, Y) <-- A2i1(X, Y) :: 1.0.
+A3i2(X, Y) <-- A2i2(X, Y) :: 1.0.
+A3i2(X, Y) <-- A2i3(X, Y) :: 1.0.
+A3i2(X, Y) <-- A2i4(X, Y) :: 1.0.
+A3i2(X, Y) <-- A2i5(X, Y) :: 1.0.
+A3i3(X, Y) <-- A2i1(X, Y) :: 1.0.
+A3i3(X, Y) <-- A2i2(X, Y) :: 1.0.
+A3i3(X, Y) <-- A2i3(X, Y) :: 1.0.
+A3i3(X, Y) <-- A2i4(X, Y) :: 1.0.
+A3i3(X, Y) <-- A2i5(X, Y) :: 1.0.
+A3i4(X, Y) <-- A2i1(X, Y) :: 1.0.
+A3i4(X, Y) <-- A2i2(X, Y) :: 1.0.
+A3i4(X, Y) <-- A2i3(X, Y) :: 1.0.
+A3i4(X, Y) <-- A2i4(X, Y) :: 1.0.
+A3i4(X, Y) <-- A2i5(X, Y) :: 1.0.
+A3i5(X, Y) <-- A2i1(X, Y) :: 1.0.
+A3i5(X, Y) <-- A2i2(X, Y) :: 1.0.
+A3i5(X, Y) <-- A2i3(X, Y) :: 1.0.
+A3i5(X, Y) <-- A2i4(X, Y) :: 1.0.
+A3i5(X, Y) <-- A2i5(X, Y) :: 1.0.
+A4i1(X, Y) <-- A3i1(X, Y) :: 1.0.
+A4i1(X, Y) <-- A3i2(X, Y) :: 1.0.
+A4i1(X, Y) <-- A3i3(X, Y) :: 1.0.
+A4i1(X, Y) <-- A3i4(X, Y) :: 1.0.
+A4i1(X, Y) <-- A3i5(X, Y) :: 1.0.
+A4i2(X, Y) <-- A3i1(X, Y) :: 1.0.
+A4i2(X, Y) <-- A3i2(X, Y) :: 1.0.
+A4i2(X, Y) <-- A3i3(X, Y) :: 1.0.
+A4i2(X, Y) <-- A3i4(X, Y) :: 1.0.
+A4i2(X, Y) <-- A3i5(X, Y) :: 1.0.
+A4i3(X, Y) <-- A3i1(X, Y) :: 1.0.
+A4i3(X, Y) <-- A3i2(X, Y) :: 1.0.
+A4i3(X, Y) <-- A3i3(X, Y) :: 1.0.
+A4i3(X, Y) <-- A3i4(X, Y) :: 1.0.
+A4i3(X, Y) <-- A3i5(X, Y) :: 1.0.
+A4i4(X, Y) <-- A3i1(X, Y) :: 1.0.
+A4i4(X, Y) <-- A3i2(X, Y) :: 1.0.
+A4i4(X, Y) <-- A3i3(X, Y) :: 1.0.
+A4i4(X, Y) <-- A3i4(X, Y) :: 1.0.
+A4i4(X, Y) <-- A3i5(X, Y) :: 1.0.
+A4i5(X, Y) <-- A3i1(X, Y) :: 1.0.
+A4i5(X, Y) <-- A3i2(X, Y) :: 1.0.
+A4i5(X, Y) <-- A3i3(X, Y) :: 1.0.
+A4i5(X, Y) <-- A3i4(X, Y) :: 1.0.
+A4i5(X, Y) <-- A3i5(X, Y) :: 1.0.
+A5i1(X, Y) <-- A4i1(X, Y) :: 1.0.
+A5i1(X, Y) <-- A4i2(X, Y) :: 1.0.
+A5i1(X, Y) <-- A4i3(X, Y) :: 1.0.
+A5i1(X, Y) <-- A4i4(X, Y) :: 1.0.
+A5i1(X, Y) <-- A4i5(X, Y) :: 1.0.
+A5i2(X, Y) <-- A4i1(X, Y) :: 1.0.
+A5i2(X, Y) <-- A4i2(X, Y) :: 1.0.
+A5i2(X, Y) <-- A4i3(X, Y) :: 1.0.
+A5i2(X, Y) <-- A4i4(X, Y) :: 1.0.
+A5i2(X, Y) <-- A4i5(X, Y) :: 1.0.
+A5i3(X, Y) <-- A4i1(X, Y) :: 1.0.
+A5i3(X, Y) <-- A4i2(X, Y) :: 1.0.
+A5i3(X, Y) <-- A4i3(X, Y) :: 1.0.
+A5i3(X, Y) <-- A4i4(X, Y) :: 1.0.
+A5i3(X, Y) <-- A4i5(X, Y) :: 1.0.
+A5i4(X, Y) <-- A4i1(X, Y) :: 1.0.
+A5i4(X, Y) <-- A4i2(X, Y) :: 1.0.
+A5i4(X, Y) <-- A4i3(X, Y) :: 1.0.
+A5i4(X, Y) <-- A4i4(X, Y) :: 1.0.
+A5i4(X, Y) <-- A4i5(X, Y) :: 1.0.
+A5i5(X, Y) <-- A4i1(X, Y) :: 1.0.
+A5i5(X, Y) <-- A4i2(X, Y) :: 1.0.
+A5i5(X, Y) <-- A4i3(X, Y) :: 1.0.
+A5i5(X, Y) <-- A4i4(X, Y) :: 1.0.
+A5i5(X, Y) <-- A4i5(X, Y) :: 1.0.
+A0i1(one, one) :: 1.0.
+A0i1(one, two) :: 1.0.
+A0i1(one, three) :: 1.0.
+A0i1(one, six) :: 1.0.
+A0i1(one, seven) :: 1.0.
+A0i1(one, twenty) :: 1.0.
+A0i1(one, thirty) :: 1.0.
+A0i1(one, sixty) :: 1.0.
+A0i1(one, seventy) :: 1.0.
+A0i1(one, ten) :: 1.0.
+A0i1(one, twelve) :: 1.0.
+A0i1(one, thirteen) :: 1.0.
+A0i1(one, sixteen) :: 1.0.
+A0i1(one, seventeen) :: 1.0.
+A0i1(two, two) :: 1.0.
+A0i1(three, two) :: 1.0.
+A0i1(three, three) :: 1.0.
+A0i1(three, twenty) :: 1.0.
+A0i1(three, twelve) :: 1.0.
+A0i1(four, one) :: 1.0.
+A0i1(four, two) :: 1.0.
+A0i1(four, three) :: 1.0.
+A0i1(four, four) :: 1.0.
+A0i1(four, six) :: 1.0.
+A0i1(four, seven) :: 1.0.
+A0i1(four, nine) :: 1.0.
+A0i1(four, twenty) :: 1.0.
+A0i1(four, thirty) :: 1.0.
+A0i1(four, sixty) :: 1.0.
+A0i1(four, seventy) :: 1.0.
+A0i1(four, ninety) :: 1.0.
+A0i1(four, ten) :: 1.0.
+A0i1(four, twelve) :: 1.0.
+A0i1(four, thirteen) :: 1.0.
+A0i1(four, fourteen) :: 1.0.
+A0i1(four, sixteen) :: 1.0.
+A0i1(four, seventeen) :: 1.0.
+A0i1(four, nineteen) :: 1.0.
+A0i1(five, one) :: 1.0.
+A0i1(five, two) :: 1.0.
+A0i1(five, three) :: 1.0.
+A0i1(five, four) :: 1.0.
+A0i1(five, five) :: 1.0.
+A0i1(five, six) :: 1.0.
+A0i1(five, seven) :: 1.0.
+A0i1(five, nine) :: 1.0.
+A0i1(five, twenty) :: 1.0.
+A0i1(five, thirty) :: 1.0.
+A0i1(five, forty) :: 1.0.
+A0i1(five, sixty) :: 1.0.
+A0i1(five, seventy) :: 1.0.
+A0i1(five, ninety) :: 1.0.
+A0i1(five, ten) :: 1.0.
+A0i1(five, twelve) :: 1.0.
+A0i1(five, thirteen) :: 1.0.
+A0i1(five, fourteen) :: 1.0.
+A0i1(five, sixteen) :: 1.0.
+A0i1(five, seventeen) :: 1.0.
+A0i1(five, nineteen) :: 1.0.
+A0i1(six, two) :: 1.0.
+A0i1(six, three) :: 1.0.
+A0i1(six, six) :: 1.0.
+A0i1(six, twenty) :: 1.0.
+A0i1(six, thirty) :: 1.0.
+A0i1(six, sixty) :: 1.0.
+A0i1(six, ten) :: 1.0.
+A0i1(six, twelve) :: 1.0.
+A0i1(six, thirteen) :: 1.0.
+A0i1(six, sixteen) :: 1.0.
+A0i1(seven, two) :: 1.0.
+A0i1(seven, three) :: 1.0.
+A0i1(seven, six) :: 1.0.
+A0i1(seven, seven) :: 1.0.
+A0i1(seven, twenty) :: 1.0.
+A0i1(seven, thirty) :: 1.0.
+A0i1(seven, sixty) :: 1.0.
+A0i1(seven, seventy) :: 1.0.
+A0i1(seven, ten) :: 1.0.
+A0i1(seven, twelve) :: 1.0.
+A0i1(seven, thirteen) :: 1.0.
+A0i1(seven, sixteen) :: 1.0.
+A0i1(seven, seventeen) :: 1.0.
+A0i1(eight, one) :: 1.0.
+A0i1(eight, two) :: 1.0.
+A0i1(eight, three) :: 1.0.
+A0i1(eight, four) :: 1.0.
+A0i1(eight, five) :: 1.0.
+A0i1(eight, six) :: 1.0.
+A0i1(eight, seven) :: 1.0.
+A0i1(eight, eight) :: 1.0.
+A0i1(eight, nine) :: 1.0.
+A0i1(eight, twenty) :: 1.0.
+A0i1(eight, thirty) :: 1.0.
+A0i1(eight, forty) :: 1.0.
+A0i1(eight, fifty) :: 1.0.
+A0i1(eight, sixty) :: 1.0.
+A0i1(eight, seventy) :: 1.0.
+A0i1(eight, eighty) :: 1.0.
+A0i1(eight, ninety) :: 1.0.
+A0i1(eight, ten) :: 1.0.
+A0i1(eight, eleven) :: 1.0.
+A0i1(eight, twelve) :: 1.0.
+A0i1(eight, thirteen) :: 1.0.
+A0i1(eight, fourteen) :: 1.0.
+A0i1(eight, fifteen) :: 1.0.
+A0i1(eight, sixteen) :: 1.0.
+A0i1(eight, seventeen) :: 1.0.
+A0i1(eight, eighteen) :: 1.0.
+A0i1(eight, nineteen) :: 1.0.
+A0i1(nine, one) :: 1.0.
+A0i1(nine, two) :: 1.0.
+A0i1(nine, three) :: 1.0.
+A0i1(nine, six) :: 1.0.
+A0i1(nine, seven) :: 1.0.
+A0i1(nine, nine) :: 1.0.
+A0i1(nine, twenty) :: 1.0.
+A0i1(nine, thirty) :: 1.0.
+A0i1(nine, sixty) :: 1.0.
+A0i1(nine, seventy) :: 1.0.
+A0i1(nine, ninety) :: 1.0.
+A0i1(nine, ten) :: 1.0.
+A0i1(nine, twelve) :: 1.0.
+A0i1(nine, thirteen) :: 1.0.
+A0i1(nine, sixteen) :: 1.0.
+A0i1(nine, seventeen) :: 1.0.
+A0i1(nine, nineteen) :: 1.0.
+A0i1(twenty, two) :: 1.0.
+A0i1(twenty, twenty) :: 1.0.
+A0i1(thirty, two) :: 1.0.
+A0i1(thirty, three) :: 1.0.
+A0i1(thirty, twenty) :: 1.0.
+A0i1(thirty, thirty) :: 1.0.
+A0i1(thirty, twelve) :: 1.0.
+A0i1(forty, one) :: 1.0.
+A0i1(forty, two) :: 1.0.
+A0i1(forty, three) :: 1.0.
+A0i1(forty, four) :: 1.0.
+A0i1(forty, six) :: 1.0.
+A0i1(forty, seven) :: 1.0.
+A0i1(forty, nine) :: 1.0.
+A0i1(forty, twenty) :: 1.0.
+A0i1(forty, thirty) :: 1.0.
+A0i1(forty, forty) :: 1.0.
+A0i1(forty, sixty) :: 1.0.
+A0i1(forty, seventy) :: 1.0.
+A0i1(forty, ninety) :: 1.0.
+A0i1(forty, ten) :: 1.0.
+A0i1(forty, twelve) :: 1.0.
+A0i1(forty, thirteen) :: 1.0.
+A0i1(forty, fourteen) :: 1.0.
+A0i1(forty, sixteen) :: 1.0.
+A0i1(forty, seventeen) :: 1.0.
+A0i1(forty, nineteen) :: 1.0.
+A0i1(fifty, one) :: 1.0.
+A0i1(fifty, two) :: 1.0.
+A0i1(fifty, three) :: 1.0.
+A0i1(fifty, four) :: 1.0.
+A0i1(fifty, five) :: 1.0.
+A0i1(fifty, six) :: 1.0.
+A0i1(fifty, seven) :: 1.0.
+A0i1(fifty, nine) :: 1.0.
+A0i1(fifty, twenty) :: 1.0.
+A0i1(fifty, thirty) :: 1.0.
+A0i1(fifty, forty) :: 1.0.
+A0i1(fifty, fifty) :: 1.0.
+A0i1(fifty, sixty) :: 1.0.
+A0i1(fifty, seventy) :: 1.0.
+A0i1(fifty, ninety) :: 1.0.
+A0i1(fifty, ten) :: 1.0.
+A0i1(fifty, twelve) :: 1.0.
+A0i1(fifty, thirteen) :: 1.0.
+A0i1(fifty, fourteen) :: 1.0.
+A0i1(fifty, sixteen) :: 1.0.
+A0i1(fifty, seventeen) :: 1.0.
+A0i1(fifty, nineteen) :: 1.0.
+A0i1(sixty, two) :: 1.0.
+A0i1(sixty, three) :: 1.0.
+A0i1(sixty, twenty) :: 1.0.
+A0i1(sixty, thirty) :: 1.0.
+A0i1(sixty, sixty) :: 1.0.
+A0i1(sixty, ten) :: 1.0.
+A0i1(sixty, twelve) :: 1.0.
+A0i1(sixty, thirteen) :: 1.0.
+A0i1(seventy, two) :: 1.0.
+A0i1(seventy, three) :: 1.0.
+A0i1(seventy, six) :: 1.0.
+A0i1(seventy, twenty) :: 1.0.
+A0i1(seventy, thirty) :: 1.0.
+A0i1(seventy, sixty) :: 1.0.
+A0i1(seventy, seventy) :: 1.0.
+A0i1(seventy, ten) :: 1.0.
+A0i1(seventy, twelve) :: 1.0.
+A0i1(seventy, thirteen) :: 1.0.
+A0i1(seventy, sixteen) :: 1.0.
+A0i1(eighty, one) :: 1.0.
+A0i1(eighty, two) :: 1.0.
+A0i1(eighty, three) :: 1.0.
+A0i1(eighty, four) :: 1.0.
+A0i1(eighty, five) :: 1.0.
+A0i1(eighty, six) :: 1.0.
+A0i1(eighty, seven) :: 1.0.
+A0i1(eighty, nine) :: 1.0.
+A0i1(eighty, twenty) :: 1.0.
+A0i1(eighty, thirty) :: 1.0.
+A0i1(eighty, forty) :: 1.0.
+A0i1(eighty, fifty) :: 1.0.
+A0i1(eighty, sixty) :: 1.0.
+A0i1(eighty, seventy) :: 1.0.
+A0i1(eighty, eighty) :: 1.0.
+A0i1(eighty, ninety) :: 1.0.
+A0i1(eighty, ten) :: 1.0.
+A0i1(eighty, eleven) :: 1.0.
+A0i1(eighty, twelve) :: 1.0.
+A0i1(eighty, thirteen) :: 1.0.
+A0i1(eighty, fourteen) :: 1.0.
+A0i1(eighty, fifteen) :: 1.0.
+A0i1(eighty, sixteen) :: 1.0.
+A0i1(eighty, seventeen) :: 1.0.
+A0i1(eighty, nineteen) :: 1.0.
+A0i1(ninety, one) :: 1.0.
+A0i1(ninety, two) :: 1.0.
+A0i1(ninety, three) :: 1.0.
+A0i1(ninety, six) :: 1.0.
+A0i1(ninety, seven) :: 1.0.
+A0i1(ninety, twenty) :: 1.0.
+A0i1(ninety, thirty) :: 1.0.
+A0i1(ninety, sixty) :: 1.0.
+A0i1(ninety, seventy) :: 1.0.
+A0i1(ninety, ninety) :: 1.0.
+A0i1(ninety, ten) :: 1.0.
+A0i1(ninety, twelve) :: 1.0.
+A0i1(ninety, thirteen) :: 1.0.
+A0i1(ninety, sixteen) :: 1.0.
+A0i1(ninety, seventeen) :: 1.0.
+A0i1(ten, two) :: 1.0.
+A0i1(ten, three) :: 1.0.
+A0i1(ten, twenty) :: 1.0.
+A0i1(ten, thirty) :: 1.0.
+A0i1(ten, ten) :: 1.0.
+A0i1(ten, twelve) :: 1.0.
+A0i1(ten, thirteen) :: 1.0.
+A0i1(eleven, one) :: 1.0.
+A0i1(eleven, two) :: 1.0.
+A0i1(eleven, three) :: 1.0.
+A0i1(eleven, four) :: 1.0.
+A0i1(eleven, five) :: 1.0.
+A0i1(eleven, six) :: 1.0.
+A0i1(eleven, seven) :: 1.0.
+A0i1(eleven, nine) :: 1.0.
+A0i1(eleven, twenty) :: 1.0.
+A0i1(eleven, thirty) :: 1.0.
+A0i1(eleven, forty) :: 1.0.
+A0i1(eleven, fifty) :: 1.0.
+A0i1(eleven, sixty) :: 1.0.
+A0i1(eleven, seventy) :: 1.0.
+A0i1(eleven, ninety) :: 1.0.
+A0i1(eleven, ten) :: 1.0.
+A0i1(eleven, eleven) :: 1.0.
+A0i1(eleven, twelve) :: 1.0.
+A0i1(eleven, thirteen) :: 1.0.
+A0i1(eleven, fourteen) :: 1.0.
+A0i1(eleven, fifteen) :: 1.0.
+A0i1(eleven, sixteen) :: 1.0.
+A0i1(eleven, seventeen) :: 1.0.
+A0i1(eleven, nineteen) :: 1.0.
+A0i1(twelve, two) :: 1.0.
+A0i1(twelve, twenty) :: 1.0.
+A0i1(twelve, twelve) :: 1.0.
+A0i1(thirteen, two) :: 1.0.
+A0i1(thirteen, three) :: 1.0.
+A0i1(thirteen, twenty) :: 1.0.
+A0i1(thirteen, thirty) :: 1.0.
+A0i1(thirteen, twelve) :: 1.0.
+A0i1(thirteen, thirteen) :: 1.0.
+A0i1(fourteen, one) :: 1.0.
+A0i1(fourteen, two) :: 1.0.
+A0i1(fourteen, three) :: 1.0.
+A0i1(fourteen, six) :: 1.0.
+A0i1(fourteen, seven) :: 1.0.
+A0i1(fourteen, nine) :: 1.0.
+A0i1(fourteen, twenty) :: 1.0.
+A0i1(fourteen, thirty) :: 1.0.
+A0i1(fourteen, sixty) :: 1.0.
+A0i1(fourteen, seventy) :: 1.0.
+A0i1(fourteen, ninety) :: 1.0.
+A0i1(fourteen, ten) :: 1.0.
+A0i1(fourteen, twelve) :: 1.0.
+A0i1(fourteen, thirteen) :: 1.0.
+A0i1(fourteen, fourteen) :: 1.0.
+A0i1(fourteen, sixteen) :: 1.0.
+A0i1(fourteen, seventeen) :: 1.0.
+A0i1(fourteen, nineteen) :: 1.0.
+A0i1(fifteen, one) :: 1.0.
+A0i1(fifteen, two) :: 1.0.
+A0i1(fifteen, three) :: 1.0.
+A0i1(fifteen, four) :: 1.0.
+A0i1(fifteen, five) :: 1.0.
+A0i1(fifteen, six) :: 1.0.
+A0i1(fifteen, seven) :: 1.0.
+A0i1(fifteen, nine) :: 1.0.
+A0i1(fifteen, twenty) :: 1.0.
+A0i1(fifteen, thirty) :: 1.0.
+A0i1(fifteen, forty) :: 1.0.
+A0i1(fifteen, fifty) :: 1.0.
+A0i1(fifteen, sixty) :: 1.0.
+A0i1(fifteen, seventy) :: 1.0.
+A0i1(fifteen, ninety) :: 1.0.
+A0i1(fifteen, ten) :: 1.0.
+A0i1(fifteen, twelve) :: 1.0.
+A0i1(fifteen, thirteen) :: 1.0.
+A0i1(fifteen, fourteen) :: 1.0.
+A0i1(fifteen, fifteen) :: 1.0.
+A0i1(fifteen, sixteen) :: 1.0.
+A0i1(fifteen, seventeen) :: 1.0.
+A0i1(fifteen, nineteen) :: 1.0.
+A0i1(sixteen, two) :: 1.0.
+A0i1(sixteen, three) :: 1.0.
+A0i1(sixteen, twenty) :: 1.0.
+A0i1(sixteen, thirty) :: 1.0.
+A0i1(sixteen, sixty) :: 1.0.
+A0i1(sixteen, ten) :: 1.0.
+A0i1(sixteen, twelve) :: 1.0.
+A0i1(sixteen, thirteen) :: 1.0.
+A0i1(sixteen, sixteen) :: 1.0.
+A0i1(seventeen, two) :: 1.0.
+A0i1(seventeen, three) :: 1.0.
+A0i1(seventeen, six) :: 1.0.
+A0i1(seventeen, twenty) :: 1.0.
+A0i1(seventeen, thirty) :: 1.0.
+A0i1(seventeen, sixty) :: 1.0.
+A0i1(seventeen, seventy) :: 1.0.
+A0i1(seventeen, ten) :: 1.0.
+A0i1(seventeen, twelve) :: 1.0.
+A0i1(seventeen, thirteen) :: 1.0.
+A0i1(seventeen, sixteen) :: 1.0.
+A0i1(seventeen, seventeen) :: 1.0.
+A0i1(eighteen, one) :: 1.0.
+A0i1(eighteen, two) :: 1.0.
+A0i1(eighteen, three) :: 1.0.
+A0i1(eighteen, four) :: 1.0.
+A0i1(eighteen, five) :: 1.0.
+A0i1(eighteen, six) :: 1.0.
+A0i1(eighteen, seven) :: 1.0.
+A0i1(eighteen, nine) :: 1.0.
+A0i1(eighteen, twenty) :: 1.0.
+A0i1(eighteen, thirty) :: 1.0.
+A0i1(eighteen, forty) :: 1.0.
+A0i1(eighteen, fifty) :: 1.0.
+A0i1(eighteen, sixty) :: 1.0.
+A0i1(eighteen, seventy) :: 1.0.
+A0i1(eighteen, eighty) :: 1.0.
+A0i1(eighteen, ninety) :: 1.0.
+A0i1(eighteen, ten) :: 1.0.
+A0i1(eighteen, eleven) :: 1.0.
+A0i1(eighteen, twelve) :: 1.0.
+A0i1(eighteen, thirteen) :: 1.0.
+A0i1(eighteen, fourteen) :: 1.0.
+A0i1(eighteen, fifteen) :: 1.0.
+A0i1(eighteen, sixteen) :: 1.0.
+A0i1(eighteen, seventeen) :: 1.0.
+A0i1(eighteen, eighteen) :: 1.0.
+A0i1(eighteen, nineteen) :: 1.0.
+A0i1(nineteen, one) :: 1.0.
+A0i1(nineteen, two) :: 1.0.
+A0i1(nineteen, three) :: 1.0.
+A0i1(nineteen, six) :: 1.0.
+A0i1(nineteen, seven) :: 1.0.
+A0i1(nineteen, twenty) :: 1.0.
+A0i1(nineteen, thirty) :: 1.0.
+A0i1(nineteen, sixty) :: 1.0.
+A0i1(nineteen, seventy) :: 1.0.
+A0i1(nineteen, ninety) :: 1.0.
+A0i1(nineteen, ten) :: 1.0.
+A0i1(nineteen, twelve) :: 1.0.
+A0i1(nineteen, thirteen) :: 1.0.
+A0i1(nineteen, sixteen) :: 1.0.
+A0i1(nineteen, seventeen) :: 1.0.
+A0i1(nineteen, nineteen) :: 1.0.
+A0i1(before, one) :: 1.0.
+A0i1(before, two) :: 1.0.
+A0i1(before, three) :: 1.0.
+A0i1(before, four) :: 1.0.
+A0i1(before, five) :: 1.0.
+A0i1(before, six) :: 1.0.
+A0i1(before, seven) :: 1.0.
+A0i1(before, eight) :: 1.0.
+A0i1(before, nine) :: 1.0.
+A0i1(before, twenty) :: 1.0.
+A0i1(before, thirty) :: 1.0.
+A0i1(before, forty) :: 1.0.
+A0i1(before, fifty) :: 1.0.
+A0i1(before, sixty) :: 1.0.
+A0i1(before, seventy) :: 1.0.
+A0i1(before, eighty) :: 1.0.
+A0i1(before, ninety) :: 1.0.
+A0i1(before, ten) :: 1.0.
+A0i1(before, eleven) :: 1.0.
+A0i1(before, twelve) :: 1.0.
+A0i1(before, thirteen) :: 1.0.
+A0i1(before, fourteen) :: 1.0.
+A0i1(before, fifteen) :: 1.0.
+A0i1(before, sixteen) :: 1.0.
+A0i1(before, seventeen) :: 1.0.
+A0i1(before, eighteen) :: 1.0.
+A0i1(before, nineteen) :: 1.0.
+A0i1(before, before) :: 1.0.
+A0i1(before, comes) :: 1.0.
+A0i1(after, one) :: 1.0.
+A0i1(after, two) :: 1.0.
+A0i1(after, three) :: 1.0.
+A0i1(after, four) :: 1.0.
+A0i1(after, five) :: 1.0.
+A0i1(after, six) :: 1.0.
+A0i1(after, seven) :: 1.0.
+A0i1(after, eight) :: 1.0.
+A0i1(after, nine) :: 1.0.
+A0i1(after, twenty) :: 1.0.
+A0i1(after, thirty) :: 1.0.
+A0i1(after, forty) :: 1.0.
+A0i1(after, fifty) :: 1.0.
+A0i1(after, sixty) :: 1.0.
+A0i1(after, seventy) :: 1.0.
+A0i1(after, eighty) :: 1.0.
+A0i1(after, ninety) :: 1.0.
+A0i1(after, ten) :: 1.0.
+A0i1(after, eleven) :: 1.0.
+A0i1(after, twelve) :: 1.0.
+A0i1(after, thirteen) :: 1.0.
+A0i1(after, fourteen) :: 1.0.
+A0i1(after, fifteen) :: 1.0.
+A0i1(after, sixteen) :: 1.0.
+A0i1(after, seventeen) :: 1.0.
+A0i1(after, eighteen) :: 1.0.
+A0i1(after, nineteen) :: 1.0.
+A0i1(after, before) :: 1.0.
+A0i1(after, after) :: 1.0.
+A0i1(after, comes) :: 1.0.
+A0i1(comes, one) :: 1.0.
+A0i1(comes, two) :: 1.0.
+A0i1(comes, three) :: 1.0.
+A0i1(comes, four) :: 1.0.
+A0i1(comes, five) :: 1.0.
+A0i1(comes, six) :: 1.0.
+A0i1(comes, seven) :: 1.0.
+A0i1(comes, eight) :: 1.0.
+A0i1(comes, nine) :: 1.0.
+A0i1(comes, twenty) :: 1.0.
+A0i1(comes, thirty) :: 1.0.
+A0i1(comes, forty) :: 1.0.
+A0i1(comes, fifty) :: 1.0.
+A0i1(comes, sixty) :: 1.0.
+A0i1(comes, seventy) :: 1.0.
+A0i1(comes, eighty) :: 1.0.
+A0i1(comes, ninety) :: 1.0.
+A0i1(comes, ten) :: 1.0.
+A0i1(comes, eleven) :: 1.0.
+A0i1(comes, twelve) :: 1.0.
+A0i1(comes, thirteen) :: 1.0.
+A0i1(comes, fourteen) :: 1.0.
+A0i1(comes, fifteen) :: 1.0.
+A0i1(comes, sixteen) :: 1.0.
+A0i1(comes, seventeen) :: 1.0.
+A0i1(comes, eighteen) :: 1.0.
+A0i1(comes, nineteen) :: 1.0.
+A0i1(comes, comes) :: 1.0.
+A0i2(one, one) :: 1.0.
+A0i2(one, two) :: 1.0.
+A0i2(one, three) :: 1.0.
+A0i2(one, six) :: 1.0.
+A0i2(one, seven) :: 1.0.
+A0i2(one, twenty) :: 1.0.
+A0i2(one, thirty) :: 1.0.
+A0i2(one, sixty) :: 1.0.
+A0i2(one, seventy) :: 1.0.
+A0i2(one, ten) :: 1.0.
+A0i2(one, twelve) :: 1.0.
+A0i2(one, thirteen) :: 1.0.
+A0i2(one, sixteen) :: 1.0.
+A0i2(one, seventeen) :: 1.0.
+A0i2(two, two) :: 1.0.
+A0i2(three, two) :: 1.0.
+A0i2(three, three) :: 1.0.
+A0i2(three, twenty) :: 1.0.
+A0i2(three, twelve) :: 1.0.
+A0i2(four, one) :: 1.0.
+A0i2(four, two) :: 1.0.
+A0i2(four, three) :: 1.0.
+A0i2(four, four) :: 1.0.
+A0i2(four, six) :: 1.0.
+A0i2(four, seven) :: 1.0.
+A0i2(four, nine) :: 1.0.
+A0i2(four, twenty) :: 1.0.
+A0i2(four, thirty) :: 1.0.
+A0i2(four, sixty) :: 1.0.
+A0i2(four, seventy) :: 1.0.
+A0i2(four, ninety) :: 1.0.
+A0i2(four, ten) :: 1.0.
+A0i2(four, twelve) :: 1.0.
+A0i2(four, thirteen) :: 1.0.
+A0i2(four, fourteen) :: 1.0.
+A0i2(four, sixteen) :: 1.0.
+A0i2(four, seventeen) :: 1.0.
+A0i2(four, nineteen) :: 1.0.
+A0i2(five, one) :: 1.0.
+A0i2(five, two) :: 1.0.
+A0i2(five, three) :: 1.0.
+A0i2(five, four) :: 1.0.
+A0i2(five, five) :: 1.0.
+A0i2(five, six) :: 1.0.
+A0i2(five, seven) :: 1.0.
+A0i2(five, nine) :: 1.0.
+A0i2(five, twenty) :: 1.0.
+A0i2(five, thirty) :: 1.0.
+A0i2(five, forty) :: 1.0.
+A0i2(five, sixty) :: 1.0.
+A0i2(five, seventy) :: 1.0.
+A0i2(five, ninety) :: 1.0.
+A0i2(five, ten) :: 1.0.
+A0i2(five, twelve) :: 1.0.
+A0i2(five, thirteen) :: 1.0.
+A0i2(five, fourteen) :: 1.0.
+A0i2(five, sixteen) :: 1.0.
+A0i2(five, seventeen) :: 1.0.
+A0i2(five, nineteen) :: 1.0.
+A0i2(six, two) :: 1.0.
+A0i2(six, three) :: 1.0.
+A0i2(six, six) :: 1.0.
+A0i2(six, twenty) :: 1.0.
+A0i2(six, thirty) :: 1.0.
+A0i2(six, sixty) :: 1.0.
+A0i2(six, ten) :: 1.0.
+A0i2(six, twelve) :: 1.0.
+A0i2(six, thirteen) :: 1.0.
+A0i2(six, sixteen) :: 1.0.
+A0i2(seven, two) :: 1.0.
+A0i2(seven, three) :: 1.0.
+A0i2(seven, six) :: 1.0.
+A0i2(seven, seven) :: 1.0.
+A0i2(seven, twenty) :: 1.0.
+A0i2(seven, thirty) :: 1.0.
+A0i2(seven, sixty) :: 1.0.
+A0i2(seven, seventy) :: 1.0.
+A0i2(seven, ten) :: 1.0.
+A0i2(seven, twelve) :: 1.0.
+A0i2(seven, thirteen) :: 1.0.
+A0i2(seven, sixteen) :: 1.0.
+A0i2(seven, seventeen) :: 1.0.
+A0i2(eight, one) :: 1.0.
+A0i2(eight, two) :: 1.0.
+A0i2(eight, three) :: 1.0.
+A0i2(eight, four) :: 1.0.
+A0i2(eight, five) :: 1.0.
+A0i2(eight, six) :: 1.0.
+A0i2(eight, seven) :: 1.0.
+A0i2(eight, eight) :: 1.0.
+A0i2(eight, nine) :: 1.0.
+A0i2(eight, twenty) :: 1.0.
+A0i2(eight, thirty) :: 1.0.
+A0i2(eight, forty) :: 1.0.
+A0i2(eight, fifty) :: 1.0.
+A0i2(eight, sixty) :: 1.0.
+A0i2(eight, seventy) :: 1.0.
+A0i2(eight, eighty) :: 1.0.
+A0i2(eight, ninety) :: 1.0.
+A0i2(eight, ten) :: 1.0.
+A0i2(eight, eleven) :: 1.0.
+A0i2(eight, twelve) :: 1.0.
+A0i2(eight, thirteen) :: 1.0.
+A0i2(eight, fourteen) :: 1.0.
+A0i2(eight, fifteen) :: 1.0.
+A0i2(eight, sixteen) :: 1.0.
+A0i2(eight, seventeen) :: 1.0.
+A0i2(eight, eighteen) :: 1.0.
+A0i2(eight, nineteen) :: 1.0.
+A0i2(nine, one) :: 1.0.
+A0i2(nine, two) :: 1.0.
+A0i2(nine, three) :: 1.0.
+A0i2(nine, six) :: 1.0.
+A0i2(nine, seven) :: 1.0.
+A0i2(nine, nine) :: 1.0.
+A0i2(nine, twenty) :: 1.0.
+A0i2(nine, thirty) :: 1.0.
+A0i2(nine, sixty) :: 1.0.
+A0i2(nine, seventy) :: 1.0.
+A0i2(nine, ninety) :: 1.0.
+A0i2(nine, ten) :: 1.0.
+A0i2(nine, twelve) :: 1.0.
+A0i2(nine, thirteen) :: 1.0.
+A0i2(nine, sixteen) :: 1.0.
+A0i2(nine, seventeen) :: 1.0.
+A0i2(nine, nineteen) :: 1.0.
+A0i2(twenty, two) :: 1.0.
+A0i2(twenty, twenty) :: 1.0.
+A0i2(thirty, two) :: 1.0.
+A0i2(thirty, three) :: 1.0.
+A0i2(thirty, twenty) :: 1.0.
+A0i2(thirty, thirty) :: 1.0.
+A0i2(thirty, twelve) :: 1.0.
+A0i2(forty, one) :: 1.0.
+A0i2(forty, two) :: 1.0.
+A0i2(forty, three) :: 1.0.
+A0i2(forty, four) :: 1.0.
+A0i2(forty, six) :: 1.0.
+A0i2(forty, seven) :: 1.0.
+A0i2(forty, nine) :: 1.0.
+A0i2(forty, twenty) :: 1.0.
+A0i2(forty, thirty) :: 1.0.
+A0i2(forty, forty) :: 1.0.
+A0i2(forty, sixty) :: 1.0.
+A0i2(forty, seventy) :: 1.0.
+A0i2(forty, ninety) :: 1.0.
+A0i2(forty, ten) :: 1.0.
+A0i2(forty, twelve) :: 1.0.
+A0i2(forty, thirteen) :: 1.0.
+A0i2(forty, fourteen) :: 1.0.
+A0i2(forty, sixteen) :: 1.0.
+A0i2(forty, seventeen) :: 1.0.
+A0i2(forty, nineteen) :: 1.0.
+A0i2(fifty, one) :: 1.0.
+A0i2(fifty, two) :: 1.0.
+A0i2(fifty, three) :: 1.0.
+A0i2(fifty, four) :: 1.0.
+A0i2(fifty, five) :: 1.0.
+A0i2(fifty, six) :: 1.0.
+A0i2(fifty, seven) :: 1.0.
+A0i2(fifty, nine) :: 1.0.
+A0i2(fifty, twenty) :: 1.0.
+A0i2(fifty, thirty) :: 1.0.
+A0i2(fifty, forty) :: 1.0.
+A0i2(fifty, fifty) :: 1.0.
+A0i2(fifty, sixty) :: 1.0.
+A0i2(fifty, seventy) :: 1.0.
+A0i2(fifty, ninety) :: 1.0.
+A0i2(fifty, ten) :: 1.0.
+A0i2(fifty, twelve) :: 1.0.
+A0i2(fifty, thirteen) :: 1.0.
+A0i2(fifty, fourteen) :: 1.0.
+A0i2(fifty, sixteen) :: 1.0.
+A0i2(fifty, seventeen) :: 1.0.
+A0i2(fifty, nineteen) :: 1.0.
+A0i2(sixty, two) :: 1.0.
+A0i2(sixty, three) :: 1.0.
+A0i2(sixty, twenty) :: 1.0.
+A0i2(sixty, thirty) :: 1.0.
+A0i2(sixty, sixty) :: 1.0.
+A0i2(sixty, ten) :: 1.0.
+A0i2(sixty, twelve) :: 1.0.
+A0i2(sixty, thirteen) :: 1.0.
+A0i2(seventy, two) :: 1.0.
+A0i2(seventy, three) :: 1.0.
+A0i2(seventy, six) :: 1.0.
+A0i2(seventy, twenty) :: 1.0.
+A0i2(seventy, thirty) :: 1.0.
+A0i2(seventy, sixty) :: 1.0.
+A0i2(seventy, seventy) :: 1.0.
+A0i2(seventy, ten) :: 1.0.
+A0i2(seventy, twelve) :: 1.0.
+A0i2(seventy, thirteen) :: 1.0.
+A0i2(seventy, sixteen) :: 1.0.
+A0i2(eighty, one) :: 1.0.
+A0i2(eighty, two) :: 1.0.
+A0i2(eighty, three) :: 1.0.
+A0i2(eighty, four) :: 1.0.
+A0i2(eighty, five) :: 1.0.
+A0i2(eighty, six) :: 1.0.
+A0i2(eighty, seven) :: 1.0.
+A0i2(eighty, nine) :: 1.0.
+A0i2(eighty, twenty) :: 1.0.
+A0i2(eighty, thirty) :: 1.0.
+A0i2(eighty, forty) :: 1.0.
+A0i2(eighty, fifty) :: 1.0.
+A0i2(eighty, sixty) :: 1.0.
+A0i2(eighty, seventy) :: 1.0.
+A0i2(eighty, eighty) :: 1.0.
+A0i2(eighty, ninety) :: 1.0.
+A0i2(eighty, ten) :: 1.0.
+A0i2(eighty, eleven) :: 1.0.
+A0i2(eighty, twelve) :: 1.0.
+A0i2(eighty, thirteen) :: 1.0.
+A0i2(eighty, fourteen) :: 1.0.
+A0i2(eighty, fifteen) :: 1.0.
+A0i2(eighty, sixteen) :: 1.0.
+A0i2(eighty, seventeen) :: 1.0.
+A0i2(eighty, nineteen) :: 1.0.
+A0i2(ninety, one) :: 1.0.
+A0i2(ninety, two) :: 1.0.
+A0i2(ninety, three) :: 1.0.
+A0i2(ninety, six) :: 1.0.
+A0i2(ninety, seven) :: 1.0.
+A0i2(ninety, twenty) :: 1.0.
+A0i2(ninety, thirty) :: 1.0.
+A0i2(ninety, sixty) :: 1.0.
+A0i2(ninety, seventy) :: 1.0.
+A0i2(ninety, ninety) :: 1.0.
+A0i2(ninety, ten) :: 1.0.
+A0i2(ninety, twelve) :: 1.0.
+A0i2(ninety, thirteen) :: 1.0.
+A0i2(ninety, sixteen) :: 1.0.
+A0i2(ninety, seventeen) :: 1.0.
+A0i2(ten, two) :: 1.0.
+A0i2(ten, three) :: 1.0.
+A0i2(ten, twenty) :: 1.0.
+A0i2(ten, thirty) :: 1.0.
+A0i2(ten, ten) :: 1.0.
+A0i2(ten, twelve) :: 1.0.
+A0i2(ten, thirteen) :: 1.0.
+A0i2(eleven, one) :: 1.0.
+A0i2(eleven, two) :: 1.0.
+A0i2(eleven, three) :: 1.0.
+A0i2(eleven, four) :: 1.0.
+A0i2(eleven, five) :: 1.0.
+A0i2(eleven, six) :: 1.0.
+A0i2(eleven, seven) :: 1.0.
+A0i2(eleven, nine) :: 1.0.
+A0i2(eleven, twenty) :: 1.0.
+A0i2(eleven, thirty) :: 1.0.
+A0i2(eleven, forty) :: 1.0.
+A0i2(eleven, fifty) :: 1.0.
+A0i2(eleven, sixty) :: 1.0.
+A0i2(eleven, seventy) :: 1.0.
+A0i2(eleven, ninety) :: 1.0.
+A0i2(eleven, ten) :: 1.0.
+A0i2(eleven, eleven) :: 1.0.
+A0i2(eleven, twelve) :: 1.0.
+A0i2(eleven, thirteen) :: 1.0.
+A0i2(eleven, fourteen) :: 1.0.
+A0i2(eleven, fifteen) :: 1.0.
+A0i2(eleven, sixteen) :: 1.0.
+A0i2(eleven, seventeen) :: 1.0.
+A0i2(eleven, nineteen) :: 1.0.
+A0i2(twelve, two) :: 1.0.
+A0i2(twelve, twenty) :: 1.0.
+A0i2(twelve, twelve) :: 1.0.
+A0i2(thirteen, two) :: 1.0.
+A0i2(thirteen, three) :: 1.0.
+A0i2(thirteen, twenty) :: 1.0.
+A0i2(thirteen, thirty) :: 1.0.
+A0i2(thirteen, twelve) :: 1.0.
+A0i2(thirteen, thirteen) :: 1.0.
+A0i2(fourteen, one) :: 1.0.
+A0i2(fourteen, two) :: 1.0.
+A0i2(fourteen, three) :: 1.0.
+A0i2(fourteen, six) :: 1.0.
+A0i2(fourteen, seven) :: 1.0.
+A0i2(fourteen, nine) :: 1.0.
+A0i2(fourteen, twenty) :: 1.0.
+A0i2(fourteen, thirty) :: 1.0.
+A0i2(fourteen, sixty) :: 1.0.
+A0i2(fourteen, seventy) :: 1.0.
+A0i2(fourteen, ninety) :: 1.0.
+A0i2(fourteen, ten) :: 1.0.
+A0i2(fourteen, twelve) :: 1.0.
+A0i2(fourteen, thirteen) :: 1.0.
+A0i2(fourteen, fourteen) :: 1.0.
+A0i2(fourteen, sixteen) :: 1.0.
+A0i2(fourteen, seventeen) :: 1.0.
+A0i2(fourteen, nineteen) :: 1.0.
+A0i2(fifteen, one) :: 1.0.
+A0i2(fifteen, two) :: 1.0.
+A0i2(fifteen, three) :: 1.0.
+A0i2(fifteen, four) :: 1.0.
+A0i2(fifteen, five) :: 1.0.
+A0i2(fifteen, six) :: 1.0.
+A0i2(fifteen, seven) :: 1.0.
+A0i2(fifteen, nine) :: 1.0.
+A0i2(fifteen, twenty) :: 1.0.
+A0i2(fifteen, thirty) :: 1.0.
+A0i2(fifteen, forty) :: 1.0.
+A0i2(fifteen, fifty) :: 1.0.
+A0i2(fifteen, sixty) :: 1.0.
+A0i2(fifteen, seventy) :: 1.0.
+A0i2(fifteen, ninety) :: 1.0.
+A0i2(fifteen, ten) :: 1.0.
+A0i2(fifteen, twelve) :: 1.0.
+A0i2(fifteen, thirteen) :: 1.0.
+A0i2(fifteen, fourteen) :: 1.0.
+A0i2(fifteen, fifteen) :: 1.0.
+A0i2(fifteen, sixteen) :: 1.0.
+A0i2(fifteen, seventeen) :: 1.0.
+A0i2(fifteen, nineteen) :: 1.0.
+A0i2(sixteen, two) :: 1.0.
+A0i2(sixteen, three) :: 1.0.
+A0i2(sixteen, twenty) :: 1.0.
+A0i2(sixteen, thirty) :: 1.0.
+A0i2(sixteen, sixty) :: 1.0.
+A0i2(sixteen, ten) :: 1.0.
+A0i2(sixteen, twelve) :: 1.0.
+A0i2(sixteen, thirteen) :: 1.0.
+A0i2(sixteen, sixteen) :: 1.0.
+A0i2(seventeen, two) :: 1.0.
+A0i2(seventeen, three) :: 1.0.
+A0i2(seventeen, six) :: 1.0.
+A0i2(seventeen, twenty) :: 1.0.
+A0i2(seventeen, thirty) :: 1.0.
+A0i2(seventeen, sixty) :: 1.0.
+A0i2(seventeen, seventy) :: 1.0.
+A0i2(seventeen, ten) :: 1.0.
+A0i2(seventeen, twelve) :: 1.0.
+A0i2(seventeen, thirteen) :: 1.0.
+A0i2(seventeen, sixteen) :: 1.0.
+A0i2(seventeen, seventeen) :: 1.0.
+A0i2(eighteen, one) :: 1.0.
+A0i2(eighteen, two) :: 1.0.
+A0i2(eighteen, three) :: 1.0.
+A0i2(eighteen, four) :: 1.0.
+A0i2(eighteen, five) :: 1.0.
+A0i2(eighteen, six) :: 1.0.
+A0i2(eighteen, seven) :: 1.0.
+A0i2(eighteen, nine) :: 1.0.
+A0i2(eighteen, twenty) :: 1.0.
+A0i2(eighteen, thirty) :: 1.0.
+A0i2(eighteen, forty) :: 1.0.
+A0i2(eighteen, fifty) :: 1.0.
+A0i2(eighteen, sixty) :: 1.0.
+A0i2(eighteen, seventy) :: 1.0.
+A0i2(eighteen, eighty) :: 1.0.
+A0i2(eighteen, ninety) :: 1.0.
+A0i2(eighteen, ten) :: 1.0.
+A0i2(eighteen, eleven) :: 1.0.
+A0i2(eighteen, twelve) :: 1.0.
+A0i2(eighteen, thirteen) :: 1.0.
+A0i2(eighteen, fourteen) :: 1.0.
+A0i2(eighteen, fifteen) :: 1.0.
+A0i2(eighteen, sixteen) :: 1.0.
+A0i2(eighteen, seventeen) :: 1.0.
+A0i2(eighteen, eighteen) :: 1.0.
+A0i2(eighteen, nineteen) :: 1.0.
+A0i2(nineteen, one) :: 1.0.
+A0i2(nineteen, two) :: 1.0.
+A0i2(nineteen, three) :: 1.0.
+A0i2(nineteen, six) :: 1.0.
+A0i2(nineteen, seven) :: 1.0.
+A0i2(nineteen, twenty) :: 1.0.
+A0i2(nineteen, thirty) :: 1.0.
+A0i2(nineteen, sixty) :: 1.0.
+A0i2(nineteen, seventy) :: 1.0.
+A0i2(nineteen, ninety) :: 1.0.
+A0i2(nineteen, ten) :: 1.0.
+A0i2(nineteen, twelve) :: 1.0.
+A0i2(nineteen, thirteen) :: 1.0.
+A0i2(nineteen, sixteen) :: 1.0.
+A0i2(nineteen, seventeen) :: 1.0.
+A0i2(nineteen, nineteen) :: 1.0.
+A0i2(before, one) :: 1.0.
+A0i2(before, two) :: 1.0.
+A0i2(before, three) :: 1.0.
+A0i2(before, four) :: 1.0.
+A0i2(before, five) :: 1.0.
+A0i2(before, six) :: 1.0.
+A0i2(before, seven) :: 1.0.
+A0i2(before, eight) :: 1.0.
+A0i2(before, nine) :: 1.0.
+A0i2(before, twenty) :: 1.0.
+A0i2(before, thirty) :: 1.0.
+A0i2(before, forty) :: 1.0.
+A0i2(before, fifty) :: 1.0.
+A0i2(before, sixty) :: 1.0.
+A0i2(before, seventy) :: 1.0.
+A0i2(before, eighty) :: 1.0.
+A0i2(before, ninety) :: 1.0.
+A0i2(before, ten) :: 1.0.
+A0i2(before, eleven) :: 1.0.
+A0i2(before, twelve) :: 1.0.
+A0i2(before, thirteen) :: 1.0.
+A0i2(before, fourteen) :: 1.0.
+A0i2(before, fifteen) :: 1.0.
+A0i2(before, sixteen) :: 1.0.
+A0i2(before, seventeen) :: 1.0.
+A0i2(before, eighteen) :: 1.0.
+A0i2(before, nineteen) :: 1.0.
+A0i2(before, before) :: 1.0.
+A0i2(before, comes) :: 1.0.
+A0i2(after, one) :: 1.0.
+A0i2(after, two) :: 1.0.
+A0i2(after, three) :: 1.0.
+A0i2(after, four) :: 1.0.
+A0i2(after, five) :: 1.0.
+A0i2(after, six) :: 1.0.
+A0i2(after, seven) :: 1.0.
+A0i2(after, eight) :: 1.0.
+A0i2(after, nine) :: 1.0.
+A0i2(after, twenty) :: 1.0.
+A0i2(after, thirty) :: 1.0.
+A0i2(after, forty) :: 1.0.
+A0i2(after, fifty) :: 1.0.
+A0i2(after, sixty) :: 1.0.
+A0i2(after, seventy) :: 1.0.
+A0i2(after, eighty) :: 1.0.
+A0i2(after, ninety) :: 1.0.
+A0i2(after, ten) :: 1.0.
+A0i2(after, eleven) :: 1.0.
+A0i2(after, twelve) :: 1.0.
+A0i2(after, thirteen) :: 1.0.
+A0i2(after, fourteen) :: 1.0.
+A0i2(after, fifteen) :: 1.0.
+A0i2(after, sixteen) :: 1.0.
+A0i2(after, seventeen) :: 1.0.
+A0i2(after, eighteen) :: 1.0.
+A0i2(after, nineteen) :: 1.0.
+A0i2(after, before) :: 1.0.
+A0i2(after, after) :: 1.0.
+A0i2(after, comes) :: 1.0.
+A0i2(comes, one) :: 1.0.
+A0i2(comes, two) :: 1.0.
+A0i2(comes, three) :: 1.0.
+A0i2(comes, four) :: 1.0.
+A0i2(comes, five) :: 1.0.
+A0i2(comes, six) :: 1.0.
+A0i2(comes, seven) :: 1.0.
+A0i2(comes, eight) :: 1.0.
+A0i2(comes, nine) :: 1.0.
+A0i2(comes, twenty) :: 1.0.
+A0i2(comes, thirty) :: 1.0.
+A0i2(comes, forty) :: 1.0.
+A0i2(comes, fifty) :: 1.0.
+A0i2(comes, sixty) :: 1.0.
+A0i2(comes, seventy) :: 1.0.
+A0i2(comes, eighty) :: 1.0.
+A0i2(comes, ninety) :: 1.0.
+A0i2(comes, ten) :: 1.0.
+A0i2(comes, eleven) :: 1.0.
+A0i2(comes, twelve) :: 1.0.
+A0i2(comes, thirteen) :: 1.0.
+A0i2(comes, fourteen) :: 1.0.
+A0i2(comes, fifteen) :: 1.0.
+A0i2(comes, sixteen) :: 1.0.
+A0i2(comes, seventeen) :: 1.0.
+A0i2(comes, eighteen) :: 1.0.
+A0i2(comes, nineteen) :: 1.0.
+A0i2(comes, comes) :: 1.0.
+A0i3(one, one) :: 1.0.
+A0i3(one, two) :: 1.0.
+A0i3(one, three) :: 1.0.
+A0i3(one, six) :: 1.0.
+A0i3(one, seven) :: 1.0.
+A0i3(one, twenty) :: 1.0.
+A0i3(one, thirty) :: 1.0.
+A0i3(one, sixty) :: 1.0.
+A0i3(one, seventy) :: 1.0.
+A0i3(one, ten) :: 1.0.
+A0i3(one, twelve) :: 1.0.
+A0i3(one, thirteen) :: 1.0.
+A0i3(one, sixteen) :: 1.0.
+A0i3(one, seventeen) :: 1.0.
+A0i3(two, two) :: 1.0.
+A0i3(three, two) :: 1.0.
+A0i3(three, three) :: 1.0.
+A0i3(three, twenty) :: 1.0.
+A0i3(three, twelve) :: 1.0.
+A0i3(four, one) :: 1.0.
+A0i3(four, two) :: 1.0.
+A0i3(four, three) :: 1.0.
+A0i3(four, four) :: 1.0.
+A0i3(four, six) :: 1.0.
+A0i3(four, seven) :: 1.0.
+A0i3(four, nine) :: 1.0.
+A0i3(four, twenty) :: 1.0.
+A0i3(four, thirty) :: 1.0.
+A0i3(four, sixty) :: 1.0.
+A0i3(four, seventy) :: 1.0.
+A0i3(four, ninety) :: 1.0.
+A0i3(four, ten) :: 1.0.
+A0i3(four, twelve) :: 1.0.
+A0i3(four, thirteen) :: 1.0.
+A0i3(four, fourteen) :: 1.0.
+A0i3(four, sixteen) :: 1.0.
+A0i3(four, seventeen) :: 1.0.
+A0i3(four, nineteen) :: 1.0.
+A0i3(five, one) :: 1.0.
+A0i3(five, two) :: 1.0.
+A0i3(five, three) :: 1.0.
+A0i3(five, four) :: 1.0.
+A0i3(five, five) :: 1.0.
+A0i3(five, six) :: 1.0.
+A0i3(five, seven) :: 1.0.
+A0i3(five, nine) :: 1.0.
+A0i3(five, twenty) :: 1.0.
+A0i3(five, thirty) :: 1.0.
+A0i3(five, forty) :: 1.0.
+A0i3(five, sixty) :: 1.0.
+A0i3(five, seventy) :: 1.0.
+A0i3(five, ninety) :: 1.0.
+A0i3(five, ten) :: 1.0.
+A0i3(five, twelve) :: 1.0.
+A0i3(five, thirteen) :: 1.0.
+A0i3(five, fourteen) :: 1.0.
+A0i3(five, sixteen) :: 1.0.
+A0i3(five, seventeen) :: 1.0.
+A0i3(five, nineteen) :: 1.0.
+A0i3(six, two) :: 1.0.
+A0i3(six, three) :: 1.0.
+A0i3(six, six) :: 1.0.
+A0i3(six, twenty) :: 1.0.
+A0i3(six, thirty) :: 1.0.
+A0i3(six, sixty) :: 1.0.
+A0i3(six, ten) :: 1.0.
+A0i3(six, twelve) :: 1.0.
+A0i3(six, thirteen) :: 1.0.
+A0i3(six, sixteen) :: 1.0.
+A0i3(seven, two) :: 1.0.
+A0i3(seven, three) :: 1.0.
+A0i3(seven, six) :: 1.0.
+A0i3(seven, seven) :: 1.0.
+A0i3(seven, twenty) :: 1.0.
+A0i3(seven, thirty) :: 1.0.
+A0i3(seven, sixty) :: 1.0.
+A0i3(seven, seventy) :: 1.0.
+A0i3(seven, ten) :: 1.0.
+A0i3(seven, twelve) :: 1.0.
+A0i3(seven, thirteen) :: 1.0.
+A0i3(seven, sixteen) :: 1.0.
+A0i3(seven, seventeen) :: 1.0.
+A0i3(eight, one) :: 1.0.
+A0i3(eight, two) :: 1.0.
+A0i3(eight, three) :: 1.0.
+A0i3(eight, four) :: 1.0.
+A0i3(eight, five) :: 1.0.
+A0i3(eight, six) :: 1.0.
+A0i3(eight, seven) :: 1.0.
+A0i3(eight, eight) :: 1.0.
+A0i3(eight, nine) :: 1.0.
+A0i3(eight, twenty) :: 1.0.
+A0i3(eight, thirty) :: 1.0.
+A0i3(eight, forty) :: 1.0.
+A0i3(eight, fifty) :: 1.0.
+A0i3(eight, sixty) :: 1.0.
+A0i3(eight, seventy) :: 1.0.
+A0i3(eight, eighty) :: 1.0.
+A0i3(eight, ninety) :: 1.0.
+A0i3(eight, ten) :: 1.0.
+A0i3(eight, eleven) :: 1.0.
+A0i3(eight, twelve) :: 1.0.
+A0i3(eight, thirteen) :: 1.0.
+A0i3(eight, fourteen) :: 1.0.
+A0i3(eight, fifteen) :: 1.0.
+A0i3(eight, sixteen) :: 1.0.
+A0i3(eight, seventeen) :: 1.0.
+A0i3(eight, eighteen) :: 1.0.
+A0i3(eight, nineteen) :: 1.0.
+A0i3(nine, one) :: 1.0.
+A0i3(nine, two) :: 1.0.
+A0i3(nine, three) :: 1.0.
+A0i3(nine, six) :: 1.0.
+A0i3(nine, seven) :: 1.0.
+A0i3(nine, nine) :: 1.0.
+A0i3(nine, twenty) :: 1.0.
+A0i3(nine, thirty) :: 1.0.
+A0i3(nine, sixty) :: 1.0.
+A0i3(nine, seventy) :: 1.0.
+A0i3(nine, ninety) :: 1.0.
+A0i3(nine, ten) :: 1.0.
+A0i3(nine, twelve) :: 1.0.
+A0i3(nine, thirteen) :: 1.0.
+A0i3(nine, sixteen) :: 1.0.
+A0i3(nine, seventeen) :: 1.0.
+A0i3(nine, nineteen) :: 1.0.
+A0i3(twenty, two) :: 1.0.
+A0i3(twenty, twenty) :: 1.0.
+A0i3(thirty, two) :: 1.0.
+A0i3(thirty, three) :: 1.0.
+A0i3(thirty, twenty) :: 1.0.
+A0i3(thirty, thirty) :: 1.0.
+A0i3(thirty, twelve) :: 1.0.
+A0i3(forty, one) :: 1.0.
+A0i3(forty, two) :: 1.0.
+A0i3(forty, three) :: 1.0.
+A0i3(forty, four) :: 1.0.
+A0i3(forty, six) :: 1.0.
+A0i3(forty, seven) :: 1.0.
+A0i3(forty, nine) :: 1.0.
+A0i3(forty, twenty) :: 1.0.
+A0i3(forty, thirty) :: 1.0.
+A0i3(forty, forty) :: 1.0.
+A0i3(forty, sixty) :: 1.0.
+A0i3(forty, seventy) :: 1.0.
+A0i3(forty, ninety) :: 1.0.
+A0i3(forty, ten) :: 1.0.
+A0i3(forty, twelve) :: 1.0.
+A0i3(forty, thirteen) :: 1.0.
+A0i3(forty, fourteen) :: 1.0.
+A0i3(forty, sixteen) :: 1.0.
+A0i3(forty, seventeen) :: 1.0.
+A0i3(forty, nineteen) :: 1.0.
+A0i3(fifty, one) :: 1.0.
+A0i3(fifty, two) :: 1.0.
+A0i3(fifty, three) :: 1.0.
+A0i3(fifty, four) :: 1.0.
+A0i3(fifty, five) :: 1.0.
+A0i3(fifty, six) :: 1.0.
+A0i3(fifty, seven) :: 1.0.
+A0i3(fifty, nine) :: 1.0.
+A0i3(fifty, twenty) :: 1.0.
+A0i3(fifty, thirty) :: 1.0.
+A0i3(fifty, forty) :: 1.0.
+A0i3(fifty, fifty) :: 1.0.
+A0i3(fifty, sixty) :: 1.0.
+A0i3(fifty, seventy) :: 1.0.
+A0i3(fifty, ninety) :: 1.0.
+A0i3(fifty, ten) :: 1.0.
+A0i3(fifty, twelve) :: 1.0.
+A0i3(fifty, thirteen) :: 1.0.
+A0i3(fifty, fourteen) :: 1.0.
+A0i3(fifty, sixteen) :: 1.0.
+A0i3(fifty, seventeen) :: 1.0.
+A0i3(fifty, nineteen) :: 1.0.
+A0i3(sixty, two) :: 1.0.
+A0i3(sixty, three) :: 1.0.
+A0i3(sixty, twenty) :: 1.0.
+A0i3(sixty, thirty) :: 1.0.
+A0i3(sixty, sixty) :: 1.0.
+A0i3(sixty, ten) :: 1.0.
+A0i3(sixty, twelve) :: 1.0.
+A0i3(sixty, thirteen) :: 1.0.
+A0i3(seventy, two) :: 1.0.
+A0i3(seventy, three) :: 1.0.
+A0i3(seventy, six) :: 1.0.
+A0i3(seventy, twenty) :: 1.0.
+A0i3(seventy, thirty) :: 1.0.
+A0i3(seventy, sixty) :: 1.0.
+A0i3(seventy, seventy) :: 1.0.
+A0i3(seventy, ten) :: 1.0.
+A0i3(seventy, twelve) :: 1.0.
+A0i3(seventy, thirteen) :: 1.0.
+A0i3(seventy, sixteen) :: 1.0.
+A0i3(eighty, one) :: 1.0.
+A0i3(eighty, two) :: 1.0.
+A0i3(eighty, three) :: 1.0.
+A0i3(eighty, four) :: 1.0.
+A0i3(eighty, five) :: 1.0.
+A0i3(eighty, six) :: 1.0.
+A0i3(eighty, seven) :: 1.0.
+A0i3(eighty, nine) :: 1.0.
+A0i3(eighty, twenty) :: 1.0.
+A0i3(eighty, thirty) :: 1.0.
+A0i3(eighty, forty) :: 1.0.
+A0i3(eighty, fifty) :: 1.0.
+A0i3(eighty, sixty) :: 1.0.
+A0i3(eighty, seventy) :: 1.0.
+A0i3(eighty, eighty) :: 1.0.
+A0i3(eighty, ninety) :: 1.0.
+A0i3(eighty, ten) :: 1.0.
+A0i3(eighty, eleven) :: 1.0.
+A0i3(eighty, twelve) :: 1.0.
+A0i3(eighty, thirteen) :: 1.0.
+A0i3(eighty, fourteen) :: 1.0.
+A0i3(eighty, fifteen) :: 1.0.
+A0i3(eighty, sixteen) :: 1.0.
+A0i3(eighty, seventeen) :: 1.0.
+A0i3(eighty, nineteen) :: 1.0.
+A0i3(ninety, one) :: 1.0.
+A0i3(ninety, two) :: 1.0.
+A0i3(ninety, three) :: 1.0.
+A0i3(ninety, six) :: 1.0.
+A0i3(ninety, seven) :: 1.0.
+A0i3(ninety, twenty) :: 1.0.
+A0i3(ninety, thirty) :: 1.0.
+A0i3(ninety, sixty) :: 1.0.
+A0i3(ninety, seventy) :: 1.0.
+A0i3(ninety, ninety) :: 1.0.
+A0i3(ninety, ten) :: 1.0.
+A0i3(ninety, twelve) :: 1.0.
+A0i3(ninety, thirteen) :: 1.0.
+A0i3(ninety, sixteen) :: 1.0.
+A0i3(ninety, seventeen) :: 1.0.
+A0i3(ten, two) :: 1.0.
+A0i3(ten, three) :: 1.0.
+A0i3(ten, twenty) :: 1.0.
+A0i3(ten, thirty) :: 1.0.
+A0i3(ten, ten) :: 1.0.
+A0i3(ten, twelve) :: 1.0.
+A0i3(ten, thirteen) :: 1.0.
+A0i3(eleven, one) :: 1.0.
+A0i3(eleven, two) :: 1.0.
+A0i3(eleven, three) :: 1.0.
+A0i3(eleven, four) :: 1.0.
+A0i3(eleven, five) :: 1.0.
+A0i3(eleven, six) :: 1.0.
+A0i3(eleven, seven) :: 1.0.
+A0i3(eleven, nine) :: 1.0.
+A0i3(eleven, twenty) :: 1.0.
+A0i3(eleven, thirty) :: 1.0.
+A0i3(eleven, forty) :: 1.0.
+A0i3(eleven, fifty) :: 1.0.
+A0i3(eleven, sixty) :: 1.0.
+A0i3(eleven, seventy) :: 1.0.
+A0i3(eleven, ninety) :: 1.0.
+A0i3(eleven, ten) :: 1.0.
+A0i3(eleven, eleven) :: 1.0.
+A0i3(eleven, twelve) :: 1.0.
+A0i3(eleven, thirteen) :: 1.0.
+A0i3(eleven, fourteen) :: 1.0.
+A0i3(eleven, fifteen) :: 1.0.
+A0i3(eleven, sixteen) :: 1.0.
+A0i3(eleven, seventeen) :: 1.0.
+A0i3(eleven, nineteen) :: 1.0.
+A0i3(twelve, two) :: 1.0.
+A0i3(twelve, twenty) :: 1.0.
+A0i3(twelve, twelve) :: 1.0.
+A0i3(thirteen, two) :: 1.0.
+A0i3(thirteen, three) :: 1.0.
+A0i3(thirteen, twenty) :: 1.0.
+A0i3(thirteen, thirty) :: 1.0.
+A0i3(thirteen, twelve) :: 1.0.
+A0i3(thirteen, thirteen) :: 1.0.
+A0i3(fourteen, one) :: 1.0.
+A0i3(fourteen, two) :: 1.0.
+A0i3(fourteen, three) :: 1.0.
+A0i3(fourteen, six) :: 1.0.
+A0i3(fourteen, seven) :: 1.0.
+A0i3(fourteen, nine) :: 1.0.
+A0i3(fourteen, twenty) :: 1.0.
+A0i3(fourteen, thirty) :: 1.0.
+A0i3(fourteen, sixty) :: 1.0.
+A0i3(fourteen, seventy) :: 1.0.
+A0i3(fourteen, ninety) :: 1.0.
+A0i3(fourteen, ten) :: 1.0.
+A0i3(fourteen, twelve) :: 1.0.
+A0i3(fourteen, thirteen) :: 1.0.
+A0i3(fourteen, fourteen) :: 1.0.
+A0i3(fourteen, sixteen) :: 1.0.
+A0i3(fourteen, seventeen) :: 1.0.
+A0i3(fourteen, nineteen) :: 1.0.
+A0i3(fifteen, one) :: 1.0.
+A0i3(fifteen, two) :: 1.0.
+A0i3(fifteen, three) :: 1.0.
+A0i3(fifteen, four) :: 1.0.
+A0i3(fifteen, five) :: 1.0.
+A0i3(fifteen, six) :: 1.0.
+A0i3(fifteen, seven) :: 1.0.
+A0i3(fifteen, nine) :: 1.0.
+A0i3(fifteen, twenty) :: 1.0.
+A0i3(fifteen, thirty) :: 1.0.
+A0i3(fifteen, forty) :: 1.0.
+A0i3(fifteen, fifty) :: 1.0.
+A0i3(fifteen, sixty) :: 1.0.
+A0i3(fifteen, seventy) :: 1.0.
+A0i3(fifteen, ninety) :: 1.0.
+A0i3(fifteen, ten) :: 1.0.
+A0i3(fifteen, twelve) :: 1.0.
+A0i3(fifteen, thirteen) :: 1.0.
+A0i3(fifteen, fourteen) :: 1.0.
+A0i3(fifteen, fifteen) :: 1.0.
+A0i3(fifteen, sixteen) :: 1.0.
+A0i3(fifteen, seventeen) :: 1.0.
+A0i3(fifteen, nineteen) :: 1.0.
+A0i3(sixteen, two) :: 1.0.
+A0i3(sixteen, three) :: 1.0.
+A0i3(sixteen, twenty) :: 1.0.
+A0i3(sixteen, thirty) :: 1.0.
+A0i3(sixteen, sixty) :: 1.0.
+A0i3(sixteen, ten) :: 1.0.
+A0i3(sixteen, twelve) :: 1.0.
+A0i3(sixteen, thirteen) :: 1.0.
+A0i3(sixteen, sixteen) :: 1.0.
+A0i3(seventeen, two) :: 1.0.
+A0i3(seventeen, three) :: 1.0.
+A0i3(seventeen, six) :: 1.0.
+A0i3(seventeen, twenty) :: 1.0.
+A0i3(seventeen, thirty) :: 1.0.
+A0i3(seventeen, sixty) :: 1.0.
+A0i3(seventeen, seventy) :: 1.0.
+A0i3(seventeen, ten) :: 1.0.
+A0i3(seventeen, twelve) :: 1.0.
+A0i3(seventeen, thirteen) :: 1.0.
+A0i3(seventeen, sixteen) :: 1.0.
+A0i3(seventeen, seventeen) :: 1.0.
+A0i3(eighteen, one) :: 1.0.
+A0i3(eighteen, two) :: 1.0.
+A0i3(eighteen, three) :: 1.0.
+A0i3(eighteen, four) :: 1.0.
+A0i3(eighteen, five) :: 1.0.
+A0i3(eighteen, six) :: 1.0.
+A0i3(eighteen, seven) :: 1.0.
+A0i3(eighteen, nine) :: 1.0.
+A0i3(eighteen, twenty) :: 1.0.
+A0i3(eighteen, thirty) :: 1.0.
+A0i3(eighteen, forty) :: 1.0.
+A0i3(eighteen, fifty) :: 1.0.
+A0i3(eighteen, sixty) :: 1.0.
+A0i3(eighteen, seventy) :: 1.0.
+A0i3(eighteen, eighty) :: 1.0.
+A0i3(eighteen, ninety) :: 1.0.
+A0i3(eighteen, ten) :: 1.0.
+A0i3(eighteen, eleven) :: 1.0.
+A0i3(eighteen, twelve) :: 1.0.
+A0i3(eighteen, thirteen) :: 1.0.
+A0i3(eighteen, fourteen) :: 1.0.
+A0i3(eighteen, fifteen) :: 1.0.
+A0i3(eighteen, sixteen) :: 1.0.
+A0i3(eighteen, seventeen) :: 1.0.
+A0i3(eighteen, eighteen) :: 1.0.
+A0i3(eighteen, nineteen) :: 1.0.
+A0i3(nineteen, one) :: 1.0.
+A0i3(nineteen, two) :: 1.0.
+A0i3(nineteen, three) :: 1.0.
+A0i3(nineteen, six) :: 1.0.
+A0i3(nineteen, seven) :: 1.0.
+A0i3(nineteen, twenty) :: 1.0.
+A0i3(nineteen, thirty) :: 1.0.
+A0i3(nineteen, sixty) :: 1.0.
+A0i3(nineteen, seventy) :: 1.0.
+A0i3(nineteen, ninety) :: 1.0.
+A0i3(nineteen, ten) :: 1.0.
+A0i3(nineteen, twelve) :: 1.0.
+A0i3(nineteen, thirteen) :: 1.0.
+A0i3(nineteen, sixteen) :: 1.0.
+A0i3(nineteen, seventeen) :: 1.0.
+A0i3(nineteen, nineteen) :: 1.0.
+A0i3(before, one) :: 1.0.
+A0i3(before, two) :: 1.0.
+A0i3(before, three) :: 1.0.
+A0i3(before, four) :: 1.0.
+A0i3(before, five) :: 1.0.
+A0i3(before, six) :: 1.0.
+A0i3(before, seven) :: 1.0.
+A0i3(before, eight) :: 1.0.
+A0i3(before, nine) :: 1.0.
+A0i3(before, twenty) :: 1.0.
+A0i3(before, thirty) :: 1.0.
+A0i3(before, forty) :: 1.0.
+A0i3(before, fifty) :: 1.0.
+A0i3(before, sixty) :: 1.0.
+A0i3(before, seventy) :: 1.0.
+A0i3(before, eighty) :: 1.0.
+A0i3(before, ninety) :: 1.0.
+A0i3(before, ten) :: 1.0.
+A0i3(before, eleven) :: 1.0.
+A0i3(before, twelve) :: 1.0.
+A0i3(before, thirteen) :: 1.0.
+A0i3(before, fourteen) :: 1.0.
+A0i3(before, fifteen) :: 1.0.
+A0i3(before, sixteen) :: 1.0.
+A0i3(before, seventeen) :: 1.0.
+A0i3(before, eighteen) :: 1.0.
+A0i3(before, nineteen) :: 1.0.
+A0i3(before, before) :: 1.0.
+A0i3(before, comes) :: 1.0.
+A0i3(after, one) :: 1.0.
+A0i3(after, two) :: 1.0.
+A0i3(after, three) :: 1.0.
+A0i3(after, four) :: 1.0.
+A0i3(after, five) :: 1.0.
+A0i3(after, six) :: 1.0.
+A0i3(after, seven) :: 1.0.
+A0i3(after, eight) :: 1.0.
+A0i3(after, nine) :: 1.0.
+A0i3(after, twenty) :: 1.0.
+A0i3(after, thirty) :: 1.0.
+A0i3(after, forty) :: 1.0.
+A0i3(after, fifty) :: 1.0.
+A0i3(after, sixty) :: 1.0.
+A0i3(after, seventy) :: 1.0.
+A0i3(after, eighty) :: 1.0.
+A0i3(after, ninety) :: 1.0.
+A0i3(after, ten) :: 1.0.
+A0i3(after, eleven) :: 1.0.
+A0i3(after, twelve) :: 1.0.
+A0i3(after, thirteen) :: 1.0.
+A0i3(after, fourteen) :: 1.0.
+A0i3(after, fifteen) :: 1.0.
+A0i3(after, sixteen) :: 1.0.
+A0i3(after, seventeen) :: 1.0.
+A0i3(after, eighteen) :: 1.0.
+A0i3(after, nineteen) :: 1.0.
+A0i3(after, before) :: 1.0.
+A0i3(after, after) :: 1.0.
+A0i3(after, comes) :: 1.0.
+A0i3(comes, one) :: 1.0.
+A0i3(comes, two) :: 1.0.
+A0i3(comes, three) :: 1.0.
+A0i3(comes, four) :: 1.0.
+A0i3(comes, five) :: 1.0.
+A0i3(comes, six) :: 1.0.
+A0i3(comes, seven) :: 1.0.
+A0i3(comes, eight) :: 1.0.
+A0i3(comes, nine) :: 1.0.
+A0i3(comes, twenty) :: 1.0.
+A0i3(comes, thirty) :: 1.0.
+A0i3(comes, forty) :: 1.0.
+A0i3(comes, fifty) :: 1.0.
+A0i3(comes, sixty) :: 1.0.
+A0i3(comes, seventy) :: 1.0.
+A0i3(comes, eighty) :: 1.0.
+A0i3(comes, ninety) :: 1.0.
+A0i3(comes, ten) :: 1.0.
+A0i3(comes, eleven) :: 1.0.
+A0i3(comes, twelve) :: 1.0.
+A0i3(comes, thirteen) :: 1.0.
+A0i3(comes, fourteen) :: 1.0.
+A0i3(comes, fifteen) :: 1.0.
+A0i3(comes, sixteen) :: 1.0.
+A0i3(comes, seventeen) :: 1.0.
+A0i3(comes, eighteen) :: 1.0.
+A0i3(comes, nineteen) :: 1.0.
+A0i3(comes, comes) :: 1.0.
+A0i4(one, one) :: 1.0.
+A0i4(one, two) :: 1.0.
+A0i4(one, three) :: 1.0.
+A0i4(one, six) :: 1.0.
+A0i4(one, seven) :: 1.0.
+A0i4(one, twenty) :: 1.0.
+A0i4(one, thirty) :: 1.0.
+A0i4(one, sixty) :: 1.0.
+A0i4(one, seventy) :: 1.0.
+A0i4(one, ten) :: 1.0.
+A0i4(one, twelve) :: 1.0.
+A0i4(one, thirteen) :: 1.0.
+A0i4(one, sixteen) :: 1.0.
+A0i4(one, seventeen) :: 1.0.
+A0i4(two, two) :: 1.0.
+A0i4(three, two) :: 1.0.
+A0i4(three, three) :: 1.0.
+A0i4(three, twenty) :: 1.0.
+A0i4(three, twelve) :: 1.0.
+A0i4(four, one) :: 1.0.
+A0i4(four, two) :: 1.0.
+A0i4(four, three) :: 1.0.
+A0i4(four, four) :: 1.0.
+A0i4(four, six) :: 1.0.
+A0i4(four, seven) :: 1.0.
+A0i4(four, nine) :: 1.0.
+A0i4(four, twenty) :: 1.0.
+A0i4(four, thirty) :: 1.0.
+A0i4(four, sixty) :: 1.0.
+A0i4(four, seventy) :: 1.0.
+A0i4(four, ninety) :: 1.0.
+A0i4(four, ten) :: 1.0.
+A0i4(four, twelve) :: 1.0.
+A0i4(four, thirteen) :: 1.0.
+A0i4(four, fourteen) :: 1.0.
+A0i4(four, sixteen) :: 1.0.
+A0i4(four, seventeen) :: 1.0.
+A0i4(four, nineteen) :: 1.0.
+A0i4(five, one) :: 1.0.
+A0i4(five, two) :: 1.0.
+A0i4(five, three) :: 1.0.
+A0i4(five, four) :: 1.0.
+A0i4(five, five) :: 1.0.
+A0i4(five, six) :: 1.0.
+A0i4(five, seven) :: 1.0.
+A0i4(five, nine) :: 1.0.
+A0i4(five, twenty) :: 1.0.
+A0i4(five, thirty) :: 1.0.
+A0i4(five, forty) :: 1.0.
+A0i4(five, sixty) :: 1.0.
+A0i4(five, seventy) :: 1.0.
+A0i4(five, ninety) :: 1.0.
+A0i4(five, ten) :: 1.0.
+A0i4(five, twelve) :: 1.0.
+A0i4(five, thirteen) :: 1.0.
+A0i4(five, fourteen) :: 1.0.
+A0i4(five, sixteen) :: 1.0.
+A0i4(five, seventeen) :: 1.0.
+A0i4(five, nineteen) :: 1.0.
+A0i4(six, two) :: 1.0.
+A0i4(six, three) :: 1.0.
+A0i4(six, six) :: 1.0.
+A0i4(six, twenty) :: 1.0.
+A0i4(six, thirty) :: 1.0.
+A0i4(six, sixty) :: 1.0.
+A0i4(six, ten) :: 1.0.
+A0i4(six, twelve) :: 1.0.
+A0i4(six, thirteen) :: 1.0.
+A0i4(six, sixteen) :: 1.0.
+A0i4(seven, two) :: 1.0.
+A0i4(seven, three) :: 1.0.
+A0i4(seven, six) :: 1.0.
+A0i4(seven, seven) :: 1.0.
+A0i4(seven, twenty) :: 1.0.
+A0i4(seven, thirty) :: 1.0.
+A0i4(seven, sixty) :: 1.0.
+A0i4(seven, seventy) :: 1.0.
+A0i4(seven, ten) :: 1.0.
+A0i4(seven, twelve) :: 1.0.
+A0i4(seven, thirteen) :: 1.0.
+A0i4(seven, sixteen) :: 1.0.
+A0i4(seven, seventeen) :: 1.0.
+A0i4(eight, one) :: 1.0.
+A0i4(eight, two) :: 1.0.
+A0i4(eight, three) :: 1.0.
+A0i4(eight, four) :: 1.0.
+A0i4(eight, five) :: 1.0.
+A0i4(eight, six) :: 1.0.
+A0i4(eight, seven) :: 1.0.
+A0i4(eight, eight) :: 1.0.
+A0i4(eight, nine) :: 1.0.
+A0i4(eight, twenty) :: 1.0.
+A0i4(eight, thirty) :: 1.0.
+A0i4(eight, forty) :: 1.0.
+A0i4(eight, fifty) :: 1.0.
+A0i4(eight, sixty) :: 1.0.
+A0i4(eight, seventy) :: 1.0.
+A0i4(eight, eighty) :: 1.0.
+A0i4(eight, ninety) :: 1.0.
+A0i4(eight, ten) :: 1.0.
+A0i4(eight, eleven) :: 1.0.
+A0i4(eight, twelve) :: 1.0.
+A0i4(eight, thirteen) :: 1.0.
+A0i4(eight, fourteen) :: 1.0.
+A0i4(eight, fifteen) :: 1.0.
+A0i4(eight, sixteen) :: 1.0.
+A0i4(eight, seventeen) :: 1.0.
+A0i4(eight, eighteen) :: 1.0.
+A0i4(eight, nineteen) :: 1.0.
+A0i4(nine, one) :: 1.0.
+A0i4(nine, two) :: 1.0.
+A0i4(nine, three) :: 1.0.
+A0i4(nine, six) :: 1.0.
+A0i4(nine, seven) :: 1.0.
+A0i4(nine, nine) :: 1.0.
+A0i4(nine, twenty) :: 1.0.
+A0i4(nine, thirty) :: 1.0.
+A0i4(nine, sixty) :: 1.0.
+A0i4(nine, seventy) :: 1.0.
+A0i4(nine, ninety) :: 1.0.
+A0i4(nine, ten) :: 1.0.
+A0i4(nine, twelve) :: 1.0.
+A0i4(nine, thirteen) :: 1.0.
+A0i4(nine, sixteen) :: 1.0.
+A0i4(nine, seventeen) :: 1.0.
+A0i4(nine, nineteen) :: 1.0.
+A0i4(twenty, two) :: 1.0.
+A0i4(twenty, twenty) :: 1.0.
+A0i4(thirty, two) :: 1.0.
+A0i4(thirty, three) :: 1.0.
+A0i4(thirty, twenty) :: 1.0.
+A0i4(thirty, thirty) :: 1.0.
+A0i4(thirty, twelve) :: 1.0.
+A0i4(forty, one) :: 1.0.
+A0i4(forty, two) :: 1.0.
+A0i4(forty, three) :: 1.0.
+A0i4(forty, four) :: 1.0.
+A0i4(forty, six) :: 1.0.
+A0i4(forty, seven) :: 1.0.
+A0i4(forty, nine) :: 1.0.
+A0i4(forty, twenty) :: 1.0.
+A0i4(forty, thirty) :: 1.0.
+A0i4(forty, forty) :: 1.0.
+A0i4(forty, sixty) :: 1.0.
+A0i4(forty, seventy) :: 1.0.
+A0i4(forty, ninety) :: 1.0.
+A0i4(forty, ten) :: 1.0.
+A0i4(forty, twelve) :: 1.0.
+A0i4(forty, thirteen) :: 1.0.
+A0i4(forty, fourteen) :: 1.0.
+A0i4(forty, sixteen) :: 1.0.
+A0i4(forty, seventeen) :: 1.0.
+A0i4(forty, nineteen) :: 1.0.
+A0i4(fifty, one) :: 1.0.
+A0i4(fifty, two) :: 1.0.
+A0i4(fifty, three) :: 1.0.
+A0i4(fifty, four) :: 1.0.
+A0i4(fifty, five) :: 1.0.
+A0i4(fifty, six) :: 1.0.
+A0i4(fifty, seven) :: 1.0.
+A0i4(fifty, nine) :: 1.0.
+A0i4(fifty, twenty) :: 1.0.
+A0i4(fifty, thirty) :: 1.0.
+A0i4(fifty, forty) :: 1.0.
+A0i4(fifty, fifty) :: 1.0.
+A0i4(fifty, sixty) :: 1.0.
+A0i4(fifty, seventy) :: 1.0.
+A0i4(fifty, ninety) :: 1.0.
+A0i4(fifty, ten) :: 1.0.
+A0i4(fifty, twelve) :: 1.0.
+A0i4(fifty, thirteen) :: 1.0.
+A0i4(fifty, fourteen) :: 1.0.
+A0i4(fifty, sixteen) :: 1.0.
+A0i4(fifty, seventeen) :: 1.0.
+A0i4(fifty, nineteen) :: 1.0.
+A0i4(sixty, two) :: 1.0.
+A0i4(sixty, three) :: 1.0.
+A0i4(sixty, twenty) :: 1.0.
+A0i4(sixty, thirty) :: 1.0.
+A0i4(sixty, sixty) :: 1.0.
+A0i4(sixty, ten) :: 1.0.
+A0i4(sixty, twelve) :: 1.0.
+A0i4(sixty, thirteen) :: 1.0.
+A0i4(seventy, two) :: 1.0.
+A0i4(seventy, three) :: 1.0.
+A0i4(seventy, six) :: 1.0.
+A0i4(seventy, twenty) :: 1.0.
+A0i4(seventy, thirty) :: 1.0.
+A0i4(seventy, sixty) :: 1.0.
+A0i4(seventy, seventy) :: 1.0.
+A0i4(seventy, ten) :: 1.0.
+A0i4(seventy, twelve) :: 1.0.
+A0i4(seventy, thirteen) :: 1.0.
+A0i4(seventy, sixteen) :: 1.0.
+A0i4(eighty, one) :: 1.0.
+A0i4(eighty, two) :: 1.0.
+A0i4(eighty, three) :: 1.0.
+A0i4(eighty, four) :: 1.0.
+A0i4(eighty, five) :: 1.0.
+A0i4(eighty, six) :: 1.0.
+A0i4(eighty, seven) :: 1.0.
+A0i4(eighty, nine) :: 1.0.
+A0i4(eighty, twenty) :: 1.0.
+A0i4(eighty, thirty) :: 1.0.
+A0i4(eighty, forty) :: 1.0.
+A0i4(eighty, fifty) :: 1.0.
+A0i4(eighty, sixty) :: 1.0.
+A0i4(eighty, seventy) :: 1.0.
+A0i4(eighty, eighty) :: 1.0.
+A0i4(eighty, ninety) :: 1.0.
+A0i4(eighty, ten) :: 1.0.
+A0i4(eighty, eleven) :: 1.0.
+A0i4(eighty, twelve) :: 1.0.
+A0i4(eighty, thirteen) :: 1.0.
+A0i4(eighty, fourteen) :: 1.0.
+A0i4(eighty, fifteen) :: 1.0.
+A0i4(eighty, sixteen) :: 1.0.
+A0i4(eighty, seventeen) :: 1.0.
+A0i4(eighty, nineteen) :: 1.0.
+A0i4(ninety, one) :: 1.0.
+A0i4(ninety, two) :: 1.0.
+A0i4(ninety, three) :: 1.0.
+A0i4(ninety, six) :: 1.0.
+A0i4(ninety, seven) :: 1.0.
+A0i4(ninety, twenty) :: 1.0.
+A0i4(ninety, thirty) :: 1.0.
+A0i4(ninety, sixty) :: 1.0.
+A0i4(ninety, seventy) :: 1.0.
+A0i4(ninety, ninety) :: 1.0.
+A0i4(ninety, ten) :: 1.0.
+A0i4(ninety, twelve) :: 1.0.
+A0i4(ninety, thirteen) :: 1.0.
+A0i4(ninety, sixteen) :: 1.0.
+A0i4(ninety, seventeen) :: 1.0.
+A0i4(ten, two) :: 1.0.
+A0i4(ten, three) :: 1.0.
+A0i4(ten, twenty) :: 1.0.
+A0i4(ten, thirty) :: 1.0.
+A0i4(ten, ten) :: 1.0.
+A0i4(ten, twelve) :: 1.0.
+A0i4(ten, thirteen) :: 1.0.
+A0i4(eleven, one) :: 1.0.
+A0i4(eleven, two) :: 1.0.
+A0i4(eleven, three) :: 1.0.
+A0i4(eleven, four) :: 1.0.
+A0i4(eleven, five) :: 1.0.
+A0i4(eleven, six) :: 1.0.
+A0i4(eleven, seven) :: 1.0.
+A0i4(eleven, nine) :: 1.0.
+A0i4(eleven, twenty) :: 1.0.
+A0i4(eleven, thirty) :: 1.0.
+A0i4(eleven, forty) :: 1.0.
+A0i4(eleven, fifty) :: 1.0.
+A0i4(eleven, sixty) :: 1.0.
+A0i4(eleven, seventy) :: 1.0.
+A0i4(eleven, ninety) :: 1.0.
+A0i4(eleven, ten) :: 1.0.
+A0i4(eleven, eleven) :: 1.0.
+A0i4(eleven, twelve) :: 1.0.
+A0i4(eleven, thirteen) :: 1.0.
+A0i4(eleven, fourteen) :: 1.0.
+A0i4(eleven, fifteen) :: 1.0.
+A0i4(eleven, sixteen) :: 1.0.
+A0i4(eleven, seventeen) :: 1.0.
+A0i4(eleven, nineteen) :: 1.0.
+A0i4(twelve, two) :: 1.0.
+A0i4(twelve, twenty) :: 1.0.
+A0i4(twelve, twelve) :: 1.0.
+A0i4(thirteen, two) :: 1.0.
+A0i4(thirteen, three) :: 1.0.
+A0i4(thirteen, twenty) :: 1.0.
+A0i4(thirteen, thirty) :: 1.0.
+A0i4(thirteen, twelve) :: 1.0.
+A0i4(thirteen, thirteen) :: 1.0.
+A0i4(fourteen, one) :: 1.0.
+A0i4(fourteen, two) :: 1.0.
+A0i4(fourteen, three) :: 1.0.
+A0i4(fourteen, six) :: 1.0.
+A0i4(fourteen, seven) :: 1.0.
+A0i4(fourteen, nine) :: 1.0.
+A0i4(fourteen, twenty) :: 1.0.
+A0i4(fourteen, thirty) :: 1.0.
+A0i4(fourteen, sixty) :: 1.0.
+A0i4(fourteen, seventy) :: 1.0.
+A0i4(fourteen, ninety) :: 1.0.
+A0i4(fourteen, ten) :: 1.0.
+A0i4(fourteen, twelve) :: 1.0.
+A0i4(fourteen, thirteen) :: 1.0.
+A0i4(fourteen, fourteen) :: 1.0.
+A0i4(fourteen, sixteen) :: 1.0.
+A0i4(fourteen, seventeen) :: 1.0.
+A0i4(fourteen, nineteen) :: 1.0.
+A0i4(fifteen, one) :: 1.0.
+A0i4(fifteen, two) :: 1.0.
+A0i4(fifteen, three) :: 1.0.
+A0i4(fifteen, four) :: 1.0.
+A0i4(fifteen, five) :: 1.0.
+A0i4(fifteen, six) :: 1.0.
+A0i4(fifteen, seven) :: 1.0.
+A0i4(fifteen, nine) :: 1.0.
+A0i4(fifteen, twenty) :: 1.0.
+A0i4(fifteen, thirty) :: 1.0.
+A0i4(fifteen, forty) :: 1.0.
+A0i4(fifteen, fifty) :: 1.0.
+A0i4(fifteen, sixty) :: 1.0.
+A0i4(fifteen, seventy) :: 1.0.
+A0i4(fifteen, ninety) :: 1.0.
+A0i4(fifteen, ten) :: 1.0.
+A0i4(fifteen, twelve) :: 1.0.
+A0i4(fifteen, thirteen) :: 1.0.
+A0i4(fifteen, fourteen) :: 1.0.
+A0i4(fifteen, fifteen) :: 1.0.
+A0i4(fifteen, sixteen) :: 1.0.
+A0i4(fifteen, seventeen) :: 1.0.
+A0i4(fifteen, nineteen) :: 1.0.
+A0i4(sixteen, two) :: 1.0.
+A0i4(sixteen, three) :: 1.0.
+A0i4(sixteen, twenty) :: 1.0.
+A0i4(sixteen, thirty) :: 1.0.
+A0i4(sixteen, sixty) :: 1.0.
+A0i4(sixteen, ten) :: 1.0.
+A0i4(sixteen, twelve) :: 1.0.
+A0i4(sixteen, thirteen) :: 1.0.
+A0i4(sixteen, sixteen) :: 1.0.
+A0i4(seventeen, two) :: 1.0.
+A0i4(seventeen, three) :: 1.0.
+A0i4(seventeen, six) :: 1.0.
+A0i4(seventeen, twenty) :: 1.0.
+A0i4(seventeen, thirty) :: 1.0.
+A0i4(seventeen, sixty) :: 1.0.
+A0i4(seventeen, seventy) :: 1.0.
+A0i4(seventeen, ten) :: 1.0.
+A0i4(seventeen, twelve) :: 1.0.
+A0i4(seventeen, thirteen) :: 1.0.
+A0i4(seventeen, sixteen) :: 1.0.
+A0i4(seventeen, seventeen) :: 1.0.
+A0i4(eighteen, one) :: 1.0.
+A0i4(eighteen, two) :: 1.0.
+A0i4(eighteen, three) :: 1.0.
+A0i4(eighteen, four) :: 1.0.
+A0i4(eighteen, five) :: 1.0.
+A0i4(eighteen, six) :: 1.0.
+A0i4(eighteen, seven) :: 1.0.
+A0i4(eighteen, nine) :: 1.0.
+A0i4(eighteen, twenty) :: 1.0.
+A0i4(eighteen, thirty) :: 1.0.
+A0i4(eighteen, forty) :: 1.0.
+A0i4(eighteen, fifty) :: 1.0.
+A0i4(eighteen, sixty) :: 1.0.
+A0i4(eighteen, seventy) :: 1.0.
+A0i4(eighteen, eighty) :: 1.0.
+A0i4(eighteen, ninety) :: 1.0.
+A0i4(eighteen, ten) :: 1.0.
+A0i4(eighteen, eleven) :: 1.0.
+A0i4(eighteen, twelve) :: 1.0.
+A0i4(eighteen, thirteen) :: 1.0.
+A0i4(eighteen, fourteen) :: 1.0.
+A0i4(eighteen, fifteen) :: 1.0.
+A0i4(eighteen, sixteen) :: 1.0.
+A0i4(eighteen, seventeen) :: 1.0.
+A0i4(eighteen, eighteen) :: 1.0.
+A0i4(eighteen, nineteen) :: 1.0.
+A0i4(nineteen, one) :: 1.0.
+A0i4(nineteen, two) :: 1.0.
+A0i4(nineteen, three) :: 1.0.
+A0i4(nineteen, six) :: 1.0.
+A0i4(nineteen, seven) :: 1.0.
+A0i4(nineteen, twenty) :: 1.0.
+A0i4(nineteen, thirty) :: 1.0.
+A0i4(nineteen, sixty) :: 1.0.
+A0i4(nineteen, seventy) :: 1.0.
+A0i4(nineteen, ninety) :: 1.0.
+A0i4(nineteen, ten) :: 1.0.
+A0i4(nineteen, twelve) :: 1.0.
+A0i4(nineteen, thirteen) :: 1.0.
+A0i4(nineteen, sixteen) :: 1.0.
+A0i4(nineteen, seventeen) :: 1.0.
+A0i4(nineteen, nineteen) :: 1.0.
+A0i4(before, one) :: 1.0.
+A0i4(before, two) :: 1.0.
+A0i4(before, three) :: 1.0.
+A0i4(before, four) :: 1.0.
+A0i4(before, five) :: 1.0.
+A0i4(before, six) :: 1.0.
+A0i4(before, seven) :: 1.0.
+A0i4(before, eight) :: 1.0.
+A0i4(before, nine) :: 1.0.
+A0i4(before, twenty) :: 1.0.
+A0i4(before, thirty) :: 1.0.
+A0i4(before, forty) :: 1.0.
+A0i4(before, fifty) :: 1.0.
+A0i4(before, sixty) :: 1.0.
+A0i4(before, seventy) :: 1.0.
+A0i4(before, eighty) :: 1.0.
+A0i4(before, ninety) :: 1.0.
+A0i4(before, ten) :: 1.0.
+A0i4(before, eleven) :: 1.0.
+A0i4(before, twelve) :: 1.0.
+A0i4(before, thirteen) :: 1.0.
+A0i4(before, fourteen) :: 1.0.
+A0i4(before, fifteen) :: 1.0.
+A0i4(before, sixteen) :: 1.0.
+A0i4(before, seventeen) :: 1.0.
+A0i4(before, eighteen) :: 1.0.
+A0i4(before, nineteen) :: 1.0.
+A0i4(before, before) :: 1.0.
+A0i4(before, comes) :: 1.0.
+A0i4(after, one) :: 1.0.
+A0i4(after, two) :: 1.0.
+A0i4(after, three) :: 1.0.
+A0i4(after, four) :: 1.0.
+A0i4(after, five) :: 1.0.
+A0i4(after, six) :: 1.0.
+A0i4(after, seven) :: 1.0.
+A0i4(after, eight) :: 1.0.
+A0i4(after, nine) :: 1.0.
+A0i4(after, twenty) :: 1.0.
+A0i4(after, thirty) :: 1.0.
+A0i4(after, forty) :: 1.0.
+A0i4(after, fifty) :: 1.0.
+A0i4(after, sixty) :: 1.0.
+A0i4(after, seventy) :: 1.0.
+A0i4(after, eighty) :: 1.0.
+A0i4(after, ninety) :: 1.0.
+A0i4(after, ten) :: 1.0.
+A0i4(after, eleven) :: 1.0.
+A0i4(after, twelve) :: 1.0.
+A0i4(after, thirteen) :: 1.0.
+A0i4(after, fourteen) :: 1.0.
+A0i4(after, fifteen) :: 1.0.
+A0i4(after, sixteen) :: 1.0.
+A0i4(after, seventeen) :: 1.0.
+A0i4(after, eighteen) :: 1.0.
+A0i4(after, nineteen) :: 1.0.
+A0i4(after, before) :: 1.0.
+A0i4(after, after) :: 1.0.
+A0i4(after, comes) :: 1.0.
+A0i4(comes, one) :: 1.0.
+A0i4(comes, two) :: 1.0.
+A0i4(comes, three) :: 1.0.
+A0i4(comes, four) :: 1.0.
+A0i4(comes, five) :: 1.0.
+A0i4(comes, six) :: 1.0.
+A0i4(comes, seven) :: 1.0.
+A0i4(comes, eight) :: 1.0.
+A0i4(comes, nine) :: 1.0.
+A0i4(comes, twenty) :: 1.0.
+A0i4(comes, thirty) :: 1.0.
+A0i4(comes, forty) :: 1.0.
+A0i4(comes, fifty) :: 1.0.
+A0i4(comes, sixty) :: 1.0.
+A0i4(comes, seventy) :: 1.0.
+A0i4(comes, eighty) :: 1.0.
+A0i4(comes, ninety) :: 1.0.
+A0i4(comes, ten) :: 1.0.
+A0i4(comes, eleven) :: 1.0.
+A0i4(comes, twelve) :: 1.0.
+A0i4(comes, thirteen) :: 1.0.
+A0i4(comes, fourteen) :: 1.0.
+A0i4(comes, fifteen) :: 1.0.
+A0i4(comes, sixteen) :: 1.0.
+A0i4(comes, seventeen) :: 1.0.
+A0i4(comes, eighteen) :: 1.0.
+A0i4(comes, nineteen) :: 1.0.
+A0i4(comes, comes) :: 1.0.
+A0i5(one, one) :: 1.0.
+A0i5(one, two) :: 1.0.
+A0i5(one, three) :: 1.0.
+A0i5(one, six) :: 1.0.
+A0i5(one, seven) :: 1.0.
+A0i5(one, twenty) :: 1.0.
+A0i5(one, thirty) :: 1.0.
+A0i5(one, sixty) :: 1.0.
+A0i5(one, seventy) :: 1.0.
+A0i5(one, ten) :: 1.0.
+A0i5(one, twelve) :: 1.0.
+A0i5(one, thirteen) :: 1.0.
+A0i5(one, sixteen) :: 1.0.
+A0i5(one, seventeen) :: 1.0.
+A0i5(two, two) :: 1.0.
+A0i5(three, two) :: 1.0.
+A0i5(three, three) :: 1.0.
+A0i5(three, twenty) :: 1.0.
+A0i5(three, twelve) :: 1.0.
+A0i5(four, one) :: 1.0.
+A0i5(four, two) :: 1.0.
+A0i5(four, three) :: 1.0.
+A0i5(four, four) :: 1.0.
+A0i5(four, six) :: 1.0.
+A0i5(four, seven) :: 1.0.
+A0i5(four, nine) :: 1.0.
+A0i5(four, twenty) :: 1.0.
+A0i5(four, thirty) :: 1.0.
+A0i5(four, sixty) :: 1.0.
+A0i5(four, seventy) :: 1.0.
+A0i5(four, ninety) :: 1.0.
+A0i5(four, ten) :: 1.0.
+A0i5(four, twelve) :: 1.0.
+A0i5(four, thirteen) :: 1.0.
+A0i5(four, fourteen) :: 1.0.
+A0i5(four, sixteen) :: 1.0.
+A0i5(four, seventeen) :: 1.0.
+A0i5(four, nineteen) :: 1.0.
+A0i5(five, one) :: 1.0.
+A0i5(five, two) :: 1.0.
+A0i5(five, three) :: 1.0.
+A0i5(five, four) :: 1.0.
+A0i5(five, five) :: 1.0.
+A0i5(five, six) :: 1.0.
+A0i5(five, seven) :: 1.0.
+A0i5(five, nine) :: 1.0.
+A0i5(five, twenty) :: 1.0.
+A0i5(five, thirty) :: 1.0.
+A0i5(five, forty) :: 1.0.
+A0i5(five, sixty) :: 1.0.
+A0i5(five, seventy) :: 1.0.
+A0i5(five, ninety) :: 1.0.
+A0i5(five, ten) :: 1.0.
+A0i5(five, twelve) :: 1.0.
+A0i5(five, thirteen) :: 1.0.
+A0i5(five, fourteen) :: 1.0.
+A0i5(five, sixteen) :: 1.0.
+A0i5(five, seventeen) :: 1.0.
+A0i5(five, nineteen) :: 1.0.
+A0i5(six, two) :: 1.0.
+A0i5(six, three) :: 1.0.
+A0i5(six, six) :: 1.0.
+A0i5(six, twenty) :: 1.0.
+A0i5(six, thirty) :: 1.0.
+A0i5(six, sixty) :: 1.0.
+A0i5(six, ten) :: 1.0.
+A0i5(six, twelve) :: 1.0.
+A0i5(six, thirteen) :: 1.0.
+A0i5(six, sixteen) :: 1.0.
+A0i5(seven, two) :: 1.0.
+A0i5(seven, three) :: 1.0.
+A0i5(seven, six) :: 1.0.
+A0i5(seven, seven) :: 1.0.
+A0i5(seven, twenty) :: 1.0.
+A0i5(seven, thirty) :: 1.0.
+A0i5(seven, sixty) :: 1.0.
+A0i5(seven, seventy) :: 1.0.
+A0i5(seven, ten) :: 1.0.
+A0i5(seven, twelve) :: 1.0.
+A0i5(seven, thirteen) :: 1.0.
+A0i5(seven, sixteen) :: 1.0.
+A0i5(seven, seventeen) :: 1.0.
+A0i5(eight, one) :: 1.0.
+A0i5(eight, two) :: 1.0.
+A0i5(eight, three) :: 1.0.
+A0i5(eight, four) :: 1.0.
+A0i5(eight, five) :: 1.0.
+A0i5(eight, six) :: 1.0.
+A0i5(eight, seven) :: 1.0.
+A0i5(eight, eight) :: 1.0.
+A0i5(eight, nine) :: 1.0.
+A0i5(eight, twenty) :: 1.0.
+A0i5(eight, thirty) :: 1.0.
+A0i5(eight, forty) :: 1.0.
+A0i5(eight, fifty) :: 1.0.
+A0i5(eight, sixty) :: 1.0.
+A0i5(eight, seventy) :: 1.0.
+A0i5(eight, eighty) :: 1.0.
+A0i5(eight, ninety) :: 1.0.
+A0i5(eight, ten) :: 1.0.
+A0i5(eight, eleven) :: 1.0.
+A0i5(eight, twelve) :: 1.0.
+A0i5(eight, thirteen) :: 1.0.
+A0i5(eight, fourteen) :: 1.0.
+A0i5(eight, fifteen) :: 1.0.
+A0i5(eight, sixteen) :: 1.0.
+A0i5(eight, seventeen) :: 1.0.
+A0i5(eight, eighteen) :: 1.0.
+A0i5(eight, nineteen) :: 1.0.
+A0i5(nine, one) :: 1.0.
+A0i5(nine, two) :: 1.0.
+A0i5(nine, three) :: 1.0.
+A0i5(nine, six) :: 1.0.
+A0i5(nine, seven) :: 1.0.
+A0i5(nine, nine) :: 1.0.
+A0i5(nine, twenty) :: 1.0.
+A0i5(nine, thirty) :: 1.0.
+A0i5(nine, sixty) :: 1.0.
+A0i5(nine, seventy) :: 1.0.
+A0i5(nine, ninety) :: 1.0.
+A0i5(nine, ten) :: 1.0.
+A0i5(nine, twelve) :: 1.0.
+A0i5(nine, thirteen) :: 1.0.
+A0i5(nine, sixteen) :: 1.0.
+A0i5(nine, seventeen) :: 1.0.
+A0i5(nine, nineteen) :: 1.0.
+A0i5(twenty, two) :: 1.0.
+A0i5(twenty, twenty) :: 1.0.
+A0i5(thirty, two) :: 1.0.
+A0i5(thirty, three) :: 1.0.
+A0i5(thirty, twenty) :: 1.0.
+A0i5(thirty, thirty) :: 1.0.
+A0i5(thirty, twelve) :: 1.0.
+A0i5(forty, one) :: 1.0.
+A0i5(forty, two) :: 1.0.
+A0i5(forty, three) :: 1.0.
+A0i5(forty, four) :: 1.0.
+A0i5(forty, six) :: 1.0.
+A0i5(forty, seven) :: 1.0.
+A0i5(forty, nine) :: 1.0.
+A0i5(forty, twenty) :: 1.0.
+A0i5(forty, thirty) :: 1.0.
+A0i5(forty, forty) :: 1.0.
+A0i5(forty, sixty) :: 1.0.
+A0i5(forty, seventy) :: 1.0.
+A0i5(forty, ninety) :: 1.0.
+A0i5(forty, ten) :: 1.0.
+A0i5(forty, twelve) :: 1.0.
+A0i5(forty, thirteen) :: 1.0.
+A0i5(forty, fourteen) :: 1.0.
+A0i5(forty, sixteen) :: 1.0.
+A0i5(forty, seventeen) :: 1.0.
+A0i5(forty, nineteen) :: 1.0.
+A0i5(fifty, one) :: 1.0.
+A0i5(fifty, two) :: 1.0.
+A0i5(fifty, three) :: 1.0.
+A0i5(fifty, four) :: 1.0.
+A0i5(fifty, five) :: 1.0.
+A0i5(fifty, six) :: 1.0.
+A0i5(fifty, seven) :: 1.0.
+A0i5(fifty, nine) :: 1.0.
+A0i5(fifty, twenty) :: 1.0.
+A0i5(fifty, thirty) :: 1.0.
+A0i5(fifty, forty) :: 1.0.
+A0i5(fifty, fifty) :: 1.0.
+A0i5(fifty, sixty) :: 1.0.
+A0i5(fifty, seventy) :: 1.0.
+A0i5(fifty, ninety) :: 1.0.
+A0i5(fifty, ten) :: 1.0.
+A0i5(fifty, twelve) :: 1.0.
+A0i5(fifty, thirteen) :: 1.0.
+A0i5(fifty, fourteen) :: 1.0.
+A0i5(fifty, sixteen) :: 1.0.
+A0i5(fifty, seventeen) :: 1.0.
+A0i5(fifty, nineteen) :: 1.0.
+A0i5(sixty, two) :: 1.0.
+A0i5(sixty, three) :: 1.0.
+A0i5(sixty, twenty) :: 1.0.
+A0i5(sixty, thirty) :: 1.0.
+A0i5(sixty, sixty) :: 1.0.
+A0i5(sixty, ten) :: 1.0.
+A0i5(sixty, twelve) :: 1.0.
+A0i5(sixty, thirteen) :: 1.0.
+A0i5(seventy, two) :: 1.0.
+A0i5(seventy, three) :: 1.0.
+A0i5(seventy, six) :: 1.0.
+A0i5(seventy, twenty) :: 1.0.
+A0i5(seventy, thirty) :: 1.0.
+A0i5(seventy, sixty) :: 1.0.
+A0i5(seventy, seventy) :: 1.0.
+A0i5(seventy, ten) :: 1.0.
+A0i5(seventy, twelve) :: 1.0.
+A0i5(seventy, thirteen) :: 1.0.
+A0i5(seventy, sixteen) :: 1.0.
+A0i5(eighty, one) :: 1.0.
+A0i5(eighty, two) :: 1.0.
+A0i5(eighty, three) :: 1.0.
+A0i5(eighty, four) :: 1.0.
+A0i5(eighty, five) :: 1.0.
+A0i5(eighty, six) :: 1.0.
+A0i5(eighty, seven) :: 1.0.
+A0i5(eighty, nine) :: 1.0.
+A0i5(eighty, twenty) :: 1.0.
+A0i5(eighty, thirty) :: 1.0.
+A0i5(eighty, forty) :: 1.0.
+A0i5(eighty, fifty) :: 1.0.
+A0i5(eighty, sixty) :: 1.0.
+A0i5(eighty, seventy) :: 1.0.
+A0i5(eighty, eighty) :: 1.0.
+A0i5(eighty, ninety) :: 1.0.
+A0i5(eighty, ten) :: 1.0.
+A0i5(eighty, eleven) :: 1.0.
+A0i5(eighty, twelve) :: 1.0.
+A0i5(eighty, thirteen) :: 1.0.
+A0i5(eighty, fourteen) :: 1.0.
+A0i5(eighty, fifteen) :: 1.0.
+A0i5(eighty, sixteen) :: 1.0.
+A0i5(eighty, seventeen) :: 1.0.
+A0i5(eighty, nineteen) :: 1.0.
+A0i5(ninety, one) :: 1.0.
+A0i5(ninety, two) :: 1.0.
+A0i5(ninety, three) :: 1.0.
+A0i5(ninety, six) :: 1.0.
+A0i5(ninety, seven) :: 1.0.
+A0i5(ninety, twenty) :: 1.0.
+A0i5(ninety, thirty) :: 1.0.
+A0i5(ninety, sixty) :: 1.0.
+A0i5(ninety, seventy) :: 1.0.
+A0i5(ninety, ninety) :: 1.0.
+A0i5(ninety, ten) :: 1.0.
+A0i5(ninety, twelve) :: 1.0.
+A0i5(ninety, thirteen) :: 1.0.
+A0i5(ninety, sixteen) :: 1.0.
+A0i5(ninety, seventeen) :: 1.0.
+A0i5(ten, two) :: 1.0.
+A0i5(ten, three) :: 1.0.
+A0i5(ten, twenty) :: 1.0.
+A0i5(ten, thirty) :: 1.0.
+A0i5(ten, ten) :: 1.0.
+A0i5(ten, twelve) :: 1.0.
+A0i5(ten, thirteen) :: 1.0.
+A0i5(eleven, one) :: 1.0.
+A0i5(eleven, two) :: 1.0.
+A0i5(eleven, three) :: 1.0.
+A0i5(eleven, four) :: 1.0.
+A0i5(eleven, five) :: 1.0.
+A0i5(eleven, six) :: 1.0.
+A0i5(eleven, seven) :: 1.0.
+A0i5(eleven, nine) :: 1.0.
+A0i5(eleven, twenty) :: 1.0.
+A0i5(eleven, thirty) :: 1.0.
+A0i5(eleven, forty) :: 1.0.
+A0i5(eleven, fifty) :: 1.0.
+A0i5(eleven, sixty) :: 1.0.
+A0i5(eleven, seventy) :: 1.0.
+A0i5(eleven, ninety) :: 1.0.
+A0i5(eleven, ten) :: 1.0.
+A0i5(eleven, eleven) :: 1.0.
+A0i5(eleven, twelve) :: 1.0.
+A0i5(eleven, thirteen) :: 1.0.
+A0i5(eleven, fourteen) :: 1.0.
+A0i5(eleven, fifteen) :: 1.0.
+A0i5(eleven, sixteen) :: 1.0.
+A0i5(eleven, seventeen) :: 1.0.
+A0i5(eleven, nineteen) :: 1.0.
+A0i5(twelve, two) :: 1.0.
+A0i5(twelve, twenty) :: 1.0.
+A0i5(twelve, twelve) :: 1.0.
+A0i5(thirteen, two) :: 1.0.
+A0i5(thirteen, three) :: 1.0.
+A0i5(thirteen, twenty) :: 1.0.
+A0i5(thirteen, thirty) :: 1.0.
+A0i5(thirteen, twelve) :: 1.0.
+A0i5(thirteen, thirteen) :: 1.0.
+A0i5(fourteen, one) :: 1.0.
+A0i5(fourteen, two) :: 1.0.
+A0i5(fourteen, three) :: 1.0.
+A0i5(fourteen, six) :: 1.0.
+A0i5(fourteen, seven) :: 1.0.
+A0i5(fourteen, nine) :: 1.0.
+A0i5(fourteen, twenty) :: 1.0.
+A0i5(fourteen, thirty) :: 1.0.
+A0i5(fourteen, sixty) :: 1.0.
+A0i5(fourteen, seventy) :: 1.0.
+A0i5(fourteen, ninety) :: 1.0.
+A0i5(fourteen, ten) :: 1.0.
+A0i5(fourteen, twelve) :: 1.0.
+A0i5(fourteen, thirteen) :: 1.0.
+A0i5(fourteen, fourteen) :: 1.0.
+A0i5(fourteen, sixteen) :: 1.0.
+A0i5(fourteen, seventeen) :: 1.0.
+A0i5(fourteen, nineteen) :: 1.0.
+A0i5(fifteen, one) :: 1.0.
+A0i5(fifteen, two) :: 1.0.
+A0i5(fifteen, three) :: 1.0.
+A0i5(fifteen, four) :: 1.0.
+A0i5(fifteen, five) :: 1.0.
+A0i5(fifteen, six) :: 1.0.
+A0i5(fifteen, seven) :: 1.0.
+A0i5(fifteen, nine) :: 1.0.
+A0i5(fifteen, twenty) :: 1.0.
+A0i5(fifteen, thirty) :: 1.0.
+A0i5(fifteen, forty) :: 1.0.
+A0i5(fifteen, fifty) :: 1.0.
+A0i5(fifteen, sixty) :: 1.0.
+A0i5(fifteen, seventy) :: 1.0.
+A0i5(fifteen, ninety) :: 1.0.
+A0i5(fifteen, ten) :: 1.0.
+A0i5(fifteen, twelve) :: 1.0.
+A0i5(fifteen, thirteen) :: 1.0.
+A0i5(fifteen, fourteen) :: 1.0.
+A0i5(fifteen, fifteen) :: 1.0.
+A0i5(fifteen, sixteen) :: 1.0.
+A0i5(fifteen, seventeen) :: 1.0.
+A0i5(fifteen, nineteen) :: 1.0.
+A0i5(sixteen, two) :: 1.0.
+A0i5(sixteen, three) :: 1.0.
+A0i5(sixteen, twenty) :: 1.0.
+A0i5(sixteen, thirty) :: 1.0.
+A0i5(sixteen, sixty) :: 1.0.
+A0i5(sixteen, ten) :: 1.0.
+A0i5(sixteen, twelve) :: 1.0.
+A0i5(sixteen, thirteen) :: 1.0.
+A0i5(sixteen, sixteen) :: 1.0.
+A0i5(seventeen, two) :: 1.0.
+A0i5(seventeen, three) :: 1.0.
+A0i5(seventeen, six) :: 1.0.
+A0i5(seventeen, twenty) :: 1.0.
+A0i5(seventeen, thirty) :: 1.0.
+A0i5(seventeen, sixty) :: 1.0.
+A0i5(seventeen, seventy) :: 1.0.
+A0i5(seventeen, ten) :: 1.0.
+A0i5(seventeen, twelve) :: 1.0.
+A0i5(seventeen, thirteen) :: 1.0.
+A0i5(seventeen, sixteen) :: 1.0.
+A0i5(seventeen, seventeen) :: 1.0.
+A0i5(eighteen, one) :: 1.0.
+A0i5(eighteen, two) :: 1.0.
+A0i5(eighteen, three) :: 1.0.
+A0i5(eighteen, four) :: 1.0.
+A0i5(eighteen, five) :: 1.0.
+A0i5(eighteen, six) :: 1.0.
+A0i5(eighteen, seven) :: 1.0.
+A0i5(eighteen, nine) :: 1.0.
+A0i5(eighteen, twenty) :: 1.0.
+A0i5(eighteen, thirty) :: 1.0.
+A0i5(eighteen, forty) :: 1.0.
+A0i5(eighteen, fifty) :: 1.0.
+A0i5(eighteen, sixty) :: 1.0.
+A0i5(eighteen, seventy) :: 1.0.
+A0i5(eighteen, eighty) :: 1.0.
+A0i5(eighteen, ninety) :: 1.0.
+A0i5(eighteen, ten) :: 1.0.
+A0i5(eighteen, eleven) :: 1.0.
+A0i5(eighteen, twelve) :: 1.0.
+A0i5(eighteen, thirteen) :: 1.0.
+A0i5(eighteen, fourteen) :: 1.0.
+A0i5(eighteen, fifteen) :: 1.0.
+A0i5(eighteen, sixteen) :: 1.0.
+A0i5(eighteen, seventeen) :: 1.0.
+A0i5(eighteen, eighteen) :: 1.0.
+A0i5(eighteen, nineteen) :: 1.0.
+A0i5(nineteen, one) :: 1.0.
+A0i5(nineteen, two) :: 1.0.
+A0i5(nineteen, three) :: 1.0.
+A0i5(nineteen, six) :: 1.0.
+A0i5(nineteen, seven) :: 1.0.
+A0i5(nineteen, twenty) :: 1.0.
+A0i5(nineteen, thirty) :: 1.0.
+A0i5(nineteen, sixty) :: 1.0.
+A0i5(nineteen, seventy) :: 1.0.
+A0i5(nineteen, ninety) :: 1.0.
+A0i5(nineteen, ten) :: 1.0.
+A0i5(nineteen, twelve) :: 1.0.
+A0i5(nineteen, thirteen) :: 1.0.
+A0i5(nineteen, sixteen) :: 1.0.
+A0i5(nineteen, seventeen) :: 1.0.
+A0i5(nineteen, nineteen) :: 1.0.
+A0i5(before, one) :: 1.0.
+A0i5(before, two) :: 1.0.
+A0i5(before, three) :: 1.0.
+A0i5(before, four) :: 1.0.
+A0i5(before, five) :: 1.0.
+A0i5(before, six) :: 1.0.
+A0i5(before, seven) :: 1.0.
+A0i5(before, eight) :: 1.0.
+A0i5(before, nine) :: 1.0.
+A0i5(before, twenty) :: 1.0.
+A0i5(before, thirty) :: 1.0.
+A0i5(before, forty) :: 1.0.
+A0i5(before, fifty) :: 1.0.
+A0i5(before, sixty) :: 1.0.
+A0i5(before, seventy) :: 1.0.
+A0i5(before, eighty) :: 1.0.
+A0i5(before, ninety) :: 1.0.
+A0i5(before, ten) :: 1.0.
+A0i5(before, eleven) :: 1.0.
+A0i5(before, twelve) :: 1.0.
+A0i5(before, thirteen) :: 1.0.
+A0i5(before, fourteen) :: 1.0.
+A0i5(before, fifteen) :: 1.0.
+A0i5(before, sixteen) :: 1.0.
+A0i5(before, seventeen) :: 1.0.
+A0i5(before, eighteen) :: 1.0.
+A0i5(before, nineteen) :: 1.0.
+A0i5(before, before) :: 1.0.
+A0i5(before, comes) :: 1.0.
+A0i5(after, one) :: 1.0.
+A0i5(after, two) :: 1.0.
+A0i5(after, three) :: 1.0.
+A0i5(after, four) :: 1.0.
+A0i5(after, five) :: 1.0.
+A0i5(after, six) :: 1.0.
+A0i5(after, seven) :: 1.0.
+A0i5(after, eight) :: 1.0.
+A0i5(after, nine) :: 1.0.
+A0i5(after, twenty) :: 1.0.
+A0i5(after, thirty) :: 1.0.
+A0i5(after, forty) :: 1.0.
+A0i5(after, fifty) :: 1.0.
+A0i5(after, sixty) :: 1.0.
+A0i5(after, seventy) :: 1.0.
+A0i5(after, eighty) :: 1.0.
+A0i5(after, ninety) :: 1.0.
+A0i5(after, ten) :: 1.0.
+A0i5(after, eleven) :: 1.0.
+A0i5(after, twelve) :: 1.0.
+A0i5(after, thirteen) :: 1.0.
+A0i5(after, fourteen) :: 1.0.
+A0i5(after, fifteen) :: 1.0.
+A0i5(after, sixteen) :: 1.0.
+A0i5(after, seventeen) :: 1.0.
+A0i5(after, eighteen) :: 1.0.
+A0i5(after, nineteen) :: 1.0.
+A0i5(after, before) :: 1.0.
+A0i5(after, after) :: 1.0.
+A0i5(after, comes) :: 1.0.
+A0i5(comes, one) :: 1.0.
+A0i5(comes, two) :: 1.0.
+A0i5(comes, three) :: 1.0.
+A0i5(comes, four) :: 1.0.
+A0i5(comes, five) :: 1.0.
+A0i5(comes, six) :: 1.0.
+A0i5(comes, seven) :: 1.0.
+A0i5(comes, eight) :: 1.0.
+A0i5(comes, nine) :: 1.0.
+A0i5(comes, twenty) :: 1.0.
+A0i5(comes, thirty) :: 1.0.
+A0i5(comes, forty) :: 1.0.
+A0i5(comes, fifty) :: 1.0.
+A0i5(comes, sixty) :: 1.0.
+A0i5(comes, seventy) :: 1.0.
+A0i5(comes, eighty) :: 1.0.
+A0i5(comes, ninety) :: 1.0.
+A0i5(comes, ten) :: 1.0.
+A0i5(comes, eleven) :: 1.0.
+A0i5(comes, twelve) :: 1.0.
+A0i5(comes, thirteen) :: 1.0.
+A0i5(comes, fourteen) :: 1.0.
+A0i5(comes, fifteen) :: 1.0.
+A0i5(comes, sixteen) :: 1.0.
+A0i5(comes, seventeen) :: 1.0.
+A0i5(comes, eighteen) :: 1.0.
+A0i5(comes, nineteen) :: 1.0.
+A0i5(comes, comes) :: 1.0.
+A0i1(one, null) :: 1.0.
+A0i1(two, null) :: 1.0.
+A0i1(three, null) :: 1.0.
+A0i1(four, null) :: 1.0.
+A0i1(five, null) :: 1.0.
+A0i1(six, null) :: 1.0.
+A0i1(seven, null) :: 1.0.
+A0i1(eight, null) :: 1.0.
+A0i1(nine, null) :: 1.0.
+A0i1(twenty, null) :: 1.0.
+A0i1(thirty, null) :: 1.0.
+A0i1(forty, null) :: 1.0.
+A0i1(fifty, null) :: 1.0.
+A0i1(sixty, null) :: 1.0.
+A0i1(seventy, null) :: 1.0.
+A0i1(eighty, null) :: 1.0.
+A0i1(ninety, null) :: 1.0.
+A0i1(ten, null) :: 1.0.
+A0i1(eleven, null) :: 1.0.
+A0i1(twelve, null) :: 1.0.
+A0i1(thirteen, null) :: 1.0.
+A0i1(fourteen, null) :: 1.0.
+A0i1(fifteen, null) :: 1.0.
+A0i1(sixteen, null) :: 1.0.
+A0i1(seventeen, null) :: 1.0.
+A0i1(eighteen, null) :: 1.0.
+A0i1(nineteen, null) :: 1.0.
+A0i1(before, null) :: 1.0.
+A0i1(after, null) :: 1.0.
+A0i1(comes, null) :: 1.0.
+A0i2(one, null) :: 1.0.
+A0i2(two, null) :: 1.0.
+A0i2(three, null) :: 1.0.
+A0i2(four, null) :: 1.0.
+A0i2(five, null) :: 1.0.
+A0i2(six, null) :: 1.0.
+A0i2(seven, null) :: 1.0.
+A0i2(eight, null) :: 1.0.
+A0i2(nine, null) :: 1.0.
+A0i2(twenty, null) :: 1.0.
+A0i2(thirty, null) :: 1.0.
+A0i2(forty, null) :: 1.0.
+A0i2(fifty, null) :: 1.0.
+A0i2(sixty, null) :: 1.0.
+A0i2(seventy, null) :: 1.0.
+A0i2(eighty, null) :: 1.0.
+A0i2(ninety, null) :: 1.0.
+A0i2(ten, null) :: 1.0.
+A0i2(eleven, null) :: 1.0.
+A0i2(twelve, null) :: 1.0.
+A0i2(thirteen, null) :: 1.0.
+A0i2(fourteen, null) :: 1.0.
+A0i2(fifteen, null) :: 1.0.
+A0i2(sixteen, null) :: 1.0.
+A0i2(seventeen, null) :: 1.0.
+A0i2(eighteen, null) :: 1.0.
+A0i2(nineteen, null) :: 1.0.
+A0i2(before, null) :: 1.0.
+A0i2(after, null) :: 1.0.
+A0i2(comes, null) :: 1.0.
+A0i3(one, null) :: 1.0.
+A0i3(two, null) :: 1.0.
+A0i3(three, null) :: 1.0.
+A0i3(four, null) :: 1.0.
+A0i3(five, null) :: 1.0.
+A0i3(six, null) :: 1.0.
+A0i3(seven, null) :: 1.0.
+A0i3(eight, null) :: 1.0.
+A0i3(nine, null) :: 1.0.
+A0i3(twenty, null) :: 1.0.
+A0i3(thirty, null) :: 1.0.
+A0i3(forty, null) :: 1.0.
+A0i3(fifty, null) :: 1.0.
+A0i3(sixty, null) :: 1.0.
+A0i3(seventy, null) :: 1.0.
+A0i3(eighty, null) :: 1.0.
+A0i3(ninety, null) :: 1.0.
+A0i3(ten, null) :: 1.0.
+A0i3(eleven, null) :: 1.0.
+A0i3(twelve, null) :: 1.0.
+A0i3(thirteen, null) :: 1.0.
+A0i3(fourteen, null) :: 1.0.
+A0i3(fifteen, null) :: 1.0.
+A0i3(sixteen, null) :: 1.0.
+A0i3(seventeen, null) :: 1.0.
+A0i3(eighteen, null) :: 1.0.
+A0i3(nineteen, null) :: 1.0.
+A0i3(before, null) :: 1.0.
+A0i3(after, null) :: 1.0.
+A0i3(comes, null) :: 1.0.
+A0i4(one, null) :: 1.0.
+A0i4(two, null) :: 1.0.
+A0i4(three, null) :: 1.0.
+A0i4(four, null) :: 1.0.
+A0i4(five, null) :: 1.0.
+A0i4(six, null) :: 1.0.
+A0i4(seven, null) :: 1.0.
+A0i4(eight, null) :: 1.0.
+A0i4(nine, null) :: 1.0.
+A0i4(twenty, null) :: 1.0.
+A0i4(thirty, null) :: 1.0.
+A0i4(forty, null) :: 1.0.
+A0i4(fifty, null) :: 1.0.
+A0i4(sixty, null) :: 1.0.
+A0i4(seventy, null) :: 1.0.
+A0i4(eighty, null) :: 1.0.
+A0i4(ninety, null) :: 1.0.
+A0i4(ten, null) :: 1.0.
+A0i4(eleven, null) :: 1.0.
+A0i4(twelve, null) :: 1.0.
+A0i4(thirteen, null) :: 1.0.
+A0i4(fourteen, null) :: 1.0.
+A0i4(fifteen, null) :: 1.0.
+A0i4(sixteen, null) :: 1.0.
+A0i4(seventeen, null) :: 1.0.
+A0i4(eighteen, null) :: 1.0.
+A0i4(nineteen, null) :: 1.0.
+A0i4(before, null) :: 1.0.
+A0i4(after, null) :: 1.0.
+A0i4(comes, null) :: 1.0.
+A0i5(one, null) :: 1.0.
+A0i5(two, null) :: 1.0.
+A0i5(three, null) :: 1.0.
+A0i5(four, null) :: 1.0.
+A0i5(five, null) :: 1.0.
+A0i5(six, null) :: 1.0.
+A0i5(seven, null) :: 1.0.
+A0i5(eight, null) :: 1.0.
+A0i5(nine, null) :: 1.0.
+A0i5(twenty, null) :: 1.0.
+A0i5(thirty, null) :: 1.0.
+A0i5(forty, null) :: 1.0.
+A0i5(fifty, null) :: 1.0.
+A0i5(sixty, null) :: 1.0.
+A0i5(seventy, null) :: 1.0.
+A0i5(eighty, null) :: 1.0.
+A0i5(ninety, null) :: 1.0.
+A0i5(ten, null) :: 1.0.
+A0i5(eleven, null) :: 1.0.
+A0i5(twelve, null) :: 1.0.
+A0i5(thirteen, null) :: 1.0.
+A0i5(fourteen, null) :: 1.0.
+A0i5(fifteen, null) :: 1.0.
+A0i5(sixteen, null) :: 1.0.
+A0i5(seventeen, null) :: 1.0.
+A0i5(eighteen, null) :: 1.0.
+A0i5(nineteen, null) :: 1.0.
+A0i5(before, null) :: 1.0.
+A0i5(after, null) :: 1.0.
+A0i5(comes, null) :: 1.0.
+A0i1(null, one) :: 1.0.
+A0i1(null, two) :: 1.0.
+A0i1(null, three) :: 1.0.
+A0i1(null, four) :: 1.0.
+A0i1(null, five) :: 1.0.
+A0i1(null, six) :: 1.0.
+A0i1(null, seven) :: 1.0.
+A0i1(null, eight) :: 1.0.
+A0i1(null, nine) :: 1.0.
+A0i1(null, twenty) :: 1.0.
+A0i1(null, thirty) :: 1.0.
+A0i1(null, forty) :: 1.0.
+A0i1(null, fifty) :: 1.0.
+A0i1(null, sixty) :: 1.0.
+A0i1(null, seventy) :: 1.0.
+A0i1(null, eighty) :: 1.0.
+A0i1(null, ninety) :: 1.0.
+A0i1(null, ten) :: 1.0.
+A0i1(null, eleven) :: 1.0.
+A0i1(null, twelve) :: 1.0.
+A0i1(null, thirteen) :: 1.0.
+A0i1(null, fourteen) :: 1.0.
+A0i1(null, fifteen) :: 1.0.
+A0i1(null, sixteen) :: 1.0.
+A0i1(null, seventeen) :: 1.0.
+A0i1(null, eighteen) :: 1.0.
+A0i1(null, nineteen) :: 1.0.
+A0i1(null, before) :: 1.0.
+A0i1(null, after) :: 1.0.
+A0i1(null, comes) :: 1.0.
+A0i2(null, one) :: 1.0.
+A0i2(null, two) :: 1.0.
+A0i2(null, three) :: 1.0.
+A0i2(null, four) :: 1.0.
+A0i2(null, five) :: 1.0.
+A0i2(null, six) :: 1.0.
+A0i2(null, seven) :: 1.0.
+A0i2(null, eight) :: 1.0.
+A0i2(null, nine) :: 1.0.
+A0i2(null, twenty) :: 1.0.
+A0i2(null, thirty) :: 1.0.
+A0i2(null, forty) :: 1.0.
+A0i2(null, fifty) :: 1.0.
+A0i2(null, sixty) :: 1.0.
+A0i2(null, seventy) :: 1.0.
+A0i2(null, eighty) :: 1.0.
+A0i2(null, ninety) :: 1.0.
+A0i2(null, ten) :: 1.0.
+A0i2(null, eleven) :: 1.0.
+A0i2(null, twelve) :: 1.0.
+A0i2(null, thirteen) :: 1.0.
+A0i2(null, fourteen) :: 1.0.
+A0i2(null, fifteen) :: 1.0.
+A0i2(null, sixteen) :: 1.0.
+A0i2(null, seventeen) :: 1.0.
+A0i2(null, eighteen) :: 1.0.
+A0i2(null, nineteen) :: 1.0.
+A0i2(null, before) :: 1.0.
+A0i2(null, after) :: 1.0.
+A0i2(null, comes) :: 1.0.
+A0i3(null, one) :: 1.0.
+A0i3(null, two) :: 1.0.
+A0i3(null, three) :: 1.0.
+A0i3(null, four) :: 1.0.
+A0i3(null, five) :: 1.0.
+A0i3(null, six) :: 1.0.
+A0i3(null, seven) :: 1.0.
+A0i3(null, eight) :: 1.0.
+A0i3(null, nine) :: 1.0.
+A0i3(null, twenty) :: 1.0.
+A0i3(null, thirty) :: 1.0.
+A0i3(null, forty) :: 1.0.
+A0i3(null, fifty) :: 1.0.
+A0i3(null, sixty) :: 1.0.
+A0i3(null, seventy) :: 1.0.
+A0i3(null, eighty) :: 1.0.
+A0i3(null, ninety) :: 1.0.
+A0i3(null, ten) :: 1.0.
+A0i3(null, eleven) :: 1.0.
+A0i3(null, twelve) :: 1.0.
+A0i3(null, thirteen) :: 1.0.
+A0i3(null, fourteen) :: 1.0.
+A0i3(null, fifteen) :: 1.0.
+A0i3(null, sixteen) :: 1.0.
+A0i3(null, seventeen) :: 1.0.
+A0i3(null, eighteen) :: 1.0.
+A0i3(null, nineteen) :: 1.0.
+A0i3(null, before) :: 1.0.
+A0i3(null, after) :: 1.0.
+A0i3(null, comes) :: 1.0.
+A0i4(null, one) :: 1.0.
+A0i4(null, two) :: 1.0.
+A0i4(null, three) :: 1.0.
+A0i4(null, four) :: 1.0.
+A0i4(null, five) :: 1.0.
+A0i4(null, six) :: 1.0.
+A0i4(null, seven) :: 1.0.
+A0i4(null, eight) :: 1.0.
+A0i4(null, nine) :: 1.0.
+A0i4(null, twenty) :: 1.0.
+A0i4(null, thirty) :: 1.0.
+A0i4(null, forty) :: 1.0.
+A0i4(null, fifty) :: 1.0.
+A0i4(null, sixty) :: 1.0.
+A0i4(null, seventy) :: 1.0.
+A0i4(null, eighty) :: 1.0.
+A0i4(null, ninety) :: 1.0.
+A0i4(null, ten) :: 1.0.
+A0i4(null, eleven) :: 1.0.
+A0i4(null, twelve) :: 1.0.
+A0i4(null, thirteen) :: 1.0.
+A0i4(null, fourteen) :: 1.0.
+A0i4(null, fifteen) :: 1.0.
+A0i4(null, sixteen) :: 1.0.
+A0i4(null, seventeen) :: 1.0.
+A0i4(null, eighteen) :: 1.0.
+A0i4(null, nineteen) :: 1.0.
+A0i4(null, before) :: 1.0.
+A0i4(null, after) :: 1.0.
+A0i4(null, comes) :: 1.0.
+A0i5(null, one) :: 1.0.
+A0i5(null, two) :: 1.0.
+A0i5(null, three) :: 1.0.
+A0i5(null, four) :: 1.0.
+A0i5(null, five) :: 1.0.
+A0i5(null, six) :: 1.0.
+A0i5(null, seven) :: 1.0.
+A0i5(null, eight) :: 1.0.
+A0i5(null, nine) :: 1.0.
+A0i5(null, twenty) :: 1.0.
+A0i5(null, thirty) :: 1.0.
+A0i5(null, forty) :: 1.0.
+A0i5(null, fifty) :: 1.0.
+A0i5(null, sixty) :: 1.0.
+A0i5(null, seventy) :: 1.0.
+A0i5(null, eighty) :: 1.0.
+A0i5(null, ninety) :: 1.0.
+A0i5(null, ten) :: 1.0.
+A0i5(null, eleven) :: 1.0.
+A0i5(null, twelve) :: 1.0.
+A0i5(null, thirteen) :: 1.0.
+A0i5(null, fourteen) :: 1.0.
+A0i5(null, fifteen) :: 1.0.
+A0i5(null, sixteen) :: 1.0.
+A0i5(null, seventeen) :: 1.0.
+A0i5(null, eighteen) :: 1.0.
+A0i5(null, nineteen) :: 1.0.
+A0i5(null, before) :: 1.0.
+A0i5(null, after) :: 1.0.
+A0i5(null, comes) :: 1.0.
+S(X Y) <-- A5i1(X, Y) :: 1.0.
