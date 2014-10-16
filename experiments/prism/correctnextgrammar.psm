@@ -7,9 +7,7 @@ show_num(X) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Number_1'-[X])).
 
 show_next(X,Y) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Next_2'-[X,Y])).
 
-acyclic([A,B],[C,D]) :- true. 
-%% write(acyclic([A, B], [C, D])), nl, 
-                     %% length(A,AL), length(C,CL), length(B,BL), length(D,DL), X is CL + DL, Y is AL + BL, Y < X.
+
 
 srs(P-IN) :- ??* reduce(P-IN,V), msw(P,V).
 
@@ -31,8 +29,18 @@ values('Number_1',[1]).
 :- set_sw('NextSentence_1',[1.0]).
 :- set_sw('Number_1',[1.0]).
 
-reduce('A2_2'-[A2,B2],1) :- (var(A2), var(B2) -> srs('A3_2'-[X,Y]), srs('A4_2'-[U,V]), acyclic([X,Y],[A2,B2]), acyclic([U,V],[A2,B2]), append(X,Y,A2), append(U,V,B2); append(X,Y,A2), append(U,V,B2), acyclic([X,Y],[A2,B2]), acyclic([U,V],[A2,B2]), srs('A3_2'-[X,Y]), srs('A4_2'-[U,V])).
-reduce('A3_2'-[A2,B2],1) :- (var(A2), var(B2) -> srs('A5_2'-[X,U]), srs('A6_2'-[Y,V]), acyclic([X,U],[A2,B2]), acyclic([Y,V],[A2,B2]), append(X,Y,A2), append(U,V,B2); append(X,Y,A2), append(U,V,B2), acyclic([X,U],[A2,B2]), acyclic([Y,V],[A2,B2]), srs('A5_2'-[X,U]), srs('A6_2'-[Y,V])).
+reduce('A2_2'-[A2,B2],1) :- 
+    (ground(A2) -> append(X, Y, A2)), 
+    (ground(B2) -> append(U, V, B2)), 
+    srs('A3_2'-[X,Y]), srs('A4_2'-[U,V]),
+    (var(A2) -> append(X, Y, A2)), 
+    (var(B2) -> append(U, V, B2)).
+reduce('A3_2'-[A2,B2],1) :- 
+    (ground(A2) -> append(X, Y, A2) ; true), 
+    (ground(B2) -> append(U, V, B2) ; true), 
+    srs('A5_2'-[X,U]), srs('A6_2'-[Y,V]), 
+    (var(A2) -> append(X, Y, A2) ; true), 
+    (var(B2) -> append(U, V, B2) ; true).
 reduce('A4_2'-[[],[]],1).
 reduce('A5_2'-[[twenty],[twenty]],1).
 reduce('A5_2'-[[thirty],[thirty]],2).
@@ -40,6 +48,28 @@ reduce('A5_2'-[[forty],[forty]],3).
 reduce('A6_2'-[[one],[two]],1).
 reduce('A6_2'-[[two],[three]],2).
 reduce('A6_2'-[[three],[four]],3).
-reduce('Next_2'-[X,Y],1) :- srs('A2_2'-[X,Y]).
+reduce('Next_2'-[X,Y],1) :- srs('A3_2'-[X,Y]).
 reduce('NextSentence_1'-[X],1) :- srs('A2_2'-[X,[]]).
 reduce('Number_1'-[X],1) :- srs('A1_2'-[X,X]).
+
+
+
+%% appendAR
+%% appendAR(X, Y, Z), var(Z), {ins(Z)} => append(X, Y, Z).
+%% freezeM(X,Goal),var(X),{ins(X)} => true.
+%% freezeM(X,Goal) => (call(Goal); freeze(X, Goal).
+
+appendAR(X, Y, Z) :- append(X, Y, Z).
+
+%% go(A2, B2, X, Y, U, V) :- (var(X); var(Y)), ground(A2),  !, append(X, Y, A2), go(A2, B2, X, Y, U, V).
+%% go(A2, B2, X, Y, U, V) :- (var(U); var(V)), ground(B2),  !, append(U, V, B2), go(A2, B2, X, Y, U, V).
+%% go(A2, B2, X, Y, U, V) :- ground(X), ground(Y), var(A2), !, append(X, Y, A2), go(A2, B2, X, Y, U, V).
+%% go(A2, B2, X, Y, U, V) :- ground(U), ground(V), var(B2), !, append(X, Y, A2), go(A2, B2, X, Y, U, V).
+%% go(A2, B2, X, Y, U, V) :- (var(X); var(Y)), var(A2),     !, srs(X, Y), go(A2, B2, X, Y, U, V).
+%% go(A2, B2, X, Y, U, V) :- (var(U); var(V)), var(B2),     !, srs(U, V), go(A2, B2, X, Y, U, V).
+
+%% if A2 is not a variable then get X and Y, 
+%% if B2 is not a variable then get U and V
+%% do srs(X, Y) and srs(U, V)
+%% if A2 is a variable then get A2
+%% if B2 is a variable then get B2
