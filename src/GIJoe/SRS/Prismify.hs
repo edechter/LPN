@@ -106,8 +106,8 @@ makeReduction (i,(h :<-: bs)) =
     rhsTerms | null appendVars = []
              | otherwise = groundConditionals ++ [srsTerms] ++ varConditionals
     arity = predArity . cTermPredicate $ h
-    groundConditionals = take arity ["(ground(A2) -> append(X, Y, A2) ; true)",
-                                                   "(ground(B2) -> append(U, V, B2) ; true)"]
+    groundConditionals = take arity ["(var(A2) -> true; append(X, Y, A2))",
+                                                   "(var(B2) -> true; append(U, V, B2) )"]
     varConditionals = take arity ["(var(A2) -> append(X, Y, A2) ; true)",
                                 "(var(B2) -> append(U, V, B2) ; true)"]
                       
