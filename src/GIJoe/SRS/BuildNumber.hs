@@ -82,7 +82,7 @@ buildGrammar :: Int -- ^ number of hidden predicates
              -> IO ()
 buildGrammar n lexicon observed outpath = do
   writeFile outpath $ show rs
-  writeFile (outpath ++ ".psm") $ "srs(P-IN) :- reduce(P-IN,V), msw(P,V).\n\n" ++ prismClauses rs
+  writeFile (outpath ++ ".psm") $ prismClauses rs
   where rs = fromRight $ parseSystem "buildGrammar" $ systemString
         fromRight (Right x) = x
         fromRight (Left err) = error $ show err
@@ -193,6 +193,8 @@ mkTrainTestDataFile path specs = do
 numberExamples = [[x] | x <- numberLists]
 nextExamples = [[a, b] | (a, b) <- zip (init numberLists) (tail numberLists)]
 nextDecades = [[[a], [b]] | (a, b) <- zip (init tens) (tail tens)]
+
+
 
 -- Example: to generate file of 90% of the numbers and 20% of the nexts as training:
 --  mkTrainTestDataFile <path>

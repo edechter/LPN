@@ -80,7 +80,11 @@ body slcfrs =
 
 makeSwitch :: [WeightedRule] -> String
 makeSwitch rs =
-    "values(" ++ weightedRuleName (head rs) ++ "," ++ show [1..(length rs)] ++ ")."
+  let n = weightedRuleName (head rs)
+      n_values = init n ++ "_values'"
+  in unlines [":- dynamic " ++ n_values ++ "/1.",
+              "values(" ++ n ++ ", Vs) :- " ++ n_values ++ "(Vs).",
+              n_values++"(" ++ show [1..(length rs)] ++ ")."]
 
 makeProbs :: [WeightedRule] -> String
 makeProbs rs =

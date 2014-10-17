@@ -4,7 +4,7 @@
 :- cl('analyzeNumber.psm'). 
 
 :- restore_sw_a(switches_a_last).
-:- [trainTestSentencesPlusDecades_100].
+%% :- [trainTestSentencesPlusDecades_100].
 
 prism_main([I]):- 
     parse_atom(I, N), 
