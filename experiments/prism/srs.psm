@@ -5,7 +5,7 @@
 :- cl('./trainTestNextAndBeforeWODecades_50').
 
 %% load rewrite system
-:- prism('beforeAndAfter_2.sys.psm').
+:- prism('beforeAndAfter_3.sys.psm').
 
 :- set_prism_flag(max_iterate, 50).
 :- set_prism_flag(restart,1). 
