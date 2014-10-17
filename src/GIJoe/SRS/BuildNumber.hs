@@ -11,6 +11,19 @@ import GIJoe.SRS.Parse
 import GIJoe.SRS.Prismify
 import Data.Text (pack)
 
+writeGrammar :: FilePath -> [String] -> IO ()
+writeGrammar outpath g = writeFile outpath $ unlines g
+
+-- copy language
+copyGrammar :: [String]
+copyGrammar = 
+    [ "A(a,a)."
+    , "A(b,b)."
+    , "A(X a, Y a) <-- A(X,Y)."
+    , "A(X b, Y b) <-- A(X,Y)."]
+
+-- Number Grammar
+
 -- while we don't need every rule
 -- for all A,B,C
 -- A(X,Y) <- B(Y,X).          # #4# flip
@@ -47,58 +60,28 @@ import Data.Text (pack)
 -- Number(X) <-- A_1(X,Y).
 -- Next(X) <-- A_2(X,Y).
 
-grammarOfNumber2 :: Int -> FilePath -> IO ()
-grammarOfNumber2 n outpath = do
-  let lexicon = ones ++ teens ++ tens ++ ["after", "comes"]
-  let reorderRules = ["A" ++ show i ++ "(X Y, U V) <-- A" ++ show j ++ "(" ++ (ls !! 0) ++ "," ++ (ls !! 1) ++ "), A" ++ show k ++ "(" ++ (ls !! 2) ++ "," ++ (ls !! 3) ++ ")." | i <- [1..n], j <- [1..n], k <- [1..n], ls <- (permutations ["X","Y","U","V"]), j < k]
-  let reorderRulesEqual = ["A" ++ show i ++ "(X Y, U V) <-- A" ++ show j ++ "(" ++ (ls !! 0) ++ "," ++ (ls !! 1) ++ "), A" ++ show j ++ "(" ++ (ls !! 2) ++ "," ++ (ls !! 3) ++ ")." | i <- [1..n], j <- [1..n], ls <- ((map (\x -> "X":x) (permutations ["Y","U","V"])) ++ (map (\y -> "Y":y) (permutations ["X","U","V"])))]
-  let binaryRelationRules = ["A" ++ show i ++ "(" ++ (lexicon !! w1) ++ "," ++ (lexicon !! w2) ++ ")." | i <- [1..n], w1 <- [0..((length lexicon) - 1)] , w2 <- [0..((length lexicon) - 1)], w1 <= w2]
-  let unaryRelationRules = ["A" ++ show i ++ "(" ++ (lexicon !! w1) ++ ",null)." | i <- [1..n], w1 <- [0..((length lexicon) - 1)] ]
-  let numberRule = ["Number(X,Y) <-- A1(X,Y)."]
-  let nextRule = ["Next(X,Y) <-- A2(X,Y)."]      
-  writeFile outpath $ unlines $ reorderRules ++ reorderRulesEqual ++ binaryRelationRules ++ unaryRelationRules ++ numberRule ++ nextRule
-
-buildGrammar :: Int -- ^ number of hidden predicates
-             -> [String] -- ^ lexicon
-             -> [String] -- ^ list of observed unary predicates
-             -> FilePath
-             -> IO ()
-buildGrammar n lexicon observed outpath = do
-  writeFile outpath $ show rs
-  writeFile (outpath ++ ".psm") $ "srs(P-IN) :- reduce(P-IN,V), msw(P,V).\n\n" ++ prismClauses rs
-  where rs = fromRight $ parseSystem "buildGrammar" $ systemString
-        fromRight (Right x) = x
-        fromRight (Left err) = error $ show err
-        systemString = unlines $ 
-                       (concat [rules i j k | i <- [1..n], j <-[1..n], k <- [j..n]])++
-                       [ruleLex i w v | i <- [1..n],
-                        (wi, w) <- zip [0..] lexicon,
-                        (vi, v) <- zip [0..] lexicon,
-                        vi >= wi] ++ 
-                       [ruleLex i w "null" | i <- [1..n], w <- lexicon] ++ 
-                       [ruleLex i "null" w | i <- [1..n], w <- lexicon] ++
-                       [pred ++ "(X Y) <-- A" ++ show i ++ "(X, Y)." | (pred, i) <- zip observed [1..]]
-        rules i j k | j /= k  = do
-          [v1, v2, v3, v4] <- permutations ["X", "Y", "U", "V"]
-          return $ "A" ++ show i ++ "(X Y, U V) <-- " ++
-            "A" ++ show j ++ "(" ++ v1 ++ ", " ++ v2 ++ "), " ++
-            "A" ++ show k ++ "(" ++ v3 ++ ", " ++ v4 ++ ")."
-        rules i j k | j == k  = do
-          [v1, v2, v3, v4] <- permutations ["X", "Y", "U", "V"]
-          guard $ (v1, v2) <= (v3, v4)
-          return $ "A" ++ show i ++ "(X Y, U V) <-- " ++
-            "A" ++ show j ++ "(" ++ v1 ++ ", " ++ v2 ++ "), " ++
-            "A" ++ show k ++ "(" ++ v3 ++ ", " ++ v4 ++ ")."
-        -- rule2 i j k =   "A" ++ show i ++ "(X Y, Z) <-- " ++
-        --                 "A" ++ show j ++ "(Z, X), " ++
-        --                 "A" ++ show k ++ "(Z, Y)." 
-        -- rule3 i j k =   "A" ++ show i ++ "(X Y, Z) <-- " ++
-        --                 "A" ++ show j ++ "(X, Y), " ++
-        --                 "A" ++ show k ++ "(Z, Z)."
-        -- rule4 i j k =   "A" ++ show i ++ "(X Y, Z) <-- " ++
-        --                 "A" ++ show j ++ "(Y, X), " ++
-        --                 "A" ++ show k ++ "(Z, Z)."
-        ruleLex i w v = "A" ++ show i ++ "(" ++ w ++", " ++ v ++ ")."
+numberGrammar :: Int -> [String]
+numberGrammar n =
+    reorderRules ++ reorderRulesEqual ++ binaryRelationRules ++ unaryRelationRules ++ numberRule ++ nextRule
+  where
+    lexicon = ones ++ teens ++ tens ++ ["after", "comes"]
+    reorderRules = ["A" ++ show i ++ "(X Y, U V) <-- A" ++ show j ++ "(" ++
+                    (ls !! 0) ++ "," ++ (ls !! 1) ++ "), A" ++ show k ++
+                    "(" ++ (ls !! 2) ++ "," ++ (ls !! 3) ++ ")." |
+                    i <- [1..n], j <- [1..n], k <- [1..n],
+                    ls <- (permutations ["X","Y","U","V"]), j < k]
+    reorderRulesEqual = ["A" ++ show i ++ "(X Y, U V) <-- A" ++ show j ++ "(" ++
+                         (ls !! 0) ++ "," ++ (ls !! 1) ++ "), A" ++ show j ++
+                         "(" ++ (ls !! 2) ++ "," ++ (ls !! 3) ++ ")." |
+                         i <- [1..n], j <- [1..n], ls <- ((map (\x -> "X":x) (permutations ["Y","U","V"])) ++ (map (\y -> "Y":y) (permutations ["X","U","V"])))]
+    binaryRelationRules = ["A" ++ show i ++ "(" ++ (lexicon !! w1) ++ "," ++
+                           (lexicon !! w2) ++ ")." | i <- [1..n],
+                           w1 <- [0..((length lexicon) - 1)],
+                           w2 <- [0..((length lexicon) - 1)], w1 <= w2]
+    unaryRelationRules = ["A" ++ show i ++ "(" ++ (lexicon !! w1) ++ ",null)." |
+                          i <- [1..n], w1 <- [0..((length lexicon) - 1)] ]
+    numberRule = ["Number(X,Y) <-- A1(X,Y)."]
+    nextRule = ["Next(X,Y) <-- A2(X,Y)."]      
 
 numberLists :: [[String]]
 numberLists = first19 ++ theRest
@@ -112,6 +95,8 @@ showCleanList xs = "[" ++ intercalate "," xs ++ "]"
 ones = ["one","two","three","four","five","six","seven","eight","nine"]
 tens = ["twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"]
 teens = ["ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"]
+
+-- preparing training data
 
 trainTestSplit :: (MonadRandom m)
                   => Double -- ^ percent of examples to be used for training
@@ -129,7 +114,8 @@ trainTestDataToPrism :: String -- ^ predicate name
                      -> [Example] -- ^ test
                      -> String
 trainTestDataToPrism pred train test = unlines [trainString, testString]
-  where wrapSrs x = "srs('" ++ pred ++ "'-[" ++ intercalate ", " (map showCleanList x) ++ "])"
+  where wrapSrs x = "srs('" ++ pred ++ "_" ++ show (length x) ++ "'-[" ++
+                    intercalate ", " (map showCleanList x) ++ "])"
         trainString = unlines [ "train(" ++ wrapSrs t ++ ")." | t <- train]
         testString = unlines [ "test(" ++ wrapSrs t ++ ")." | t <- test]        
 
@@ -156,9 +142,12 @@ mkTrainTestDataFile path specs = do
 numberExamples = [[x,[""]] | x <- numberLists]
 nextExamples = [[a, b] | (a, b) <- zip (init numberLists) (tail numberLists)]
 nextDecades = [[[a], [b]] | (a, b) <- zip (init tens) (tail tens)]
-beforeSentences = [[["before"] ++ b ++ ["comes"] ++ a] | [a,b] <- nextExamples]
+prevSentences = [[["before"] ++ b ++ ["comes"] ++ a] | [a,b] <- nextExamples]
 nextSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextExamples]
+prevDecadeSentences = [[["before"] ++ b ++ ["comes"] ++ a] | [a,b] <- nextDecades]
 nextDecadeSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextDecades]
+
+-- predicate networks
 
 predicateNetwork :: [String] -- ^ lexicon
                  -> Int -- ^ R: number of categories 
@@ -236,3 +225,47 @@ mkShuffleRule3 level i j k =
   "A" ++ show (level-1) ++ "p" ++ show k ++ "(Y, U)." 
   where fromRight (Right r) = r
         fromRight (Left e) = error $ show e
+
+-- alternative grammar structure
+
+buildGrammar :: Int -- ^ number of hidden predicates
+             -> [String] -- ^ lexicon
+             -> [String] -- ^ list of observed unary predicates
+             -> FilePath
+             -> IO ()
+buildGrammar n lexicon observed outpath = do
+  writeFile outpath $ show rs
+  writeFile (outpath ++ ".psm") $ "srs(P-IN) :- reduce(P-IN,V), msw(P,V).\n\n" ++ prismClauses rs
+  where rs = fromRight $ parseSystem "buildGrammar" $ systemString
+        fromRight (Right x) = x
+        fromRight (Left err) = error $ show err
+        systemString = unlines $ 
+                       (concat [rules i j k | i <- [1..n], j <-[1..n], k <- [j..n]])++
+                       [ruleLex i w v | i <- [1..n],
+                        (wi, w) <- zip [0..] lexicon,
+                        (vi, v) <- zip [0..] lexicon,
+                        vi >= wi] ++ 
+                       [ruleLex i w "null" | i <- [1..n], w <- lexicon] ++ 
+                       [ruleLex i "null" w | i <- [1..n], w <- lexicon] ++
+                       [pred ++ "(X Y) <-- A" ++ show i ++ "(X, Y)." | (pred, i) <- zip observed [1..]]
+        rules i j k | j /= k  = do
+          [v1, v2, v3, v4] <- permutations ["X", "Y", "U", "V"]
+          return $ "A" ++ show i ++ "(X Y, U V) <-- " ++
+            "A" ++ show j ++ "(" ++ v1 ++ ", " ++ v2 ++ "), " ++
+            "A" ++ show k ++ "(" ++ v3 ++ ", " ++ v4 ++ ")."
+        rules i j k | j == k  = do
+          [v1, v2, v3, v4] <- permutations ["X", "Y", "U", "V"]
+          guard $ (v1, v2) <= (v3, v4)
+          return $ "A" ++ show i ++ "(X Y, U V) <-- " ++
+            "A" ++ show j ++ "(" ++ v1 ++ ", " ++ v2 ++ "), " ++
+            "A" ++ show k ++ "(" ++ v3 ++ ", " ++ v4 ++ ")."
+        -- rule2 i j k =   "A" ++ show i ++ "(X Y, Z) <-- " ++
+        --                 "A" ++ show j ++ "(Z, X), " ++
+        --                 "A" ++ show k ++ "(Z, Y)." 
+        -- rule3 i j k =   "A" ++ show i ++ "(X Y, Z) <-- " ++
+        --                 "A" ++ show j ++ "(X, Y), " ++
+        --                 "A" ++ show k ++ "(Z, Z)."
+        -- rule4 i j k =   "A" ++ show i ++ "(X Y, Z) <-- " ++
+        --                 "A" ++ show j ++ "(Y, X), " ++
+        --                 "A" ++ show k ++ "(Z, Z)."
+        ruleLex i w v = "A" ++ show i ++ "(" ++ w ++", " ++ v ++ ")."

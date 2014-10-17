@@ -1,8 +1,10 @@
 \documentclass{article}
 
 \usepackage{amsmath}
-\title{The Latent Constructive Rewrite Model \\ or \\ The Latent Conceptual Grammar Model}
-or Latent Predicate Networks: Concept Learning with Probabilistic Context-Sensitive Grammars
+\usepackage{listings}
+\usepackage{anyfontsize}
+\usepackage{subcaption}
+\title{Latent Predicate Networks: Concept Learning with Probabilistic Context-Sensitive Grammars}
 \author{Eyal Dechter \& Josh Rule \& Josh Tenenbaum}
 
 \begin{document}
@@ -54,10 +56,6 @@ data.
 \section{Abstract 2}
 What does it mean to understand a concept, and how do people come to
 such an understanding.
-
-\section{Abstract 3}
-
-
 
 \section{Introduction}
 The vast majority of the models of concept acquisition that have been
@@ -137,7 +135,11 @@ Contribution:
 \end{itemize}
 
 \subsection{Related Work}
-This work borrows heavily 
+Our core inference algorithm borrows heavily from recent algorithms for nonparametric PCFG induction, as well as work extending that algorithm to SLPs (CITATION Johnson; Liang; Cussens, 2001). Like Johnson and Liang, we are interested in inferring the most likely grammar given some collection of sentences, and in doing so without a pre-specified limit on the complexity of the grammar. Like Cussens, we are interested in efficiently extending this algorithm to more powerful and expressive formalisms than CFGs.
+
+This work is also closely related to the growing field of semantic parsing. Both are aimed at jointly learning syntactic and semantic information from a body of sentences. Semantic parsers, however, learn separate systems of syntax and semantics, often pairing Combinatory Categorial Grammars of syntax with an explicit logical language of semantics, often the untyped lambda calculus (CITATION Steedman; Liang; Zettlemoyer; etc.). By contrast, our approach uses a single formalism, the latent predicate network, to describe both which sentences are syntactically valid and what sorts of semantic information those sentence imply. Semantic parsers also typically learn models of semantics by pairing sentences with an explicit logical form or real-world denotation. In our model it is the grammar induction itself which reveals candidate relations between words that are key to capturing their meaning.
+
+More generally, we see this model as helping to strike a balance between expressivity and tractability, bridge the gap between more traditional forms of grammar induction (CITATION) and program induction over more powerful languages (CITATION E.C. paper, other P.I. papers).
 
 \section{The Model}
 An LCG is a hierarchical Bayesian model of string tuples. It is an
@@ -250,10 +252,51 @@ latent stochastic grammar model can be encoded as a stochastic logic
 program, so that any VB-EM algorithm for that domain will suffice. 
 
 \section{Implementation}
-We implemented learning in LCG by encoding the model as a PRISM program.
 
-TODO: Josh should write this section on how to translate an LCG into a
-PRISM program.
+\lstset{
+    language=Prolog,
+    basicstyle=\fontsize{5}{6}\selectfont\ttfamily
+}
+
+\begin{figure}[t]
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+A(a, a) :: 0.25. \\
+A(b, b) :: 0.3. \\
+A(X a, Y a) $\leftarrow$ A(X, Y) :: 0.25. \\
+A(X b, Y b) $\leftarrow$ A(X, Y) :: 0.2.\\
+		\label{fig:grammar}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\begin{lstlisting}
+values('A', [1, 2, 3, 4],[0.25, 0.30, 0.25, 0.20]).
+
+reduce('A'-[[a],[a]],1).
+reduce('A'-[[b],[b]],2).
+reduce('A'-[A2,B2],3) :- lpn('A'-[X,Y]),
+    append(X,[a],A2), append(Y,[a],B2).
+reduce('A'-[A2,B2],4) :- lpn('A'-[X,Y]),
+    append(X,[b],A2), append(Y,[b],B2).
+
+lpn(P-IN) :- msw(P,V), reduce(P-IN,V).
+		\end{lstlisting}
+		\label{fig:prism}
+	\end{minipage}
+	\caption{The copy language as an LPN (left), and a PRISM Program (right).}
+	\label{fig:copy}
+\end{figure}
+
+LPNs can be encoded as a restricted and tractable subclass of Stochastic Logic Programs (SLP). Specifically, we encode LPNs as programs in PRISM PROLOG. PRISM provides probabilistic execution and Bayesian inference over SLPs.
+
+To illustrate the encoding, consider the copy language (CL) in Figure \ref{fig:copy}. CL is a toy language producing two identical strings of $a$s and $b$s, making it mildly context-sensitive. Here, we see four rules concerning a single symbol, $A$, whose total probability sums to unity.
+
+To translate LPNs into PRISM SLPs, we first define the distribution over each symbol. We use the {\tt values} predicate, which takes an atom, in this case the name of the symbol, the values that atom can take on, and the probability of each value. For inference, we initialize the distribution uniformly. For our encoding, each possible value for an atom (or symbol) corresponds to exactly one clause in CL where that symbol appears on the left-hand side. There are four clauses for $A$ in CL, so {\tt values} can take on one of four values, each of whose probabilities corresponds to a rule in CL.
+
+For each rule in the LPN, we also define a corresponding clause of the {\tt reduce} predicate in our PRISM program. These {\tt reduce} rules are where the actual relations between the left-hand and right-hand side of each rule are encoded. Because PROLOG isn't perfectly declarative, the actual {\tt reduce} clauses are slightly more complex than presented here, reversing the order of the {\tt append} and recursive {\tt lpn} calls based on whether we are sampling or parsing.
+
+To parse or sample a sentence, we call {\tt lpn(P-IN)}, where {\tt P} is the top-level symbol, {\tt IN} is a list of terminal lists, and {\tt -} denotes a pair ({\it e.g.} {\tt lpn('A'-[[a,a,
+b,a],[a,a,b,a]])}). A sample or parse begins by probabilistically choosing some rule for the left-hand side via {\tt msw(P,V)} and then recursively reducing the input term using the chosen rule ({\tt reduce(P-IN,V)}). 
 
 \section{Experiments}
 \section{Discussion}

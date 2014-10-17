@@ -50,30 +50,31 @@ prismClauses rs = unlines $
 
 body :: RewriteSystem -> [String]
 body slcfrs =
-    mainClause ++ [""] ++
-    srsClause ++ [""] ++
-    switchClauses ++ [""] ++
-    probClauses ++ [""] ++ reductionClauses
+    switchClauses     ++ [""] ++
+    probClauses       ++ [""] ++
+    reductionClauses  ++ [""] ++
+    prismToSRSClauses ++ [""] ++
+    [ ":- p_not_table reduce/2."
+    , ":- include(vis)."
+    , ":- include(main)."]
   where
     groupedRules = groupBy sameHead $ sortBy (compare `on` (cTermPredicate . ruleHead . weightedRuleRule)) (rsRules slcfrs)
     sameHead =  (\(WRule ((ComplexTerm p1 _) :<-: _) _)
                   (WRule ((ComplexTerm p2 _) :<-: _) _)
                  -> p1 == p2)
-    mainClause = [ "main(Gs,Foutp,Fouta) :- set_prism_flag(restart,1)," ++
-                   " set_prism_flag(learn_mode,vb), set_prism_flag(viterbi_mode,vb)," ++
-                   " set_prism_flag(default_sw_a,uniform), set_prism_flag(log_scale,on)," ++
-                   " learn(Gs), save_sw(Foutp), save_sw_a(Fouta).",
-                  "", "getTrain(F,Gs) :- load_clauses(F,ALL,[]), findall(X,member(train(X),ALL),Gs).",
-                  "", "getTest(F,Gs) :- load_clauses(F,ALL,[]), findall(X,member(test(X),ALL),Gs).", ""]
-    srsClause =  [ "srs(P-IN) :- msw(P,V), reduce(P-IN,V)." ]
---    srsClause =  [ "srs(P-IN) :- reduce(P-IN,V), msw(P,V)." ]
     switchClauses = map makeSwitch groupedRules
     probClauses = map makeProbs groupedRules
+    prismToSRSClauses = concatMap makePrismToSRS groupedRules
     reductionClauses = concatMap makeReductions groupedRules
 
 makeSwitch :: [WeightedRule] -> String
 makeSwitch rs =
     "values(" ++ weightedRuleName (head rs) ++ "," ++ show [1..(length rs)] ++ ")."
+
+makePrismToSRS :: [WeightedRule] -> [String]
+makePrismToSRS rs = map prismToSRSString $ zip rs [1..(length rs)]
+  where
+    prismToSRSString (r,n) = concat ["prismToSRS(",weightedRuleName r, ",",show n,",'",show (weightedRuleRule r),"')."]
 
 makeProbs :: [WeightedRule] -> String
 makeProbs rs =
