@@ -1,6 +1,15 @@
 main :- 
      get_sw_pa(I, _, _, _, _, Cs).
 
+test :- 
+    findall(X, train(X), Gs), 
+    makeTestSetQuestions(Gs, QAs), 
+    write('Testing Accuracy...'), 
+    testAccuracy(QAs, Predictions, Acc), 
+    write('Done'), nl,
+    write('Accuracy: '), write(Acc).
+    
+
 testAccuracy(QuestionsAndAnswers, Predictions, Accuracy) :-
     TestResults @= [(G, P, Expl, IsCorrect): Qs\A in QuestionsAndAnswers, 
                     [G, P, Expl, IsCorrect], 
