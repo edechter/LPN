@@ -1,14 +1,18 @@
 main :- 
      get_sw_pa(I, _, _, _, _, Cs).
 
-test :- 
-    findall(X, train(X), Gs), 
+%% save prediction data in a file
+runTest(Results) :-
+    testSet(Gs),
     makeTestSetQuestions(Gs, QAs), 
     write('Testing Accuracy...'), 
     testAccuracy(QAs, Predictions, Acc), 
     write('Done'), nl,
-    write('Accuracy: '), write(Acc).
-    
+    write('Accuracy: '), write(Acc), nl,
+    Results = results(predictions(Predictions), 
+                      accuracy(Acc)),
+    write('Finished test.'), nl. 
+
 
 testAccuracy(QuestionsAndAnswers, Predictions, Accuracy) :-
     TestResults @= [(G, P, Expl, IsCorrect): Qs\A in QuestionsAndAnswers, 
@@ -42,7 +46,7 @@ predictViterbi(Qs\A, G, P, Expl) :-
     write('Question: '), makeQuestionPrompt(Q, Prompt), write(Prompt), nl,
     Out @= [(G, P, Expl) : Q in Qs, [G, P, Expl], 
               (copy_term(Q, G), !,
-               viterbig(G, P, Expl))], 
+               viterbig(G, P, Expl))],
     maxby(h, Out, (_, -99999999, _), (G, P, Expl)), 
     write('Answer: '), makeAnswerString(G, S), write(S), nl, nl.
 
