@@ -142,45 +142,53 @@ mkTrainTestDataFile path specs = do
 numberExamples = [[x,[""]] | x <- numberLists]
 nextExamples = [[a, b] | (a, b) <- zip (init numberLists) (tail numberLists)]
 nextDecades = [[[a], [b]] | (a, b) <- zip (init tens) (tail tens)]
-prevSentences = [[["before"] ++ b ++ ["comes"] ++ a] | [a,b] <- nextExamples]
+beforeSentences = [[["before"] ++ b ++ ["comes"] ++ a] | [a,b] <- nextExamples]
 nextSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextExamples]
 prevDecadeSentences = [[["before"] ++ b ++ ["comes"] ++ a] | [a,b] <- nextDecades]
 nextDecadeSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextDecades]
+beforeDecadeSentences = [[["before"] ++ b ++ ["comes"] ++  a] | [a,b] <- nextDecades]
 
 -- predicate networks
 
-predicateNetwork :: [String] -- ^ lexicon
-                 -> Int -- ^ R: number of categories 
-                 -> Int -- ^ S: number of predicates per level
-                 -> Int -- ^ K: number of levels
-                 -> RewriteSystem
-predicateNetwork lexicon _R _S _K = combineRs $
-                                    hidden_layers ++ lexicon_layer ++ category_layer
-  where hidden_layers = shuffle_rules ++ reverse_rules
-        shuffle_rules = concat $ do
-          level <- [1.._K]
-          i <- [1.._S]
-          k <- [1.._S]
-          j <- [1.._S]
-          return [mkShuffleRule1 level i j k,
-                  mkShuffleRule2 level i j k,
-                  mkShuffleRule3 level i j k]
-        reverse_rules = do
-          level <- [1.._K]
-          i <- [1.._S]
-          j <- [1.._S]
-          return $ mkReverseRule level i j
-        lexicon_layer = do
-          i <- [1.._R]
-          w <- lexicon
-          return $ mkLexiconRule w i
-        category_layer = do
-          i <- [1.._S]
-          j <- [1.._R]
-          k <- [1.._R]
-          return $ mkCategoryRule i j k 
-        combineRs = RewriteSystem . concat . map rsRules
-
+predicateNetwork :: Int -- ^ R: predicates per base level
+             -> Int -- ^ S: predicates per level
+             -> Int -- ^ K: levels
+             -> [String] -- ^ lexicon
+             -> [String] -- ^ list of observed unary predicates
+             -> FilePath
+             -> IO ()
+predicateNetwork _R _S _K lexicon observed outpath = do
+  writeFile outpath $ show rs
+  writeFile (outpath ++ ".psm") $ "srs(P-IN) :- reduce(P-IN,V), msw(P,V).\n\n" ++ prismClauses rs
+  where rs = fromRight $ parseSystem "buildGrammar" $ systemString
+        fromRight (Right x) = x
+        fromRight (Left err) = error $ show err
+        systemString = unlines $
+                       [shuffleRule level i j k | level <- [1.._K], i <- [1.._S], j <-[1.._S], k <- [j.._S]] ++
+                       [reverseRule level i j | level <- [1.._K], i <- [1.._S], j <-[1.._S]] ++
+                       [idRule level i j | level <- [1.._K], i <- [1.._S], j <-[1.._S]] ++                       
+                       [ruleLex i w v | i <- [1.._R], w <- lexicon, v <-lexicon, w <= v] ++
+                       [ruleLex i w "null" | i <- [1.._R], w <- lexicon] ++
+                       [ruleLex i "null" w | i <- [1.._R], w <- lexicon] ++
+                       [pred ++ "(X Y) <-- A" ++ show _K ++ "i" ++ show i ++ "(X, Y)." | (pred, i) <- zip observed [1..]]                       
+        shuffleRule level i j k = unlines $ [
+            "A" ++ show level ++ "i" ++ show i ++ "(X Y, U V) <-- " ++
+            "A" ++ show (level-1) ++ "i" ++ show j ++ "(X, Y)," ++
+            "A" ++ show (level-1) ++ "i" ++ show k ++ "(U, V).", 
+            "A" ++ show level ++ "i" ++ show i ++ "(X Y, U V) <-- " ++
+            "A" ++ show (level-1) ++ "i" ++ show j ++ "(X, U)," ++
+            "A" ++ show (level-1) ++ "i" ++ show k ++ "(Y, V).", 
+            "A" ++ show level ++ "i" ++ show i ++ "(X Y, U V) <-- " ++
+            "A" ++ show (level-1) ++ "i" ++ show j ++ "(X, V)," ++ 
+            "A" ++ show (level-1) ++ "i" ++ show k ++ "(Y, U)."]
+        reverseRule level i j = 
+            "A" ++ show level ++ "i" ++ show i ++ "(X, Y) <-- " ++
+            "A" ++ show (level-1) ++ "i" ++ show j ++ "(Y, X)."
+        idRule level i j = 
+            "A" ++ show level ++ "i" ++ show i ++ "(X, Y) <-- " ++
+            "A" ++ show (level-1) ++ "i" ++ show j ++ "(X, Y)."
+        ruleLex i w v = "A0i" ++ show i ++ "(" ++ w ++", " ++ v ++ ")."
+        
 mkCategoryRule i j k = fromRight $ parseSystem "mkCategoryRule" $
                       "A0p" ++ show i ++ "(X, Y) <-- " ++
                       "C" ++ show j ++ "(X), " ++

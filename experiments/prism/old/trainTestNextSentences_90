@@ -1,0 +1,101 @@
+train(srs('NextSentence_1'-[[after,seventy,one,comes,seventy,two]])).
+train(srs('NextSentence_1'-[[after,seventy,three,comes,seventy,four]])).
+train(srs('NextSentence_1'-[[after,fifty,nine,comes,sixty]])).
+train(srs('NextSentence_1'-[[after,thirty,nine,comes,forty]])).
+train(srs('NextSentence_1'-[[after,eighty,one,comes,eighty,two]])).
+train(srs('NextSentence_1'-[[after,eighty,nine,comes,ninety]])).
+train(srs('NextSentence_1'-[[after,twenty,nine,comes,thirty]])).
+train(srs('NextSentence_1'-[[after,sixty,one,comes,sixty,two]])).
+train(srs('NextSentence_1'-[[after,seven,comes,eight]])).
+train(srs('NextSentence_1'-[[after,seventy,two,comes,seventy,three]])).
+train(srs('NextSentence_1'-[[after,sixty,five,comes,sixty,six]])).
+train(srs('NextSentence_1'-[[after,sixty,three,comes,sixty,four]])).
+train(srs('NextSentence_1'-[[after,ninety,two,comes,ninety,three]])).
+train(srs('NextSentence_1'-[[after,ninety,eight,comes,ninety,nine]])).
+train(srs('NextSentence_1'-[[after,fifteen,comes,sixteen]])).
+train(srs('NextSentence_1'-[[after,eighty,eight,comes,eighty,nine]])).
+train(srs('NextSentence_1'-[[after,eighty,six,comes,eighty,seven]])).
+train(srs('NextSentence_1'-[[after,thirty,seven,comes,thirty,eight]])).
+train(srs('NextSentence_1'-[[after,fifty,eight,comes,fifty,nine]])).
+train(srs('NextSentence_1'-[[after,eleven,comes,twelve]])).
+train(srs('NextSentence_1'-[[after,thirty,one,comes,thirty,two]])).
+train(srs('NextSentence_1'-[[after,twenty,eight,comes,twenty,nine]])).
+train(srs('NextSentence_1'-[[after,sixty,eight,comes,sixty,nine]])).
+train(srs('NextSentence_1'-[[after,sixteen,comes,seventeen]])).
+train(srs('NextSentence_1'-[[after,sixty,comes,sixty,one]])).
+train(srs('NextSentence_1'-[[after,twenty,six,comes,twenty,seven]])).
+train(srs('NextSentence_1'-[[after,four,comes,five]])).
+train(srs('NextSentence_1'-[[after,forty,three,comes,forty,four]])).
+train(srs('NextSentence_1'-[[after,forty,six,comes,forty,seven]])).
+train(srs('NextSentence_1'-[[after,two,comes,three]])).
+train(srs('NextSentence_1'-[[after,twelve,comes,thirteen]])).
+train(srs('NextSentence_1'-[[after,forty,one,comes,forty,two]])).
+train(srs('NextSentence_1'-[[after,seventy,nine,comes,eighty]])).
+train(srs('NextSentence_1'-[[after,ninety,seven,comes,ninety,eight]])).
+train(srs('NextSentence_1'-[[after,thirty,five,comes,thirty,six]])).
+train(srs('NextSentence_1'-[[after,fifty,comes,fifty,one]])).
+train(srs('NextSentence_1'-[[after,twenty,two,comes,twenty,three]])).
+train(srs('NextSentence_1'-[[after,eighty,comes,eighty,one]])).
+train(srs('NextSentence_1'-[[after,ninety,three,comes,ninety,four]])).
+train(srs('NextSentence_1'-[[after,nine,comes,ten]])).
+train(srs('NextSentence_1'-[[after,thirty,comes,thirty,one]])).
+train(srs('NextSentence_1'-[[after,twenty,one,comes,twenty,two]])).
+train(srs('NextSentence_1'-[[after,eighty,two,comes,eighty,three]])).
+train(srs('NextSentence_1'-[[after,seventy,five,comes,seventy,six]])).
+train(srs('NextSentence_1'-[[after,thirty,two,comes,thirty,three]])).
+train(srs('NextSentence_1'-[[after,seventy,comes,seventy,one]])).
+train(srs('NextSentence_1'-[[after,seventeen,comes,eighteen]])).
+train(srs('NextSentence_1'-[[after,sixty,seven,comes,sixty,eight]])).
+train(srs('NextSentence_1'-[[after,twenty,three,comes,twenty,four]])).
+%% train(srs('NextSentence_1'-[[after,fourteen,comes,fifteen]])).
+%% train(srs('NextSentence_1'-[[after,fifty,seven,comes,fifty,eight]])).
+%% train(srs('NextSentence_1'-[[after,eighteen,comes,nineteen]])).
+%% train(srs('NextSentence_1'-[[after,one,comes,two]])).
+%% train(srs('NextSentence_1'-[[after,six,comes,seven]])).
+%% train(srs('NextSentence_1'-[[after,thirty,four,comes,thirty,five]])).
+%% train(srs('NextSentence_1'-[[after,seventy,eight,comes,seventy,nine]])).
+%% train(srs('NextSentence_1'-[[after,forty,five,comes,forty,six]])).
+%% train(srs('NextSentence_1'-[[after,fifty,two,comes,fifty,three]])).
+%% train(srs('NextSentence_1'-[[after,twenty,comes,twenty,one]])).
+%% train(srs('NextSentence_1'-[[after,forty,four,comes,forty,five]])).
+%% train(srs('NextSentence_1'-[[after,forty,comes,forty,one]])).
+%% train(srs('NextSentence_1'-[[after,fifty,three,comes,fifty,four]])).
+%% train(srs('NextSentence_1'-[[after,forty,two,comes,forty,three]])).
+%% train(srs('NextSentence_1'-[[after,eight,comes,nine]])).
+%% train(srs('NextSentence_1'-[[after,seventy,seven,comes,seventy,eight]])).
+%% train(srs('NextSentence_1'-[[after,nineteen,comes,twenty]])).
+%% train(srs('NextSentence_1'-[[after,fifty,one,comes,fifty,two]])).
+%% train(srs('NextSentence_1'-[[after,eighty,seven,comes,eighty,eight]])).
+%% train(srs('NextSentence_1'-[[after,seventy,four,comes,seventy,five]])).
+%% train(srs('NextSentence_1'-[[after,seventy,six,comes,seventy,seven]])).
+%% train(srs('NextSentence_1'-[[after,fifty,six,comes,fifty,seven]])).
+%% train(srs('NextSentence_1'-[[after,sixty,six,comes,sixty,seven]])).
+%% train(srs('NextSentence_1'-[[after,sixty,two,comes,sixty,three]])).
+%% train(srs('NextSentence_1'-[[after,eighty,three,comes,eighty,four]])).
+%% train(srs('NextSentence_1'-[[after,fifty,five,comes,fifty,six]])).
+%% train(srs('NextSentence_1'-[[after,ten,comes,eleven]])).
+%% train(srs('NextSentence_1'-[[after,forty,nine,comes,fifty]])).
+%% train(srs('NextSentence_1'-[[after,eighty,five,comes,eighty,six]])).
+%% train(srs('NextSentence_1'-[[after,ninety,four,comes,ninety,five]])).
+%% train(srs('NextSentence_1'-[[after,twenty,four,comes,twenty,five]])).
+%% train(srs('NextSentence_1'-[[after,thirteen,comes,fourteen]])).
+%% train(srs('NextSentence_1'-[[after,ninety,six,comes,ninety,seven]])).
+%% train(srs('NextSentence_1'-[[after,forty,seven,comes,forty,eight]])).
+%% train(srs('NextSentence_1'-[[after,thirty,eight,comes,thirty,nine]])).
+%% train(srs('NextSentence_1'-[[after,three,comes,four]])).
+%% train(srs('NextSentence_1'-[[after,twenty,seven,comes,twenty,eight]])).
+%% train(srs('NextSentence_1'-[[after,eighty,four,comes,eighty,five]])).
+%% train(srs('NextSentence_1'-[[after,ninety,five,comes,ninety,six]])).
+
+test(srs('NextSentence_1'-[[after,sixty,nine,comes,seventy]])).
+test(srs('NextSentence_1'-[[after,thirty,three,comes,thirty,four]])).
+test(srs('NextSentence_1'-[[after,sixty,four,comes,sixty,five]])).
+test(srs('NextSentence_1'-[[after,twenty,five,comes,twenty,six]])).
+test(srs('NextSentence_1'-[[after,fifty,four,comes,fifty,five]])).
+test(srs('NextSentence_1'-[[after,forty,eight,comes,forty,nine]])).
+test(srs('NextSentence_1'-[[after,ninety,comes,ninety,one]])).
+test(srs('NextSentence_1'-[[after,ninety,one,comes,ninety,two]])).
+test(srs('NextSentence_1'-[[after,five,comes,six]])).
+test(srs('NextSentence_1'-[[after,thirty,six,comes,thirty,seven]])).
+
+

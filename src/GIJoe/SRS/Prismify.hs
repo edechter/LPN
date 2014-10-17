@@ -69,7 +69,11 @@ body slcfrs =
 
 makeSwitch :: [WeightedRule] -> String
 makeSwitch rs =
-    "values(" ++ weightedRuleName (head rs) ++ "," ++ show [1..(length rs)] ++ ")."
+  let n = weightedRuleName (head rs)
+      n_values = init n ++ "_values'"
+  in unlines [":- dynamic " ++ n_values ++ "/1.",
+              "values(" ++ n ++ ", Vs) :- " ++ n_values ++ "(Vs).",
+              n_values++"(" ++ show [1..(length rs)] ++ ")."]
 
 makePrismToSRS :: [WeightedRule] -> [String]
 makePrismToSRS rs = map prismToSRSString $ zip rs [1..(length rs)]
@@ -91,17 +95,23 @@ makeReductions rs = map makeReduction indexedRules
 
 makeReduction :: (Int,Rule) -> String
 makeReduction (i,(h :<-: bs)) =
-    "reduce(" ++ refactorHead h ++ "," ++ show i ++ ")" ++ anyAppends ++ "."
+    "reduce(" ++ refactorHead h ++ "," ++ show i ++ ")" ++ body ++ "."
   where
     appendVars = collectTupleItems h
-    appendSRSs = createSRSTerms h bs
+    srsTerms = createSRSTerms h bs
     appendAppends = createAppendTerms h
-    theAppends = if (not $ null appendVars)
-                 then "(" ++ appendVars ++ " -> " ++ appends1 ++ "; " ++ appends2 ++ ")"
-                 else appendSRSs
-    appends1 = intercalate ", " $ filter (not . null) [appendSRSs, appendAppends]
-    appends2 = intercalate ", " $ filter (not . null) [appendAppends, appendSRSs]
-    anyAppends = if null (theAppends) then "" else " :- " ++ theAppends
+    
+    rhsTerms | null appendVars = []
+             | otherwise = groundConditionals ++ [srsTerms] ++ varConditionals
+    arity = predArity . cTermPredicate $ h
+    groundConditionals = take arity ["(var(A2) -> true; append(X, Y, A2))",
+                                                   "(var(B2) -> true; append(U, V, B2) )"]
+    varConditionals = take arity ["(var(A2) -> append(X, Y, A2) ; true)",
+                                "(var(B2) -> append(U, V, B2) ; true)"]
+                      
+    body | not (rhsTerms == []) = ":- " ++ intercalate ",\n" rhsTerms
+         | otherwise = ""
+
     collectTupleItems (ComplexTerm _ xs) = intercalate ", " $ filter (not . null) $ labeledMap collectTupleItem xs
     collectTupleItem ((NTString (x:[])),l) = ""
     collectTupleItem ((NTString xs),l) = "var(" ++ l:(show $ length xs) ++ ")"
@@ -118,6 +128,7 @@ refactorHead h@(ComplexTerm _ xs) = predTuplePair (cTermPredicate h) (renameTupl
       ElVar _ -> show x
       ElSym y -> if (unpack y) == "null" then "[]" else show [x]
     renameTupleItem ((NTString xs),l) = l:(show $ length xs)
+
 
 createAppendTerms h@(ComplexTerm _ xs) =
     intercalate ", " $ filter (not . null) $ labeledMap createAppends xs

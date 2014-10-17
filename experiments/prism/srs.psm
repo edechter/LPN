@@ -1,32 +1,72 @@
 
+:- cl('analyzeNumber.psm').
 
 %% load and compile train and testing examples
-:- cl('./trainTestSentencesPlusDecades_50').
+:- cl('./trainTestNextAndBeforeWODecades_50').
 
 %% load rewrite system
-:- prism('beforeAndAfter_5.sys.psm').
+:- prism('beforeAndAfter_3.sys.psm').
 
 :- set_prism_flag(max_iterate, 50).
 :- set_prism_flag(restart,1). 
 :- set_prism_flag(learn_mode,vb).
 :- set_prism_flag(viterbi_mode,vb). 
-:- set_prism_flag(default_sw_a,uniform).
+:- set_prism_flag(default_sw_a,uniform).g
 :- set_prism_flag(log_scale,on).
 
 
-main :- 
-    findall(count(X, 50), train(X), Gs),
+prism_main :- 
+    findall(count(X, 1000), (
+                train(X),
+                X=srs(_-[As]), 
+                length(As, 4)),
+            Ones),
+    findall(count(X, 10),(
+                train(X),
+                X=srs(_-[As]), 
+                length(As, N), 
+                N > 4
+            ), NotOnes),
+    append(Ones, NotOnes, Gs),
     learn(Gs), 
-    save_sw(switches_sw_5), 
-    save_sw_a(switches_a_5).
+    save_sw(switches_sw_last), 
+    save_sw_a(switches_a_last). 
 
-
-
+runAccuracy(Acc) :- findall(X, train(X), _Gs), 
+                    makeTestSetQuestions(_Gs, _QandAPairs), 
+                    testAccuracy(_QandAPairs, Predications, Acc).
 
 show_num(X) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Number_1'-[X])).
 
 show_next(X,Y) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Next_2'-[X,Y])).
 
-srs(P-IN) :- reduce(P-IN,V), msw(P,V).
+srs(P-IN) :- reduce(P-IN,V), msw(P,V).       
+
+change_values(Switch, Vs) :-
+    atom_concat(Switch, '_values', P),
+    RetractTerm =.. [P, K],
+    AssertTerm =..[P, Vs],
+    retract(RetractTerm), 
+    assert(AssertTerm). 
 
 
+%% prune all values for SwitchIn whose values 'a' values are really small 
+prune(SwitchIn) :- 
+    atom(SwitchIn), 
+    get_sw_pd(SwitchIn, [Status, Vals, Params, PsuedoCounts]),
+    zip(Vals, PsuedoCounts, VCs),
+    Filtered @= [V\C: V\C in VCs, C > 0.01],
+    ValuesOut @= [V:V\_ in Filtered],
+    CountsOut @= [C:_\C in Filtered],
+    change_values(SwitchIn, ValuesOut),
+    set_sw_a(SwitchIn, CountsOut).
+
+pruneAll :- 
+    get_reg_sw_list(Switches), 
+    foreach(Sw in Switches, (write(Sw), prune(Sw))).
+             
+
+zip([], [], []) :- !. 
+zip(_, [], []) :- !.
+zip([], _, []) :- !.
+zip([X|Xs], [Y|Ys], [X\Y| Rest]) :- zip(Xs, Ys, Rest).

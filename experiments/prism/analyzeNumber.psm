@@ -1,5 +1,86 @@
 main :- 
-     get_sw_pa(I, _, _, _, _, Cs), 
+     get_sw_pa(I, _, _, _, _, Cs).
+
+test :- 
+    findall(X, train(X), Gs), 
+    makeTestSetQuestions(Gs, QAs), 
+    write('Testing Accuracy...'), 
+    testAccuracy(QAs, Predictions, Acc), 
+    write('Done'), nl,
+    write('Accuracy: '), write(Acc).
+    
+
+testAccuracy(QuestionsAndAnswers, Predictions, Accuracy) :-
+    TestResults @= [(G, P, Expl, IsCorrect): Qs\A in QuestionsAndAnswers, 
+                    [G, P, Expl, IsCorrect], 
+                    (predictViterbi(Qs\A, G, P, Expl), 
+                     (G == A -> IsCorrect is 1; IsCorrect is 0)
+                   )], 
+    CorrectList @= [IsCorrect:(_, _, _, IsCorrect) in TestResults],
+    sumlist(CorrectList, NumCorrect), 
+    length(CorrectList, NQs), 
+    Accuracy is NumCorrect/NQs.
+
+%% turns something of the form srs('S'-[[after, twenty, three, comes,
+%% twenty, four]]) to [srs('S'-[[after, twenty, three, comes, X]]),
+%% srs('S'-[[after, twenty, three, comes, X, Y]])]
+makeTestQuestions(Answer, QuestionsAndAnswer) :- 
+        Answer = srs(H-[As]),
+        findall(OutFresh, 
+                (append(Pre, [comes], Post, As),
+                 append(Pre, [comes], X, Out),
+                 (length(X, 1); length(X, 2)), 
+                 copy_term(srs(H-[Out]), OutFresh)), 
+                Questions), !,
+        QuestionsAndAnswer=Questions\Answer.
+
+makeTestSetQuestions(Answers, QandAPairs) :- 
+    QandAPairs @= [QandA:A in Answers, [QandA], makeTestQuestions(A, QandA)].
+
+predictViterbi(Qs\A, G, P, Expl) :- 
+    Qs=[Q|_],
+    write('Question: '), makeQuestionPrompt(Q, Prompt), write(Prompt), nl,
+    Out @= [(G, P, Expl) : Q in Qs, [G, P, Expl], 
+              (copy_term(Q, G), !,
+               viterbig(G, P, Expl))], 
+    maxby(h, Out, (_, -99999999, _), (G, P, Expl)), 
+    write('Answer: '), makeAnswerString(G, S), write(S), nl, nl.
+
+atom_concats([], '') :- !.
+atom_concats([A|Rest], Out) :- atom_concats(Rest, B), 
+                               atom_concat(A, B, Out).
+
+makeQuestionPrompt(srs(_-[As]), Out) :- makeQuestionPrompt1(As, B), 
+                                        atom_concat(B, '____?', Out).
+makeQuestionPrompt1([], ''). 
+makeQuestionPrompt1([A|Rest], '') :- var(A), !.
+makeQuestionPrompt1([A|Rest], Out) :- makeQuestionPrompt1(Rest, B), 
+                                     atom_concats([A, ' ', B], Out).
+
+makeAnswerString(srs(_-[As]), Out) :- makeAnswerString1(As, B), 
+                                      atom_concat(B, '.', Out).
+makeAnswerString1([], ''). 
+makeAnswerString1([A|Rest], Out) :- makeAnswerString1(Rest, B), 
+                                   atom_concats([A, ' ', B], Out).
+
+
+    
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+h((G0, P0, E0), (G1, P1, E1), M) :- (P0 >= P1 ->  M=(G0, P0, E0); M=(G1, P1, E1)).
+                
+% like Haskell's maximumBy; takes a predicate, a 
+% list and an initial maximum value, finds the
+% maximum value in a list
+maxby(_, [], M, M).
+maxby(P, [H|T], M0, M) :-
+    call(P, H, M0, M1),
+    maxby(P, T, M1, M).
+
+
 
 %% A1: 
 %% [(59,1156.59),(125,1141.9),(144,1491.51),(149,1013.25),(178,958.492),(179,1408.1),(547,50.0),(605,50.0)]
