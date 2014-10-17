@@ -82,7 +82,7 @@ buildGrammar :: Int -- ^ number of hidden predicates
              -> IO ()
 buildGrammar n lexicon observed outpath = do
   writeFile outpath $ show rs
-  writeFile (outpath ++ ".psm") $ prismClauses rs
+  writeFile (outpath ++ ".psm") $ "srs(P-IN) :- reduce(P-IN,V), msw(P,V).\n\n" ++ prismClauses rs
   where rs = fromRight $ parseSystem "buildGrammar" $ systemString
         fromRight (Right x) = x
         fromRight (Left err) = error $ show err
