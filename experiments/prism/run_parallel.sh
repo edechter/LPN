@@ -1,8 +1,8 @@
 #!/bin/bash
 
-NumExamples=(100 200) # 200 300 400 500 600 700 800 900 1000);
-NumReps=2;
-NumPred=(1 2 3 4);
+NumExamples=(100 200 300 400 500 600 700 800 900 1000);
+NumReps=10;
+NumPred=(1 2 3);
 SaveDir="data/"
 args=()
 
