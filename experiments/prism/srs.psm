@@ -162,10 +162,73 @@ prism_main([NEx_a, Rep_a, NPred_a, SaveDir]) :-
     write('Now: '), system('date'), nl,    
     write('**************************'), nl.
 
+
     
     
             
             
+    
+%%%%%%%%%%%
+numExamples(runInfo(
+          numExamples(NEx), 
+          numPreds(NPred), 
+          sysFileName(SysFileName),
+          savePath(FileName), 
+          trainSet(Gs), 
+          testResults(Results), 
+          prism_flags(PrismFlags),
+          learn_statistics(LearnStatistics), 
+          switchVBInfo(SwitchVBInfo), 
+          switches_post_pruning(SwitchesPruned)), NEx).
+
+numPreds(runInfo(
+          numExamples(NEx), 
+          numPreds(NPred), 
+          sysFileName(SysFileName),
+          savePath(FileName), 
+          trainSet(Gs), 
+          testResults(Results), 
+          prism_flags(PrismFlags),
+          learn_statistics(LearnStatistics), 
+          switchVBInfo(SwitchVBInfo), 
+          switches_post_pruning(SwitchesPruned)), NPred).
+
+testResults(runInfo(
+          numExamples(NEx), 
+          numPreds(NPred), 
+          sysFileName(SysFileName),
+          savePath(FileName), 
+          trainSet(Gs), 
+          testResults(Results), 
+          prism_flags(PrismFlags),
+          learn_statistics(LearnStatistics), 
+          switchVBInfo(SwitchVBInfo), 
+          switches_post_pruning(SwitchesPruned)), Results).
+
+%%%%%%%%%%%%%%%
+%% Analyze Run Accuracies
+extractData(File, NEx, NPred, A) :- 
+    load_clauses(File, [C|_], []), 
+    testResults(C, results(_, accuracy(A))), 
+    numPreds(C, NPred),
+    numExamples(C, NEx).
+
+printData:- 
+    directory_files('.', L), 
+    foreach(F in L, 
+            [Nex, NPred, Acc, F],
+            (
+                write(F), nl, 
+                file_property(F, type(V)),
+                V=regular -> (
+                     ??* extractData(F, NEx, NPred, Acc), 
+                     write(NEx), nl)
+                     %% format("~10f~t~10f~t~5f", [NEx, NPred, Acc]))
+                ; true)).
+
+                %% 
+                %% 
+    
     
     
     
