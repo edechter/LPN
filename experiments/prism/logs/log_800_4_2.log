@@ -23,7 +23,7 @@ Compiling::analyzeNumber.psm
 ** Warning: singleton variables (analyzeNumber.psm, 31-39): Post
 ** Warning: singleton variables (analyzeNumber.psm, 44-51): A
 ** Warning: singleton variables (analyzeNumber.psm, 60-60): Rest
-compiled in 4 milliseconds
+compiled in 0 milliseconds
 loading::analyzeNumber.psm.out
 Compiling::testTrain.psm
 ** Warning: singleton variables (testTrain.psm, 33-33): X
@@ -40,31 +40,31 @@ consulting::allExamples.pl
 
 Running srs.psm:prism_main with parameters: 
 Num Examples: 800
-Rep: 1
-Num Predicates3
+Rep: 4
+Num Predicates2
 Save In: data/
-Now: Sat Oct 18 03:44:48 UTC 2014
+Now: Sat Oct 18 03:47:45 UTC 2014
 
 **********************
 
-data/runOutput_nEx_800_nPred_3_rep_1
-loading::beforeAndAfter_3.sys.psm.out
-#goals: 0.........100.(116)
+data/runOutput_nEx_800_nPred_2_rep_4
+loading::beforeAndAfter_2.sys.psm.out
+#goals: 0.........100..(123)
 Exporting switch information to the EM routine ... done
-#vbem-iters: 0....(50) (Stopped: -4199.145005032)
+#vbem-iters: 0....(50) (Stopped: -5210.975771535)
 Statistics on learning:
-        Graph size: 35684899
-        Number of switches: 4
-        Number of switch instances: 1900
+        Graph size: 11269109
+        Number of switches: 3
+        Number of switch instances: 1147
         Number of iterations: 50
-        Final variational free energy: -4199.145005032
-        Total learning time: 358.600 seconds
-        Explanation search time: 165.508 seconds
-        Total table space used: 3054710576 bytes
+        Final variational free energy: -5210.975771535
+        Total learning time: 115.672 seconds
+        Explanation search time: 50.044 seconds
+        Total table space used: 973525216 bytes
 Type show_sw_a/show_sw_d to show the probability distributions.
 Pruned ineffective rules...Done.
 Testing Accuracy...Question: after twenty comes ____?
-Answer: after twenty comes after .
+Answer: after twenty comes twenty .
 
 Question: after forty five comes ____?
 Answer: after forty five comes forty four .
@@ -106,10 +106,10 @@ Question: before twenty three comes ____?
 Answer: before twenty three comes twenty two .
 
 Question: before thirty comes ____?
-Answer: before thirty comes comes .
+Answer: before thirty comes thirty .
 
 Question: before thirty eight comes ____?
-Answer: before thirty eight comes thirty nine .
+Answer: before thirty eight comes thirty seven .
 
 Question: before forty one comes ____?
 Answer: before forty one comes forty two .
@@ -118,7 +118,7 @@ Question: before fifty three comes ____?
 Answer: before fifty three comes fifty two .
 
 Question: before sixty eight comes ____?
-Answer: before sixty eight comes sixty nine .
+Answer: before sixty eight comes sixty seven .
 
 Question: before seventy two comes ____?
 Answer: before seventy two comes seventy one .
@@ -139,10 +139,10 @@ Question: before ninety five comes ____?
 Answer: before ninety five comes ninety four .
 
 Done
-Accuracy: 0.36
+Accuracy: 0.44
 Finished test.
 
-Now: Sat Oct 18 03:51:29 UTC 2014
+Now: Sat Oct 18 03:50:15 UTC 2014
 
 **************************
 

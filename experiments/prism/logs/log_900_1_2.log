@@ -33,38 +33,38 @@ Compiling::testTrain.psm
 ** Warning: singleton variables (testTrain.psm, 65-65): P,Lo,Hi,W
 ** Warning: singleton variables (testTrain.psm, 73-74): V
 ** Warning: singleton variables (testTrain.psm, 76-76): V
-compiled in 0 milliseconds
+compiled in 4 milliseconds
 loading::testTrain.psm.out
 consulting::allExamples.pl
 **********************
 
 Running srs.psm:prism_main with parameters: 
-Num Examples: 800
+Num Examples: 900
 Rep: 1
-Num Predicates3
+Num Predicates2
 Save In: data/
-Now: Sat Oct 18 03:44:48 UTC 2014
+Now: Sat Oct 18 03:54:51 UTC 2014
 
 **********************
 
-data/runOutput_nEx_800_nPred_3_rep_1
-loading::beforeAndAfter_3.sys.psm.out
-#goals: 0.........100.(116)
+data/runOutput_nEx_900_nPred_2_rep_1
+loading::beforeAndAfter_2.sys.psm.out
+#goals: 0.........100..(128)
 Exporting switch information to the EM routine ... done
-#vbem-iters: 0....(50) (Stopped: -4199.145005032)
+#vbem-iters: 0....(50) (Stopped: -5606.561726948)
 Statistics on learning:
-        Graph size: 35684899
-        Number of switches: 4
-        Number of switch instances: 1900
+        Graph size: 11728643
+        Number of switches: 3
+        Number of switch instances: 1147
         Number of iterations: 50
-        Final variational free energy: -4199.145005032
-        Total learning time: 358.600 seconds
-        Explanation search time: 165.508 seconds
-        Total table space used: 3054710576 bytes
+        Final variational free energy: -5606.561726948
+        Total learning time: 121.220 seconds
+        Explanation search time: 52.772 seconds
+        Total table space used: 1012932040 bytes
 Type show_sw_a/show_sw_d to show the probability distributions.
 Pruned ineffective rules...Done.
 Testing Accuracy...Question: after twenty comes ____?
-Answer: after twenty comes after .
+Answer: after twenty comes twenty .
 
 Question: after forty five comes ____?
 Answer: after forty five comes forty four .
@@ -106,7 +106,7 @@ Question: before twenty three comes ____?
 Answer: before twenty three comes twenty two .
 
 Question: before thirty comes ____?
-Answer: before thirty comes comes .
+Answer: before thirty comes thirty .
 
 Question: before thirty eight comes ____?
 Answer: before thirty eight comes thirty nine .
@@ -142,7 +142,7 @@ Done
 Accuracy: 0.36
 Finished test.
 
-Now: Sat Oct 18 03:51:29 UTC 2014
+Now: Sat Oct 18 03:57:19 UTC 2014
 
 **************************
 

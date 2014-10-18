@@ -106,3 +106,44 @@ Question: before twenty three comes ____?
 Answer: before twenty three comes twenty two .
 
 Question: before thirty comes ____?
+Answer: before thirty comes thirty one .
+
+Question: before thirty eight comes ____?
+Answer: before thirty eight comes thirty nine .
+
+Question: before forty one comes ____?
+Answer: before forty one comes forty two .
+
+Question: before fifty three comes ____?
+Answer: before fifty three comes fifty two .
+
+Question: before sixty eight comes ____?
+Answer: before sixty eight comes sixty nine .
+
+Question: before seventy two comes ____?
+Answer: before seventy two comes seventy one .
+
+Question: before seventy three comes ____?
+Answer: before seventy three comes seventy two .
+
+Question: before eighty five comes ____?
+Answer: before eighty five comes eighty four .
+
+Question: before ninety two comes ____?
+Answer: before ninety two comes ninety one .
+
+Question: before ninety three comes ____?
+Answer: before ninety three comes ninety two .
+
+Question: before ninety five comes ____?
+Answer: before ninety five comes ninety four .
+
+Done
+Accuracy: 0.36
+Finished test.
+
+Now: Sat Oct 18 03:47:50 UTC 2014
+
+**************************
+
+yes

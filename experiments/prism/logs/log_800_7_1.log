@@ -33,50 +33,50 @@ Compiling::testTrain.psm
 ** Warning: singleton variables (testTrain.psm, 65-65): P,Lo,Hi,W
 ** Warning: singleton variables (testTrain.psm, 73-74): V
 ** Warning: singleton variables (testTrain.psm, 76-76): V
-compiled in 0 milliseconds
+compiled in 4 milliseconds
 loading::testTrain.psm.out
 consulting::allExamples.pl
 **********************
 
 Running srs.psm:prism_main with parameters: 
 Num Examples: 800
-Rep: 1
-Num Predicates3
+Rep: 7
+Num Predicates1
 Save In: data/
-Now: Sat Oct 18 03:44:48 UTC 2014
+Now: Sat Oct 18 03:51:27 UTC 2014
 
 **********************
 
-data/runOutput_nEx_800_nPred_3_rep_1
-loading::beforeAndAfter_3.sys.psm.out
-#goals: 0.........100.(116)
+data/runOutput_nEx_800_nPred_1_rep_7
+loading::beforeAndAfter_1.sys.psm.out
+#goals: 0.........100.(113)
 Exporting switch information to the EM routine ... done
-#vbem-iters: 0....(50) (Stopped: -4199.145005032)
+#vbem-iters: 0.(20) (Converged: -7787.878786064)
 Statistics on learning:
-        Graph size: 35684899
-        Number of switches: 4
-        Number of switch instances: 1900
-        Number of iterations: 50
-        Final variational free energy: -4199.145005032
-        Total learning time: 358.600 seconds
-        Explanation search time: 165.508 seconds
-        Total table space used: 3054710576 bytes
+        Graph size: 1374701
+        Number of switches: 2
+        Number of switch instances: 538
+        Number of iterations: 20
+        Final variational free energy: -7787.878786064
+        Total learning time: 9.612 seconds
+        Explanation search time: 5.704 seconds
+        Total table space used: 119623592 bytes
 Type show_sw_a/show_sw_d to show the probability distributions.
 Pruned ineffective rules...Done.
 Testing Accuracy...Question: after twenty comes ____?
-Answer: after twenty comes after .
+Answer: after twenty comes two .
 
 Question: after forty five comes ____?
-Answer: after forty five comes forty four .
+Answer: after forty five comes six forty .
 
 Question: after forty seven comes ____?
-Answer: after forty seven comes forty six .
+Answer: after forty seven comes eight forty .
 
 Question: after forty nine comes ____?
-Answer: after forty nine comes forty eight .
+Answer: after forty nine comes two two .
 
 Question: after fifty nine comes ____?
-Answer: after fifty nine comes fifty eight .
+Answer: after fifty nine comes forty fifty .
 
 Question: after sixty one comes ____?
 Answer: after sixty one comes sixty two .
@@ -85,64 +85,64 @@ Question: after sixty three comes ____?
 Answer: after sixty three comes sixty two .
 
 Question: after sixty four comes ____?
-Answer: after sixty four comes sixty three .
+Answer: after sixty four comes sixty two .
 
 Question: after sixty five comes ____?
-Answer: after sixty five comes sixty four .
+Answer: after sixty five comes six sixty .
 
 Question: after sixty nine comes ____?
-Answer: after sixty nine comes sixty eight .
+Answer: after sixty nine comes forty sixty .
 
 Question: after seventy three comes ____?
 Answer: after seventy three comes seventy two .
 
 Question: after seventy nine comes ____?
-Answer: after seventy nine comes seventy eight .
+Answer: after seventy nine comes forty seventy .
 
 Question: after ninety five comes ____?
-Answer: after ninety five comes ninety four .
+Answer: after ninety five comes six ninety .
 
 Question: before twenty three comes ____?
-Answer: before twenty three comes twenty two .
+Answer: before twenty three comes twenty one .
 
 Question: before thirty comes ____?
-Answer: before thirty comes comes .
+Answer: before thirty comes thirty .
 
 Question: before thirty eight comes ____?
-Answer: before thirty eight comes thirty nine .
+Answer: before thirty eight comes nine thirty .
 
 Question: before forty one comes ____?
-Answer: before forty one comes forty two .
+Answer: before forty one comes forty one .
 
 Question: before fifty three comes ____?
-Answer: before fifty three comes fifty two .
+Answer: before fifty three comes fifty one .
 
 Question: before sixty eight comes ____?
-Answer: before sixty eight comes sixty nine .
+Answer: before sixty eight comes nine sixty .
 
 Question: before seventy two comes ____?
 Answer: before seventy two comes seventy one .
 
 Question: before seventy three comes ____?
-Answer: before seventy three comes seventy two .
+Answer: before seventy three comes seventy one .
 
 Question: before eighty five comes ____?
-Answer: before eighty five comes eighty four .
+Answer: before eighty five comes six eighty .
 
 Question: before ninety two comes ____?
 Answer: before ninety two comes ninety one .
 
 Question: before ninety three comes ____?
-Answer: before ninety three comes ninety two .
+Answer: before ninety three comes ninety one .
 
 Question: before ninety five comes ____?
-Answer: before ninety five comes ninety four .
+Answer: before ninety five comes six ninety .
 
 Done
-Accuracy: 0.36
+Accuracy: 0.12
 Finished test.
 
-Now: Sat Oct 18 03:51:29 UTC 2014
+Now: Sat Oct 18 03:51:55 UTC 2014
 
 **************************
 
