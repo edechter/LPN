@@ -127,3 +127,23 @@ Question: before seventy three comes ____?
 Answer: before seventy three comes seventy two .
 
 Question: before eighty five comes ____?
+Answer: before eighty five comes eighty four .
+
+Question: before ninety two comes ____?
+Answer: before ninety two comes ninety one .
+
+Question: before ninety three comes ____?
+Answer: before ninety three comes ninety two .
+
+Question: before ninety five comes ____?
+Answer: before ninety five comes ninety four .
+
+Done
+Accuracy: 0.44
+Finished test.
+
+Now: Sat Oct 18 03:42:01 UTC 2014
+
+**************************
+
+yes

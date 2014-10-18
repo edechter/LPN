@@ -23,7 +23,7 @@ Compiling::analyzeNumber.psm
 ** Warning: singleton variables (analyzeNumber.psm, 31-39): Post
 ** Warning: singleton variables (analyzeNumber.psm, 44-51): A
 ** Warning: singleton variables (analyzeNumber.psm, 60-60): Rest
-compiled in 4 milliseconds
+compiled in 8 milliseconds
 loading::analyzeNumber.psm.out
 Compiling::testTrain.psm
 ** Warning: singleton variables (testTrain.psm, 33-33): X
@@ -40,37 +40,37 @@ consulting::allExamples.pl
 
 Running srs.psm:prism_main with parameters: 
 Num Examples: 700
-Rep: 3
-Num Predicates3
+Rep: 9
+Num Predicates2
 Save In: data/
-Now: Sat Oct 18 03:36:52 UTC 2014
+Now: Sat Oct 18 03:42:37 UTC 2014
 
 **********************
 
-data/runOutput_nEx_700_nPred_3_rep_3
-loading::beforeAndAfter_3.sys.psm.out
-#goals: 0.........100(109)
+data/runOutput_nEx_700_nPred_2_rep_9
+loading::beforeAndAfter_2.sys.psm.out
+#goals: 0.........100(106)
 Exporting switch information to the EM routine ... done
-#vbem-iters: 0..(30) (Converged: -3786.251281301)
+#vbem-iters: 0....(50) (Stopped: -4453.455550475)
 Statistics on learning:
-        Graph size: 35451174
-        Number of switches: 4
-        Number of switch instances: 1900
-        Number of iterations: 30
-        Final variational free energy: -3786.251281301
-        Total learning time: 282.712 seconds
-        Explanation search time: 164.480 seconds
-        Total table space used: 3022669200 bytes
+        Graph size: 9839767
+        Number of switches: 3
+        Number of switch instances: 1147
+        Number of iterations: 50
+        Final variational free energy: -4453.455550475
+        Total learning time: 100.176 seconds
+        Explanation search time: 43.352 seconds
+        Total table space used: 847924672 bytes
 Type show_sw_a/show_sw_d to show the probability distributions.
 Pruned ineffective rules...Done.
 Testing Accuracy...Question: after twenty comes ____?
 Answer: after twenty comes twenty .
 
 Question: after forty five comes ____?
-Answer: after forty five comes forty six .
+Answer: after forty five comes forty four .
 
 Question: after forty seven comes ____?
-Answer: after forty seven comes forty eight .
+Answer: after forty seven comes forty six .
 
 Question: after forty nine comes ____?
 Answer: after forty nine comes forty eight .
@@ -82,25 +82,25 @@ Question: after sixty one comes ____?
 Answer: after sixty one comes sixty two .
 
 Question: after sixty three comes ____?
-Answer: after sixty three comes sixty four .
+Answer: after sixty three comes sixty two .
 
 Question: after sixty four comes ____?
 Answer: after sixty four comes sixty three .
 
 Question: after sixty five comes ____?
-Answer: after sixty five comes sixty six .
+Answer: after sixty five comes sixty four .
 
 Question: after sixty nine comes ____?
 Answer: after sixty nine comes sixty eight .
 
 Question: after seventy three comes ____?
-Answer: after seventy three comes seventy four .
+Answer: after seventy three comes seventy two .
 
 Question: after seventy nine comes ____?
 Answer: after seventy nine comes seventy eight .
 
 Question: after ninety five comes ____?
-Answer: after ninety five comes ninety six .
+Answer: after ninety five comes ninety four .
 
 Question: before twenty three comes ____?
 Answer: before twenty three comes twenty two .
@@ -127,7 +127,7 @@ Question: before seventy three comes ____?
 Answer: before seventy three comes seventy two .
 
 Question: before eighty five comes ____?
-Answer: before eighty five comes eighty six .
+Answer: before eighty five comes eighty four .
 
 Question: before ninety two comes ____?
 Answer: before ninety two comes ninety one .
@@ -136,13 +136,13 @@ Question: before ninety three comes ____?
 Answer: before ninety three comes ninety two .
 
 Question: before ninety five comes ____?
-Answer: before ninety five comes ninety six .
+Answer: before ninety five comes ninety four .
 
 Done
-Accuracy: 0.52
+Accuracy: 0.36
 Finished test.
 
-Now: Sat Oct 18 03:42:25 UTC 2014
+Now: Sat Oct 18 03:44:41 UTC 2014
 
 **************************
 
