@@ -1,0 +1,149 @@
+PRISM 2.2 alpha 1, (C) Sato Lab, Tokyo Institute of Technology, September, 2014
+B-Prolog Version 7.8b1, All rights reserved, (C) Afany Software 1994-2012.
+
+This edition of B-Prolog is for evaluation, learning, and non-profit
+research purposes only, and a license is needed for any other uses.
+Please visit http://www.probp.com/license.htm for the detail.
+
+** Warning: singleton variables (srs.psm, 64-66): Predications
+** Warning: singleton variables (srs.psm, 74-79): K
+** Warning: Variable _ is treated as global in foreach (99-103).
+** Warning: Variable _ is treated as global in foreach (99-103).
+** Warning: Variable SaveDir is treated as global in list_comprehension (122-135).
+** Warning: singleton variables (srs.psm, 122-135): NEx_a,Rep_a,NPred_a,FileName
+** Warning: singleton variables (srs.psm, 149-163): Results
+** Warning: singleton variables (srs.psm, 172-182): NPred,SysFileName,FileName,Gs,Results,PrismFlags,LearnStatistics,SwitchVBInfo,SwitchesPruned
+** Warning: singleton variables (srs.psm, 184-194): NEx,SysFileName,FileName,Gs,Results,PrismFlags,LearnStatistics,SwitchVBInfo,SwitchesPruned
+** Warning: singleton variables (srs.psm, 196-206): NEx,NPred,SysFileName,FileName,Gs,PrismFlags,LearnStatistics,SwitchVBInfo,SwitchesPruned
+** Warning: Variable V is treated as global in foreach (216-225).
+loading::srs.psm.out
+Compiling::analyzeNumber.psm
+** Warning: singleton variables (analyzeNumber.psm, 1-2): I,Cs
+** Warning: singleton variables (analyzeNumber.psm, 17-26): Predictions
+** Warning: singleton variables (analyzeNumber.psm, 31-39): Post
+** Warning: singleton variables (analyzeNumber.psm, 44-51): A
+** Warning: singleton variables (analyzeNumber.psm, 60-60): Rest
+compiled in 4 milliseconds
+loading::analyzeNumber.psm.out
+Compiling::testTrain.psm
+** Warning: singleton variables (testTrain.psm, 33-33): X
+** Warning: singleton variables (testTrain.psm, 45-45): Values,Dist
+** Warning: singleton variables (testTrain.psm, 50-50): Lo,Hi
+** Warning: singleton variables (testTrain.psm, 55-55): P
+** Warning: singleton variables (testTrain.psm, 65-65): P,Lo,Hi,W
+** Warning: singleton variables (testTrain.psm, 73-74): V
+** Warning: singleton variables (testTrain.psm, 76-76): V
+compiled in 8 milliseconds
+loading::testTrain.psm.out
+consulting::allExamples.pl
+**********************
+
+Running srs.psm:prism_main with parameters: 
+Num Examples: 2100
+Rep: 3
+Num Predicates2
+Save In: data/overnight
+Now: Sat Oct 18 07:47:10 UTC 2014
+
+**********************
+
+data/overnightrunOutput_nEx_2100_nPred_2_rep_3
+loading::beforeAndAfter_2.sys.psm.out
+#goals: 0.........100.....(155)
+Exporting switch information to the EM routine ... done
+#vbem-iters: 0....(50) (Stopped: -15985.835742293)
+Statistics on learning:
+        Graph size: 14040405
+        Number of switches: 3
+        Number of switch instances: 1147
+        Number of iterations: 50
+        Final variational free energy: -15985.835742293
+        Total learning time: 145.116 seconds
+        Explanation search time: 63.264 seconds
+        Total table space used: 1214822904 bytes
+Type show_sw_a/show_sw_d to show the probability distributions.
+Pruned ineffective rules...Done.
+Testing Accuracy...Question: after twenty comes ____?
+Answer: after twenty comes twenty .
+
+Question: after forty five comes ____?
+Answer: after forty five comes six forty .
+
+Question: after forty seven comes ____?
+Answer: after forty seven comes eight forty .
+
+Question: after forty nine comes ____?
+Answer: after forty nine comes two one .
+
+Question: after fifty nine comes ____?
+Answer: after fifty nine comes two one .
+
+Question: after sixty one comes ____?
+Answer: after sixty one comes after sixty .
+
+Question: after sixty three comes ____?
+Answer: after sixty three comes before sixty .
+
+Question: after sixty four comes ____?
+Answer: after sixty four comes sixty one .
+
+Question: after sixty five comes ____?
+Answer: after sixty five comes six sixty .
+
+Question: after sixty nine comes ____?
+Answer: after sixty nine comes forty sixty .
+
+Question: after seventy three comes ____?
+Answer: after seventy three comes before seventy .
+
+Question: after seventy nine comes ____?
+Answer: after seventy nine comes two one .
+
+Question: after ninety five comes ____?
+Answer: after ninety five comes six ninety .
+
+Question: before twenty three comes ____?
+Answer: before twenty three comes before twenty .
+
+Question: before thirty comes ____?
+Answer: before thirty comes thirty .
+
+Question: before thirty eight comes ____?
+Answer: before thirty eight comes nine thirty .
+
+Question: before forty one comes ____?
+Answer: before forty one comes after forty .
+
+Question: before fifty three comes ____?
+Answer: before fifty three comes before fifty .
+
+Question: before sixty eight comes ____?
+Answer: before sixty eight comes nine sixty .
+
+Question: before seventy two comes ____?
+Answer: before seventy two comes seventy one .
+
+Question: before seventy three comes ____?
+Answer: before seventy three comes before seventy .
+
+Question: before eighty five comes ____?
+Answer: before eighty five comes six eighty .
+
+Question: before ninety two comes ____?
+Answer: before ninety two comes ninety one .
+
+Question: before ninety three comes ____?
+Answer: before ninety three comes before ninety .
+
+Question: before ninety five comes ____?
+Answer: before ninety five comes six ninety .
+
+Done
+Accuracy: 0.08
+Finished test.
+
+Now: Sat Oct 18 07:50:26 UTC 2014
+
+**************************
+
+yes

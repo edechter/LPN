@@ -49,4 +49,101 @@ Now: Sat Oct 18 04:19:00 UTC 2014
 
 data/overnightrunOutput_nEx_100_nPred_4_rep_1
 loading::beforeAndAfter_4.sys.psm.out
-#goals: 0
+#goals: 0..(29)
+Exporting switch information to the EM routine ... done
+#vbem-iters: 0.(15) (Converged: -681.748266199)
+Statistics on learning:
+        Graph size: 20567673
+        Number of switches: 5
+        Number of switch instances: 2869
+        Number of iterations: 15
+        Final variational free energy: -681.748266199
+        Total learning time: 146.360 seconds
+        Explanation search time: 97.088 seconds
+        Total table space used: 1775336344 bytes
+Type show_sw_a/show_sw_d to show the probability distributions.
+Pruned ineffective rules...Done.
+Testing Accuracy...Question: after twenty comes ____?
+Answer: after twenty comes nineteen .
+
+Question: after forty five comes ____?
+Answer: after forty five comes forty six .
+
+Question: after forty seven comes ____?
+Answer: .
+
+Question: after forty nine comes ____?
+Answer: after forty nine comes forty eight .
+
+Question: after fifty nine comes ____?
+Answer: after fifty nine comes fifty eight .
+
+Question: after sixty one comes ____?
+Answer: after sixty one comes sixty two .
+
+Question: after sixty three comes ____?
+Answer: after sixty three comes sixty four .
+
+Question: after sixty four comes ____?
+Answer: after sixty four comes sixty five .
+
+Question: after sixty five comes ____?
+Answer: after sixty five comes sixty six .
+
+Question: after sixty nine comes ____?
+Answer: after sixty nine comes sixty eight .
+
+Question: after seventy three comes ____?
+Answer: .
+
+Question: after seventy nine comes ____?
+Answer: after seventy nine comes comes after .
+
+Question: after ninety five comes ____?
+Answer: after ninety five comes ninety six .
+
+Question: before twenty three comes ____?
+Answer: before twenty three comes twenty two .
+
+Question: before thirty comes ____?
+Answer: before thirty comes comes thirty .
+
+Question: before thirty eight comes ____?
+Answer: before thirty eight comes thirty nine .
+
+Question: before forty one comes ____?
+Answer: before forty one comes forty two .
+
+Question: before fifty three comes ____?
+Answer: before fifty three comes fifty four .
+
+Question: before sixty eight comes ____?
+Answer: before sixty eight comes sixty nine .
+
+Question: before seventy two comes ____?
+Answer: .
+
+Question: before seventy three comes ____?
+Answer: .
+
+Question: before eighty five comes ____?
+Answer: before eighty five comes before four .
+
+Question: before ninety two comes ____?
+Answer: before ninety two comes ninety three .
+
+Question: before ninety three comes ____?
+Answer: before ninety three comes ninety four .
+
+Question: before ninety five comes ____?
+Answer: before ninety five comes ninety six .
+
+Done
+Accuracy: 0.28
+Finished test.
+
+Now: Sat Oct 18 04:24:07 UTC 2014
+
+**************************
+
+yes

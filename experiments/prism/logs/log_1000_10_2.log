@@ -85,3 +85,65 @@ Question: after sixty three comes ____?
 Answer: after sixty three comes after sixty .
 
 Question: after sixty four comes ____?
+Answer: after sixty four comes comes sixty .
+
+Question: after sixty five comes ____?
+Answer: after sixty five comes sixty four .
+
+Question: after sixty nine comes ____?
+Answer: after sixty nine comes sixty eight .
+
+Question: after seventy three comes ____?
+Answer: after seventy three comes after seventy .
+
+Question: after seventy nine comes ____?
+Answer: after seventy nine comes comes two .
+
+Question: after ninety five comes ____?
+Answer: after ninety five comes ninety four .
+
+Question: before twenty three comes ____?
+Answer: before twenty three comes after twenty .
+
+Question: before thirty comes ____?
+Answer: before thirty comes two .
+
+Question: before thirty eight comes ____?
+Answer: before thirty eight comes thirty seven .
+
+Question: before forty one comes ____?
+Answer: before forty one comes before forty .
+
+Question: before fifty three comes ____?
+Answer: before fifty three comes after fifty .
+
+Question: before sixty eight comes ____?
+Answer: before sixty eight comes sixty seven .
+
+Question: before seventy two comes ____?
+Answer: before seventy two comes comes seventy .
+
+Question: before seventy three comes ____?
+Answer: before seventy three comes after seventy .
+
+Question: before eighty five comes ____?
+Answer: before eighty five comes eighty four .
+
+Question: before ninety two comes ____?
+Answer: before ninety two comes comes ninety .
+
+Question: before ninety three comes ____?
+Answer: before ninety three comes after ninety .
+
+Question: before ninety five comes ____?
+Answer: before ninety five comes ninety four .
+
+Done
+Accuracy: 0.2
+Finished test.
+
+Now: Sat Oct 18 04:20:46 UTC 2014
+
+**************************
+
+yes
