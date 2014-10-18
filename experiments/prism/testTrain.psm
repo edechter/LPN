@@ -10,14 +10,30 @@ testSet(Set) :- findall(X,
                         (example(N, X), 
                          test(N)), Set).
 
-trainSet(Total, Set) :- heavyTail(0.5, 0.75, Total, Counts),
-                        findall(count(X, N), 
-                                (example(C, X), 
-                                 \+ test(C), 
-                                 nth(C, Counts, N)
-                                ), Xs), 
-                        Set=Xs.
+trainSet(Total, Set) :- 
+    TBefore is floor(Total/2), 
+    TAfter is ceiling(Total/2), 
+    heavyTail(0.5, 0.75, TBefore, BeforeCounts),
+    heavyTail(0.5, 0.75, TAfter, AfterCounts), 
+    findall(count(X, N), 
+            (example(C, X), 
+             \+ test(C), 
+             numOccur(C, AfterCounts, N), 
+             N>0
+            ), AfterSet), 
+    findall(count(X, N), 
+            (example(C, X), 
+             \+ test(C), 
+             C1 is C-98,
+             numOccur(C1, BeforeCounts, N),
+             N>0
+            ), BeforeSet), 
+    append(AfterSet, BeforeSet, Set).
 
+numOccur(X, [], 0) :- !.
+numOccur(X, [X|Ys], N) :- !, numOccur(X, Ys, N0), 
+                          N is N0+1.
+numOccur(X, [_|Ys], N) :- numOccur(X, Ys, N).
 
 unzip([], [], []).
 unzip([A\B|Xs], [A|As], [B|Bs]) :- unzip(Xs, As, Bs).

@@ -216,14 +216,12 @@ extractData(File, NEx, NPred, A) :-
 printData:- 
     directory_files('.', L), 
     foreach(F in L, 
-            [Nex, NPred, Acc, F],
+            [NEx, NPred, Acc, F],
             (
-                write(F), nl, 
                 file_property(F, type(V)),
                 V=regular -> (
-                     ??* extractData(F, NEx, NPred, Acc), 
-                     write(NEx), nl)
-                     %% format("~10f~t~10f~t~5f", [NEx, NPred, Acc]))
+                     extractData(F, NEx, NPred, Acc), 
+                     format("~10d , ~10d , ~5f~1n", [NEx, NPred, Acc]))
                 ; true)).
 
                 %% 
