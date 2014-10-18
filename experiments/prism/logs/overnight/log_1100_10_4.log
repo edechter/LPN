@@ -42,13 +42,11 @@ Running srs.psm:prism_main with parameters:
 Num Examples: 1100
 Rep: 10
 Num Predicates4
-Save In: data/overnight
-Now: Sat Oct 18 06:06:29 UTC 2014
+Save In: data/saturday_
+Now: Sat Oct 18 15:39:38 UTC 2014
 
 **********************
 
-data/overnightrunOutput_nEx_1100_nPred_4_rep_10
+data/saturday_runOutput_nEx_1100_nPred_4_rep_10
 loading::beforeAndAfter_4.sys.psm.out
-#goals: 0.........100..(123)
-Exporting switch information to the EM routine ... done
-#vbem-iters: 0
+#goals: 0.........

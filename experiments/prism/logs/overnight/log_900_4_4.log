@@ -33,7 +33,7 @@ Compiling::testTrain.psm
 ** Warning: singleton variables (testTrain.psm, 65-65): P,Lo,Hi,W
 ** Warning: singleton variables (testTrain.psm, 73-74): V
 ** Warning: singleton variables (testTrain.psm, 76-76): V
-compiled in 4 milliseconds
+compiled in 0 milliseconds
 loading::testTrain.psm.out
 consulting::allExamples.pl
 **********************
@@ -42,13 +42,11 @@ Running srs.psm:prism_main with parameters:
 Num Examples: 900
 Rep: 4
 Num Predicates4
-Save In: data/overnight
-Now: Sat Oct 18 05:31:09 UTC 2014
+Save In: data/saturday_
+Now: Sat Oct 18 15:26:59 UTC 2014
 
 **********************
 
-data/overnightrunOutput_nEx_900_nPred_4_rep_4
+data/saturday_runOutput_nEx_900_nPred_4_rep_4
 loading::beforeAndAfter_4.sys.psm.out
-#goals: 0.........100.(115)
-Exporting switch information to the EM routine ... done
-#vbem-iters: 0
+#goals: 0.........100

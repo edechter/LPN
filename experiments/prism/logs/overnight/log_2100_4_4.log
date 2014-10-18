@@ -42,11 +42,11 @@ Running srs.psm:prism_main with parameters:
 Num Examples: 2100
 Rep: 4
 Num Predicates4
-Save In: data/overnight
-Now: Sat Oct 18 07:51:03 UTC 2014
+Save In: data/saturday_
+Now: Sat Oct 18 16:14:10 UTC 2014
 
 **********************
 
-data/overnightrunOutput_nEx_2100_nPred_4_rep_4
+data/saturday_runOutput_nEx_2100_nPred_4_rep_4
 loading::beforeAndAfter_4.sys.psm.out
-#goals: 0.........100..
+#goals: 0.........

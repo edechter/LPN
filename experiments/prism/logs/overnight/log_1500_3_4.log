@@ -33,7 +33,7 @@ Compiling::testTrain.psm
 ** Warning: singleton variables (testTrain.psm, 65-65): P,Lo,Hi,W
 ** Warning: singleton variables (testTrain.psm, 73-74): V
 ** Warning: singleton variables (testTrain.psm, 76-76): V
-compiled in 0 milliseconds
+compiled in 4 milliseconds
 loading::testTrain.psm.out
 consulting::allExamples.pl
 **********************
@@ -42,11 +42,11 @@ Running srs.psm:prism_main with parameters:
 Num Examples: 1500
 Rep: 3
 Num Predicates4
-Save In: data/overnight
-Now: Sat Oct 18 06:36:48 UTC 2014
+Save In: data/saturday_
+Now: Sat Oct 18 15:49:51 UTC 2014
 
 **********************
 
-data/overnightrunOutput_nEx_1500_nPred_4_rep_3
+data/saturday_runOutput_nEx_1500_nPred_4_rep_3
 loading::beforeAndAfter_4.sys.psm.out
-#goals: 0.........100.
+#goals: 0.........

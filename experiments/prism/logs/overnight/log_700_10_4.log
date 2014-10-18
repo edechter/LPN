@@ -23,7 +23,7 @@ Compiling::analyzeNumber.psm
 ** Warning: singleton variables (analyzeNumber.psm, 31-39): Post
 ** Warning: singleton variables (analyzeNumber.psm, 44-51): A
 ** Warning: singleton variables (analyzeNumber.psm, 60-60): Rest
-compiled in 4 milliseconds
+compiled in 0 milliseconds
 loading::analyzeNumber.psm.out
 Compiling::testTrain.psm
 ** Warning: singleton variables (testTrain.psm, 33-33): X
@@ -42,52 +42,11 @@ Running srs.psm:prism_main with parameters:
 Num Examples: 700
 Rep: 10
 Num Predicates4
-Save In: data/overnight
-Now: Sat Oct 18 05:22:32 UTC 2014
+Save In: data/saturday_
+Now: Sat Oct 18 15:24:22 UTC 2014
 
 **********************
 
-data/overnightrunOutput_nEx_700_nPred_4_rep_10
+data/saturday_runOutput_nEx_700_nPred_4_rep_10
 loading::beforeAndAfter_4.sys.psm.out
-#goals: 0.........100.(112)
-Exporting switch information to the EM routine ... done
-#vbem-iters: 0.(15) (Converged: -3379.402611649)
-Statistics on learning:
-        Graph size: 80740501
-        Number of switches: 5
-        Number of switch instances: 2869
-        Number of iterations: 15
-        Final variational free energy: -3379.402611649
-        Total learning time: 578.040 seconds
-        Explanation search time: 389.420 seconds
-        Total table space used: 7023709856 bytes
-Type show_sw_a/show_sw_d to show the probability distributions.
-Pruned ineffective rules...Done.
-Testing Accuracy...Question: after twenty comes ____?
-Answer: after twenty comes twenty .
-
-Question: after forty five comes ____?
-Answer: after forty five comes forty four .
-
-Question: after forty seven comes ____?
-Answer: after forty seven comes forty six .
-
-Question: after forty nine comes ____?
-Answer: after forty nine comes forty eight .
-
-Question: after fifty nine comes ____?
-Answer: after fifty nine comes fifty eight .
-
-Question: after sixty one comes ____?
-Answer: after sixty one comes sixty two .
-
-Question: after sixty three comes ____?
-Answer: after sixty three comes sixty two .
-
-Question: after sixty four comes ____?
-Answer: after sixty four comes sixty three .
-
-Question: after sixty five comes ____?
-Answer: after sixty five comes sixty four .
-
-Question: after sixty nine comes ____?
+#goals: 0.........

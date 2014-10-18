@@ -42,108 +42,12 @@ Running srs.psm:prism_main with parameters:
 Num Examples: 2100
 Rep: 10
 Num Predicates4
-Save In: data/overnight
-Now: Sat Oct 18 08:05:38 UTC 2014
+Save In: data/saturday_
+Now: Sat Oct 18 16:18:54 UTC 2014
 
 **********************
 
-data/overnightrunOutput_nEx_2100_nPred_4_rep_10
+data/saturday_runOutput_nEx_2100_nPred_4_rep_10
 loading::beforeAndAfter_4.sys.psm.out
-#goals: 0.........100.....(159)
-Exporting switch information to the EM routine ... done
-#vbem-iters: 0.(17) (Converged: -8779.210089781)
-Statistics on learning:
-        Graph size: 115198213
-        Number of switches: 5
-        Number of switch instances: 2869
-        Number of iterations: 17
-        Final variational free energy: -8779.210089781
-        Total learning time: 577.496 seconds
-        Explanation search time: 384.648 seconds
-        Total table space used: 10053549664 bytes
-Type show_sw_a/show_sw_d to show the probability distributions.
-Pruned ineffective rules...Done.
-Testing Accuracy...Question: after twenty comes ____?
-Answer: after twenty comes comes .
-
-Question: after forty five comes ____?
-Answer: after forty five comes forty six .
-
-Question: after forty seven comes ____?
-Answer: after forty seven comes forty eight .
-
-Question: after forty nine comes ____?
-Answer: after forty nine comes forty .
-
-Question: after fifty nine comes ____?
-Answer: after fifty nine comes fifty .
-
-Question: after sixty one comes ____?
-Answer: after sixty one comes sixty two .
-
-Question: after sixty three comes ____?
-Answer: after sixty three comes sixty four .
-
-Question: after sixty four comes ____?
-Answer: after sixty four comes sixty five .
-
-Question: after sixty five comes ____?
-Answer: after sixty five comes sixty six .
-
-Question: after sixty nine comes ____?
-Answer: after sixty nine comes sixty .
-
-Question: after seventy three comes ____?
-Answer: after seventy three comes seventy four .
-
-Question: after seventy nine comes ____?
-Answer: after seventy nine comes seventy .
-
-Question: after ninety five comes ____?
-Answer: after ninety five comes ninety six .
-
-Question: before twenty three comes ____?
-Answer: before twenty three comes twenty two .
-
-Question: before thirty comes ____?
-Answer: before thirty comes thirty .
-
-Question: before thirty eight comes ____?
-Answer: before thirty eight comes thirty seven .
-
-Question: before forty one comes ____?
-Answer: before forty one comes forty .
-
-Question: before fifty three comes ____?
-Answer: before fifty three comes fifty two .
-
-Question: before sixty eight comes ____?
-Answer: before sixty eight comes sixty seven .
-
-Question: before seventy two comes ____?
-Answer: before seventy two comes seventy one .
-
-Question: before seventy three comes ____?
-Answer: before seventy three comes seventy two .
-
-Question: before eighty five comes ____?
-Answer: before eighty five comes eighty four .
-
-Question: before ninety two comes ____?
-Answer: before ninety two comes ninety one .
-
-Question: before ninety three comes ____?
-Answer: before ninety three comes ninety two .
-
-Question: before ninety five comes ____?
-Answer: before ninety five comes ninety four .
-
-Done
-Accuracy: 0.76
-Finished test.
-
-Now: Sat Oct 18 08:16:33 UTC 2014
-
-**************************
-
-yes
+#goals: 0.........100......(163)
+Exporting switch information to the EM routine ... 

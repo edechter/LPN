@@ -23,7 +23,7 @@ Compiling::analyzeNumber.psm
 ** Warning: singleton variables (analyzeNumber.psm, 31-39): Post
 ** Warning: singleton variables (analyzeNumber.psm, 44-51): A
 ** Warning: singleton variables (analyzeNumber.psm, 60-60): Rest
-compiled in 8 milliseconds
+compiled in 4 milliseconds
 loading::analyzeNumber.psm.out
 Compiling::testTrain.psm
 ** Warning: singleton variables (testTrain.psm, 33-33): X
@@ -42,11 +42,11 @@ Running srs.psm:prism_main with parameters:
 Num Examples: 1500
 Rep: 7
 Num Predicates4
-Save In: data/overnight
-Now: Sat Oct 18 06:46:04 UTC 2014
+Save In: data/saturday_
+Now: Sat Oct 18 15:53:00 UTC 2014
 
 **********************
 
-data/overnightrunOutput_nEx_1500_nPred_4_rep_7
+data/saturday_runOutput_nEx_1500_nPred_4_rep_7
 loading::beforeAndAfter_4.sys.psm.out
-#goals: 0.........100...
+#goals: 0.........
