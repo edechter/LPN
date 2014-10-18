@@ -23,7 +23,7 @@ Compiling::analyzeNumber.psm
 ** Warning: singleton variables (analyzeNumber.psm, 31-39): Post
 ** Warning: singleton variables (analyzeNumber.psm, 44-51): A
 ** Warning: singleton variables (analyzeNumber.psm, 60-60): Rest
-compiled in 8 milliseconds
+compiled in 4 milliseconds
 loading::analyzeNumber.psm.out
 Compiling::testTrain.psm
 ** Warning: singleton variables (testTrain.psm, 33-33): X
@@ -33,22 +33,20 @@ Compiling::testTrain.psm
 ** Warning: singleton variables (testTrain.psm, 65-65): P,Lo,Hi,W
 ** Warning: singleton variables (testTrain.psm, 73-74): V
 ** Warning: singleton variables (testTrain.psm, 76-76): V
-compiled in 0 milliseconds
+compiled in 8 milliseconds
 loading::testTrain.psm.out
 consulting::allExamples.pl
 **********************
 
 Running srs.psm:prism_main with parameters: 
 Num Examples: 900
-Rep: 4
-Num Predicates3
+Rep: 8
+Num Predicates2
 Save In: data/
-Now: Sat Oct 18 03:58:40 UTC 2014
+Now: Sat Oct 18 04:03:10 UTC 2014
 
 **********************
 
-data/runOutput_nEx_900_nPred_3_rep_4
-loading::beforeAndAfter_3.sys.psm.out
-#goals: 0.........100..(121)
-Exporting switch information to the EM routine ... done
-#vbem-iters: 0..
+data/runOutput_nEx_900_nPred_2_rep_8
+loading::beforeAndAfter_2.sys.psm.out
+#goals: 0.

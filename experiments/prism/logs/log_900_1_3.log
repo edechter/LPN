@@ -51,4 +51,61 @@ data/runOutput_nEx_900_nPred_3_rep_1
 loading::beforeAndAfter_3.sys.psm.out
 #goals: 0.........100..(127)
 Exporting switch information to the EM routine ... done
-#vbem-iters: 0
+#vbem-iters: 0....(50) (Stopped: -6159.938327849)
+Statistics on learning:
+        Graph size: 38995338
+        Number of switches: 4
+        Number of switch instances: 1900
+        Number of iterations: 50
+        Final variational free energy: -6159.938327849
+        Total learning time: 392.120 seconds
+        Explanation search time: 182.072 seconds
+        Total table space used: 3341860184 bytes
+Type show_sw_a/show_sw_d to show the probability distributions.
+Pruned ineffective rules...Done.
+Testing Accuracy...Question: after twenty comes ____?
+Answer: after twenty comes twenty .
+
+Question: after forty five comes ____?
+Answer: after forty five comes forty six .
+
+Question: after forty seven comes ____?
+Answer: after forty seven comes forty eight .
+
+Question: after forty nine comes ____?
+Answer: after forty nine comes forty eight .
+
+Question: after fifty nine comes ____?
+Answer: after fifty nine comes two two .
+
+Question: after sixty one comes ____?
+Answer: after sixty one comes sixty two .
+
+Question: after sixty three comes ____?
+Answer: after sixty three comes sixty two .
+
+Question: after sixty four comes ____?
+Answer: after sixty four comes sixty two .
+
+Question: after sixty five comes ____?
+Answer: after sixty five comes sixty six .
+
+Question: after sixty nine comes ____?
+Answer: after sixty nine comes sixty eight .
+
+Question: after seventy three comes ____?
+Answer: after seventy three comes seventy two .
+
+Question: after seventy nine comes ____?
+Answer: after seventy nine comes seventy eight .
+
+Question: after ninety five comes ____?
+Answer: after ninety five comes ninety six .
+
+Question: before twenty three comes ____?
+Answer: before twenty three comes twenty one .
+
+Question: before thirty comes ____?
+Answer: before thirty comes thirty .
+
+Question: before thirty eight comes ____?
