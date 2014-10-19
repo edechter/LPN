@@ -1,0 +1,46 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{
+	shapes,
+	snakes,
+	calc,
+	decorations,
+	decorations.markings,
+	decorations.text,
+	decorations.pathreplacing}
+	
+\begin{document}
+	\begin{tikzpicture}[scale=1]
+		\tikzstyle{vertex}=[circle,draw,minimum size=19pt,
+							inner sep=1pt, outer sep=1pt]
+    	
+		 \clip (0.6,-0.4) rectangle (5.4,3.4);
+		
+    	% S
+        \node[vertex] (S) at (1,3) {$S$};
+    
+    	% As
+    	\foreach \name/\x in {A_1/1, A_2/3, A_n/5}
+       		\node[vertex] (\name) at (\x,2) {$\name$};
+    	\node (Adots) at (4 ,2) {\ldots};
+    	
+        % ws
+        \foreach \name/\x in {w_1/1, w_2/3, w_m/5}
+        	\node[vertex] (\name) at (\x,0) {$\name$};
+        \node (wdots) at (4 ,0) {\ldots};
+        
+        % edges
+        \draw [->] (S) -- (A_1);
+        
+        \foreach \wname in {w_1, w_2, w_m}
+            \foreach \aname in {A_1, A_2, A_n}
+                \draw [->] (\wname) -- (\aname);
+                
+        \draw [->] (A_1) to [out=345,in=195] (A_2);
+        \draw [->] (A_1) to [out=30,in=150] (A_n);
+        \draw [->] (A_2) to [out=165,in=15] (A_1);
+        \draw [->] (A_2) to [out=15,in=165] (A_n);
+        \draw [->] (A_n) to [out=140,in=40] (A_1);
+        \draw [->] (A_n) to [out=195,in=345](A_2);
+	\end{tikzpicture}
+\end{document}
