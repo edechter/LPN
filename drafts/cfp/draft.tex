@@ -5,6 +5,8 @@
 \usepackage{listings}
 \usepackage{anyfontsize}
 \usepackage{subcaption}
+%\usepackage{subfigure}
+\usepackage{graphicx}
 \title{Latent Predicate Networks: Concept Learning with Probabilistic Context-Sensitive Grammars}
 \author{Eyal Dechter \& Josh Rule \& Josh Tenenbaum}
 
@@ -136,13 +138,26 @@ Contribution:
 \end{itemize}
 
 \subsection{Related Work}
-Our core inference algorithm borrows heavily from recent algorithms for nonparametric PCFG induction, as well as work extending that algorithm to SLPs (CITATION Johnson; Liang; Cussens, 2001). Like Johnson and Liang, we are interested in inferring the most likely grammar given some collection of sentences, and in doing so without a pre-specified limit on the complexity of the grammar. Like Cussens, we are interested in efficiently extending this algorithm to more powerful and expressive formalisms than CFGs.
+Our core inference algorithm borrows heavily from recent algorithms for nonparametric PCFG induction, as well as work extending those algorithms to SLPs~\cite{DBLP:conf/emnlp/LiangPJK07,goldwater2006contextual,johnson2006adaptor,cussens2001parameter}. Like Johnson and Liang, we are interested in inferring the most likely grammar given some collection of sentences, and in doing so without a pre-specified limit on the complexity of the grammar. Like Cussens, we are interested in efficiently extending this algorithm to more powerful and expressive formalisms than CFGs.
 
-This work is also closely related to the growing field of semantic parsing. Both are aimed at jointly learning syntactic and semantic information from a body of sentences. Semantic parsers, however, learn separate systems of syntax and semantics, often pairing Combinatory Categorial Grammars of syntax with an explicit logical language of semantics, often the untyped lambda calculus (CITATION Steedman; Liang; Zettlemoyer; etc.). By contrast, our approach uses a single formalism, the latent predicate network, to describe both which sentences are syntactically valid and what sorts of semantic information those sentence imply. Semantic parsers also typically learn models of semantics by pairing sentences with an explicit logical form or real-world denotation. In our model it is the grammar induction itself which reveals candidate relations between words that are key to capturing their meaning.
+This work is also closely related to the growing field of semantic parsing. Both are aimed at jointly learning syntactic and semantic information from a body of sentences. Semantic parsers, however, learn separate systems of syntax and semantics, often pairing Combinatory Categorial Grammars of syntax with an explicit logical language of semantics, often the untyped lambda calculus~\cite{berant2013semantic,liang2013learning,kwiatkowski2010inducing}. By contrast, our approach uses a single formalism, the latent predicate network, to describe both which sentences are syntactically valid and what sorts of semantic information those sentence imply. Semantic parsers also typically learn models of semantics by pairing sentences with an explicit logical form or real-world denotation. In our model it is the grammar induction itself which reveals candidate relations between words that are key to capturing their meaning.
 
-More generally, we see this model as helping to strike a balance between expressivity and tractability, bridge the gap between more traditional forms of grammar induction (CITATION) and program induction over more powerful languages (CITATION E.C. paper, other P.I. papers).
+More generally, we see this model as helping to strike a balance between expressivity and tractability, bridge the gap between more traditional PCFG grammar induction and program induction over more powerful languages~\cite{dechter2013bootstrap,} (CITATION other P.I. papers).
 
 \section{The Model}
+
+\begin{figure}[t]
+		\includegraphics[width=\linewidth]{lpn/lpn.pdf}
+		\caption{A schematic LPN where $m = |L|,\, n = |N|-1$,\, arity$(A_i) = 2$, and arity$(S) = 1$.}
+		\label{fig:schematic}
+\end{figure}
+
+\begin{figure}[t]
+		\includegraphics[width=\linewidth]{parseTree/parse.pdf}
+		\caption{A possible parse of the sentence ``after twenty five comes twenty six" using a 5-predicate LPN.}
+\end{figure}
+
+
 An LCG is a hierarchical Bayesian model of string tuples. It is an
 extension of the Hierarhical Dirichlet PCFG model (HD-PCFG) to
 Probabilistic Range Concatenation Grammars (PRCGs). Whereas the
@@ -212,7 +227,7 @@ some fixed number $K$ of clauses (i.e. rules) $C_1, \dots, C_K$ over
 the $N$ observable relations plus a fixed number of $H$ hidden
 relations $T_1, \dots, T_H$. The \emph{architecture} of the model is
 the exact specification of the parameters $K$ and $H$ and the clauses
-$mathcal{C}$. To each clause $C_i$ is associated a positive real
+$\mathcal{C}$. To each clause $C_i$ is associated a positive real
 weights $\theta_i$.
 
 The clauses of $\mathcal{K}$ are Horn clauses in a first order logic
@@ -256,22 +271,24 @@ program, so that any VB-EM algorithm for that domain will suffice.
 
 \lstset{
     language=Prolog,
-    basicstyle=\fontsize{5}{6}\selectfont\ttfamily
+    basicstyle=\fontsize{9}{10.5}\selectfont\ttfamily
 }
 
 \begin{figure}[t]
 	\centering
-	\begin{minipage}[b]{0.45\textwidth}
+	\begin{minipage}[b]{\linewidth}
 A(a, a) :: 0.25. \\
 A(b, b) :: 0.3. \\
 A(X a, Y a) $\leftarrow$ A(X, Y) :: 0.25. \\
-A(X b, Y b) $\leftarrow$ A(X, Y) :: 0.2.\\
+A(X b, Y b) $\leftarrow$ A(X, Y) :: 0.2.
+		\subcaption{}
 		\label{fig:grammar}
 	\end{minipage}
-	\hfill
-	\begin{minipage}[b]{0.5\textwidth}
+	%\rule[0pt]{0.8\linewidth}{.5pt}
+	\begin{minipage}[b]{\linewidth}
 		\begin{lstlisting}
-values('A', [1, 2, 3, 4],[0.25, 0.30, 0.25, 0.20]).
+values('A', [1, 2, 3, 4],
+    [0.25, 0.30, 0.25, 0.20]).
 
 reduce('A'-[[a],[a]],1).
 reduce('A'-[[b],[b]],2).
@@ -282,24 +299,30 @@ reduce('A'-[A2,B2],4) :- lpn('A'-[X,Y]),
 
 lpn(P-IN) :- msw(P,V), reduce(P-IN,V).
 		\end{lstlisting}
+		\subcaption{}
 		\label{fig:prism}
 	\end{minipage}
-	\caption{The copy language as an LPN (left), and a PRISM Program (right).}
+	\caption{Possible encodings of the 2-copy language as (\subref{fig:grammar}) an LPN, (\subref{fig:prism}) a PRISM program.}
 	\label{fig:copy}
 \end{figure}
 
 LPNs can be encoded as a restricted and tractable subclass of Stochastic Logic Programs (SLP). Specifically, we encode LPNs as programs in PRISM PROLOG. PRISM provides probabilistic execution and Bayesian inference over SLPs.
 
-To illustrate the encoding, consider the copy language (CL) in Figure \ref{fig:copy}. CL is a toy language producing two identical strings of $a$s and $b$s, making it mildly context-sensitive. Here, we see four rules concerning a single symbol, $A$, whose total probability sums to unity.
+To illustrate the encoding, consider the 2-copy language (CL2) in Figure \ref{fig:copy}. CL2 is a toy language producing two identical strings of $a$s and $b$s, making it mildly context-sensitive. Here, we see four rules concerning a single symbol, $A$, whose total probability sums to unity.
 
-To translate LPNs into PRISM SLPs, we first define the distribution over each symbol. We use the {\tt values} predicate, which takes an atom, in this case the name of the symbol, the values that atom can take on, and the probability of each value. For inference, we initialize the distribution uniformly. For our encoding, each possible value for an atom (or symbol) corresponds to exactly one clause in CL where that symbol appears on the left-hand side. There are four clauses for $A$ in CL, so {\tt values} can take on one of four values, each of whose probabilities corresponds to a rule in CL.
+To translate LPNs into PRISM SLPs, we first define the distribution over each symbol. We use the {\tt values} predicate, which takes an atom, in this case the name of the symbol, the values that atom can take on, and the probability of each value. For inference, we initialize the distribution uniformly. For our encoding, each possible value for an atom (or symbol) corresponds to exactly one clause in CL2 where that symbol appears on the left-hand side. There are four clauses for $A$ in CL2, so {\tt values} can take on one of four values, each of whose probabilities corresponds to a rule in CL2.
 
 For each rule in the LPN, we also define a corresponding clause of the {\tt reduce} predicate in our PRISM program. These {\tt reduce} rules are where the actual relations between the left-hand and right-hand side of each rule are encoded. Because PROLOG isn't perfectly declarative, the actual {\tt reduce} clauses are slightly more complex than presented here, reversing the order of the {\tt append} and recursive {\tt lpn} calls based on whether we are sampling or parsing.
 
 To parse or sample a sentence, we call {\tt lpn(P-IN)}, where {\tt P} is the top-level symbol, {\tt IN} is a list of terminal lists, and {\tt -} denotes a pair ({\it e.g.} {\tt lpn('A'-[[a,a,
 b,a],[a,a,b,a]])}). A sample or parse begins by probabilistically choosing some rule for the left-hand side via {\tt msw(P,V)} and then recursively reducing the input term using the chosen rule ({\tt reduce(P-IN,V)}). 
-
 \section{Experiments}
+
+\begin{figure}
+	\rule{\linewidth}{3in}
+	\caption{The Results}
+	\label{fig:results}
+\end{figure}
 
 \begin{tabular}{l l}
 Question & $N_p=4$ \\ \hline
@@ -387,30 +410,29 @@ Question & $N_p=4$ \\ \hline
 \end{alignat*} \\
 \section{Discussion}
 
-\section{Outline}
-1) Introduction
-  - psychological motivation 
-    - juxtaposing the kinds of knowledge that freebase has and the kinds that children learn
-    - compositional semantic structure --> derive semantics from syntax
-  - what is the contribution?
-     - the use of string rewrite formalisms to capture conceptual knowledge and conceptual learning
-     - to bring tools from computational linguistics to learning semantics
-  - what kind of concept systems are we trying to capture?
-  - why restrict the formalism? 
-     - tractability of inference 
-  - why go beyond context free grammars? 
-     - if they are intractable to learn anyway, why try to go beyond them? 
-  - Related Work
-2) Model
-- stochastic linear context free rewrite systems
-  - model: what is the data? and what is being inferred? what is the prior? 
-  - this can be written as PRISM program, or an SLP. 
-  - inference: variational approximation 
-3) Experiments
-  a) worked example
-  b) Number system (main result)
-  3b) Results
-4) Conclusion
-5) Citations
+%1) Introduction
+%  - psychological motivation 
+%    - juxtaposing the kinds of knowledge that freebase has and the kinds that children learn
+%    - compositional semantic structure --> derive semantics from syntax
+%  - what is the contribution?
+%     - the use of string rewrite formalisms to capture conceptual knowledge and conceptual learning
+%     - to bring tools from computational linguistics to learning semantics
+%  - what kind of concept systems are we trying to capture?
+%  - why restrict the formalism? 
+%     - tractability of inference 
+%  - why go beyond context free grammars? 
+%     - if they are intractable to learn anyway, why try to go beyond them? 
+%  - Related Work
+%2) Model
+%- stochastic linear context free rewrite systems
+%  - model: what is the data? and what is being inferred? what is the prior? 
+%  - this can be written as PRISM program, or an SLP. 
+%  - inference: variational approximation 
+%3) Experiments
+%  a) worked example
+%  b) Number system (main result)
+%  3b) Results
+%4) Conclusion
+%5) Citations
 
 \end{document}
