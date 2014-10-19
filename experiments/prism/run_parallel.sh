@@ -1,7 +1,7 @@
 #!/bin/bash
 
-NumExamples=(700 900 1100 1300 1500 1700 1900 2100);
-NumReps=10;
+NumExamples=(1700);
+NumReps=1;
 NumPred=(4);
 SaveDir="data/saturday_"
 args=()
@@ -19,7 +19,7 @@ do
     done
 done
 
-CMD="parallel -n 3 --noswap --resume-failed --joblog ./parallel_log --delay 2 upprism srs {} $SaveDir &> logs/overnight/log_{1}_{2}_{3}.log ::: ${args[*]}"
+CMD="parallel -n 3 --noswap --resume-failed --joblog ./parallel_log --delay 2 upprism srs {} $SaveDir &> logs/overnight/saturday_log_{1}_{2}_{3}.log ::: ${args[*]}"
 echo $CMD
 `$CMD`
 
