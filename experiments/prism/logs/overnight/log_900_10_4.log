@@ -1,0 +1,52 @@
+PRISM 2.2 alpha 1, (C) Sato Lab, Tokyo Institute of Technology, September, 2014
+B-Prolog Version 7.8b1, All rights reserved, (C) Afany Software 1994-2012.
+
+This edition of B-Prolog is for evaluation, learning, and non-profit
+research purposes only, and a license is needed for any other uses.
+Please visit http://www.probp.com/license.htm for the detail.
+
+** Warning: singleton variables (srs.psm, 64-66): Predications
+** Warning: singleton variables (srs.psm, 74-79): K
+** Warning: Variable _ is treated as global in foreach (99-103).
+** Warning: Variable _ is treated as global in foreach (99-103).
+** Warning: Variable SaveDir is treated as global in list_comprehension (122-135).
+** Warning: singleton variables (srs.psm, 122-135): NEx_a,Rep_a,NPred_a,FileName
+** Warning: singleton variables (srs.psm, 149-163): Results
+** Warning: singleton variables (srs.psm, 172-182): NPred,SysFileName,FileName,Gs,Results,PrismFlags,LearnStatistics,SwitchVBInfo,SwitchesPruned
+** Warning: singleton variables (srs.psm, 184-194): NEx,SysFileName,FileName,Gs,Results,PrismFlags,LearnStatistics,SwitchVBInfo,SwitchesPruned
+** Warning: singleton variables (srs.psm, 196-206): NEx,NPred,SysFileName,FileName,Gs,PrismFlags,LearnStatistics,SwitchVBInfo,SwitchesPruned
+** Warning: Variable V is treated as global in foreach (216-225).
+loading::srs.psm.out
+Compiling::analyzeNumber.psm
+** Warning: singleton variables (analyzeNumber.psm, 1-2): I,Cs
+** Warning: singleton variables (analyzeNumber.psm, 17-26): Predictions
+** Warning: singleton variables (analyzeNumber.psm, 31-39): Post
+** Warning: singleton variables (analyzeNumber.psm, 44-51): A
+** Warning: singleton variables (analyzeNumber.psm, 60-60): Rest
+compiled in 4 milliseconds
+loading::analyzeNumber.psm.out
+Compiling::testTrain.psm
+** Warning: singleton variables (testTrain.psm, 33-33): X
+** Warning: singleton variables (testTrain.psm, 45-45): Values,Dist
+** Warning: singleton variables (testTrain.psm, 50-50): Lo,Hi
+** Warning: singleton variables (testTrain.psm, 55-55): P
+** Warning: singleton variables (testTrain.psm, 65-65): P,Lo,Hi,W
+** Warning: singleton variables (testTrain.psm, 73-74): V
+** Warning: singleton variables (testTrain.psm, 76-76): V
+compiled in 4 milliseconds
+loading::testTrain.psm.out
+consulting::allExamples.pl
+**********************
+
+Running srs.psm:prism_main with parameters: 
+Num Examples: 900
+Rep: 10
+Num Predicates4
+Save In: data/saturday_
+Now: Sat Oct 18 15:31:49 UTC 2014
+
+**********************
+
+data/saturday_runOutput_nEx_900_nPred_4_rep_10
+loading::beforeAndAfter_4.sys.psm.out
+#goals: 0.........

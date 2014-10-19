@@ -1,0 +1,96 @@
+%% functions for creating test/train cross validation splits 
+
+%% We assume the data set is given in predicate example(Ex, Cnt),
+%% where Ex is the example and Cnt is the number of times it appears.
+
+%% load all examples
+:- consult(allExamples).
+
+testSet(Set) :- findall(X, 
+                        (example(N, X), 
+                         test(N)), Set).
+
+trainSet(Total, Set) :- 
+    TBefore is floor(Total/2), 
+    TAfter is ceiling(Total/2), 
+    heavyTail(0.5, 0.75, TBefore, BeforeCounts),
+    heavyTail(0.5, 0.75, TAfter, AfterCounts), 
+    findall(count(X, N), 
+            (example(C, X), 
+             \+ test(C), 
+             numOccur(C, AfterCounts, N), 
+             N>0
+            ), AfterSet), 
+    findall(count(X, N), 
+            (example(C, X), 
+             \+ test(C), 
+             C1 is C-98,
+             numOccur(C1, BeforeCounts, N),
+             N>0
+            ), BeforeSet), 
+    append(AfterSet, BeforeSet, Set).
+
+numOccur(X, [], 0) :- !.
+numOccur(X, [X|Ys], N) :- !, numOccur(X, Ys, N0), 
+                          N is N0+1.
+numOccur(X, [_|Ys], N) :- numOccur(X, Ys, N).
+
+unzip([], [], []).
+unzip([A\B|Xs], [A|As], [B|Bs]) :- unzip(Xs, As, Bs).
+
+listToRatio([X],X).
+listToRatio([X|Xs],X:Ys) :- listToRatio(Xs, Ys).
+
+
+random_selects(Values, Dist, 0, []) :- !.
+random_selects(Values, Dist, N, [V|Vs]) :- random_select(Values, Dist, V),
+                                           N1 is N-1,
+                                           random_selects(Values, Dist, N1, Vs).
+
+uniformInt(Lo, Hi, 0, []) :- !.
+uniformInt(Lo, Hi, N, [V|Vs]) :- random_int(Lo, Hi, V), 
+                                 N1 is N-1,
+                                 uniformInt(Lo, Hi, N1, Vs).
+
+geometric(P, 0, []) :- !.
+geometric(P, N, [V|Vs]) :- geometric1(P, V), 
+                           N1 is N-1,
+                           geometric(P, N1, Vs).
+
+geometric1(P,V) :- random_uniform(R), 
+                   (R < P -> V is 1;
+                    (geometric1(P, W), V is 1+W)).
+
+heavyTail(P, W, N, Vs) :- heavyTail(P, 1, 99, W, N, Vs).
+heavyTail(P, Lo, Hi, W, 0, []) :- !. 
+heavyTail(P, Lo, Hi, W, N, [V|Vs]) :- 
+    random_uniform(R), 
+    (R < W -> geometric(P, 1, [V]);
+              uniformInt(Lo, Hi, 1, [V])), 
+    N1 is N-1, 
+    heavyTail(P, Lo, Hi, W, N1, Vs).
+
+tabulate(Vs, Table) :- sort(Vs, Vals), 
+                       Table @= [Val\N:Val in Vals, [V, N], count(Val, Vs, N)].
+
+count(V, [], 0) :- !.
+count(V, [V|Vs], N) :- !, count(V, Vs, N1), N is N1+1.
+count(V, [_|Vs], N) :- count(V, Vs, N).
+
+
+
+    
+             
+             
+              
+                           
+                 
+                 
+                           
+    
+
+
+
+
+
+

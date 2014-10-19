@@ -1,3 +1,4 @@
+{-# Language ParallelListComp #-}
 module GIJoe.SRS.BuildNumber where
 
 import Data.List
@@ -85,10 +86,10 @@ numberGrammar n =
 
 numberLists :: [[String]]
 numberLists = first19 ++ theRest
-  where
-    first19 = [[o] | o <- ones] ++ [[t] | t <- teens]
-    theRest = concatMap theDecade tens
-    theDecade x = [[x]] ++ [[x,o] | o <- ones]
+
+first19 = [[o] | o <- ones] ++ [[t] | t <- teens]
+theRest = concatMap theDecade tens
+    where theDecade x = [[x]] ++ [[x,o] | o <- ones]
 
 showCleanList xs = "[" ++ intercalate "," xs ++ "]"
   
@@ -114,10 +115,9 @@ trainTestDataToPrism :: String -- ^ predicate name
                      -> [Example] -- ^ test
                      -> String
 trainTestDataToPrism pred train test = unlines [trainString, testString]
-  where wrapSrs x = "srs('" ++ pred ++ "_" ++ show (length x) ++ "'-[" ++
-                    intercalate ", " (map showCleanList x) ++ "])"
-        trainString = unlines [ "train(" ++ wrapSrs t ++ ")." | t <- train]
-        testString = unlines [ "test(" ++ wrapSrs t ++ ")." | t <- test]        
+  where wrapSrs x = "srs('" ++ pred ++ "'-[" ++ intercalate ", " (map showCleanList x) ++ "])"
+        trainString = unlines [ "train(" ++ show n ++ ", " ++ wrapSrs t ++ ")." | t <- train | n <-[1..]]
+        testString = unlines [ "test(" ++ show n ++ ", "++ wrapSrs t ++ ")." | t <- test | n <- [1..]]        
 
 type PredicateName = String
 type Example = [[String]]
@@ -141,6 +141,7 @@ mkTrainTestDataFile path specs = do
 
 numberExamples = [[x,[""]] | x <- numberLists]
 nextExamples = [[a, b] | (a, b) <- zip (init numberLists) (tail numberLists)]
+first19Nexts = [[a, b] | (a, b) <- zip (first19) (tail (first19++[["twenty"]]))]
 nextDecades = [[[a], [b]] | (a, b) <- zip (init tens) (tail tens)]
 beforeSentences = [[["before"] ++ b ++ ["comes"] ++ a] | [a,b] <- nextExamples]
 nextSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextExamples]
@@ -149,6 +150,8 @@ nextDecadeSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextDecade
 beforeDecadeSentences = [[["before"] ++ b ++ ["comes"] ++  a] | [a,b] <- nextDecades]
 
 -- predicate networks
+(first19NextSentences, restNextSentences) = splitAt 19 nextSentences
+(first19BeforeSentences, restBeforeSentences) = splitAt 19 beforeSentences
 
 predicateNetwork :: Int -- ^ R: predicates per base level
              -> Int -- ^ S: predicates per level

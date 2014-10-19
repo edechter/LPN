@@ -2,36 +2,65 @@
 :- cl('analyzeNumber.psm').
 
 %% load and compile train and testing examples
-:- cl('./trainTestNextAndBeforeWODecades_50').
+%% :- cl('./trainTestNextAndBeforeWODecades_50').
+:- cl('testTrain.psm').
 
 %% load rewrite system
-:- prism('beforeAndAfter_3.sys.psm').
+%% :- prism('beforeAndAfter_2.sys.psm').
 
-:- set_prism_flag(max_iterate, 50).
-:- set_prism_flag(restart,1). 
-:- set_prism_flag(learn_mode,vb).
-:- set_prism_flag(viterbi_mode,vb). 
-:- set_prism_flag(default_sw_a,uniform).g
-:- set_prism_flag(log_scale,on).
+set_srs_prism_flags :-
+    set_prism_flag(max_iterate, 50),
+    set_prism_flag(restart,1),
+    set_prism_flag(learn_mode,vb),
+    set_prism_flag(viterbi_mode,vb),
+    set_prism_flag(default_sw_a,uniform),
+    set_prism_flag(log_scale,on).
 
+get_current_prism_flags(PrismFlags) :- findall(F\V, get_prism_flag(F, V), PrismFlags).
 
-prism_main :- 
-    findall(count(X, 1000), (
-                train(X),
-                X=srs(_-[As]), 
-                length(As, 4)),
-            Ones),
-    findall(count(X, 10),(
-                train(X),
-                X=srs(_-[As]), 
-                length(As, N), 
-                N > 4
-            ), NotOnes),
-    append(Ones, NotOnes, Gs),
+get_current_learn_statistics(Stats) :- findall(N\S, learn_statistics(N, S), Stats).
+
+get_switchVBInfo(Info) :- findall(X, X=switchVBInfo(_, _, _), Info).
+
+get_switches_post_pruning(Info) :- findall(I, get_sw_pa(I), Info).
+
+sysFileName(nPred(1), 'beforeAndAfter_1.sys.psm').
+sysFileName(nPred(2), 'beforeAndAfter_2.sys.psm').
+sysFileName(nPred(3), 'beforeAndAfter_3.sys.psm').
+sysFileName(nPred(4), 'beforeAndAfter_4.sys.psm').
+sysFileName(nPred(5), 'beforeAndAfter_5.sys.psm').
+
+execTrainTest(NEx, NPred, RunInfo, FileName) :- 
+    % get name of psm file
+    sysFileName(nPred(NPred), SysFileName), 
+    % load file
+    prism(SysFileName), 
+    set_srs_prism_flags,
+    % get the training set
+    trainSet(NEx, Gs),
+    % running learning
     learn(Gs), 
-    save_sw(switches_sw_last), 
-    save_sw_a(switches_a_last). 
-
+    recordExpectedCounts, 
+    pruneAll, 
+    write('Pruned ineffective rules...Done.'), nl,
+    runTest(Results), 
+    get_current_prism_flags(PrismFlags), 
+    get_current_learn_statistics(LearnStatistics),
+    get_switchVBInfo(SwitchVBInfo), 
+    get_switches_post_pruning(SwitchesPruned),
+    RunInfo=runInfo(
+          numExamples(NEx), 
+          numPreds(NPred), 
+          sysFileName(SysFileName),
+          savePath(FileName), 
+          trainSet(Gs), 
+          testResults(Results), 
+          prism_flags(PrismFlags),
+          learn_statistics(LearnStatistics), 
+          switchVBInfo(SwitchVBInfo), 
+          switches_post_pruning(SwitchesPruned)),
+    save_clauses(FileName, [RunInfo], []).
+    
 runAccuracy(Acc) :- findall(X, train(X), _Gs), 
                     makeTestSetQuestions(_Gs, _QandAPairs), 
                     testAccuracy(_QandAPairs, Predications, Acc).
@@ -53,20 +82,152 @@ change_values(Switch, Vs) :-
 %% prune all values for SwitchIn whose values 'a' values are really small 
 prune(SwitchIn) :- 
     atom(SwitchIn), 
-    get_sw_pd(SwitchIn, [Status, Vals, Params, PsuedoCounts]),
-    zip(Vals, PsuedoCounts, VCs),
-    Filtered @= [V\C: V\C in VCs, C > 0.01],
+    switchVBInfo(Sw, Alpha, ExpectedCounts),
+    get_values(Sw, Vals), 
+    zip3(Vals, Alpha, ExpectedCounts, VCs),
+    Filtered @= [V\A: V\A\C in VCs, C > 0.00001],
     ValuesOut @= [V:V\_ in Filtered],
-    CountsOut @= [C:_\C in Filtered],
+    CountsOut @= [A:_\A in Filtered],
     change_values(SwitchIn, ValuesOut),
     set_sw_a(SwitchIn, CountsOut).
 
 pruneAll :- 
     get_reg_sw_list(Switches), 
-    foreach(Sw in Switches, (write(Sw), prune(Sw))).
+    foreach(Sw in Switches, (prune(Sw))).
+
+:- dynamic switchVBInfo/3.
+recordExpectedCounts:- get_reg_sw_list(Switches), 
+                       foreach(Sw in Switches, [C, _1,  _2, _3, Alpha], (
+                                        get_sw_pa(Sw, _1, _2, _3, Alpha, C), 
+                                                    retractall(switchVBInfo(Sw, _, _)), 
+                                                    assert(switchVBInfo(Sw, Alpha, C)))).
+                                 
              
 
-zip([], [], []) :- !. 
-zip(_, [], []) :- !.
-zip([], _, []) :- !.
-zip([X|Xs], [Y|Ys], [X\Y| Rest]) :- zip(Xs, Ys, Rest).
+zip3([], [], [], []) :- !. 
+zip3(_, [], [], []) :- !.
+zip3([], _, [], []) :- !.
+zip3([], [], _, []) :- !.
+zip3([X|Xs], [Y|Ys], [Z|Zs], [X\Y\Z| Rest]) :- zip3(Xs, Ys, Zs, Rest).
+
+atom_number(N, Atom) :- number_codes(N, Codes), 
+                     atom_codes(Atom, Codes).
+    
+%%%%%%%%%%%%
+nExs([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]).
+nReps(3).
+nPredicates([1, 2]).
+saveDir('data/').
+
+go(Results) :- 
+    nExs(NExs), 
+    nReps(NReps),
+    Reps@=[I:I in 1..NReps],
+    nPredicates(NPreds),
+    RunSpecs@=[NEx\Rep\NPred: 
+              NEx in NExs, 
+              Rep in Reps, 
+              NPred in NPreds],
+    %% write(RunSpecs), nl,fail, 
+    Results@= [RunInfo: NEx\Rep\NPred in RunSpecs, 
+            [NEx_a, Rep_a, NPred_a, FileName, RunInfo], 
+            (saveDir(SaveDir), 
+             go(SaveDir, NEx, Rep, NPred, RunInfo))].
+
+go(SaveDir, NEx, Rep, NPred, RunInfo) :-
+            atom_number(NEx, NEx_a),
+            atom_number(Rep, Rep_a), 
+            atom_number(NPred, NPred_a), 
+            atom_concats([SaveDir, 'runOutput',
+                           '_nEx_', NEx_a, 
+                           '_nPred_', NPred_a, 
+                           '_rep_', Rep_a], FileName), 
+            write(FileName), nl,
+            execTrainTest(NEx, NPred, RunInfo, FileName),  nl, !.
+
+%%%%%%%%%%%
+prism_main([NEx_a, Rep_a, NPred_a, SaveDir]) :- 
+    write('**********************'), nl,nl,
+    write('Running srs.psm:prism_main with parameters: '), nl, 
+    write('Num Examples: '), write(NEx_a), nl,
+    write('Rep: '), write(Rep_a), nl,
+    write('Num Predicates'), write(NPred_a), nl,
+    write('Save In: '), write(SaveDir), nl,
+    write('Now: '), system('date'), nl,
+    write('**********************'), nl,nl,
+    parse_atom(NEx_a, NEx), 
+    parse_atom(Rep_a, Rep), 
+    parse_atom(NPred_a, NPred), 
+    go(SaveDir, NEx, Rep, NPred, Results),
+    write('Now: '), system('date'), nl,    
+    write('**************************'), nl.
+
+
+    
+    
+            
+            
+    
+%%%%%%%%%%%
+numExamples(runInfo(
+          numExamples(NEx), 
+          numPreds(NPred), 
+          sysFileName(SysFileName),
+          savePath(FileName), 
+          trainSet(Gs), 
+          testResults(Results), 
+          prism_flags(PrismFlags),
+          learn_statistics(LearnStatistics), 
+          switchVBInfo(SwitchVBInfo), 
+          switches_post_pruning(SwitchesPruned)), NEx).
+
+numPreds(runInfo(
+          numExamples(NEx), 
+          numPreds(NPred), 
+          sysFileName(SysFileName),
+          savePath(FileName), 
+          trainSet(Gs), 
+          testResults(Results), 
+          prism_flags(PrismFlags),
+          learn_statistics(LearnStatistics), 
+          switchVBInfo(SwitchVBInfo), 
+          switches_post_pruning(SwitchesPruned)), NPred).
+
+testResults(runInfo(
+          numExamples(NEx), 
+          numPreds(NPred), 
+          sysFileName(SysFileName),
+          savePath(FileName), 
+          trainSet(Gs), 
+          testResults(Results), 
+          prism_flags(PrismFlags),
+          learn_statistics(LearnStatistics), 
+          switchVBInfo(SwitchVBInfo), 
+          switches_post_pruning(SwitchesPruned)), Results).
+
+%%%%%%%%%%%%%%%
+%% Analyze Run Accuracies
+extractData(File, NEx, NPred, A) :- 
+    load_clauses(File, [C|_], []), 
+    testResults(C, results(_, accuracy(A))), 
+    numPreds(C, NPred),
+    numExamples(C, NEx).
+
+printData:- 
+    directory_files('.', L), 
+    foreach(F in L, 
+            [NEx, NPred, Acc, F],
+            (
+                file_property(F, type(V)),
+                V=regular -> (
+                     extractData(F, NEx, NPred, Acc), 
+                     format("~10d , ~10d , ~5f~1n", [NEx, NPred, Acc]))
+                ; true)).
+
+                %% 
+                %% 
+    
+    
+    
+    
+    
