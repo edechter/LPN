@@ -297,33 +297,58 @@ exampleCount( 96 , 13 ).
 exampleCount( 97 , 15 ).
 exampleCount( 98 , 10 ).
 exampleCount( 99 , 8 ).
+
 %% test set
 
-%% after test examples
-test( 45 ).
-test( 65 ).
-test( 61 ).
-test( 64 ).
-test( 63 ).
-test( 49 ).
-test( 20 ).
-test( 95 ).
-test( 79 ).
-test( 69 ).
-test( 47 ).
-test( 59 ).
-test( 73 ).
+% case 1
+test(20). % 20-21
+test(50). % 50-51
 
-%% before test examples
-test(150).
-test(190).
-test(192).
-test(169).
-test(120).
-test(165).
-test(138).
-test(170).
-test(135).
-test(189).
-test(182).
-test(127).
+% case 2
+test(128). % 31-30
+test(158). % 61-60
+
+% case 3
+test(75). % 75-76 
+test(54). % 54-55
+
+% case 4
+test(159). % 62-62 
+test(135). % 38-37
+
+% case 5
+test(29). % 29-30 
+test(89). % 89-90
+
+% case 6
+test(40). % 40-39
+test(80). % 80-79
+
+%% %% after test examples
+%% test( 45 ).
+%% test( 65 ).
+%% test( 61 ).
+%% test( 64 ).
+%% test( 63 ).
+%% test( 49 ).
+%% test( 20 ).
+%% test( 95 ).
+%% test( 79 ).
+%% 1test( 69 ).
+%% test( 47 ).
+%% test( 59 ).
+%% test( 73 ).
+
+%% %% before test examples
+%% test(150).
+%% test(190).
+%% test(192).
+%% test(169).
+%% test(120).
+%% test(165).
+%% test(138).
+%% test(170).
+%% test(135).
+%% test(189).
+%% test(182).
+%% test(127).

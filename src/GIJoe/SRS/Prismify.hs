@@ -36,7 +36,10 @@ prismClauses :: RewriteSystem -> String
 prismClauses rs = unlines $ 
   switchClauses ++ [""] ++
   probClauses ++ [""] ++
-  reductionClauses
+  reductionClauses ++ [""] ++ 
+  prismToSRSClauses ++ [""] ++
+    [":- include(vis)."
+    , ":- include(main)."]
   where switchClauses = map makeSwitch groupedRules
         probClauses = map makeProbs groupedRules
         reductionClauses = concatMap makeReductions groupedRules
@@ -47,6 +50,7 @@ prismClauses rs = unlines $
         sameHead =  (\(WRule ((ComplexTerm p1 _) :<-: _) _)
                   (WRule ((ComplexTerm p2 _) :<-: _) _)
                  -> p1 == p2)
+        prismToSRSClauses = concatMap makePrismToSRS groupedRules                    
 
 body :: RewriteSystem -> [String]
 body slcfrs =

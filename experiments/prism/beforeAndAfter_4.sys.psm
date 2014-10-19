@@ -5970,3 +5970,2876 @@ reduce('A4_2'-[[],[comes]],717).
 reduce('S_1'-[A2],1):- (var(A2) -> true; append(X, Y, A2)),
 srs('A1_2'-[X,Y]),
 (var(A2) -> append(X, Y, A2) ; true).
+
+prismToSRS('A1_2',1,'A1(X Y, U V) <-- A1(U, Y), A1(X, V)').
+prismToSRS('A1_2',2,'A1(X Y, U V) <-- A1(U, X), A1(Y, V)').
+prismToSRS('A1_2',3,'A1(X Y, U V) <-- A1(X, U), A1(Y, V)').
+prismToSRS('A1_2',4,'A1(X Y, U V) <-- A1(V, U), A1(Y, X)').
+prismToSRS('A1_2',5,'A1(X Y, U V) <-- A1(U, V), A1(Y, X)').
+prismToSRS('A1_2',6,'A1(X Y, U V) <-- A1(U, Y), A1(V, X)').
+prismToSRS('A1_2',7,'A1(X Y, U V) <-- A1(V, X), A1(Y, U)').
+prismToSRS('A1_2',8,'A1(X Y, U V) <-- A1(X, V), A1(Y, U)').
+prismToSRS('A1_2',9,'A1(X Y, U V) <-- A1(V, Y), A1(X, U)').
+prismToSRS('A1_2',10,'A1(X Y, U V) <-- A1(V, U), A1(X, Y)').
+prismToSRS('A1_2',11,'A1(X Y, U V) <-- A1(U, V), A1(X, Y)').
+prismToSRS('A1_2',12,'A1(X Y, U V) <-- A1(U, X), A1(V, Y)').
+prismToSRS('A1_2',13,'A1(X Y, U V) <-- A1(X, Y), A2(U, V)').
+prismToSRS('A1_2',14,'A1(X Y, U V) <-- A1(Y, X), A2(U, V)').
+prismToSRS('A1_2',15,'A1(X Y, U V) <-- A1(U, Y), A2(X, V)').
+prismToSRS('A1_2',16,'A1(X Y, U V) <-- A1(Y, U), A2(X, V)').
+prismToSRS('A1_2',17,'A1(X Y, U V) <-- A1(U, X), A2(Y, V)').
+prismToSRS('A1_2',18,'A1(X Y, U V) <-- A1(X, U), A2(Y, V)').
+prismToSRS('A1_2',19,'A1(X Y, U V) <-- A1(V, U), A2(Y, X)').
+prismToSRS('A1_2',20,'A1(X Y, U V) <-- A1(U, V), A2(Y, X)').
+prismToSRS('A1_2',21,'A1(X Y, U V) <-- A1(U, Y), A2(V, X)').
+prismToSRS('A1_2',22,'A1(X Y, U V) <-- A1(V, Y), A2(U, X)').
+prismToSRS('A1_2',23,'A1(X Y, U V) <-- A1(Y, V), A2(U, X)').
+prismToSRS('A1_2',24,'A1(X Y, U V) <-- A1(Y, U), A2(V, X)').
+prismToSRS('A1_2',25,'A1(X Y, U V) <-- A1(V, X), A2(Y, U)').
+prismToSRS('A1_2',26,'A1(X Y, U V) <-- A1(X, V), A2(Y, U)').
+prismToSRS('A1_2',27,'A1(X Y, U V) <-- A1(X, Y), A2(V, U)').
+prismToSRS('A1_2',28,'A1(X Y, U V) <-- A1(V, Y), A2(X, U)').
+prismToSRS('A1_2',29,'A1(X Y, U V) <-- A1(Y, V), A2(X, U)').
+prismToSRS('A1_2',30,'A1(X Y, U V) <-- A1(Y, X), A2(V, U)').
+prismToSRS('A1_2',31,'A1(X Y, U V) <-- A1(V, X), A2(U, Y)').
+prismToSRS('A1_2',32,'A1(X Y, U V) <-- A1(X, V), A2(U, Y)').
+prismToSRS('A1_2',33,'A1(X Y, U V) <-- A1(X, U), A2(V, Y)').
+prismToSRS('A1_2',34,'A1(X Y, U V) <-- A1(V, U), A2(X, Y)').
+prismToSRS('A1_2',35,'A1(X Y, U V) <-- A1(U, V), A2(X, Y)').
+prismToSRS('A1_2',36,'A1(X Y, U V) <-- A1(U, X), A2(V, Y)').
+prismToSRS('A1_2',37,'A1(X Y, U V) <-- A1(X, Y), A3(U, V)').
+prismToSRS('A1_2',38,'A1(X Y, U V) <-- A1(Y, X), A3(U, V)').
+prismToSRS('A1_2',39,'A1(X Y, U V) <-- A1(U, Y), A3(X, V)').
+prismToSRS('A1_2',40,'A1(X Y, U V) <-- A1(Y, U), A3(X, V)').
+prismToSRS('A1_2',41,'A1(X Y, U V) <-- A1(U, X), A3(Y, V)').
+prismToSRS('A1_2',42,'A1(X Y, U V) <-- A1(X, U), A3(Y, V)').
+prismToSRS('A1_2',43,'A1(X Y, U V) <-- A1(V, U), A3(Y, X)').
+prismToSRS('A1_2',44,'A1(X Y, U V) <-- A1(U, V), A3(Y, X)').
+prismToSRS('A1_2',45,'A1(X Y, U V) <-- A1(U, Y), A3(V, X)').
+prismToSRS('A1_2',46,'A1(X Y, U V) <-- A1(V, Y), A3(U, X)').
+prismToSRS('A1_2',47,'A1(X Y, U V) <-- A1(Y, V), A3(U, X)').
+prismToSRS('A1_2',48,'A1(X Y, U V) <-- A1(Y, U), A3(V, X)').
+prismToSRS('A1_2',49,'A1(X Y, U V) <-- A1(V, X), A3(Y, U)').
+prismToSRS('A1_2',50,'A1(X Y, U V) <-- A1(X, V), A3(Y, U)').
+prismToSRS('A1_2',51,'A1(X Y, U V) <-- A1(X, Y), A3(V, U)').
+prismToSRS('A1_2',52,'A1(X Y, U V) <-- A1(V, Y), A3(X, U)').
+prismToSRS('A1_2',53,'A1(X Y, U V) <-- A1(Y, V), A3(X, U)').
+prismToSRS('A1_2',54,'A1(X Y, U V) <-- A1(Y, X), A3(V, U)').
+prismToSRS('A1_2',55,'A1(X Y, U V) <-- A1(V, X), A3(U, Y)').
+prismToSRS('A1_2',56,'A1(X Y, U V) <-- A1(X, V), A3(U, Y)').
+prismToSRS('A1_2',57,'A1(X Y, U V) <-- A1(X, U), A3(V, Y)').
+prismToSRS('A1_2',58,'A1(X Y, U V) <-- A1(V, U), A3(X, Y)').
+prismToSRS('A1_2',59,'A1(X Y, U V) <-- A1(U, V), A3(X, Y)').
+prismToSRS('A1_2',60,'A1(X Y, U V) <-- A1(U, X), A3(V, Y)').
+prismToSRS('A1_2',61,'A1(X Y, U V) <-- A1(X, Y), A4(U, V)').
+prismToSRS('A1_2',62,'A1(X Y, U V) <-- A1(Y, X), A4(U, V)').
+prismToSRS('A1_2',63,'A1(X Y, U V) <-- A1(U, Y), A4(X, V)').
+prismToSRS('A1_2',64,'A1(X Y, U V) <-- A1(Y, U), A4(X, V)').
+prismToSRS('A1_2',65,'A1(X Y, U V) <-- A1(U, X), A4(Y, V)').
+prismToSRS('A1_2',66,'A1(X Y, U V) <-- A1(X, U), A4(Y, V)').
+prismToSRS('A1_2',67,'A1(X Y, U V) <-- A1(V, U), A4(Y, X)').
+prismToSRS('A1_2',68,'A1(X Y, U V) <-- A1(U, V), A4(Y, X)').
+prismToSRS('A1_2',69,'A1(X Y, U V) <-- A1(U, Y), A4(V, X)').
+prismToSRS('A1_2',70,'A1(X Y, U V) <-- A1(V, Y), A4(U, X)').
+prismToSRS('A1_2',71,'A1(X Y, U V) <-- A1(Y, V), A4(U, X)').
+prismToSRS('A1_2',72,'A1(X Y, U V) <-- A1(Y, U), A4(V, X)').
+prismToSRS('A1_2',73,'A1(X Y, U V) <-- A1(V, X), A4(Y, U)').
+prismToSRS('A1_2',74,'A1(X Y, U V) <-- A1(X, V), A4(Y, U)').
+prismToSRS('A1_2',75,'A1(X Y, U V) <-- A1(X, Y), A4(V, U)').
+prismToSRS('A1_2',76,'A1(X Y, U V) <-- A1(V, Y), A4(X, U)').
+prismToSRS('A1_2',77,'A1(X Y, U V) <-- A1(Y, V), A4(X, U)').
+prismToSRS('A1_2',78,'A1(X Y, U V) <-- A1(Y, X), A4(V, U)').
+prismToSRS('A1_2',79,'A1(X Y, U V) <-- A1(V, X), A4(U, Y)').
+prismToSRS('A1_2',80,'A1(X Y, U V) <-- A1(X, V), A4(U, Y)').
+prismToSRS('A1_2',81,'A1(X Y, U V) <-- A1(X, U), A4(V, Y)').
+prismToSRS('A1_2',82,'A1(X Y, U V) <-- A1(V, U), A4(X, Y)').
+prismToSRS('A1_2',83,'A1(X Y, U V) <-- A1(U, V), A4(X, Y)').
+prismToSRS('A1_2',84,'A1(X Y, U V) <-- A1(U, X), A4(V, Y)').
+prismToSRS('A1_2',85,'A1(X Y, U V) <-- A2(U, Y), A2(X, V)').
+prismToSRS('A1_2',86,'A1(X Y, U V) <-- A2(U, X), A2(Y, V)').
+prismToSRS('A1_2',87,'A1(X Y, U V) <-- A2(X, U), A2(Y, V)').
+prismToSRS('A1_2',88,'A1(X Y, U V) <-- A2(V, U), A2(Y, X)').
+prismToSRS('A1_2',89,'A1(X Y, U V) <-- A2(U, V), A2(Y, X)').
+prismToSRS('A1_2',90,'A1(X Y, U V) <-- A2(U, Y), A2(V, X)').
+prismToSRS('A1_2',91,'A1(X Y, U V) <-- A2(V, X), A2(Y, U)').
+prismToSRS('A1_2',92,'A1(X Y, U V) <-- A2(X, V), A2(Y, U)').
+prismToSRS('A1_2',93,'A1(X Y, U V) <-- A2(V, Y), A2(X, U)').
+prismToSRS('A1_2',94,'A1(X Y, U V) <-- A2(V, U), A2(X, Y)').
+prismToSRS('A1_2',95,'A1(X Y, U V) <-- A2(U, V), A2(X, Y)').
+prismToSRS('A1_2',96,'A1(X Y, U V) <-- A2(U, X), A2(V, Y)').
+prismToSRS('A1_2',97,'A1(X Y, U V) <-- A2(X, Y), A3(U, V)').
+prismToSRS('A1_2',98,'A1(X Y, U V) <-- A2(Y, X), A3(U, V)').
+prismToSRS('A1_2',99,'A1(X Y, U V) <-- A2(U, Y), A3(X, V)').
+prismToSRS('A1_2',100,'A1(X Y, U V) <-- A2(Y, U), A3(X, V)').
+prismToSRS('A1_2',101,'A1(X Y, U V) <-- A2(U, X), A3(Y, V)').
+prismToSRS('A1_2',102,'A1(X Y, U V) <-- A2(X, U), A3(Y, V)').
+prismToSRS('A1_2',103,'A1(X Y, U V) <-- A2(V, U), A3(Y, X)').
+prismToSRS('A1_2',104,'A1(X Y, U V) <-- A2(U, V), A3(Y, X)').
+prismToSRS('A1_2',105,'A1(X Y, U V) <-- A2(U, Y), A3(V, X)').
+prismToSRS('A1_2',106,'A1(X Y, U V) <-- A2(V, Y), A3(U, X)').
+prismToSRS('A1_2',107,'A1(X Y, U V) <-- A2(Y, V), A3(U, X)').
+prismToSRS('A1_2',108,'A1(X Y, U V) <-- A2(Y, U), A3(V, X)').
+prismToSRS('A1_2',109,'A1(X Y, U V) <-- A2(V, X), A3(Y, U)').
+prismToSRS('A1_2',110,'A1(X Y, U V) <-- A2(X, V), A3(Y, U)').
+prismToSRS('A1_2',111,'A1(X Y, U V) <-- A2(X, Y), A3(V, U)').
+prismToSRS('A1_2',112,'A1(X Y, U V) <-- A2(V, Y), A3(X, U)').
+prismToSRS('A1_2',113,'A1(X Y, U V) <-- A2(Y, V), A3(X, U)').
+prismToSRS('A1_2',114,'A1(X Y, U V) <-- A2(Y, X), A3(V, U)').
+prismToSRS('A1_2',115,'A1(X Y, U V) <-- A2(V, X), A3(U, Y)').
+prismToSRS('A1_2',116,'A1(X Y, U V) <-- A2(X, V), A3(U, Y)').
+prismToSRS('A1_2',117,'A1(X Y, U V) <-- A2(X, U), A3(V, Y)').
+prismToSRS('A1_2',118,'A1(X Y, U V) <-- A2(V, U), A3(X, Y)').
+prismToSRS('A1_2',119,'A1(X Y, U V) <-- A2(U, V), A3(X, Y)').
+prismToSRS('A1_2',120,'A1(X Y, U V) <-- A2(U, X), A3(V, Y)').
+prismToSRS('A1_2',121,'A1(X Y, U V) <-- A2(X, Y), A4(U, V)').
+prismToSRS('A1_2',122,'A1(X Y, U V) <-- A2(Y, X), A4(U, V)').
+prismToSRS('A1_2',123,'A1(X Y, U V) <-- A2(U, Y), A4(X, V)').
+prismToSRS('A1_2',124,'A1(X Y, U V) <-- A2(Y, U), A4(X, V)').
+prismToSRS('A1_2',125,'A1(X Y, U V) <-- A2(U, X), A4(Y, V)').
+prismToSRS('A1_2',126,'A1(X Y, U V) <-- A2(X, U), A4(Y, V)').
+prismToSRS('A1_2',127,'A1(X Y, U V) <-- A2(V, U), A4(Y, X)').
+prismToSRS('A1_2',128,'A1(X Y, U V) <-- A2(U, V), A4(Y, X)').
+prismToSRS('A1_2',129,'A1(X Y, U V) <-- A2(U, Y), A4(V, X)').
+prismToSRS('A1_2',130,'A1(X Y, U V) <-- A2(V, Y), A4(U, X)').
+prismToSRS('A1_2',131,'A1(X Y, U V) <-- A2(Y, V), A4(U, X)').
+prismToSRS('A1_2',132,'A1(X Y, U V) <-- A2(Y, U), A4(V, X)').
+prismToSRS('A1_2',133,'A1(X Y, U V) <-- A2(V, X), A4(Y, U)').
+prismToSRS('A1_2',134,'A1(X Y, U V) <-- A2(X, V), A4(Y, U)').
+prismToSRS('A1_2',135,'A1(X Y, U V) <-- A2(X, Y), A4(V, U)').
+prismToSRS('A1_2',136,'A1(X Y, U V) <-- A2(V, Y), A4(X, U)').
+prismToSRS('A1_2',137,'A1(X Y, U V) <-- A2(Y, V), A4(X, U)').
+prismToSRS('A1_2',138,'A1(X Y, U V) <-- A2(Y, X), A4(V, U)').
+prismToSRS('A1_2',139,'A1(X Y, U V) <-- A2(V, X), A4(U, Y)').
+prismToSRS('A1_2',140,'A1(X Y, U V) <-- A2(X, V), A4(U, Y)').
+prismToSRS('A1_2',141,'A1(X Y, U V) <-- A2(X, U), A4(V, Y)').
+prismToSRS('A1_2',142,'A1(X Y, U V) <-- A2(V, U), A4(X, Y)').
+prismToSRS('A1_2',143,'A1(X Y, U V) <-- A2(U, V), A4(X, Y)').
+prismToSRS('A1_2',144,'A1(X Y, U V) <-- A2(U, X), A4(V, Y)').
+prismToSRS('A1_2',145,'A1(X Y, U V) <-- A3(U, Y), A3(X, V)').
+prismToSRS('A1_2',146,'A1(X Y, U V) <-- A3(U, X), A3(Y, V)').
+prismToSRS('A1_2',147,'A1(X Y, U V) <-- A3(X, U), A3(Y, V)').
+prismToSRS('A1_2',148,'A1(X Y, U V) <-- A3(V, U), A3(Y, X)').
+prismToSRS('A1_2',149,'A1(X Y, U V) <-- A3(U, V), A3(Y, X)').
+prismToSRS('A1_2',150,'A1(X Y, U V) <-- A3(U, Y), A3(V, X)').
+prismToSRS('A1_2',151,'A1(X Y, U V) <-- A3(V, X), A3(Y, U)').
+prismToSRS('A1_2',152,'A1(X Y, U V) <-- A3(X, V), A3(Y, U)').
+prismToSRS('A1_2',153,'A1(X Y, U V) <-- A3(V, Y), A3(X, U)').
+prismToSRS('A1_2',154,'A1(X Y, U V) <-- A3(V, U), A3(X, Y)').
+prismToSRS('A1_2',155,'A1(X Y, U V) <-- A3(U, V), A3(X, Y)').
+prismToSRS('A1_2',156,'A1(X Y, U V) <-- A3(U, X), A3(V, Y)').
+prismToSRS('A1_2',157,'A1(X Y, U V) <-- A3(X, Y), A4(U, V)').
+prismToSRS('A1_2',158,'A1(X Y, U V) <-- A3(Y, X), A4(U, V)').
+prismToSRS('A1_2',159,'A1(X Y, U V) <-- A3(U, Y), A4(X, V)').
+prismToSRS('A1_2',160,'A1(X Y, U V) <-- A3(Y, U), A4(X, V)').
+prismToSRS('A1_2',161,'A1(X Y, U V) <-- A3(U, X), A4(Y, V)').
+prismToSRS('A1_2',162,'A1(X Y, U V) <-- A3(X, U), A4(Y, V)').
+prismToSRS('A1_2',163,'A1(X Y, U V) <-- A3(V, U), A4(Y, X)').
+prismToSRS('A1_2',164,'A1(X Y, U V) <-- A3(U, V), A4(Y, X)').
+prismToSRS('A1_2',165,'A1(X Y, U V) <-- A3(U, Y), A4(V, X)').
+prismToSRS('A1_2',166,'A1(X Y, U V) <-- A3(V, Y), A4(U, X)').
+prismToSRS('A1_2',167,'A1(X Y, U V) <-- A3(Y, V), A4(U, X)').
+prismToSRS('A1_2',168,'A1(X Y, U V) <-- A3(Y, U), A4(V, X)').
+prismToSRS('A1_2',169,'A1(X Y, U V) <-- A3(V, X), A4(Y, U)').
+prismToSRS('A1_2',170,'A1(X Y, U V) <-- A3(X, V), A4(Y, U)').
+prismToSRS('A1_2',171,'A1(X Y, U V) <-- A3(X, Y), A4(V, U)').
+prismToSRS('A1_2',172,'A1(X Y, U V) <-- A3(V, Y), A4(X, U)').
+prismToSRS('A1_2',173,'A1(X Y, U V) <-- A3(Y, V), A4(X, U)').
+prismToSRS('A1_2',174,'A1(X Y, U V) <-- A3(Y, X), A4(V, U)').
+prismToSRS('A1_2',175,'A1(X Y, U V) <-- A3(V, X), A4(U, Y)').
+prismToSRS('A1_2',176,'A1(X Y, U V) <-- A3(X, V), A4(U, Y)').
+prismToSRS('A1_2',177,'A1(X Y, U V) <-- A3(X, U), A4(V, Y)').
+prismToSRS('A1_2',178,'A1(X Y, U V) <-- A3(V, U), A4(X, Y)').
+prismToSRS('A1_2',179,'A1(X Y, U V) <-- A3(U, V), A4(X, Y)').
+prismToSRS('A1_2',180,'A1(X Y, U V) <-- A3(U, X), A4(V, Y)').
+prismToSRS('A1_2',181,'A1(X Y, U V) <-- A4(U, Y), A4(X, V)').
+prismToSRS('A1_2',182,'A1(X Y, U V) <-- A4(U, X), A4(Y, V)').
+prismToSRS('A1_2',183,'A1(X Y, U V) <-- A4(X, U), A4(Y, V)').
+prismToSRS('A1_2',184,'A1(X Y, U V) <-- A4(V, U), A4(Y, X)').
+prismToSRS('A1_2',185,'A1(X Y, U V) <-- A4(U, V), A4(Y, X)').
+prismToSRS('A1_2',186,'A1(X Y, U V) <-- A4(U, Y), A4(V, X)').
+prismToSRS('A1_2',187,'A1(X Y, U V) <-- A4(V, X), A4(Y, U)').
+prismToSRS('A1_2',188,'A1(X Y, U V) <-- A4(X, V), A4(Y, U)').
+prismToSRS('A1_2',189,'A1(X Y, U V) <-- A4(V, Y), A4(X, U)').
+prismToSRS('A1_2',190,'A1(X Y, U V) <-- A4(V, U), A4(X, Y)').
+prismToSRS('A1_2',191,'A1(X Y, U V) <-- A4(U, V), A4(X, Y)').
+prismToSRS('A1_2',192,'A1(X Y, U V) <-- A4(U, X), A4(V, Y)').
+prismToSRS('A1_2',193,'A1(one, one)').
+prismToSRS('A1_2',194,'A1(one, two)').
+prismToSRS('A1_2',195,'A1(one, three)').
+prismToSRS('A1_2',196,'A1(one, four)').
+prismToSRS('A1_2',197,'A1(one, five)').
+prismToSRS('A1_2',198,'A1(one, six)').
+prismToSRS('A1_2',199,'A1(one, seven)').
+prismToSRS('A1_2',200,'A1(one, eight)').
+prismToSRS('A1_2',201,'A1(one, nine)').
+prismToSRS('A1_2',202,'A1(one, ten)').
+prismToSRS('A1_2',203,'A1(one, eleven)').
+prismToSRS('A1_2',204,'A1(one, twelve)').
+prismToSRS('A1_2',205,'A1(one, thirteen)').
+prismToSRS('A1_2',206,'A1(one, fourteen)').
+prismToSRS('A1_2',207,'A1(one, fifteen)').
+prismToSRS('A1_2',208,'A1(one, sixteen)').
+prismToSRS('A1_2',209,'A1(one, seventeen)').
+prismToSRS('A1_2',210,'A1(one, eighteen)').
+prismToSRS('A1_2',211,'A1(one, nineteen)').
+prismToSRS('A1_2',212,'A1(one, twenty)').
+prismToSRS('A1_2',213,'A1(one, thirty)').
+prismToSRS('A1_2',214,'A1(one, forty)').
+prismToSRS('A1_2',215,'A1(one, fifty)').
+prismToSRS('A1_2',216,'A1(one, sixty)').
+prismToSRS('A1_2',217,'A1(one, seventy)').
+prismToSRS('A1_2',218,'A1(one, eighty)').
+prismToSRS('A1_2',219,'A1(one, ninety)').
+prismToSRS('A1_2',220,'A1(one, before)').
+prismToSRS('A1_2',221,'A1(one, after)').
+prismToSRS('A1_2',222,'A1(one, comes)').
+prismToSRS('A1_2',223,'A1(two, two)').
+prismToSRS('A1_2',224,'A1(two, three)').
+prismToSRS('A1_2',225,'A1(two, four)').
+prismToSRS('A1_2',226,'A1(two, five)').
+prismToSRS('A1_2',227,'A1(two, six)').
+prismToSRS('A1_2',228,'A1(two, seven)').
+prismToSRS('A1_2',229,'A1(two, eight)').
+prismToSRS('A1_2',230,'A1(two, nine)').
+prismToSRS('A1_2',231,'A1(two, ten)').
+prismToSRS('A1_2',232,'A1(two, eleven)').
+prismToSRS('A1_2',233,'A1(two, twelve)').
+prismToSRS('A1_2',234,'A1(two, thirteen)').
+prismToSRS('A1_2',235,'A1(two, fourteen)').
+prismToSRS('A1_2',236,'A1(two, fifteen)').
+prismToSRS('A1_2',237,'A1(two, sixteen)').
+prismToSRS('A1_2',238,'A1(two, seventeen)').
+prismToSRS('A1_2',239,'A1(two, eighteen)').
+prismToSRS('A1_2',240,'A1(two, nineteen)').
+prismToSRS('A1_2',241,'A1(two, twenty)').
+prismToSRS('A1_2',242,'A1(two, thirty)').
+prismToSRS('A1_2',243,'A1(two, forty)').
+prismToSRS('A1_2',244,'A1(two, fifty)').
+prismToSRS('A1_2',245,'A1(two, sixty)').
+prismToSRS('A1_2',246,'A1(two, seventy)').
+prismToSRS('A1_2',247,'A1(two, eighty)').
+prismToSRS('A1_2',248,'A1(two, ninety)').
+prismToSRS('A1_2',249,'A1(two, before)').
+prismToSRS('A1_2',250,'A1(two, after)').
+prismToSRS('A1_2',251,'A1(two, comes)').
+prismToSRS('A1_2',252,'A1(three, three)').
+prismToSRS('A1_2',253,'A1(three, four)').
+prismToSRS('A1_2',254,'A1(three, five)').
+prismToSRS('A1_2',255,'A1(three, six)').
+prismToSRS('A1_2',256,'A1(three, seven)').
+prismToSRS('A1_2',257,'A1(three, eight)').
+prismToSRS('A1_2',258,'A1(three, nine)').
+prismToSRS('A1_2',259,'A1(three, ten)').
+prismToSRS('A1_2',260,'A1(three, eleven)').
+prismToSRS('A1_2',261,'A1(three, twelve)').
+prismToSRS('A1_2',262,'A1(three, thirteen)').
+prismToSRS('A1_2',263,'A1(three, fourteen)').
+prismToSRS('A1_2',264,'A1(three, fifteen)').
+prismToSRS('A1_2',265,'A1(three, sixteen)').
+prismToSRS('A1_2',266,'A1(three, seventeen)').
+prismToSRS('A1_2',267,'A1(three, eighteen)').
+prismToSRS('A1_2',268,'A1(three, nineteen)').
+prismToSRS('A1_2',269,'A1(three, twenty)').
+prismToSRS('A1_2',270,'A1(three, thirty)').
+prismToSRS('A1_2',271,'A1(three, forty)').
+prismToSRS('A1_2',272,'A1(three, fifty)').
+prismToSRS('A1_2',273,'A1(three, sixty)').
+prismToSRS('A1_2',274,'A1(three, seventy)').
+prismToSRS('A1_2',275,'A1(three, eighty)').
+prismToSRS('A1_2',276,'A1(three, ninety)').
+prismToSRS('A1_2',277,'A1(three, before)').
+prismToSRS('A1_2',278,'A1(three, after)').
+prismToSRS('A1_2',279,'A1(three, comes)').
+prismToSRS('A1_2',280,'A1(four, four)').
+prismToSRS('A1_2',281,'A1(four, five)').
+prismToSRS('A1_2',282,'A1(four, six)').
+prismToSRS('A1_2',283,'A1(four, seven)').
+prismToSRS('A1_2',284,'A1(four, eight)').
+prismToSRS('A1_2',285,'A1(four, nine)').
+prismToSRS('A1_2',286,'A1(four, ten)').
+prismToSRS('A1_2',287,'A1(four, eleven)').
+prismToSRS('A1_2',288,'A1(four, twelve)').
+prismToSRS('A1_2',289,'A1(four, thirteen)').
+prismToSRS('A1_2',290,'A1(four, fourteen)').
+prismToSRS('A1_2',291,'A1(four, fifteen)').
+prismToSRS('A1_2',292,'A1(four, sixteen)').
+prismToSRS('A1_2',293,'A1(four, seventeen)').
+prismToSRS('A1_2',294,'A1(four, eighteen)').
+prismToSRS('A1_2',295,'A1(four, nineteen)').
+prismToSRS('A1_2',296,'A1(four, twenty)').
+prismToSRS('A1_2',297,'A1(four, thirty)').
+prismToSRS('A1_2',298,'A1(four, forty)').
+prismToSRS('A1_2',299,'A1(four, fifty)').
+prismToSRS('A1_2',300,'A1(four, sixty)').
+prismToSRS('A1_2',301,'A1(four, seventy)').
+prismToSRS('A1_2',302,'A1(four, eighty)').
+prismToSRS('A1_2',303,'A1(four, ninety)').
+prismToSRS('A1_2',304,'A1(four, before)').
+prismToSRS('A1_2',305,'A1(four, after)').
+prismToSRS('A1_2',306,'A1(four, comes)').
+prismToSRS('A1_2',307,'A1(five, five)').
+prismToSRS('A1_2',308,'A1(five, six)').
+prismToSRS('A1_2',309,'A1(five, seven)').
+prismToSRS('A1_2',310,'A1(five, eight)').
+prismToSRS('A1_2',311,'A1(five, nine)').
+prismToSRS('A1_2',312,'A1(five, ten)').
+prismToSRS('A1_2',313,'A1(five, eleven)').
+prismToSRS('A1_2',314,'A1(five, twelve)').
+prismToSRS('A1_2',315,'A1(five, thirteen)').
+prismToSRS('A1_2',316,'A1(five, fourteen)').
+prismToSRS('A1_2',317,'A1(five, fifteen)').
+prismToSRS('A1_2',318,'A1(five, sixteen)').
+prismToSRS('A1_2',319,'A1(five, seventeen)').
+prismToSRS('A1_2',320,'A1(five, eighteen)').
+prismToSRS('A1_2',321,'A1(five, nineteen)').
+prismToSRS('A1_2',322,'A1(five, twenty)').
+prismToSRS('A1_2',323,'A1(five, thirty)').
+prismToSRS('A1_2',324,'A1(five, forty)').
+prismToSRS('A1_2',325,'A1(five, fifty)').
+prismToSRS('A1_2',326,'A1(five, sixty)').
+prismToSRS('A1_2',327,'A1(five, seventy)').
+prismToSRS('A1_2',328,'A1(five, eighty)').
+prismToSRS('A1_2',329,'A1(five, ninety)').
+prismToSRS('A1_2',330,'A1(five, before)').
+prismToSRS('A1_2',331,'A1(five, after)').
+prismToSRS('A1_2',332,'A1(five, comes)').
+prismToSRS('A1_2',333,'A1(six, six)').
+prismToSRS('A1_2',334,'A1(six, seven)').
+prismToSRS('A1_2',335,'A1(six, eight)').
+prismToSRS('A1_2',336,'A1(six, nine)').
+prismToSRS('A1_2',337,'A1(six, ten)').
+prismToSRS('A1_2',338,'A1(six, eleven)').
+prismToSRS('A1_2',339,'A1(six, twelve)').
+prismToSRS('A1_2',340,'A1(six, thirteen)').
+prismToSRS('A1_2',341,'A1(six, fourteen)').
+prismToSRS('A1_2',342,'A1(six, fifteen)').
+prismToSRS('A1_2',343,'A1(six, sixteen)').
+prismToSRS('A1_2',344,'A1(six, seventeen)').
+prismToSRS('A1_2',345,'A1(six, eighteen)').
+prismToSRS('A1_2',346,'A1(six, nineteen)').
+prismToSRS('A1_2',347,'A1(six, twenty)').
+prismToSRS('A1_2',348,'A1(six, thirty)').
+prismToSRS('A1_2',349,'A1(six, forty)').
+prismToSRS('A1_2',350,'A1(six, fifty)').
+prismToSRS('A1_2',351,'A1(six, sixty)').
+prismToSRS('A1_2',352,'A1(six, seventy)').
+prismToSRS('A1_2',353,'A1(six, eighty)').
+prismToSRS('A1_2',354,'A1(six, ninety)').
+prismToSRS('A1_2',355,'A1(six, before)').
+prismToSRS('A1_2',356,'A1(six, after)').
+prismToSRS('A1_2',357,'A1(six, comes)').
+prismToSRS('A1_2',358,'A1(seven, seven)').
+prismToSRS('A1_2',359,'A1(seven, eight)').
+prismToSRS('A1_2',360,'A1(seven, nine)').
+prismToSRS('A1_2',361,'A1(seven, ten)').
+prismToSRS('A1_2',362,'A1(seven, eleven)').
+prismToSRS('A1_2',363,'A1(seven, twelve)').
+prismToSRS('A1_2',364,'A1(seven, thirteen)').
+prismToSRS('A1_2',365,'A1(seven, fourteen)').
+prismToSRS('A1_2',366,'A1(seven, fifteen)').
+prismToSRS('A1_2',367,'A1(seven, sixteen)').
+prismToSRS('A1_2',368,'A1(seven, seventeen)').
+prismToSRS('A1_2',369,'A1(seven, eighteen)').
+prismToSRS('A1_2',370,'A1(seven, nineteen)').
+prismToSRS('A1_2',371,'A1(seven, twenty)').
+prismToSRS('A1_2',372,'A1(seven, thirty)').
+prismToSRS('A1_2',373,'A1(seven, forty)').
+prismToSRS('A1_2',374,'A1(seven, fifty)').
+prismToSRS('A1_2',375,'A1(seven, sixty)').
+prismToSRS('A1_2',376,'A1(seven, seventy)').
+prismToSRS('A1_2',377,'A1(seven, eighty)').
+prismToSRS('A1_2',378,'A1(seven, ninety)').
+prismToSRS('A1_2',379,'A1(seven, before)').
+prismToSRS('A1_2',380,'A1(seven, after)').
+prismToSRS('A1_2',381,'A1(seven, comes)').
+prismToSRS('A1_2',382,'A1(eight, eight)').
+prismToSRS('A1_2',383,'A1(eight, nine)').
+prismToSRS('A1_2',384,'A1(eight, ten)').
+prismToSRS('A1_2',385,'A1(eight, eleven)').
+prismToSRS('A1_2',386,'A1(eight, twelve)').
+prismToSRS('A1_2',387,'A1(eight, thirteen)').
+prismToSRS('A1_2',388,'A1(eight, fourteen)').
+prismToSRS('A1_2',389,'A1(eight, fifteen)').
+prismToSRS('A1_2',390,'A1(eight, sixteen)').
+prismToSRS('A1_2',391,'A1(eight, seventeen)').
+prismToSRS('A1_2',392,'A1(eight, eighteen)').
+prismToSRS('A1_2',393,'A1(eight, nineteen)').
+prismToSRS('A1_2',394,'A1(eight, twenty)').
+prismToSRS('A1_2',395,'A1(eight, thirty)').
+prismToSRS('A1_2',396,'A1(eight, forty)').
+prismToSRS('A1_2',397,'A1(eight, fifty)').
+prismToSRS('A1_2',398,'A1(eight, sixty)').
+prismToSRS('A1_2',399,'A1(eight, seventy)').
+prismToSRS('A1_2',400,'A1(eight, eighty)').
+prismToSRS('A1_2',401,'A1(eight, ninety)').
+prismToSRS('A1_2',402,'A1(eight, before)').
+prismToSRS('A1_2',403,'A1(eight, after)').
+prismToSRS('A1_2',404,'A1(eight, comes)').
+prismToSRS('A1_2',405,'A1(nine, nine)').
+prismToSRS('A1_2',406,'A1(nine, ten)').
+prismToSRS('A1_2',407,'A1(nine, eleven)').
+prismToSRS('A1_2',408,'A1(nine, twelve)').
+prismToSRS('A1_2',409,'A1(nine, thirteen)').
+prismToSRS('A1_2',410,'A1(nine, fourteen)').
+prismToSRS('A1_2',411,'A1(nine, fifteen)').
+prismToSRS('A1_2',412,'A1(nine, sixteen)').
+prismToSRS('A1_2',413,'A1(nine, seventeen)').
+prismToSRS('A1_2',414,'A1(nine, eighteen)').
+prismToSRS('A1_2',415,'A1(nine, nineteen)').
+prismToSRS('A1_2',416,'A1(nine, twenty)').
+prismToSRS('A1_2',417,'A1(nine, thirty)').
+prismToSRS('A1_2',418,'A1(nine, forty)').
+prismToSRS('A1_2',419,'A1(nine, fifty)').
+prismToSRS('A1_2',420,'A1(nine, sixty)').
+prismToSRS('A1_2',421,'A1(nine, seventy)').
+prismToSRS('A1_2',422,'A1(nine, eighty)').
+prismToSRS('A1_2',423,'A1(nine, ninety)').
+prismToSRS('A1_2',424,'A1(nine, before)').
+prismToSRS('A1_2',425,'A1(nine, after)').
+prismToSRS('A1_2',426,'A1(nine, comes)').
+prismToSRS('A1_2',427,'A1(ten, ten)').
+prismToSRS('A1_2',428,'A1(ten, eleven)').
+prismToSRS('A1_2',429,'A1(ten, twelve)').
+prismToSRS('A1_2',430,'A1(ten, thirteen)').
+prismToSRS('A1_2',431,'A1(ten, fourteen)').
+prismToSRS('A1_2',432,'A1(ten, fifteen)').
+prismToSRS('A1_2',433,'A1(ten, sixteen)').
+prismToSRS('A1_2',434,'A1(ten, seventeen)').
+prismToSRS('A1_2',435,'A1(ten, eighteen)').
+prismToSRS('A1_2',436,'A1(ten, nineteen)').
+prismToSRS('A1_2',437,'A1(ten, twenty)').
+prismToSRS('A1_2',438,'A1(ten, thirty)').
+prismToSRS('A1_2',439,'A1(ten, forty)').
+prismToSRS('A1_2',440,'A1(ten, fifty)').
+prismToSRS('A1_2',441,'A1(ten, sixty)').
+prismToSRS('A1_2',442,'A1(ten, seventy)').
+prismToSRS('A1_2',443,'A1(ten, eighty)').
+prismToSRS('A1_2',444,'A1(ten, ninety)').
+prismToSRS('A1_2',445,'A1(ten, before)').
+prismToSRS('A1_2',446,'A1(ten, after)').
+prismToSRS('A1_2',447,'A1(ten, comes)').
+prismToSRS('A1_2',448,'A1(eleven, eleven)').
+prismToSRS('A1_2',449,'A1(eleven, twelve)').
+prismToSRS('A1_2',450,'A1(eleven, thirteen)').
+prismToSRS('A1_2',451,'A1(eleven, fourteen)').
+prismToSRS('A1_2',452,'A1(eleven, fifteen)').
+prismToSRS('A1_2',453,'A1(eleven, sixteen)').
+prismToSRS('A1_2',454,'A1(eleven, seventeen)').
+prismToSRS('A1_2',455,'A1(eleven, eighteen)').
+prismToSRS('A1_2',456,'A1(eleven, nineteen)').
+prismToSRS('A1_2',457,'A1(eleven, twenty)').
+prismToSRS('A1_2',458,'A1(eleven, thirty)').
+prismToSRS('A1_2',459,'A1(eleven, forty)').
+prismToSRS('A1_2',460,'A1(eleven, fifty)').
+prismToSRS('A1_2',461,'A1(eleven, sixty)').
+prismToSRS('A1_2',462,'A1(eleven, seventy)').
+prismToSRS('A1_2',463,'A1(eleven, eighty)').
+prismToSRS('A1_2',464,'A1(eleven, ninety)').
+prismToSRS('A1_2',465,'A1(eleven, before)').
+prismToSRS('A1_2',466,'A1(eleven, after)').
+prismToSRS('A1_2',467,'A1(eleven, comes)').
+prismToSRS('A1_2',468,'A1(twelve, twelve)').
+prismToSRS('A1_2',469,'A1(twelve, thirteen)').
+prismToSRS('A1_2',470,'A1(twelve, fourteen)').
+prismToSRS('A1_2',471,'A1(twelve, fifteen)').
+prismToSRS('A1_2',472,'A1(twelve, sixteen)').
+prismToSRS('A1_2',473,'A1(twelve, seventeen)').
+prismToSRS('A1_2',474,'A1(twelve, eighteen)').
+prismToSRS('A1_2',475,'A1(twelve, nineteen)').
+prismToSRS('A1_2',476,'A1(twelve, twenty)').
+prismToSRS('A1_2',477,'A1(twelve, thirty)').
+prismToSRS('A1_2',478,'A1(twelve, forty)').
+prismToSRS('A1_2',479,'A1(twelve, fifty)').
+prismToSRS('A1_2',480,'A1(twelve, sixty)').
+prismToSRS('A1_2',481,'A1(twelve, seventy)').
+prismToSRS('A1_2',482,'A1(twelve, eighty)').
+prismToSRS('A1_2',483,'A1(twelve, ninety)').
+prismToSRS('A1_2',484,'A1(twelve, before)').
+prismToSRS('A1_2',485,'A1(twelve, after)').
+prismToSRS('A1_2',486,'A1(twelve, comes)').
+prismToSRS('A1_2',487,'A1(thirteen, thirteen)').
+prismToSRS('A1_2',488,'A1(thirteen, fourteen)').
+prismToSRS('A1_2',489,'A1(thirteen, fifteen)').
+prismToSRS('A1_2',490,'A1(thirteen, sixteen)').
+prismToSRS('A1_2',491,'A1(thirteen, seventeen)').
+prismToSRS('A1_2',492,'A1(thirteen, eighteen)').
+prismToSRS('A1_2',493,'A1(thirteen, nineteen)').
+prismToSRS('A1_2',494,'A1(thirteen, twenty)').
+prismToSRS('A1_2',495,'A1(thirteen, thirty)').
+prismToSRS('A1_2',496,'A1(thirteen, forty)').
+prismToSRS('A1_2',497,'A1(thirteen, fifty)').
+prismToSRS('A1_2',498,'A1(thirteen, sixty)').
+prismToSRS('A1_2',499,'A1(thirteen, seventy)').
+prismToSRS('A1_2',500,'A1(thirteen, eighty)').
+prismToSRS('A1_2',501,'A1(thirteen, ninety)').
+prismToSRS('A1_2',502,'A1(thirteen, before)').
+prismToSRS('A1_2',503,'A1(thirteen, after)').
+prismToSRS('A1_2',504,'A1(thirteen, comes)').
+prismToSRS('A1_2',505,'A1(fourteen, fourteen)').
+prismToSRS('A1_2',506,'A1(fourteen, fifteen)').
+prismToSRS('A1_2',507,'A1(fourteen, sixteen)').
+prismToSRS('A1_2',508,'A1(fourteen, seventeen)').
+prismToSRS('A1_2',509,'A1(fourteen, eighteen)').
+prismToSRS('A1_2',510,'A1(fourteen, nineteen)').
+prismToSRS('A1_2',511,'A1(fourteen, twenty)').
+prismToSRS('A1_2',512,'A1(fourteen, thirty)').
+prismToSRS('A1_2',513,'A1(fourteen, forty)').
+prismToSRS('A1_2',514,'A1(fourteen, fifty)').
+prismToSRS('A1_2',515,'A1(fourteen, sixty)').
+prismToSRS('A1_2',516,'A1(fourteen, seventy)').
+prismToSRS('A1_2',517,'A1(fourteen, eighty)').
+prismToSRS('A1_2',518,'A1(fourteen, ninety)').
+prismToSRS('A1_2',519,'A1(fourteen, before)').
+prismToSRS('A1_2',520,'A1(fourteen, after)').
+prismToSRS('A1_2',521,'A1(fourteen, comes)').
+prismToSRS('A1_2',522,'A1(fifteen, fifteen)').
+prismToSRS('A1_2',523,'A1(fifteen, sixteen)').
+prismToSRS('A1_2',524,'A1(fifteen, seventeen)').
+prismToSRS('A1_2',525,'A1(fifteen, eighteen)').
+prismToSRS('A1_2',526,'A1(fifteen, nineteen)').
+prismToSRS('A1_2',527,'A1(fifteen, twenty)').
+prismToSRS('A1_2',528,'A1(fifteen, thirty)').
+prismToSRS('A1_2',529,'A1(fifteen, forty)').
+prismToSRS('A1_2',530,'A1(fifteen, fifty)').
+prismToSRS('A1_2',531,'A1(fifteen, sixty)').
+prismToSRS('A1_2',532,'A1(fifteen, seventy)').
+prismToSRS('A1_2',533,'A1(fifteen, eighty)').
+prismToSRS('A1_2',534,'A1(fifteen, ninety)').
+prismToSRS('A1_2',535,'A1(fifteen, before)').
+prismToSRS('A1_2',536,'A1(fifteen, after)').
+prismToSRS('A1_2',537,'A1(fifteen, comes)').
+prismToSRS('A1_2',538,'A1(sixteen, sixteen)').
+prismToSRS('A1_2',539,'A1(sixteen, seventeen)').
+prismToSRS('A1_2',540,'A1(sixteen, eighteen)').
+prismToSRS('A1_2',541,'A1(sixteen, nineteen)').
+prismToSRS('A1_2',542,'A1(sixteen, twenty)').
+prismToSRS('A1_2',543,'A1(sixteen, thirty)').
+prismToSRS('A1_2',544,'A1(sixteen, forty)').
+prismToSRS('A1_2',545,'A1(sixteen, fifty)').
+prismToSRS('A1_2',546,'A1(sixteen, sixty)').
+prismToSRS('A1_2',547,'A1(sixteen, seventy)').
+prismToSRS('A1_2',548,'A1(sixteen, eighty)').
+prismToSRS('A1_2',549,'A1(sixteen, ninety)').
+prismToSRS('A1_2',550,'A1(sixteen, before)').
+prismToSRS('A1_2',551,'A1(sixteen, after)').
+prismToSRS('A1_2',552,'A1(sixteen, comes)').
+prismToSRS('A1_2',553,'A1(seventeen, seventeen)').
+prismToSRS('A1_2',554,'A1(seventeen, eighteen)').
+prismToSRS('A1_2',555,'A1(seventeen, nineteen)').
+prismToSRS('A1_2',556,'A1(seventeen, twenty)').
+prismToSRS('A1_2',557,'A1(seventeen, thirty)').
+prismToSRS('A1_2',558,'A1(seventeen, forty)').
+prismToSRS('A1_2',559,'A1(seventeen, fifty)').
+prismToSRS('A1_2',560,'A1(seventeen, sixty)').
+prismToSRS('A1_2',561,'A1(seventeen, seventy)').
+prismToSRS('A1_2',562,'A1(seventeen, eighty)').
+prismToSRS('A1_2',563,'A1(seventeen, ninety)').
+prismToSRS('A1_2',564,'A1(seventeen, before)').
+prismToSRS('A1_2',565,'A1(seventeen, after)').
+prismToSRS('A1_2',566,'A1(seventeen, comes)').
+prismToSRS('A1_2',567,'A1(eighteen, eighteen)').
+prismToSRS('A1_2',568,'A1(eighteen, nineteen)').
+prismToSRS('A1_2',569,'A1(eighteen, twenty)').
+prismToSRS('A1_2',570,'A1(eighteen, thirty)').
+prismToSRS('A1_2',571,'A1(eighteen, forty)').
+prismToSRS('A1_2',572,'A1(eighteen, fifty)').
+prismToSRS('A1_2',573,'A1(eighteen, sixty)').
+prismToSRS('A1_2',574,'A1(eighteen, seventy)').
+prismToSRS('A1_2',575,'A1(eighteen, eighty)').
+prismToSRS('A1_2',576,'A1(eighteen, ninety)').
+prismToSRS('A1_2',577,'A1(eighteen, before)').
+prismToSRS('A1_2',578,'A1(eighteen, after)').
+prismToSRS('A1_2',579,'A1(eighteen, comes)').
+prismToSRS('A1_2',580,'A1(nineteen, nineteen)').
+prismToSRS('A1_2',581,'A1(nineteen, twenty)').
+prismToSRS('A1_2',582,'A1(nineteen, thirty)').
+prismToSRS('A1_2',583,'A1(nineteen, forty)').
+prismToSRS('A1_2',584,'A1(nineteen, fifty)').
+prismToSRS('A1_2',585,'A1(nineteen, sixty)').
+prismToSRS('A1_2',586,'A1(nineteen, seventy)').
+prismToSRS('A1_2',587,'A1(nineteen, eighty)').
+prismToSRS('A1_2',588,'A1(nineteen, ninety)').
+prismToSRS('A1_2',589,'A1(nineteen, before)').
+prismToSRS('A1_2',590,'A1(nineteen, after)').
+prismToSRS('A1_2',591,'A1(nineteen, comes)').
+prismToSRS('A1_2',592,'A1(twenty, twenty)').
+prismToSRS('A1_2',593,'A1(twenty, thirty)').
+prismToSRS('A1_2',594,'A1(twenty, forty)').
+prismToSRS('A1_2',595,'A1(twenty, fifty)').
+prismToSRS('A1_2',596,'A1(twenty, sixty)').
+prismToSRS('A1_2',597,'A1(twenty, seventy)').
+prismToSRS('A1_2',598,'A1(twenty, eighty)').
+prismToSRS('A1_2',599,'A1(twenty, ninety)').
+prismToSRS('A1_2',600,'A1(twenty, before)').
+prismToSRS('A1_2',601,'A1(twenty, after)').
+prismToSRS('A1_2',602,'A1(twenty, comes)').
+prismToSRS('A1_2',603,'A1(thirty, thirty)').
+prismToSRS('A1_2',604,'A1(thirty, forty)').
+prismToSRS('A1_2',605,'A1(thirty, fifty)').
+prismToSRS('A1_2',606,'A1(thirty, sixty)').
+prismToSRS('A1_2',607,'A1(thirty, seventy)').
+prismToSRS('A1_2',608,'A1(thirty, eighty)').
+prismToSRS('A1_2',609,'A1(thirty, ninety)').
+prismToSRS('A1_2',610,'A1(thirty, before)').
+prismToSRS('A1_2',611,'A1(thirty, after)').
+prismToSRS('A1_2',612,'A1(thirty, comes)').
+prismToSRS('A1_2',613,'A1(forty, forty)').
+prismToSRS('A1_2',614,'A1(forty, fifty)').
+prismToSRS('A1_2',615,'A1(forty, sixty)').
+prismToSRS('A1_2',616,'A1(forty, seventy)').
+prismToSRS('A1_2',617,'A1(forty, eighty)').
+prismToSRS('A1_2',618,'A1(forty, ninety)').
+prismToSRS('A1_2',619,'A1(forty, before)').
+prismToSRS('A1_2',620,'A1(forty, after)').
+prismToSRS('A1_2',621,'A1(forty, comes)').
+prismToSRS('A1_2',622,'A1(fifty, fifty)').
+prismToSRS('A1_2',623,'A1(fifty, sixty)').
+prismToSRS('A1_2',624,'A1(fifty, seventy)').
+prismToSRS('A1_2',625,'A1(fifty, eighty)').
+prismToSRS('A1_2',626,'A1(fifty, ninety)').
+prismToSRS('A1_2',627,'A1(fifty, before)').
+prismToSRS('A1_2',628,'A1(fifty, after)').
+prismToSRS('A1_2',629,'A1(fifty, comes)').
+prismToSRS('A1_2',630,'A1(sixty, sixty)').
+prismToSRS('A1_2',631,'A1(sixty, seventy)').
+prismToSRS('A1_2',632,'A1(sixty, eighty)').
+prismToSRS('A1_2',633,'A1(sixty, ninety)').
+prismToSRS('A1_2',634,'A1(sixty, before)').
+prismToSRS('A1_2',635,'A1(sixty, after)').
+prismToSRS('A1_2',636,'A1(sixty, comes)').
+prismToSRS('A1_2',637,'A1(seventy, seventy)').
+prismToSRS('A1_2',638,'A1(seventy, eighty)').
+prismToSRS('A1_2',639,'A1(seventy, ninety)').
+prismToSRS('A1_2',640,'A1(seventy, before)').
+prismToSRS('A1_2',641,'A1(seventy, after)').
+prismToSRS('A1_2',642,'A1(seventy, comes)').
+prismToSRS('A1_2',643,'A1(eighty, eighty)').
+prismToSRS('A1_2',644,'A1(eighty, ninety)').
+prismToSRS('A1_2',645,'A1(eighty, before)').
+prismToSRS('A1_2',646,'A1(eighty, after)').
+prismToSRS('A1_2',647,'A1(eighty, comes)').
+prismToSRS('A1_2',648,'A1(ninety, ninety)').
+prismToSRS('A1_2',649,'A1(ninety, before)').
+prismToSRS('A1_2',650,'A1(ninety, after)').
+prismToSRS('A1_2',651,'A1(ninety, comes)').
+prismToSRS('A1_2',652,'A1(before, before)').
+prismToSRS('A1_2',653,'A1(before, after)').
+prismToSRS('A1_2',654,'A1(before, comes)').
+prismToSRS('A1_2',655,'A1(after, after)').
+prismToSRS('A1_2',656,'A1(after, comes)').
+prismToSRS('A1_2',657,'A1(comes, comes)').
+prismToSRS('A1_2',658,'A1(one, null)').
+prismToSRS('A1_2',659,'A1(two, null)').
+prismToSRS('A1_2',660,'A1(three, null)').
+prismToSRS('A1_2',661,'A1(four, null)').
+prismToSRS('A1_2',662,'A1(five, null)').
+prismToSRS('A1_2',663,'A1(six, null)').
+prismToSRS('A1_2',664,'A1(seven, null)').
+prismToSRS('A1_2',665,'A1(eight, null)').
+prismToSRS('A1_2',666,'A1(nine, null)').
+prismToSRS('A1_2',667,'A1(ten, null)').
+prismToSRS('A1_2',668,'A1(eleven, null)').
+prismToSRS('A1_2',669,'A1(twelve, null)').
+prismToSRS('A1_2',670,'A1(thirteen, null)').
+prismToSRS('A1_2',671,'A1(fourteen, null)').
+prismToSRS('A1_2',672,'A1(fifteen, null)').
+prismToSRS('A1_2',673,'A1(sixteen, null)').
+prismToSRS('A1_2',674,'A1(seventeen, null)').
+prismToSRS('A1_2',675,'A1(eighteen, null)').
+prismToSRS('A1_2',676,'A1(nineteen, null)').
+prismToSRS('A1_2',677,'A1(twenty, null)').
+prismToSRS('A1_2',678,'A1(thirty, null)').
+prismToSRS('A1_2',679,'A1(forty, null)').
+prismToSRS('A1_2',680,'A1(fifty, null)').
+prismToSRS('A1_2',681,'A1(sixty, null)').
+prismToSRS('A1_2',682,'A1(seventy, null)').
+prismToSRS('A1_2',683,'A1(eighty, null)').
+prismToSRS('A1_2',684,'A1(ninety, null)').
+prismToSRS('A1_2',685,'A1(before, null)').
+prismToSRS('A1_2',686,'A1(after, null)').
+prismToSRS('A1_2',687,'A1(comes, null)').
+prismToSRS('A1_2',688,'A1(null, one)').
+prismToSRS('A1_2',689,'A1(null, two)').
+prismToSRS('A1_2',690,'A1(null, three)').
+prismToSRS('A1_2',691,'A1(null, four)').
+prismToSRS('A1_2',692,'A1(null, five)').
+prismToSRS('A1_2',693,'A1(null, six)').
+prismToSRS('A1_2',694,'A1(null, seven)').
+prismToSRS('A1_2',695,'A1(null, eight)').
+prismToSRS('A1_2',696,'A1(null, nine)').
+prismToSRS('A1_2',697,'A1(null, ten)').
+prismToSRS('A1_2',698,'A1(null, eleven)').
+prismToSRS('A1_2',699,'A1(null, twelve)').
+prismToSRS('A1_2',700,'A1(null, thirteen)').
+prismToSRS('A1_2',701,'A1(null, fourteen)').
+prismToSRS('A1_2',702,'A1(null, fifteen)').
+prismToSRS('A1_2',703,'A1(null, sixteen)').
+prismToSRS('A1_2',704,'A1(null, seventeen)').
+prismToSRS('A1_2',705,'A1(null, eighteen)').
+prismToSRS('A1_2',706,'A1(null, nineteen)').
+prismToSRS('A1_2',707,'A1(null, twenty)').
+prismToSRS('A1_2',708,'A1(null, thirty)').
+prismToSRS('A1_2',709,'A1(null, forty)').
+prismToSRS('A1_2',710,'A1(null, fifty)').
+prismToSRS('A1_2',711,'A1(null, sixty)').
+prismToSRS('A1_2',712,'A1(null, seventy)').
+prismToSRS('A1_2',713,'A1(null, eighty)').
+prismToSRS('A1_2',714,'A1(null, ninety)').
+prismToSRS('A1_2',715,'A1(null, before)').
+prismToSRS('A1_2',716,'A1(null, after)').
+prismToSRS('A1_2',717,'A1(null, comes)').
+prismToSRS('A2_2',1,'A2(X Y, U V) <-- A1(U, Y), A1(X, V)').
+prismToSRS('A2_2',2,'A2(X Y, U V) <-- A1(U, X), A1(Y, V)').
+prismToSRS('A2_2',3,'A2(X Y, U V) <-- A1(X, U), A1(Y, V)').
+prismToSRS('A2_2',4,'A2(X Y, U V) <-- A1(V, U), A1(Y, X)').
+prismToSRS('A2_2',5,'A2(X Y, U V) <-- A1(U, V), A1(Y, X)').
+prismToSRS('A2_2',6,'A2(X Y, U V) <-- A1(U, Y), A1(V, X)').
+prismToSRS('A2_2',7,'A2(X Y, U V) <-- A1(V, X), A1(Y, U)').
+prismToSRS('A2_2',8,'A2(X Y, U V) <-- A1(X, V), A1(Y, U)').
+prismToSRS('A2_2',9,'A2(X Y, U V) <-- A1(V, Y), A1(X, U)').
+prismToSRS('A2_2',10,'A2(X Y, U V) <-- A1(V, U), A1(X, Y)').
+prismToSRS('A2_2',11,'A2(X Y, U V) <-- A1(U, V), A1(X, Y)').
+prismToSRS('A2_2',12,'A2(X Y, U V) <-- A1(U, X), A1(V, Y)').
+prismToSRS('A2_2',13,'A2(X Y, U V) <-- A1(X, Y), A2(U, V)').
+prismToSRS('A2_2',14,'A2(X Y, U V) <-- A1(Y, X), A2(U, V)').
+prismToSRS('A2_2',15,'A2(X Y, U V) <-- A1(U, Y), A2(X, V)').
+prismToSRS('A2_2',16,'A2(X Y, U V) <-- A1(Y, U), A2(X, V)').
+prismToSRS('A2_2',17,'A2(X Y, U V) <-- A1(U, X), A2(Y, V)').
+prismToSRS('A2_2',18,'A2(X Y, U V) <-- A1(X, U), A2(Y, V)').
+prismToSRS('A2_2',19,'A2(X Y, U V) <-- A1(V, U), A2(Y, X)').
+prismToSRS('A2_2',20,'A2(X Y, U V) <-- A1(U, V), A2(Y, X)').
+prismToSRS('A2_2',21,'A2(X Y, U V) <-- A1(U, Y), A2(V, X)').
+prismToSRS('A2_2',22,'A2(X Y, U V) <-- A1(V, Y), A2(U, X)').
+prismToSRS('A2_2',23,'A2(X Y, U V) <-- A1(Y, V), A2(U, X)').
+prismToSRS('A2_2',24,'A2(X Y, U V) <-- A1(Y, U), A2(V, X)').
+prismToSRS('A2_2',25,'A2(X Y, U V) <-- A1(V, X), A2(Y, U)').
+prismToSRS('A2_2',26,'A2(X Y, U V) <-- A1(X, V), A2(Y, U)').
+prismToSRS('A2_2',27,'A2(X Y, U V) <-- A1(X, Y), A2(V, U)').
+prismToSRS('A2_2',28,'A2(X Y, U V) <-- A1(V, Y), A2(X, U)').
+prismToSRS('A2_2',29,'A2(X Y, U V) <-- A1(Y, V), A2(X, U)').
+prismToSRS('A2_2',30,'A2(X Y, U V) <-- A1(Y, X), A2(V, U)').
+prismToSRS('A2_2',31,'A2(X Y, U V) <-- A1(V, X), A2(U, Y)').
+prismToSRS('A2_2',32,'A2(X Y, U V) <-- A1(X, V), A2(U, Y)').
+prismToSRS('A2_2',33,'A2(X Y, U V) <-- A1(X, U), A2(V, Y)').
+prismToSRS('A2_2',34,'A2(X Y, U V) <-- A1(V, U), A2(X, Y)').
+prismToSRS('A2_2',35,'A2(X Y, U V) <-- A1(U, V), A2(X, Y)').
+prismToSRS('A2_2',36,'A2(X Y, U V) <-- A1(U, X), A2(V, Y)').
+prismToSRS('A2_2',37,'A2(X Y, U V) <-- A1(X, Y), A3(U, V)').
+prismToSRS('A2_2',38,'A2(X Y, U V) <-- A1(Y, X), A3(U, V)').
+prismToSRS('A2_2',39,'A2(X Y, U V) <-- A1(U, Y), A3(X, V)').
+prismToSRS('A2_2',40,'A2(X Y, U V) <-- A1(Y, U), A3(X, V)').
+prismToSRS('A2_2',41,'A2(X Y, U V) <-- A1(U, X), A3(Y, V)').
+prismToSRS('A2_2',42,'A2(X Y, U V) <-- A1(X, U), A3(Y, V)').
+prismToSRS('A2_2',43,'A2(X Y, U V) <-- A1(V, U), A3(Y, X)').
+prismToSRS('A2_2',44,'A2(X Y, U V) <-- A1(U, V), A3(Y, X)').
+prismToSRS('A2_2',45,'A2(X Y, U V) <-- A1(U, Y), A3(V, X)').
+prismToSRS('A2_2',46,'A2(X Y, U V) <-- A1(V, Y), A3(U, X)').
+prismToSRS('A2_2',47,'A2(X Y, U V) <-- A1(Y, V), A3(U, X)').
+prismToSRS('A2_2',48,'A2(X Y, U V) <-- A1(Y, U), A3(V, X)').
+prismToSRS('A2_2',49,'A2(X Y, U V) <-- A1(V, X), A3(Y, U)').
+prismToSRS('A2_2',50,'A2(X Y, U V) <-- A1(X, V), A3(Y, U)').
+prismToSRS('A2_2',51,'A2(X Y, U V) <-- A1(X, Y), A3(V, U)').
+prismToSRS('A2_2',52,'A2(X Y, U V) <-- A1(V, Y), A3(X, U)').
+prismToSRS('A2_2',53,'A2(X Y, U V) <-- A1(Y, V), A3(X, U)').
+prismToSRS('A2_2',54,'A2(X Y, U V) <-- A1(Y, X), A3(V, U)').
+prismToSRS('A2_2',55,'A2(X Y, U V) <-- A1(V, X), A3(U, Y)').
+prismToSRS('A2_2',56,'A2(X Y, U V) <-- A1(X, V), A3(U, Y)').
+prismToSRS('A2_2',57,'A2(X Y, U V) <-- A1(X, U), A3(V, Y)').
+prismToSRS('A2_2',58,'A2(X Y, U V) <-- A1(V, U), A3(X, Y)').
+prismToSRS('A2_2',59,'A2(X Y, U V) <-- A1(U, V), A3(X, Y)').
+prismToSRS('A2_2',60,'A2(X Y, U V) <-- A1(U, X), A3(V, Y)').
+prismToSRS('A2_2',61,'A2(X Y, U V) <-- A1(X, Y), A4(U, V)').
+prismToSRS('A2_2',62,'A2(X Y, U V) <-- A1(Y, X), A4(U, V)').
+prismToSRS('A2_2',63,'A2(X Y, U V) <-- A1(U, Y), A4(X, V)').
+prismToSRS('A2_2',64,'A2(X Y, U V) <-- A1(Y, U), A4(X, V)').
+prismToSRS('A2_2',65,'A2(X Y, U V) <-- A1(U, X), A4(Y, V)').
+prismToSRS('A2_2',66,'A2(X Y, U V) <-- A1(X, U), A4(Y, V)').
+prismToSRS('A2_2',67,'A2(X Y, U V) <-- A1(V, U), A4(Y, X)').
+prismToSRS('A2_2',68,'A2(X Y, U V) <-- A1(U, V), A4(Y, X)').
+prismToSRS('A2_2',69,'A2(X Y, U V) <-- A1(U, Y), A4(V, X)').
+prismToSRS('A2_2',70,'A2(X Y, U V) <-- A1(V, Y), A4(U, X)').
+prismToSRS('A2_2',71,'A2(X Y, U V) <-- A1(Y, V), A4(U, X)').
+prismToSRS('A2_2',72,'A2(X Y, U V) <-- A1(Y, U), A4(V, X)').
+prismToSRS('A2_2',73,'A2(X Y, U V) <-- A1(V, X), A4(Y, U)').
+prismToSRS('A2_2',74,'A2(X Y, U V) <-- A1(X, V), A4(Y, U)').
+prismToSRS('A2_2',75,'A2(X Y, U V) <-- A1(X, Y), A4(V, U)').
+prismToSRS('A2_2',76,'A2(X Y, U V) <-- A1(V, Y), A4(X, U)').
+prismToSRS('A2_2',77,'A2(X Y, U V) <-- A1(Y, V), A4(X, U)').
+prismToSRS('A2_2',78,'A2(X Y, U V) <-- A1(Y, X), A4(V, U)').
+prismToSRS('A2_2',79,'A2(X Y, U V) <-- A1(V, X), A4(U, Y)').
+prismToSRS('A2_2',80,'A2(X Y, U V) <-- A1(X, V), A4(U, Y)').
+prismToSRS('A2_2',81,'A2(X Y, U V) <-- A1(X, U), A4(V, Y)').
+prismToSRS('A2_2',82,'A2(X Y, U V) <-- A1(V, U), A4(X, Y)').
+prismToSRS('A2_2',83,'A2(X Y, U V) <-- A1(U, V), A4(X, Y)').
+prismToSRS('A2_2',84,'A2(X Y, U V) <-- A1(U, X), A4(V, Y)').
+prismToSRS('A2_2',85,'A2(X Y, U V) <-- A2(U, Y), A2(X, V)').
+prismToSRS('A2_2',86,'A2(X Y, U V) <-- A2(U, X), A2(Y, V)').
+prismToSRS('A2_2',87,'A2(X Y, U V) <-- A2(X, U), A2(Y, V)').
+prismToSRS('A2_2',88,'A2(X Y, U V) <-- A2(V, U), A2(Y, X)').
+prismToSRS('A2_2',89,'A2(X Y, U V) <-- A2(U, V), A2(Y, X)').
+prismToSRS('A2_2',90,'A2(X Y, U V) <-- A2(U, Y), A2(V, X)').
+prismToSRS('A2_2',91,'A2(X Y, U V) <-- A2(V, X), A2(Y, U)').
+prismToSRS('A2_2',92,'A2(X Y, U V) <-- A2(X, V), A2(Y, U)').
+prismToSRS('A2_2',93,'A2(X Y, U V) <-- A2(V, Y), A2(X, U)').
+prismToSRS('A2_2',94,'A2(X Y, U V) <-- A2(V, U), A2(X, Y)').
+prismToSRS('A2_2',95,'A2(X Y, U V) <-- A2(U, V), A2(X, Y)').
+prismToSRS('A2_2',96,'A2(X Y, U V) <-- A2(U, X), A2(V, Y)').
+prismToSRS('A2_2',97,'A2(X Y, U V) <-- A2(X, Y), A3(U, V)').
+prismToSRS('A2_2',98,'A2(X Y, U V) <-- A2(Y, X), A3(U, V)').
+prismToSRS('A2_2',99,'A2(X Y, U V) <-- A2(U, Y), A3(X, V)').
+prismToSRS('A2_2',100,'A2(X Y, U V) <-- A2(Y, U), A3(X, V)').
+prismToSRS('A2_2',101,'A2(X Y, U V) <-- A2(U, X), A3(Y, V)').
+prismToSRS('A2_2',102,'A2(X Y, U V) <-- A2(X, U), A3(Y, V)').
+prismToSRS('A2_2',103,'A2(X Y, U V) <-- A2(V, U), A3(Y, X)').
+prismToSRS('A2_2',104,'A2(X Y, U V) <-- A2(U, V), A3(Y, X)').
+prismToSRS('A2_2',105,'A2(X Y, U V) <-- A2(U, Y), A3(V, X)').
+prismToSRS('A2_2',106,'A2(X Y, U V) <-- A2(V, Y), A3(U, X)').
+prismToSRS('A2_2',107,'A2(X Y, U V) <-- A2(Y, V), A3(U, X)').
+prismToSRS('A2_2',108,'A2(X Y, U V) <-- A2(Y, U), A3(V, X)').
+prismToSRS('A2_2',109,'A2(X Y, U V) <-- A2(V, X), A3(Y, U)').
+prismToSRS('A2_2',110,'A2(X Y, U V) <-- A2(X, V), A3(Y, U)').
+prismToSRS('A2_2',111,'A2(X Y, U V) <-- A2(X, Y), A3(V, U)').
+prismToSRS('A2_2',112,'A2(X Y, U V) <-- A2(V, Y), A3(X, U)').
+prismToSRS('A2_2',113,'A2(X Y, U V) <-- A2(Y, V), A3(X, U)').
+prismToSRS('A2_2',114,'A2(X Y, U V) <-- A2(Y, X), A3(V, U)').
+prismToSRS('A2_2',115,'A2(X Y, U V) <-- A2(V, X), A3(U, Y)').
+prismToSRS('A2_2',116,'A2(X Y, U V) <-- A2(X, V), A3(U, Y)').
+prismToSRS('A2_2',117,'A2(X Y, U V) <-- A2(X, U), A3(V, Y)').
+prismToSRS('A2_2',118,'A2(X Y, U V) <-- A2(V, U), A3(X, Y)').
+prismToSRS('A2_2',119,'A2(X Y, U V) <-- A2(U, V), A3(X, Y)').
+prismToSRS('A2_2',120,'A2(X Y, U V) <-- A2(U, X), A3(V, Y)').
+prismToSRS('A2_2',121,'A2(X Y, U V) <-- A2(X, Y), A4(U, V)').
+prismToSRS('A2_2',122,'A2(X Y, U V) <-- A2(Y, X), A4(U, V)').
+prismToSRS('A2_2',123,'A2(X Y, U V) <-- A2(U, Y), A4(X, V)').
+prismToSRS('A2_2',124,'A2(X Y, U V) <-- A2(Y, U), A4(X, V)').
+prismToSRS('A2_2',125,'A2(X Y, U V) <-- A2(U, X), A4(Y, V)').
+prismToSRS('A2_2',126,'A2(X Y, U V) <-- A2(X, U), A4(Y, V)').
+prismToSRS('A2_2',127,'A2(X Y, U V) <-- A2(V, U), A4(Y, X)').
+prismToSRS('A2_2',128,'A2(X Y, U V) <-- A2(U, V), A4(Y, X)').
+prismToSRS('A2_2',129,'A2(X Y, U V) <-- A2(U, Y), A4(V, X)').
+prismToSRS('A2_2',130,'A2(X Y, U V) <-- A2(V, Y), A4(U, X)').
+prismToSRS('A2_2',131,'A2(X Y, U V) <-- A2(Y, V), A4(U, X)').
+prismToSRS('A2_2',132,'A2(X Y, U V) <-- A2(Y, U), A4(V, X)').
+prismToSRS('A2_2',133,'A2(X Y, U V) <-- A2(V, X), A4(Y, U)').
+prismToSRS('A2_2',134,'A2(X Y, U V) <-- A2(X, V), A4(Y, U)').
+prismToSRS('A2_2',135,'A2(X Y, U V) <-- A2(X, Y), A4(V, U)').
+prismToSRS('A2_2',136,'A2(X Y, U V) <-- A2(V, Y), A4(X, U)').
+prismToSRS('A2_2',137,'A2(X Y, U V) <-- A2(Y, V), A4(X, U)').
+prismToSRS('A2_2',138,'A2(X Y, U V) <-- A2(Y, X), A4(V, U)').
+prismToSRS('A2_2',139,'A2(X Y, U V) <-- A2(V, X), A4(U, Y)').
+prismToSRS('A2_2',140,'A2(X Y, U V) <-- A2(X, V), A4(U, Y)').
+prismToSRS('A2_2',141,'A2(X Y, U V) <-- A2(X, U), A4(V, Y)').
+prismToSRS('A2_2',142,'A2(X Y, U V) <-- A2(V, U), A4(X, Y)').
+prismToSRS('A2_2',143,'A2(X Y, U V) <-- A2(U, V), A4(X, Y)').
+prismToSRS('A2_2',144,'A2(X Y, U V) <-- A2(U, X), A4(V, Y)').
+prismToSRS('A2_2',145,'A2(X Y, U V) <-- A3(U, Y), A3(X, V)').
+prismToSRS('A2_2',146,'A2(X Y, U V) <-- A3(U, X), A3(Y, V)').
+prismToSRS('A2_2',147,'A2(X Y, U V) <-- A3(X, U), A3(Y, V)').
+prismToSRS('A2_2',148,'A2(X Y, U V) <-- A3(V, U), A3(Y, X)').
+prismToSRS('A2_2',149,'A2(X Y, U V) <-- A3(U, V), A3(Y, X)').
+prismToSRS('A2_2',150,'A2(X Y, U V) <-- A3(U, Y), A3(V, X)').
+prismToSRS('A2_2',151,'A2(X Y, U V) <-- A3(V, X), A3(Y, U)').
+prismToSRS('A2_2',152,'A2(X Y, U V) <-- A3(X, V), A3(Y, U)').
+prismToSRS('A2_2',153,'A2(X Y, U V) <-- A3(V, Y), A3(X, U)').
+prismToSRS('A2_2',154,'A2(X Y, U V) <-- A3(V, U), A3(X, Y)').
+prismToSRS('A2_2',155,'A2(X Y, U V) <-- A3(U, V), A3(X, Y)').
+prismToSRS('A2_2',156,'A2(X Y, U V) <-- A3(U, X), A3(V, Y)').
+prismToSRS('A2_2',157,'A2(X Y, U V) <-- A3(X, Y), A4(U, V)').
+prismToSRS('A2_2',158,'A2(X Y, U V) <-- A3(Y, X), A4(U, V)').
+prismToSRS('A2_2',159,'A2(X Y, U V) <-- A3(U, Y), A4(X, V)').
+prismToSRS('A2_2',160,'A2(X Y, U V) <-- A3(Y, U), A4(X, V)').
+prismToSRS('A2_2',161,'A2(X Y, U V) <-- A3(U, X), A4(Y, V)').
+prismToSRS('A2_2',162,'A2(X Y, U V) <-- A3(X, U), A4(Y, V)').
+prismToSRS('A2_2',163,'A2(X Y, U V) <-- A3(V, U), A4(Y, X)').
+prismToSRS('A2_2',164,'A2(X Y, U V) <-- A3(U, V), A4(Y, X)').
+prismToSRS('A2_2',165,'A2(X Y, U V) <-- A3(U, Y), A4(V, X)').
+prismToSRS('A2_2',166,'A2(X Y, U V) <-- A3(V, Y), A4(U, X)').
+prismToSRS('A2_2',167,'A2(X Y, U V) <-- A3(Y, V), A4(U, X)').
+prismToSRS('A2_2',168,'A2(X Y, U V) <-- A3(Y, U), A4(V, X)').
+prismToSRS('A2_2',169,'A2(X Y, U V) <-- A3(V, X), A4(Y, U)').
+prismToSRS('A2_2',170,'A2(X Y, U V) <-- A3(X, V), A4(Y, U)').
+prismToSRS('A2_2',171,'A2(X Y, U V) <-- A3(X, Y), A4(V, U)').
+prismToSRS('A2_2',172,'A2(X Y, U V) <-- A3(V, Y), A4(X, U)').
+prismToSRS('A2_2',173,'A2(X Y, U V) <-- A3(Y, V), A4(X, U)').
+prismToSRS('A2_2',174,'A2(X Y, U V) <-- A3(Y, X), A4(V, U)').
+prismToSRS('A2_2',175,'A2(X Y, U V) <-- A3(V, X), A4(U, Y)').
+prismToSRS('A2_2',176,'A2(X Y, U V) <-- A3(X, V), A4(U, Y)').
+prismToSRS('A2_2',177,'A2(X Y, U V) <-- A3(X, U), A4(V, Y)').
+prismToSRS('A2_2',178,'A2(X Y, U V) <-- A3(V, U), A4(X, Y)').
+prismToSRS('A2_2',179,'A2(X Y, U V) <-- A3(U, V), A4(X, Y)').
+prismToSRS('A2_2',180,'A2(X Y, U V) <-- A3(U, X), A4(V, Y)').
+prismToSRS('A2_2',181,'A2(X Y, U V) <-- A4(U, Y), A4(X, V)').
+prismToSRS('A2_2',182,'A2(X Y, U V) <-- A4(U, X), A4(Y, V)').
+prismToSRS('A2_2',183,'A2(X Y, U V) <-- A4(X, U), A4(Y, V)').
+prismToSRS('A2_2',184,'A2(X Y, U V) <-- A4(V, U), A4(Y, X)').
+prismToSRS('A2_2',185,'A2(X Y, U V) <-- A4(U, V), A4(Y, X)').
+prismToSRS('A2_2',186,'A2(X Y, U V) <-- A4(U, Y), A4(V, X)').
+prismToSRS('A2_2',187,'A2(X Y, U V) <-- A4(V, X), A4(Y, U)').
+prismToSRS('A2_2',188,'A2(X Y, U V) <-- A4(X, V), A4(Y, U)').
+prismToSRS('A2_2',189,'A2(X Y, U V) <-- A4(V, Y), A4(X, U)').
+prismToSRS('A2_2',190,'A2(X Y, U V) <-- A4(V, U), A4(X, Y)').
+prismToSRS('A2_2',191,'A2(X Y, U V) <-- A4(U, V), A4(X, Y)').
+prismToSRS('A2_2',192,'A2(X Y, U V) <-- A4(U, X), A4(V, Y)').
+prismToSRS('A2_2',193,'A2(one, one)').
+prismToSRS('A2_2',194,'A2(one, two)').
+prismToSRS('A2_2',195,'A2(one, three)').
+prismToSRS('A2_2',196,'A2(one, four)').
+prismToSRS('A2_2',197,'A2(one, five)').
+prismToSRS('A2_2',198,'A2(one, six)').
+prismToSRS('A2_2',199,'A2(one, seven)').
+prismToSRS('A2_2',200,'A2(one, eight)').
+prismToSRS('A2_2',201,'A2(one, nine)').
+prismToSRS('A2_2',202,'A2(one, ten)').
+prismToSRS('A2_2',203,'A2(one, eleven)').
+prismToSRS('A2_2',204,'A2(one, twelve)').
+prismToSRS('A2_2',205,'A2(one, thirteen)').
+prismToSRS('A2_2',206,'A2(one, fourteen)').
+prismToSRS('A2_2',207,'A2(one, fifteen)').
+prismToSRS('A2_2',208,'A2(one, sixteen)').
+prismToSRS('A2_2',209,'A2(one, seventeen)').
+prismToSRS('A2_2',210,'A2(one, eighteen)').
+prismToSRS('A2_2',211,'A2(one, nineteen)').
+prismToSRS('A2_2',212,'A2(one, twenty)').
+prismToSRS('A2_2',213,'A2(one, thirty)').
+prismToSRS('A2_2',214,'A2(one, forty)').
+prismToSRS('A2_2',215,'A2(one, fifty)').
+prismToSRS('A2_2',216,'A2(one, sixty)').
+prismToSRS('A2_2',217,'A2(one, seventy)').
+prismToSRS('A2_2',218,'A2(one, eighty)').
+prismToSRS('A2_2',219,'A2(one, ninety)').
+prismToSRS('A2_2',220,'A2(one, before)').
+prismToSRS('A2_2',221,'A2(one, after)').
+prismToSRS('A2_2',222,'A2(one, comes)').
+prismToSRS('A2_2',223,'A2(two, two)').
+prismToSRS('A2_2',224,'A2(two, three)').
+prismToSRS('A2_2',225,'A2(two, four)').
+prismToSRS('A2_2',226,'A2(two, five)').
+prismToSRS('A2_2',227,'A2(two, six)').
+prismToSRS('A2_2',228,'A2(two, seven)').
+prismToSRS('A2_2',229,'A2(two, eight)').
+prismToSRS('A2_2',230,'A2(two, nine)').
+prismToSRS('A2_2',231,'A2(two, ten)').
+prismToSRS('A2_2',232,'A2(two, eleven)').
+prismToSRS('A2_2',233,'A2(two, twelve)').
+prismToSRS('A2_2',234,'A2(two, thirteen)').
+prismToSRS('A2_2',235,'A2(two, fourteen)').
+prismToSRS('A2_2',236,'A2(two, fifteen)').
+prismToSRS('A2_2',237,'A2(two, sixteen)').
+prismToSRS('A2_2',238,'A2(two, seventeen)').
+prismToSRS('A2_2',239,'A2(two, eighteen)').
+prismToSRS('A2_2',240,'A2(two, nineteen)').
+prismToSRS('A2_2',241,'A2(two, twenty)').
+prismToSRS('A2_2',242,'A2(two, thirty)').
+prismToSRS('A2_2',243,'A2(two, forty)').
+prismToSRS('A2_2',244,'A2(two, fifty)').
+prismToSRS('A2_2',245,'A2(two, sixty)').
+prismToSRS('A2_2',246,'A2(two, seventy)').
+prismToSRS('A2_2',247,'A2(two, eighty)').
+prismToSRS('A2_2',248,'A2(two, ninety)').
+prismToSRS('A2_2',249,'A2(two, before)').
+prismToSRS('A2_2',250,'A2(two, after)').
+prismToSRS('A2_2',251,'A2(two, comes)').
+prismToSRS('A2_2',252,'A2(three, three)').
+prismToSRS('A2_2',253,'A2(three, four)').
+prismToSRS('A2_2',254,'A2(three, five)').
+prismToSRS('A2_2',255,'A2(three, six)').
+prismToSRS('A2_2',256,'A2(three, seven)').
+prismToSRS('A2_2',257,'A2(three, eight)').
+prismToSRS('A2_2',258,'A2(three, nine)').
+prismToSRS('A2_2',259,'A2(three, ten)').
+prismToSRS('A2_2',260,'A2(three, eleven)').
+prismToSRS('A2_2',261,'A2(three, twelve)').
+prismToSRS('A2_2',262,'A2(three, thirteen)').
+prismToSRS('A2_2',263,'A2(three, fourteen)').
+prismToSRS('A2_2',264,'A2(three, fifteen)').
+prismToSRS('A2_2',265,'A2(three, sixteen)').
+prismToSRS('A2_2',266,'A2(three, seventeen)').
+prismToSRS('A2_2',267,'A2(three, eighteen)').
+prismToSRS('A2_2',268,'A2(three, nineteen)').
+prismToSRS('A2_2',269,'A2(three, twenty)').
+prismToSRS('A2_2',270,'A2(three, thirty)').
+prismToSRS('A2_2',271,'A2(three, forty)').
+prismToSRS('A2_2',272,'A2(three, fifty)').
+prismToSRS('A2_2',273,'A2(three, sixty)').
+prismToSRS('A2_2',274,'A2(three, seventy)').
+prismToSRS('A2_2',275,'A2(three, eighty)').
+prismToSRS('A2_2',276,'A2(three, ninety)').
+prismToSRS('A2_2',277,'A2(three, before)').
+prismToSRS('A2_2',278,'A2(three, after)').
+prismToSRS('A2_2',279,'A2(three, comes)').
+prismToSRS('A2_2',280,'A2(four, four)').
+prismToSRS('A2_2',281,'A2(four, five)').
+prismToSRS('A2_2',282,'A2(four, six)').
+prismToSRS('A2_2',283,'A2(four, seven)').
+prismToSRS('A2_2',284,'A2(four, eight)').
+prismToSRS('A2_2',285,'A2(four, nine)').
+prismToSRS('A2_2',286,'A2(four, ten)').
+prismToSRS('A2_2',287,'A2(four, eleven)').
+prismToSRS('A2_2',288,'A2(four, twelve)').
+prismToSRS('A2_2',289,'A2(four, thirteen)').
+prismToSRS('A2_2',290,'A2(four, fourteen)').
+prismToSRS('A2_2',291,'A2(four, fifteen)').
+prismToSRS('A2_2',292,'A2(four, sixteen)').
+prismToSRS('A2_2',293,'A2(four, seventeen)').
+prismToSRS('A2_2',294,'A2(four, eighteen)').
+prismToSRS('A2_2',295,'A2(four, nineteen)').
+prismToSRS('A2_2',296,'A2(four, twenty)').
+prismToSRS('A2_2',297,'A2(four, thirty)').
+prismToSRS('A2_2',298,'A2(four, forty)').
+prismToSRS('A2_2',299,'A2(four, fifty)').
+prismToSRS('A2_2',300,'A2(four, sixty)').
+prismToSRS('A2_2',301,'A2(four, seventy)').
+prismToSRS('A2_2',302,'A2(four, eighty)').
+prismToSRS('A2_2',303,'A2(four, ninety)').
+prismToSRS('A2_2',304,'A2(four, before)').
+prismToSRS('A2_2',305,'A2(four, after)').
+prismToSRS('A2_2',306,'A2(four, comes)').
+prismToSRS('A2_2',307,'A2(five, five)').
+prismToSRS('A2_2',308,'A2(five, six)').
+prismToSRS('A2_2',309,'A2(five, seven)').
+prismToSRS('A2_2',310,'A2(five, eight)').
+prismToSRS('A2_2',311,'A2(five, nine)').
+prismToSRS('A2_2',312,'A2(five, ten)').
+prismToSRS('A2_2',313,'A2(five, eleven)').
+prismToSRS('A2_2',314,'A2(five, twelve)').
+prismToSRS('A2_2',315,'A2(five, thirteen)').
+prismToSRS('A2_2',316,'A2(five, fourteen)').
+prismToSRS('A2_2',317,'A2(five, fifteen)').
+prismToSRS('A2_2',318,'A2(five, sixteen)').
+prismToSRS('A2_2',319,'A2(five, seventeen)').
+prismToSRS('A2_2',320,'A2(five, eighteen)').
+prismToSRS('A2_2',321,'A2(five, nineteen)').
+prismToSRS('A2_2',322,'A2(five, twenty)').
+prismToSRS('A2_2',323,'A2(five, thirty)').
+prismToSRS('A2_2',324,'A2(five, forty)').
+prismToSRS('A2_2',325,'A2(five, fifty)').
+prismToSRS('A2_2',326,'A2(five, sixty)').
+prismToSRS('A2_2',327,'A2(five, seventy)').
+prismToSRS('A2_2',328,'A2(five, eighty)').
+prismToSRS('A2_2',329,'A2(five, ninety)').
+prismToSRS('A2_2',330,'A2(five, before)').
+prismToSRS('A2_2',331,'A2(five, after)').
+prismToSRS('A2_2',332,'A2(five, comes)').
+prismToSRS('A2_2',333,'A2(six, six)').
+prismToSRS('A2_2',334,'A2(six, seven)').
+prismToSRS('A2_2',335,'A2(six, eight)').
+prismToSRS('A2_2',336,'A2(six, nine)').
+prismToSRS('A2_2',337,'A2(six, ten)').
+prismToSRS('A2_2',338,'A2(six, eleven)').
+prismToSRS('A2_2',339,'A2(six, twelve)').
+prismToSRS('A2_2',340,'A2(six, thirteen)').
+prismToSRS('A2_2',341,'A2(six, fourteen)').
+prismToSRS('A2_2',342,'A2(six, fifteen)').
+prismToSRS('A2_2',343,'A2(six, sixteen)').
+prismToSRS('A2_2',344,'A2(six, seventeen)').
+prismToSRS('A2_2',345,'A2(six, eighteen)').
+prismToSRS('A2_2',346,'A2(six, nineteen)').
+prismToSRS('A2_2',347,'A2(six, twenty)').
+prismToSRS('A2_2',348,'A2(six, thirty)').
+prismToSRS('A2_2',349,'A2(six, forty)').
+prismToSRS('A2_2',350,'A2(six, fifty)').
+prismToSRS('A2_2',351,'A2(six, sixty)').
+prismToSRS('A2_2',352,'A2(six, seventy)').
+prismToSRS('A2_2',353,'A2(six, eighty)').
+prismToSRS('A2_2',354,'A2(six, ninety)').
+prismToSRS('A2_2',355,'A2(six, before)').
+prismToSRS('A2_2',356,'A2(six, after)').
+prismToSRS('A2_2',357,'A2(six, comes)').
+prismToSRS('A2_2',358,'A2(seven, seven)').
+prismToSRS('A2_2',359,'A2(seven, eight)').
+prismToSRS('A2_2',360,'A2(seven, nine)').
+prismToSRS('A2_2',361,'A2(seven, ten)').
+prismToSRS('A2_2',362,'A2(seven, eleven)').
+prismToSRS('A2_2',363,'A2(seven, twelve)').
+prismToSRS('A2_2',364,'A2(seven, thirteen)').
+prismToSRS('A2_2',365,'A2(seven, fourteen)').
+prismToSRS('A2_2',366,'A2(seven, fifteen)').
+prismToSRS('A2_2',367,'A2(seven, sixteen)').
+prismToSRS('A2_2',368,'A2(seven, seventeen)').
+prismToSRS('A2_2',369,'A2(seven, eighteen)').
+prismToSRS('A2_2',370,'A2(seven, nineteen)').
+prismToSRS('A2_2',371,'A2(seven, twenty)').
+prismToSRS('A2_2',372,'A2(seven, thirty)').
+prismToSRS('A2_2',373,'A2(seven, forty)').
+prismToSRS('A2_2',374,'A2(seven, fifty)').
+prismToSRS('A2_2',375,'A2(seven, sixty)').
+prismToSRS('A2_2',376,'A2(seven, seventy)').
+prismToSRS('A2_2',377,'A2(seven, eighty)').
+prismToSRS('A2_2',378,'A2(seven, ninety)').
+prismToSRS('A2_2',379,'A2(seven, before)').
+prismToSRS('A2_2',380,'A2(seven, after)').
+prismToSRS('A2_2',381,'A2(seven, comes)').
+prismToSRS('A2_2',382,'A2(eight, eight)').
+prismToSRS('A2_2',383,'A2(eight, nine)').
+prismToSRS('A2_2',384,'A2(eight, ten)').
+prismToSRS('A2_2',385,'A2(eight, eleven)').
+prismToSRS('A2_2',386,'A2(eight, twelve)').
+prismToSRS('A2_2',387,'A2(eight, thirteen)').
+prismToSRS('A2_2',388,'A2(eight, fourteen)').
+prismToSRS('A2_2',389,'A2(eight, fifteen)').
+prismToSRS('A2_2',390,'A2(eight, sixteen)').
+prismToSRS('A2_2',391,'A2(eight, seventeen)').
+prismToSRS('A2_2',392,'A2(eight, eighteen)').
+prismToSRS('A2_2',393,'A2(eight, nineteen)').
+prismToSRS('A2_2',394,'A2(eight, twenty)').
+prismToSRS('A2_2',395,'A2(eight, thirty)').
+prismToSRS('A2_2',396,'A2(eight, forty)').
+prismToSRS('A2_2',397,'A2(eight, fifty)').
+prismToSRS('A2_2',398,'A2(eight, sixty)').
+prismToSRS('A2_2',399,'A2(eight, seventy)').
+prismToSRS('A2_2',400,'A2(eight, eighty)').
+prismToSRS('A2_2',401,'A2(eight, ninety)').
+prismToSRS('A2_2',402,'A2(eight, before)').
+prismToSRS('A2_2',403,'A2(eight, after)').
+prismToSRS('A2_2',404,'A2(eight, comes)').
+prismToSRS('A2_2',405,'A2(nine, nine)').
+prismToSRS('A2_2',406,'A2(nine, ten)').
+prismToSRS('A2_2',407,'A2(nine, eleven)').
+prismToSRS('A2_2',408,'A2(nine, twelve)').
+prismToSRS('A2_2',409,'A2(nine, thirteen)').
+prismToSRS('A2_2',410,'A2(nine, fourteen)').
+prismToSRS('A2_2',411,'A2(nine, fifteen)').
+prismToSRS('A2_2',412,'A2(nine, sixteen)').
+prismToSRS('A2_2',413,'A2(nine, seventeen)').
+prismToSRS('A2_2',414,'A2(nine, eighteen)').
+prismToSRS('A2_2',415,'A2(nine, nineteen)').
+prismToSRS('A2_2',416,'A2(nine, twenty)').
+prismToSRS('A2_2',417,'A2(nine, thirty)').
+prismToSRS('A2_2',418,'A2(nine, forty)').
+prismToSRS('A2_2',419,'A2(nine, fifty)').
+prismToSRS('A2_2',420,'A2(nine, sixty)').
+prismToSRS('A2_2',421,'A2(nine, seventy)').
+prismToSRS('A2_2',422,'A2(nine, eighty)').
+prismToSRS('A2_2',423,'A2(nine, ninety)').
+prismToSRS('A2_2',424,'A2(nine, before)').
+prismToSRS('A2_2',425,'A2(nine, after)').
+prismToSRS('A2_2',426,'A2(nine, comes)').
+prismToSRS('A2_2',427,'A2(ten, ten)').
+prismToSRS('A2_2',428,'A2(ten, eleven)').
+prismToSRS('A2_2',429,'A2(ten, twelve)').
+prismToSRS('A2_2',430,'A2(ten, thirteen)').
+prismToSRS('A2_2',431,'A2(ten, fourteen)').
+prismToSRS('A2_2',432,'A2(ten, fifteen)').
+prismToSRS('A2_2',433,'A2(ten, sixteen)').
+prismToSRS('A2_2',434,'A2(ten, seventeen)').
+prismToSRS('A2_2',435,'A2(ten, eighteen)').
+prismToSRS('A2_2',436,'A2(ten, nineteen)').
+prismToSRS('A2_2',437,'A2(ten, twenty)').
+prismToSRS('A2_2',438,'A2(ten, thirty)').
+prismToSRS('A2_2',439,'A2(ten, forty)').
+prismToSRS('A2_2',440,'A2(ten, fifty)').
+prismToSRS('A2_2',441,'A2(ten, sixty)').
+prismToSRS('A2_2',442,'A2(ten, seventy)').
+prismToSRS('A2_2',443,'A2(ten, eighty)').
+prismToSRS('A2_2',444,'A2(ten, ninety)').
+prismToSRS('A2_2',445,'A2(ten, before)').
+prismToSRS('A2_2',446,'A2(ten, after)').
+prismToSRS('A2_2',447,'A2(ten, comes)').
+prismToSRS('A2_2',448,'A2(eleven, eleven)').
+prismToSRS('A2_2',449,'A2(eleven, twelve)').
+prismToSRS('A2_2',450,'A2(eleven, thirteen)').
+prismToSRS('A2_2',451,'A2(eleven, fourteen)').
+prismToSRS('A2_2',452,'A2(eleven, fifteen)').
+prismToSRS('A2_2',453,'A2(eleven, sixteen)').
+prismToSRS('A2_2',454,'A2(eleven, seventeen)').
+prismToSRS('A2_2',455,'A2(eleven, eighteen)').
+prismToSRS('A2_2',456,'A2(eleven, nineteen)').
+prismToSRS('A2_2',457,'A2(eleven, twenty)').
+prismToSRS('A2_2',458,'A2(eleven, thirty)').
+prismToSRS('A2_2',459,'A2(eleven, forty)').
+prismToSRS('A2_2',460,'A2(eleven, fifty)').
+prismToSRS('A2_2',461,'A2(eleven, sixty)').
+prismToSRS('A2_2',462,'A2(eleven, seventy)').
+prismToSRS('A2_2',463,'A2(eleven, eighty)').
+prismToSRS('A2_2',464,'A2(eleven, ninety)').
+prismToSRS('A2_2',465,'A2(eleven, before)').
+prismToSRS('A2_2',466,'A2(eleven, after)').
+prismToSRS('A2_2',467,'A2(eleven, comes)').
+prismToSRS('A2_2',468,'A2(twelve, twelve)').
+prismToSRS('A2_2',469,'A2(twelve, thirteen)').
+prismToSRS('A2_2',470,'A2(twelve, fourteen)').
+prismToSRS('A2_2',471,'A2(twelve, fifteen)').
+prismToSRS('A2_2',472,'A2(twelve, sixteen)').
+prismToSRS('A2_2',473,'A2(twelve, seventeen)').
+prismToSRS('A2_2',474,'A2(twelve, eighteen)').
+prismToSRS('A2_2',475,'A2(twelve, nineteen)').
+prismToSRS('A2_2',476,'A2(twelve, twenty)').
+prismToSRS('A2_2',477,'A2(twelve, thirty)').
+prismToSRS('A2_2',478,'A2(twelve, forty)').
+prismToSRS('A2_2',479,'A2(twelve, fifty)').
+prismToSRS('A2_2',480,'A2(twelve, sixty)').
+prismToSRS('A2_2',481,'A2(twelve, seventy)').
+prismToSRS('A2_2',482,'A2(twelve, eighty)').
+prismToSRS('A2_2',483,'A2(twelve, ninety)').
+prismToSRS('A2_2',484,'A2(twelve, before)').
+prismToSRS('A2_2',485,'A2(twelve, after)').
+prismToSRS('A2_2',486,'A2(twelve, comes)').
+prismToSRS('A2_2',487,'A2(thirteen, thirteen)').
+prismToSRS('A2_2',488,'A2(thirteen, fourteen)').
+prismToSRS('A2_2',489,'A2(thirteen, fifteen)').
+prismToSRS('A2_2',490,'A2(thirteen, sixteen)').
+prismToSRS('A2_2',491,'A2(thirteen, seventeen)').
+prismToSRS('A2_2',492,'A2(thirteen, eighteen)').
+prismToSRS('A2_2',493,'A2(thirteen, nineteen)').
+prismToSRS('A2_2',494,'A2(thirteen, twenty)').
+prismToSRS('A2_2',495,'A2(thirteen, thirty)').
+prismToSRS('A2_2',496,'A2(thirteen, forty)').
+prismToSRS('A2_2',497,'A2(thirteen, fifty)').
+prismToSRS('A2_2',498,'A2(thirteen, sixty)').
+prismToSRS('A2_2',499,'A2(thirteen, seventy)').
+prismToSRS('A2_2',500,'A2(thirteen, eighty)').
+prismToSRS('A2_2',501,'A2(thirteen, ninety)').
+prismToSRS('A2_2',502,'A2(thirteen, before)').
+prismToSRS('A2_2',503,'A2(thirteen, after)').
+prismToSRS('A2_2',504,'A2(thirteen, comes)').
+prismToSRS('A2_2',505,'A2(fourteen, fourteen)').
+prismToSRS('A2_2',506,'A2(fourteen, fifteen)').
+prismToSRS('A2_2',507,'A2(fourteen, sixteen)').
+prismToSRS('A2_2',508,'A2(fourteen, seventeen)').
+prismToSRS('A2_2',509,'A2(fourteen, eighteen)').
+prismToSRS('A2_2',510,'A2(fourteen, nineteen)').
+prismToSRS('A2_2',511,'A2(fourteen, twenty)').
+prismToSRS('A2_2',512,'A2(fourteen, thirty)').
+prismToSRS('A2_2',513,'A2(fourteen, forty)').
+prismToSRS('A2_2',514,'A2(fourteen, fifty)').
+prismToSRS('A2_2',515,'A2(fourteen, sixty)').
+prismToSRS('A2_2',516,'A2(fourteen, seventy)').
+prismToSRS('A2_2',517,'A2(fourteen, eighty)').
+prismToSRS('A2_2',518,'A2(fourteen, ninety)').
+prismToSRS('A2_2',519,'A2(fourteen, before)').
+prismToSRS('A2_2',520,'A2(fourteen, after)').
+prismToSRS('A2_2',521,'A2(fourteen, comes)').
+prismToSRS('A2_2',522,'A2(fifteen, fifteen)').
+prismToSRS('A2_2',523,'A2(fifteen, sixteen)').
+prismToSRS('A2_2',524,'A2(fifteen, seventeen)').
+prismToSRS('A2_2',525,'A2(fifteen, eighteen)').
+prismToSRS('A2_2',526,'A2(fifteen, nineteen)').
+prismToSRS('A2_2',527,'A2(fifteen, twenty)').
+prismToSRS('A2_2',528,'A2(fifteen, thirty)').
+prismToSRS('A2_2',529,'A2(fifteen, forty)').
+prismToSRS('A2_2',530,'A2(fifteen, fifty)').
+prismToSRS('A2_2',531,'A2(fifteen, sixty)').
+prismToSRS('A2_2',532,'A2(fifteen, seventy)').
+prismToSRS('A2_2',533,'A2(fifteen, eighty)').
+prismToSRS('A2_2',534,'A2(fifteen, ninety)').
+prismToSRS('A2_2',535,'A2(fifteen, before)').
+prismToSRS('A2_2',536,'A2(fifteen, after)').
+prismToSRS('A2_2',537,'A2(fifteen, comes)').
+prismToSRS('A2_2',538,'A2(sixteen, sixteen)').
+prismToSRS('A2_2',539,'A2(sixteen, seventeen)').
+prismToSRS('A2_2',540,'A2(sixteen, eighteen)').
+prismToSRS('A2_2',541,'A2(sixteen, nineteen)').
+prismToSRS('A2_2',542,'A2(sixteen, twenty)').
+prismToSRS('A2_2',543,'A2(sixteen, thirty)').
+prismToSRS('A2_2',544,'A2(sixteen, forty)').
+prismToSRS('A2_2',545,'A2(sixteen, fifty)').
+prismToSRS('A2_2',546,'A2(sixteen, sixty)').
+prismToSRS('A2_2',547,'A2(sixteen, seventy)').
+prismToSRS('A2_2',548,'A2(sixteen, eighty)').
+prismToSRS('A2_2',549,'A2(sixteen, ninety)').
+prismToSRS('A2_2',550,'A2(sixteen, before)').
+prismToSRS('A2_2',551,'A2(sixteen, after)').
+prismToSRS('A2_2',552,'A2(sixteen, comes)').
+prismToSRS('A2_2',553,'A2(seventeen, seventeen)').
+prismToSRS('A2_2',554,'A2(seventeen, eighteen)').
+prismToSRS('A2_2',555,'A2(seventeen, nineteen)').
+prismToSRS('A2_2',556,'A2(seventeen, twenty)').
+prismToSRS('A2_2',557,'A2(seventeen, thirty)').
+prismToSRS('A2_2',558,'A2(seventeen, forty)').
+prismToSRS('A2_2',559,'A2(seventeen, fifty)').
+prismToSRS('A2_2',560,'A2(seventeen, sixty)').
+prismToSRS('A2_2',561,'A2(seventeen, seventy)').
+prismToSRS('A2_2',562,'A2(seventeen, eighty)').
+prismToSRS('A2_2',563,'A2(seventeen, ninety)').
+prismToSRS('A2_2',564,'A2(seventeen, before)').
+prismToSRS('A2_2',565,'A2(seventeen, after)').
+prismToSRS('A2_2',566,'A2(seventeen, comes)').
+prismToSRS('A2_2',567,'A2(eighteen, eighteen)').
+prismToSRS('A2_2',568,'A2(eighteen, nineteen)').
+prismToSRS('A2_2',569,'A2(eighteen, twenty)').
+prismToSRS('A2_2',570,'A2(eighteen, thirty)').
+prismToSRS('A2_2',571,'A2(eighteen, forty)').
+prismToSRS('A2_2',572,'A2(eighteen, fifty)').
+prismToSRS('A2_2',573,'A2(eighteen, sixty)').
+prismToSRS('A2_2',574,'A2(eighteen, seventy)').
+prismToSRS('A2_2',575,'A2(eighteen, eighty)').
+prismToSRS('A2_2',576,'A2(eighteen, ninety)').
+prismToSRS('A2_2',577,'A2(eighteen, before)').
+prismToSRS('A2_2',578,'A2(eighteen, after)').
+prismToSRS('A2_2',579,'A2(eighteen, comes)').
+prismToSRS('A2_2',580,'A2(nineteen, nineteen)').
+prismToSRS('A2_2',581,'A2(nineteen, twenty)').
+prismToSRS('A2_2',582,'A2(nineteen, thirty)').
+prismToSRS('A2_2',583,'A2(nineteen, forty)').
+prismToSRS('A2_2',584,'A2(nineteen, fifty)').
+prismToSRS('A2_2',585,'A2(nineteen, sixty)').
+prismToSRS('A2_2',586,'A2(nineteen, seventy)').
+prismToSRS('A2_2',587,'A2(nineteen, eighty)').
+prismToSRS('A2_2',588,'A2(nineteen, ninety)').
+prismToSRS('A2_2',589,'A2(nineteen, before)').
+prismToSRS('A2_2',590,'A2(nineteen, after)').
+prismToSRS('A2_2',591,'A2(nineteen, comes)').
+prismToSRS('A2_2',592,'A2(twenty, twenty)').
+prismToSRS('A2_2',593,'A2(twenty, thirty)').
+prismToSRS('A2_2',594,'A2(twenty, forty)').
+prismToSRS('A2_2',595,'A2(twenty, fifty)').
+prismToSRS('A2_2',596,'A2(twenty, sixty)').
+prismToSRS('A2_2',597,'A2(twenty, seventy)').
+prismToSRS('A2_2',598,'A2(twenty, eighty)').
+prismToSRS('A2_2',599,'A2(twenty, ninety)').
+prismToSRS('A2_2',600,'A2(twenty, before)').
+prismToSRS('A2_2',601,'A2(twenty, after)').
+prismToSRS('A2_2',602,'A2(twenty, comes)').
+prismToSRS('A2_2',603,'A2(thirty, thirty)').
+prismToSRS('A2_2',604,'A2(thirty, forty)').
+prismToSRS('A2_2',605,'A2(thirty, fifty)').
+prismToSRS('A2_2',606,'A2(thirty, sixty)').
+prismToSRS('A2_2',607,'A2(thirty, seventy)').
+prismToSRS('A2_2',608,'A2(thirty, eighty)').
+prismToSRS('A2_2',609,'A2(thirty, ninety)').
+prismToSRS('A2_2',610,'A2(thirty, before)').
+prismToSRS('A2_2',611,'A2(thirty, after)').
+prismToSRS('A2_2',612,'A2(thirty, comes)').
+prismToSRS('A2_2',613,'A2(forty, forty)').
+prismToSRS('A2_2',614,'A2(forty, fifty)').
+prismToSRS('A2_2',615,'A2(forty, sixty)').
+prismToSRS('A2_2',616,'A2(forty, seventy)').
+prismToSRS('A2_2',617,'A2(forty, eighty)').
+prismToSRS('A2_2',618,'A2(forty, ninety)').
+prismToSRS('A2_2',619,'A2(forty, before)').
+prismToSRS('A2_2',620,'A2(forty, after)').
+prismToSRS('A2_2',621,'A2(forty, comes)').
+prismToSRS('A2_2',622,'A2(fifty, fifty)').
+prismToSRS('A2_2',623,'A2(fifty, sixty)').
+prismToSRS('A2_2',624,'A2(fifty, seventy)').
+prismToSRS('A2_2',625,'A2(fifty, eighty)').
+prismToSRS('A2_2',626,'A2(fifty, ninety)').
+prismToSRS('A2_2',627,'A2(fifty, before)').
+prismToSRS('A2_2',628,'A2(fifty, after)').
+prismToSRS('A2_2',629,'A2(fifty, comes)').
+prismToSRS('A2_2',630,'A2(sixty, sixty)').
+prismToSRS('A2_2',631,'A2(sixty, seventy)').
+prismToSRS('A2_2',632,'A2(sixty, eighty)').
+prismToSRS('A2_2',633,'A2(sixty, ninety)').
+prismToSRS('A2_2',634,'A2(sixty, before)').
+prismToSRS('A2_2',635,'A2(sixty, after)').
+prismToSRS('A2_2',636,'A2(sixty, comes)').
+prismToSRS('A2_2',637,'A2(seventy, seventy)').
+prismToSRS('A2_2',638,'A2(seventy, eighty)').
+prismToSRS('A2_2',639,'A2(seventy, ninety)').
+prismToSRS('A2_2',640,'A2(seventy, before)').
+prismToSRS('A2_2',641,'A2(seventy, after)').
+prismToSRS('A2_2',642,'A2(seventy, comes)').
+prismToSRS('A2_2',643,'A2(eighty, eighty)').
+prismToSRS('A2_2',644,'A2(eighty, ninety)').
+prismToSRS('A2_2',645,'A2(eighty, before)').
+prismToSRS('A2_2',646,'A2(eighty, after)').
+prismToSRS('A2_2',647,'A2(eighty, comes)').
+prismToSRS('A2_2',648,'A2(ninety, ninety)').
+prismToSRS('A2_2',649,'A2(ninety, before)').
+prismToSRS('A2_2',650,'A2(ninety, after)').
+prismToSRS('A2_2',651,'A2(ninety, comes)').
+prismToSRS('A2_2',652,'A2(before, before)').
+prismToSRS('A2_2',653,'A2(before, after)').
+prismToSRS('A2_2',654,'A2(before, comes)').
+prismToSRS('A2_2',655,'A2(after, after)').
+prismToSRS('A2_2',656,'A2(after, comes)').
+prismToSRS('A2_2',657,'A2(comes, comes)').
+prismToSRS('A2_2',658,'A2(one, null)').
+prismToSRS('A2_2',659,'A2(two, null)').
+prismToSRS('A2_2',660,'A2(three, null)').
+prismToSRS('A2_2',661,'A2(four, null)').
+prismToSRS('A2_2',662,'A2(five, null)').
+prismToSRS('A2_2',663,'A2(six, null)').
+prismToSRS('A2_2',664,'A2(seven, null)').
+prismToSRS('A2_2',665,'A2(eight, null)').
+prismToSRS('A2_2',666,'A2(nine, null)').
+prismToSRS('A2_2',667,'A2(ten, null)').
+prismToSRS('A2_2',668,'A2(eleven, null)').
+prismToSRS('A2_2',669,'A2(twelve, null)').
+prismToSRS('A2_2',670,'A2(thirteen, null)').
+prismToSRS('A2_2',671,'A2(fourteen, null)').
+prismToSRS('A2_2',672,'A2(fifteen, null)').
+prismToSRS('A2_2',673,'A2(sixteen, null)').
+prismToSRS('A2_2',674,'A2(seventeen, null)').
+prismToSRS('A2_2',675,'A2(eighteen, null)').
+prismToSRS('A2_2',676,'A2(nineteen, null)').
+prismToSRS('A2_2',677,'A2(twenty, null)').
+prismToSRS('A2_2',678,'A2(thirty, null)').
+prismToSRS('A2_2',679,'A2(forty, null)').
+prismToSRS('A2_2',680,'A2(fifty, null)').
+prismToSRS('A2_2',681,'A2(sixty, null)').
+prismToSRS('A2_2',682,'A2(seventy, null)').
+prismToSRS('A2_2',683,'A2(eighty, null)').
+prismToSRS('A2_2',684,'A2(ninety, null)').
+prismToSRS('A2_2',685,'A2(before, null)').
+prismToSRS('A2_2',686,'A2(after, null)').
+prismToSRS('A2_2',687,'A2(comes, null)').
+prismToSRS('A2_2',688,'A2(null, one)').
+prismToSRS('A2_2',689,'A2(null, two)').
+prismToSRS('A2_2',690,'A2(null, three)').
+prismToSRS('A2_2',691,'A2(null, four)').
+prismToSRS('A2_2',692,'A2(null, five)').
+prismToSRS('A2_2',693,'A2(null, six)').
+prismToSRS('A2_2',694,'A2(null, seven)').
+prismToSRS('A2_2',695,'A2(null, eight)').
+prismToSRS('A2_2',696,'A2(null, nine)').
+prismToSRS('A2_2',697,'A2(null, ten)').
+prismToSRS('A2_2',698,'A2(null, eleven)').
+prismToSRS('A2_2',699,'A2(null, twelve)').
+prismToSRS('A2_2',700,'A2(null, thirteen)').
+prismToSRS('A2_2',701,'A2(null, fourteen)').
+prismToSRS('A2_2',702,'A2(null, fifteen)').
+prismToSRS('A2_2',703,'A2(null, sixteen)').
+prismToSRS('A2_2',704,'A2(null, seventeen)').
+prismToSRS('A2_2',705,'A2(null, eighteen)').
+prismToSRS('A2_2',706,'A2(null, nineteen)').
+prismToSRS('A2_2',707,'A2(null, twenty)').
+prismToSRS('A2_2',708,'A2(null, thirty)').
+prismToSRS('A2_2',709,'A2(null, forty)').
+prismToSRS('A2_2',710,'A2(null, fifty)').
+prismToSRS('A2_2',711,'A2(null, sixty)').
+prismToSRS('A2_2',712,'A2(null, seventy)').
+prismToSRS('A2_2',713,'A2(null, eighty)').
+prismToSRS('A2_2',714,'A2(null, ninety)').
+prismToSRS('A2_2',715,'A2(null, before)').
+prismToSRS('A2_2',716,'A2(null, after)').
+prismToSRS('A2_2',717,'A2(null, comes)').
+prismToSRS('A3_2',1,'A3(X Y, U V) <-- A1(U, Y), A1(X, V)').
+prismToSRS('A3_2',2,'A3(X Y, U V) <-- A1(U, X), A1(Y, V)').
+prismToSRS('A3_2',3,'A3(X Y, U V) <-- A1(X, U), A1(Y, V)').
+prismToSRS('A3_2',4,'A3(X Y, U V) <-- A1(V, U), A1(Y, X)').
+prismToSRS('A3_2',5,'A3(X Y, U V) <-- A1(U, V), A1(Y, X)').
+prismToSRS('A3_2',6,'A3(X Y, U V) <-- A1(U, Y), A1(V, X)').
+prismToSRS('A3_2',7,'A3(X Y, U V) <-- A1(V, X), A1(Y, U)').
+prismToSRS('A3_2',8,'A3(X Y, U V) <-- A1(X, V), A1(Y, U)').
+prismToSRS('A3_2',9,'A3(X Y, U V) <-- A1(V, Y), A1(X, U)').
+prismToSRS('A3_2',10,'A3(X Y, U V) <-- A1(V, U), A1(X, Y)').
+prismToSRS('A3_2',11,'A3(X Y, U V) <-- A1(U, V), A1(X, Y)').
+prismToSRS('A3_2',12,'A3(X Y, U V) <-- A1(U, X), A1(V, Y)').
+prismToSRS('A3_2',13,'A3(X Y, U V) <-- A1(X, Y), A2(U, V)').
+prismToSRS('A3_2',14,'A3(X Y, U V) <-- A1(Y, X), A2(U, V)').
+prismToSRS('A3_2',15,'A3(X Y, U V) <-- A1(U, Y), A2(X, V)').
+prismToSRS('A3_2',16,'A3(X Y, U V) <-- A1(Y, U), A2(X, V)').
+prismToSRS('A3_2',17,'A3(X Y, U V) <-- A1(U, X), A2(Y, V)').
+prismToSRS('A3_2',18,'A3(X Y, U V) <-- A1(X, U), A2(Y, V)').
+prismToSRS('A3_2',19,'A3(X Y, U V) <-- A1(V, U), A2(Y, X)').
+prismToSRS('A3_2',20,'A3(X Y, U V) <-- A1(U, V), A2(Y, X)').
+prismToSRS('A3_2',21,'A3(X Y, U V) <-- A1(U, Y), A2(V, X)').
+prismToSRS('A3_2',22,'A3(X Y, U V) <-- A1(V, Y), A2(U, X)').
+prismToSRS('A3_2',23,'A3(X Y, U V) <-- A1(Y, V), A2(U, X)').
+prismToSRS('A3_2',24,'A3(X Y, U V) <-- A1(Y, U), A2(V, X)').
+prismToSRS('A3_2',25,'A3(X Y, U V) <-- A1(V, X), A2(Y, U)').
+prismToSRS('A3_2',26,'A3(X Y, U V) <-- A1(X, V), A2(Y, U)').
+prismToSRS('A3_2',27,'A3(X Y, U V) <-- A1(X, Y), A2(V, U)').
+prismToSRS('A3_2',28,'A3(X Y, U V) <-- A1(V, Y), A2(X, U)').
+prismToSRS('A3_2',29,'A3(X Y, U V) <-- A1(Y, V), A2(X, U)').
+prismToSRS('A3_2',30,'A3(X Y, U V) <-- A1(Y, X), A2(V, U)').
+prismToSRS('A3_2',31,'A3(X Y, U V) <-- A1(V, X), A2(U, Y)').
+prismToSRS('A3_2',32,'A3(X Y, U V) <-- A1(X, V), A2(U, Y)').
+prismToSRS('A3_2',33,'A3(X Y, U V) <-- A1(X, U), A2(V, Y)').
+prismToSRS('A3_2',34,'A3(X Y, U V) <-- A1(V, U), A2(X, Y)').
+prismToSRS('A3_2',35,'A3(X Y, U V) <-- A1(U, V), A2(X, Y)').
+prismToSRS('A3_2',36,'A3(X Y, U V) <-- A1(U, X), A2(V, Y)').
+prismToSRS('A3_2',37,'A3(X Y, U V) <-- A1(X, Y), A3(U, V)').
+prismToSRS('A3_2',38,'A3(X Y, U V) <-- A1(Y, X), A3(U, V)').
+prismToSRS('A3_2',39,'A3(X Y, U V) <-- A1(U, Y), A3(X, V)').
+prismToSRS('A3_2',40,'A3(X Y, U V) <-- A1(Y, U), A3(X, V)').
+prismToSRS('A3_2',41,'A3(X Y, U V) <-- A1(U, X), A3(Y, V)').
+prismToSRS('A3_2',42,'A3(X Y, U V) <-- A1(X, U), A3(Y, V)').
+prismToSRS('A3_2',43,'A3(X Y, U V) <-- A1(V, U), A3(Y, X)').
+prismToSRS('A3_2',44,'A3(X Y, U V) <-- A1(U, V), A3(Y, X)').
+prismToSRS('A3_2',45,'A3(X Y, U V) <-- A1(U, Y), A3(V, X)').
+prismToSRS('A3_2',46,'A3(X Y, U V) <-- A1(V, Y), A3(U, X)').
+prismToSRS('A3_2',47,'A3(X Y, U V) <-- A1(Y, V), A3(U, X)').
+prismToSRS('A3_2',48,'A3(X Y, U V) <-- A1(Y, U), A3(V, X)').
+prismToSRS('A3_2',49,'A3(X Y, U V) <-- A1(V, X), A3(Y, U)').
+prismToSRS('A3_2',50,'A3(X Y, U V) <-- A1(X, V), A3(Y, U)').
+prismToSRS('A3_2',51,'A3(X Y, U V) <-- A1(X, Y), A3(V, U)').
+prismToSRS('A3_2',52,'A3(X Y, U V) <-- A1(V, Y), A3(X, U)').
+prismToSRS('A3_2',53,'A3(X Y, U V) <-- A1(Y, V), A3(X, U)').
+prismToSRS('A3_2',54,'A3(X Y, U V) <-- A1(Y, X), A3(V, U)').
+prismToSRS('A3_2',55,'A3(X Y, U V) <-- A1(V, X), A3(U, Y)').
+prismToSRS('A3_2',56,'A3(X Y, U V) <-- A1(X, V), A3(U, Y)').
+prismToSRS('A3_2',57,'A3(X Y, U V) <-- A1(X, U), A3(V, Y)').
+prismToSRS('A3_2',58,'A3(X Y, U V) <-- A1(V, U), A3(X, Y)').
+prismToSRS('A3_2',59,'A3(X Y, U V) <-- A1(U, V), A3(X, Y)').
+prismToSRS('A3_2',60,'A3(X Y, U V) <-- A1(U, X), A3(V, Y)').
+prismToSRS('A3_2',61,'A3(X Y, U V) <-- A1(X, Y), A4(U, V)').
+prismToSRS('A3_2',62,'A3(X Y, U V) <-- A1(Y, X), A4(U, V)').
+prismToSRS('A3_2',63,'A3(X Y, U V) <-- A1(U, Y), A4(X, V)').
+prismToSRS('A3_2',64,'A3(X Y, U V) <-- A1(Y, U), A4(X, V)').
+prismToSRS('A3_2',65,'A3(X Y, U V) <-- A1(U, X), A4(Y, V)').
+prismToSRS('A3_2',66,'A3(X Y, U V) <-- A1(X, U), A4(Y, V)').
+prismToSRS('A3_2',67,'A3(X Y, U V) <-- A1(V, U), A4(Y, X)').
+prismToSRS('A3_2',68,'A3(X Y, U V) <-- A1(U, V), A4(Y, X)').
+prismToSRS('A3_2',69,'A3(X Y, U V) <-- A1(U, Y), A4(V, X)').
+prismToSRS('A3_2',70,'A3(X Y, U V) <-- A1(V, Y), A4(U, X)').
+prismToSRS('A3_2',71,'A3(X Y, U V) <-- A1(Y, V), A4(U, X)').
+prismToSRS('A3_2',72,'A3(X Y, U V) <-- A1(Y, U), A4(V, X)').
+prismToSRS('A3_2',73,'A3(X Y, U V) <-- A1(V, X), A4(Y, U)').
+prismToSRS('A3_2',74,'A3(X Y, U V) <-- A1(X, V), A4(Y, U)').
+prismToSRS('A3_2',75,'A3(X Y, U V) <-- A1(X, Y), A4(V, U)').
+prismToSRS('A3_2',76,'A3(X Y, U V) <-- A1(V, Y), A4(X, U)').
+prismToSRS('A3_2',77,'A3(X Y, U V) <-- A1(Y, V), A4(X, U)').
+prismToSRS('A3_2',78,'A3(X Y, U V) <-- A1(Y, X), A4(V, U)').
+prismToSRS('A3_2',79,'A3(X Y, U V) <-- A1(V, X), A4(U, Y)').
+prismToSRS('A3_2',80,'A3(X Y, U V) <-- A1(X, V), A4(U, Y)').
+prismToSRS('A3_2',81,'A3(X Y, U V) <-- A1(X, U), A4(V, Y)').
+prismToSRS('A3_2',82,'A3(X Y, U V) <-- A1(V, U), A4(X, Y)').
+prismToSRS('A3_2',83,'A3(X Y, U V) <-- A1(U, V), A4(X, Y)').
+prismToSRS('A3_2',84,'A3(X Y, U V) <-- A1(U, X), A4(V, Y)').
+prismToSRS('A3_2',85,'A3(X Y, U V) <-- A2(U, Y), A2(X, V)').
+prismToSRS('A3_2',86,'A3(X Y, U V) <-- A2(U, X), A2(Y, V)').
+prismToSRS('A3_2',87,'A3(X Y, U V) <-- A2(X, U), A2(Y, V)').
+prismToSRS('A3_2',88,'A3(X Y, U V) <-- A2(V, U), A2(Y, X)').
+prismToSRS('A3_2',89,'A3(X Y, U V) <-- A2(U, V), A2(Y, X)').
+prismToSRS('A3_2',90,'A3(X Y, U V) <-- A2(U, Y), A2(V, X)').
+prismToSRS('A3_2',91,'A3(X Y, U V) <-- A2(V, X), A2(Y, U)').
+prismToSRS('A3_2',92,'A3(X Y, U V) <-- A2(X, V), A2(Y, U)').
+prismToSRS('A3_2',93,'A3(X Y, U V) <-- A2(V, Y), A2(X, U)').
+prismToSRS('A3_2',94,'A3(X Y, U V) <-- A2(V, U), A2(X, Y)').
+prismToSRS('A3_2',95,'A3(X Y, U V) <-- A2(U, V), A2(X, Y)').
+prismToSRS('A3_2',96,'A3(X Y, U V) <-- A2(U, X), A2(V, Y)').
+prismToSRS('A3_2',97,'A3(X Y, U V) <-- A2(X, Y), A3(U, V)').
+prismToSRS('A3_2',98,'A3(X Y, U V) <-- A2(Y, X), A3(U, V)').
+prismToSRS('A3_2',99,'A3(X Y, U V) <-- A2(U, Y), A3(X, V)').
+prismToSRS('A3_2',100,'A3(X Y, U V) <-- A2(Y, U), A3(X, V)').
+prismToSRS('A3_2',101,'A3(X Y, U V) <-- A2(U, X), A3(Y, V)').
+prismToSRS('A3_2',102,'A3(X Y, U V) <-- A2(X, U), A3(Y, V)').
+prismToSRS('A3_2',103,'A3(X Y, U V) <-- A2(V, U), A3(Y, X)').
+prismToSRS('A3_2',104,'A3(X Y, U V) <-- A2(U, V), A3(Y, X)').
+prismToSRS('A3_2',105,'A3(X Y, U V) <-- A2(U, Y), A3(V, X)').
+prismToSRS('A3_2',106,'A3(X Y, U V) <-- A2(V, Y), A3(U, X)').
+prismToSRS('A3_2',107,'A3(X Y, U V) <-- A2(Y, V), A3(U, X)').
+prismToSRS('A3_2',108,'A3(X Y, U V) <-- A2(Y, U), A3(V, X)').
+prismToSRS('A3_2',109,'A3(X Y, U V) <-- A2(V, X), A3(Y, U)').
+prismToSRS('A3_2',110,'A3(X Y, U V) <-- A2(X, V), A3(Y, U)').
+prismToSRS('A3_2',111,'A3(X Y, U V) <-- A2(X, Y), A3(V, U)').
+prismToSRS('A3_2',112,'A3(X Y, U V) <-- A2(V, Y), A3(X, U)').
+prismToSRS('A3_2',113,'A3(X Y, U V) <-- A2(Y, V), A3(X, U)').
+prismToSRS('A3_2',114,'A3(X Y, U V) <-- A2(Y, X), A3(V, U)').
+prismToSRS('A3_2',115,'A3(X Y, U V) <-- A2(V, X), A3(U, Y)').
+prismToSRS('A3_2',116,'A3(X Y, U V) <-- A2(X, V), A3(U, Y)').
+prismToSRS('A3_2',117,'A3(X Y, U V) <-- A2(X, U), A3(V, Y)').
+prismToSRS('A3_2',118,'A3(X Y, U V) <-- A2(V, U), A3(X, Y)').
+prismToSRS('A3_2',119,'A3(X Y, U V) <-- A2(U, V), A3(X, Y)').
+prismToSRS('A3_2',120,'A3(X Y, U V) <-- A2(U, X), A3(V, Y)').
+prismToSRS('A3_2',121,'A3(X Y, U V) <-- A2(X, Y), A4(U, V)').
+prismToSRS('A3_2',122,'A3(X Y, U V) <-- A2(Y, X), A4(U, V)').
+prismToSRS('A3_2',123,'A3(X Y, U V) <-- A2(U, Y), A4(X, V)').
+prismToSRS('A3_2',124,'A3(X Y, U V) <-- A2(Y, U), A4(X, V)').
+prismToSRS('A3_2',125,'A3(X Y, U V) <-- A2(U, X), A4(Y, V)').
+prismToSRS('A3_2',126,'A3(X Y, U V) <-- A2(X, U), A4(Y, V)').
+prismToSRS('A3_2',127,'A3(X Y, U V) <-- A2(V, U), A4(Y, X)').
+prismToSRS('A3_2',128,'A3(X Y, U V) <-- A2(U, V), A4(Y, X)').
+prismToSRS('A3_2',129,'A3(X Y, U V) <-- A2(U, Y), A4(V, X)').
+prismToSRS('A3_2',130,'A3(X Y, U V) <-- A2(V, Y), A4(U, X)').
+prismToSRS('A3_2',131,'A3(X Y, U V) <-- A2(Y, V), A4(U, X)').
+prismToSRS('A3_2',132,'A3(X Y, U V) <-- A2(Y, U), A4(V, X)').
+prismToSRS('A3_2',133,'A3(X Y, U V) <-- A2(V, X), A4(Y, U)').
+prismToSRS('A3_2',134,'A3(X Y, U V) <-- A2(X, V), A4(Y, U)').
+prismToSRS('A3_2',135,'A3(X Y, U V) <-- A2(X, Y), A4(V, U)').
+prismToSRS('A3_2',136,'A3(X Y, U V) <-- A2(V, Y), A4(X, U)').
+prismToSRS('A3_2',137,'A3(X Y, U V) <-- A2(Y, V), A4(X, U)').
+prismToSRS('A3_2',138,'A3(X Y, U V) <-- A2(Y, X), A4(V, U)').
+prismToSRS('A3_2',139,'A3(X Y, U V) <-- A2(V, X), A4(U, Y)').
+prismToSRS('A3_2',140,'A3(X Y, U V) <-- A2(X, V), A4(U, Y)').
+prismToSRS('A3_2',141,'A3(X Y, U V) <-- A2(X, U), A4(V, Y)').
+prismToSRS('A3_2',142,'A3(X Y, U V) <-- A2(V, U), A4(X, Y)').
+prismToSRS('A3_2',143,'A3(X Y, U V) <-- A2(U, V), A4(X, Y)').
+prismToSRS('A3_2',144,'A3(X Y, U V) <-- A2(U, X), A4(V, Y)').
+prismToSRS('A3_2',145,'A3(X Y, U V) <-- A3(U, Y), A3(X, V)').
+prismToSRS('A3_2',146,'A3(X Y, U V) <-- A3(U, X), A3(Y, V)').
+prismToSRS('A3_2',147,'A3(X Y, U V) <-- A3(X, U), A3(Y, V)').
+prismToSRS('A3_2',148,'A3(X Y, U V) <-- A3(V, U), A3(Y, X)').
+prismToSRS('A3_2',149,'A3(X Y, U V) <-- A3(U, V), A3(Y, X)').
+prismToSRS('A3_2',150,'A3(X Y, U V) <-- A3(U, Y), A3(V, X)').
+prismToSRS('A3_2',151,'A3(X Y, U V) <-- A3(V, X), A3(Y, U)').
+prismToSRS('A3_2',152,'A3(X Y, U V) <-- A3(X, V), A3(Y, U)').
+prismToSRS('A3_2',153,'A3(X Y, U V) <-- A3(V, Y), A3(X, U)').
+prismToSRS('A3_2',154,'A3(X Y, U V) <-- A3(V, U), A3(X, Y)').
+prismToSRS('A3_2',155,'A3(X Y, U V) <-- A3(U, V), A3(X, Y)').
+prismToSRS('A3_2',156,'A3(X Y, U V) <-- A3(U, X), A3(V, Y)').
+prismToSRS('A3_2',157,'A3(X Y, U V) <-- A3(X, Y), A4(U, V)').
+prismToSRS('A3_2',158,'A3(X Y, U V) <-- A3(Y, X), A4(U, V)').
+prismToSRS('A3_2',159,'A3(X Y, U V) <-- A3(U, Y), A4(X, V)').
+prismToSRS('A3_2',160,'A3(X Y, U V) <-- A3(Y, U), A4(X, V)').
+prismToSRS('A3_2',161,'A3(X Y, U V) <-- A3(U, X), A4(Y, V)').
+prismToSRS('A3_2',162,'A3(X Y, U V) <-- A3(X, U), A4(Y, V)').
+prismToSRS('A3_2',163,'A3(X Y, U V) <-- A3(V, U), A4(Y, X)').
+prismToSRS('A3_2',164,'A3(X Y, U V) <-- A3(U, V), A4(Y, X)').
+prismToSRS('A3_2',165,'A3(X Y, U V) <-- A3(U, Y), A4(V, X)').
+prismToSRS('A3_2',166,'A3(X Y, U V) <-- A3(V, Y), A4(U, X)').
+prismToSRS('A3_2',167,'A3(X Y, U V) <-- A3(Y, V), A4(U, X)').
+prismToSRS('A3_2',168,'A3(X Y, U V) <-- A3(Y, U), A4(V, X)').
+prismToSRS('A3_2',169,'A3(X Y, U V) <-- A3(V, X), A4(Y, U)').
+prismToSRS('A3_2',170,'A3(X Y, U V) <-- A3(X, V), A4(Y, U)').
+prismToSRS('A3_2',171,'A3(X Y, U V) <-- A3(X, Y), A4(V, U)').
+prismToSRS('A3_2',172,'A3(X Y, U V) <-- A3(V, Y), A4(X, U)').
+prismToSRS('A3_2',173,'A3(X Y, U V) <-- A3(Y, V), A4(X, U)').
+prismToSRS('A3_2',174,'A3(X Y, U V) <-- A3(Y, X), A4(V, U)').
+prismToSRS('A3_2',175,'A3(X Y, U V) <-- A3(V, X), A4(U, Y)').
+prismToSRS('A3_2',176,'A3(X Y, U V) <-- A3(X, V), A4(U, Y)').
+prismToSRS('A3_2',177,'A3(X Y, U V) <-- A3(X, U), A4(V, Y)').
+prismToSRS('A3_2',178,'A3(X Y, U V) <-- A3(V, U), A4(X, Y)').
+prismToSRS('A3_2',179,'A3(X Y, U V) <-- A3(U, V), A4(X, Y)').
+prismToSRS('A3_2',180,'A3(X Y, U V) <-- A3(U, X), A4(V, Y)').
+prismToSRS('A3_2',181,'A3(X Y, U V) <-- A4(U, Y), A4(X, V)').
+prismToSRS('A3_2',182,'A3(X Y, U V) <-- A4(U, X), A4(Y, V)').
+prismToSRS('A3_2',183,'A3(X Y, U V) <-- A4(X, U), A4(Y, V)').
+prismToSRS('A3_2',184,'A3(X Y, U V) <-- A4(V, U), A4(Y, X)').
+prismToSRS('A3_2',185,'A3(X Y, U V) <-- A4(U, V), A4(Y, X)').
+prismToSRS('A3_2',186,'A3(X Y, U V) <-- A4(U, Y), A4(V, X)').
+prismToSRS('A3_2',187,'A3(X Y, U V) <-- A4(V, X), A4(Y, U)').
+prismToSRS('A3_2',188,'A3(X Y, U V) <-- A4(X, V), A4(Y, U)').
+prismToSRS('A3_2',189,'A3(X Y, U V) <-- A4(V, Y), A4(X, U)').
+prismToSRS('A3_2',190,'A3(X Y, U V) <-- A4(V, U), A4(X, Y)').
+prismToSRS('A3_2',191,'A3(X Y, U V) <-- A4(U, V), A4(X, Y)').
+prismToSRS('A3_2',192,'A3(X Y, U V) <-- A4(U, X), A4(V, Y)').
+prismToSRS('A3_2',193,'A3(one, one)').
+prismToSRS('A3_2',194,'A3(one, two)').
+prismToSRS('A3_2',195,'A3(one, three)').
+prismToSRS('A3_2',196,'A3(one, four)').
+prismToSRS('A3_2',197,'A3(one, five)').
+prismToSRS('A3_2',198,'A3(one, six)').
+prismToSRS('A3_2',199,'A3(one, seven)').
+prismToSRS('A3_2',200,'A3(one, eight)').
+prismToSRS('A3_2',201,'A3(one, nine)').
+prismToSRS('A3_2',202,'A3(one, ten)').
+prismToSRS('A3_2',203,'A3(one, eleven)').
+prismToSRS('A3_2',204,'A3(one, twelve)').
+prismToSRS('A3_2',205,'A3(one, thirteen)').
+prismToSRS('A3_2',206,'A3(one, fourteen)').
+prismToSRS('A3_2',207,'A3(one, fifteen)').
+prismToSRS('A3_2',208,'A3(one, sixteen)').
+prismToSRS('A3_2',209,'A3(one, seventeen)').
+prismToSRS('A3_2',210,'A3(one, eighteen)').
+prismToSRS('A3_2',211,'A3(one, nineteen)').
+prismToSRS('A3_2',212,'A3(one, twenty)').
+prismToSRS('A3_2',213,'A3(one, thirty)').
+prismToSRS('A3_2',214,'A3(one, forty)').
+prismToSRS('A3_2',215,'A3(one, fifty)').
+prismToSRS('A3_2',216,'A3(one, sixty)').
+prismToSRS('A3_2',217,'A3(one, seventy)').
+prismToSRS('A3_2',218,'A3(one, eighty)').
+prismToSRS('A3_2',219,'A3(one, ninety)').
+prismToSRS('A3_2',220,'A3(one, before)').
+prismToSRS('A3_2',221,'A3(one, after)').
+prismToSRS('A3_2',222,'A3(one, comes)').
+prismToSRS('A3_2',223,'A3(two, two)').
+prismToSRS('A3_2',224,'A3(two, three)').
+prismToSRS('A3_2',225,'A3(two, four)').
+prismToSRS('A3_2',226,'A3(two, five)').
+prismToSRS('A3_2',227,'A3(two, six)').
+prismToSRS('A3_2',228,'A3(two, seven)').
+prismToSRS('A3_2',229,'A3(two, eight)').
+prismToSRS('A3_2',230,'A3(two, nine)').
+prismToSRS('A3_2',231,'A3(two, ten)').
+prismToSRS('A3_2',232,'A3(two, eleven)').
+prismToSRS('A3_2',233,'A3(two, twelve)').
+prismToSRS('A3_2',234,'A3(two, thirteen)').
+prismToSRS('A3_2',235,'A3(two, fourteen)').
+prismToSRS('A3_2',236,'A3(two, fifteen)').
+prismToSRS('A3_2',237,'A3(two, sixteen)').
+prismToSRS('A3_2',238,'A3(two, seventeen)').
+prismToSRS('A3_2',239,'A3(two, eighteen)').
+prismToSRS('A3_2',240,'A3(two, nineteen)').
+prismToSRS('A3_2',241,'A3(two, twenty)').
+prismToSRS('A3_2',242,'A3(two, thirty)').
+prismToSRS('A3_2',243,'A3(two, forty)').
+prismToSRS('A3_2',244,'A3(two, fifty)').
+prismToSRS('A3_2',245,'A3(two, sixty)').
+prismToSRS('A3_2',246,'A3(two, seventy)').
+prismToSRS('A3_2',247,'A3(two, eighty)').
+prismToSRS('A3_2',248,'A3(two, ninety)').
+prismToSRS('A3_2',249,'A3(two, before)').
+prismToSRS('A3_2',250,'A3(two, after)').
+prismToSRS('A3_2',251,'A3(two, comes)').
+prismToSRS('A3_2',252,'A3(three, three)').
+prismToSRS('A3_2',253,'A3(three, four)').
+prismToSRS('A3_2',254,'A3(three, five)').
+prismToSRS('A3_2',255,'A3(three, six)').
+prismToSRS('A3_2',256,'A3(three, seven)').
+prismToSRS('A3_2',257,'A3(three, eight)').
+prismToSRS('A3_2',258,'A3(three, nine)').
+prismToSRS('A3_2',259,'A3(three, ten)').
+prismToSRS('A3_2',260,'A3(three, eleven)').
+prismToSRS('A3_2',261,'A3(three, twelve)').
+prismToSRS('A3_2',262,'A3(three, thirteen)').
+prismToSRS('A3_2',263,'A3(three, fourteen)').
+prismToSRS('A3_2',264,'A3(three, fifteen)').
+prismToSRS('A3_2',265,'A3(three, sixteen)').
+prismToSRS('A3_2',266,'A3(three, seventeen)').
+prismToSRS('A3_2',267,'A3(three, eighteen)').
+prismToSRS('A3_2',268,'A3(three, nineteen)').
+prismToSRS('A3_2',269,'A3(three, twenty)').
+prismToSRS('A3_2',270,'A3(three, thirty)').
+prismToSRS('A3_2',271,'A3(three, forty)').
+prismToSRS('A3_2',272,'A3(three, fifty)').
+prismToSRS('A3_2',273,'A3(three, sixty)').
+prismToSRS('A3_2',274,'A3(three, seventy)').
+prismToSRS('A3_2',275,'A3(three, eighty)').
+prismToSRS('A3_2',276,'A3(three, ninety)').
+prismToSRS('A3_2',277,'A3(three, before)').
+prismToSRS('A3_2',278,'A3(three, after)').
+prismToSRS('A3_2',279,'A3(three, comes)').
+prismToSRS('A3_2',280,'A3(four, four)').
+prismToSRS('A3_2',281,'A3(four, five)').
+prismToSRS('A3_2',282,'A3(four, six)').
+prismToSRS('A3_2',283,'A3(four, seven)').
+prismToSRS('A3_2',284,'A3(four, eight)').
+prismToSRS('A3_2',285,'A3(four, nine)').
+prismToSRS('A3_2',286,'A3(four, ten)').
+prismToSRS('A3_2',287,'A3(four, eleven)').
+prismToSRS('A3_2',288,'A3(four, twelve)').
+prismToSRS('A3_2',289,'A3(four, thirteen)').
+prismToSRS('A3_2',290,'A3(four, fourteen)').
+prismToSRS('A3_2',291,'A3(four, fifteen)').
+prismToSRS('A3_2',292,'A3(four, sixteen)').
+prismToSRS('A3_2',293,'A3(four, seventeen)').
+prismToSRS('A3_2',294,'A3(four, eighteen)').
+prismToSRS('A3_2',295,'A3(four, nineteen)').
+prismToSRS('A3_2',296,'A3(four, twenty)').
+prismToSRS('A3_2',297,'A3(four, thirty)').
+prismToSRS('A3_2',298,'A3(four, forty)').
+prismToSRS('A3_2',299,'A3(four, fifty)').
+prismToSRS('A3_2',300,'A3(four, sixty)').
+prismToSRS('A3_2',301,'A3(four, seventy)').
+prismToSRS('A3_2',302,'A3(four, eighty)').
+prismToSRS('A3_2',303,'A3(four, ninety)').
+prismToSRS('A3_2',304,'A3(four, before)').
+prismToSRS('A3_2',305,'A3(four, after)').
+prismToSRS('A3_2',306,'A3(four, comes)').
+prismToSRS('A3_2',307,'A3(five, five)').
+prismToSRS('A3_2',308,'A3(five, six)').
+prismToSRS('A3_2',309,'A3(five, seven)').
+prismToSRS('A3_2',310,'A3(five, eight)').
+prismToSRS('A3_2',311,'A3(five, nine)').
+prismToSRS('A3_2',312,'A3(five, ten)').
+prismToSRS('A3_2',313,'A3(five, eleven)').
+prismToSRS('A3_2',314,'A3(five, twelve)').
+prismToSRS('A3_2',315,'A3(five, thirteen)').
+prismToSRS('A3_2',316,'A3(five, fourteen)').
+prismToSRS('A3_2',317,'A3(five, fifteen)').
+prismToSRS('A3_2',318,'A3(five, sixteen)').
+prismToSRS('A3_2',319,'A3(five, seventeen)').
+prismToSRS('A3_2',320,'A3(five, eighteen)').
+prismToSRS('A3_2',321,'A3(five, nineteen)').
+prismToSRS('A3_2',322,'A3(five, twenty)').
+prismToSRS('A3_2',323,'A3(five, thirty)').
+prismToSRS('A3_2',324,'A3(five, forty)').
+prismToSRS('A3_2',325,'A3(five, fifty)').
+prismToSRS('A3_2',326,'A3(five, sixty)').
+prismToSRS('A3_2',327,'A3(five, seventy)').
+prismToSRS('A3_2',328,'A3(five, eighty)').
+prismToSRS('A3_2',329,'A3(five, ninety)').
+prismToSRS('A3_2',330,'A3(five, before)').
+prismToSRS('A3_2',331,'A3(five, after)').
+prismToSRS('A3_2',332,'A3(five, comes)').
+prismToSRS('A3_2',333,'A3(six, six)').
+prismToSRS('A3_2',334,'A3(six, seven)').
+prismToSRS('A3_2',335,'A3(six, eight)').
+prismToSRS('A3_2',336,'A3(six, nine)').
+prismToSRS('A3_2',337,'A3(six, ten)').
+prismToSRS('A3_2',338,'A3(six, eleven)').
+prismToSRS('A3_2',339,'A3(six, twelve)').
+prismToSRS('A3_2',340,'A3(six, thirteen)').
+prismToSRS('A3_2',341,'A3(six, fourteen)').
+prismToSRS('A3_2',342,'A3(six, fifteen)').
+prismToSRS('A3_2',343,'A3(six, sixteen)').
+prismToSRS('A3_2',344,'A3(six, seventeen)').
+prismToSRS('A3_2',345,'A3(six, eighteen)').
+prismToSRS('A3_2',346,'A3(six, nineteen)').
+prismToSRS('A3_2',347,'A3(six, twenty)').
+prismToSRS('A3_2',348,'A3(six, thirty)').
+prismToSRS('A3_2',349,'A3(six, forty)').
+prismToSRS('A3_2',350,'A3(six, fifty)').
+prismToSRS('A3_2',351,'A3(six, sixty)').
+prismToSRS('A3_2',352,'A3(six, seventy)').
+prismToSRS('A3_2',353,'A3(six, eighty)').
+prismToSRS('A3_2',354,'A3(six, ninety)').
+prismToSRS('A3_2',355,'A3(six, before)').
+prismToSRS('A3_2',356,'A3(six, after)').
+prismToSRS('A3_2',357,'A3(six, comes)').
+prismToSRS('A3_2',358,'A3(seven, seven)').
+prismToSRS('A3_2',359,'A3(seven, eight)').
+prismToSRS('A3_2',360,'A3(seven, nine)').
+prismToSRS('A3_2',361,'A3(seven, ten)').
+prismToSRS('A3_2',362,'A3(seven, eleven)').
+prismToSRS('A3_2',363,'A3(seven, twelve)').
+prismToSRS('A3_2',364,'A3(seven, thirteen)').
+prismToSRS('A3_2',365,'A3(seven, fourteen)').
+prismToSRS('A3_2',366,'A3(seven, fifteen)').
+prismToSRS('A3_2',367,'A3(seven, sixteen)').
+prismToSRS('A3_2',368,'A3(seven, seventeen)').
+prismToSRS('A3_2',369,'A3(seven, eighteen)').
+prismToSRS('A3_2',370,'A3(seven, nineteen)').
+prismToSRS('A3_2',371,'A3(seven, twenty)').
+prismToSRS('A3_2',372,'A3(seven, thirty)').
+prismToSRS('A3_2',373,'A3(seven, forty)').
+prismToSRS('A3_2',374,'A3(seven, fifty)').
+prismToSRS('A3_2',375,'A3(seven, sixty)').
+prismToSRS('A3_2',376,'A3(seven, seventy)').
+prismToSRS('A3_2',377,'A3(seven, eighty)').
+prismToSRS('A3_2',378,'A3(seven, ninety)').
+prismToSRS('A3_2',379,'A3(seven, before)').
+prismToSRS('A3_2',380,'A3(seven, after)').
+prismToSRS('A3_2',381,'A3(seven, comes)').
+prismToSRS('A3_2',382,'A3(eight, eight)').
+prismToSRS('A3_2',383,'A3(eight, nine)').
+prismToSRS('A3_2',384,'A3(eight, ten)').
+prismToSRS('A3_2',385,'A3(eight, eleven)').
+prismToSRS('A3_2',386,'A3(eight, twelve)').
+prismToSRS('A3_2',387,'A3(eight, thirteen)').
+prismToSRS('A3_2',388,'A3(eight, fourteen)').
+prismToSRS('A3_2',389,'A3(eight, fifteen)').
+prismToSRS('A3_2',390,'A3(eight, sixteen)').
+prismToSRS('A3_2',391,'A3(eight, seventeen)').
+prismToSRS('A3_2',392,'A3(eight, eighteen)').
+prismToSRS('A3_2',393,'A3(eight, nineteen)').
+prismToSRS('A3_2',394,'A3(eight, twenty)').
+prismToSRS('A3_2',395,'A3(eight, thirty)').
+prismToSRS('A3_2',396,'A3(eight, forty)').
+prismToSRS('A3_2',397,'A3(eight, fifty)').
+prismToSRS('A3_2',398,'A3(eight, sixty)').
+prismToSRS('A3_2',399,'A3(eight, seventy)').
+prismToSRS('A3_2',400,'A3(eight, eighty)').
+prismToSRS('A3_2',401,'A3(eight, ninety)').
+prismToSRS('A3_2',402,'A3(eight, before)').
+prismToSRS('A3_2',403,'A3(eight, after)').
+prismToSRS('A3_2',404,'A3(eight, comes)').
+prismToSRS('A3_2',405,'A3(nine, nine)').
+prismToSRS('A3_2',406,'A3(nine, ten)').
+prismToSRS('A3_2',407,'A3(nine, eleven)').
+prismToSRS('A3_2',408,'A3(nine, twelve)').
+prismToSRS('A3_2',409,'A3(nine, thirteen)').
+prismToSRS('A3_2',410,'A3(nine, fourteen)').
+prismToSRS('A3_2',411,'A3(nine, fifteen)').
+prismToSRS('A3_2',412,'A3(nine, sixteen)').
+prismToSRS('A3_2',413,'A3(nine, seventeen)').
+prismToSRS('A3_2',414,'A3(nine, eighteen)').
+prismToSRS('A3_2',415,'A3(nine, nineteen)').
+prismToSRS('A3_2',416,'A3(nine, twenty)').
+prismToSRS('A3_2',417,'A3(nine, thirty)').
+prismToSRS('A3_2',418,'A3(nine, forty)').
+prismToSRS('A3_2',419,'A3(nine, fifty)').
+prismToSRS('A3_2',420,'A3(nine, sixty)').
+prismToSRS('A3_2',421,'A3(nine, seventy)').
+prismToSRS('A3_2',422,'A3(nine, eighty)').
+prismToSRS('A3_2',423,'A3(nine, ninety)').
+prismToSRS('A3_2',424,'A3(nine, before)').
+prismToSRS('A3_2',425,'A3(nine, after)').
+prismToSRS('A3_2',426,'A3(nine, comes)').
+prismToSRS('A3_2',427,'A3(ten, ten)').
+prismToSRS('A3_2',428,'A3(ten, eleven)').
+prismToSRS('A3_2',429,'A3(ten, twelve)').
+prismToSRS('A3_2',430,'A3(ten, thirteen)').
+prismToSRS('A3_2',431,'A3(ten, fourteen)').
+prismToSRS('A3_2',432,'A3(ten, fifteen)').
+prismToSRS('A3_2',433,'A3(ten, sixteen)').
+prismToSRS('A3_2',434,'A3(ten, seventeen)').
+prismToSRS('A3_2',435,'A3(ten, eighteen)').
+prismToSRS('A3_2',436,'A3(ten, nineteen)').
+prismToSRS('A3_2',437,'A3(ten, twenty)').
+prismToSRS('A3_2',438,'A3(ten, thirty)').
+prismToSRS('A3_2',439,'A3(ten, forty)').
+prismToSRS('A3_2',440,'A3(ten, fifty)').
+prismToSRS('A3_2',441,'A3(ten, sixty)').
+prismToSRS('A3_2',442,'A3(ten, seventy)').
+prismToSRS('A3_2',443,'A3(ten, eighty)').
+prismToSRS('A3_2',444,'A3(ten, ninety)').
+prismToSRS('A3_2',445,'A3(ten, before)').
+prismToSRS('A3_2',446,'A3(ten, after)').
+prismToSRS('A3_2',447,'A3(ten, comes)').
+prismToSRS('A3_2',448,'A3(eleven, eleven)').
+prismToSRS('A3_2',449,'A3(eleven, twelve)').
+prismToSRS('A3_2',450,'A3(eleven, thirteen)').
+prismToSRS('A3_2',451,'A3(eleven, fourteen)').
+prismToSRS('A3_2',452,'A3(eleven, fifteen)').
+prismToSRS('A3_2',453,'A3(eleven, sixteen)').
+prismToSRS('A3_2',454,'A3(eleven, seventeen)').
+prismToSRS('A3_2',455,'A3(eleven, eighteen)').
+prismToSRS('A3_2',456,'A3(eleven, nineteen)').
+prismToSRS('A3_2',457,'A3(eleven, twenty)').
+prismToSRS('A3_2',458,'A3(eleven, thirty)').
+prismToSRS('A3_2',459,'A3(eleven, forty)').
+prismToSRS('A3_2',460,'A3(eleven, fifty)').
+prismToSRS('A3_2',461,'A3(eleven, sixty)').
+prismToSRS('A3_2',462,'A3(eleven, seventy)').
+prismToSRS('A3_2',463,'A3(eleven, eighty)').
+prismToSRS('A3_2',464,'A3(eleven, ninety)').
+prismToSRS('A3_2',465,'A3(eleven, before)').
+prismToSRS('A3_2',466,'A3(eleven, after)').
+prismToSRS('A3_2',467,'A3(eleven, comes)').
+prismToSRS('A3_2',468,'A3(twelve, twelve)').
+prismToSRS('A3_2',469,'A3(twelve, thirteen)').
+prismToSRS('A3_2',470,'A3(twelve, fourteen)').
+prismToSRS('A3_2',471,'A3(twelve, fifteen)').
+prismToSRS('A3_2',472,'A3(twelve, sixteen)').
+prismToSRS('A3_2',473,'A3(twelve, seventeen)').
+prismToSRS('A3_2',474,'A3(twelve, eighteen)').
+prismToSRS('A3_2',475,'A3(twelve, nineteen)').
+prismToSRS('A3_2',476,'A3(twelve, twenty)').
+prismToSRS('A3_2',477,'A3(twelve, thirty)').
+prismToSRS('A3_2',478,'A3(twelve, forty)').
+prismToSRS('A3_2',479,'A3(twelve, fifty)').
+prismToSRS('A3_2',480,'A3(twelve, sixty)').
+prismToSRS('A3_2',481,'A3(twelve, seventy)').
+prismToSRS('A3_2',482,'A3(twelve, eighty)').
+prismToSRS('A3_2',483,'A3(twelve, ninety)').
+prismToSRS('A3_2',484,'A3(twelve, before)').
+prismToSRS('A3_2',485,'A3(twelve, after)').
+prismToSRS('A3_2',486,'A3(twelve, comes)').
+prismToSRS('A3_2',487,'A3(thirteen, thirteen)').
+prismToSRS('A3_2',488,'A3(thirteen, fourteen)').
+prismToSRS('A3_2',489,'A3(thirteen, fifteen)').
+prismToSRS('A3_2',490,'A3(thirteen, sixteen)').
+prismToSRS('A3_2',491,'A3(thirteen, seventeen)').
+prismToSRS('A3_2',492,'A3(thirteen, eighteen)').
+prismToSRS('A3_2',493,'A3(thirteen, nineteen)').
+prismToSRS('A3_2',494,'A3(thirteen, twenty)').
+prismToSRS('A3_2',495,'A3(thirteen, thirty)').
+prismToSRS('A3_2',496,'A3(thirteen, forty)').
+prismToSRS('A3_2',497,'A3(thirteen, fifty)').
+prismToSRS('A3_2',498,'A3(thirteen, sixty)').
+prismToSRS('A3_2',499,'A3(thirteen, seventy)').
+prismToSRS('A3_2',500,'A3(thirteen, eighty)').
+prismToSRS('A3_2',501,'A3(thirteen, ninety)').
+prismToSRS('A3_2',502,'A3(thirteen, before)').
+prismToSRS('A3_2',503,'A3(thirteen, after)').
+prismToSRS('A3_2',504,'A3(thirteen, comes)').
+prismToSRS('A3_2',505,'A3(fourteen, fourteen)').
+prismToSRS('A3_2',506,'A3(fourteen, fifteen)').
+prismToSRS('A3_2',507,'A3(fourteen, sixteen)').
+prismToSRS('A3_2',508,'A3(fourteen, seventeen)').
+prismToSRS('A3_2',509,'A3(fourteen, eighteen)').
+prismToSRS('A3_2',510,'A3(fourteen, nineteen)').
+prismToSRS('A3_2',511,'A3(fourteen, twenty)').
+prismToSRS('A3_2',512,'A3(fourteen, thirty)').
+prismToSRS('A3_2',513,'A3(fourteen, forty)').
+prismToSRS('A3_2',514,'A3(fourteen, fifty)').
+prismToSRS('A3_2',515,'A3(fourteen, sixty)').
+prismToSRS('A3_2',516,'A3(fourteen, seventy)').
+prismToSRS('A3_2',517,'A3(fourteen, eighty)').
+prismToSRS('A3_2',518,'A3(fourteen, ninety)').
+prismToSRS('A3_2',519,'A3(fourteen, before)').
+prismToSRS('A3_2',520,'A3(fourteen, after)').
+prismToSRS('A3_2',521,'A3(fourteen, comes)').
+prismToSRS('A3_2',522,'A3(fifteen, fifteen)').
+prismToSRS('A3_2',523,'A3(fifteen, sixteen)').
+prismToSRS('A3_2',524,'A3(fifteen, seventeen)').
+prismToSRS('A3_2',525,'A3(fifteen, eighteen)').
+prismToSRS('A3_2',526,'A3(fifteen, nineteen)').
+prismToSRS('A3_2',527,'A3(fifteen, twenty)').
+prismToSRS('A3_2',528,'A3(fifteen, thirty)').
+prismToSRS('A3_2',529,'A3(fifteen, forty)').
+prismToSRS('A3_2',530,'A3(fifteen, fifty)').
+prismToSRS('A3_2',531,'A3(fifteen, sixty)').
+prismToSRS('A3_2',532,'A3(fifteen, seventy)').
+prismToSRS('A3_2',533,'A3(fifteen, eighty)').
+prismToSRS('A3_2',534,'A3(fifteen, ninety)').
+prismToSRS('A3_2',535,'A3(fifteen, before)').
+prismToSRS('A3_2',536,'A3(fifteen, after)').
+prismToSRS('A3_2',537,'A3(fifteen, comes)').
+prismToSRS('A3_2',538,'A3(sixteen, sixteen)').
+prismToSRS('A3_2',539,'A3(sixteen, seventeen)').
+prismToSRS('A3_2',540,'A3(sixteen, eighteen)').
+prismToSRS('A3_2',541,'A3(sixteen, nineteen)').
+prismToSRS('A3_2',542,'A3(sixteen, twenty)').
+prismToSRS('A3_2',543,'A3(sixteen, thirty)').
+prismToSRS('A3_2',544,'A3(sixteen, forty)').
+prismToSRS('A3_2',545,'A3(sixteen, fifty)').
+prismToSRS('A3_2',546,'A3(sixteen, sixty)').
+prismToSRS('A3_2',547,'A3(sixteen, seventy)').
+prismToSRS('A3_2',548,'A3(sixteen, eighty)').
+prismToSRS('A3_2',549,'A3(sixteen, ninety)').
+prismToSRS('A3_2',550,'A3(sixteen, before)').
+prismToSRS('A3_2',551,'A3(sixteen, after)').
+prismToSRS('A3_2',552,'A3(sixteen, comes)').
+prismToSRS('A3_2',553,'A3(seventeen, seventeen)').
+prismToSRS('A3_2',554,'A3(seventeen, eighteen)').
+prismToSRS('A3_2',555,'A3(seventeen, nineteen)').
+prismToSRS('A3_2',556,'A3(seventeen, twenty)').
+prismToSRS('A3_2',557,'A3(seventeen, thirty)').
+prismToSRS('A3_2',558,'A3(seventeen, forty)').
+prismToSRS('A3_2',559,'A3(seventeen, fifty)').
+prismToSRS('A3_2',560,'A3(seventeen, sixty)').
+prismToSRS('A3_2',561,'A3(seventeen, seventy)').
+prismToSRS('A3_2',562,'A3(seventeen, eighty)').
+prismToSRS('A3_2',563,'A3(seventeen, ninety)').
+prismToSRS('A3_2',564,'A3(seventeen, before)').
+prismToSRS('A3_2',565,'A3(seventeen, after)').
+prismToSRS('A3_2',566,'A3(seventeen, comes)').
+prismToSRS('A3_2',567,'A3(eighteen, eighteen)').
+prismToSRS('A3_2',568,'A3(eighteen, nineteen)').
+prismToSRS('A3_2',569,'A3(eighteen, twenty)').
+prismToSRS('A3_2',570,'A3(eighteen, thirty)').
+prismToSRS('A3_2',571,'A3(eighteen, forty)').
+prismToSRS('A3_2',572,'A3(eighteen, fifty)').
+prismToSRS('A3_2',573,'A3(eighteen, sixty)').
+prismToSRS('A3_2',574,'A3(eighteen, seventy)').
+prismToSRS('A3_2',575,'A3(eighteen, eighty)').
+prismToSRS('A3_2',576,'A3(eighteen, ninety)').
+prismToSRS('A3_2',577,'A3(eighteen, before)').
+prismToSRS('A3_2',578,'A3(eighteen, after)').
+prismToSRS('A3_2',579,'A3(eighteen, comes)').
+prismToSRS('A3_2',580,'A3(nineteen, nineteen)').
+prismToSRS('A3_2',581,'A3(nineteen, twenty)').
+prismToSRS('A3_2',582,'A3(nineteen, thirty)').
+prismToSRS('A3_2',583,'A3(nineteen, forty)').
+prismToSRS('A3_2',584,'A3(nineteen, fifty)').
+prismToSRS('A3_2',585,'A3(nineteen, sixty)').
+prismToSRS('A3_2',586,'A3(nineteen, seventy)').
+prismToSRS('A3_2',587,'A3(nineteen, eighty)').
+prismToSRS('A3_2',588,'A3(nineteen, ninety)').
+prismToSRS('A3_2',589,'A3(nineteen, before)').
+prismToSRS('A3_2',590,'A3(nineteen, after)').
+prismToSRS('A3_2',591,'A3(nineteen, comes)').
+prismToSRS('A3_2',592,'A3(twenty, twenty)').
+prismToSRS('A3_2',593,'A3(twenty, thirty)').
+prismToSRS('A3_2',594,'A3(twenty, forty)').
+prismToSRS('A3_2',595,'A3(twenty, fifty)').
+prismToSRS('A3_2',596,'A3(twenty, sixty)').
+prismToSRS('A3_2',597,'A3(twenty, seventy)').
+prismToSRS('A3_2',598,'A3(twenty, eighty)').
+prismToSRS('A3_2',599,'A3(twenty, ninety)').
+prismToSRS('A3_2',600,'A3(twenty, before)').
+prismToSRS('A3_2',601,'A3(twenty, after)').
+prismToSRS('A3_2',602,'A3(twenty, comes)').
+prismToSRS('A3_2',603,'A3(thirty, thirty)').
+prismToSRS('A3_2',604,'A3(thirty, forty)').
+prismToSRS('A3_2',605,'A3(thirty, fifty)').
+prismToSRS('A3_2',606,'A3(thirty, sixty)').
+prismToSRS('A3_2',607,'A3(thirty, seventy)').
+prismToSRS('A3_2',608,'A3(thirty, eighty)').
+prismToSRS('A3_2',609,'A3(thirty, ninety)').
+prismToSRS('A3_2',610,'A3(thirty, before)').
+prismToSRS('A3_2',611,'A3(thirty, after)').
+prismToSRS('A3_2',612,'A3(thirty, comes)').
+prismToSRS('A3_2',613,'A3(forty, forty)').
+prismToSRS('A3_2',614,'A3(forty, fifty)').
+prismToSRS('A3_2',615,'A3(forty, sixty)').
+prismToSRS('A3_2',616,'A3(forty, seventy)').
+prismToSRS('A3_2',617,'A3(forty, eighty)').
+prismToSRS('A3_2',618,'A3(forty, ninety)').
+prismToSRS('A3_2',619,'A3(forty, before)').
+prismToSRS('A3_2',620,'A3(forty, after)').
+prismToSRS('A3_2',621,'A3(forty, comes)').
+prismToSRS('A3_2',622,'A3(fifty, fifty)').
+prismToSRS('A3_2',623,'A3(fifty, sixty)').
+prismToSRS('A3_2',624,'A3(fifty, seventy)').
+prismToSRS('A3_2',625,'A3(fifty, eighty)').
+prismToSRS('A3_2',626,'A3(fifty, ninety)').
+prismToSRS('A3_2',627,'A3(fifty, before)').
+prismToSRS('A3_2',628,'A3(fifty, after)').
+prismToSRS('A3_2',629,'A3(fifty, comes)').
+prismToSRS('A3_2',630,'A3(sixty, sixty)').
+prismToSRS('A3_2',631,'A3(sixty, seventy)').
+prismToSRS('A3_2',632,'A3(sixty, eighty)').
+prismToSRS('A3_2',633,'A3(sixty, ninety)').
+prismToSRS('A3_2',634,'A3(sixty, before)').
+prismToSRS('A3_2',635,'A3(sixty, after)').
+prismToSRS('A3_2',636,'A3(sixty, comes)').
+prismToSRS('A3_2',637,'A3(seventy, seventy)').
+prismToSRS('A3_2',638,'A3(seventy, eighty)').
+prismToSRS('A3_2',639,'A3(seventy, ninety)').
+prismToSRS('A3_2',640,'A3(seventy, before)').
+prismToSRS('A3_2',641,'A3(seventy, after)').
+prismToSRS('A3_2',642,'A3(seventy, comes)').
+prismToSRS('A3_2',643,'A3(eighty, eighty)').
+prismToSRS('A3_2',644,'A3(eighty, ninety)').
+prismToSRS('A3_2',645,'A3(eighty, before)').
+prismToSRS('A3_2',646,'A3(eighty, after)').
+prismToSRS('A3_2',647,'A3(eighty, comes)').
+prismToSRS('A3_2',648,'A3(ninety, ninety)').
+prismToSRS('A3_2',649,'A3(ninety, before)').
+prismToSRS('A3_2',650,'A3(ninety, after)').
+prismToSRS('A3_2',651,'A3(ninety, comes)').
+prismToSRS('A3_2',652,'A3(before, before)').
+prismToSRS('A3_2',653,'A3(before, after)').
+prismToSRS('A3_2',654,'A3(before, comes)').
+prismToSRS('A3_2',655,'A3(after, after)').
+prismToSRS('A3_2',656,'A3(after, comes)').
+prismToSRS('A3_2',657,'A3(comes, comes)').
+prismToSRS('A3_2',658,'A3(one, null)').
+prismToSRS('A3_2',659,'A3(two, null)').
+prismToSRS('A3_2',660,'A3(three, null)').
+prismToSRS('A3_2',661,'A3(four, null)').
+prismToSRS('A3_2',662,'A3(five, null)').
+prismToSRS('A3_2',663,'A3(six, null)').
+prismToSRS('A3_2',664,'A3(seven, null)').
+prismToSRS('A3_2',665,'A3(eight, null)').
+prismToSRS('A3_2',666,'A3(nine, null)').
+prismToSRS('A3_2',667,'A3(ten, null)').
+prismToSRS('A3_2',668,'A3(eleven, null)').
+prismToSRS('A3_2',669,'A3(twelve, null)').
+prismToSRS('A3_2',670,'A3(thirteen, null)').
+prismToSRS('A3_2',671,'A3(fourteen, null)').
+prismToSRS('A3_2',672,'A3(fifteen, null)').
+prismToSRS('A3_2',673,'A3(sixteen, null)').
+prismToSRS('A3_2',674,'A3(seventeen, null)').
+prismToSRS('A3_2',675,'A3(eighteen, null)').
+prismToSRS('A3_2',676,'A3(nineteen, null)').
+prismToSRS('A3_2',677,'A3(twenty, null)').
+prismToSRS('A3_2',678,'A3(thirty, null)').
+prismToSRS('A3_2',679,'A3(forty, null)').
+prismToSRS('A3_2',680,'A3(fifty, null)').
+prismToSRS('A3_2',681,'A3(sixty, null)').
+prismToSRS('A3_2',682,'A3(seventy, null)').
+prismToSRS('A3_2',683,'A3(eighty, null)').
+prismToSRS('A3_2',684,'A3(ninety, null)').
+prismToSRS('A3_2',685,'A3(before, null)').
+prismToSRS('A3_2',686,'A3(after, null)').
+prismToSRS('A3_2',687,'A3(comes, null)').
+prismToSRS('A3_2',688,'A3(null, one)').
+prismToSRS('A3_2',689,'A3(null, two)').
+prismToSRS('A3_2',690,'A3(null, three)').
+prismToSRS('A3_2',691,'A3(null, four)').
+prismToSRS('A3_2',692,'A3(null, five)').
+prismToSRS('A3_2',693,'A3(null, six)').
+prismToSRS('A3_2',694,'A3(null, seven)').
+prismToSRS('A3_2',695,'A3(null, eight)').
+prismToSRS('A3_2',696,'A3(null, nine)').
+prismToSRS('A3_2',697,'A3(null, ten)').
+prismToSRS('A3_2',698,'A3(null, eleven)').
+prismToSRS('A3_2',699,'A3(null, twelve)').
+prismToSRS('A3_2',700,'A3(null, thirteen)').
+prismToSRS('A3_2',701,'A3(null, fourteen)').
+prismToSRS('A3_2',702,'A3(null, fifteen)').
+prismToSRS('A3_2',703,'A3(null, sixteen)').
+prismToSRS('A3_2',704,'A3(null, seventeen)').
+prismToSRS('A3_2',705,'A3(null, eighteen)').
+prismToSRS('A3_2',706,'A3(null, nineteen)').
+prismToSRS('A3_2',707,'A3(null, twenty)').
+prismToSRS('A3_2',708,'A3(null, thirty)').
+prismToSRS('A3_2',709,'A3(null, forty)').
+prismToSRS('A3_2',710,'A3(null, fifty)').
+prismToSRS('A3_2',711,'A3(null, sixty)').
+prismToSRS('A3_2',712,'A3(null, seventy)').
+prismToSRS('A3_2',713,'A3(null, eighty)').
+prismToSRS('A3_2',714,'A3(null, ninety)').
+prismToSRS('A3_2',715,'A3(null, before)').
+prismToSRS('A3_2',716,'A3(null, after)').
+prismToSRS('A3_2',717,'A3(null, comes)').
+prismToSRS('A4_2',1,'A4(X Y, U V) <-- A1(U, Y), A1(X, V)').
+prismToSRS('A4_2',2,'A4(X Y, U V) <-- A1(U, X), A1(Y, V)').
+prismToSRS('A4_2',3,'A4(X Y, U V) <-- A1(X, U), A1(Y, V)').
+prismToSRS('A4_2',4,'A4(X Y, U V) <-- A1(V, U), A1(Y, X)').
+prismToSRS('A4_2',5,'A4(X Y, U V) <-- A1(U, V), A1(Y, X)').
+prismToSRS('A4_2',6,'A4(X Y, U V) <-- A1(U, Y), A1(V, X)').
+prismToSRS('A4_2',7,'A4(X Y, U V) <-- A1(V, X), A1(Y, U)').
+prismToSRS('A4_2',8,'A4(X Y, U V) <-- A1(X, V), A1(Y, U)').
+prismToSRS('A4_2',9,'A4(X Y, U V) <-- A1(V, Y), A1(X, U)').
+prismToSRS('A4_2',10,'A4(X Y, U V) <-- A1(V, U), A1(X, Y)').
+prismToSRS('A4_2',11,'A4(X Y, U V) <-- A1(U, V), A1(X, Y)').
+prismToSRS('A4_2',12,'A4(X Y, U V) <-- A1(U, X), A1(V, Y)').
+prismToSRS('A4_2',13,'A4(X Y, U V) <-- A1(X, Y), A2(U, V)').
+prismToSRS('A4_2',14,'A4(X Y, U V) <-- A1(Y, X), A2(U, V)').
+prismToSRS('A4_2',15,'A4(X Y, U V) <-- A1(U, Y), A2(X, V)').
+prismToSRS('A4_2',16,'A4(X Y, U V) <-- A1(Y, U), A2(X, V)').
+prismToSRS('A4_2',17,'A4(X Y, U V) <-- A1(U, X), A2(Y, V)').
+prismToSRS('A4_2',18,'A4(X Y, U V) <-- A1(X, U), A2(Y, V)').
+prismToSRS('A4_2',19,'A4(X Y, U V) <-- A1(V, U), A2(Y, X)').
+prismToSRS('A4_2',20,'A4(X Y, U V) <-- A1(U, V), A2(Y, X)').
+prismToSRS('A4_2',21,'A4(X Y, U V) <-- A1(U, Y), A2(V, X)').
+prismToSRS('A4_2',22,'A4(X Y, U V) <-- A1(V, Y), A2(U, X)').
+prismToSRS('A4_2',23,'A4(X Y, U V) <-- A1(Y, V), A2(U, X)').
+prismToSRS('A4_2',24,'A4(X Y, U V) <-- A1(Y, U), A2(V, X)').
+prismToSRS('A4_2',25,'A4(X Y, U V) <-- A1(V, X), A2(Y, U)').
+prismToSRS('A4_2',26,'A4(X Y, U V) <-- A1(X, V), A2(Y, U)').
+prismToSRS('A4_2',27,'A4(X Y, U V) <-- A1(X, Y), A2(V, U)').
+prismToSRS('A4_2',28,'A4(X Y, U V) <-- A1(V, Y), A2(X, U)').
+prismToSRS('A4_2',29,'A4(X Y, U V) <-- A1(Y, V), A2(X, U)').
+prismToSRS('A4_2',30,'A4(X Y, U V) <-- A1(Y, X), A2(V, U)').
+prismToSRS('A4_2',31,'A4(X Y, U V) <-- A1(V, X), A2(U, Y)').
+prismToSRS('A4_2',32,'A4(X Y, U V) <-- A1(X, V), A2(U, Y)').
+prismToSRS('A4_2',33,'A4(X Y, U V) <-- A1(X, U), A2(V, Y)').
+prismToSRS('A4_2',34,'A4(X Y, U V) <-- A1(V, U), A2(X, Y)').
+prismToSRS('A4_2',35,'A4(X Y, U V) <-- A1(U, V), A2(X, Y)').
+prismToSRS('A4_2',36,'A4(X Y, U V) <-- A1(U, X), A2(V, Y)').
+prismToSRS('A4_2',37,'A4(X Y, U V) <-- A1(X, Y), A3(U, V)').
+prismToSRS('A4_2',38,'A4(X Y, U V) <-- A1(Y, X), A3(U, V)').
+prismToSRS('A4_2',39,'A4(X Y, U V) <-- A1(U, Y), A3(X, V)').
+prismToSRS('A4_2',40,'A4(X Y, U V) <-- A1(Y, U), A3(X, V)').
+prismToSRS('A4_2',41,'A4(X Y, U V) <-- A1(U, X), A3(Y, V)').
+prismToSRS('A4_2',42,'A4(X Y, U V) <-- A1(X, U), A3(Y, V)').
+prismToSRS('A4_2',43,'A4(X Y, U V) <-- A1(V, U), A3(Y, X)').
+prismToSRS('A4_2',44,'A4(X Y, U V) <-- A1(U, V), A3(Y, X)').
+prismToSRS('A4_2',45,'A4(X Y, U V) <-- A1(U, Y), A3(V, X)').
+prismToSRS('A4_2',46,'A4(X Y, U V) <-- A1(V, Y), A3(U, X)').
+prismToSRS('A4_2',47,'A4(X Y, U V) <-- A1(Y, V), A3(U, X)').
+prismToSRS('A4_2',48,'A4(X Y, U V) <-- A1(Y, U), A3(V, X)').
+prismToSRS('A4_2',49,'A4(X Y, U V) <-- A1(V, X), A3(Y, U)').
+prismToSRS('A4_2',50,'A4(X Y, U V) <-- A1(X, V), A3(Y, U)').
+prismToSRS('A4_2',51,'A4(X Y, U V) <-- A1(X, Y), A3(V, U)').
+prismToSRS('A4_2',52,'A4(X Y, U V) <-- A1(V, Y), A3(X, U)').
+prismToSRS('A4_2',53,'A4(X Y, U V) <-- A1(Y, V), A3(X, U)').
+prismToSRS('A4_2',54,'A4(X Y, U V) <-- A1(Y, X), A3(V, U)').
+prismToSRS('A4_2',55,'A4(X Y, U V) <-- A1(V, X), A3(U, Y)').
+prismToSRS('A4_2',56,'A4(X Y, U V) <-- A1(X, V), A3(U, Y)').
+prismToSRS('A4_2',57,'A4(X Y, U V) <-- A1(X, U), A3(V, Y)').
+prismToSRS('A4_2',58,'A4(X Y, U V) <-- A1(V, U), A3(X, Y)').
+prismToSRS('A4_2',59,'A4(X Y, U V) <-- A1(U, V), A3(X, Y)').
+prismToSRS('A4_2',60,'A4(X Y, U V) <-- A1(U, X), A3(V, Y)').
+prismToSRS('A4_2',61,'A4(X Y, U V) <-- A1(X, Y), A4(U, V)').
+prismToSRS('A4_2',62,'A4(X Y, U V) <-- A1(Y, X), A4(U, V)').
+prismToSRS('A4_2',63,'A4(X Y, U V) <-- A1(U, Y), A4(X, V)').
+prismToSRS('A4_2',64,'A4(X Y, U V) <-- A1(Y, U), A4(X, V)').
+prismToSRS('A4_2',65,'A4(X Y, U V) <-- A1(U, X), A4(Y, V)').
+prismToSRS('A4_2',66,'A4(X Y, U V) <-- A1(X, U), A4(Y, V)').
+prismToSRS('A4_2',67,'A4(X Y, U V) <-- A1(V, U), A4(Y, X)').
+prismToSRS('A4_2',68,'A4(X Y, U V) <-- A1(U, V), A4(Y, X)').
+prismToSRS('A4_2',69,'A4(X Y, U V) <-- A1(U, Y), A4(V, X)').
+prismToSRS('A4_2',70,'A4(X Y, U V) <-- A1(V, Y), A4(U, X)').
+prismToSRS('A4_2',71,'A4(X Y, U V) <-- A1(Y, V), A4(U, X)').
+prismToSRS('A4_2',72,'A4(X Y, U V) <-- A1(Y, U), A4(V, X)').
+prismToSRS('A4_2',73,'A4(X Y, U V) <-- A1(V, X), A4(Y, U)').
+prismToSRS('A4_2',74,'A4(X Y, U V) <-- A1(X, V), A4(Y, U)').
+prismToSRS('A4_2',75,'A4(X Y, U V) <-- A1(X, Y), A4(V, U)').
+prismToSRS('A4_2',76,'A4(X Y, U V) <-- A1(V, Y), A4(X, U)').
+prismToSRS('A4_2',77,'A4(X Y, U V) <-- A1(Y, V), A4(X, U)').
+prismToSRS('A4_2',78,'A4(X Y, U V) <-- A1(Y, X), A4(V, U)').
+prismToSRS('A4_2',79,'A4(X Y, U V) <-- A1(V, X), A4(U, Y)').
+prismToSRS('A4_2',80,'A4(X Y, U V) <-- A1(X, V), A4(U, Y)').
+prismToSRS('A4_2',81,'A4(X Y, U V) <-- A1(X, U), A4(V, Y)').
+prismToSRS('A4_2',82,'A4(X Y, U V) <-- A1(V, U), A4(X, Y)').
+prismToSRS('A4_2',83,'A4(X Y, U V) <-- A1(U, V), A4(X, Y)').
+prismToSRS('A4_2',84,'A4(X Y, U V) <-- A1(U, X), A4(V, Y)').
+prismToSRS('A4_2',85,'A4(X Y, U V) <-- A2(U, Y), A2(X, V)').
+prismToSRS('A4_2',86,'A4(X Y, U V) <-- A2(U, X), A2(Y, V)').
+prismToSRS('A4_2',87,'A4(X Y, U V) <-- A2(X, U), A2(Y, V)').
+prismToSRS('A4_2',88,'A4(X Y, U V) <-- A2(V, U), A2(Y, X)').
+prismToSRS('A4_2',89,'A4(X Y, U V) <-- A2(U, V), A2(Y, X)').
+prismToSRS('A4_2',90,'A4(X Y, U V) <-- A2(U, Y), A2(V, X)').
+prismToSRS('A4_2',91,'A4(X Y, U V) <-- A2(V, X), A2(Y, U)').
+prismToSRS('A4_2',92,'A4(X Y, U V) <-- A2(X, V), A2(Y, U)').
+prismToSRS('A4_2',93,'A4(X Y, U V) <-- A2(V, Y), A2(X, U)').
+prismToSRS('A4_2',94,'A4(X Y, U V) <-- A2(V, U), A2(X, Y)').
+prismToSRS('A4_2',95,'A4(X Y, U V) <-- A2(U, V), A2(X, Y)').
+prismToSRS('A4_2',96,'A4(X Y, U V) <-- A2(U, X), A2(V, Y)').
+prismToSRS('A4_2',97,'A4(X Y, U V) <-- A2(X, Y), A3(U, V)').
+prismToSRS('A4_2',98,'A4(X Y, U V) <-- A2(Y, X), A3(U, V)').
+prismToSRS('A4_2',99,'A4(X Y, U V) <-- A2(U, Y), A3(X, V)').
+prismToSRS('A4_2',100,'A4(X Y, U V) <-- A2(Y, U), A3(X, V)').
+prismToSRS('A4_2',101,'A4(X Y, U V) <-- A2(U, X), A3(Y, V)').
+prismToSRS('A4_2',102,'A4(X Y, U V) <-- A2(X, U), A3(Y, V)').
+prismToSRS('A4_2',103,'A4(X Y, U V) <-- A2(V, U), A3(Y, X)').
+prismToSRS('A4_2',104,'A4(X Y, U V) <-- A2(U, V), A3(Y, X)').
+prismToSRS('A4_2',105,'A4(X Y, U V) <-- A2(U, Y), A3(V, X)').
+prismToSRS('A4_2',106,'A4(X Y, U V) <-- A2(V, Y), A3(U, X)').
+prismToSRS('A4_2',107,'A4(X Y, U V) <-- A2(Y, V), A3(U, X)').
+prismToSRS('A4_2',108,'A4(X Y, U V) <-- A2(Y, U), A3(V, X)').
+prismToSRS('A4_2',109,'A4(X Y, U V) <-- A2(V, X), A3(Y, U)').
+prismToSRS('A4_2',110,'A4(X Y, U V) <-- A2(X, V), A3(Y, U)').
+prismToSRS('A4_2',111,'A4(X Y, U V) <-- A2(X, Y), A3(V, U)').
+prismToSRS('A4_2',112,'A4(X Y, U V) <-- A2(V, Y), A3(X, U)').
+prismToSRS('A4_2',113,'A4(X Y, U V) <-- A2(Y, V), A3(X, U)').
+prismToSRS('A4_2',114,'A4(X Y, U V) <-- A2(Y, X), A3(V, U)').
+prismToSRS('A4_2',115,'A4(X Y, U V) <-- A2(V, X), A3(U, Y)').
+prismToSRS('A4_2',116,'A4(X Y, U V) <-- A2(X, V), A3(U, Y)').
+prismToSRS('A4_2',117,'A4(X Y, U V) <-- A2(X, U), A3(V, Y)').
+prismToSRS('A4_2',118,'A4(X Y, U V) <-- A2(V, U), A3(X, Y)').
+prismToSRS('A4_2',119,'A4(X Y, U V) <-- A2(U, V), A3(X, Y)').
+prismToSRS('A4_2',120,'A4(X Y, U V) <-- A2(U, X), A3(V, Y)').
+prismToSRS('A4_2',121,'A4(X Y, U V) <-- A2(X, Y), A4(U, V)').
+prismToSRS('A4_2',122,'A4(X Y, U V) <-- A2(Y, X), A4(U, V)').
+prismToSRS('A4_2',123,'A4(X Y, U V) <-- A2(U, Y), A4(X, V)').
+prismToSRS('A4_2',124,'A4(X Y, U V) <-- A2(Y, U), A4(X, V)').
+prismToSRS('A4_2',125,'A4(X Y, U V) <-- A2(U, X), A4(Y, V)').
+prismToSRS('A4_2',126,'A4(X Y, U V) <-- A2(X, U), A4(Y, V)').
+prismToSRS('A4_2',127,'A4(X Y, U V) <-- A2(V, U), A4(Y, X)').
+prismToSRS('A4_2',128,'A4(X Y, U V) <-- A2(U, V), A4(Y, X)').
+prismToSRS('A4_2',129,'A4(X Y, U V) <-- A2(U, Y), A4(V, X)').
+prismToSRS('A4_2',130,'A4(X Y, U V) <-- A2(V, Y), A4(U, X)').
+prismToSRS('A4_2',131,'A4(X Y, U V) <-- A2(Y, V), A4(U, X)').
+prismToSRS('A4_2',132,'A4(X Y, U V) <-- A2(Y, U), A4(V, X)').
+prismToSRS('A4_2',133,'A4(X Y, U V) <-- A2(V, X), A4(Y, U)').
+prismToSRS('A4_2',134,'A4(X Y, U V) <-- A2(X, V), A4(Y, U)').
+prismToSRS('A4_2',135,'A4(X Y, U V) <-- A2(X, Y), A4(V, U)').
+prismToSRS('A4_2',136,'A4(X Y, U V) <-- A2(V, Y), A4(X, U)').
+prismToSRS('A4_2',137,'A4(X Y, U V) <-- A2(Y, V), A4(X, U)').
+prismToSRS('A4_2',138,'A4(X Y, U V) <-- A2(Y, X), A4(V, U)').
+prismToSRS('A4_2',139,'A4(X Y, U V) <-- A2(V, X), A4(U, Y)').
+prismToSRS('A4_2',140,'A4(X Y, U V) <-- A2(X, V), A4(U, Y)').
+prismToSRS('A4_2',141,'A4(X Y, U V) <-- A2(X, U), A4(V, Y)').
+prismToSRS('A4_2',142,'A4(X Y, U V) <-- A2(V, U), A4(X, Y)').
+prismToSRS('A4_2',143,'A4(X Y, U V) <-- A2(U, V), A4(X, Y)').
+prismToSRS('A4_2',144,'A4(X Y, U V) <-- A2(U, X), A4(V, Y)').
+prismToSRS('A4_2',145,'A4(X Y, U V) <-- A3(U, Y), A3(X, V)').
+prismToSRS('A4_2',146,'A4(X Y, U V) <-- A3(U, X), A3(Y, V)').
+prismToSRS('A4_2',147,'A4(X Y, U V) <-- A3(X, U), A3(Y, V)').
+prismToSRS('A4_2',148,'A4(X Y, U V) <-- A3(V, U), A3(Y, X)').
+prismToSRS('A4_2',149,'A4(X Y, U V) <-- A3(U, V), A3(Y, X)').
+prismToSRS('A4_2',150,'A4(X Y, U V) <-- A3(U, Y), A3(V, X)').
+prismToSRS('A4_2',151,'A4(X Y, U V) <-- A3(V, X), A3(Y, U)').
+prismToSRS('A4_2',152,'A4(X Y, U V) <-- A3(X, V), A3(Y, U)').
+prismToSRS('A4_2',153,'A4(X Y, U V) <-- A3(V, Y), A3(X, U)').
+prismToSRS('A4_2',154,'A4(X Y, U V) <-- A3(V, U), A3(X, Y)').
+prismToSRS('A4_2',155,'A4(X Y, U V) <-- A3(U, V), A3(X, Y)').
+prismToSRS('A4_2',156,'A4(X Y, U V) <-- A3(U, X), A3(V, Y)').
+prismToSRS('A4_2',157,'A4(X Y, U V) <-- A3(X, Y), A4(U, V)').
+prismToSRS('A4_2',158,'A4(X Y, U V) <-- A3(Y, X), A4(U, V)').
+prismToSRS('A4_2',159,'A4(X Y, U V) <-- A3(U, Y), A4(X, V)').
+prismToSRS('A4_2',160,'A4(X Y, U V) <-- A3(Y, U), A4(X, V)').
+prismToSRS('A4_2',161,'A4(X Y, U V) <-- A3(U, X), A4(Y, V)').
+prismToSRS('A4_2',162,'A4(X Y, U V) <-- A3(X, U), A4(Y, V)').
+prismToSRS('A4_2',163,'A4(X Y, U V) <-- A3(V, U), A4(Y, X)').
+prismToSRS('A4_2',164,'A4(X Y, U V) <-- A3(U, V), A4(Y, X)').
+prismToSRS('A4_2',165,'A4(X Y, U V) <-- A3(U, Y), A4(V, X)').
+prismToSRS('A4_2',166,'A4(X Y, U V) <-- A3(V, Y), A4(U, X)').
+prismToSRS('A4_2',167,'A4(X Y, U V) <-- A3(Y, V), A4(U, X)').
+prismToSRS('A4_2',168,'A4(X Y, U V) <-- A3(Y, U), A4(V, X)').
+prismToSRS('A4_2',169,'A4(X Y, U V) <-- A3(V, X), A4(Y, U)').
+prismToSRS('A4_2',170,'A4(X Y, U V) <-- A3(X, V), A4(Y, U)').
+prismToSRS('A4_2',171,'A4(X Y, U V) <-- A3(X, Y), A4(V, U)').
+prismToSRS('A4_2',172,'A4(X Y, U V) <-- A3(V, Y), A4(X, U)').
+prismToSRS('A4_2',173,'A4(X Y, U V) <-- A3(Y, V), A4(X, U)').
+prismToSRS('A4_2',174,'A4(X Y, U V) <-- A3(Y, X), A4(V, U)').
+prismToSRS('A4_2',175,'A4(X Y, U V) <-- A3(V, X), A4(U, Y)').
+prismToSRS('A4_2',176,'A4(X Y, U V) <-- A3(X, V), A4(U, Y)').
+prismToSRS('A4_2',177,'A4(X Y, U V) <-- A3(X, U), A4(V, Y)').
+prismToSRS('A4_2',178,'A4(X Y, U V) <-- A3(V, U), A4(X, Y)').
+prismToSRS('A4_2',179,'A4(X Y, U V) <-- A3(U, V), A4(X, Y)').
+prismToSRS('A4_2',180,'A4(X Y, U V) <-- A3(U, X), A4(V, Y)').
+prismToSRS('A4_2',181,'A4(X Y, U V) <-- A4(U, Y), A4(X, V)').
+prismToSRS('A4_2',182,'A4(X Y, U V) <-- A4(U, X), A4(Y, V)').
+prismToSRS('A4_2',183,'A4(X Y, U V) <-- A4(X, U), A4(Y, V)').
+prismToSRS('A4_2',184,'A4(X Y, U V) <-- A4(V, U), A4(Y, X)').
+prismToSRS('A4_2',185,'A4(X Y, U V) <-- A4(U, V), A4(Y, X)').
+prismToSRS('A4_2',186,'A4(X Y, U V) <-- A4(U, Y), A4(V, X)').
+prismToSRS('A4_2',187,'A4(X Y, U V) <-- A4(V, X), A4(Y, U)').
+prismToSRS('A4_2',188,'A4(X Y, U V) <-- A4(X, V), A4(Y, U)').
+prismToSRS('A4_2',189,'A4(X Y, U V) <-- A4(V, Y), A4(X, U)').
+prismToSRS('A4_2',190,'A4(X Y, U V) <-- A4(V, U), A4(X, Y)').
+prismToSRS('A4_2',191,'A4(X Y, U V) <-- A4(U, V), A4(X, Y)').
+prismToSRS('A4_2',192,'A4(X Y, U V) <-- A4(U, X), A4(V, Y)').
+prismToSRS('A4_2',193,'A4(one, one)').
+prismToSRS('A4_2',194,'A4(one, two)').
+prismToSRS('A4_2',195,'A4(one, three)').
+prismToSRS('A4_2',196,'A4(one, four)').
+prismToSRS('A4_2',197,'A4(one, five)').
+prismToSRS('A4_2',198,'A4(one, six)').
+prismToSRS('A4_2',199,'A4(one, seven)').
+prismToSRS('A4_2',200,'A4(one, eight)').
+prismToSRS('A4_2',201,'A4(one, nine)').
+prismToSRS('A4_2',202,'A4(one, ten)').
+prismToSRS('A4_2',203,'A4(one, eleven)').
+prismToSRS('A4_2',204,'A4(one, twelve)').
+prismToSRS('A4_2',205,'A4(one, thirteen)').
+prismToSRS('A4_2',206,'A4(one, fourteen)').
+prismToSRS('A4_2',207,'A4(one, fifteen)').
+prismToSRS('A4_2',208,'A4(one, sixteen)').
+prismToSRS('A4_2',209,'A4(one, seventeen)').
+prismToSRS('A4_2',210,'A4(one, eighteen)').
+prismToSRS('A4_2',211,'A4(one, nineteen)').
+prismToSRS('A4_2',212,'A4(one, twenty)').
+prismToSRS('A4_2',213,'A4(one, thirty)').
+prismToSRS('A4_2',214,'A4(one, forty)').
+prismToSRS('A4_2',215,'A4(one, fifty)').
+prismToSRS('A4_2',216,'A4(one, sixty)').
+prismToSRS('A4_2',217,'A4(one, seventy)').
+prismToSRS('A4_2',218,'A4(one, eighty)').
+prismToSRS('A4_2',219,'A4(one, ninety)').
+prismToSRS('A4_2',220,'A4(one, before)').
+prismToSRS('A4_2',221,'A4(one, after)').
+prismToSRS('A4_2',222,'A4(one, comes)').
+prismToSRS('A4_2',223,'A4(two, two)').
+prismToSRS('A4_2',224,'A4(two, three)').
+prismToSRS('A4_2',225,'A4(two, four)').
+prismToSRS('A4_2',226,'A4(two, five)').
+prismToSRS('A4_2',227,'A4(two, six)').
+prismToSRS('A4_2',228,'A4(two, seven)').
+prismToSRS('A4_2',229,'A4(two, eight)').
+prismToSRS('A4_2',230,'A4(two, nine)').
+prismToSRS('A4_2',231,'A4(two, ten)').
+prismToSRS('A4_2',232,'A4(two, eleven)').
+prismToSRS('A4_2',233,'A4(two, twelve)').
+prismToSRS('A4_2',234,'A4(two, thirteen)').
+prismToSRS('A4_2',235,'A4(two, fourteen)').
+prismToSRS('A4_2',236,'A4(two, fifteen)').
+prismToSRS('A4_2',237,'A4(two, sixteen)').
+prismToSRS('A4_2',238,'A4(two, seventeen)').
+prismToSRS('A4_2',239,'A4(two, eighteen)').
+prismToSRS('A4_2',240,'A4(two, nineteen)').
+prismToSRS('A4_2',241,'A4(two, twenty)').
+prismToSRS('A4_2',242,'A4(two, thirty)').
+prismToSRS('A4_2',243,'A4(two, forty)').
+prismToSRS('A4_2',244,'A4(two, fifty)').
+prismToSRS('A4_2',245,'A4(two, sixty)').
+prismToSRS('A4_2',246,'A4(two, seventy)').
+prismToSRS('A4_2',247,'A4(two, eighty)').
+prismToSRS('A4_2',248,'A4(two, ninety)').
+prismToSRS('A4_2',249,'A4(two, before)').
+prismToSRS('A4_2',250,'A4(two, after)').
+prismToSRS('A4_2',251,'A4(two, comes)').
+prismToSRS('A4_2',252,'A4(three, three)').
+prismToSRS('A4_2',253,'A4(three, four)').
+prismToSRS('A4_2',254,'A4(three, five)').
+prismToSRS('A4_2',255,'A4(three, six)').
+prismToSRS('A4_2',256,'A4(three, seven)').
+prismToSRS('A4_2',257,'A4(three, eight)').
+prismToSRS('A4_2',258,'A4(three, nine)').
+prismToSRS('A4_2',259,'A4(three, ten)').
+prismToSRS('A4_2',260,'A4(three, eleven)').
+prismToSRS('A4_2',261,'A4(three, twelve)').
+prismToSRS('A4_2',262,'A4(three, thirteen)').
+prismToSRS('A4_2',263,'A4(three, fourteen)').
+prismToSRS('A4_2',264,'A4(three, fifteen)').
+prismToSRS('A4_2',265,'A4(three, sixteen)').
+prismToSRS('A4_2',266,'A4(three, seventeen)').
+prismToSRS('A4_2',267,'A4(three, eighteen)').
+prismToSRS('A4_2',268,'A4(three, nineteen)').
+prismToSRS('A4_2',269,'A4(three, twenty)').
+prismToSRS('A4_2',270,'A4(three, thirty)').
+prismToSRS('A4_2',271,'A4(three, forty)').
+prismToSRS('A4_2',272,'A4(three, fifty)').
+prismToSRS('A4_2',273,'A4(three, sixty)').
+prismToSRS('A4_2',274,'A4(three, seventy)').
+prismToSRS('A4_2',275,'A4(three, eighty)').
+prismToSRS('A4_2',276,'A4(three, ninety)').
+prismToSRS('A4_2',277,'A4(three, before)').
+prismToSRS('A4_2',278,'A4(three, after)').
+prismToSRS('A4_2',279,'A4(three, comes)').
+prismToSRS('A4_2',280,'A4(four, four)').
+prismToSRS('A4_2',281,'A4(four, five)').
+prismToSRS('A4_2',282,'A4(four, six)').
+prismToSRS('A4_2',283,'A4(four, seven)').
+prismToSRS('A4_2',284,'A4(four, eight)').
+prismToSRS('A4_2',285,'A4(four, nine)').
+prismToSRS('A4_2',286,'A4(four, ten)').
+prismToSRS('A4_2',287,'A4(four, eleven)').
+prismToSRS('A4_2',288,'A4(four, twelve)').
+prismToSRS('A4_2',289,'A4(four, thirteen)').
+prismToSRS('A4_2',290,'A4(four, fourteen)').
+prismToSRS('A4_2',291,'A4(four, fifteen)').
+prismToSRS('A4_2',292,'A4(four, sixteen)').
+prismToSRS('A4_2',293,'A4(four, seventeen)').
+prismToSRS('A4_2',294,'A4(four, eighteen)').
+prismToSRS('A4_2',295,'A4(four, nineteen)').
+prismToSRS('A4_2',296,'A4(four, twenty)').
+prismToSRS('A4_2',297,'A4(four, thirty)').
+prismToSRS('A4_2',298,'A4(four, forty)').
+prismToSRS('A4_2',299,'A4(four, fifty)').
+prismToSRS('A4_2',300,'A4(four, sixty)').
+prismToSRS('A4_2',301,'A4(four, seventy)').
+prismToSRS('A4_2',302,'A4(four, eighty)').
+prismToSRS('A4_2',303,'A4(four, ninety)').
+prismToSRS('A4_2',304,'A4(four, before)').
+prismToSRS('A4_2',305,'A4(four, after)').
+prismToSRS('A4_2',306,'A4(four, comes)').
+prismToSRS('A4_2',307,'A4(five, five)').
+prismToSRS('A4_2',308,'A4(five, six)').
+prismToSRS('A4_2',309,'A4(five, seven)').
+prismToSRS('A4_2',310,'A4(five, eight)').
+prismToSRS('A4_2',311,'A4(five, nine)').
+prismToSRS('A4_2',312,'A4(five, ten)').
+prismToSRS('A4_2',313,'A4(five, eleven)').
+prismToSRS('A4_2',314,'A4(five, twelve)').
+prismToSRS('A4_2',315,'A4(five, thirteen)').
+prismToSRS('A4_2',316,'A4(five, fourteen)').
+prismToSRS('A4_2',317,'A4(five, fifteen)').
+prismToSRS('A4_2',318,'A4(five, sixteen)').
+prismToSRS('A4_2',319,'A4(five, seventeen)').
+prismToSRS('A4_2',320,'A4(five, eighteen)').
+prismToSRS('A4_2',321,'A4(five, nineteen)').
+prismToSRS('A4_2',322,'A4(five, twenty)').
+prismToSRS('A4_2',323,'A4(five, thirty)').
+prismToSRS('A4_2',324,'A4(five, forty)').
+prismToSRS('A4_2',325,'A4(five, fifty)').
+prismToSRS('A4_2',326,'A4(five, sixty)').
+prismToSRS('A4_2',327,'A4(five, seventy)').
+prismToSRS('A4_2',328,'A4(five, eighty)').
+prismToSRS('A4_2',329,'A4(five, ninety)').
+prismToSRS('A4_2',330,'A4(five, before)').
+prismToSRS('A4_2',331,'A4(five, after)').
+prismToSRS('A4_2',332,'A4(five, comes)').
+prismToSRS('A4_2',333,'A4(six, six)').
+prismToSRS('A4_2',334,'A4(six, seven)').
+prismToSRS('A4_2',335,'A4(six, eight)').
+prismToSRS('A4_2',336,'A4(six, nine)').
+prismToSRS('A4_2',337,'A4(six, ten)').
+prismToSRS('A4_2',338,'A4(six, eleven)').
+prismToSRS('A4_2',339,'A4(six, twelve)').
+prismToSRS('A4_2',340,'A4(six, thirteen)').
+prismToSRS('A4_2',341,'A4(six, fourteen)').
+prismToSRS('A4_2',342,'A4(six, fifteen)').
+prismToSRS('A4_2',343,'A4(six, sixteen)').
+prismToSRS('A4_2',344,'A4(six, seventeen)').
+prismToSRS('A4_2',345,'A4(six, eighteen)').
+prismToSRS('A4_2',346,'A4(six, nineteen)').
+prismToSRS('A4_2',347,'A4(six, twenty)').
+prismToSRS('A4_2',348,'A4(six, thirty)').
+prismToSRS('A4_2',349,'A4(six, forty)').
+prismToSRS('A4_2',350,'A4(six, fifty)').
+prismToSRS('A4_2',351,'A4(six, sixty)').
+prismToSRS('A4_2',352,'A4(six, seventy)').
+prismToSRS('A4_2',353,'A4(six, eighty)').
+prismToSRS('A4_2',354,'A4(six, ninety)').
+prismToSRS('A4_2',355,'A4(six, before)').
+prismToSRS('A4_2',356,'A4(six, after)').
+prismToSRS('A4_2',357,'A4(six, comes)').
+prismToSRS('A4_2',358,'A4(seven, seven)').
+prismToSRS('A4_2',359,'A4(seven, eight)').
+prismToSRS('A4_2',360,'A4(seven, nine)').
+prismToSRS('A4_2',361,'A4(seven, ten)').
+prismToSRS('A4_2',362,'A4(seven, eleven)').
+prismToSRS('A4_2',363,'A4(seven, twelve)').
+prismToSRS('A4_2',364,'A4(seven, thirteen)').
+prismToSRS('A4_2',365,'A4(seven, fourteen)').
+prismToSRS('A4_2',366,'A4(seven, fifteen)').
+prismToSRS('A4_2',367,'A4(seven, sixteen)').
+prismToSRS('A4_2',368,'A4(seven, seventeen)').
+prismToSRS('A4_2',369,'A4(seven, eighteen)').
+prismToSRS('A4_2',370,'A4(seven, nineteen)').
+prismToSRS('A4_2',371,'A4(seven, twenty)').
+prismToSRS('A4_2',372,'A4(seven, thirty)').
+prismToSRS('A4_2',373,'A4(seven, forty)').
+prismToSRS('A4_2',374,'A4(seven, fifty)').
+prismToSRS('A4_2',375,'A4(seven, sixty)').
+prismToSRS('A4_2',376,'A4(seven, seventy)').
+prismToSRS('A4_2',377,'A4(seven, eighty)').
+prismToSRS('A4_2',378,'A4(seven, ninety)').
+prismToSRS('A4_2',379,'A4(seven, before)').
+prismToSRS('A4_2',380,'A4(seven, after)').
+prismToSRS('A4_2',381,'A4(seven, comes)').
+prismToSRS('A4_2',382,'A4(eight, eight)').
+prismToSRS('A4_2',383,'A4(eight, nine)').
+prismToSRS('A4_2',384,'A4(eight, ten)').
+prismToSRS('A4_2',385,'A4(eight, eleven)').
+prismToSRS('A4_2',386,'A4(eight, twelve)').
+prismToSRS('A4_2',387,'A4(eight, thirteen)').
+prismToSRS('A4_2',388,'A4(eight, fourteen)').
+prismToSRS('A4_2',389,'A4(eight, fifteen)').
+prismToSRS('A4_2',390,'A4(eight, sixteen)').
+prismToSRS('A4_2',391,'A4(eight, seventeen)').
+prismToSRS('A4_2',392,'A4(eight, eighteen)').
+prismToSRS('A4_2',393,'A4(eight, nineteen)').
+prismToSRS('A4_2',394,'A4(eight, twenty)').
+prismToSRS('A4_2',395,'A4(eight, thirty)').
+prismToSRS('A4_2',396,'A4(eight, forty)').
+prismToSRS('A4_2',397,'A4(eight, fifty)').
+prismToSRS('A4_2',398,'A4(eight, sixty)').
+prismToSRS('A4_2',399,'A4(eight, seventy)').
+prismToSRS('A4_2',400,'A4(eight, eighty)').
+prismToSRS('A4_2',401,'A4(eight, ninety)').
+prismToSRS('A4_2',402,'A4(eight, before)').
+prismToSRS('A4_2',403,'A4(eight, after)').
+prismToSRS('A4_2',404,'A4(eight, comes)').
+prismToSRS('A4_2',405,'A4(nine, nine)').
+prismToSRS('A4_2',406,'A4(nine, ten)').
+prismToSRS('A4_2',407,'A4(nine, eleven)').
+prismToSRS('A4_2',408,'A4(nine, twelve)').
+prismToSRS('A4_2',409,'A4(nine, thirteen)').
+prismToSRS('A4_2',410,'A4(nine, fourteen)').
+prismToSRS('A4_2',411,'A4(nine, fifteen)').
+prismToSRS('A4_2',412,'A4(nine, sixteen)').
+prismToSRS('A4_2',413,'A4(nine, seventeen)').
+prismToSRS('A4_2',414,'A4(nine, eighteen)').
+prismToSRS('A4_2',415,'A4(nine, nineteen)').
+prismToSRS('A4_2',416,'A4(nine, twenty)').
+prismToSRS('A4_2',417,'A4(nine, thirty)').
+prismToSRS('A4_2',418,'A4(nine, forty)').
+prismToSRS('A4_2',419,'A4(nine, fifty)').
+prismToSRS('A4_2',420,'A4(nine, sixty)').
+prismToSRS('A4_2',421,'A4(nine, seventy)').
+prismToSRS('A4_2',422,'A4(nine, eighty)').
+prismToSRS('A4_2',423,'A4(nine, ninety)').
+prismToSRS('A4_2',424,'A4(nine, before)').
+prismToSRS('A4_2',425,'A4(nine, after)').
+prismToSRS('A4_2',426,'A4(nine, comes)').
+prismToSRS('A4_2',427,'A4(ten, ten)').
+prismToSRS('A4_2',428,'A4(ten, eleven)').
+prismToSRS('A4_2',429,'A4(ten, twelve)').
+prismToSRS('A4_2',430,'A4(ten, thirteen)').
+prismToSRS('A4_2',431,'A4(ten, fourteen)').
+prismToSRS('A4_2',432,'A4(ten, fifteen)').
+prismToSRS('A4_2',433,'A4(ten, sixteen)').
+prismToSRS('A4_2',434,'A4(ten, seventeen)').
+prismToSRS('A4_2',435,'A4(ten, eighteen)').
+prismToSRS('A4_2',436,'A4(ten, nineteen)').
+prismToSRS('A4_2',437,'A4(ten, twenty)').
+prismToSRS('A4_2',438,'A4(ten, thirty)').
+prismToSRS('A4_2',439,'A4(ten, forty)').
+prismToSRS('A4_2',440,'A4(ten, fifty)').
+prismToSRS('A4_2',441,'A4(ten, sixty)').
+prismToSRS('A4_2',442,'A4(ten, seventy)').
+prismToSRS('A4_2',443,'A4(ten, eighty)').
+prismToSRS('A4_2',444,'A4(ten, ninety)').
+prismToSRS('A4_2',445,'A4(ten, before)').
+prismToSRS('A4_2',446,'A4(ten, after)').
+prismToSRS('A4_2',447,'A4(ten, comes)').
+prismToSRS('A4_2',448,'A4(eleven, eleven)').
+prismToSRS('A4_2',449,'A4(eleven, twelve)').
+prismToSRS('A4_2',450,'A4(eleven, thirteen)').
+prismToSRS('A4_2',451,'A4(eleven, fourteen)').
+prismToSRS('A4_2',452,'A4(eleven, fifteen)').
+prismToSRS('A4_2',453,'A4(eleven, sixteen)').
+prismToSRS('A4_2',454,'A4(eleven, seventeen)').
+prismToSRS('A4_2',455,'A4(eleven, eighteen)').
+prismToSRS('A4_2',456,'A4(eleven, nineteen)').
+prismToSRS('A4_2',457,'A4(eleven, twenty)').
+prismToSRS('A4_2',458,'A4(eleven, thirty)').
+prismToSRS('A4_2',459,'A4(eleven, forty)').
+prismToSRS('A4_2',460,'A4(eleven, fifty)').
+prismToSRS('A4_2',461,'A4(eleven, sixty)').
+prismToSRS('A4_2',462,'A4(eleven, seventy)').
+prismToSRS('A4_2',463,'A4(eleven, eighty)').
+prismToSRS('A4_2',464,'A4(eleven, ninety)').
+prismToSRS('A4_2',465,'A4(eleven, before)').
+prismToSRS('A4_2',466,'A4(eleven, after)').
+prismToSRS('A4_2',467,'A4(eleven, comes)').
+prismToSRS('A4_2',468,'A4(twelve, twelve)').
+prismToSRS('A4_2',469,'A4(twelve, thirteen)').
+prismToSRS('A4_2',470,'A4(twelve, fourteen)').
+prismToSRS('A4_2',471,'A4(twelve, fifteen)').
+prismToSRS('A4_2',472,'A4(twelve, sixteen)').
+prismToSRS('A4_2',473,'A4(twelve, seventeen)').
+prismToSRS('A4_2',474,'A4(twelve, eighteen)').
+prismToSRS('A4_2',475,'A4(twelve, nineteen)').
+prismToSRS('A4_2',476,'A4(twelve, twenty)').
+prismToSRS('A4_2',477,'A4(twelve, thirty)').
+prismToSRS('A4_2',478,'A4(twelve, forty)').
+prismToSRS('A4_2',479,'A4(twelve, fifty)').
+prismToSRS('A4_2',480,'A4(twelve, sixty)').
+prismToSRS('A4_2',481,'A4(twelve, seventy)').
+prismToSRS('A4_2',482,'A4(twelve, eighty)').
+prismToSRS('A4_2',483,'A4(twelve, ninety)').
+prismToSRS('A4_2',484,'A4(twelve, before)').
+prismToSRS('A4_2',485,'A4(twelve, after)').
+prismToSRS('A4_2',486,'A4(twelve, comes)').
+prismToSRS('A4_2',487,'A4(thirteen, thirteen)').
+prismToSRS('A4_2',488,'A4(thirteen, fourteen)').
+prismToSRS('A4_2',489,'A4(thirteen, fifteen)').
+prismToSRS('A4_2',490,'A4(thirteen, sixteen)').
+prismToSRS('A4_2',491,'A4(thirteen, seventeen)').
+prismToSRS('A4_2',492,'A4(thirteen, eighteen)').
+prismToSRS('A4_2',493,'A4(thirteen, nineteen)').
+prismToSRS('A4_2',494,'A4(thirteen, twenty)').
+prismToSRS('A4_2',495,'A4(thirteen, thirty)').
+prismToSRS('A4_2',496,'A4(thirteen, forty)').
+prismToSRS('A4_2',497,'A4(thirteen, fifty)').
+prismToSRS('A4_2',498,'A4(thirteen, sixty)').
+prismToSRS('A4_2',499,'A4(thirteen, seventy)').
+prismToSRS('A4_2',500,'A4(thirteen, eighty)').
+prismToSRS('A4_2',501,'A4(thirteen, ninety)').
+prismToSRS('A4_2',502,'A4(thirteen, before)').
+prismToSRS('A4_2',503,'A4(thirteen, after)').
+prismToSRS('A4_2',504,'A4(thirteen, comes)').
+prismToSRS('A4_2',505,'A4(fourteen, fourteen)').
+prismToSRS('A4_2',506,'A4(fourteen, fifteen)').
+prismToSRS('A4_2',507,'A4(fourteen, sixteen)').
+prismToSRS('A4_2',508,'A4(fourteen, seventeen)').
+prismToSRS('A4_2',509,'A4(fourteen, eighteen)').
+prismToSRS('A4_2',510,'A4(fourteen, nineteen)').
+prismToSRS('A4_2',511,'A4(fourteen, twenty)').
+prismToSRS('A4_2',512,'A4(fourteen, thirty)').
+prismToSRS('A4_2',513,'A4(fourteen, forty)').
+prismToSRS('A4_2',514,'A4(fourteen, fifty)').
+prismToSRS('A4_2',515,'A4(fourteen, sixty)').
+prismToSRS('A4_2',516,'A4(fourteen, seventy)').
+prismToSRS('A4_2',517,'A4(fourteen, eighty)').
+prismToSRS('A4_2',518,'A4(fourteen, ninety)').
+prismToSRS('A4_2',519,'A4(fourteen, before)').
+prismToSRS('A4_2',520,'A4(fourteen, after)').
+prismToSRS('A4_2',521,'A4(fourteen, comes)').
+prismToSRS('A4_2',522,'A4(fifteen, fifteen)').
+prismToSRS('A4_2',523,'A4(fifteen, sixteen)').
+prismToSRS('A4_2',524,'A4(fifteen, seventeen)').
+prismToSRS('A4_2',525,'A4(fifteen, eighteen)').
+prismToSRS('A4_2',526,'A4(fifteen, nineteen)').
+prismToSRS('A4_2',527,'A4(fifteen, twenty)').
+prismToSRS('A4_2',528,'A4(fifteen, thirty)').
+prismToSRS('A4_2',529,'A4(fifteen, forty)').
+prismToSRS('A4_2',530,'A4(fifteen, fifty)').
+prismToSRS('A4_2',531,'A4(fifteen, sixty)').
+prismToSRS('A4_2',532,'A4(fifteen, seventy)').
+prismToSRS('A4_2',533,'A4(fifteen, eighty)').
+prismToSRS('A4_2',534,'A4(fifteen, ninety)').
+prismToSRS('A4_2',535,'A4(fifteen, before)').
+prismToSRS('A4_2',536,'A4(fifteen, after)').
+prismToSRS('A4_2',537,'A4(fifteen, comes)').
+prismToSRS('A4_2',538,'A4(sixteen, sixteen)').
+prismToSRS('A4_2',539,'A4(sixteen, seventeen)').
+prismToSRS('A4_2',540,'A4(sixteen, eighteen)').
+prismToSRS('A4_2',541,'A4(sixteen, nineteen)').
+prismToSRS('A4_2',542,'A4(sixteen, twenty)').
+prismToSRS('A4_2',543,'A4(sixteen, thirty)').
+prismToSRS('A4_2',544,'A4(sixteen, forty)').
+prismToSRS('A4_2',545,'A4(sixteen, fifty)').
+prismToSRS('A4_2',546,'A4(sixteen, sixty)').
+prismToSRS('A4_2',547,'A4(sixteen, seventy)').
+prismToSRS('A4_2',548,'A4(sixteen, eighty)').
+prismToSRS('A4_2',549,'A4(sixteen, ninety)').
+prismToSRS('A4_2',550,'A4(sixteen, before)').
+prismToSRS('A4_2',551,'A4(sixteen, after)').
+prismToSRS('A4_2',552,'A4(sixteen, comes)').
+prismToSRS('A4_2',553,'A4(seventeen, seventeen)').
+prismToSRS('A4_2',554,'A4(seventeen, eighteen)').
+prismToSRS('A4_2',555,'A4(seventeen, nineteen)').
+prismToSRS('A4_2',556,'A4(seventeen, twenty)').
+prismToSRS('A4_2',557,'A4(seventeen, thirty)').
+prismToSRS('A4_2',558,'A4(seventeen, forty)').
+prismToSRS('A4_2',559,'A4(seventeen, fifty)').
+prismToSRS('A4_2',560,'A4(seventeen, sixty)').
+prismToSRS('A4_2',561,'A4(seventeen, seventy)').
+prismToSRS('A4_2',562,'A4(seventeen, eighty)').
+prismToSRS('A4_2',563,'A4(seventeen, ninety)').
+prismToSRS('A4_2',564,'A4(seventeen, before)').
+prismToSRS('A4_2',565,'A4(seventeen, after)').
+prismToSRS('A4_2',566,'A4(seventeen, comes)').
+prismToSRS('A4_2',567,'A4(eighteen, eighteen)').
+prismToSRS('A4_2',568,'A4(eighteen, nineteen)').
+prismToSRS('A4_2',569,'A4(eighteen, twenty)').
+prismToSRS('A4_2',570,'A4(eighteen, thirty)').
+prismToSRS('A4_2',571,'A4(eighteen, forty)').
+prismToSRS('A4_2',572,'A4(eighteen, fifty)').
+prismToSRS('A4_2',573,'A4(eighteen, sixty)').
+prismToSRS('A4_2',574,'A4(eighteen, seventy)').
+prismToSRS('A4_2',575,'A4(eighteen, eighty)').
+prismToSRS('A4_2',576,'A4(eighteen, ninety)').
+prismToSRS('A4_2',577,'A4(eighteen, before)').
+prismToSRS('A4_2',578,'A4(eighteen, after)').
+prismToSRS('A4_2',579,'A4(eighteen, comes)').
+prismToSRS('A4_2',580,'A4(nineteen, nineteen)').
+prismToSRS('A4_2',581,'A4(nineteen, twenty)').
+prismToSRS('A4_2',582,'A4(nineteen, thirty)').
+prismToSRS('A4_2',583,'A4(nineteen, forty)').
+prismToSRS('A4_2',584,'A4(nineteen, fifty)').
+prismToSRS('A4_2',585,'A4(nineteen, sixty)').
+prismToSRS('A4_2',586,'A4(nineteen, seventy)').
+prismToSRS('A4_2',587,'A4(nineteen, eighty)').
+prismToSRS('A4_2',588,'A4(nineteen, ninety)').
+prismToSRS('A4_2',589,'A4(nineteen, before)').
+prismToSRS('A4_2',590,'A4(nineteen, after)').
+prismToSRS('A4_2',591,'A4(nineteen, comes)').
+prismToSRS('A4_2',592,'A4(twenty, twenty)').
+prismToSRS('A4_2',593,'A4(twenty, thirty)').
+prismToSRS('A4_2',594,'A4(twenty, forty)').
+prismToSRS('A4_2',595,'A4(twenty, fifty)').
+prismToSRS('A4_2',596,'A4(twenty, sixty)').
+prismToSRS('A4_2',597,'A4(twenty, seventy)').
+prismToSRS('A4_2',598,'A4(twenty, eighty)').
+prismToSRS('A4_2',599,'A4(twenty, ninety)').
+prismToSRS('A4_2',600,'A4(twenty, before)').
+prismToSRS('A4_2',601,'A4(twenty, after)').
+prismToSRS('A4_2',602,'A4(twenty, comes)').
+prismToSRS('A4_2',603,'A4(thirty, thirty)').
+prismToSRS('A4_2',604,'A4(thirty, forty)').
+prismToSRS('A4_2',605,'A4(thirty, fifty)').
+prismToSRS('A4_2',606,'A4(thirty, sixty)').
+prismToSRS('A4_2',607,'A4(thirty, seventy)').
+prismToSRS('A4_2',608,'A4(thirty, eighty)').
+prismToSRS('A4_2',609,'A4(thirty, ninety)').
+prismToSRS('A4_2',610,'A4(thirty, before)').
+prismToSRS('A4_2',611,'A4(thirty, after)').
+prismToSRS('A4_2',612,'A4(thirty, comes)').
+prismToSRS('A4_2',613,'A4(forty, forty)').
+prismToSRS('A4_2',614,'A4(forty, fifty)').
+prismToSRS('A4_2',615,'A4(forty, sixty)').
+prismToSRS('A4_2',616,'A4(forty, seventy)').
+prismToSRS('A4_2',617,'A4(forty, eighty)').
+prismToSRS('A4_2',618,'A4(forty, ninety)').
+prismToSRS('A4_2',619,'A4(forty, before)').
+prismToSRS('A4_2',620,'A4(forty, after)').
+prismToSRS('A4_2',621,'A4(forty, comes)').
+prismToSRS('A4_2',622,'A4(fifty, fifty)').
+prismToSRS('A4_2',623,'A4(fifty, sixty)').
+prismToSRS('A4_2',624,'A4(fifty, seventy)').
+prismToSRS('A4_2',625,'A4(fifty, eighty)').
+prismToSRS('A4_2',626,'A4(fifty, ninety)').
+prismToSRS('A4_2',627,'A4(fifty, before)').
+prismToSRS('A4_2',628,'A4(fifty, after)').
+prismToSRS('A4_2',629,'A4(fifty, comes)').
+prismToSRS('A4_2',630,'A4(sixty, sixty)').
+prismToSRS('A4_2',631,'A4(sixty, seventy)').
+prismToSRS('A4_2',632,'A4(sixty, eighty)').
+prismToSRS('A4_2',633,'A4(sixty, ninety)').
+prismToSRS('A4_2',634,'A4(sixty, before)').
+prismToSRS('A4_2',635,'A4(sixty, after)').
+prismToSRS('A4_2',636,'A4(sixty, comes)').
+prismToSRS('A4_2',637,'A4(seventy, seventy)').
+prismToSRS('A4_2',638,'A4(seventy, eighty)').
+prismToSRS('A4_2',639,'A4(seventy, ninety)').
+prismToSRS('A4_2',640,'A4(seventy, before)').
+prismToSRS('A4_2',641,'A4(seventy, after)').
+prismToSRS('A4_2',642,'A4(seventy, comes)').
+prismToSRS('A4_2',643,'A4(eighty, eighty)').
+prismToSRS('A4_2',644,'A4(eighty, ninety)').
+prismToSRS('A4_2',645,'A4(eighty, before)').
+prismToSRS('A4_2',646,'A4(eighty, after)').
+prismToSRS('A4_2',647,'A4(eighty, comes)').
+prismToSRS('A4_2',648,'A4(ninety, ninety)').
+prismToSRS('A4_2',649,'A4(ninety, before)').
+prismToSRS('A4_2',650,'A4(ninety, after)').
+prismToSRS('A4_2',651,'A4(ninety, comes)').
+prismToSRS('A4_2',652,'A4(before, before)').
+prismToSRS('A4_2',653,'A4(before, after)').
+prismToSRS('A4_2',654,'A4(before, comes)').
+prismToSRS('A4_2',655,'A4(after, after)').
+prismToSRS('A4_2',656,'A4(after, comes)').
+prismToSRS('A4_2',657,'A4(comes, comes)').
+prismToSRS('A4_2',658,'A4(one, null)').
+prismToSRS('A4_2',659,'A4(two, null)').
+prismToSRS('A4_2',660,'A4(three, null)').
+prismToSRS('A4_2',661,'A4(four, null)').
+prismToSRS('A4_2',662,'A4(five, null)').
+prismToSRS('A4_2',663,'A4(six, null)').
+prismToSRS('A4_2',664,'A4(seven, null)').
+prismToSRS('A4_2',665,'A4(eight, null)').
+prismToSRS('A4_2',666,'A4(nine, null)').
+prismToSRS('A4_2',667,'A4(ten, null)').
+prismToSRS('A4_2',668,'A4(eleven, null)').
+prismToSRS('A4_2',669,'A4(twelve, null)').
+prismToSRS('A4_2',670,'A4(thirteen, null)').
+prismToSRS('A4_2',671,'A4(fourteen, null)').
+prismToSRS('A4_2',672,'A4(fifteen, null)').
+prismToSRS('A4_2',673,'A4(sixteen, null)').
+prismToSRS('A4_2',674,'A4(seventeen, null)').
+prismToSRS('A4_2',675,'A4(eighteen, null)').
+prismToSRS('A4_2',676,'A4(nineteen, null)').
+prismToSRS('A4_2',677,'A4(twenty, null)').
+prismToSRS('A4_2',678,'A4(thirty, null)').
+prismToSRS('A4_2',679,'A4(forty, null)').
+prismToSRS('A4_2',680,'A4(fifty, null)').
+prismToSRS('A4_2',681,'A4(sixty, null)').
+prismToSRS('A4_2',682,'A4(seventy, null)').
+prismToSRS('A4_2',683,'A4(eighty, null)').
+prismToSRS('A4_2',684,'A4(ninety, null)').
+prismToSRS('A4_2',685,'A4(before, null)').
+prismToSRS('A4_2',686,'A4(after, null)').
+prismToSRS('A4_2',687,'A4(comes, null)').
+prismToSRS('A4_2',688,'A4(null, one)').
+prismToSRS('A4_2',689,'A4(null, two)').
+prismToSRS('A4_2',690,'A4(null, three)').
+prismToSRS('A4_2',691,'A4(null, four)').
+prismToSRS('A4_2',692,'A4(null, five)').
+prismToSRS('A4_2',693,'A4(null, six)').
+prismToSRS('A4_2',694,'A4(null, seven)').
+prismToSRS('A4_2',695,'A4(null, eight)').
+prismToSRS('A4_2',696,'A4(null, nine)').
+prismToSRS('A4_2',697,'A4(null, ten)').
+prismToSRS('A4_2',698,'A4(null, eleven)').
+prismToSRS('A4_2',699,'A4(null, twelve)').
+prismToSRS('A4_2',700,'A4(null, thirteen)').
+prismToSRS('A4_2',701,'A4(null, fourteen)').
+prismToSRS('A4_2',702,'A4(null, fifteen)').
+prismToSRS('A4_2',703,'A4(null, sixteen)').
+prismToSRS('A4_2',704,'A4(null, seventeen)').
+prismToSRS('A4_2',705,'A4(null, eighteen)').
+prismToSRS('A4_2',706,'A4(null, nineteen)').
+prismToSRS('A4_2',707,'A4(null, twenty)').
+prismToSRS('A4_2',708,'A4(null, thirty)').
+prismToSRS('A4_2',709,'A4(null, forty)').
+prismToSRS('A4_2',710,'A4(null, fifty)').
+prismToSRS('A4_2',711,'A4(null, sixty)').
+prismToSRS('A4_2',712,'A4(null, seventy)').
+prismToSRS('A4_2',713,'A4(null, eighty)').
+prismToSRS('A4_2',714,'A4(null, ninety)').
+prismToSRS('A4_2',715,'A4(null, before)').
+prismToSRS('A4_2',716,'A4(null, after)').
+prismToSRS('A4_2',717,'A4(null, comes)').
+prismToSRS('S_1',1,'S(X Y) <-- A1(X, Y)').
+
+:- include(vis).
+:- include(main).

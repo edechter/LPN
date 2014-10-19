@@ -19,7 +19,7 @@ do
     done
 done
 
-CMD="parallel -n 3 --noswap --resume-failed --joblog ./parallel_log --delay 2 upprism srs {} $SaveDir &> logs/overnight/saturday_log_{1}_{2}_{3}.log ::: ${args[*]}"
+CMD="parallel -n 3 --noswap --resume-failed --joblog ./parallel_log --delay 10 upprism srs {} $SaveDir &> logs/overnight/saturday_log_{1}_{2}_{3}.log ::: ${args[*]}"
 echo $CMD
 `$CMD`
 

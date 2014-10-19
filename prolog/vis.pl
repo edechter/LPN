@@ -51,9 +51,19 @@ formatSRSTree([LHS,RULE,RHS],SEP) :-
 
 %% %% Print The Grammar %% %%
 
+%% findall([AS,B,C,DS],(get_sw_a(A,_,B,C), D is sum(C), length(B,BL), listOfN(A,BL,AS), listOfN(D,BL,DS), XS2).
+
 %% srs Grammar: give grammar as [predicate,value,count] triplets
 srsQuadGrammar(OS) :-
-    findall([AS,B,C,DS],(get_sw_a(A,_,B,C,_), D is sum(C), length(B,BL), listOfN(A,BL,AS), listOfN(D,BL,DS)),XS2),
+    write('hello'),
+    findall([AS,B,C,DS],(get_sw_a(A,_,B,C), 
+                         D is sum(C), 
+                         length(B,BL), 
+                         listOfN(A,BL,AS), 
+                         listOfN(D,BL,DS)),
+            XS2),
+    write('hello'), 
+    write(XS2), nl, 
     maplist(quadZip,XS2,XS3),
     concat(XS3,OS).
 

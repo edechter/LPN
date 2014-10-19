@@ -148,6 +148,8 @@ nextSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextExamples]
 prevDecadeSentences = [[["before"] ++ b ++ ["comes"] ++ a] | [a,b] <- nextDecades]
 nextDecadeSentences = [[["after"] ++ a ++ ["comes"] ++  b] | [a,b] <- nextDecades]
 beforeDecadeSentences = [[["before"] ++ b ++ ["comes"] ++  a] | [a,b] <- nextDecades]
+invertedNextSentences = [[b ++ ["comes"] ++  ["after"] ++ a] | [a,b] <- nextExamples]
+invertedBeforeSentences = [[a ++ ["comes"] ++  ["before"] ++ b] | [a,b] <- nextExamples]
 
 -- predicate networks
 (first19NextSentences, restNextSentences) = splitAt 19 nextSentences

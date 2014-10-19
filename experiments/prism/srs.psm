@@ -205,13 +205,27 @@ testResults(runInfo(
           switchVBInfo(SwitchVBInfo), 
           switches_post_pruning(SwitchesPruned)), Results).
 
+switches_post_pruning(runInfo(
+          numExamples(NEx), 
+          numPreds(NPred), 
+          sysFileName(SysFileName),
+          savePath(FileName), 
+          trainSet(Gs), 
+          testResults(Results), 
+          prism_flags(PrismFlags),
+          learn_statistics(LearnStatistics), 
+          switchVBInfo(SwitchVBInfo), 
+          switches_post_pruning(SwitchesPruned)), SwitchesPruned).
+
 %%%%%%%%%%%%%%%
 %% Analyze Run Accuracies
-extractData(File, NEx, NPred, A) :- 
+extractData(File, NEx, NPred, Acc, Sw_Post_Pruning) :- 
     load_clauses(File, [C|_], []), 
     testResults(C, results(_, accuracy(A))), 
     numPreds(C, NPred),
-    numExamples(C, NEx).
+    numExamples(C, NEx), 
+    switches_post_pruning(C, Sw_Post_Pruning).
+    
 
 printData:- 
     directory_files('.', L), 
@@ -224,10 +238,13 @@ printData:-
                      format("~10d , ~10d , ~5f~1n", [NEx, NPred, Acc]))
                 ; true)).
 
-                %% 
-                %% 
-    
-    
-    
-    
+%%%%%%%%%%%%%%
+loadGrammarFromRunFile(File) :- 
+    extractData(File, NEx, NPred, Acc, Sws), 
+    foreach(switch(Sw, _, Vs, Ps, As) in Sws, 
+            (write(Sw), nl, 
+             change_values(Sw, Vs), 
+             write(Vs), nl,
+             set_sw_a(Sw, As))).
+
     
