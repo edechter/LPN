@@ -303,26 +303,38 @@ exampleCount( 99 , 8 ).
 % case 1
 test(20). % 20-21
 test(50). % 50-51
+test(70). % 71-72
 
 % case 2
 test(128). % 31-30
 test(158). % 61-60
+test(178). % 81-80
 
 % case 3
 test(75). % 75-76 
 test(54). % 54-55
+test(38). % 38-39
 
 % case 4
 test(159). % 62-62 
 test(135). % 38-37
+test(173). % 76-75
 
 % case 5
 test(29). % 29-30 
 test(89). % 89-90
+test(59). % 59-60
 
 % case 6
 test(40). % 40-39
 test(80). % 80-79
+test(157). % 60-59
+
+% levels of training data numbers
+trainingLevel(20). 
+trainingLevel(60). 
+trainingLevel(100). 
+trainingLevel(140).
 
 %% %% after test examples
 %% test( 45 ).

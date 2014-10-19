@@ -10,25 +10,79 @@ testSet(Set) :- findall(X,
                         (example(N, X), 
                          test(N)), Set).
 
-trainSet(Total, Set) :- 
-    TBefore is floor(Total/2), 
-    TAfter is ceiling(Total/2), 
-    heavyTail(0.5, 0.75, TBefore, BeforeCounts),
-    heavyTail(0.5, 0.75, TAfter, AfterCounts), 
-    findall(count(X, N), 
-            (example(C, X), 
-             \+ test(C), 
-             numOccur(C, AfterCounts, N), 
-             N>0
-            ), AfterSet), 
-    findall(count(X, N), 
-            (example(C, X), 
-             \+ test(C), 
-             C1 is C-98,
-             numOccur(C1, BeforeCounts, N),
-             N>0
-            ), BeforeSet), 
-    append(AfterSet, BeforeSet, Set).
+%% trainSet(Total, Set) :- 
+%%     TBefore is floor(Total/2), 
+%%     TAfter is ceiling(Total/2), 
+%%     heavyTail(0.5, 0.75, TBefore, BeforeCounts),
+%%     heavyTail(0.5, 0.75, TAfter, AfterCounts), 
+%%     findall(count(X, N), 
+%%             (example(C, X), 
+%%              \+ test(C), 
+%%              numOccur(C, AfterCounts, N), 
+%%              N>0
+%%             ), AfterSet), 
+%%     findall(count(X, N), 
+%%             (example(C, X), 
+%%              \+ test(C), 
+%%              C1 is C-98,
+%%              numOccur(C1, BeforeCounts, N),
+%%              N>0
+%%             ), BeforeSet), 
+%%     append(AfterSet, BeforeSet, Set).
+
+
+% get all test examples
+allTest(Exs) :- 
+    findall(example(C, X), 
+            (test(C), example(C, X)), Exs).
+
+allTrain(Exs) :- 
+    findall(example(C, X), 
+            ( example(C, X), 
+              \+ test(C)), Exs).
+
+allTrainGT20(Exs) :-
+    findall(example(C, X), 
+            ( example(C, X), 
+              \+ C in 1..19, 
+              \+ C in 99..117,
+              \+ test(C)), Exs).
+
+allTrainLT20(Exs) :- 
+    findall(example(C, X), 
+            ( example(C, X), 
+              (C in 1..19; 
+              C in 99..117),
+              \+ test(C)), Exs).
+
+
+allLevels(Levels) :- 
+    findall(L, trainingLevel(L), Levels).
+
+% create N random training sets each of which has one collection at each level
+nTrainSets(N, Sets) :- 
+    Sets @= [trainSet(I, S) : I in 1..N, [S], trainSet(S)].
+
+mkNTrainSets(N, FileName) :- 
+    nTrainSets(N, Sets), 
+    save_clauses(FileName, [Sets]).
+    
+trainSet(Sets) :- 
+    allLevels(Levels), allTrainGT20(Exs), 
+    allTrainLT20(AlwaysIn), 
+    trainSet(AlwaysIn, Exs, Levels, Sets).
+    
+
+% train sets using the levels
+trainSet(AlwaysInExs, AllExs, Levels, Sets) :-
+    random_shuffle(AllExs, ShuffledExs), 
+    %% write(Levels), nl,
+    Sets@=[level_examples(Level, Ys):Level in Levels, [Xs, Ys],(
+               take(Level, ShuffledExs, Xs),
+               append(AlwaysInExs, Xs, Ys))
+          ]. 
+           
+    
 
 
 numOccur(X, [], 0) :- !.
@@ -79,7 +133,8 @@ count(V, [V|Vs], N) :- !, count(V, Vs, N1), N is N1+1.
 count(V, [_|Vs], N) :- count(V, Vs, N).
 
 
-
+take(0, _, []) :- !. 
+take(N, [X|Xs], [X|Ys]) :- N1 is N-1, take(N1, Xs, Ys).
     
              
              

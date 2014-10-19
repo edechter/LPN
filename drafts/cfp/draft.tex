@@ -5,7 +5,6 @@
 \usepackage{listings}
 \usepackage{anyfontsize}
 \usepackage{subcaption}
-%\usepackage{subfigure}
 \usepackage{graphicx}
 \title{Latent Predicate Networks: Concept Learning with Probabilistic Context-Sensitive Grammars}
 \author{Eyal Dechter \& Josh Rule \& Josh Tenenbaum}
@@ -14,51 +13,74 @@
 \maketitle
 
 \section{Abstract}
-A popular approach in statistical machine learning is to automatically
-find the latent \emph{features} of the data that are most relevant or
-informative. But a latent feature based view of concept learning does
-not match up naturally with the structured symbolic knowledge that
-seems to underlie people's understanding of many domains. How can we
-combine the flexibility, noise tolerance, and computational
-practicality of latent feature based statistical machine learning with
-the symbolic knowledge representations that best capture human
-understanding? Here present a learning model we dub Latent Concept
-Grammars (LCGs) as a proposal. An LCG is a densely connected set of
-probabilistic string rewrite rules over an initially uninterpreted set
-of predicates. When fit to data using a hierarchical Bayesian prior,
-these predicates assume the roles of informative latent concepts. This
-approach allows us to learn knowledge that is stochastic and
-recursively structured while maintaining computational
-tractability. We show how learning in LCGs can be implemented using
-the probabilistic logic programming system PRISM, and we present
-preliminary experiments.
+To what extent can the meaning of language be learned from linguistic
+data alone?  The sentences that people say contain a great deal of
+information about the meaning of linguistic concepts. Most approaches
+to semantics assume an explicit knowledge representation formalism
+that ties utterances to propositions about things in the world. The
+study of linguistic syntax, however, has largely assumed that the
+meaning of syntactic structures is encoded directly into the grammar
+of a language. For machine learning, extending the grammatical
+embedding of meaning to at least some of the linguistic concepts is
+attractive because it reduces the problem of automated language
+learning to the problem of learning a distribution over naturally
+occuring utterances. To what extent is this a feasible approach? Here,
+we present a first attempt at the automated induction of probabilistic
+context sensitive grammars which we call Latent Predicate Networks
+(LPNs), motivated by the idea that the predicates and rules that are
+learned correspond to the concepts expressed by utterances. We show
+that for a small fragment of sentences expressing relationships
+between English number words, we can use hierarchical Bayesian
+inference to learn LPNs that can answer simple queries about
+previously unseen linguistic concepts within this domain. These
+generalizations, we argue, demonstrate LPNs' promise as a tool for
+learning and representing conceptual knowledge in language.
 
-How do people learn systems of related concepts from
-data?  Consider, for example, a school-age child's knowledge of
-number. This knowledge supports a large number of related operations:
-the child knows which words denote numbers, how to use those words to
-label cardinalities of sets, how to translate between digit
-representations and word representations of number, how to compare
-cardinalities, etc. The child knows how to perform these operations
-over an unbounded set of elements, even though the data that underlies
-this knowledge is small and noisy. Here we propose that such systems
-of related concepts can be learned via hierarchical probabilistic
-inference over probabilistic string rewrite systems (PSRS) -- a mildly
-context-sensitive class of probabilistic string gramamrs that
-corresponds to a restricted fragment of stochastic logic programs
-(SLPs). Specifically, we extend the variational
-expectation-maximization algorithm for Hierarchical Dirichlet PCFGs to
-accomodate PSRSs. This algorithm we present enables a tractible
-compromise between highly restrictive context-free knowledge
-representations and the intractability of performing similar inference
-procedures over general logic programs. Empirically, we show how such
-restricted string rewrite systems can capture non-trivial conceptual
-knowledge and how our algorithm is able to learn such knowledge from
-data.
+% A popular approach in statistical machine learning is to automatically
+% find the latent \emph{features} of the data that are most relevant or
+% informative. But a latent feature based view of concept learning does
+% not match up naturally with the structured symbolic knowledge that
+% seems to underlie people's understanding of many domains. How can we
+% combine the flexibility, noise tolerance, and computational
+% practicality of latent feature based statistical machine learning with
+% the symbolic knowledge representations that best capture human
+% understanding? Here present a learning model we dub Latent Concept
+% Grammars (LCGs) as a proposal. An LCG is a densely connected set of
+% probabilistic string rewrite rules over an initially uninterpreted set
+% of predicates. When fit to data using a hierarchical Bayesian prior,
+% these predicates assume the roles of informative latent concepts. This
+% approach allows us to learn knowledge that is stochastic and
+% recursively structured while maintaining computational
+% tractability. We show how learning in LCGs can be implemented using
+% the probabilistic logic programming system PRISM, and we present
+% preliminary experiments.
 
-\section{Abstract 2}
-What does it mean to understand a concept, and how do people come to
-such an understanding.
+% How do people learn systems of related concepts from
+% data?  Consider, for example, a school-age child's knowledge of
+% number. This knowledge supports a large number of related operations:
+% the child knows which words denote numbers, how to use those words to
+% label cardinalities of sets, how to translate between digit
+% representations and word representations of number, how to compare
+% cardinalities, etc. The child knows how to perform these operations
+% over an unbounded set of elements, even though the data that underlies
+% this knowledge is small and noisy. Here we propose that such systems
+% of related concepts can be learned via hierarchical probabilistic
+% inference over probabilistic string rewrite systems (PSRS) -- a mildly
+% context-sensitive class of probabilistic string gramamrs that
+% corresponds to a restricted fragment of stochastic logic programs
+% (SLPs). Specifically, we extend the variational
+% expectation-maximization algorithm for Hierarchical Dirichlet PCFGs to
+% accomodate PSRSs. This algorithm we present enables a tractible
+% compromise between highly restrictive context-free knowledge
+% representations and the intractability of performing similar inference
+% procedures over general logic programs. Empirically, we show how such
+% restricted string rewrite systems can capture non-trivial conceptual
+% knowledge and how our algorithm is able to learn such knowledge from
+% data.
+
+% \section{Abstract 2}
+% What does it mean to understand a concept, and how do people come to
+% such an understanding.
 
 \section{Introduction}
 The vast majority of the models of concept acquisition that have been
