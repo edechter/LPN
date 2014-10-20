@@ -364,3 +364,19 @@ trainingLevel(140).
 %% test(189).
 %% test(182).
 %% test(127).
+
+
+decadeExample(srs('S_1'-[[after,twenty,comes,thirty]])).
+decadeExample(srs('S_1'-[[after,thirty,comes,forty]])).
+decadeExample(srs('S_1'-[[after,forty,comes,fifty]])).
+decadeExample(srs('S_1'-[[after,fifty,comes,sixty]])).
+decadeExample(srs('S_1'-[[after,sixty,comes,seventy]])).
+decadeExample(srs('S_1'-[[after,seventy,comes,eighty]])).
+decadeExample(srs('S_1'-[[after,eighty,comes,ninety]])).
+decadeExample(srs('S_1'-[[before,thirty,comes,twenty]])).
+decadeExample(srs('S_1'-[[before,forty,comes,thirty]])).
+decadeExample(srs('S_1'-[[before,fifty,comes,forty]])).
+decadeExample(srs('S_1'-[[before,sixty,comes,fifty]])).
+decadeExample(srs('S_1'-[[before,seventy,comes,sixty]])).
+decadeExample(srs('S_1'-[[before,eighty,comes,seventy]])).
+decadeExample(srs('S_1'-[[before,ninety,comes,eighty]])).
