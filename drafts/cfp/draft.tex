@@ -1,5 +1,6 @@
 \documentclass[11pt, twocolumn]{article}
 
+
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{listings}
@@ -7,31 +8,22 @@
 \usepackage{subcaption}
 \usepackage{graphicx}
 \title{Latent Predicate Networks: Concept Learning with Probabilistic Context-Sensitive Grammars}
-\author{Eyal Dechter \& Josh Rule \& Josh Tenenbaum}
+\author{Eyal Dechter,  Josh Rule, Josh Tenenbaum}
 
 \begin{document}
 \maketitle
 
 \section{Abstract}
-To what extent can the meaning of language be learned from linguistic
-data alone?  The sentences that people say contain a great deal of
-information about the meaning of linguistic concepts. Most approaches
-to semantics assume an explicit knowledge representation formalism
-that ties utterances to propositions about things in the world. The
-study of linguistic syntax, however, has largely assumed that the
-meaning of syntactic structures is encoded directly into the grammar
-of a language. For machine learning, extending the grammatical
-embedding of meaning to at least some of the linguistic concepts is
-attractive because it reduces the problem of automated language
-learning to the problem of learning a distribution over naturally
-occuring utterances. To what extent is this a feasible approach? Here,
-we present a first attempt at the automated induction of probabilistic
-context sensitive grammars which we call Latent Predicate Networks
-(LPNs), motivated by the idea that the predicates and rules that are
-learned correspond to the concepts expressed by utterances. We show
-that for a small fragment of sentences expressing relationships
-between English number words, we can use hierarchical Bayesian
-inference to learn LPNs that can answer simple queries about
+How can machines learn about a system of concepts from sentences about
+those concepts? One approach is to estimate the distribution from
+which those sentences are drawn, and, in doing so, infer the latent
+concepts and relationships that best explain the data. We present
+early work on a learning framework called Latent Predicate Networks
+(LPNs) which attempts to learn concepts by inferring the parameters of
+probabilistic context-sensitive grammars that best describe sentences.
+We show that for a small fragment of sentences expressing
+relationships between English number words, we can use hierarchical
+Bayesian inference to learn LPNs that can answer simple queries about
 previously unseen linguistic concepts within this domain. These
 generalizations, we argue, demonstrate LPNs' promise as a tool for
 learning and representing conceptual knowledge in language.
@@ -54,7 +46,7 @@ learning and representing conceptual knowledge in language.
 % tractability. We show how learning in LCGs can be implemented using
 % the probabilistic logic programming system PRISM, and we present
 % preliminary experiments.
-
+}
 % How do people learn systems of related concepts from
 % data?  Consider, for example, a school-age child's knowledge of
 % number. This knowledge supports a large number of related operations:
@@ -83,39 +75,131 @@ learning and representing conceptual knowledge in language.
 % such an understanding.
 
 \section{Introduction}
-The vast majority of the models of concept acquisition that have been
-proposed in the artificial intelligence, machine learning and
-cognitive science literatures cannot represent the conceptual systems
-that even young children learn. Take, for example, the school-age
-child's knowledge of number. This child knows that there is no largest
-number; that ``one million forty three'' and ``8439''denote numbers
-but that ``one million forty billion'' and ``a82bd'' do not; that no
-two cardinalities refer to the same quantity but that some number
-words refer to the same cardinalities (e.g. ``two thousand'' and
-``twenty-one hundred''). Moreover, the child knows how to guage the
-approximate number of elements in a collection and how to count this
-number exactly. In short, the child's knowledge of number consists of
-a complex system of concepts over an unbounded set of entities
-(i.e. the numbers). 
 
-Children are not born with this kind of knowledge, and, since number
-is a relatively recent cultural invention, nor is it likely that
-children possess innate domain specific background knowledge that
-makes it easier to acquire. Children only ever see a tiny fraction of
-all the numbers they can reason about and this evidence is biased,
-noisy, and can be unreliable. 
+As Claude Shannon demonstrated with his guessing game experiment in
+1950~\cite{Shannon1950}, an adult English speaker's understanding of
+her language and her world allows her to reveal that the entropy of a
+character in English text is only a little more than one
+bit. Plausibly, any machine learning system that were able to predict
+natural language text with such accuracy will have learned much about
+the concepts expressed in that text. This intuition motivates us to
+invert Shannon's experiment and attempt to learn about linguistic
+concepts by learning a probabilistic generative model for natural
+language.
 
-A fundamental challenge for cognitive science -- and for any field
-interested in understanding human-like concept acquisition -- is to
-provide a theory of how such complex systems of concepts can be
-learned from sparse and noisy data.
+Probabilistic Context Free Grammars (PCFGs) are popular and much
+studied generative models for natural language
+syntax~\cite{Someone}. And though there ongoing debate about their
+ability to express the syntax of natural language, there is no doubt
+that they cannot express dependencies between words that depend upon
+their meaning. Consider an example from the domain of sentences
+addressed in this paper: ``after twenty eight comes twenty nine.''
+The second ``twenty'' depends on the first, and the ``nine'' depends
+on the ``eight,'' and this dependency pattern is a clear example of a
+\emph{cross-serial dependency}, a dependency pattern that context-free
+grammars do not support.
 
-People are able to learn about complex systems of related
-concepts from small amounts of noisy data. A compelling approach to
-understanding such learning is to frame it as Bayesian inference over
-probabilistic knowledge bases. Advances in context free grammar
-induction in the past couple of decades can be seen as an instance of
-this approach, in which
+Our approach, then, will be to explore the use of probabilistic
+context \emph{sensitive} grammars for modeling natural language,
+extending the tools of hierarchical grammar induction~\ref{Cite} from
+context-free grammars to ones that can express not only syntactic
+relationships but semantic ones as well. In the place of latent
+syntactic categories, we will refer to latent predicates -- relations
+between sentence components -- that, when learned, should correspond
+to the concepts that underlie sentence semantics.
+
+To explore this approach, we introduce a probabilisitic model called a
+Latent Predicate Network (LPN), and describe an inference procedure to
+learn its parameters using the probabilistic logic programming
+language PRISM. Finally, we study its performance when trained on
+sentences describing the relationships between numbers.
+
+\section{Latent Predicate Networks}
+
+An LPN is a hierarchical Bayesian model of strings. It is an
+extension of the Hierarhical Dirichlet PCFG model (HD-PCFG) to
+Probabilistic Range Concatenation Grammars (PRCGs). 
+
+Range Concatenation Grammars (RCGs) are a class of string grammars
+that represent all and only those languages that can be parsed in time
+polynomial in the length of the target
+string~\cite{boullier2005range}. An RCG $G=(N, T, V, P, S)$ is a
+5-tuple where $N$ is a finite set of predicate symbols, $T$ is a set
+of terminal symbols, $V$ is a set of variable symbols, P is a finite
+set of $M \geq 0$ clauses of the form $\psi_0 \rightarrow \psi_1 \dots
+\psi_M$, and $S \in N$ is the \emph{axiom}. Each $\psi_m$ is a term of
+the form $A(\alpha_1, \dots, \alpha_{\mathcal{A}(A)}$, where $A \in
+N$, $\mathcal{A}(A)$ is the arity of $A$, and each $\alpha_i \in (T
+\cup V)^*$ is an argument of $\psi_m$. We call the left hand side term
+of any clause the \emph{head} of that clause and its predicate symbol
+is the \emph{head predicate}.
+
+\textbf{Example:} The following is an RCG for the 3-copy language
+$\{www | w \in {a, b}^*\}$:
+\begin{alignat*}{3}
+&S(XYZ) &&\rightarrow A(X, Y, Z)\\
+&A(aX, aY, aZ) &&\rightarrow A(X, Y, Z)\\
+&A(bX, bY, bZ) &&\rightarrow A(X, Y, Z)\\
+&A(\epsilon, \epsilon, \epsilon) &&\rightarrow 
+\end{alignat*}
+
+
+A string $x$ is in the language defined by an RCG if one can
+\emph{derive} $S(x)$. A derivation is a sequence of rewrite steps in
+which substrings of the left hand side argument string are bound to
+the variables of the head of some clause, thus determining the
+arguments in the clause body. If a clause has no body terms, then its
+head is derived; otherwise, its head is derived if its body clauses
+are derived~\footnote{This description of the language of an RCG
+  technically only holds for \emph{non-combinatory} RCGs, in which the
+  arguments of body terms can only contain single variables. Since any
+  \emph{combinatory} RCG can be converted into a non-combinatory RCG
+  and we only consider non-combinatory RCGs here, this description
+  suffices.}
+
+We extend RCGs to Probabilistic Range Concatenation Grammars (PRCGs)
+by annotating each clause $C_k \in P$ with probabilities $p_k$ such
+that for all predicates ${A \in N$ $\sum_{k:head(C_k)=A} p_k = 1}$. A
+PRCGs defines a distribution over strings $x$ by sampling from
+derivations of $S(x)$ according to the product of probabilities of
+clauses used in that derivation. This is a well defined distribution
+as long as no probability mass is placed on derivations of infinite
+length; in this paper, we only consider PRCGs with derivations of
+finite length, so we need not worry about this requirement.
+
+% The vast majority of the models of concept acquisition that have been
+% proposed in the artificial intelligence, machine learning and
+% cognitive science literatures cannot represent the conceptual systems
+% that even young children learn. Take, for example, the school-age
+% child's knowledge of number. This child knows that there is no largest
+% number; that ``one million forty three'' and ``8439''denote numbers
+% but that ``one million forty billion'' and ``a82bd'' do not; that no
+% two cardinalities refer to the same quantity but that some number
+% words refer to the same cardinalities (e.g. ``two thousand'' and
+% ``twenty-one hundred''). Moreover, the child knows how to guage the
+% approximate number of elements in a collection and how to count this
+% number exactly. In short, the child's knowledge of number consists of
+% a complex system of concepts over an unbounded set of entities
+% (i.e. the numbers). 
+
+% Children are not born with this kind of knowledge, and, since number
+% is a relatively recent cultural invention, nor is it likely that
+% children possess innate domain specific background knowledge that
+% makes it easier to acquire. Children only ever see a tiny fraction of
+% all the numbers they can reason about and this evidence is biased,
+% noisy, and can be unreliable. 
+
+% A fundamental challenge for cognitive science -- and for any field
+% interested in understanding human-like concept acquisition -- is to
+% provide a theory of how such complex systems of concepts can be
+% learned from sparse and noisy data.
+
+% People are able to learn about complex systems of related
+% concepts from small amounts of noisy data. A compelling approach to
+% understanding such learning is to frame it as Bayesian inference over
+% probabilistic knowledge bases. Advances in context free grammar
+% induction in the past couple of decades can be seen as an instance of
+% this approach, in which
 
 Our goal is to understand how children can obtain semantic knowledge
 about a system of concepts from the structure of relavent perceptual
@@ -160,9 +244,26 @@ Contribution:
 \end{itemize}
 
 \subsection{Related Work}
-Our core inference algorithm borrows heavily from recent algorithms for nonparametric PCFG induction, as well as work extending those algorithms to SLPs~\cite{DBLP:conf/emnlp/LiangPJK07,goldwater2006contextual,johnson2006adaptor,cussens2001parameter}. Like Johnson and Liang, we are interested in inferring the most likely grammar given some collection of sentences, and in doing so without a pre-specified limit on the complexity of the grammar. Like Cussens, we are interested in efficiently extending this algorithm to more powerful and expressive formalisms than CFGs.
+Johnson and Liang, we are interested in inferring the most likely
+grammar given some collection of sentences, and in doing so without a
+pre-specified limit on the complexity of the grammar. Like Cussens, we
+are interested in efficiently extending this algorithm to more
+powerful and expressive formalisms than CFGs.
 
-This work is also closely related to the growing field of semantic parsing. Both are aimed at jointly learning syntactic and semantic information from a body of sentences. Semantic parsers, however, learn separate systems of syntax and semantics, often pairing Combinatory Categorial Grammars of syntax with an explicit logical language of semantics, often the untyped lambda calculus~\cite{berant2013semantic,liang2013learning,kwiatkowski2010inducing}. By contrast, our approach uses a single formalism, the latent predicate network, to describe both which sentences are syntactically valid and what sorts of semantic information those sentence imply. Semantic parsers also typically learn models of semantics by pairing sentences with an explicit logical form or real-world denotation. In our model it is the grammar induction itself which reveals candidate relations between words that are key to capturing their meaning.
+This work is also closely related to the growing field of semantic
+parsing. Both are aimed at jointly learning syntactic and semantic
+information from a body of sentences. Semantic parsers, however, learn
+separate systems of syntax and semantics, often pairing Combinatory
+Categorial Grammars of syntax with an explicit logical language of
+semantics, often the untyped lambda
+calculus~\cite{berant2013semantic,liang2013learning,kwiatkowski2010inducing}. By
+contrast, our approach uses a single formalism, the latent predicate
+network, to describe both which sentences are syntactically valid and
+what sorts of semantic information those sentence imply. Semantic
+parsers also typically learn models of semantics by pairing sentences
+with an explicit logical form or real-world denotation. In our model
+it is the grammar induction itself which reveals candidate relations
+between words that are key to capturing their meaning.
 
 More generally, we see this model as helping to strike a balance between expressivity and tractability, bridge the gap between more traditional PCFG grammar induction and program induction over more powerful languages~\cite{dechter2013bootstrap,} (CITATION other P.I. papers).
 
@@ -179,59 +280,6 @@ More generally, we see this model as helping to strike a balance between express
 		\caption{A possible parse of the sentence ``after twenty five comes twenty six" using a 5-predicate LPN.}
 \end{figure}
 
-
-An LCG is a hierarchical Bayesian model of string tuples. It is an
-extension of the Hierarhical Dirichlet PCFG model (HD-PCFG) to
-Probabilistic Range Concatenation Grammars (PRCGs). Whereas the
-HD-PCFG is a distribution over strings, an LCG is a distribution over
-string tuples belonging to one of a set of observable
-relations. 
-
-Range Concatenation Grammars (RCGs) are a class of string grammars
-that represent all and only those languages that can be parsed in time
-polynomial in the length of the target
-string~\cite{boullier2005range}. An RCG $G=(N, T, V, P, S)$ is a
-5-tuple where $N$ is a finite set of predicate symbols, $T$ is a set
-of terminal symbols, $V$ is a set of variable symbols, P is a finite
-set of $M \geq 0$ clauses of the form $\psi_0 \rightarrow \psi_1 \dots
-\psi_M$, and $S \in N$ is the \emph{axiom}. Each $\psi_m$ is a term of
-the form $A(\alpha_1, \dots, \alpha_{\mathcal{A}(A)}$, where $A \in
-N$, $\mathcal{A}(A)$ is the arity of $A$, and each $\alpha_i \in (T
-\cup V)^*$ is an argument of $\psi_m$. We call the left hand side term
-of any clause the \emph{head} of that clause and its predicate symbol
-is the \emph{head predicate}.
-
-\textbf{Example:} The following is an RCG for the 3-copy language
-$\{www | w \in {a, b}^*\}$:
-\begin{alignat*}{3}
-&S(XYZ) &&\rightarrow A(X, Y, Z)\\
-&A(aX, aY, aZ) &&\rightarrow A(X, Y, Z)\\
-&A(bX, bY, bZ) &&\rightarrow A(X, Y, Z)\\
-&A(\epsilon, \epsilon, \epsilon) &&\rightarrow 
-\end{alignat*}
-
-A string $x$ is in the language defined by an RCG if one can
-\emph{derive} $S(x)$. A derivation is a sequence of rewrite steps in
-which substrings of the left hand side argument string are bound to
-the variables of the head of some clause, thus determining the
-arguments in the clause body. If a clause has no body terms, then its
-head is derived; otherwise, its head is derived if its body clauses
-are derived~\footnote{This description of the language of an RCG
-  technically only holds for \emph{non-combinatory} RCGs, in which the
-  arguments of body terms can only contain single variables. Since any
-  \emph{combinatory} RCG can be converted into a non-combinatory RCG
-  and we only consider non-combinatory RCGs here, this description
-  suffices.}
-
-We extend RCGs to Probabilistic Range Concatenation Grammars (PRCGs)
-by annotating each clause $C_k \in P$ with probabilities $p_k$ such
-that for all predicates $A \in N$ $\sum_{k:head(C_k)=A} p_k = 1$. A
-PRCGs defines a distribution over strings $x$ by sampling from
-derivations of $S(x)$ according to the product of probabilities of
-clauses used in that derivation. This is a well defined distribution
-as long as no probability mass is placed on derivations of infinite
-length; in this paper, we only consider PRCGs with derivations of
-finite length, so we need not worry about this requirement.
 
 Now we can describe the model we introduce here, the Latent Concept
 Grammar (LCG). We introduce the LCG as a machine learning model to
@@ -282,12 +330,15 @@ predicates and rules.
 
 \section{Inference}
 Inference in hierarchical Dirichlet processes in stochastic grammars
-and stochastic logic programs have been well studied. Variational
-Expectation-Maximization (VB-EM) is a popular approach, and this is
-the algorithm we adopt here. The algorithm is described extensively
-elsewhere (CITATION). As we will show in the following section, our
-latent stochastic grammar model can be encoded as a stochastic logic
-program, so that any VB-EM algorithm for that domain will suffice. 
+and stochastic logic programs has been an active area of research in
+recent
+decades~\cite{DBLP:conf/emnlp/LiangPJK07,goldwater2006contextual,johnson2006adaptor,cussens2001parameter}.
+Variational inference is a popular approach in this domain and it is
+the approach we adopt here. As we explain in the next section, we
+implemented inference by translating LPNs into PRISM programs, and we
+use the builtin Variational Bayes Expectation-Maximization
+algorithm~\cite{sato2008variational}.
+
 
 \section{Implementation}
 
@@ -456,5 +507,10 @@ Question & $N_p=4$ \\ \hline
 %  3b) Results
 %4) Conclusion
 %5) Citations
+
+\bibliographystyle{amsplain}
+\bibliography{draft}
+
+\nocite{*}
 
 \end{document}
