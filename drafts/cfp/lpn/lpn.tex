@@ -14,13 +14,13 @@
 		\tikzstyle{vertex}=[circle,draw,minimum size=19pt,
 							inner sep=1pt, outer sep=1pt]
     	
-		 \clip (0.6,-0.4) rectangle (9.75,3.4);
+		 \clip (0.6,-0.4) rectangle (10.6,3.4);
 		
     	% S
         \node[vertex] (S) at (1,3) {$S$};
     
     	% As
-    	\foreach \name/\x in {A_1/1, A_2/2, A_n/3.5}
+    	\foreach \name/\x in {A_1/1, A_2/2, A_K/3.5}
        		\node[vertex] (\name) at (\x,2) {$\name$};
     	\node (Adots) at (2.75 ,2) {\ldots};
     	
@@ -33,18 +33,18 @@
         \draw [<-] (S) -- (A_1);
         
         \foreach \wname in {w_1, w_2, w_m}
-            \foreach \aname in {A_1, A_2, A_n}
+            \foreach \aname in {A_1, A_2, A_K}
                 \draw [->] (\wname) -- (\aname);
                 
         \draw [->] (A_1) to [out=345,in=195] (A_2);
-        \draw [->] (A_1) to [out=30,in=150] (A_n);
+        \draw [->] (A_1) to [out=30,in=150] (A_K);
         \draw [->] (A_2) to [out=165,in=15] (A_1);
-        \draw [->] (A_2) to [out=15,in=165] (A_n);
-        \draw [->] (A_n) to [out=140,in=40] (A_1);
-        \draw [->] (A_n) to [out=195,in=345](A_2);
+        \draw [->] (A_2) to [out=15,in=165] (A_K);
+        \draw [->] (A_K) to [out=140,in=40] (A_1);
+        \draw [->] (A_K) to [out=195,in=345](A_2);
         
         
-        \node [anchor=north west] (desc) at (4,3) {$\forall i,j,k \in [1,n];\; \forall w_i, w_j \in L$\\$S(XY) \leftarrow A_1(X,Y).$\\$A_i(XY,UV) \leftarrow A_j(X,Y), A_k(U,V).$\\$A_i(XY,UV) \leftarrow A_j(X,U), A_k(Y,V).$\\$A_i(XY,UV) \leftarrow A_j(X,U), A_k(V,Y).$\\$A_i(X,Y) \leftarrow A_i(Y,X).$\\$A_i(w_i,w_j).$};
+        \node [anchor=north west] (desc) at (4,3.25) {$\forall i,j,k \in [1,K];\; \forall a,b \in [1,m]$\\$S(XY) \leftarrow A_1(X,Y).$\\$A_i(XY,UV) \leftarrow A_j(X,Y), A_k(U,V).$\\$A_i(XY,UV) \leftarrow A_j(X,U), A_k(Y,V).$\\$A_i(XY,UV) \leftarrow A_j(X,U), A_k(V,Y).$\\$A_i(X,Y) \leftarrow A_i(Y,X).$\\$A_i(w_a,w_b).$\\$m = |T|,K = |N\!\setminus\!S|,\mathcal{A}(A_i) = 2,\mathcal{A}(S) = 1$};
         
 	\end{tikzpicture}
 \end{document}

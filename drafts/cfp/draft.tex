@@ -1,6 +1,5 @@
 \documentclass[11pt, twocolumn]{article}
 
-
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{listings}
@@ -18,95 +17,51 @@
 \vspace{-10cm}
 \maketitle
 
-\section{Abstract}
-How can machines learn about a system of concepts from sentences about
-those concepts? One approach is to estimate the distribution from
-which those sentences are drawn, and, in doing so, infer the latent
-concepts and relationships that best explain the data. We present
-early work on a learning framework called Latent Predicate Networks
-(LPNs) which attempts to learn concepts by inferring the parameters of
-probabilistic context-sensitive grammars that best describe sentences.
-We show that for a small fragment of sentences expressing
-relationships between English number words, we can use hierarchical
-Bayesian inference to learn LPNs that can answer simple queries about
-previously unseen linguistic concepts within this domain. These
-generalizations, we argue, demonstrate LPNs' promise as a tool for
-learning and representing conceptual knowledge in language.
-
-% A popular approach in statistical machine learning is to automatically
-% find the latent \emph{features} of the data that are most relevant or
-% informative. But a latent feature based view of concept learning does
-% not match up naturally with the structured symbolic knowledge that
-% seems to underlie people's understanding of many domains. How can we
-% combine the flexibility, noise tolerance, and computational
-% practicality of latent feature based statistical machine learning with
-% the symbolic knowledge representations that best capture human
-% understanding? Here present a learning model we dub Latent Concept
-% Grammars (LCGs) as a proposal. An LCG is a densely connected set of
-% probabilistic string rewrite rules over an initially uninterpreted set
-% of predicates. When fit to data using a hierarchical Bayesian prior,
-% these predicates assume the roles of informative latent concepts. This
-% approach allows us to learn knowledge that is stochastic and
-% recursively structured while maintaining computational
-% tractability. We show how learning in LCGs can be implemented using
-% the probabilistic logic programming system PRISM, and we present
-% preliminary experiments.
-}
-% How do people learn systems of related concepts from
-% data?  Consider, for example, a school-age child's knowledge of
-% number. This knowledge supports a large number of related operations:
-% the child knows which words denote numbers, how to use those words to
-% label cardinalities of sets, how to translate between digit
-% representations and word representations of number, how to compare
-% cardinalities, etc. The child knows how to perform these operations
-% over an unbounded set of elements, even though the data that underlies
-% this knowledge is small and noisy. Here we propose that such systems
-% of related concepts can be learned via hierarchical probabilistic
-% inference over probabilistic string rewrite systems (PSRS) -- a mildly
-% context-sensitive class of probabilistic string gramamrs that
-% corresponds to a restricted fragment of stochastic logic programs
-% (SLPs). Specifically, we extend the variational
-% expectation-maximization algorithm for Hierarchical Dirichlet PCFGs to
-% accomodate PSRSs. This algorithm we present enables a tractible
-% compromise between highly restrictive context-free knowledge
-% representations and the intractability of performing similar inference
-% procedures over general logic programs. Empirically, we show how such
-% restricted string rewrite systems can capture non-trivial conceptual
-% knowledge and how our algorithm is able to learn such knowledge from
-% data.
-
-% \section{Abstract 2}
-% What does it mean to understand a concept, and how do people come to
-% such an understanding.
+{\small For humans, learning abstract concepts and learning language
+  go hand in hand: we acquire abstract knowledge primarily through
+  linguistic experience, and acquiring abstract concepts is a crucial
+  step in learning the meanings of linguistic expressions. How,
+  though, can machines learn systems of concepts from sentences about
+  those concepts? One approach is to estimate the distribution from
+  which those sentences are drawn, and, in doing so, infer the latent
+  concepts and relationships that best explain the data. We present
+  early work on a learning framework called Latent Predicate Networks
+  (LPNs) which learns concepts by inferring the parameters of
+  probabilistic context-sensitive grammars over sentences.  We show
+  that for a small fragment of sentences expressing relationships
+  between English number words, we can use hierarchical Bayesian
+  inference to learn LPNs that can answer simple queries about
+  previously unseen linguistic concepts within this domain. These
+  generalizations demonstrate LPNs' promise as a tool for learning and
+  representing conceptual knowledge in language.}
 
 \section{Introduction}
 
 As Claude Shannon demonstrated with his guessing game experiment in
 1950~\cite{Shannon1950}, an adult English speaker's understanding of
-her language and her world allows her to reveal that the entropy of a
-character in English text is only a little more than one
-bit. Plausibly, any machine learning system that were able to predict
-natural language text with such accuracy will have learned much about
-the concepts expressed in that text. This intuition motivates us to
-invert Shannon's experiment and attempt to learn about linguistic
-concepts by learning a probabilistic generative model for natural
-language.
+her language and her world is such that the entropy of a character in
+English text is slightly more than one bit. Plausibly, any machine
+learning system able to predict natural language text with such
+accuracy will have learned much about the concepts expressed in that
+text. This intuition motivates us to invert Shannon's experiment and
+learn linguistic concepts by learning a probabilistic generative model
+for natural language.
 
 Probabilistic Context Free Grammars (PCFGs) are popular and much
 studied generative models for natural language
-syntax~\cite{Someone}. And though there ongoing debate about their
-ability to express the syntax of natural language, there is no doubt
-that they cannot express dependencies between words that depend upon
+syntax~\cite{Someone}. While debate continues about their ability to
+express the syntax of natural language, it is agreed that they cannot
+express dependencies between words that depend upon each other for
 their meaning. Consider an example from the domain of sentences
 addressed in this paper: ``after twenty eight comes twenty nine.''
-The second ``twenty'' depends on the first, and the ``nine'' depends
-on the ``eight,'' and this dependency pattern is a clear example of a
-\emph{cross-serial dependency}, a dependency pattern that context-free
-grammars do not support.
+The second ``twenty'' depends on the first ``twenty'' and the
+``eight'', and the ``nine'' depends on the ``eight''. This pattern is
+a clear example of the sort of \emph{cross-serial dependencies} which
+context-free grammars cannot support.
 
 Our approach, then, will be to explore the use of probabilistic
 context \emph{sensitive} grammars for modeling natural language,
-extending the tools of hierarchical grammar induction~\ref{Cite} from
+extending the tools of hierarchical grammar induction~\cite{SOMEONE} from
 context-free grammars to ones that can express not only syntactic
 relationships but semantic ones as well. In the place of latent
 syntactic categories, we will refer to latent predicates -- relations
@@ -121,9 +76,9 @@ sentences describing the relationships between numbers.
 
 \section{Latent Predicate Networks}
 
-An LPN is a hierarchical Bayesian model of strings. It is an
-extension of the Hierarhical Dirichlet PCFG model (HD-PCFG) to
-Probabilistic Range Concatenation Grammars (PRCGs). 
+An LPN is a hierarchical Bayesian model of strings
+extending the Hierarchical Dirichlet PCFG model (HD-PCFG) to
+Stochastic Range Concatenation Grammars (SRCGs). 
 
 \subsection{Probabilistic Range Concatentation Grammars}
 Range Concatenation Grammars (RCGs) are a class of string grammars
@@ -162,26 +117,31 @@ are derived~\footnote{This description of the language of an RCG
   and we only consider non-combinatory RCGs here, this description
   suffices.}
 
-We extend RCGs to Probabilistic Range Concatenation Grammars (PRCGs)
-by annotating each clause $C_k \in P$ with probabilities $p_k$ such
-that for all predicates ${A \in N, \, \sum_{k:head(C_k)=A} p_k = 1}$. A
-PRCGs defines a distribution over strings $x$ by sampling from
-derivations of $S(x)$ according to the product of probabilities of
-clauses used in that derivation. This is a well defined distribution
-as long as no probability mass is placed on derivations of infinite
-length; in this paper, we only consider PRCGs with derivations of
-finite length, so we need not worry about this requirement.
+We extend RCGs to SRCGs by annotating each clause $C_k \in P$ with
+probabilities $p_k$ such that for all predicates ${A \in N, \,
+  \sum_{k:head(C_k)=A} p_k = 1}$. An SRCG defines a distribution over
+strings $x$ by sampling from derivations of $S(x)$ according to the
+product of probabilities of clauses used in that derivation. This is a
+well defined distribution as long as no probability mass is placed on
+derivations of infinite length; in this paper, we only consider SRCGs
+with derivations of finite length, so we need not worry about this
+requirement.
 
 \subsection{Architecture}
 
-An LPN is an PRCG with $K$ binary predicates $A_1, \dots, A_K$ with a
-densely connected structure. The architecture of the LPNs used in this
-work is described in Figure~\ref{fig:architecture}. Specifically, for
-each latent predicate $A_k$, 
+An LPN is an SRCG with 1 unary predicate $S$, and $K$ densely
+connected binary predicates $A_1, \dots, A_K$ (Figure
+\ref{fig:architecture}).  Specifically, for each latent predicate
+$A_i$, we define rules such that $A_i(w_a,w_b)$ is true for each
+possible pair of terminals, $w_a,w_b \in T$. We also define rules such
+that $A_i(XY,UV)$ is true for each possible pair of predicates,
+$A_j,A_k$, and every possible ordering of the variables $X,Y,U$ and
+$V$ across $A_j$ and $A_k$. Finally, we define $S(XY)$ to be the
+concatenation of two strings generated by $A_1$.
  
 \begin{figure}[t]
 		\includegraphics[width=\linewidth]{lpn/lpn.pdf}
-		\caption{A schematic LPN where $m = |L|,\, n = |N|-1$,\, arity$(A_i) = 2$, and arity$(S) = 1$.}
+		\caption{A schematic LPN.}
 		\label{fig:architecture}
 \end{figure}
 
@@ -275,30 +235,6 @@ each latent predicate $A_k$,
 %   knowledge can be inferred from noisy and sparse data
 % \end{itemize}
 
-\subsection{Related Work}
-Johnson and Liang, we are interested in inferring the most likely
-grammar given some collection of sentences, and in doing so without a
-pre-specified limit on the complexity of the grammar. Like Cussens, we
-are interested in efficiently extending this algorithm to more
-powerful and expressive formalisms than CFGs.
-
-This work is also closely related to the growing field of semantic
-parsing. Both are aimed at jointly learning syntactic and semantic
-information from a body of sentences. Semantic parsers, however, learn
-separate systems of syntax and semantics, often pairing Combinatory
-Categorial Grammars of syntax with an explicit logical language of
-semantics, often the untyped lambda
-calculus~\cite{berant2013semantic,liang2013learning,kwiatkowski2010inducing}. By
-contrast, our approach uses a single formalism, the latent predicate
-network, to describe both which sentences are syntactically valid and
-what sorts of semantic information those sentence imply. Semantic
-parsers also typically learn models of semantics by pairing sentences
-with an explicit logical form or real-world denotation. In our model
-it is the grammar induction itself which reveals candidate relations
-between words that are key to capturing their meaning.
-
-More generally, we see this model as helping to strike a balance between expressivity and tractability, bridge the gap between more traditional PCFG grammar induction and program induction over more powerful languages~\cite{dechter2013bootstrap,} (CITATION other P.I. papers).
-
 % \section{The Model}
 
 % Suppose we are given some positive instances $y_1, \dots,
@@ -342,7 +278,7 @@ More generally, we see this model as helping to strike a balance between express
 
 \section{Inference}
 Inference in hierarchical Dirichlet processes in stochastic grammars
-and stochastic logic programs has been an active area of research in
+and stochastic logic programs (SLPs) has been an active area of research in
 recent
 decades~\cite{DBLP:conf/emnlp/LiangPJK07,goldwater2006contextual,johnson2006adaptor,cussens2001parameter}.
 Variational inference is a popular approach in this domain and it is
@@ -350,7 +286,6 @@ the approach we adopt here. As we explain in the next section, we
 implemented inference by translating LPNs into PRISM programs, and we
 use the builtin Variational Bayes Expectation-Maximization
 algorithm~\cite{sato2008variational}.
-
 
 \section{Implementation}
 
@@ -362,10 +297,10 @@ algorithm~\cite{sato2008variational}.
 \begin{figure}[t]
 	\centering
 	\begin{minipage}[b]{\linewidth}
-A(a, a) :: 0.25. \\
-A(b, b) :: 0.3. \\
-A(X a, Y a) $\leftarrow$ A(X, Y) :: 0.25. \\
-A(X b, Y b) $\leftarrow$ A(X, Y) :: 0.2.
+1) A(a, a) :: 0.25. \\
+2) A(b, b) :: 0.3. \\
+3) A(X a, Y a) $\leftarrow$ A(X, Y) :: 0.25. \\
+4) A(X b, Y b) $\leftarrow$ A(X, Y) :: 0.2.
 		\subcaption{}
 		\label{fig:grammar}
 	\end{minipage}
@@ -391,16 +326,22 @@ lpn(P-IN) :- msw(P,V), reduce(P-IN,V).
 	\label{fig:copy}
 \end{figure}
 
-LPNs can be encoded as a restricted and tractable subclass of Stochastic Logic Programs (SLP). Specifically, we encode LPNs as programs in PRISM PROLOG. PRISM provides probabilistic execution and Bayesian inference over SLPs.
+LPNs can be encoded as a restricted and tractable subclass of
+SLPs. Specifically, we encode LPNs with PRISM PROLOG to obtain
+built-in predicates for probabilistic execution and Bayesian inference
+over SLPs (Figure \ref{fig:copy}).
 
-To illustrate the encoding, consider the 2-copy language (CL2) in Figure \ref{fig:copy}. CL2 is a toy language producing two identical strings of $a$s and $b$s, making it mildly context-sensitive. Here, we see four rules concerning a single symbol, $A$, whose total probability sums to unity.
+First, we define the distribution over each non-terminal symbol, $n
+\in N$, using the {\tt values} predicate. For each $n$ we define the
+values the symbol can take on ({\it i.e.} one for each rule), as well
+as the probability of each value. For each rule in the LPN, we also
+define a corresponding clause of the {\tt reduce} predicate to capture
+the actual relations between the left-hand and right-hand side of each
+rule. Sampling and parsing begins with a call to {\tt lpn(P-IN)},
+which chooses some rule for the left-hand side via {\tt msw(P,V)} and
+recursively reduces the input term using the chosen rule ({\tt
+reduce(P-IN,V)}).
 
-To translate LPNs into PRISM SLPs, we first define the distribution over each symbol. We use the {\tt values} predicate, which takes an atom, in this case the name of the symbol, the values that atom can take on, and the probability of each value. For inference, we initialize the distribution uniformly. For our encoding, each possible value for an atom (or symbol) corresponds to exactly one clause in CL2 where that symbol appears on the left-hand side. There are four clauses for $A$ in CL2, so {\tt values} can take on one of four values, each of whose probabilities corresponds to a rule in CL2.
-
-For each rule in the LPN, we also define a corresponding clause of the {\tt reduce} predicate in our PRISM program. These {\tt reduce} rules are where the actual relations between the left-hand and right-hand side of each rule are encoded. Because PROLOG isn't perfectly declarative, the actual {\tt reduce} clauses are slightly more complex than presented here, reversing the order of the {\tt append} and recursive {\tt lpn} calls based on whether we are sampling or parsing.
-
-To parse or sample a sentence, we call {\tt lpn(P-IN)}, where {\tt P} is the top-level symbol, {\tt IN} is a list of terminal lists, and {\tt -} denotes a pair ({\it e.g.} {\tt lpn('A'-[[a,a,
-b,a],[a,a,b,a]])}). A sample or parse begins by probabilistically choosing some rule for the left-hand side via {\tt msw(P,V)} and then recursively reducing the input term using the chosen rule ({\tt reduce(P-IN,V)}). 
 \section{Experiments}
 
 \begin{figure}
@@ -495,30 +436,26 @@ Question & $N_p=4$ \\ \hline
 \end{alignat*} \\
 \section{Discussion}
 
-%1) Introduction
-%  - psychological motivation 
-%    - juxtaposing the kinds of knowledge that freebase has and the kinds that children learn
-%    - compositional semantic structure --> derive semantics from syntax
-%  - what is the contribution?
-%     - the use of string rewrite formalisms to capture conceptual knowledge and conceptual learning
-%     - to bring tools from computational linguistics to learning semantics
-%  - what kind of concept systems are we trying to capture?
-%  - why restrict the formalism? 
-%     - tractability of inference 
-%  - why go beyond context free grammars? 
-%     - if they are intractable to learn anyway, why try to go beyond them? 
-%  - Related Work
-%2) Model
-%- stochastic linear context free rewrite systems
-%  - model: what is the data? and what is being inferred? what is the prior? 
-%  - this can be written as PRISM program, or an SLP. 
-%  - inference: variational approximation 
-%3) Experiments
-%  a) worked example
-%  b) Number system (main result)
-%  3b) Results
-%4) Conclusion
-%5) Citations
+This work is also closely related to the growing field of semantic
+parsing. Both are aimed at jointly learning syntactic and semantic
+information from a body of sentences. Semantic parsers, however, learn
+separate systems of syntax and semantics, often pairing Combinatory
+Categorial Grammars of syntax with an explicit logical language of
+semantics, often the untyped lambda
+calculus~\cite{berant2013semantic,liang2013learning,kwiatkowski2010inducing}. By
+contrast, our approach uses a single formalism, the latent predicate
+network, to describe both which sentences are syntactically valid and
+what sorts of semantic information those sentence imply. Semantic
+parsers also typically learn models of semantics by pairing sentences
+with an explicit logical form or real-world denotation. In our model
+it is the grammar induction itself which reveals candidate relations
+between words that are key to capturing their meaning.
+
+More generally, we see this model as helping to strike a balance
+between expressivity and tractability, bridge the gap between more
+traditional PCFG grammar induction and program induction over more
+powerful languages~\cite{dechter2013bootstrap,} (CITATION other
+P.I. papers).
 
 \bibliographystyle{amsplain}
 \bibliography{draft}
