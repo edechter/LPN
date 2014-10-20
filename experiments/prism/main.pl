@@ -16,7 +16,7 @@ getTest(F,Gs) :-
     load_clauses(F,ALL,[]),
     findall(X,member(test(X),ALL),Gs).
 
-srs(P-IN) :-
-    msw(P,V),
-    reduce(P-IN,V).
+# srs(P-IN) :-
+#     msw(P,V),
+#     reduce(P-IN,V).
 

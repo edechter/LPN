@@ -55,7 +55,6 @@ allTrainLT20(Exs) :-
               C in 99..117),
               \+ test(C)), Exs).
 
-
 allLevels(Levels) :- 
     findall(L, trainingLevel(L), Levels).
 
@@ -81,6 +80,14 @@ trainSet(AlwaysInExs, AllExs, Levels, Sets) :-
                take(Level, ShuffledExs, Xs),
                append(AlwaysInExs, Xs, Ys))
           ]. 
+
+% all non test before and after + decades
+trainSet_allWithDecades(TrainSet) :- 
+    findall(Y, (allTrain(Xs), member(example(_, Y), Xs)), Ys),
+    % decades
+    findall(X, decadeExample(X), Ds),
+    append(Ys, Ds, TrainSet).
+    
            
     
 

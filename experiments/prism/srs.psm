@@ -16,7 +16,7 @@ set_srs_prism_flags :-
     set_prism_flag(learn_mode,vb),
     set_prism_flag(viterbi_mode,vb),
     set_prism_flag(default_sw_a,uniform),
-    set_prism_flag(log_scale,off).
+    set_prism_flag(log_scale,on).
 
 get_current_prism_flags(PrismFlags) :- findall(F\V, get_prism_flag(F, V), PrismFlags).
 
@@ -33,37 +33,46 @@ sysFileName(nPred(4), 'beforeAndAfter_4.sys.psm').
 sysFileName(nPred(5), 'beforeAndAfter_5.sys.psm').
 
 
+execTrainTest(TrainSet, TestSet, SysFileName, RunInfo, FileName) :- 
+    % load file
+    write('Loading prism file: '), write(SysFileName), write('...'),
+    prism(SysFileName), 
+    write('Done'), nl, 
+    set_srs_prism_flags,
 
-%% execTrainTest(NEx, NPred, RunInfo, FileName) :- 
-%%     % get name of psm file
-%%     sysFileName(nPred(NPred), SysFileName), 
-%%     % load file
-%%     prism(SysFileName), 
-%%     set_srs_prism_flags,
-%%     % get the training set
-%%     trainSet(NEx, Gs),
-%%     % running learning
-%%     learn(Gs), 
-%%     recordExpectedCounts, 
-%%     pruneAll, 
-%%     write('Pruned ineffective rules...Done.'), nl,
-%%     runTest(Results), 
-%%     get_current_prism_flags(PrismFlags), 
-%%     get_current_learn_statistics(LearnStatistics),
-%%     get_switchVBInfo(SwitchVBInfo), 
-%%     get_switches_post_pruning(SwitchesPruned),
-%%     RunInfo=runInfo(
-%%           numExamples(NEx), 
-%%           numPreds(NPred), 
-%%           sysFileName(SysFileName),
-%%           savePath(FileName), 
-%%           trainSet(Gs), 
-%%           testResults(Results), 
-%%           prism_flags(PrismFlags),
-%%           learn_statistics(LearnStatistics), 
-%%           switchVBInfo(SwitchVBInfo), 
-%%           switches_post_pruning(SwitchesPruned)),
-%%     save_clauses(FileName, [RunInfo], []).
+    % get the training set
+    length(TrainSet, NEx),
+
+    write('*********'), nl, 
+    write('Number of training examples: '), write('NEx'), nl,
+    write('Training examples: '), nl, 
+    foreach(T in TrainSet, (write(T), nl)),
+    write('*********'), nl,
+
+    % run learning
+    learn(TrainSet), 
+    recordExpectedCounts, 
+    pruneAll, 
+    write('Pruned ineffective rules...Done.'), nl,
+    runTest(Results), 
+    get_current_prism_flags(PrismFlags), 
+    get_current_learn_statistics(LearnStatistics),
+    get_switchVBInfo(SwitchVBInfo), 
+    get_switches_post_pruning(SwitchesPruned),
+    RunInfo=runInfo(
+          numExamples(NEx), 
+          sysFileName(SysFileName),
+          savePath(FileName), 
+          trainSet(TrainSet), 
+          testResults(Results), 
+          prism_flags(PrismFlags),
+          learn_statistics(LearnStatistics), 
+          switchVBInfo(SwitchVBInfo), 
+          switches_post_pruning(SwitchesPruned)),
+
+    write('Saving results to file: '), write(FileName), write('...'), 
+    save_clauses(FileName, [RunInfo], []), 
+    write('Done.'), nl.
     
 
 execTrainTestLevels(TrainSetId, Level, NPred, RunInfo, FileName) :- 
@@ -112,34 +121,34 @@ srs(P-IN) :- reduce(P-IN,V), msw(P,V).
 
 change_values(Switch, Vs) :-
     atom_concat(Switch, '_values', P),
-    RetractTerm =.. [P, K],
-    AssertTerm =..[P, Vs],
-    retract(RetractTerm), 
-    assert(AssertTerm). 
+    ??* RetractTerm =.. [P, K],
+    ??* AssertTerm =..[P, Vs],
+    ??* retract(RetractTerm), 
+    ??* assert(AssertTerm). 
 
 
 %% prune all values for SwitchIn whose values 'a' values are really small 
 prune(SwitchIn) :- 
     atom(SwitchIn), 
-    switchVBInfo(Sw, Alpha, ExpectedCounts),
-    get_values(Sw, Vals), 
-    zip3(Vals, Alpha, ExpectedCounts, VCs),
-    Filtered @= [V\A: V\A\C in VCs, C > 0.00001],
-    ValuesOut @= [V:V\_ in Filtered],
-    CountsOut @= [A:_\A in Filtered],
-    change_values(SwitchIn, ValuesOut),
-    set_sw_a(SwitchIn, CountsOut).
+    ??* switchVBInfo(SwitchIn, Alpha, ExpectedCounts),
+    ??* get_values(SwitchIn, Vals), 
+    ??* zip3(Vals, Alpha, ExpectedCounts, VCs),
+    ??* Filtered @= [V\A: V\A\C in VCs, C > 0.00001],
+    ??* ValuesOut @= [V:V\_ in Filtered],
+    ??* CountsOut @= [A:_\A in Filtered],
+    ??* change_values(SwitchIn, ValuesOut),
+    ??* set_sw_a(SwitchIn, CountsOut).
 
 pruneAll :- 
     get_reg_sw_list(Switches), 
-    foreach(Sw in Switches, (prune(Sw))).
+    foreach(Sw in Switches, (prune(Sw) -> true; true)).
 
 :- dynamic switchVBInfo/3.
 recordExpectedCounts:- get_reg_sw_list(Switches), 
                        foreach(Sw in Switches, [C, _1,  _2, _3, Alpha], (
-                                        get_sw_pa(Sw, _1, _2, _3, Alpha, C), 
-                                                    retractall(switchVBInfo(Sw, _, _)), 
-                                                    assert(switchVBInfo(Sw, Alpha, C)))).
+                                   get_sw_pa(Sw, _1, _2, _3, Alpha, C) ->
+                                   retractall(switchVBInfo(Sw, _, _)), 
+                                   assert(switchVBInfo(Sw, Alpha, C)); true)) .
                                  
              
 
