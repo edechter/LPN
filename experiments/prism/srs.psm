@@ -1,6 +1,6 @@
 
 :- cl('analyzeNumber.psm').
-
+:- cl('onlineVBEM.pl').
 %% load and compile train and testing examples
 %% :- cl('./trainTestNextAndBeforeWODecades_50').
 :- cl('testTrain.psm').
@@ -87,7 +87,10 @@ execTrainTestLevels(TrainSetId, Level, NPred, RunInfo, FileName) :-
     member(level_examples(Level, Exs), TrainSet), !, 
     Gs @= [X:example(_, X) in Exs],
     % running learning
-    learn(Gs), 
+    BatchSize=10, 
+    NIter=40, 
+    Rho0=0.1, 
+    ovbem(NIter, BatchSize, Gs, Rho0), 
     recordExpectedCounts, 
     pruneAll, 
     write('Pruned ineffective rules...Done.'), nl,
@@ -109,9 +112,49 @@ execTrainTestLevels(TrainSetId, Level, NPred, RunInfo, FileName) :-
           switches_post_pruning(SwitchesPruned)),
     save_clauses(FileName, [RunInfo], []).
 
+
+execFinal(Level, NPred, RunInfo, FileName) :- 
+    % get name of psm file
+    sysFileName(nPred(NPred), SysFileName), 
+    % load file
+    prism(SysFileName), 
+    set_srs_prism_flags,
+    % get the training set
+    allAfter(As), 
+    firstNBefore(Level, Bs), 
+    append(As, Bs, Gs), 
+    ExCounts=1000,
+    TrainSet @= [count(X, ExCounts): X in Gs],
+    length(TrainSet, NEx),
+    % running learning
+    learn(TrainSet), 
+    recordExpectedCounts, 
+    pruneAll, 
+    write('Pruned ineffective rules...Done.'), nl,
+
+    lastHalfBefore(TestSet), 
+    runTest(TestSet, Results), 
+    get_current_prism_flags(PrismFlags), 
+    get_current_learn_statistics(LearnStatistics),
+    get_switchVBInfo(SwitchVBInfo), 
+    get_switches_post_pruning(SwitchesPruned),
+    RunInfo=runInfo(
+          numExamples(NEx), 
+          numPreds(NPred), 
+          sysFileName(SysFileName),
+          savePath(FileName), 
+          trainSet(TrainSet), 
+          testResults(Results), 
+          prism_flags(PrismFlags),
+          learn_statistics(LearnStatistics), 
+          switchVBInfo(SwitchVBInfo), 
+          switches_post_pruning(SwitchesPruned)),
+    save_clauses(FileName, [RunInfo], []).
+    
+
 runAccuracy(Acc) :- findall(X, train(X), _Gs), 
                     makeTestSetQuestions(_Gs, _QandAPairs), 
-                    testAccuracy(_QandAPairs, Predications, Acc).
+                    testAccuracy(_QandAPairs, Predictions, Acc).
 
 show_num(X) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Number_1'-[X])).
 
@@ -121,34 +164,38 @@ srs(P-IN) :- reduce(P-IN,V), msw(P,V).
 
 change_values(Switch, Vs) :-
     atom_concat(Switch, '_values', P),
-    ??* RetractTerm =.. [P, K],
-    ??* AssertTerm =..[P, Vs],
-    ??* retract(RetractTerm), 
-    ??* assert(AssertTerm). 
+    RetractTerm =.. [P, K],
+    AssertTerm =..[P, Vs],
+    retract(RetractTerm), 
+    assert(AssertTerm). 
 
 
 %% prune all values for SwitchIn whose values 'a' values are really small 
 prune(SwitchIn) :- 
     atom(SwitchIn), 
-    ??* switchVBInfo(SwitchIn, Alpha, ExpectedCounts),
-    ??* get_values(SwitchIn, Vals), 
-    ??* zip3(Vals, Alpha, ExpectedCounts, VCs),
-    ??* Filtered @= [V\A: V\A\C in VCs, C > 0.00001],
-    ??* ValuesOut @= [V:V\_ in Filtered],
-    ??* CountsOut @= [A:_\A in Filtered],
-    ??* change_values(SwitchIn, ValuesOut),
-    ??* set_sw_a(SwitchIn, CountsOut).
+    switchVBInfo(Sw, Alpha, ExpectedCounts),
+    write(Sw), write(' '), write(Alpha), nl, 
+    get_values(Sw, Vals), 
+    length(Vals, NVals),
+    zip3(Vals, Alpha, ExpectedCounts, VCs),
+    AThresh is (1/NVals + 0.0001),
+    write('AThresh: '), write(AThresh), nl, 
+    Filtered @= [V\A: V\A\C in VCs, A > AThresh],
+    ValuesOut @= [V:V\_ in Filtered],
+    CountsOut @= [A:_\A in Filtered],
+    change_values(SwitchIn, ValuesOut),
+    set_sw_a(SwitchIn, CountsOut).
 
 pruneAll :- 
     get_reg_sw_list(Switches), 
-    foreach(Sw in Switches, (prune(Sw) -> true; true)).
+    foreach(Sw in Switches, (prune(Sw))).
 
 :- dynamic switchVBInfo/3.
 recordExpectedCounts:- get_reg_sw_list(Switches), 
                        foreach(Sw in Switches, [C, _1,  _2, _3, Alpha], (
-                                   get_sw_pa(Sw, _1, _2, _3, Alpha, C) ->
+                                   get_sw_pa(Sw, _1, _2, _3, Alpha, C), 
                                    retractall(switchVBInfo(Sw, _, _)), 
-                                   assert(switchVBInfo(Sw, Alpha, C)); true)) .
+                                                    assert(switchVBInfo(Sw, Alpha, C)))).
                                  
              
 
@@ -283,7 +330,7 @@ printData:-
             (
                 file_property(F, type(V)),
                 V=regular -> (
-                     extractData(F, NEx, NPred, Acc), 
+                     extractData(F, NEx, NPred, Acc, S), 
                      format("~10d , ~10d , ~5f~1n", [NEx, NPred, Acc]))
                 ; true)).
 
@@ -297,3 +344,5 @@ loadGrammarFromRunFile(File) :-
              set_sw_a(Sw, As))).
 
     
+%%%%%%% 
+dataset(Xs) :- findall(X, example(C, X), Xs).

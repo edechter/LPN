@@ -87,7 +87,25 @@ trainSet_allWithDecades(TrainSet) :-
     % decades
     findall(X, decadeExample(X), Ds),
     append(Ys, Ds, TrainSet).
-    
+
+
+% all before examples
+allAfter(Xs) :- 
+    findall(X, (C in 1..98, 
+                example(C, X)),
+                   Xs).
+
+firstNBefore(N, Ys) :- 
+        findall(X, (C in 99..196, 
+                    example(C, X)),
+                Xs), 
+        take(N, Xs, Ys).
+
+lastHalfBefore(Xs) :- 
+        findall(X, (C in 150..196, 
+                    example(C, X)), 
+                Xs).
+        
            
     
 

@@ -2,9 +2,8 @@ main :-
      get_sw_pa(I, _, _, _, _, Cs).
 
 %% save prediction data in a file
-runTest(Results) :-
-    testSet(Gs),
-    makeTestSetQuestions(Gs, QAs), 
+runTest(TestSet, Results) :-
+    makeTestSetQuestions(TestSet, QAs), 
     write('Testing Accuracy...'), 
     testAccuracy(QAs, Predictions, Acc), 
     write('Done'), nl,
@@ -21,6 +20,7 @@ testAccuracy(QuestionsAndAnswers, Predictions, Accuracy) :-
                      (G == A -> IsCorrect is 1; IsCorrect is 0)
                    )], 
     CorrectList @= [IsCorrect:(_, _, _, IsCorrect) in TestResults],
+    Predictions @= [P:(_, P, _, _) in TestResults],
     sumlist(CorrectList, NumCorrect), 
     length(CorrectList, NQs), 
     Accuracy is NumCorrect/NQs.
