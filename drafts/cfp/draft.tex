@@ -383,9 +383,9 @@ p_{\text{\textsc{prcg}}}(x_j|\{\vec{w}_{A_k}\}) \prod_{A_k} p_{\text{\textsc{dir
 In words, the weights of clauses sharing head predicate $A_k$ are drawn from a Dirichlet distribution defined by $\vec{\alpha}_{A_k}$. Sentences $x_j$ are then drawn from the resultant PRCG.
 
 Bayesian inference over stochastic grammars
-and stochastic logic programs (CITE MUGGLETON) has been an active area of
-research in recent decades~\cite{DBLP:conf/emnlp/LiangPJK07,
-  goldwater2006contextual, johnson2006adaptor, cussens2001parameter}.
+and stochastic logic programs has been an active area of
+research in recent decades~\cite{\cite{DBLP:journals/etai/Muggleton00}, cussens2001parameter, DBLP:conf/emnlp/LiangPJK07,
+  goldwater2006contextual, johnson2006adaptor}.
 Variational inference is a popular approach in this domain and the one
 we adopt here. As explained in the next section, we implemented
 inference by translating LPNs into PRISM programs and using the
@@ -460,10 +460,10 @@ has shorter arguments than the head, giving acyclic derivations.
 
 To evaluate LPNs as a probabilistic model of concept acquisition, we
 trained an LPN with $4$ latent predicates on a set of sentences
-expressing successor and predessor relations in numbers between one
+expressing successor and predecessor relations in numbers between one
 and ninety-nine. The training set was the collection of sentences $$X
 = \{[\text{after}\, | \, \text{before}] \, \langle n \rangle \,
-\text{comes} \, \langle n+1 \rangle \,|\, n \in 1,\dots,99\}.$$ The
+\text{comes} \, \langle n+1 \rangle \,|\, n, n+1 \in 1,\dots,99\}.$$ The
 lexicon was the set of number word corresponding to $1$ through $19$,
 the decades $20, \dots, 30$ and the words ``before'' and ``after.'' It
 is not difficult to manually work out an LPN that describes this
