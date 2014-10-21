@@ -14,7 +14,7 @@
 \setlength{\droptitle}{-4em}   % This is your set screw
 
 \title{Latent Predicate Networks: Concept Learning with Probabilistic Context-Sensitive Grammars}
-\author{Eyal Dechter,  Josh Rule, Josh Tenenbaum}
+\author{Eyal Dechter, Josh Rule, Josh Tenenbaum ADD AFFILIATION}
 \date{}
 
 \begin{document}
@@ -101,8 +101,8 @@ vs. approximate, {\it etc}.).
 
 Finally, inducing probabilistic context-sensitive grammars with latent
 predicates threatens to be intractable: our goal is to find a
-middle ground between expressivity and tractability. Using tools like
-PRISM -- a probabilistic logic programming system that naturally
+middle ground between expressivity and tractability. Using
+PRISM~\cite{DBLP:journals/jair/SatoK01} -- a probabilistic logic programming system that naturally
 implements efficient dynamic programming algorithms for our models --
 we are able to explore which domains and which grammar architectures
 are a good fit for this grammar-based approach.
@@ -218,17 +218,19 @@ derivations of infinite length; in this paper, we only consider PRCGs
 with derivations of finite length, so we need not worry about this
 requirement. See Figure \ref{fig:grammar} for an example of the context-sensitive 2-copy language $\{ww\,|w \in \{a,b\}^+\}$ as a PRCG.
 
-\subsection{Architecture}
+\subsection{Generic Architecture}
 
 An LPN is an PRCG with 1 unary predicate $S$, and $K$ densely
-connected binary predicates ${A_k}_{k=1}^K$ (Figure
+connected binary predicates $\{A_k\}_{k=1}^K$ (Figure
 \ref{fig:architecture}). Specifically, for each latent predicate
 $A_k$, we define rules such that $A_k(w_a,w_b)$ is true for each
-possible pair of terminals, $w_a,w_b \in T$. We also define rules such
-that $A_k(XY,UV)$ is true for each possible pair of predicates,
-$A_i,A_j$, and every possible ordering of the variables $X,Y,U$ and
-$V$ across $A_i$ and $A_j$. Finally, we define $S(XY)$ to be the
-concatenation of the two arguments of $A_1(X,Y)$.
+possible pair of terminals, $w_a,w_b \in T$. $T$ may include the empty
+string, but we do not allow latent predicates of the form
+$A_k(\epsilon, \epsilon)$: see Section~\ref{sec:implementation}. We also define rules such that $A_k(XY,UV)$
+is true for each possible pair of predicates, $A_i,A_j$, and every
+possible ordering of the variables $X,Y,U$ and $V$ across $A_i$ and
+$A_j$. Finally, we define $S(XY)$ to be the concatenation of the two
+arguments of $A_1(X,Y)$.
  
 % Now we can describe the model we introduce here, the Latent Concept
 % Grammar (LCG). We introduce the LCG as a machine learning model to
@@ -382,7 +384,7 @@ inference by translating LPNs into PRISM programs and using the
 built-in Variational Bayes Expectation-Maximization
 algorithm~\cite{sato2008variational}. 
 
-\section{Implementation}
+\section{Implementation \label{sec:implementation}}
 
 \lstset{
     language=Prolog,
