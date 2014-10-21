@@ -448,6 +448,52 @@ reduce(P-IN,V)}).
 
 \section{Experiments}
 
+To evaluate LPNs as a probabilistic model of concept acquisition, we
+trained an LPN with $4$ latent predicates on a set of sentences
+expressing successor and predessor relations in numbers between one
+and ninety-nine. The training set was the collection of sentences $$X
+= \{[\text{after}\, | \, \text{before}] \, \langle n \rangle \,
+\text{comes} \, \langle n+1 \rangle \,|\, n \in 1,\dots,99\}.$$ The
+lexicon was the set of number word corresponding to $1$ through $19$,
+the decades $20, \dots, 30$ and the words ``before'' and ``after.'' It
+is not difficult to manually work out an LPN that describes this
+limited domain of sentences; see Figure~\ref{fig:parseexample}, for a
+possible LPN derivation of an example sentence.
+
+Although it is difficult to know how common these kinds of sentences
+are in child-directed speech, words for small numbers are far more
+common than words for larger ones(cite CHILDES). On the other hand,
+children learning to count to large numbers rehearse the sequence. To
+approximate this distribution of evidence, we drew these sample
+sentences from a sum of a geometric distribution with parameter $0.5$
+and a uniform distribution. These components were weighted $75\%$ and
+$25\%$, respectively. We drew $2000$ examples from this distribution,
+holding out the sentences in Table~\ref{tab:results} for
+evaluation. 
+
+For inference, we used default $\frac{1}{D}$ pseudocounts (where $D$ is the
+dimensionality of the Dirichlet distributions). We found that different random
+initialization for this experiment did not lead to qualitatively different
+results, though further investigation will be necessary to see how
+robust our the algorithm is to local maximuma for LPNs.
+
+We evaluated the learned model by asking for Viterbi (i.e. maximum a
+posteriori) completions of the last words of each held out test
+sentence. Table~\ref{tab:results} shows these completions. The grammar
+correctly learns much of the structure of these sentences, including
+the difference between sentences starting with ``before'' and
+``after'' and the edge cases that relate decade words like ``twenty''
+to non-decade words like ``twenty one.''
+
+To inspect visually the learned grammar, we thresholded rules
+according to the expected number of times they were used in parsing
+the training dataset. Table~\ref{tab:grammar} shows all rules with
+expected count above $1e-6$. This reduces from $2669$ to $52$ the
+number of significant rules. On inspection, predicate $A_2$ forms
+``before'' sentences, predicate $A_4$ forms ``after'' sentences,
+predicate $A_3$ is successorship recursively defined over the decades
+and ones, and predicate $A_2$ is a category for the decade words.
+
 \begin{table}[t]
 \begin{tabular}{>{\footnotesize} l >{\footnotesize} l}
   Question & $K=4$ \\ \hline
@@ -480,35 +526,6 @@ reduce(P-IN,V)}).
 \caption{results of learning with 4 predicates and XXX}
 \label{tab:results}
 \end{table}
-
-See Figures \ref{fig:parseexample} and \ref{fig:results}.
-
-{\it Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a
-  diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac
-  quam viverra nec consectetur ante hendrerit. Donec et mollis
-  dolor. Praesent et diam eget libero egestas mattis sit amet vitae
-  augue. Nam tincidunt congue enim, ut porta lorem lacinia
-  consectetur. Donec ut libero sed arcu vehicula ultricies a non
-  tortor. Lorem ipsum dolor sit amet, consectetur adipiscing
-  elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper
-  sed, adipiscing id dolor. Pellentesque auctor nisi id magna
-  consequat sagittis. Curabitur dapibus enim sit amet elit pharetra
-  tincidunt feugiat nisl imperdiet. Ut convallis libero in urna
-  ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam
-  pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et
-  magnis dis parturient montes, nascetur ridiculus mus. In rutrum
-  accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in
-  est.
-
-  Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut
-  tristique vitae, sagittis vel odio. Maecenas convallis ullamcorper
-  ultricies. Curabitur ornare, ligula semper consectetur sagittis,
-  nisi diam iaculis velit, id fringilla sem nunc vel mi. Nam dictum,
-  odio nec pretium volutpat, arcu ante placerat erat, non tristique
-  elit urna et turpis. Quisque mi metus, ornare sit amet fermentum et,
-  tincidunt et orci. Fusce eget orci a orci congue vestibulum. Ut
-  dolor diam, elementum et vestibulum eu, porttitor vel
-  elit. Curabitur venenatis pulvinar tellus gravida ornare. Sed et.}
 
 
 \begin{figure}[t]
