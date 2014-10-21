@@ -46,42 +46,117 @@
 
 \section{Introduction}
 
-As Claude Shannon demonstrated with his guessing game experiment in
-1950~\cite{shannon1951prediction}, an adult English speaker's understanding of
-language and the world is such that the entropy of a character in
-English text is slightly more than one bit. Plausibly, any machine
-learning system able to predict natural language text with human-like
-accuracy will have learned much about the concepts expressed in that
-text. This intuition motivates us to invert Shannon's experiment and
-learn linguistic concepts by learning a probabilistic generative model
-for natural language.
+Although concept learning and language acquisition have typically been
+treated as distinct problems in AI, linguistics and cognitive
+development, for a child learning to understand language, they are
+strongly coupled. People learn about many abstract concepts primarily
+through language and understanding language depends on understanding
+concepts.  Research in concept learning is often focused on concepts
+grounded in perceptual features, and while it is probably true that
+many concepts are learned via generalization from examples, some
+concepts cannot possibly be learned this way.
 
-Probabilistic Context Free Grammars (PCFGs) are popular and much
-studied generative models for natural language
-syntax~\cite{Someone}. While debate continues about their ability to
-express the syntax of natural language, it is agreed that they cannot
-express dependencies between words that depend upon each other for
-their meaning. Consider an example from the domain of sentences
-addressed in this paper: ``after twenty eight comes twenty nine.''
-The second ``twenty'' depends on the first ``twenty'' and the
-``eight'', and the ``nine'' depends on the ``eight''. This pattern is
-a clear example of the \emph{cross-serial dependencies} which
-context-free grammars cannot support.
+Number concepts are a good example: children do not learn about the
+meaning of ``seventy five'' by seeing examples of seventy five things;
+they do not know that ``seventy five'' is more than ``twenty five''
+because of their perceptual experiences of these quantities. Rather,
+children learn the meaning of ``seventy five'' (or ``a billion and
+five'') by noticing how number words are used in language, in counting
+sequences, in arithmetic excercises, etc. Other good examples of such
+abstract concepts are kinship and social relations (e.g. ``my father
+in law's grandmother''), temporal relations (``the day after last
+Thanksgiving.''), and spatial relations (``above and just to the left
+of'').
 
-Our approach, then, will be to explore the use of probabilistic
-context \emph{sensitive} grammars for modeling natural language,
-extending the tools of hierarchical grammar induction~\cite{johnson2006adaptor, goldwater2006contextual, DBLP:conf/emnlp/LiangPJK07} from
-context-free grammars to ones that can express not only syntactic
-relationships but semantic ones as well. In the place of latent
-syntactic categories, we will refer to latent predicates -- relations
-between sentence components -- that, when learned, should correspond
-to the concepts that underlie sentence semantics.
+Such abstract concepts share many of the properties of language
+syntax: there is an unbounded set of them, they derive their
+meanings via composition, and, although people only ever say, hear, or
+read about a small number of them, they are able to reason correctly
+about any them. There seems to be a grammar to these concepts, and
+grasping this grammar is critical to understanding their meanings and
+how to use them. This motivates our approach here, which is to apply
+the tools of probabilistic grammars more familiar from studies of
+syntax to the problem of concept aquisition.
 
-To explore this approach, we introduce a probabilisitic model called a
-Latent Predicate Network (LPN), and describe an inference procedure to
-learn its parameters using the probabilistic logic programming
-language PRISM. Finally, we study its performance when trained on
-sentences describing the relationships between numbers.
+Doing so requires overcoming some technical barriers. 
+
+First, whereas context-free grammars are suitable for describing large
+swaths of language syntax, the grammars of concepts are not
+context-free. To address this, we use Range Concatentation Grammars, a
+context-sensitive grammar formalism -- one of several developed within
+linguistics -- and extend this formalism to a probabilistic model of
+sentences. 
+
+Second, the categories of syntax -- the nonterminals of the grammar --
+are often assumed to be known to children innately and given to
+automated learners by human experts. The categories that underlie
+conceptual knowledge, on the other hand, are far more numerous, vary
+from domain to domain, and are unlikely to be known to the
+learner. This motivates our use of latent predicates that, through
+learning, assume the role of a domain's underlying concepts (in the
+number domain, these might correspond to the concepts of
+successorship, order of magnitude, magnitude comparison,
+exact vs. approximate, etc.).
+
+Finally, using probabilistic context-sensitive grammars with latent
+predicates brings up problems of tractability: our goal is to find a
+middle ground between expressivity and tractability. Using tools like
+PRISM -- a probabilistic logic programming system that naturally
+implements efficient dynamic programming algorithms for our models --
+we are able to explore which domains and which grammar architectures
+are a good fit for this grammar-based approach.
+
+In the rest of this paper describe early work on this approach. First, we
+present our probabilistic model of concept learning, which we call
+Latent Predicate Networks (LPNs). Then  we describe our approach to
+inference and its implementation in PRISM. Finally, we present
+preliminary experimental results in the domain of number concept
+learning that demonstrate the promise of this approach. 
+
+% people learn about many
+% abstract concepts primarily through language and, conversely, these
+% abstract concepts are critical to understanding language. Consider a
+% child learning the meaning of the number words: the meaning of the
+% ``seventy five'' is learned not by seeing collections of seventy five
+% things but rather by understanding how ``seventy five'' is used in the
+% various sentences, counting sequences, arithmetic excercises, etc.
+
+% As Claude Shannon demonstrated with his
+% guessing game experiment in 1950~\cite{Shannon1950}, an adult English
+% speaker's understanding of her language and her world is such that the
+% entropy of a character in English text is slightly more than one
+% bit. Plausibly, any machine learning system able to predict natural
+% language text with such accuracy will have learned much about the
+% concepts expressed in that text. This intuition motivates us to invert
+% Shannon's experiment and learn linguistic concepts by learning a
+% probabilistic generative model for natural language.
+
+% Probabilistic Context Free Grammars (PCFGs) are popular and much
+% studied generative models for natural language
+% syntax~\cite{Someone}. While debate continues about their ability to
+% express the syntax of natural language, it is agreed that they cannot
+% express dependencies between words that depend upon each other for
+% their meaning. Consider an example from the domain of sentences
+% addressed in this paper: ``after twenty eight comes twenty nine.''
+% The second ``twenty'' depends on the first ``twenty'' and the
+% ``eight'', and the ``nine'' depends on the ``eight''. This pattern is
+% a clear example of the \emph{cross-serial dependencies} which
+% context-free grammars cannot support.
+
+% Our approach, then, will be to explore the use of probabilistic
+% context \emph{sensitive} grammars for modeling natural language,
+% extending the tools of hierarchical grammar induction~\cite{SOMEONE} from
+% context-free grammars to ones that can express not only syntactic
+% relationships but semantic ones as well. In the place of latent
+% syntactic categories, we will refer to latent predicates -- relations
+% between sentence components -- that, when learned, should correspond
+% to the concepts that underlie sentence semantics.
+
+% To explore this approach, we introduce a probabilisitic model called a
+% Latent Predicate Network (LPN), and describe an inference procedure to
+% learn its parameters using the probabilistic logic programming
+% language PRISM. Finally, we study its performance when trained on
+% sentences describing the relationships between numbers.
 
 \section{Latent Predicate Networks}
 

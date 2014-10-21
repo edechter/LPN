@@ -76,7 +76,7 @@ makeSwitch rs =
   let n = weightedRuleName (head rs)
       n_values = init n ++ "_values'"
   -- in "values(" ++ n ++ ", " ++ show [1..(length rs)] ++ ")."
-  in unlines [-- ":- dynamic " ++ n_values ++ "/1.",
+  in unlines [":- dynamic " ++ n_values ++ "/1.",
               "values(" ++ n ++ ", Vs) :- " ++ n_values ++ "(Vs).",
               n_values++"(" ++ show [1..(length rs)] ++ ")."]
 
