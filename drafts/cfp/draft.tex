@@ -225,17 +225,18 @@ requirement. See Figure \ref{fig:grammar} for an example of the context-sensitiv
 
 \subsection{Generic Architecture}
 
-An LPN is an PRCG with 1 unary predicate $S$, and $K$ densely
-connected binary predicates $\{A_k\}_{k=1}^K$ (Figure
-\ref{fig:architecture}). Specifically, for each latent predicate
-$A_k$, we define rules such that $A_k(w_a,w_b)$ is true for each
-possible pair of terminals, $w_a,w_b \in T$. $T$ may include the empty
-string, but we do not allow latent predicates of the form
-$A_k(\epsilon, \epsilon)$: see Section~\ref{sec:implementation}. We also define rules such that $A_k(XY,UV)$
-is true for each possible pair of predicates, $A_i,A_j$, and every
-possible ordering of the variables $X,Y,U$ and $V$ across $A_i$ and
-$A_j$. Finally, we define $S(XY)$ to be the concatenation of the two
-arguments of $A_1(X,Y)$.
+An LPN is an PRCG with the following generic architecture: the
+\emph{axiom} of an LPN is a unary predicate $S$, and it has $K$
+densely connected binary predicates $\{A_k\}_{k=1}^K$ (Figure
+\ref{fig:architecture}). For each latent predicate $A_k$, we define
+rules such that $A_k(w_a,w_b)$ is true for each possible pair of
+terminals, $w_a,w_b \in T$. $T$ may include the empty string $\epsilon$, but we
+do not allow latent predicates of the form $A_k(\epsilon, \epsilon)$:
+see Section~\ref{sec:implementation}. We also define rules such that
+$A_k(XY,UV)$ is true for each possible pair of predicates, $A_i,A_j$,
+and every possible ordering of the variables $X,Y,U$ and $V$ across
+$A_i$ and $A_j$. Finally, we define $S(XY)$ to be the concatenation of
+the two arguments of $A_1(X,Y)$.
  
 % Now we can describe the model we introduce here, the Latent Concept
 % Grammar (LCG). We introduce the LCG as a machine learning model to
@@ -379,8 +380,8 @@ p_{\text{\textsc{prcg}}}(x_j|\{\vec{w}_{A_k}\}) \prod_{A_k} p_{\text{\textsc{dir
 
 In words, the weights of clauses sharing head predicate $A_k$ are drawn from a Dirichlet distribution defined by $\vec{\alpha}_{A_k}$. Sentences $x_j$ are then drawn from the resultant PRCG.
 
-Inference in hierarchical Dirichlet processes in stochastic grammars
-and stochastic logic programs (SLPs) has been an active area of
+Bayesian inference over stochastic grammars
+and stochastic logic programs (CITE MUGGLETON) has been an active area of
 research in recent decades~\cite{DBLP:conf/emnlp/LiangPJK07,
   goldwater2006contextual, johnson2006adaptor, cussens2001parameter}.
 Variational inference is a popular approach in this domain and the one
@@ -420,7 +421,7 @@ reduce(`A'-[A2,B2],3) :- lpn(`A'-[X,Y]),
 reduce(`A'-[A2,B2],4) :- lpn(`A'-[X,Y]),
     append(X,[b],A2), append(Y,[b],B2).
 
-lpn(P-IN) :- msw(P,V), reduce(P-IN,V).
+lpn(P-IN) :- reduce(P-IN,V), msw(P,V).
 		\end{verbatim}
 		\subcaption{}
 		\label{fig:prism}
@@ -429,30 +430,28 @@ lpn(P-IN) :- msw(P,V), reduce(P-IN,V).
 	\label{fig:copy}
 \end{figure}
 
-LPNs can be encoded as a restricted and tractable subclass of
-SLPs. Specifically, we encode LPNs with PRISM to obtain built-in
-predicates for probabilistic execution and Bayesian inference over
-SLPs (Figure \ref{fig:copy}). PRISM is an appropriate choice here,
-because it implements a previously related extension of the
-variational Bayesian Expectation Maximization algorithm for PCFGs to
-SLPs satisfying a number of restrictions
-\cite{cussens2001parameter}. Our LPN encodings satisfy these
-restrictions, in particular the need for a finite explanation graph
-({\it i.e.} set of all possible parse trees) for any
-utterance. Because we disallow $A_i([\,],[\,])$ as a valid clause,
-every term in the body of a clause has shorter arguments than the
-head, giving finite derivations and a finite explanation graph.
+LPNs can be encoded as a restricted subclass of PRISM programs; this
+is very similar to how PCFGs are encoded in
+PRISM~\cite{DBLP:conf/cl/2000}. A general probabilistic logic
+programming system based on PROLOG, PRISM proves built-in predicates
+for probabilistic execution and Bayesian inference over logic programs
+with stochastic choices. There are several
+restrictions placed on PRISM programs to maintain the validity of
+their probabilistic interpretation. Most importantly, derivations of a
+probabilistic predicate cannot contain cycles. Because we disallow
+$A_i(\epsilon,\epsilon)$ as a valid clause, every term in the body of a clause
+has shorter arguments than the head, giving acyclic derivations.
 
-First, we define the distribution over each non-terminal symbol, $n
-\in N$, using the {\tt values} predicate. For each $n$ we define the
-values the symbol can take on ({\it i.e.} one for each rule), as well
-as the probability of each value. For each rule in the LPN, we also
-define a corresponding clause of the {\tt reduce} predicate to capture
-the actual relations between the left-hand and right-hand side of each
-rule. Sampling and parsing begins with a call to {\tt lpn(P-IN)},
-which chooses some rule for the left-hand side via {\tt msw(P,V)} and
-recursively reduces the input term using the chosen rule ({\tt
-reduce(P-IN,V)}).
+% First, we define the distribution over each non-terminal symbol, $n
+% \in N$, using the {\tt values} predicate. For each $n$ we define the
+% values the symbol can take on ({\it i.e.} one for each rule), as well
+% as the probability of each value. For each rule in the LPN, we also
+% define a corresponding clause of the {\tt reduce} predicate to capture
+% the actual relations between the left-hand and right-hand side of each
+% rule. Sampling and parsing begins with a call to {\tt lpn(P-IN)},
+% which chooses some rule for the left-hand side via {\tt msw(P,V)} and
+% recursively reduces the input term using the chosen rule ({\tt
+% reduce(P-IN,V)}).
 
 \section{Experiments}
 
@@ -501,6 +500,12 @@ number of significant rules. On inspection, predicate $A_2$ forms
 ``before'' sentences, predicate $A_4$ forms ``after'' sentences,
 predicate $A_3$ is successorship recursively defined over the decades
 and ones, and predicate $A_2$ is a category for the decade words.
+
+Our LPN does not learn to how to transition between the last word in a decade
+and the next decade (e.g. ``seventy nine'' to ``eighty''). Instead, it
+makes the intuitively reasonable generalization that ``seventy nine''
+should be followed by ``seventy ten.'' It will be interesting to see
+how common such mistakes are in children learning to count.
 
 \begin{table}[t]
 \begin{tabular}{>{\footnotesize} l >{\footnotesize} l}
@@ -601,14 +606,21 @@ $A_4$(nine, thirty) : 0.0010 & \\
 
 \section{Discussion}
 
-LPNs seems particularly well-suited to learning in domains where the
-number of concepts is infinite. In domains like these, the only way to
-understand each concept is to discover structure in the sentences that
-refer to these concepts. While number is a prime example, others
-include spatial relations, kinship and other social relations, and
-temporal relations. Future work should explore how LPNs might explain
-learning in these domains, as well as how more complex number
-relations might be learned.
+Though simple, the knowledge learned by LPNs in the simple number
+domain we explore in this paper goes beyond the expressive capacity of
+PCFGs and HMMs, and yet it avoids intractability by using a restricted
+formalism. The human ability to learn abstract concepts must also rely
+on such a compromise, and it remains to be seen to what extent LPNs
+can model this ability.
+
+This work leaves many open questions. What domains of concepts are
+amenable to being represented and learned by LPNs? Can multiple and
+varied systems of concepts be learned at once? Perhaps most
+importantly, are there generic architectures for LPNs that allow a
+larger number of predicates without an insurmountable blow-up in the
+number of rules? One idea which we are pursuing is using layered
+connectivity, much like neural networks, to limit the number of rules
+in which each predicate participates. 
 
 Many of the algorithms and formalisms used here were originally
 developed for use in other closely related areas, including logic
@@ -616,6 +628,7 @@ programming and semantic parsing. Semantic parsing, in particular,
 seems especially related to the challenge we face here of jointly
 learning meaning and structure from
 sentences~\cite{berant2013semantic, liang2013learning,
+<<<<<<< HEAD
   kwiatkowski2010inducing, poon2009unsupervised}. Semantic parsing,
 however, tends to frame this challenge slightly differently than we do
 here, namely, by asking how utterances can be mapped to an explicit
@@ -623,6 +636,14 @@ internal logical language. By contrast, we focus here on systems where
 meaning and structure seem inseparable. Understanding how these two
 approaches relate and inform one another is an interesting and open
 question.
+=======
+  kwiatkowski2010inducing}. Semantic parsing, however, tends to frame
+this challenge slightly differently than we do here, by asking
+how utterances can be mapped to an explicit internal logical
+language. By contrast, we focus here on systems where meaning and
+structure seem inseparable. Understanding how these two approaches
+relate and inform one another is an interesting and open question.
+>>>>>>> 0b562b7f4ab9c02d8b3fc536097a0f3e21b1a7f2
 
 %% Previous work has shown that generative models of probabilistic
 %% programs are a useful tool for understanding human concept learning
