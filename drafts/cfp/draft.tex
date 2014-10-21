@@ -11,7 +11,7 @@
 \usepackage{array}
 %\usepackage{multicol}
 
-\setlength{\droptitle}{-4em}   % This is your set screw
+\setlength{\droptitle}{-6em}   % This is your set screw
 
 \title{Latent Predicate Networks: Concept Learning with Probabilistic Context-Sensitive Grammars}
 \author{Eyal Dechter, Josh Rule, Josh Tenenbaum ADD AFFILIATION}
@@ -20,7 +20,7 @@
 \begin{document}
 \vspace{-10cm}
 \maketitle
-\vspace{-2em}
+\vspace{-6em}
 
 {\small For humans, learning abstract concepts and learning language
   go hand in hand: we acquire abstract knowledge primarily through
@@ -163,7 +163,7 @@ demonstrate the promise of this approach.
 
 \begin{figure}[t]
 		\includegraphics[width=\linewidth]{lpn/lpn.pdf}
-		\caption{A schematic LPN.}
+		\caption{The architecture and rules of a schematic LPN.}
 		\label{fig:architecture}
 \end{figure}
 
@@ -385,6 +385,7 @@ inference by translating LPNs into PRISM programs and using the
 built-in Variational Bayes Expectation-Maximization
 algorithm~\cite{sato2008variational}. 
 
+\vspace{-1em}
 \section{Implementation \label{sec:implementation}}
 
 \lstset{
@@ -531,7 +532,7 @@ how common such mistakes are in children learning to count.
   before ninety three comes \underline{\hspace{1cm}}? & ninety two \checkmark \\
   before ninety five comes \underline{\hspace{1cm}}? &ninety four \checkmark \\
 \end{tabular}
-\caption{examples of generalization for held out sentences after learning over 4 latent predicates}
+\caption{Viterbi completions of held-out sentences to evaluate an LPN with 4 latent predicates in the number domain.}
 \label{tab:results}
 \end{table}
 
@@ -599,6 +600,7 @@ $A_4$(nine, thirty) : 0.0010 & \\
 \label{tab:grammar}
 \end{table}
 
+\vspace{-1em}
 \section{Discussion}
 
 Though simple, the knowledge learned by LPNs in the simple number
