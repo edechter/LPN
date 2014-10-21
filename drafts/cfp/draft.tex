@@ -9,18 +9,25 @@
 \usepackage{graphicx}
 \usepackage{titling}
 \usepackage{array}
-%\usepackage{multicol}
+\usepackage{authblk}
 
 \setlength{\droptitle}{-6em}   % This is your set screw
 
 \title{Latent Predicate Networks: Concept Learning with Probabilistic Context-Sensitive Grammars}
-\author{Eyal Dechter, Josh Rule, Josh Tenenbaum ADD AFFILIATION}
+\author{Eyal Dechter (edechter)}
+\author{Joshua Rule (rule)}
+\author{Joshua B. Tenenbaum (jbt)}
+\affil{Department of Brain and Cognitive Sciences, MIT (mit.edu)}
+
+\renewcommand\Authands{ and }
 \date{}
 
 \begin{document}
 \vspace{-10cm}
 \maketitle
+
 \vspace{-6em}
+
 
 {\small For humans, learning abstract concepts and learning language
   go hand in hand: we acquire abstract knowledge primarily through
@@ -30,19 +37,19 @@
   seventy-three through linguistic means, and we can only know what
   the sentence ``Seventy-three is more than twice as big as
   thirty-one" means if we can grasp the meanings of its component
-  number words. How do we make sense of this potential paradox? One
-  approach is to estimate the distribution from which sentences are
-  drawn, and, in doing so, infer the latent concepts and relationships
-  that best explain those sentences. We present early work on a
-  learning framework called Latent Predicate Networks (LPNs) which
-  learns concepts by inferring the parameters of probabilistic
+  number words. How do we begin to solve this problem? One approach is
+  to estimate the distribution from which sentences are drawn, and, in
+  doing so, infer the latent concepts and relationships that best
+  explain those sentences. We present early work on a learning
+  framework called Latent Predicate Networks (LPNs) which learns
+  concepts by inferring the parameters of probabilistic
   context-sensitive grammars over sentences.  We show that for a small
   fragment of sentences expressing relationships between English
   number words, we can use hierarchical Bayesian inference to learn
-  LPNs that can answer simple queries about previously unseen abstract
-  concepts within this domain. These generalizations demonstrate LPNs'
-  promise as a tool for learning and representing conceptual knowledge
-  in language.}
+  LPNs that can answer simple queries about previously unseen
+  relationships within this domain. These generalizations demonstrate
+  LPNs' promise as a tool for learning and representing conceptual
+  knowledge in language.}
 
 \section{Introduction}
 
@@ -54,8 +61,8 @@ concepts primarily through language even though understanding language
 depends on understanding the underlying concepts. Research in concept
 learning is often focused on concepts grounded in perceptual features,
 and while it is almost certainly true that many concepts are learned
-via generalization from concrete examples, some concepts cannot
-possibly be learned this way.
+via generalization from concrete examples, some concepts cannot be
+learned this way.
 
 Number concepts are a good example: children do not learn about the
 meaning of ``seventy five'' by seeing examples of seventy five things;
@@ -63,8 +70,8 @@ they do not know that ``seventy five'' is more than ``twenty five''
 because of their perceptual experiences of these quantities. Rather,
 children learn the meaning of ``seventy five'' (or ``a billion and
 five'') by noticing how number words are used in language, in counting
-sequences, in arithmetic excercises, etc. Other good examples of such
-abstract concepts are kinship and social relations (e.g. ``my father
+sequences, in arithmetic excercises, {\it etc}. Other good examples of such
+abstract concepts are kinship and social relations ({\it e.g.} ``my father
 in law's grandmother''), temporal relations (``the day after last
 Thanksgiving.''), and spatial relations (``above and just to the left
 of'').
@@ -201,7 +208,7 @@ which substrings of the left hand side argument string are bound to
 the variables of the head of some clause, thus determining the
 arguments in the clause body. If a clause has no body terms, then its
 head is derived; otherwise, its head is derived if its body clauses
-are derived~\footnote{This description of the language of an RCG
+are derived.\footnote{This description of the language of an RCG
   technically only holds for \emph{non-combinatory} RCGs, in which the
   arguments of body terms can only contain single variables. Since any
   \emph{combinatory} RCG can be converted into a non-combinatory RCG
@@ -465,14 +472,14 @@ possible LPN derivation of an example sentence.
 
 Although it is difficult to know how common these kinds of sentences
 are in child-directed speech, words for small numbers are far more
-common than words for larger ones(cite CHILDES). On the other hand,
-children learning to count to large numbers rehearse the sequence. To
-approximate this distribution of evidence, we drew these sample
-sentences from a sum of a geometric distribution with parameter $0.5$
-and a uniform distribution. These components were weighted $75\%$ and
-$25\%$, respectively. We drew $2000$ examples from this distribution,
-holding out the sentences in Table~\ref{tab:results} for
-evaluation. 
+common than words for larger ones \cite{macwhinney2000childes}. On the
+other hand, children learning to count to large numbers rehearse the
+sequence. To approximate this distribution of evidence, we drew these
+sample sentences from a sum of a geometric distribution with parameter
+$0.5$ and a uniform distribution. These components were weighted
+$75\%$ and $25\%$, respectively. We drew $2000$ examples from this
+distribution, holding out the sentences in Table~\ref{tab:results} for
+evaluation.
 
 For inference, we used default $\frac{1}{D}$ pseudocounts (where $D$ is the
 dimensionality of the Dirichlet distributions). We found that different random
@@ -480,7 +487,7 @@ initialization for this experiment did not lead to qualitatively different
 results, though further investigation will be necessary to see how
 robust our the algorithm is to local maximuma for LPNs.
 
-We evaluated the learned model by asking for Viterbi (i.e. maximum a
+We evaluated the learned model by asking for Viterbi ({\it i.e.} maximum a
 posteriori) completions of the last words of each held out test
 sentence. Table~\ref{tab:results} shows these completions. The grammar
 correctly learns much of the structure of these sentences, including
@@ -603,7 +610,7 @@ $A_4$(nine, thirty) : 0.0010 & \\
 \vspace{-1em}
 \section{Discussion}
 
-Though simple, the knowledge learned by LPNs in the simple number
+Though simple, the knowledge learned by LPNs in the number
 domain we explore in this paper goes beyond the expressive capacity of
 PCFGs and HMMs, and yet it avoids intractability by using a restricted
 formalism. The human ability to learn abstract concepts must also rely
@@ -625,12 +632,13 @@ programming and semantic parsing. Semantic parsing, in particular,
 seems especially related to the challenge we face here of jointly
 learning meaning and structure from
 sentences~\cite{berant2013semantic, liang2013learning,
-  kwiatkowski2010inducing}. Semantic parsing, however, tends to frame
-this challenge slightly differently than we do here, by asking
-how utterances can be mapped to an explicit internal logical
-language. By contrast, we focus here on systems where meaning and
-structure seem inseparable. Understanding how these two approaches
-relate and inform one another is an interesting and open question.
+  kwiatkowski2010inducing, poon2009unsupervised}. Semantic parsing,
+however, tends to frame this challenge slightly differently than we do
+here, namely, by asking how utterances can be mapped to an explicit
+internal logical language. By contrast, we focus here on systems where
+meaning and structure seem inseparable. Understanding how these two
+approaches relate and inform one another is an interesting and open
+question.
 
 %% Previous work has shown that generative models of probabilistic
 %% programs are a useful tool for understanding human concept learning
@@ -646,7 +654,5 @@ relate and inform one another is an interesting and open question.
 
 \bibliographystyle{amsplain}
 \bibliography{draft}
-
-\nocite{*}
 
 \end{document}
