@@ -50,20 +50,20 @@ library
   -- Modules exported by the library.
 
   exposed-modules:     GIJoe.Grammar, 
-                       GIJoe.Chart,
-                       GIJoe.Types,
-                       GIJoe.Utils,
-                       GIJoe.Parse,
-                       GIJoe.InsideOutside,
-                       GIJoe.ApproximateInference.HashTable,
-                       GIJoe.ApproximateInference.InsideOutside,
-                       GIJoe.ApproximateInference.BoundaryProbabilities,
-                       GIJoe.ApproximateInference.MaxPath,
+                       -- GIJoe.Chart,
+                       -- GIJoe.Types,
+                       -- GIJoe.Utils,
+                       -- GIJoe.Parse,
+                       -- GIJoe.InsideOutside,
+                       -- GIJoe.ApproximateInference.HashTable,
+                       -- GIJoe.ApproximateInference.InsideOutside,
+                       -- GIJoe.ApproximateInference.BoundaryProbabilities,
+                       -- GIJoe.ApproximateInference.MaxPath,
                        GIJoe.SRS.Type,
                        GIJoe.SRS.Parse,
-                       GIJoe.SRS.Sample,
-                       GIJoe.SRS.Prismify,
-                       GIJoe.SRS.BuildNumber
+                       GIJoe.SRS.Prismify
+                       -- GIJoe.SRS.Sample,
+                       -- GIJoe.SRS.BuildNumber
 
   -- Modules included in this library but not exported.
   -- other-modules:       

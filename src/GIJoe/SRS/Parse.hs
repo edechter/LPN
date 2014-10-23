@@ -10,7 +10,6 @@ import qualified Data.HashMap.Strict as HashMap
 
 import Data.Char
 
-import Data.Text (pack)
 
 import Text.Parsec.Prim hiding (State)
 import Text.Parsec hiding (parse, State)
@@ -23,14 +22,7 @@ readSystem fpath = do xs <- readFile fpath
                         Right sys -> return sys
                         Left err -> error $ show err
 
--- writeSystem fpath info sys = writeFile fpath (unlines (comment:ls))
---   where ls = map go (grammarRules gr)
---         go (BinaryRule h l r w) =
---           "$" ++ show h ++ " --> " ++ "$" ++ show l ++ " " ++ "$" ++ show r ++ " :: " ++ show w
---         go (UnaryRule h c w) =
---           "$" ++ show h ++ " --> " ++ show c ++ " :: " ++ show w
---         comment = '#':info
-                         
+
 parseSystem :: String -- ^ source name
             -> String -- ^ system content
             -> Either ParseError RewriteSystem
@@ -50,7 +42,7 @@ inlineSpaces = let oneSpace = satisfy $ \c -> c == ' ' || c == '\t'
                   
 systemParser = do rs <- manyTill lineParser eof
                   let rs' = getJusts rs
-                  return $! systemFromRules rs'
+                  return $! RewriteSystem rs'
   where getJusts [] = []
         getJusts ((Just x):xs) = x:(getJusts xs)
         getJusts (Nothing:xs) = getJusts xs
@@ -60,7 +52,7 @@ lineParser = do {try (try comment <|> emptyLine); return Nothing }
              do {r <- ruleParser; return $ Just r}
 
 ruleParser   = do inlineSpaces
-                  h <- cterm
+                  h <- term
                   inlineSpaces
                   ss <- optionMaybe rhs >>= \case
                     Just ss -> return ss
@@ -71,11 +63,11 @@ ruleParser   = do inlineSpaces
                   char '.'
                   inlineSpaces
                   optional eol
-                  return $ WRule (h :<-: ss) w
+                  return $ h :<=: (ss, w)
                    
 rhs = do string "<--"
          inlineSpaces
-         ss <- sterms
+         ss <- terms
          inlineSpaces
          return $ ss
 
@@ -87,42 +79,34 @@ weightAnotation = try $ do
                   
 
 -- | parse complex terms
-cterm = do p <- predicateSymbol
-           char '('
-           as <- carguments
-           char ')'
-           let pred = Predicate p (length as)
-           return $ ComplexTerm  pred  as
+term = do p <- predicateSymbol
+          char '('
+          as <- arguments
+          char ')'
+          let pred = Predicate p (length as)
+          return $ Term pred as
 
--- | parse simple terms
-sterm = do p <- predicateSymbol
-           char '('
-           as <- sarguments
-           char ')'
-           let pred = Predicate p (length as)           
-           return $ SimpleTerm pred as
-
-sterms = sepBy1 sterm (try $ inlineSpaces >> char ',' >> inlineSpaces)
+terms = sepBy1 term (try $ inlineSpaces >> char ',' >> inlineSpaces)
 
 predicateSymbol = do p <- many1 alphaNum
-                     return $ pack p
+                     return $ p
 
 variable = do x <- upper
               xs <- many alphaNum
-              return $ pack (x:xs)
+              return $ x:xs
 
 symbol = do x <- satisfy $ \c -> isAlphaNum c && (not . isUpper) c
             xs <- many alphaNum
-            return $ pack (x : xs)
+            return $ x : xs
 
 element = do {v <- variable; return $ ElVar v} <|> do {s <- symbol; return (ElSym s)}
 
-ntstring = do x <- sepEndBy1 element inlineSpaces
-              return $ NTString x
+argument = do x <- sepEndBy1 element inlineSpaces
+              return $ Argument x
              
-carguments = sepEndBy1 ntstring (inlineSpaces >> char ',' >> inlineSpaces)
+arguments = sepEndBy1 argument (inlineSpaces >> char ',' >> inlineSpaces)
 
-sarguments = sepEndBy1 variable (inlineSpaces >> char ',' >> inlineSpaces)
+
 
 
 
