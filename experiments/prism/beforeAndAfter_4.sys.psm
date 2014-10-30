@@ -8842,4 +8842,4 @@ prismToSRS('A4_2',717,'A4(null, comes)').
 prismToSRS('S_1',1,'S(X Y) <-- A1(X, Y)').
 
 :- include(vis).
-:- include(main).
+%% :- include(main).

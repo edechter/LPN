@@ -1,4 +1,4 @@
-
+ 
 :- cl('analyzeNumber.psm').
 :- cl('onlineVBEM.pl').
 %% load and compile train and testing examples
