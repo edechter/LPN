@@ -1,0 +1,5 @@
+
+
+
+prove(P-IN) :- rule(P-IN, V), msw(P, V).
+
