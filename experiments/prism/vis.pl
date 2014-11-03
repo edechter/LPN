@@ -5,7 +5,7 @@ srsTree(X,[Olhs,Orule,Orhs]) :-
     select(srs(P-IN),X2,X3),
     delete(X3,reduce(_,_),X4),
     maplist(srsTree,X4,Orhs),
-    prismToSRS(P,V,Orule),
+    prismToLPN(P,V,Orule),
     predicateToString(P-IN,Olhs).
 
 %% hack! This currently only works up to 9-ary predicates
@@ -69,7 +69,8 @@ srsTripleGrammar(OS2) :-
     srsQuadGrammar(OS),
     maplist(ruleCountPair,OS,OS2).
 
-ruleCountPair([P,V,C,S],C-[R,S]) :- prismToSRS(P,V,R).
+ruleCountPair([P,V,C,S],C-[R,S]) :- prismToLPN(P,V,R), !.
+ruleCountPair([P,V,C,S],0.15-[a,0]).
 
 formatGrammar :- formatGrammar(0).
 

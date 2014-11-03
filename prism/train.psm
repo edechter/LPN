@@ -1,14 +1,11 @@
- 
+
 :- cl('analyzeNumber.psm').
 :- cl('onlineVBEM.pl').
-%% load and compile train and testing examples
-%% :- cl('./trainTestNextAndBeforeWODecades_50').
-:- cl('testTrain.psm').
+:- cl('util.pl').
+:- include('out.sys.psm').
+:- include('prove.psm').
 
-%% load rewrite system
-%% :- prism('beforeAndAfter_2.sys.psm').
-
-set_srs_prism_flags :-
+set_training_flags :-
     set_prism_flag(search_progress, 1), 
     set_prism_flag(em_progress, 1),
     set_prism_flag(max_iterate, 50),
@@ -25,13 +22,6 @@ get_current_learn_statistics(Stats) :- findall(N\S, learn_statistics(N, S), Stat
 get_switchVBInfo(Info) :- findall(X, X=switchVBInfo(_, _, _), Info).
 
 get_switches_post_pruning(Info) :- findall(I, get_sw_pa(I), Info).
-
-sysFileName(nPred(1), 'beforeAndAfter_1.sys.psm').
-sysFileName(nPred(2), 'beforeAndAfter_2.sys.psm').
-sysFileName(nPred(3), 'beforeAndAfter_3.sys.psm').
-sysFileName(nPred(4), 'beforeAndAfter_4.sys.psm').
-sysFileName(nPred(5), 'beforeAndAfter_5.sys.psm').
-
 
 execTrainTest(TrainSet, TestSet, SysFileName, RunInfo, FileName) :- 
     % load file
@@ -174,17 +164,25 @@ change_values(Switch, Vs) :-
 prune(SwitchIn) :- 
     atom(SwitchIn), 
     switchVBInfo(Sw, Alpha, ExpectedCounts),
-    write(Sw), write(' '), write(Alpha), nl, 
     get_values(Sw, Vals), 
     length(Vals, NVals),
     zip3(Vals, Alpha, ExpectedCounts, VCs),
-    AThresh is (1/NVals + 0.0001),
+    AThresh is (2/NVals),
     write('AThresh: '), write(AThresh), nl, 
     Filtered @= [V\A: V\A\C in VCs, A > AThresh],
     ValuesOut @= [V:V\_ in Filtered],
-    CountsOut @= [A:_\A in Filtered],
-    change_values(SwitchIn, ValuesOut),
-    set_sw_a(SwitchIn, CountsOut).
+    AlphaOut @= [A:_\A in Filtered],
+    write('Values Out: '), write(ValuesOut), nl, 
+    write('Alpha Out: '), write(AlphaOut), nl, 
+    ((AlphaOut = []) -> 
+        (write(SwitchIn), write('no values'), nl, 
+         change_values(SwitchIn, [noValue]), 
+         set_sw_a(SwitchIn, 1));
+
+        (change_values(SwitchIn, ValuesOut),
+         write(SwitchIn), nl, 
+         write('Set Values to '), write(ValuesOut), nl,
+         set_sw_a(SwitchIn, AlphaOut))).
 
 pruneAll :- 
     get_reg_sw_list(Switches), 
@@ -346,3 +344,11 @@ loadGrammarFromRunFile(File) :-
     
 %%%%%%% 
 dataset(Xs) :- findall(X, example(C, X), Xs).
+
+
+%%%%%%%%%%%%
+take(0, Xs, []). 
+take(N, [Y|Ys], [Y|Zs]) :- N1 is N-1, take(N1, Ys, Zs).
+take(N, [], []). 
+
+

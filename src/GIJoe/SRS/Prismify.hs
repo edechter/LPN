@@ -1,155 +1,112 @@
-module GIJoe.SRS.Prismify (prismify, prismClauses) where
+module GIJoe.SRS.Prismify where 
+
+import Prelude hiding (head)
 
 import Data.Function (on)
-import Data.List
+import Data.List hiding (head)
 import Data.Text (unpack)
+
+import Data.Map (Map, (!))
+import qualified Data.Map as Map
 
 import GIJoe.SRS.Type
 import GIJoe.SRS.Parse
 
--- type PrismScript = String
--- type PrismFlag = (String, String)
--- setPrismFlag :: PrismScript
---                -> PrismFlag
---                -> PrismScript
--- setPrismFlag script (a, b) = script ++ [":- set_prism_flag(" ++
---                                         show a ++ ", " ++ show b ++ ").\n"]
 
-fst3 (a,_,_) = a
-snd3 (_,b,_) = b
-trd3 (_,_,c) = c
 
-weightedRuleName :: WeightedRule -> String
-weightedRuleName (WRule ((ComplexTerm p _) :<-: _) _) = showPred p
+-- predTuplePair :: Predicate -> [String] -> String
+-- predTuplePair p xs = showPred p ++ "-" ++ showCleanList xs
 
-showPred :: Predicate -> String
-showPred (Predicate p i) = concat ["'",unpack p,"_",show i,"'"]
+type RuleMap = Map Predicate [Rule]
 
-predTuplePair :: Predicate -> [String] -> String
-predTuplePair p xs = showPred p ++ "-" ++ showCleanList xs
+mkRuleMap rs = Map.map (map dropRuleWeight) $ groupRulesByHeadPredicate rs
 
-showCleanList xs = "[" ++ (intercalate "," xs) ++ "]"
+mkValues pred ruleMap = [dynamic_dec, value_def, value_pred_def, lpn_value_pred_assert]
+  where switchName = showQuoted pred
+        value_pred = quoted $ show pred ++ "_values"
+        dynamic_dec = ":- dynamic " ++ value_pred ++ "/1."
+        value_def =  "values(" ++ switchName ++ ", Vs) :- " ++ value_pred ++ "(Vs)."
+        value_pred_def = value_pred ++"(" ++ show [1..numRules] ++ ")."
+        lpn_value_pred_assert = ":- assert_lpn_value_pred("
+                                ++ switchName ++ ", " ++ value_pred ++ ")."
+        rules = ruleMap ! pred
+        numRules = length rules
 
-labeledMap f xs =  map f $ zip xs $ take (length xs) ['A'..'Z']
+mkAllValues ruleMap = unlines [unlines $ mkValues p ruleMap | p <- Map.keys ruleMap]
+
+mkAllRules :: RuleMap -> String
+mkAllRules ruleMap = unlines [unlines $ mkPredRule p ruleMap | p <- Map.keys ruleMap]
+
+mkAllPrismToLPN :: RuleMap -> String
+mkAllPrismToLPN ruleMap = unlines $ do
+  p <- Map.keys ruleMap
+  return $ unlines $do
+    (i, r) <- zip [1..] $ ruleMap ! p
+    return $ mkPrismToLPN r i
+
+
+mkPredRule :: Predicate -> RuleMap -> [String]
+mkPredRule pred ruleMap = do (i, r) <- zip [1..] rules
+                             return $ mkRule r i
+  where rules = ruleMap ! pred
+
+mkRule :: Rule -> Int -> String
+mkRule rule i =  _H ++ if null (_B1 ++ _C ++ _B2) then "."
+                         else (" :- \n\t\t" ++ intercalate ",\n\t\t" (filter (not.null) [_B1,  _C, _B2]) ++  ".")
+  where _A = quoted . show . headPredicate $ rule
+        ys = do (Argument els, k) <- zip (termArgs $ head rule) [(1::Int)..]
+                case els of
+                  [ElSym "null"]  -> return $ ("[]", Nothing)
+                  [ElSym e] -> return $ ("[" ++ quoted e ++ "]", Nothing)
+                  [ElVar v] -> return $ (v, Nothing)                  
+                  els ->
+                    let v = "Z_" ++ show k 
+                    in return $ (v, Just $ "append(" ++
+                                    intercalate ", " (map show els ++ [v]) ++ ")")
+                                    
+                                                 
+
+        ts = do Term p args <- body rule
+                let as = do Argument els <- args
+                            case els of
+                              [ElSym "null"]  -> return $ "[]"
+                              [ElSym e] -> return $ "[" ++ quoted e ++ "]"
+                              [ElVar v] -> return $ v
+                              _ -> error $ "multiple variables in lhs terms."
+                return $ "prove(" ++ showQuoted p
+                          ++ "-[" ++ (intercalate ", " as) ++ "])"
+                
+                                    
+        _H = "rule(" ++ _A ++ "-[" ++ intercalate ", " (map fst ys) ++ "], "
+             ++ show i ++ ")"
+        _B1 =  intercalate ", " $ ["(var(" ++ v ++ ") -> true; " ++ fromJust y ++ ")"| (v, y) <- ys, isJust y]
+        _B2 =  intercalate ", " $ ["(var(" ++ v ++ ") -> " ++ fromJust y ++ "; true)"| (v, y) <- ys, isJust y]
+        isJust (Just _) = True
+        isJust _ = False
+        fromJust (Just x) = x
+
+        _C = intercalate ", " $ ts
+                
+mkPrismToLPN :: Rule -> Int -> String
+mkPrismToLPN rule i = "prismToLPN(" ++ intercalate ", " args ++ ")."
+  where switch = showQuoted $ headPredicate rule
+        ruleString = showQuoted rule
+        args = [switch, show i, ruleString]
+
 
 prismClauses :: RewriteSystem -> String
-prismClauses rs = unlines $ 
-  switchClauses ++ [""] ++
-  probClauses ++ [""] ++
-  reductionClauses ++ [""] ++ 
-  prismToSRSClauses ++ [""] ++
-    [":- include(vis)."
-    , ":- include(main)."]
-  where switchClauses = map makeSwitch groupedRules
-        probClauses = map makeProbs groupedRules
-        reductionClauses = concatMap makeReductions groupedRules
-        groupedRules = groupBy sameHead $
-                       sortBy (compare `on`
-                               (cTermPredicate . ruleHead . weightedRuleRule))
-                         (rsRules rs)
-        sameHead =  (\(WRule ((ComplexTerm p1 _) :<-: _) _)
-                  (WRule ((ComplexTerm p2 _) :<-: _) _)
-                 -> p1 == p2)
-        prismToSRSClauses = concatMap makePrismToSRS groupedRules                    
-
-body :: RewriteSystem -> [String]
-body slcfrs =
-    switchClauses     ++ [""] ++
-    probClauses       ++ [""] ++
-    reductionClauses  ++ [""] ++
-    prismToSRSClauses ++ [""] ++
-    [ ":- p_not_table reduce/2."
-    , ":- include(vis)."
-    , ":- include(main)."]
-  where
-    groupedRules = groupBy sameHead $ sortBy (compare `on` (cTermPredicate . ruleHead . weightedRuleRule)) (rsRules slcfrs)
-    sameHead =  (\(WRule ((ComplexTerm p1 _) :<-: _) _)
-                  (WRule ((ComplexTerm p2 _) :<-: _) _)
-                 -> p1 == p2)
-    switchClauses = map makeSwitch groupedRules
-    probClauses = map makeProbs groupedRules
-    prismToSRSClauses = concatMap makePrismToSRS groupedRules
-    reductionClauses = concatMap makeReductions groupedRules
-
-makeSwitch :: [WeightedRule] -> String
-makeSwitch rs =
-  let n = weightedRuleName (head rs)
-      n_values = init n ++ "_values'"
-  -- in "values(" ++ n ++ ", " ++ show [1..(length rs)] ++ ",a@uniform)."
-  in unlines [":- dynamic " ++ n_values ++ "/1.",
-              "values(" ++ n ++ ", Vs) :- " ++ n_values ++ "(Vs).",
-              n_values++"(" ++ show [1..(length rs)] ++ ")."]
-
-makePrismToSRS :: [WeightedRule] -> [String]
-makePrismToSRS rs = map prismToSRSString $ zip rs [1..(length rs)]
-  where
-    prismToSRSString (r,n) = concat ["prismToSRS(",weightedRuleName r, ",",show n,",'",show (weightedRuleRule r),"')."]
-
-makeProbs :: [WeightedRule] -> String
-makeProbs rs =
-    ":- set_sw(" ++ weightedRuleName (head rs) ++ "," ++ show normProbList ++ ")."
-  where
-    normProbList = map (/ (sum probList)) probList
-    probList = map pullProb rs
-    pullProb = (\r -> read (show $ weightedRuleWeight r) :: Double)
-
-makeReductions :: [WeightedRule] -> [String]
-makeReductions rs = map makeReduction indexedRules
-  where
-    indexedRules = zip [1..(length rs)] (map weightedRuleRule rs)
-
-makeReduction :: (Int,Rule) -> String
-makeReduction (i,(h :<-: bs)) =
-    "reduce(" ++ refactorHead h ++ "," ++ show i ++ ")" ++ body ++ "."
-  where
-    appendVars = collectTupleItems h
-    srsTerms = createSRSTerms h bs
-    appendAppends = createAppendTerms h
-    
-    rhsTerms | null appendVars = []
-             | otherwise = groundConditionals ++ [srsTerms] ++ varConditionals
-    arity = predArity . cTermPredicate $ h
-    groundConditionals = take arity ["(var(A2) -> true; append(X, Y, A2))",
-                                                   "(var(B2) -> true; append(U, V, B2) )"]
-    varConditionals = take arity ["(var(A2) -> append(X, Y, A2) ; true)",
-                                "(var(B2) -> append(U, V, B2) ; true)"]
-                      
-    body | not (rhsTerms == []) = ":- " ++ intercalate ",\n" rhsTerms
-         | otherwise = ""
-
-    collectTupleItems (ComplexTerm _ xs) = intercalate ", " $ filter (not . null) $ labeledMap collectTupleItem xs
-    collectTupleItem ((NTString (x:[])),l) = ""
-    collectTupleItem ((NTString xs),l) = "var(" ++ l:(show $ length xs) ++ ")"
-
-createSRSTerms (ComplexTerm _ xs) bs = if null termList then "" else intercalate ", " termList
-  where
-    termList = map sTermToPair bs
-    sTermToPair h = "srs(" ++ predTuplePair (sTermPredicate h) (map unpack (stermArgs h)) ++ ")"
-
-refactorHead h@(ComplexTerm _ xs) = predTuplePair (cTermPredicate h) (renameTupleItems xs)
-  where
-    renameTupleItems xs = labeledMap renameTupleItem xs
-    renameTupleItem ((NTString (x:[])),l) = case x of
-      ElVar _ -> show x
-      ElSym y -> if (unpack y) == "null" then "[]" else show [x]
-    renameTupleItem ((NTString xs),l) = l:(show $ length xs)
-
-
-createAppendTerms h@(ComplexTerm _ xs) =
-    intercalate ", " $ filter (not . null) $ labeledMap createAppends xs
-  where
-    createAppends :: (NonTerminalString,Char) -> String
-    createAppends ((NTString xs),l) =  intercalate ", " $
-      trd3 $ foldl (\(i,prev,acc) curr -> (i+1,
-                                           l:(show $ i+1),
-                                           (appendString prev i curr l):acc))
-        (1,show (xs !! 0),[]) $ drop 1 xs
-    appendString p i x l = concat ["append(",p,",",newVarName x,",",(l:(show $ i+1)),")"]
-    newVarName x = case x of
-      ElVar _ -> show x
-      ElSym _ -> "[" ++ show x ++ "]"
+prismClauses sys = unlines [":- include('prove.psm').",
+                            mkAllValues ruleMap, "",
+                            mkAllRules ruleMap, "",
+                            mkAllPrismToLPN ruleMap]
+  where ruleMap = mkRuleMap sys        
 
 prismify :: FilePath -> FilePath -> IO ()
 prismify inpath outpath = do
-  slcfrs <- readSystem inpath
-  writeFile outpath $ unlines $ body slcfrs
+  sys <- readSystem inpath
+  writeFile outpath $ prismClauses sys
+
+
+------
+showQuoted x = "'" ++ show x ++ "'"
+quoted x = "'" ++ x ++ "'"

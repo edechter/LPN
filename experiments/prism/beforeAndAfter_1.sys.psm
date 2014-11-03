@@ -1,4 +1,4 @@
-srs(P-IN) :- ??* reduce(P-IN,V), msw(P,V).
+srs(P-IN) :- ??* reduce(P-IN,V), ??* msw(P, V).
 
 :- dynamic 'A1_2_values'/1.
 values('A1_2', Vs) :- 'A1_2_values'(Vs).
@@ -1141,4 +1141,4 @@ prismToSRS('A1_2',537,'A1(null, comes)').
 prismToSRS('S_1',1,'S(X Y) <-- A1(X, Y)').
 
 :- include(vis).
-:- include(main).
+%% :- include(main).
