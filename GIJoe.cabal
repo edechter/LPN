@@ -63,7 +63,9 @@ library
                        GIJoe.SRS.Parse,
                        GIJoe.SRS.Prismify
                        -- GIJoe.SRS.Sample,
-                       GIJoe.SRS.BuildNumber
+                       GIJoe.SRS.TestTrain,
+                       GIJoe.SRS.Network,
+                       GIJoe.SRS.Number
 
   -- Modules included in this library but not exported.
   -- other-modules:       

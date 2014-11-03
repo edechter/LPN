@@ -1,5 +1,4 @@
-
-
-
-prove(P-IN) :- rule(P-IN, V), msw(P, V).
-
+procw(P-[]) :- rule(P-[], V), msw(P, V).
+prove(P-[X|XS]) :- 
+    (var(X) ->  (msw(P, V), rule(P-[X|XS], V)); 
+                (rule(P-[X|XS], V), msw(P, V))).
