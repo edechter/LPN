@@ -69,7 +69,8 @@ predicateNetwork _R _S _K lexicon observed outpath = do
                        [ruleLex i w "null" | i <- [1.._R], w <- lexicon] ++
                        [ruleLex i "null" w | i <- [1.._R], w <- lexicon] ++
                        [ruleLex i"null" "null" | i <- [1.._R]] ++ 
-                       [pred ++ "(X Y) <-- A" ++ show _K ++ "i" ++ show i ++ "(X, Y)." | (pred, i) <- zip observed [1..]]                       
+                       [pred ++ "(X Y) <-- A" ++ show _K ++ "i" ++ show i ++ "(X, Y)."
+                         | pred <- observed, i <- [1.._S]]
         shuffleRule level i j k = unlines $ [
             "A" ++ show level ++ "i" ++ show i ++ "(X Y, U V) <-- " ++
             "A" ++ show (level-1) ++ "i" ++ show j ++ "(X, Y)," ++
