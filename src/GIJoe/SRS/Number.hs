@@ -1,6 +1,8 @@
 module GIJoe.SRS.Number where
 
-import Data.List (intercalate,permutations)
+import Data.List (intercalate,permutations,zip4)
+
+import GIJoe.SRS.TestTrain
 
 -- 1. define the lexicon
 ones = ["one","two","three","four","five","six","seven","eight","nine"]
@@ -14,42 +16,80 @@ lexicon = ones ++ tens ++ teens ++ digits ++ functionals
 ns :: [[String]]
 ns = first19 ++ theRest
 
+parametricWeights :: Float -> Float -> Int -> [Float]
+parametricWeights p w l = map (\n -> (w*(1-p)**((fromIntegral n-1))*p) + (1-w)/(fromIntegral l)) [1..l]
+nWeights :: [Float]
+nWeights = parametricWeights 0.5 0.75 99
+
 first19 = [[o] | o <- ones] ++ [[t] | t <- teens]
 theRest = concatMap theDecade tens
     where theDecade x = [[x]] ++ [[x,o] | o <- ones]
 
+digitNs :: [[String]]
+digitNs = (map (\x -> [x]) (drop 1 digits)) ++ concatMap theDecade (drop 1 digits)
+  where theDecade x = [[x,o] | o <- digits]
+
 -- 3. show the valid sentence types this lexicon generates
 
-mkSentence = intercalate " " . concat
-
-countSentence x n = mkSentence $ take n $ drop (x-1) ns
-afterSentence x y = map mkSentence [[["after"],x,["is"],y],
-                                    [y,["is"],["after"],x]]
-beforeSentence x y = map mkSentence [[["before"],x,["is"],y],
-                                     [y,["is"],["before"],x]]
-moreSentence x y = map mkSentence [[x,["is"],[rel],["than"],y] | rel <- ["bigger","more","greater"]]
-lessSentence x y = map mkSentence [[x,["is"],[rel],["than"],y] | rel <- ["smaller","less","lesser"]]
-plusSentence x y z = mkSentence [x,["plus"],y,["is"],z]
-minusSentence x y z = mkSentence [x,["minus"],y,["is"],z]
-ndSentence x y = map mkSentence [[(o!!0), [eq], (o!!1)] |
-                                 o <- permutations [x,y],
-                                 eq <- ["is","equals"]]
+countSentence x n = take n $ drop (x-1) ns
+afterSentence x y = [[["after"],(ns!!x),["is"],(ns!!y)],
+                     [(ns!!y),["is"],["after"],(ns!!x)]]
+beforeSentence x y = [[["before"],(ns!!x),["is"],(ns!!y)],
+                      [(ns!!y),["is"],["before"],(ns!!x)]]
+moreSentence x y = [[(ns!!x),["is"],[rel],["than"],(ns!!y)] |
+                    rel <- ["bigger","more","greater"]]
+lessSentence x y = [[(ns!!x),["is"],[rel],["than"],(ns!!y)] |
+                    rel <- ["smaller","less","lesser"]]
+plusSentence x y z = [(ns!!x),["plus"],(ns!!y),["is"],(ns!!z)]
+minusSentence x y z = [(ns!!x),["minus"],(ns!!y),["is"],(ns!!z)]
+ndSentence x = [[(o!!0), [eq], (o!!1)] |
+                o <- permutations [(ns!!x),(digitNs!!x)],
+                eq <- ["is","equals"]]
 
 -- 4. construct all valid sentences
 
 mkAllCount  = [countSentence x n | x <- [1..99], n <-[1..99], x+n <= 100]
-mkAllMore   = concat [moreSentence (ns!!x) (ns!!y) |
-                      x <- [0..98], y <- [0..98], x > y]
-mkAllLess   = concat [lessSentence (ns!!x) (ns!!y) |
-                      x <- [0..98], y <- [0..98], x < y]
-mkAllAfter  = concat [afterSentence (ns!!x) (ns!!(x+1)) | x <- [0..97]]
-mkAllBefore = concat [beforeSentence (ns!!x) (ns!!(x-1)) | x <- [1..98]]
-mkAllPlus   = [plusSentence (ns!!x) (ns!!y) (ns!!(x+y+1)) |
-             x <- [0..98], y <- [0..98], x+y+1 < 99]
-mkAllMinus  = [minusSentence (ns!!x) (ns!!y) (ns!!(x-y-1)) |
-             x <- [0..98], y <- [0..98], x > y]
-mkAllND     = concat ndSentences
+mkAllMore   = concat [moreSentence x y | x <- [0..98], y <- [0..98], x > y]
+mkAllLess   = concat [lessSentence x y | x <- [0..98], y <- [0..98], x < y]
+mkAllAfter  = concat [afterSentence x (x+1) | x <- [0..97]]
+mkAllBefore = concat [beforeSentence x (x-1) | x <- [1..98]]
+mkAllPlus   = [plusSentence x y (x+y+1) | x <- [0..98], y <- [0..98], x+y+1 < 99]
+mkAllMinus  = [minusSentence x y (x-y-1) | x <- [0..98], y <- [0..98], x > y]
+mkAllND     = concat [ndSentence x | x <- [0..98] ]
+
+-- 5. split sentences based on the numbers involved
+
+sortByWords :: (Eq a) => [[a]]     -- a list of compound words
+               -> [[[a]]]   -- a list of sentences broken into compound words
+               -> [[[[a]]]] -- a list of sentences sorted by compound word membership
+sortByWords ws ss = map (\w -> filter (elem w) ss) ws ++
+                    [filter (\s -> all (flip notElem s) ws) ss]
+
+rmCompounds :: [[[[a]]]] -> [[[a]]]
+rmCompounds = map (map concat)
+
+sentencesToUnaryPredicates = map (map (\x -> [x]))
+
+-- 6. create train/test data
+
+-- perhaps we just want a list of triples with sentence types, breakdowns, and
+
+type NumberSpec = ([Example],[[String]],[PercTrain])
+type NumberSpecs = [NumberSpec]
+
+defaultNumberSpecs :: NumberSpecs
+defaultNumberSpecs = zip3 allSentences (repeatN n first19) (repeatN n trainSplits)
   where
-    ndSentences = [ndSentence (ns!!(x10*10+x1-1)) (showNum x10 x1) |
-           x10 <- [0..9], x1 <- [0..9], x10*10+x1 <= 99, x10*10+x1 >= 1 ]
-    showNum x10 x1 = if x10 > 0 then [show x10, show x1] else [show x1]
+    n = length allSentences
+    allSentences = [mkAllCount, mkAllMore, mkAllLess, mkAllAfter, mkAllBefore, mkAllND]
+    trainSplits = (repeatN 19 0.8) ++ [0.1]
+
+repeatN n x = take n $ repeat x
+
+numberTrainTestData :: FilePath -> NumberSpecs -> IO ()
+numberTrainTestData path specs = mkTrainTestDataFile path ttSpecs
+  where
+    ttSpecs = foldl ttSpecHelper [] specs
+    ttSpecHelper :: [TrainTestSpec] -> NumberSpec -> [TrainTestSpec]
+    ttSpecHelper acc (ss,bd,percs) = acc ++
+      zip3 (repeatN (1 + (length bd)) "S_1") (sentencesToUnaryPredicates $ rmCompounds $ sortByWords bd ss) percs
