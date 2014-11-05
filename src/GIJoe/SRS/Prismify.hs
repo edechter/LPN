@@ -2,6 +2,7 @@ module GIJoe.SRS.Prismify where
 
 import Prelude hiding (head)
 
+
 import Data.Function (on)
 import Data.List hiding (head)
 import Data.Text (unpack)
@@ -110,3 +111,4 @@ prismify inpath outpath = do
 ------
 showQuoted x = "'" ++ show x ++ "'"
 quoted x = "'" ++ x ++ "'"
+
