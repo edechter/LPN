@@ -1,6 +1,8 @@
 
 :- cl('assoc_list.pl').
 
+
+%% 
 set_ovbem_rec(Flag, Val) :- 
     retractall(ovbem_rec(Flag, _)),
     assert(ovbem_rec(Flag, Val)).
