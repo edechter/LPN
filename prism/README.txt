@@ -8,3 +8,8 @@
 ./train.pl ... predicates for training LPNs
 ./onlineVBEM.pl ... predicates for implementing online variational bayesian EM using adaptive rate
 
+----- Dependencies -----
+* MIT-PRISM (https://github.com/edechter/MIT-PRISM)
+
+
+
