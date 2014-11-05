@@ -1,5 +1,5 @@
 
-%% :- cl('analyzeNumber.psm').
+
 :- cl('onlineVBEM.pl').
 :- cl('util.pl').
 :- include('out.sys.psm').

@@ -13,11 +13,6 @@ import qualified Data.Map as Map
 import GIJoe.SRS.Type
 import GIJoe.SRS.Parse
 
-
-
--- predTuplePair :: Predicate -> [String] -> String
--- predTuplePair p xs = showPred p ++ "-" ++ showCleanList xs
-
 type RuleMap = Map Predicate [Rule]
 
 mkRuleMap rs = Map.map (map dropRuleWeight) $ groupRulesByHeadPredicate rs
@@ -26,7 +21,7 @@ mkValues pred ruleMap = [dynamic_dec, value_def, value_pred_def, lpn_value_pred_
   where switchName = showQuoted pred
         value_pred = quoted $ show pred ++ "_values"
         dynamic_dec = ":- dynamic " ++ value_pred ++ "/1."
-        value_def =  "values(" ++ switchName ++ ", Vs) :- " ++ value_pred ++ "(Vs)."
+        value_def =  "values(" ++ switchName ++ ", Vs,a@uniform) :- " ++ value_pred ++ "(Vs)."
         value_pred_def = value_pred ++"(" ++ show [1..numRules] ++ ")."
         lpn_value_pred_assert = ":- assert_lpn_value_pred("
                                 ++ switchName ++ ", " ++ value_pred ++ ")."
@@ -44,7 +39,6 @@ mkAllPrismToLPN ruleMap = unlines $ do
   return $ unlines $do
     (i, r) <- zip [1..] $ ruleMap ! p
     return $ mkPrismToLPN r i
-
 
 mkPredRule :: Predicate -> RuleMap -> [String]
 mkPredRule pred ruleMap = do (i, r) <- zip [1..] rules
@@ -97,6 +91,7 @@ mkPrismToLPN rule i = "prismToLPN(" ++ intercalate ", " args ++ ")."
 
 prismClauses :: RewriteSystem -> String
 prismClauses sys = unlines [":- include('prove.psm').",
+                            ":- include('util.pl').",
                             mkAllValues ruleMap, "",
                             mkAllRules ruleMap, "",
                             mkAllPrismToLPN ruleMap]
@@ -106,7 +101,6 @@ prismify :: FilePath -> FilePath -> IO ()
 prismify inpath outpath = do
   sys <- readSystem inpath
   writeFile outpath $ prismClauses sys
-
 
 ------
 showQuoted x = "'" ++ show x ++ "'"
