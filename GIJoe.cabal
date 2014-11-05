@@ -49,22 +49,12 @@ cabal-version:       >=1.10
 library
   -- Modules exported by the library.
 
-  exposed-modules:     GIJoe.Grammar, 
-                       -- GIJoe.Chart,
-                       -- GIJoe.Types,
-                       -- GIJoe.Utils,
-                       -- GIJoe.Parse,
-                       -- GIJoe.InsideOutside,
-                       -- GIJoe.ApproximateInference.HashTable,
-                       -- GIJoe.ApproximateInference.InsideOutside,
-                       -- GIJoe.ApproximateInference.BoundaryProbabilities,
-                       -- GIJoe.ApproximateInference.MaxPath,
-                       GIJoe.SRS.Type,
+  exposed-modules:     GIJoe.SRS.Type,
                        GIJoe.SRS.Parse,
                        GIJoe.SRS.Prismify
-                       -- GIJoe.SRS.Sample,
                        GIJoe.SRS.BuildNumber
 
+                       
   -- Modules included in this library but not exported.
   -- other-modules:       
    
@@ -106,139 +96,12 @@ library
   
   ghc-options:  -rtsopts -funbox-strict-fields 
   
-executable induction
-  Main-is: src/GIJoe/Main.hs
-  Build-Depends: base, 
-                 log-domain >=0.9, 
-                 split >=0.2,
-                 mtl >=2.1,
-                 MonadRandom >=0.1,
-                 parallel >=3.2,
-                 deepseq >=1.3,
-                 math-functions >=0.1,
-                 containers >=0.5,
-                 pqueue >=1.2,
-                 data-memocombinators >=0.5,
-                 parsec >=3.1,
-                 parsec-numbers >=0.0,
-                 random >=1.0,
-                 pretty-tree >=0.1.0.0,
-                 GIJoe
-
-  ghc-options:  -rtsopts  
-
-executable simpleNumber
-  Main-is: src/GIJoe/RunNumber.hs
-  Build-Depends: base, 
-                 log-domain >=0.9, 
-                 split >=0.2,
-                 mtl >=2.1,
-                 MonadRandom >=0.1,
-                 parallel >=3.2,
-                 deepseq >=1.3,
-                 math-functions >=0.1,
-                 containers >=0.5,
-                 pqueue >=1.2,
-                 data-memocombinators >=0.5,
-                 parsec >=3.1,
-                 parsec-numbers >=0.0,
-                 random >=1.0,
-                 pretty-tree >=0.1.0.0,
-                 GIJoe
-
-  ghc-options:   -rtsopts 
-
-executable runEmail
-  Main-is: src/GIJoe/RunEmail.hs
-  Build-Depends: base, 
-                 log-domain >=0.9, 
-                 split >=0.2,
-                 mtl >=2.1,
-                 MonadRandom >=0.1,
-                 parallel >=3.2,
-                 deepseq >=1.3,
-                 math-functions >=0.1,
-                 containers >=0.5,
-                 pqueue >=1.2,
-                 data-memocombinators >=0.5,
-                 parsec >=3.1,
-                 parsec-numbers >=0.0,
-                 random >=1.0,
-                 pretty-tree >=0.1.0.0,
-                 GIJoe
-
-  ghc-options:   -rtsopts 
-
-executable complexityTest
-  Main-is: src/GIJoe/ComplexityTest.hs
-  Build-Depends: base, 
-                 log-domain >=0.9, 
-                 split >=0.2,
-                 mtl >=2.1,
-                 MonadRandom >=0.1,
-                 parallel >=3.2,
-                 deepseq >=1.3,
-                 math-functions >=0.1,
-                 containers >=0.5,
-                 pqueue >=1.2,
-                 data-memocombinators >=0.5,
-                 parsec >=3.1,
-                 parsec-numbers >=0.0,
-                 random >=1.0,
-                 pretty-tree >=0.1.0.0,
-                 GIJoe
-
-  ghc-options:   -rtsopts 
-
-executable TestHashTable
-  Main-is: scratch/TestHashTable.hs
-  Build-Depends: base, 
-                 log-domain >=0.9, 
-                 split >=0.2,
-                 mtl >=2.1,
-                 MonadRandom >=0.1,
-                 parallel >=3.2,
-                 deepseq >=1.3,
-                 math-functions >=0.1,
-                 containers >=0.5,
-                 pqueue >=1.2,
-                 data-memocombinators >=0.5,
-                 parsec >=3.1,
-                 parsec-numbers >=0.0,
-                 random >=1.0,
-                 pretty-tree >=0.1.0.0,
-                 GIJoe,
-                 criterion >=1.0.0.2
-
-  ghc-options:   -rtsopts 
-
-
-executable CompareGenerators
-  Main-is: scratch/CompareGenerators.hs
-  Build-Depends: base, 
-                 log-domain >=0.9, 
-                 split >=0.2,
-                 mtl >=2.1,
-                 MonadRandom >=0.1,
-                 parallel >=3.2,
-                 deepseq >=1.3,
-                 math-functions >=0.1,
-                 containers >=0.5,
-                 pqueue >=1.2,
-                 data-memocombinators >=0.5,
-                 parsec >=3.1,
-                 parsec-numbers >=0.0,
-                 random >=1.0,
-                 pretty-tree >=0.1.0.0,
-                 GIJoe,
-                 criterion >=1.0.0.2
-
-  ghc-options:   -rtsopts 
 
 executable prismify
-           Main-is: src/GIJoe/SRS/Prismify.hs
+           Main-is: src/GIJoe/SRS/Prismify-Main.hs
 
-           build-depends:       base >=4.6,
+           build-depends:  GIJoe, 
+                           base >=4.6,
                        MonadRandom >=0.1,
                        PSQueue >=1.1,
                        containers >=0.5,
