@@ -84,6 +84,8 @@ defaultNumberSpecs = zip3 allSentences (repeatN n first19) (repeatN n trainSplit
     allSentences = [mkAllCount, mkAllMore, mkAllLess, mkAllAfter, mkAllBefore, mkAllND]
     trainSplits = (repeatN 19 0.8) ++ [0.1]
 
+
+
 repeatN n x = take n $ repeat x
 
 numberTrainTestData :: FilePath -> NumberSpecs -> IO ()

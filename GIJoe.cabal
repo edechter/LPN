@@ -54,7 +54,8 @@ library
                        GIJoe.SRS.Prismify
                        GIJoe.SRS.TestTrain,
                        GIJoe.SRS.Network,
-                       GIJoe.SRS.Number
+                       GIJoe.SRS.Number,
+                       GIJoe.SRS.Architecture
 
                        
   -- Modules included in this library but not exported.

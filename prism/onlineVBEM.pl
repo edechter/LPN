@@ -1,5 +1,5 @@
-
-:- cl('assoc_list.pl').
+:- expand_environment('$GIJOE_ROOT/prism/util.pl', P), 
+   cl(P).
 
 
 %% 
@@ -23,7 +23,7 @@ ovbem_rec(logfile, '.ovbem_log').
 ovbem_rec(outfile, '.ovbem_out').
 
 save_ovbem_rec :- 
-    ovbem_out(File), 
+    get_ovbem_rec(outfile, File),
     ovbem_rec_assoc(Assoc), 
     save_clauses(File, [Assoc], []). 
 
@@ -32,7 +32,15 @@ run_ovbem :-
     get_assocs(Assoc, 
                [niter, batch_size, data_set, held_out, iter_between], 
                [NIter, BatchSize, DataSet, HeldOut, IterBetween]), 
+    run_held_out(HeldOut),
     ovbem_held_out(NIter, 1, BatchSize, DataSet, HeldOut, IterBetween).
+
+run_held_out(HeldOut) :- 
+    free_energy(HeldOut, _, _, _, ExpectedLogLike),
+    get_ovbem_rec(held_out_data_expected_log_like, LLs), 
+    append(LLs, [ExpectedLogLike], LLs1),
+    set_ovbem_rec(held_out_data_expected_log_like, LLs1),
+    save_ovbem_rec.
     
 ovbem_held_out(NIter, Iter, 
                BatchSize, DataSet, HeldOut, IterBetween) :- 
@@ -41,11 +49,7 @@ ovbem_held_out(NIter, Iter,
         IterBetween1 = NIter-Iter),
     ovbem(IterBetween1, BatchSize, DataSet, Iter), 
     Iter1 is Iter + IterBetween1,
-    free_energy(HeldOut, _, _, _, ExpectedLogLike),
-    get_ovbem_rec(held_out_data_expected_log_like, LLs), 
-    append(LLs, [ExpectedLogLike], LLs1),
-    set_ovbem_rec(held_out_data_expected_log_like, LLs1),
-    save_ovbem_rec,
+    run_held_out(HeldOut),
     write('NIter: '), write(NIter), nl,
     write('Iter1: '), write(Iter1), nl,
     (Iter < NIter -> 

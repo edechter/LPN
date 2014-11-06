@@ -1,10 +1,18 @@
-:- ['train.psm'].
-:- prism([load], 'out.sys.psm').
-:- ['onlineVBEM.pl'].
-:- ['../experiments/prism/verbs0.psm'].
+
+:- cl('train.pl').
+
+%% load .sys.psm file.
+:- gijoe_root(ROOT),
+   formatAtom("~a/experiments/prism/number_net_10_5_5.sys.psm", 
+              [ROOT], PATH), 
+   prism(PATH).
+
+%% load data set
+%% :- ['../experiments/prism/verbs0.psm'].
 
 :- set_training_flags.
 
+%% ovbem config
 :- set_ovbem_rec(niter, 30), 
    set_ovbem_rec(batch_size, 1), 
    set_ovbem_rec(iter_between, 5).
@@ -17,9 +25,8 @@
    write(HeldOut), nl, 
     set_ovbem_rec(held_out, HeldOut). 
 
-main :- 
-    viterbif(prove('S_1'-[[w,a,k]])),
-    run_ovbem.
+%% run training
+main :- run_ovbem.
 
-    
+
     

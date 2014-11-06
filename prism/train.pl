@@ -1,9 +1,10 @@
 
-
-:- cl('onlineVBEM.pl').
-:- cl('util.pl').
-:- include('out.sys.psm').
-:- include('prove.psm').
+:- expand_environment('$GIJOE_ROOT/prism/onlineVBEM.pl', P), 
+   cl(P). 
+:- expand_environment('$GIJOE_ROOT/prism/util.pl', P), 
+   cl(P).
+:- expand_environment('$GIJOE_ROOT/prism/assoc_list.pl', P), 
+   cl(P).
 
 set_training_flags :-
     set_prism_flag(search_progress, 1), 

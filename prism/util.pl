@@ -15,6 +15,14 @@ prismify(SysFile, PsmFile) :-
     system(A),
     format("Done.", []).
 
+%% load_local(PATH): load from ROOT/prism/...
+load_local(REL) :- load_local([], REL).
+load_local(OPTIONS, REL) :- 
+    gijoe_root(ROOT), 
+    formatAtom("~a/prism/~a", [ROOT, REL], PATH), 
+    cl(OPTIONS, PATH).
+                   
+
 % load LPN .sys file at path. By default, load precompiled code found at
 % <path>.out. 
 load_lpn(Path) :- 
