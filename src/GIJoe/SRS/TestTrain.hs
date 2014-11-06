@@ -45,8 +45,8 @@ trainTestDataToPrism :: String -- ^ predicate name
                      -> [Example] -- ^ train
                      -> [Example] -- ^ test
                      -> String
-trainTestDataToPrism pred train test = unlines [trainString, testString]
+trainTestDataToPrism pred train test = unlines $ sort $ trainString ++ testString
   where wrapSrs x = "prove('" ++ pred ++ "'-[" ++ intercalate ", " (map showCleanList x) ++ "])"
-        trainString = unlines [ "train(" ++ show n ++ ", " ++ wrapSrs t ++ ")." | t <- train | n <-[1..]]
-        testString = unlines [ "test(" ++ show n ++ ", "++ wrapSrs t ++ ")." | t <- test | n <- [1..]]        
+        trainString = [ "train(" ++ wrapSrs t ++ ")." | t <- train]
+        testString  = [ "test(" ++ wrapSrs t ++ ")." | t <- test]        
         showCleanList xs = "[" ++ intercalate "," xs ++ "]"
