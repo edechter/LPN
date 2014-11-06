@@ -98,8 +98,17 @@ atom_concats([], '') :- !.
 atom_concats([A|Rest], Out) :- atom_concats(Rest, B), 
                                atom_concat(A, B, Out).
 
+number_atom(N,A) :- number_chars(N, Cs), atom_concats(Cs, A).
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 take(_, [], []) :- !. 
 take(0, _, []) :- !.
 take(N, [X|Xs], [X|Ys]) :- N1 is N - 1, 
                            take(N1, Xs, Ys). 
+
+
+%%%%% Date
+date(D) :- 
+    system('date > /tmp/date', A), 
+    sleep(100), 
+    readFile('/tmp/date', D), atom_codes(T, D).

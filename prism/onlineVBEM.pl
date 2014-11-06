@@ -14,32 +14,58 @@ ovbem_rec_assoc(Assoc) :-
 
 :- dynamic ovbem_rec/2. 
 ovbem_rec(niter, 100).
+ovbem_rec(iter, 0).
 ovbem_rec(batch_size, 10).
 ovbem_rec(data_set, []).
 ovbem_rec(held_out, []).
 ovbem_rec(iter_between, 10).
+ovbem_rec(sw_a, []).
 ovbem_rec(held_out_data_expected_log_like, []).
 ovbem_rec(logfile, '.ovbem_log').
-ovbem_rec(outfile, '.ovbem_out').
+ovbem_rec(outdir, '.ovbem_out').
+
+initialize_outdir :- 
+    get_ovbem_rec(outdir, Dir), 
+    directory_exists(Dir), !, 
+    throw(outdir_already_exists(Dir)). 
+initialize_outdir :- 
+    get_ovbem_rec(outdir, Dir), 
+    make_directory(Dir).
 
 save_ovbem_rec :- 
-    get_ovbem_rec(outfile, File),
+    get_ovbem_rec(outdir, Dir),
+    get_ovbem_rec(iter, Iter),
+    number_atom(Iter, Iter_A),
     ovbem_rec_assoc(Assoc), 
-    save_clauses(File, [Assoc], []). 
+    atom_concat('data.', Iter_A, File), 
+    atom_concats([Dir, '/', File], Path),
+    save_clauses(Path, [Assoc], []). 
 
 run_ovbem :- 
+    date(Start), 
+    set_ovbem_rec(start_date, Start),
     ovbem_rec_assoc(Assoc), 
     get_assocs(Assoc, 
                [niter, batch_size, data_set, held_out, iter_between], 
                [NIter, BatchSize, DataSet, HeldOut, IterBetween]), 
     run_held_out(HeldOut),
-    ovbem_held_out(NIter, 1, BatchSize, DataSet, HeldOut, IterBetween).
+    ovbem_held_out(NIter, 1, BatchSize, DataSet, HeldOut, IterBetween), 
+    date(End), 
+    set_ovbem_rec(end_date, End).
 
 run_held_out(HeldOut) :- 
+    write('Calculating held out expected log likelihood...'), nl, 
     free_energy(HeldOut, _, _, _, ExpectedLogLike),
+
     get_ovbem_rec(held_out_data_expected_log_like, LLs), 
     append(LLs, [ExpectedLogLike], LLs1),
     set_ovbem_rec(held_out_data_expected_log_like, LLs1),
+    write('Held out log likes: '), nl, 
+    write(LLs1), nl,
+
+    findall(I, get_sw_a(I), Sws),
+    set_ovbem_rec(sw_a, Sws),
+
     save_ovbem_rec.
     
 ovbem_held_out(NIter, Iter, 
@@ -49,12 +75,13 @@ ovbem_held_out(NIter, Iter,
         IterBetween1 = NIter-Iter),
     ovbem(IterBetween1, BatchSize, DataSet, Iter), 
     Iter1 is Iter + IterBetween1,
+    set_ovbem_rec(iter, Iter1), 
     run_held_out(HeldOut),
     write('NIter: '), write(NIter), nl,
     write('Iter1: '), write(Iter1), nl,
     (Iter < NIter -> 
         ovbem_held_out(NIter, Iter1, BatchSize, DataSet, HeldOut, IterBetween);
-        true).
+     true).
 
 ovbem(NIter, BatchSize, DataSet) :- 
     ovbem(NIter, BatchSize, DataSet, 1).
@@ -168,3 +195,18 @@ update_vb_params(StepSize, [A0|As0], [A1|As1], [AOut|AsOut]) :-
 multiply_datum_count(count(X, C), N, count(X, C1)) :- !, C1 is C * N.
 multiply_datum_count(X, N, count(X, N)).
 
+%%%%%%%% Loading ovbem data %%%%%%
+load_ovbem_data(PATH, Assoc) :- 
+    load_clauses(PATH, [Assoc], []).
+
+load_ovbem_psm(PATH, Sws) :- 
+    load_ovbem_data(PATH, Assoc), 
+    get_assoc(Assoc, sys_psm_file, Psm), 
+    prism([load], Psm), 
+    get_assoc(Assoc, sw_a, Sws),
+    %% write(Sws), nl, 
+    foreach(switch(Sw, _, _, As) in Sws, 
+            (write(Sw), nl, 
+             set_sw_a(Sw, As))).
+    
+    
