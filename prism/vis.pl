@@ -136,3 +136,20 @@ listOfN(X,N,[X|XS]) :-
     N > 0,
     Next is N-1,
     listOfN(X,Next,XS).
+
+%%%%%
+switch_va(Sw, V, A) :- 
+    get_sw_a(Sw, [_, Vs, As]), 
+    zip(Vs, As, VAs), 
+    member(V\A, VAs).
+
+
+    
+show_lpn :- 
+    get_reg_sw_list(Sws), 
+    foreach(Sw in Sws, 
+            [V,A,R], 
+            (write(Sw), nl, findall([A, R], 
+                     (switch_va(Sw, V, A), 
+                      prismToLPN(Sw, V, R)), 
+                      format("~w :: ~w\n", [R, A]), true))).

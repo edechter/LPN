@@ -155,40 +155,37 @@ show_next(X,Y) :- set_prism_flag(rerank,20), n_viterbig(20,srs('Next_2'-[X,Y])).
 
 srs(P-IN) :- reduce(P-IN,V), msw(P,V).       
 
-change_values(Switch, Vs) :-
-    atom_concat(Switch, '_values', P),
-    RetractTerm =.. [P, K],
-    AssertTerm =..[P, Vs],
-    retract(RetractTerm), 
-    assert(AssertTerm). 
+%% change_values(Switch, Vs) :-
+%%     lpn_value_pred
+%%     atom_concat(Switch, '_values', P),
+%%     RetractTerm =.. [P, K],
+%%     AssertTerm =..[P, Vs],
+%%     retract(RetractTerm), 
+%%     assert(AssertTerm). 
+
 
 
 %% prune all values for SwitchIn whose values 'a' values are really small 
-prune(SwitchIn) :- 
-    atom(SwitchIn), 
-    switchVBInfo(Sw, Alpha, ExpectedCounts),
-    get_values(Sw, Vals), 
-    length(Vals, NVals),
-    zip3(Vals, Alpha, ExpectedCounts, VCs),
+prune(switch(Sw, _, Vs, As)) :- 
+    atom(Sw), 
+    length(Vs, NVals),
     AThresh is (2/NVals),
-    write('AThresh: '), write(AThresh), nl, 
-    Filtered @= [V\A: V\A\C in VCs, A > AThresh],
+    write('AThresh: '), write(AThresh), nl,
+    zip(Vs, As, VAs), 
+    Filtered @= [V\A: V\A in VAs, A > AThresh],
     ValuesOut @= [V:V\_ in Filtered],
     AlphaOut @= [A:_\A in Filtered],
     write('Values Out: '), write(ValuesOut), nl, 
     write('Alpha Out: '), write(AlphaOut), nl, 
     ((AlphaOut = []) -> 
-        (write(SwitchIn), write('no values'), nl, 
-         change_values(SwitchIn, [noValue]), 
-         set_sw_a(SwitchIn, 1));
-
-        (change_values(SwitchIn, ValuesOut),
-         write(SwitchIn), nl, 
-         write('Set Values to '), write(ValuesOut), nl,
-         set_sw_a(SwitchIn, AlphaOut))).
+        (write(Sw), write('no values'), nl, 
+         lpn_set_sw_va(Sw, [noValue], [1]));
+        (lpn_set_sw_va(Sw, ValuesOut, AlphaOut),
+         write(Sw), nl, 
+         write('Set Values to '), write(ValuesOut), nl)).
 
 pruneAll :- 
-    get_reg_sw_list(Switches), 
+    findall(Info, get_sw_a(Info), Switches),  
     foreach(Sw in Switches, (prune(Sw))).
 
 :- dynamic switchVBInfo/3.
@@ -198,7 +195,10 @@ recordExpectedCounts:- get_reg_sw_list(Switches),
                                    retractall(switchVBInfo(Sw, _, _)), 
                                                     assert(switchVBInfo(Sw, Alpha, C)))).
                                  
-             
+    
+zip(_, [], []) :- !. 
+zip([], _, []) :- !. 
+zip([X|Xs], [Y|Ys], [X\Y|Rest]) :- zip(Xs, Ys, Rest).
 
 zip3([], [], [], []) :- !. 
 zip3(_, [], [], []) :- !.
