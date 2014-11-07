@@ -146,10 +146,8 @@ switch_va(Sw, V, A) :-
 
     
 show_lpn :- 
-    get_reg_sw_list(Sws), 
-    foreach(Sw in Sws, 
-            [V,A,R], 
-            (write(Sw), nl, findall([A, R], 
-                     (switch_va(Sw, V, A), 
-                      prismToLPN(Sw, V, R)), 
-                      format("~w :: ~w\n", [R, A]), true))).
+    findall(K, 
+            (switch_va(S, V, A), 
+             prismToLPN(S, V, R), 
+             formatAtom("~w :: ~w\n", [R, A], K), 
+             write(K)), _Ks).

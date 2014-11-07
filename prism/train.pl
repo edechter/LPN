@@ -15,7 +15,7 @@ set_training_flags :-
     set_prism_flag(viterbi_mode,vb),
     set_prism_flag(default_sw_a,uniform),
     set_prism_flag(log_scale,on), 
-    set_prism_flag(learn_message, em).
+    set_prism_flag(learn_message, all).
 
 
 get_current_prism_flags(PrismFlags) :- findall(F\V, get_prism_flag(F, V), PrismFlags).

@@ -1,7 +1,6 @@
 :- expand_environment('$GIJOE_ROOT/prism/util.pl', P), 
    cl(P).
 
-
 %% 
 set_ovbem_rec(Flag, Val) :- 
     retractall(ovbem_rec(Flag, _)),
@@ -17,10 +16,7 @@ ovbem_rec(niter, 100).
 ovbem_rec(iter, 0).
 ovbem_rec(batch_size, 10).
 ovbem_rec(data_set, []).
-ovbem_rec(held_out, []).
-ovbem_rec(iter_between, 10).
 ovbem_rec(sw_a, []).
-ovbem_rec(held_out_data_expected_log_like, []).
 ovbem_rec(logfile, '.ovbem_log').
 ovbem_rec(outdir, '.ovbem_out').
 
@@ -46,27 +42,55 @@ run_ovbem :-
     set_ovbem_rec(start_date, Start),
     ovbem_rec_assoc(Assoc), 
     get_assocs(Assoc, 
-               [niter, batch_size, data_set, held_out, iter_between], 
-               [NIter, BatchSize, DataSet, HeldOut, IterBetween]), 
-    run_held_out(HeldOut),
-    ovbem_held_out(NIter, 1, BatchSize, DataSet, HeldOut, IterBetween), 
+               [niter, batch_size, data_set], 
+               [NIter, BatchSize, DataSet]), 
+    ovbem(NIter, BatchSize, DataSet),
     date(End), 
     set_ovbem_rec(end_date, End).
 
-run_held_out(HeldOut) :- 
-    write('Calculating held out expected log likelihood...'), nl, 
-    free_energy(HeldOut, _, _, _, ExpectedLogLike),
+run_held_out(HeldOut, DataDir, [0\LL0|LLs], ReloadPsm) :- 
+    directory_files(DataDir, AllFiles),
+    Paths @= [Path : File in AllFiles, [File, Path],
+              (
+                  atom_concats([DataDir, '/', File], Path), 
+                  file_property(Path, type(regular)))], 
+    Paths = [P0|_],
+    load_ovbem_data(P0, Rec0), 
+    get_assoc(Rec0, sys_psm_file, Psm0), 
+    (ReloadPsm = yes -> prism([load], Psm0); true), 
 
-    get_ovbem_rec(held_out_data_expected_log_like, LLs), 
-    append(LLs, [ExpectedLogLike], LLs1),
-    set_ovbem_rec(held_out_data_expected_log_like, LLs1),
-    write('Held out log likes: '), nl, 
-    write(LLs1), nl,
+    set_training_flags, 
+    set_prism_flag(clean_table, off),
+    free_energy(HeldOut, _, _, _, LL0),
+    LLs @= [Iter\LL : Path in Paths,  
+            [_A, _B, _C, Paths, LL, V,Rec,Iter, Sw, As, Sws],
+            (
+                write(Path), nl, 
+                load_ovbem_data(Path, Rec), 
+                get_assoc(Rec, iter, Iter), 
+                get_assoc(Rec, sw_a, Sws),
+                foreach(switch(Sw, _, _, As) in Sws, 
+                        (write(Sw), nl, 
+                         set_sw_a(Sw, As))),
+                set_training_flags, 
+                set_prism_flag(clean_table, off),
+                free_energy(HeldOut, _A, _B, _C, LL), 
+                format("Held Out Exp LL: Iter #~w: ~w\n", [Iter, LL])
+           )]. 
+        
+    %% write('Calculating held out expected log likelihood...'), nl, 
+    %% free_energy(HeldOut, _, _, _, ExpectedLogLike),
 
-    findall(I, get_sw_a(I), Sws),
-    set_ovbem_rec(sw_a, Sws),
+    %% get_ovbem_rec(held_out_data_expected_log_like, LLs), 
+    %% append(LLs, [ExpectedLogLike], LLs1),
+    %% set_ovbem_rec(held_out_data_expected_log_like, LLs1),
+    %% write('Held out log likes: '), nl, 
+    %% write(LLs1), nl,
 
-    save_ovbem_rec.
+    %% findall(I, get_sw_a(I), Sws),
+    %% set_ovbem_rec(sw_a, Sws),
+
+    %% save_ovbem_rec.
     
 ovbem_held_out(NIter, Iter, 
                BatchSize, DataSet, HeldOut, IterBetween) :- 
@@ -104,7 +128,13 @@ ovbem(NIter, _BatchSize, _DataSet, _RateInit, StartIter, Iter) :-
 ovbem(NIter, BatchSize, DataSet, RateInit, StartIter, Iter) :- 
     format("ovbem iter# ~w\n", [Iter]),
     ovbem1(DataSet, BatchSize, RateInit, RateFinal), 
+    %% save data
+    findall(I, get_sw_a(I), Sws),
+    set_ovbem_rec(sw_a, Sws),
+    save_ovbem_rec,
+    %%%%%%
     NextIter is Iter+1, 
+    set_ovbem_rec(iter, NextIter),
     ovbem(NIter, BatchSize, DataSet, RateFinal, StartIter, NextIter).
 
 
@@ -199,7 +229,7 @@ multiply_datum_count(X, N, count(X, N)).
 load_ovbem_data(PATH, Assoc) :- 
     load_clauses(PATH, [Assoc], []).
 
-load_ovbem_psm(PATH, Sws) :- 
+load_ovbem_psm(PATH) :- 
     load_ovbem_data(PATH, Assoc), 
     get_assoc(Assoc, sys_psm_file, Psm), 
     prism([load], Psm), 
