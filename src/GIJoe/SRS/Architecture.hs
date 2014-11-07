@@ -86,9 +86,6 @@ predicateNetwork _R _S _K lexicon observed outpath = do
             "A" ++ show (level-1) ++ "i" ++ show k ++ "(U, V).",
             "A" ++ show level ++ "i" ++ show i ++ "(X Y, U V) <-- " ++
             "A" ++ show (level-1) ++ "i" ++ show j ++ "(Y, X)," ++ 
-            "A" ++ show (level-1) ++ "i" ++ show k ++ "(V, U).",
-            "A" ++ show level ++ "i" ++ show i ++ "(X Y, U V) <-- " ++
-            "A" ++ show (level-1) ++ "i" ++ show j ++ "(Y, X)," ++ 
             "A" ++ show (level-1) ++ "i" ++ show k ++ "(V, U)."
             ]
         -- reverseRule level i j = 

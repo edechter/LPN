@@ -146,6 +146,7 @@ ovbem1(DataSet, BatchSize, RateInit, RateFinal) :-
     random_multiselect(DataSet, BatchSize, Batch),
     M is round(N/BatchSize),
     BatchOut @= [D1: D in Batch, [D1], multiply_datum_count(D, M, D1)],
+    write(BatchOut), nl,
     % run vbem
     learn(BatchOut),
     % get output alphas
@@ -157,7 +158,14 @@ ovbem1(DataSet, BatchSize, RateInit, RateFinal) :-
     % update parameters towards ParamsFinal
     foreach(switch(Sw, Status, Vals, As0) in ParamsInit, [As0, As1, AsOut],
             (member(switch(Sw, Status, Vals, As1), ParamsFinal), !,
+             %% write('Updating params: '),
              update_vb_params(StepSize, As0, As1, AsOut),
+             %% write(update_vb_params(StepSize, As0, As1, AsOut)), nl,
+             nl,
+             write(switch(Sw)), nl,
+             write(as0(As0)), nl,
+             write(as1(As1)), nl,nl,
+             
              set_sw_a(Sw, AsOut))).
 
 print_rate(rate(T,G,H,R)) :-
