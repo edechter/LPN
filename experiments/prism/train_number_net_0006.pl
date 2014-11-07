@@ -5,7 +5,7 @@
 %% load .sys.psm file.
 load_sys_psm :- expand_environment('$GIJOE_ROOT/experiments/prism/number_net_5_5_5.sys.psm', 
                                    P),
-                prism( P),
+                prism([load], P),
                 set_ovbem_rec(sys_psm_file, P).
 
 %% load data set
@@ -19,13 +19,13 @@ load_sys_psm :- expand_environment('$GIJOE_ROOT/experiments/prism/number_net_5_5
 :- set_ovbem_rec(niter, 100), 
    set_ovbem_rec(batch_size, 10).
 
-:- expand_environment('$GIJOE_ROOT/experiments/prism/train_number_net_0006.log', P),
+:- expand_environment('$GIJOE_ROOT/experiments/prism/train_number_net_0007.log', P),
    set_ovbem_rec(logfile, P).
 
-:- expand_environment('$GIJOE_ROOT/experiments/prism/train_number_net_0006.data', P),
+:- expand_environment('$GIJOE_ROOT/experiments/prism/train_number_net_0007.data', P),
    set_ovbem_rec(outdir, P).
    
-:- findall(count(X, 100), train(_, X), DataSet), 
+:- findall(count(X, 1), train(_, X), DataSet), 
    set_ovbem_rec(data_set, DataSet).
 
 %% run training
