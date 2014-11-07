@@ -29,55 +29,46 @@
 \maketitle
 
 \begin{abstract}
+
+  Probabilistic programs successfully capture many aspects of the
+  complex symbolic and statistical knowledge brought to bear in human
+  cognition. Children aren't born with this knowledge, however, but
+  must instead learn it, often in an unsupervised fashion. Compelling
+  probabilistic programming models of human cognition must therefore
+  also be learned. We present early work on Latent Predicate Networks
+  (LPN), a framework for unsupervised learning in a restricted space
+  of context-sensitive probabilistic programs. Specifically, we use
+  Online Variational Bayesian Expectation Maximization in
+  PRISM, a probabilistic programming system, to perform inference over
+  the set of Stochastic Logic Programs (SLP) parseable in polynomial
+  time. Using a small fragment of English sentences about number, we
+  show that LPNs can recover the relevant conceptual structure
+  necessary to generate novel sentences in this domain with high
+  probability.
   
-%%   - learning both abstract concepts and language presents an interesting chicken and egg problem
-%% 
-%%   - we can model this sort of learning a conceptual grammar for sentences
-%% 
-%%   - importantly, this grammar must be probabilistic to accomodate noisy data and represent our uncertainty about a concept's meaning
-%% 
-%%   - Here, we present early work on LPNs, showing them to be the solution we want
-%% 
-%%   - Crucially, we show how, for certain domains, learning language and abstract concepts can be done simultaneously
-%% 
-%%   - We also show that this approach naturally represents sentences as probabilistic conceptual programs.
-%% 
-%% 
-%%   While a large set of abstract concepts are necessary to understand
-%%   the utterances of a language, very few of those concepts are
-%%   initially available to children. Instead, they must be learned,
-%%   primarily {\it via} language. One approach to understanding this
-%%   joint learning problem is to model sentences as the output of
-%%   probabilistic programs constructed
-%% 
-%% 
-%% 
-%%   A large set of abstract concepts are necessary to understand the
-%%   utterances of a language, and at the same time, many of those
-%%   abstract concepts are acquired primarily {\it via} linguistic
-%%   experience. One way we might approach this sort of simultaneous
-%%   learning problem is to infer the distribution over sentences, where
-%%   the latent structure of this distributi
-%% 
-  For humans, learning abstract concepts and learning language go hand
-  in hand: we acquire much of our abstract knowledge through
-  linguistic experience, but the same abstract concepts are often
-  crucial to interpreting linguistic expressions. How can we do both
-  simultaneously? One approach is to estimate the distribution from
-  which sentences are drawn, and, in doing so, infer the latent
-  concepts and relationships that best explain those sentences. We
-  present early work on a learning framework called Latent Predicate
-  Networks (LPNs) which learns concepts by inferring the parameters of
-  probabilistic context-sensitive grammars over sentences.  We show
-  that for a small fragment of sentences expressing relationships
-  between English number words, we can use online hierarchical Bayesian
-  inference to learn LPNs that can answer simple queries about
-  previously unseen relationships within this domain. These
-  generalizations demonstrate LPNs' promise as a tool for learning and
-  representing conceptual knowledge in language.
 \end{abstract}
 
 \section{Introduction}
+
+%% Introduction idea
+%% *** Probabilistic programs have been great models of human cognition
+%% **** one-shot learning
+%% **** linguistic pragmatics
+%% **** some other example
+%% *** one thing they lack is a good way to automatically induce full programs from data
+%% *** yet, children seem to do this all the time
+%% *** So, this motivates our approach
+%% *** But, we have to overcome some technical challenges
+%% **** many prob.prog. languages are too expressive to be tractable
+%% **** many models of concept learning use too restricted a set of primitives
+
+Probabilistic programs can successfully model many aspects of human
+cognition [CITIATONS]. Part of their strength as compared to other
+models of cognition lies in their ability to flexibly integrate both
+symbolic and statistical information within a single framework.
+
+One area probabilistic programming systems lag behind human cognition
+is in their ability to automatically induce entire 
 
 Although concept learning and language acquisition have typically been
 treated as distinct problems in AI, linguistics and cognitive
@@ -102,24 +93,28 @@ in law's grandmother''), temporal relations (``the day after last
 Thanksgiving.''), and spatial relations (``above and just to the left
 of'').
 
-Such concepts share many of the properties of
-language syntax: they are unbounded in number, they derive
-their meanings via composition, and, although people only ever say,
-hear, or read about a small number of them, they are able to reason
-correctly about any them. There seems to be a grammar to these
-concepts, and grasping this grammar is critical to understanding their
-meanings and how to use them. This motivates our approach here, which
-is to apply the tools of probabilistic grammars more familiar from
-studies of syntax to the problem of concept aquisition.
+Such concepts share many of the properties of language syntax: they
+are unbounded in number, they derive their meanings via composition,
+and, although people only ever say, hear, or read about a small number
+of them, they are able to reason correctly about any them. There seems
+to be a grammar to these concepts, and grasping this grammar is
+critical to understanding their meanings and how to use them. This
+motivates our approach here, which is to apply the tools of
+probabilistic grammars more familiar from studies of syntax to the
+problem of concept aquisition.
+
+{\bf include somewhere:} A general probabilistic logic
+programming system based on PROLOG, PRISM provides built-in predicates
+for probabilistic execution and Bayesian inference over logic programs
+with stochastic choices.
 
 Doing so requires overcoming some technical barriers.
 
-First, whereas context-free grammars are suitable for describing large
-swathes of language syntax, the grammars of concepts are not
-context-free. To address this, we use Range Concatenation Grammars, a
-context-sensitive grammar formalism -- one of several developed within
-linguistics -- and extend this formalism to a probabilistic model of
-sentences. 
+First, many formal systems of probabilistic programming are so
+expressive as to make learning generally intractable. To address this,
+we use Range Concatenation Grammar, a context-sensitive grammar
+formalism originally developed in linguistics and extend this to a
+probabilistic model of programs.
 
 Second, the categories of syntax -- the nonterminals of the grammar --
 are often assumed to be known to children innately and given to
@@ -133,12 +128,13 @@ successorship, order of magnitude, magnitude comparison, exact
 vs. approximate, {\it etc}.).
 
 Finally, inducing probabilistic context-sensitive grammars with latent
-predicates threatens to be intractable: our goal is to find a
-middle ground between expressivity and tractability. Using
-PRISM~\cite{DBLP:journals/jair/SatoK01} -- a probabilistic logic programming system that naturally
-implements efficient dynamic programming algorithms for our models --
-we are able to explore which domains and which grammar architectures
-are a good fit for this grammar-based approach.
+predicates threatens to be intractable: our goal is to find a middle
+ground between expressivity and tractability. Using
+PRISM~\cite{DBLP:journals/jair/SatoK01} -- a probabilistic logic
+programming system that naturally implements efficient dynamic
+programming algorithms for our models -- we are able to explore which
+domains and which grammar architectures are a good fit for this
+grammar-based approach.
 
 The rest of this paper describes early work on this approach. First,
 we present Latent Predicate Networks (LPNs), our probabilistic model
@@ -207,10 +203,6 @@ requirement. See Figure \ref{fig:grammar} for an example of the context-sensitiv
 
 \subsection{Learning Model}
 
-Given a collection of predicates, $\{A_k\}_{k=1}^{K}$, and a
-distribution over clauses, $\{\vec{w}_{A_k}\}$, the learning task is
-to model a set of utterances, $\{x_j\}_{j=1}^{J}$, as being generated
-according to the following distribution:
 
 \begin{align*}
   \vec{w}_{A_k} &\sim Dir(\vec{\alpha}_{A_k})\\
@@ -220,31 +212,32 @@ according to the following distribution:
   p_{\text{\textsc{dir}}}(\vec{w}_{A_k}\,|\,\vec{\alpha}_{A_k})
 \end{align*}
 
+Given a collection of predicates, $\{A_k\}_{k=1}^{K}$, and a
+distribution over clauses, $\{\vec{w}_{A_k}\}$, the learning task is
+to model a set of outputs, $\{x_j\}_{j=1}^{J}$, as being generated
+according to the above distribution. In words, the weights of clauses
+sharing head predicate $A_k$ are drawn from a Dirichlet distribution
+defined by $\vec{\alpha}_{A_k}$. Each data point $x_j$ is then drawn
+from the resulting PRCG. We use Bayes' Rule to update  weights $\{\vec{w}_{A_k}\}$ given our data $\vec{x}$.
 
-In words, the weights of clauses sharing head predicate $A_k$ are
-drawn from a Dirichlet distribution defined by
-$\vec{\alpha}_{A_k}$. Sentences $x_j$ are then drawn from the
-resulting PRCG.
+\section{Inference \label{sec:implementation}}
 
-Bayesian inference over stochastic grammars
-and stochastic logic programs has been an active area of
-research in recent decades~\cite{DBLP:journals/etai/Muggleton00, cussens2001parameter, DBLP:conf/emnlp/LiangPJK07,
-  goldwater2006contextual, johnson2006adaptor}.
-Variational inference is a popular approach in this domain and the one
-we adopt here. As explained in the next section, we implemented
-inference by translating LPNs into PRISM programs and using its
-built-in Variational Bayes Expectation-Maximization
-algorithm~\cite{sato2008variational}. 
-
-\section{Implementation \label{sec:implementation}}
+Bayesian inference over stochastic grammars and stochastic logic
+programs has been an active area of research in recent
+decades~\cite{DBLP:journals/etai/Muggleton00, cussens2001parameter,
+  DBLP:conf/emnlp/LiangPJK07, goldwater2006contextual,
+  johnson2006adaptor}.  Variational inference is a popular approach in
+this domain and the one we adopt here. We implemented inference by
+translating LPNs into PRISM programs and using its built-in
+Variational Bayes Expectation-Maximization
+algorithm~\cite{sato2008variational}, modified for for use in an
+online, rather than batch, setting. We use the adaptive learning rate
+of \cite{ranganath2013adaptive}.
 
 LPNs can be encoded as a restricted subclass of PRISM programs; this
 is very similar to how PCFGs are encoded in
-PRISM~\cite{DBLP:conf/cl/2000}. A general probabilistic logic
-programming system based on PROLOG, PRISM provides built-in predicates
-for probabilistic execution and Bayesian inference over logic programs
-with stochastic choices. There are several restrictions placed on
-PRISM programs to maintain the validity of their probabilistic
+PRISM~\cite{DBLP:conf/cl/2000}.  There are several restrictions placed
+on PRISM programs to maintain the validity of their probabilistic
 interpretation. Most importantly, derivations of a probabilistic
 predicate cannot contain cycles. Because we disallow
 $A_i(\epsilon,\epsilon)$ as a valid clause, every term in the body of
@@ -317,20 +310,20 @@ to non-decade words like ``twenty one.''
   \end{table}
 
 \begin{figure}
-    \begin{subfigure}{0.45\linewidth}
+    \begin{subfigure}[b]{0.45\linewidth}
       \begin{tabular}{>{\footnotesize} l >{\footnotesize} l}
         Question & $K=4$ \\ \hline
-        e.g. after twenty comes \underline{\hspace{1cm}}? & twenty one \checkmark \\
-        e.g. after forty five comes \underline{\hspace{1cm}}? & forty six \checkmark \\
-        e.g. after forty seven comes \underline{\hspace{1cm}}? & forty eight  \checkmark \\
-        e.g. after forty nine comes \underline{\hspace{1cm}}? & forty ten $\times$ \\
-        e.g. after fifty nine comes \underline{\hspace{1cm}}? & fifty ten $\times$ \\
-        e.g. after sixty one comes \underline{\hspace{1cm}}? & sixty two \checkmark \\
-        %% after sixty three comes \underline{\hspace{1cm}}? & sixty four \checkmark \\
-        %% after sixty four comes \underline{\hspace{1cm}}? & sixty five \checkmark \\
-        %% after sixty five comes \underline{\hspace{1cm}}? & sixty six \checkmark \\
-        %% after sixty nine comes \underline{\hspace{1cm}}? & sixty ten $\times$ \\
-        %% after seventy three comes \underline{\hspace{1cm}}? & seventy four \checkmark \\
+        XXXX after twenty comes \underline{\hspace{1cm}}? & twenty one \checkmark \\
+        XXXX after forty five comes \underline{\hspace{1cm}}? & forty six \checkmark \\
+        XXXX after forty seven comes \underline{\hspace{1cm}}? & forty eight  \checkmark \\
+        XXXX after forty nine comes \underline{\hspace{1cm}}? & forty ten $\times$ \\
+        XXXX after fifty nine comes \underline{\hspace{1cm}}? & fifty ten $\times$ \\
+        XXXX after sixty one comes \underline{\hspace{1cm}}? & sixty two \checkmark \\
+        XXXX after sixty three comes \underline{\hspace{1cm}}? & sixty four \checkmark \\
+        XXXX after sixty four comes \underline{\hspace{1cm}}? & sixty five \checkmark \\
+        XXXX after sixty five comes \underline{\hspace{1cm}}? & sixty six \checkmark \\
+        XXXX after sixty nine comes \underline{\hspace{1cm}}? & sixty ten $\times$ \\
+        XXXX after seventy three comes \underline{\hspace{1cm}}? & seventy four \checkmark \\
         %% after seventy nine comes \underline{\hspace{1cm}}? & seventy ten $\times$ \\
         %% after ninety five comes \underline{\hspace{1cm}}? & ninety six \checkmark \\
         %% before twenty three comes \underline{\hspace{1cm}}? & twenty two \checkmark \\
@@ -346,15 +339,16 @@ to non-decade words like ``twenty one.''
         %% before ninety three comes \underline{\hspace{1cm}}? & ninety two \checkmark \\
         %% before ninety five comes \underline{\hspace{1cm}}? &ninety four \checkmark \\
       \end{tabular}
-      \caption{Viterbi completions of held-out sentences to evaluate an LPN with 4 latent predicates in the number domain.}
+      \caption{}
       \label{tab:results}
   \end{subfigure}
   \hfill
-  \begin{subfigure}{0.45\linewidth}
-    \rule{6cm}{2.5cm}
-    \caption{PUT HELD OUT LL FIGURE HERE}
+  \begin{subfigure}[b]{0.45\linewidth}
+    \includegraphics[width=\linewidth]{figures/train_number_net_0006_held_out.pdf}
+    \caption{}
     \label{fig:heldoutLL}
   \end{subfigure}
+  \caption{(\subref{tab:results}) Viterbi completions of held-out sentences to evaluate an LPN with 4 latent predicates in the number domain. (\subref{fig:heldoutLL}) PUT HELD OUT LL CAPTION HERE}
 \end{figure}
 
 To inspect visually the learned grammar, we thresholded rules
