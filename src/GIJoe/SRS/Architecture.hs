@@ -63,8 +63,8 @@ predicateNetwork _R _S _K lexicon observed outpath = do
         fromRight (Left err) = error $ show err
         systemString = unlines $
                        [shuffleRule level i j k | level <- [1.._K], i <- [1.._S], j <-[1.._S], k <- [j.._S]] ++
-                       [reverseRule level i j | level <- [1.._K], i <- [1.._S], j <-[1.._S]] ++
-                       [idRule level i j | level <- [1.._K], i <- [1.._S], j <-[1.._S]] ++                       
+                       -- [reverseRule level i j | level <- [1.._K], i <- [1.._S], j <-[1.._S]] ++
+                       -- [idRule level i j | level <- [1.._K], i <- [1.._S], j <-[1.._S]] ++                       
                        [ruleLex i w v | i <- [1.._R], w <- lexicon, v <-lexicon, w <= v] ++
                        [ruleLex i w "null" | i <- [1.._R], w <- lexicon] ++
                        [ruleLex i "null" w | i <- [1.._R], w <- lexicon] ++
@@ -80,12 +80,22 @@ predicateNetwork _R _S _K lexicon observed outpath = do
             "A" ++ show (level-1) ++ "i" ++ show k ++ "(Y, V).", 
             "A" ++ show level ++ "i" ++ show i ++ "(X Y, U V) <-- " ++
             "A" ++ show (level-1) ++ "i" ++ show j ++ "(X, V)," ++ 
-            "A" ++ show (level-1) ++ "i" ++ show k ++ "(Y, U)."]
-        reverseRule level i j = 
-            "A" ++ show level ++ "i" ++ show i ++ "(X, Y) <-- " ++
-            "A" ++ show (level-1) ++ "i" ++ show j ++ "(Y, X)."
-        idRule level i j = 
-            "A" ++ show level ++ "i" ++ show i ++ "(X, Y) <-- " ++
-            "A" ++ show (level-1) ++ "i" ++ show j ++ "(X, Y)."
+            "A" ++ show (level-1) ++ "i" ++ show k ++ "(Y, U).",
+            "A" ++ show level ++ "i" ++ show i ++ "(X Y, U V) <-- " ++
+            "A" ++ show (level-1) ++ "i" ++ show j ++ "(Y, X)," ++ 
+            "A" ++ show (level-1) ++ "i" ++ show k ++ "(U, V).",
+            "A" ++ show level ++ "i" ++ show i ++ "(X Y, U V) <-- " ++
+            "A" ++ show (level-1) ++ "i" ++ show j ++ "(Y, X)," ++ 
+            "A" ++ show (level-1) ++ "i" ++ show k ++ "(V, U).",
+            "A" ++ show level ++ "i" ++ show i ++ "(X Y, U V) <-- " ++
+            "A" ++ show (level-1) ++ "i" ++ show j ++ "(Y, X)," ++ 
+            "A" ++ show (level-1) ++ "i" ++ show k ++ "(V, U)."
+            ]
+        -- reverseRule level i j = 
+        --     "A" ++ show level ++ "i" ++ show i ++ "(X, Y) <-- " ++
+        --     "A" ++ show (level-1) ++ "i" ++ show j ++ "(Y, X)."
+        -- idRule level i j = 
+        --     "A" ++ show level ++ "i" ++ show i ++ "(X, Y) <-- " ++
+        --     "A" ++ show (level-1) ++ "i" ++ show j ++ "(X, Y)."
         ruleLex i w v = "A0i" ++ show i ++ "(" ++ w ++", " ++ v ++ ")."
 

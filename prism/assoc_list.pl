@@ -13,4 +13,5 @@ set_assoc([K\_|AssocIn], K, V, [K\V|AssocIn]) :- !.
 set_assoc([P|AssocIn], K, V, [P|AssocOut]) :- set_assoc(AssocIn, K, V, AssocOut).
 
 
-
+assoc_keys([], []).
+assoc_keys([K\_|Rest], [K|Ks]) :- assoc_keys(Rest, Ks).
