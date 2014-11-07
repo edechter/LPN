@@ -11,7 +11,7 @@
 \usepackage{array}
 \usepackage{authblk}
 
-\title{Latent Predicate Networks: unsupervised learning of  probabilistic programs with context sensitive grammars}
+\title{\vspace{-1.5cm} Unsupervised learning of probabilistic programs with latent predicate networks}
 
 \author{Eyal Dechter\thanks{{\tt \{edechter, rule, jbt\} @mit.edu}}}
 \author{Joshua Rule}
@@ -25,9 +25,9 @@
 \nipsfinalcopy % Uncomment for camera-ready version
 
 \begin{document}
-
 \maketitle
 
+\vspace{-1cm}
 \begin{abstract}
 
   Probabilistic programs successfully capture many aspects of the
@@ -62,86 +62,100 @@
 %% **** many prob.prog. languages are too expressive to be tractable
 %% **** many models of concept learning use too restricted a set of primitives
 
-Probabilistic programs can successfully model many aspects of human
-cognition [CITIATONS]. Part of their strength as compared to other
-models of cognition lies in their ability to flexibly integrate both
-symbolic and statistical information within a single framework.
+Probabilistic programs combine symbolic and statistical knowledge in way that is
+natural for humans to express. In fact, probabilistic programs have
+been proposed as models of human cognition in a variety of domains
+[CITATION]. As a suitable representation for learning, however, the flexibility
+of probabilistic programs poses a challenge. At one extreme, we can
+approach learning as fixing the symbolic structure of a probabilistic
+program and fitting some of its parameters; at the other extreme, the
+structure is unspecified and learning is performed by searching over
+valid syntactic forms. The former sacrifices the symbolic flexibility
+that probabilistic programs have to offer, and the latter is
+computationally infeasible. It is natural to suppose, then, that human
+learning charts a middle course between these extremes, restricting
+the space of probabilistic programs -- perhaps in a domain-specific
+way -- to accomodate both flexibility and tractability. 
 
-One area probabilistic programming systems lag behind human cognition
-is in their ability to automatically induce entire 
+Here, we present statistical learning (using the PRISM probabilistic
+logic programmming language) of a restricted type of probabilistic
+program, dubbed a \emph{latent predicate network} (LPN), for learning
+problems at the intersection of concept learning and language
+acquisition. People learn many abstract concepts primarily through
+language, and understanding language depends on understanding the
+underlying concepts. Number concepts are a good example: children do
+not learn about the meaning of ``seventy five'' by seeing examples of
+seventy five things; they do not know that ``seventy five'' is more
+than ``twenty five'' because of their perceptual experiences of these
+quantities. Rather, children learn the meaning of ``seventy five'' (or
+``a billion and five'') by noticing how number words are used in
+language, in counting sequences, in arithmetic exercises, {\it
+  etc}. Other good examples of such abstract concepts are kinship and
+social relations ({\it e.g.} ``my father in law's grandmother''),
+temporal relations (``the day after last Thanksgiving.''), and spatial
+relations (``above and just to the left of'').
 
-Although concept learning and language acquisition have typically been
-treated as distinct problems in AI, linguistics and cognitive
-development, they are strongly coupled for a child learning to
-understand language. More generally, people learn many abstract
-concepts primarily through language even though understanding language
-depends on understanding the underlying concepts. Research in concept
-learning is often focused on concepts grounded in perceptual features,
-and while it is almost certainly true that many concepts are learned
-via generalization from concrete examples, some concepts cannot be
-learned this way.
-
-Number concepts are a good example: children do not learn about the
-meaning of ``seventy five'' by seeing examples of seventy five things;
-they do not know that ``seventy five'' is more than ``twenty five''
-because of their perceptual experiences of these quantities. Rather,
-children learn the meaning of ``seventy five'' (or ``a billion and
-five'') by noticing how number words are used in language, in counting
-sequences, in arithmetic exercises, {\it etc}. Other good examples of such
-abstract concepts are kinship and social relations ({\it e.g.} ``my father
-in law's grandmother''), temporal relations (``the day after last
-Thanksgiving.''), and spatial relations (``above and just to the left
-of'').
-
-Such concepts share many of the properties of language syntax: they
-are unbounded in number, they derive their meanings via composition,
-and, although people only ever say, hear, or read about a small number
-of them, they are able to reason correctly about any them. There seems
-to be a grammar to these concepts, and grasping this grammar is
-critical to understanding their meanings and how to use them. This
-motivates our approach here, which is to apply the tools of
-probabilistic grammars more familiar from studies of syntax to the
-problem of concept aquisition.
-
-{\bf include somewhere:} A general probabilistic logic
-programming system based on PROLOG, PRISM provides built-in predicates
-for probabilistic execution and Bayesian inference over logic programs
-with stochastic choices.
-
-Doing so requires overcoming some technical barriers.
-
-First, many formal systems of probabilistic programming are so
-expressive as to make learning generally intractable. To address this,
-we use Range Concatenation Grammar, a context-sensitive grammar
-formalism originally developed in linguistics and extend this to a
-probabilistic model of programs.
-
-Second, the categories of syntax -- the nonterminals of the grammar --
-are often assumed to be known to children innately and given to
-automated learners by human experts. The categories that underlie
-conceptual knowledge, on the other hand, are far more numerous, vary
-from domain to domain, and are unlikely to be known to the
-learner. This motivates our use of latent predicates that, through
-learning, assume the role of a domain's underlying concepts (in the
+We use LPNs in an attempt to address the issues of tractibility and
+symbolic flexibility. We address the issue of tractability by
+extending Range Concatenation Grammars -- a context-sensitive grammar
+formalism originally developed in linguistic -- with a probabilistic
+interpretation, resulting in probabilistic programs in which
+inference, and thus learning, is relatively tractable. We address the
+issue of structural flexibility by building in latent predicates,
+which, through learning, assume the role of a domains underlying concepts (in the
 number domain, these might correspond to the concepts of
 successorship, order of magnitude, magnitude comparison, exact
 vs. approximate, {\it etc}.).
 
-Finally, inducing probabilistic context-sensitive grammars with latent
-predicates threatens to be intractable: our goal is to find a middle
-ground between expressivity and tractability. Using
-PRISM~\cite{DBLP:journals/jair/SatoK01} -- a probabilistic logic
-programming system that naturally implements efficient dynamic
-programming algorithms for our models -- we are able to explore which
-domains and which grammar architectures are a good fit for this
-grammar-based approach.
+
+% Such concepts share many of the properties of language syntax: they
+% are unbounded in number, they derive their meanings via composition,
+% and, although people only ever say, hear, or read about a small number
+% of them, they are able to reason correctly about any them. There seems
+% to be a grammar to these concepts, and grasping this grammar is
+% critical to understanding their meanings and how to use them. This
+% motivates our approach here, which is to apply the tools of
+% probabilistic grammars more familiar from studies of syntax to the
+% problem of concept aquisition.
+
+% {\bf include somewhere:} A general probabilistic logic
+% programming system based on PROLOG, PRISM provides built-in predicates
+% for probabilistic execution and Bayesian inference over logic programs
+% with stochastic choices.
+
+% Doing so requires overcoming some technical barriers.
+
+% First, many formal systems of probabilistic programming are so
+% expressive as to make learning generally intractable. To address this,
+% we use Range Concatenation Grammar, a context-sensitive grammar
+% formalism originally developed in linguistics and extend this to a
+% probabilistic model of programs.
+
+% Second, the categories of syntax -- the nonterminals of the grammar --
+% are often assumed to be known to children innately and given to
+% automated learners by human experts. The categories that underlie
+% conceptual knowledge, on the other hand, are far more numerous, vary
+% from domain to domain, and are unlikely to be known to the
+% learner. This motivates our use of latent predicates that, through
+% learning, assume the role of a domain's underlying concepts (in the
+% number domain, these might correspond to the concepts of
+% successorship, order of magnitude, magnitude comparison, exact
+% vs. approximate, {\it etc}).
+
+% Finally, inducing probabilistic context-sensitive grammars with latent
+% predicates threatens to be intractable: our goal is to find a middle
+% ground between expressivity and tractability. Using
+% PRISM~\cite{DBLP:journals/jair/SatoK01} -- a probabilistic logic
+% programming system that naturally implements efficient dynamic
+% programming algorithms for our models -- we are able to explore which
+% domains and which grammar architectures are a good fit for this
+% grammar-based approach.
 
 The rest of this paper describes early work on this approach. First,
-we present Latent Predicate Networks (LPNs), our probabilistic model
-of concept learning. Then, we describe our approach to inference and
-its implementation in PRISM. Finally, we present preliminary
-experimental results in the domain of number concept learning that
-demonstrate the promise of this approach.
+we present Latent Predicate Networks (LPNs). Then, we describe our
+approach to inference and its implementation in PRISM. Finally, we
+present preliminary experimental results in the domain of number
+concept learning.
 
 \section{Latent Predicate Networks}
 
@@ -199,7 +213,9 @@ product of probabilities of clauses used in that derivation. This is a
 well defined distribution as long as no probability mass is placed on
 derivations of infinite length; in this paper, we only consider PRCGs
 with derivations of finite length, so we need not worry about this
-requirement. See Figure \ref{fig:grammar} for an example of the context-sensitive 2-copy language $\{ww\,|w \in \{a,b\}^+\}$ as a PRCG.
+requirement. See Figure \ref{fig:grammar} for an example of the
+context-sensitive 2-copy language $\{ww\,|w \in \{a,b\}^+\}$ as a
+PRCG.
 
 \subsection{Learning Model}
 
