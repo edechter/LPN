@@ -48,6 +48,7 @@ cabal-version:       >=1.10
 
 library
   -- Modules exported by the library.
+  hs-source-dirs:      haskell
 
   exposed-modules:     GIJoe.SRS.Type,
                        GIJoe.SRS.Parse,
@@ -101,7 +102,7 @@ library
   
 
 executable prismify
-           Main-is: src/GIJoe/SRS/Prismify-Main.hs
+           Main-is: haskell/GIJoe/SRS/Prismify-Main.hs
 
            build-depends:  GIJoe, 
                            base >=4.6,

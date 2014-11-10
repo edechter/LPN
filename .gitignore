@@ -20,23 +20,6 @@ logs/*
 *.blg
 *.tui
 *.top
-*.tmp
-*.mp
-*.dvi
-*.glg
-*.gls
-*.ilg
-*.ind
-*.lof
-*.lot
-*.maf
-*.mtc
-*.mtc1
-*.out
-*.synctex.gz
-*.pdf
-*_region_*
-auto/
 
 # Mac finder files and hidden folders
 .DS_Store
