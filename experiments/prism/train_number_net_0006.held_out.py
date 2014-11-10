@@ -10,7 +10,7 @@ plt.rcParams['text.latex.preamble']=\
                 [r"\usepackage{amssymb, amsmath}"]
 
 plt.rc('text', usetex=True)
-plt.rc('font', family='serif')
+plt.rc('font', **{'family': 'serif', 'size': 16})
 
 data = np.loadtxt("train_number_net_0006.held_out.csv", delimiter=",")
 data.sort(axis=0)

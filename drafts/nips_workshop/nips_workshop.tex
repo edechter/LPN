@@ -13,9 +13,7 @@
 
 \title{\vspace{-1.5cm} Unsupervised learning of probabilistic programs with latent predicate networks}
 
-\author{Eyal Dechter\thanks{{\tt \{edechter, rule, jbt\} @mit.edu}}}
-\author{Joshua Rule}
-\author{Joshua B. Tenenbaum}
+\author{Eyal Dechter,  Joshua Rule,  Joshua B. Tenenbaum\thanks{{\tt \{edechter, rule, jbt\} @mit.edu}}}
 \affil{{\normalsize Department of Brain and Cognitive Sciences, MIT}}
 \date{}
 
@@ -31,20 +29,18 @@
 \begin{abstract}
 
   Probabilistic programs successfully capture many aspects of the
-  complex symbolic and statistical knowledge brought to bear in human
-  cognition. Children aren't born with this knowledge, however, but
-  must instead learn it, often in an unsupervised fashion. Compelling
-  probabilistic programming models of human cognition must therefore
-  also be learned. We present early work on Latent Predicate Networks
-  (LPN), a framework for unsupervised learning in a restricted space
-  of context-sensitive probabilistic programs. Specifically, we use
-  Online Variational Bayesian Expectation Maximization in
-  PRISM, a probabilistic programming system, to perform inference over
-  the set of Stochastic Logic Programs (SLP) parseable in polynomial
-  time. Using a small fragment of English sentences about number, we
-  show that LPNs can recover the relevant conceptual structure
-  necessary to generate novel sentences in this domain with high
-  probability.
+  complex symbolic and statistical knowledge that human beings
+  possess. Children are not born with this knowledge and must learn
+  it, often in an unsupervised fashion. How can we flexibly and
+  tractably learn probabilistic programs? We present early work on
+  learning probabilistic programs with latent predicate networks
+  (LPNs), a framework for unsupervised learning in a restricted space
+  of probabilistic context-sensitive grammars. Specifically, we encode
+  LPNs in the probabilistic logic programming language PRISM and use
+  stochastic variational EM to infer its parameters. Using a small
+  fragment of English sentences about number, we show that LPNs can
+  recover much of the relevant conceptual structure necessary to
+  complete novel sentences in this domain with high probability.
 
 \end{abstract}
 
@@ -62,11 +58,13 @@
 %% **** many prob.prog. languages are too expressive to be tractable
 %% **** many models of concept learning use too restricted a set of primitives
 
-Probabilistic programs combine symbolic and statistical knowledge in way that is
-natural for humans to express. In fact, probabilistic programs have
-been proposed as models of human cognition in a variety of domains
-[CITATION]. As a suitable representation for learning, however, the flexibility
-of probabilistic programs poses a challenge. At one extreme, we can
+Probabilistic programs combine symbolic and statistical knowledge in a
+way that is natural for humans to communicate and reason about. In
+fact, probabilistic programs have been proposed as models of human
+cognition in a variety of
+domains~\cite{DBLP:journals/cogsr/StuhlmullerG14, lake2012concept}. As
+a suitable representation for learning, however, the flexibility of
+probabilistic programs poses a challenge. At one extreme, we can
 approach learning as fixing the symbolic structure of a probabilistic
 program and fitting some of its parameters; at the other extreme, the
 structure is unspecified and learning is performed by searching over
@@ -77,104 +75,58 @@ learning charts a middle course between these extremes, restricting
 the space of probabilistic programs -- perhaps in a domain-specific
 way -- to accomodate both flexibility and tractability.
 
-Here, we present statistical learning (using the PRISM probabilistic
-logic programmming language) of a restricted type of probabilistic
-program, dubbed a \emph{latent predicate network} (LPN), for learning
-problems at the intersection of concept learning and language
-acquisition. People learn many abstract concepts primarily through
+Here, we propose \emph{latent predicate networks} (LPNs) as such a
+middle course. LPNs maintain tractability by using Range Concatenation
+Grammars -- a context-sensitive grammar formalism originally developed
+in linguistics -- as the core knowledge representation. They
+maintain symbolic flexibility by building in latent predicates, which,
+through learning, come to represent underlying concepts in the
+learning domain.
+
+Learning problems at the intersection of concept learning and language
+acquisiton are good test-cases for LPNs. Such problems are important
+because people learn many abstract concepts primarily through
 language, and understanding language depends on understanding the
-underlying concepts. Number concepts are a good example: children do
-not learn about the meaning of ``seventy five'' by seeing examples of
-seventy five things; they do not know that ``seventy five'' is more
+underlying concepts. Number concepts are a good example this: children
+do not learn about the meaning of ``seventy five'' by seeing examples
+of seventy five things; they do not know that ``seventy five'' is more
 than ``twenty five'' because of their perceptual experiences of these
 quantities. Rather, children learn the meaning of ``seventy five'' (or
 ``a billion and five'') by noticing how number words are used in
 language, in counting sequences, in arithmetic exercises, {\it
   etc}. Other good examples of such abstract concepts are kinship and
-social relations ({\it e.g.} ``my father in law's grandmother''),
-temporal relations (``the day after last Thanksgiving.''), and spatial
+social relations ({\it e.g.}  ``my father in law's grandmother''),
+temporal relations (``the day after last Thanksgiving''), and spatial
 relations (``above and just to the left of'').
 
-We use LPNs in an attempt to address the issues of tractibility and
-symbolic flexibility. We address the issue of tractability by
-extending Range Concatenation Grammars -- a context-sensitive grammar
-formalism originally developed in linguistic -- with a probabilistic
-interpretation, resulting in probabilistic programs in which
-inference, and thus learning, is relatively tractable. We address the
-issue of structural flexibility by building in latent predicates,
-which, through learning, assume the role of a domains underlying concepts (in the
-number domain, these might correspond to the concepts of
-successorship, order of magnitude, magnitude comparison, exact
-vs. approximate, {\it etc}.).
+The rest of this paper describes our early work on LPNs. First, we
+present LPNs. Then, we describe our approach to hierarchical Bayesian
+inference for LPNs and its implementation in PRISM, a probabilistic
+logic programmming
+language~\cite{DBLP:journals/jair/SatoK01}. Finally, we present
+preliminary experimental results in the domain of number concept
+learning.
 
-
-% Such concepts share many of the properties of language syntax: they
-% are unbounded in number, they derive their meanings via composition,
-% and, although people only ever say, hear, or read about a small number
-% of them, they are able to reason correctly about any them. There seems
-% to be a grammar to these concepts, and grasping this grammar is
-% critical to understanding their meanings and how to use them. This
-% motivates our approach here, which is to apply the tools of
-% probabilistic grammars more familiar from studies of syntax to the
-% problem of concept aquisition.
-
-% {\bf include somewhere:} A general probabilistic logic
-% programming system based on PROLOG, PRISM provides built-in predicates
-% for probabilistic execution and Bayesian inference over logic programs
-% with stochastic choices.
-
-% Doing so requires overcoming some technical barriers.
-
-% First, many formal systems of probabilistic programming are so
-% expressive as to make learning generally intractable. To address this,
-% we use Range Concatenation Grammar, a context-sensitive grammar
-% formalism originally developed in linguistics and extend this to a
-% probabilistic model of programs.
-
-% Second, the categories of syntax -- the nonterminals of the grammar --
-% are often assumed to be known to children innately and given to
-% automated learners by human experts. The categories that underlie
-% conceptual knowledge, on the other hand, are far more numerous, vary
-% from domain to domain, and are unlikely to be known to the
-% learner. This motivates our use of latent predicates that, through
-% learning, assume the role of a domain's underlying concepts (in the
-% number domain, these might correspond to the concepts of
-% successorship, order of magnitude, magnitude comparison, exact
-% vs. approximate, {\it etc}).
-
-% Finally, inducing probabilistic context-sensitive grammars with latent
-% predicates threatens to be intractable: our goal is to find a middle
-% ground between expressivity and tractability. Using
-% PRISM~\cite{DBLP:journals/jair/SatoK01} -- a probabilistic logic
-% programming system that naturally implements efficient dynamic
-% programming algorithms for our models -- we are able to explore which
-% domains and which grammar architectures are a good fit for this
-% grammar-based approach.
-
-The rest of this paper describes early work on this approach. First,
-we present Latent Predicate Networks (LPNs). Then, we describe our
-approach to inference and its implementation in PRISM. Finally, we
-present preliminary experimental results in the domain of number
-concept learning.
-
-\section{Latent Predicate Networks}
+\section{Latent predicate networks}
 
 \begin{figure}[t]
   \begin{subfigure}[b]{0.5\linewidth}
     \includegraphics[width=\linewidth]{lpn/lpn.pdf}
-    \caption{The architecture and rules of a schematic LPN.}
+    \caption{}
     \label{fig:architecture}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.5\linewidth}
     \includegraphics[width=\linewidth]{parseTree/parse.pdf}
-    \caption{A possible parse of the sentence ``after twenty five comes twenty six" using a 5-predicate LPN.}
+    \caption{}
     \label{fig:parseexample}
   \end{subfigure}
+  \caption{(\subref{fig:architecture}) The architecture and rules of a schematic single-layer LPN. (\subref{fig:parseexample}) A possible parse of the sentence ``after twenty five comes twenty six" using a 5-predicate LPN.}
+
 \end{figure}
 
-An LPN is a hierarchical Bayesian model of strings
-extending the Hierarchical Dirichlet PCFG model (HD-PCFG) to
+An LPN is a hierarchical Bayesian model of strings extending the
+Hierarchical Dirichlet PCFG model~\cite{johnson2007bayesian} to
 Probabilistic Range Concatenation Grammars (PRCGs).
 
 \subsection{Probabilistic Range Concatenation Grammars}
@@ -186,7 +138,7 @@ string~\cite{boullier2005range}. An RCG $G=(N, T, V, P, S)$ is a
 of terminal symbols, $V$ is a set of variable symbols, P is a finite
 set of $M \geq 0$ clauses of the form $\psi_0 \rightarrow \psi_1 \dots
 \psi_M$, and $S \in N$ is the \emph{axiom}. Each $\psi_m$ is a term of
-the form $A(\alpha_1, \dots, \alpha_{\mathcal{A}(A)}$, where $A \in
+the form $A(\alpha_1, \dots, \alpha_{\mathcal{A}(A)})$, where $A \in
 N$, $\mathcal{A}(A)$ is the arity of $A$, and each $\alpha_i \in (T
 \cup V)^*$ is an argument of $\psi_m$. We call the left hand side term
 of any clause the \emph{head} of that clause and its predicate symbol
@@ -211,31 +163,30 @@ probabilities $p_k$ such that for all predicates ${A \in N, \,
 strings $x$ by sampling from derivations of $S(x)$ according to the
 product of probabilities of clauses used in that derivation. This is a
 well defined distribution as long as no probability mass is placed on
-derivations of infinite length; in this paper, we only consider PRCGs
+derivations of infinite length; here, we only consider PRCGs
 with derivations of finite length.
 
 \subsection{Learning Model}
-
-
 \[ \vec{w}_{A_k} \sim Dir(\vec{\alpha}_{A_k})\hspace{3em}
    x_j \underset{iid}{\sim} p_{\text{\textsc{prcg}}}(S(x_j)\,|\,\{w_{A_k}\}) \]
 \[  p(\{\vec{w}_{A_k}\}\,|\, \vec{x}, \{\vec{\alpha}_{A_k}\}) \propto
   \prod_j p_{\text{\textsc{prcg}}}(x_j|\{\vec{w}_{A_k}\}) \prod_{A_k}
   p_{\text{\textsc{dir}}}(\vec{w}_{A_k}\,|\,\vec{\alpha}_{A_k}) \]
 
-  \vspace{-1em}
-Given a collection of predicates, $\{A_k\}_{k=1}^{K}$, and a
-distribution over clauses, $\{\vec{w}_{A_k}\}$, the learning task is
-to model a set of outputs, $\{x_j\}_{j=1}^{J}$, as being generated
-according to the above distribution. The weights of clauses
-with head predicate $A_k$ are drawn from a Dirichlet distribution
-defined by $\vec{\alpha}_{A_k}$. Each datum $x_j$ is then drawn
-from the resulting PRCG. The probability of a set of weights given our data and Dirichlet prior is determined with Bayes' Rule.
+  \vspace{-1em} Given a collection of predicates, $\{A_k\}_{k=1}^{K}$,
+  and a distribution over clauses, $\{\vec{w}_{A_k}\}$, the learning
+  task is to model a set of outputs, $\{x_j\}_{j=1}^{J}$, as being
+  generated according to the above distribution. The weights of
+  clauses with head predicate $A_k$ are drawn from a Dirichlet
+  distribution defined by $\vec{\alpha}_{A_k}$. Each datum $x_j$ is
+  then drawn from the resulting PRCG. The probability of a set of
+  weights given our data and Dirichlet prior is determined with Bayes'
+  rule.
 
 \section{Inference \label{sec:implementation}}
 
-LPNs can be encoded as a restricted subclass of PRISM programs; this
-is very similar to how PCFGs are encoded in
+LPNs can be encoded as a restricted subclass of PRISM programs in a
+very similar way to how PCFGs are encoded in
 PRISM~\cite{DBLP:conf/cl/2000}. Bayesian inference over stochastic
 grammars and stochastic logic programs has been an active area of
 research in recent decades~\cite{DBLP:journals/etai/Muggleton00,
@@ -243,48 +194,116 @@ research in recent decades~\cite{DBLP:journals/etai/Muggleton00,
   goldwater2006contextual, johnson2006adaptor}.  Variational inference
 is a popular approach in this domain and the one we adopt here by
 translating LPNs into PRISM programs and using its built-in
-Variational Bayes Expectation-Maximization
-algorithm~\cite{sato2008variational}. We modify it for use in an
-online setting, using the adaptive learning rate of
-\cite{ranganath2013adaptive}.
+Variational Bayes Expectation-Maximization (VBEM)
+algorithm~\cite{sato2008variational}.
 
-\section{Experiment}
+For large data sets, VBEM is slow and, as implemented in PRISM,
+too memory intensive to scale. This is because the parse forests of
+every dataset must either be evaluated on each iteration or they must
+be stored in memory between iterations.  Therefore, we also
+implemented a stochastic VBEM algorithm adapted for PRISM programs,
+following~\cite{ranganath2013adaptive,
+  DBLP:journals/jmlr/HoffmanBWP13}.
+
+\begin{figure}
+    \begin{subfigure}{0.45\linewidth}
+      \begin{tabular}{>{\footnotesize} l >{\footnotesize} l >{\footnotesize} l}
+        Question & $K=4$ \\ \hline
+        after twenty comes \ldots & twenty one & \checkmark \\
+        after forty five comes \ldots & forty six & \checkmark \\
+        after forty nine comes \ldots & forty ten & $\times$ \\
+        after fifty nine comes \ldots & fifty ten & $\times$ \\
+        after sixty one comes \ldots & sixty two & \checkmark \\
+        before twenty three comes \ldots & twenty two & \checkmark \\
+        before thirty comes \ldots & thirty eighty & $\times$ \\
+        before thirty eight comes \ldots & thirty seven & \checkmark \\
+        before forty one comes \ldots & forty & \checkmark \\
+        before fifty three comes \ldots & fifty two & \checkmark \\
+        before eighty five comes \ldots & eighty four & \checkmark \\
+        %% after forty seven comes \ldots & forty eight  \checkmark \\
+        %% after sixty three comes \ldots & sixty four \checkmark \\
+        %% after sixty four comes \ldots & sixty five \checkmark \\
+        %% after sixty five comes \ldots & sixty six \checkmark \\
+        %% after sixty nine comes \ldots & sixty ten $\times$ \\
+        %% after seventy three comes \ldots & seventy four \checkmark \\
+        %% after seventy nine comes \ldots & seventy ten $\times$ \\
+        %% after ninety five comes \ldots & ninety six \checkmark \\
+        %% before sixty eight comes \ldots & sixty seven \checkmark \\
+        %% before seventy two comes \ldots & seventy one \checkmark \\
+        %% before seventy three comes \ldots & seventy two \checkmark \\
+        %% before ninety two comes \ldots & ninety one \checkmark \\
+        %% before ninety three comes \ldots & ninety two \checkmark \\
+        %% before ninety five comes \ldots &ninety four \checkmark \\
+      \end{tabular}
+      \caption{}
+      \label{tab:results}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[c]{0.50\linewidth}
+    \vspace{1em}
+    \includegraphics[width=\linewidth]{figures/train_number_net_0006_held_out.pdf}
+    \caption{}
+    \label{fig:heldoutLL}
+  \end{subfigure}
+  \caption{(\subref{tab:results}) Viterbi completions of held-out sentences for a 4-predicate 1-layer LPN. (\subref{fig:heldoutLL}) expected log likelihood on a set of held-out test data in a 5-layer LPN with 5 predicates per layer.}
+\end{figure}
+
+\section{Preliminary Experiments}
 
 To evaluate LPNs as a probabilistic model of concept acquisition, we
-trained an LPN with the architecture in Figure \ref{fig:architecture}
-and $K = 4$ latent predicates on a set of sentences expressing
-successor and predecessor relations in numbers between one and
-ninety-nine. The training set was the collection of sentences $$X =
-\{\text{after}\, \langle n \rangle \, \text{comes} \, \langle n+1
-\rangle \,|\, n \in 1,\dots,98\} \cup \{\text{before} \,\langle n
-\rangle \, \text{comes} \, \langle n-1 \rangle \,|\, n \in
-2,\dots,99\},$$ where $\langle n \rangle$ is the number word
+trained a single layer LPN with the architecture in Figure
+\ref{fig:architecture} and $K = 4$ latent predicates on a set of
+sentences expressing successor and predecessor relations in numbers
+between one and ninety-nine. The training set was the collection of
+sentences $X = \{\text{after}\, \langle n \rangle \, \text{comes} \,
+\langle n+1 \rangle \,|\, n \in 1,\dots,98\} \cup \{\text{before}
+\,\langle n \rangle \, \text{comes} \, \langle n-1 \rangle \,|\, n \in
+2,\dots,99\},$ where $\langle n \rangle$ is the number words
 corresponding to $n$. The lexicon was the set of number word
 corresponding to $1$ through $19$, the decades $20, \dots, 90$, the
 empty string, and the words ``before'', ``after'', and ``comes''. See
-Figure~\ref{fig:parseexample}, for a possible LPN derivation of an
-example sentence. To approximate the evidence children receive (words
-for small numbers naturally occuring more often than for larger ones,
-but children also rehearse the entire number sequence), we drew these
-sample sentences from a sum of a geometric distribution with parameter
-$0.5$ and a uniform distribution. These components were weighted
-$75\%$ and $25\%$, respectively. We drew $2000$ examples from this
-distribution, holding out a subset of sentences, including those in
-Table~\ref{tab:results} for evaluation.
+Figure~\ref{fig:parseexample} for a possible LPN derivation of an
+example sentence.
+%  To approximate the evidence children receive (words
+% for small numbers naturally occuring more often than for larger ones,
+% but children also rehearse the entire number sequence), we drew these
+% sample sentences from a sum of a geometric distribution with parameter
+% $0.5$ and a uniform distribution. These components were weighted
+% $75\%$ and $25\%$, respectively.
+We trained the LPN using $2000$ examples, holding out a subset of
+sentences -- including those in Table~\ref{tab:results} -- for evaluation.
 
-For inference, we used default $\frac{1}{D}$ pseudocounts (where $D$ is the
-dimensionality of the Dirichlet distributions). We found that different random
-initialization for this experiment did not lead to qualitatively different
-results, though further investigation will be necessary to see how
-robust the algorithm is to local maxima when fitting LPNs.
+% For inference, we used default $\frac{1}{D}$ pseudocounts (where $D$ is the
+% dimensionality of the Dirichlet distributions). We found that different random
+% initialization for this experiment did not lead to qualitatively different
+% results, though further investigation will be necessary to see how
+% robust the algorithm is to local maxima when fitting LPNs.
 
-We evaluated the learned model by asking for Viterbi ({\it i.e.} maximum {\it a
-posteriori}) completions of the last words of each held out test
-sentence. Table~\ref{tab:results} shows these completions. The grammar
-correctly learns much of the structure of these sentences, including
-the difference between sentences starting with ``before'' and
-``after'' and the edge cases that relate decade words like ``twenty''
-to non-decade words like ``twenty one.''
+We evaluated the learned model by asking for Viterbi ({\it i.e.}
+maximum {\it a posteriori}) completions of the last words of each held
+out test sentence. Table~\ref{tab:results} shows some of these
+completions. The grammar correctly learns much of the structure of
+these sentences, including the difference between sentences starting
+with ``before'' and ``after'' and the edge cases that relate decade
+words like ``twenty'' to non-decade words like ``twenty one.''
+
+Separately, we trained an LPN with five layers of five predicates each
+on a larger dataset including multiple forms of each sentence
+(\textit{e.g.} ``twenty comes before twenty one'' and ``before twenty one comes
+twenty''). Figure~\ref{fig:heldoutLL} shows the the expected log
+likelihood of held out data as a function of algorithm iteration. The
+expected log likelihood is a lower bound on the log expected
+probability. Its convergence to nearly zero suggests that the trained
+LPN discovers the underlying structure of the sentences.
+
+\section{Conclusion}
+LPNs allow for tractable learning over a restricted subset of
+probabilistic programs. Our preliminary results suggest that LPNs may
+enable learning at the intersection of concept learning and language
+acquisition, a domain for which an integration of statistical and
+symbolic knowledge is particularly promising.
+
+
 
 %% Feel free to include if there's space, but this table may not be necessary.
 %%
@@ -312,65 +331,24 @@ to non-decade words like ``twenty one.''
 %%     \label{tab:grammar}
 %%   \end{table}
 
-\begin{figure}
-    \begin{subfigure}[b]{0.45\linewidth}
-      \begin{tabular}{>{\footnotesize} l >{\footnotesize} l}
-        Question & $K=4$ \\ \hline
-        after twenty comes \ldots & twenty one \checkmark \\
-        after forty five comes \ldots & forty six \checkmark \\
-        after forty nine comes \ldots & forty ten $\times$ \\
-        after fifty nine comes \ldots & fifty ten $\times$ \\
-        after sixty one comes \ldots & sixty two \checkmark \\
-        before twenty three comes \ldots & twenty two \checkmark \\
-        before thirty comes \ldots & thirty eighty $\times$ \\
-        before thirty eight comes \ldots & thirty seven \checkmark \\
-        before forty one comes \ldots & forty \checkmark \\
-        before fifty three comes \ldots & fifty two \checkmark \\
-        before eighty five comes \ldots & eighty four \checkmark \\
-        %% after forty seven comes \ldots & forty eight  \checkmark \\
-        %% after sixty three comes \ldots & sixty four \checkmark \\
-        %% after sixty four comes \ldots & sixty five \checkmark \\
-        %% after sixty five comes \ldots & sixty six \checkmark \\
-        %% after sixty nine comes \ldots & sixty ten $\times$ \\
-        %% after seventy three comes \ldots & seventy four \checkmark \\
-        %% after seventy nine comes \ldots & seventy ten $\times$ \\
-        %% after ninety five comes \ldots & ninety six \checkmark \\
-        %% before sixty eight comes \ldots & sixty seven \checkmark \\
-        %% before seventy two comes \ldots & seventy one \checkmark \\
-        %% before seventy three comes \ldots & seventy two \checkmark \\
-        %% before ninety two comes \ldots & ninety one \checkmark \\
-        %% before ninety three comes \ldots & ninety two \checkmark \\
-        %% before ninety five comes \ldots &ninety four \checkmark \\
-      \end{tabular}
-      \caption{}
-      \label{tab:results}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{figures/train_number_net_0006_held_out.pdf}
-    \caption{}
-    \label{fig:heldoutLL}
-  \end{subfigure}
-  \caption{(\subref{tab:results}) Viterbi completions of held-out sentences for a 4-predicate 1-layer LPN. (\subref{fig:heldoutLL}) expected log likelihood on a set of held-out test data in a 35-predicate 5-layer LPN with.}
-\end{figure}
+% To inspect visually the learned grammar, we thresholded rules
+% according to the expected number of times they were used in parsing
+% the training dataset. Table~\ref{tab:grammar} shows all rules with
+% expected count above $1e-6$. This reduces from $2669$ to $52$ the
+% number of significant rules. On inspection, predicate $A_2$ forms
+% ``before'' sentences, predicate $A_4$ forms ``after'' sentences,
+% predicate $A_3$ is successorship recursively defined over the decades
+% and ones, and predicate $A_2$ is a category for the decade words.
 
-To inspect visually the learned grammar, we thresholded rules
-according to the expected number of times they were used in parsing
-the training dataset. Table~\ref{tab:grammar} shows all rules with
-expected count above $1e-6$. This reduces from $2669$ to $52$ the
-number of significant rules. On inspection, predicate $A_2$ forms
-``before'' sentences, predicate $A_4$ forms ``after'' sentences,
-predicate $A_3$ is successorship recursively defined over the decades
-and ones, and predicate $A_2$ is a category for the decade words.
+% Our LPN does not learn to how to transition between the last word in a decade
+% and the next decade (e.g. ``seventy nine'' to ``eighty''). Instead, it
+% makes the intuitively reasonable generalization that ``seventy nine''
+% should be followed by ``seventy ten.''
 
-Our LPN does not learn to how to transition between the last word in a decade
-and the next decade (e.g. ``seventy nine'' to ``eighty''). Instead, it
-makes the intuitively reasonable generalization that ``seventy nine''
-should be followed by ``seventy ten.''
 
-\subsubsection*{Acknowledgments?}
-
-\bibliographystyle{amsplain}
+\bibliographystyle{plain}
 \bibliography{nips_workshop}
+
+% \nocite{*}
 
 \end{document}
