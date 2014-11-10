@@ -1,8 +1,8 @@
-module GIJoe.SRS.Number where
+module LPN.Number where
 
 import Data.List (intercalate,permutations,zip4)
 
-import GIJoe.SRS.TestTrain
+import LPN.TestTrain
 
 -- 1. define the lexicon
 ones = ["one","two","three","four","five","six","seven","eight","nine"]

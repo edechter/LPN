@@ -1,4 +1,4 @@
-module GIJoe.SRS.Prismify where 
+module LPN.Prismify where 
 
 import Prelude hiding (head)
 
@@ -10,8 +10,8 @@ import Data.Text (unpack)
 import Data.Map (Map, (!))
 import qualified Data.Map as Map
 
-import GIJoe.SRS.Type
-import GIJoe.SRS.Parse
+import LPN.Type
+import LPN.Parse
 
 type RuleMap = Map Predicate [Rule]
 

@@ -2,7 +2,7 @@
 module Main where
 
 import System.Environment
-import GIJoe.SRS.Prismify
+import LPN.Prismify
 
 -- executable main function: 
 main = do

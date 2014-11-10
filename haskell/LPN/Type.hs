@@ -1,7 +1,7 @@
 {-# Language ScopedTypeVariables, TypeSynonymInstances, FlexibleInstances #-}
 
 
-module GIJoe.SRS.Type where
+module LPN.Type where
 
 -- import GIJoe.ApproximateInference.HashTable
 

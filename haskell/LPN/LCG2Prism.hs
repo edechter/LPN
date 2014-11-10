@@ -1,4 +1,4 @@
 
-module GIJoe.SRS.LCG where
+module LPN.LCG where
 
 

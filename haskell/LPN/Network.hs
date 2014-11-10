@@ -1,4 +1,4 @@
-module GIJoe.SRS.Network where
+module LPN.Network where
 
 import Data.List (permutations)
 

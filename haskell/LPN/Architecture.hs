@@ -1,13 +1,13 @@
 
-module GIJoe.SRS.Architecture where
+module LPN.Architecture where
 
 import Data.List
 import System.Random.Shuffle (shuffle', shuffleM)
 import Control.Monad.Random.Class
 import Control.Monad
 
-import GIJoe.SRS.Parse
-import GIJoe.SRS.Prismify
+import LPN.Parse
+import LPN.Prismify
 
 
 ipaLexicon = do xs <- readFile "./experiments/prism/englishPhones.txt"

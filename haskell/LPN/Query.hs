@@ -1,7 +1,7 @@
 
-module GIJoe.SRS.Query where 
+module LPN.Query where 
 
-import GIJoe.SRS.Type
+import LPN.Type
 import Control.Monad.Logic
 
 import Data.Map (Map)

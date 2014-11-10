@@ -7,9 +7,9 @@ import Control.Monad.Random.Class
 import Control.Monad
 
 
-import GIJoe.SRS.Parse
-import GIJoe.SRS.Prismify
-import GIJoe.SRS.Prismify
+import LPN.Parse
+import LPN.Prismify
+import LPN.Prismify
 
 ipaLexicon = do xs <- readFile "./experiments/prism/englishPhones.txt"
                 return $ lines xs

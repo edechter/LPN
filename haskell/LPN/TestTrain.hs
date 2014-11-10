@@ -1,5 +1,5 @@
 {-# Language ParallelListComp #-}
-module GIJoe.SRS.TestTrain where
+module LPN.TestTrain where
 
 import Data.List
 import System.Random
@@ -7,8 +7,8 @@ import System.Random.Shuffle (shuffle', shuffleM)
 import Control.Monad.Random.Class
 import Control.Monad
 
-import GIJoe.SRS.Type
-import GIJoe.SRS.Parse
+import LPN.Type
+import LPN.Parse
 
 type PredicateName = String
 type Example = [[String]]

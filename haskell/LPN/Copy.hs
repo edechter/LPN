@@ -1,4 +1,4 @@
-module GIJoe.SRS.Copy where
+module LPN.Copy where
 
 -- copy language
 copyGrammar :: [String]

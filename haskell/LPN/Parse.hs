@@ -1,8 +1,8 @@
 {-# Language LambdaCase #-}
 
-module GIJoe.SRS.Parse where
+module LPN.Parse where
 
-import GIJoe.SRS.Type
+import LPN.Type
 
 import Control.Monad
 import Numeric.Log

@@ -1,7 +1,7 @@
 
-module GIJoe.SRS.Sample where
+module LPN.Sample where
 
-import GIJoe.SRS.Type
+import LPN.Type
 
 import Control.Monad
 import Control.Monad.Random

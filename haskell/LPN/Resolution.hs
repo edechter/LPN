@@ -1,6 +1,6 @@
 {-# Language FlexibleContexts #-}
 
-module GIJoe.SRS.Resolution where
+module LPN.Resolution where
 
 import Control.Monad.Error.Class
 
