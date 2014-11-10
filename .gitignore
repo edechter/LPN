@@ -4,6 +4,7 @@ scratch/*
 tmp/*
 logs/*
 
+
 # Latex files
  
 *.aux
@@ -34,6 +35,8 @@ logs/*
 *.out
 *.synctex.gz
 *.pdf
+*_region_*
+auto/
 
 # Mac finder files and hidden folders
 .DS_Store
