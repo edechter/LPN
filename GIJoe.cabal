@@ -50,13 +50,13 @@ library
   -- Modules exported by the library.
   hs-source-dirs:      haskell
 
-  exposed-modules:     GIJoe.SRS.Type,
-                       GIJoe.SRS.Parse,
-                       GIJoe.SRS.Prismify
-                       GIJoe.SRS.TestTrain,
-                       GIJoe.SRS.Network,
-                       GIJoe.SRS.Number,
-                       GIJoe.SRS.Architecture
+  exposed-modules:     LPN.Type,
+                       LPN.Parse,
+                       LPN.Prismify
+                       LPN.TestTrain,
+                       LPN.Network,
+                       LPN.Number,
+                       LPN.Architecture
 
                        
   -- Modules included in this library but not exported.
@@ -102,7 +102,7 @@ library
   
 
 executable prismify
-           Main-is: haskell/GIJoe/SRS/Prismify-Main.hs
+           Main-is: haskell/LPN/Prismify-Main.hs
 
            build-depends:  GIJoe, 
                            base >=4.6,
