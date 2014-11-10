@@ -1,0 +1,16 @@
+example([w,a,k]).
+example([w,a,k,i,g]).
+example([w,a,k,t]).
+example([w,a,k,t,i,g]).
+example([a,e,a,t]).
+example([a,e,a,t,i,g]).
+example([t,a,k]).
+example([t,a,k,i,g]).
+example([r,u,n]).
+example([r,u,n,i,g]).
+example([w,a,t]).
+example([w,a,t, i, g]).
+example([t,u,t]).
+example([t,u,t, i, g]).
+example([b,a,r,i,g]).
+example([b,a,r]).
