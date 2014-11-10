@@ -3,7 +3,7 @@ bin/*
 scratch/*
 tmp/*
 logs/*
-
+auto/
 
 # Latex files
  
@@ -20,6 +20,8 @@ logs/*
 *.blg
 *.tui
 *.top
+*.pdf
+_region_.*
 
 # Mac finder files and hidden folders
 .DS_Store
