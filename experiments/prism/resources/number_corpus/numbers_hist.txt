@@ -1,0 +1,99 @@
+one,     6533
+two,     1204
+three,      420
+four,      286
+five,      227
+six,      149
+seven,      120
+eight,      116
+nine,      124
+ten,      707
+eleven,       40
+twelve,       41
+thirteen,        8
+fourteen,       21
+fifteen,       12
+sixteen,        9
+seventeen,        7
+eighteen,        6
+nineteen,       22
+twenty,       66
+twenty one,        4
+twenty two,        5
+twenty three,        0
+twenty four,        7
+twenty five,        7
+twenty six,        4
+twenty seven,        0
+twenty eight,        2
+twenty nine,        1
+thirty,       54
+thirty one,        0
+thirty two,        6
+thirty three,        1
+thirty four,        0
+thirty five,        1
+thirty six,        0
+thirty seven,        0
+thirty eight,        1
+thirty nine,        0
+forty,       21
+forty one,        0
+forty two,        1
+forty three,        0
+forty four,        0
+forty five,        3
+forty six,        0
+forty seven,        0
+forty eight,        0
+forty nine,        1
+fifty,       20
+fifty one,        0
+fifty two,        0
+fifty three,        0
+fifty four,        0
+fifty five,        0
+fifty six,        2
+fifty seven,        1
+fifty eight,        0
+fifty nine,        0
+sixty,        9
+sixty one,        0
+sixty two,        0
+sixty three,        0
+sixty four,        1
+sixty five,        0
+sixty six,        0
+sixty seven,        0
+sixty eight,        0
+sixty nine,        0
+seventy,        7
+seventy one,        0
+seventy two,        0
+seventy three,        0
+seventy four,        3
+seventy five,        2
+seventy six,        0
+seventy seven,        0
+seventy eight,        0
+seventy nine,        0
+eighty,       17
+eighty one,        0
+eighty two,        0
+eighty three,        1
+eighty four,        5
+eighty five,        3
+eighty six,        3
+eighty seven,        0
+eighty eight,        3
+eighty nine,        1
+ninety,       11
+ninety one,        0
+ninety two,        1
+ninety three,        0
+ninety four,        0
+ninety five,        0
+ninety six,        1
+ninety seven,        0
+ninety eight,        1
+ninety nine,        2
